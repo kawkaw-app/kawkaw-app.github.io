@@ -1,4 +1,4 @@
-# GUMI SAVE — Terms of Service / Mga Tuntunin ng Serbisyo / Mga Termino sa Serbisyo / 이용약관
+# GUMI SAVE — Terms of Service
 
 **KawKaw.dev**
 Version 1.2 | Effective Date: March 1, 2026

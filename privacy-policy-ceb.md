@@ -1,4 +1,4 @@
-# GUMI SAVE — Privacy Policy / Patakaran sa Pagkapribado / Polisiya sa Pribasidad / 개인정보 처리방침
+# GUMI SAVE — Polisiya sa Pribasidad
 
 **KawKaw.dev**
 Version 1.2 | Effective Date: March 1, 2026
