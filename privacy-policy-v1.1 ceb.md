@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # GUMI SAVE — Polisiya sa Pribasidad
 
 **KawKaw.dev**
