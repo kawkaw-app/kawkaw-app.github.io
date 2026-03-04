@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>App User Guide | Dashboard · Envelope · Dream · Report</title>
+    <style>
+      :root{
+        --bg:#0b1020;
+        --panel:#0f1733;
+        --card:#121c3d;
+        --text:#e9eeff;
+        --muted:#a9b4de;
+        --accent:#8b5cf6;
+        --accent2:#22c55e;
+        --border: rgba(255,255,255,0.10);
+        --shadow: 0 14px 40px rgba(0,0,0,0.35);
+        --radius: 18px;
+        --max: 1040px;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+
+      *{ box-sizing:border-box; }
+      body{
+        margin:0;
+        font-family: var(--sans);
+        color:var(--text);
+        background:
+          radial-gradient(1200px 600px at 15% -10%, rgba(139,92,246,0.35), transparent 55%),
+          radial-gradient(1000px 520px at 110% 10%, rgba(34,197,94,0.22), transparent 60%),
+          linear-gradient(180deg, var(--bg), #070a14 60%);
+        line-height:1.6;
+      }
+
+      a{ color:inherit; text-decoration:none; }
+      .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 70px; }
+
+      /* ── Language Switcher ── */
+      .lang-bar{
+        display:flex;
+        justify-content:flex-end;
+        gap:8px;
+        margin-bottom:14px;
+      }
+      .lang-btn{
+        cursor:pointer;
+        padding:6px 16px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background:rgba(18,28,61,0.55);
+        color:var(--muted);
+        font-size:13px;
+        font-weight:600;
+        transition:all 0.2s;
+        letter-spacing:0.3px;
+      }
+      .lang-btn:hover{
+        border-color:rgba(139,92,246,0.6);
+        color:var(--text);
+      }
+      .lang-btn.active{
+        background:rgba(139,92,246,0.25);
+        border-color:rgba(139,92,246,0.8);
+        color:#c4b5fd;
+      }
+
+      header.hero{
+        display:grid;
+        gap:14px;
+        padding:26px 20px;
+        border:1px solid var(--border);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+        box-shadow: var(--shadow);
+      }
+      .hero h1{ margin:0; font-size: 24px; letter-spacing:-0.3px; }
+      .hero p{ margin:0; color:var(--muted); }
+      .pillrow{
+        display:flex; flex-wrap:wrap; gap:10px; margin-top: 6px;
+      }
+      .pill{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:8px 12px;
+        border:1px solid var(--border);
+        background: rgba(18,28,61,0.55);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .pill b{ color:var(--text); font-weight:700; }
+      .pill kbd{
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 2px 8px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.18);
+        border-radius: 999px;
+        color: var(--text);
+      }
+
+      nav.toc{
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        margin-top: 14px;
+        padding: 10px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(11,16,32,0.75);
+        backdrop-filter: blur(10px);
+      }
+      .toc .row{
+        display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+      }
+      .toc .links{ display:flex; flex-wrap:wrap; gap:10px; }
+      .toc a{
+        padding: 8px 12px;
+        border:1px solid var(--border);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(18,28,61,0.38);
+        font-size: 13px;
+      }
+      .toc a:hover{ border-color: rgba(139,92,246,0.55); color: var(--text); }
+      .toc .tools{ display:flex; gap:10px; align-items:center; }
+      button{
+        cursor:pointer;
+        border: 1px solid var(--border);
+        background: rgba(18,28,61,0.38);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      button:hover{ border-color: rgba(34,197,94,0.55); }
+
+      section{
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(255,255,255,0.03);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      }
+
+      .section-head{
+        display:flex; flex-wrap:wrap; gap:10px;
+        align-items:flex-end; justify-content:space-between;
+        margin-bottom: 10px;
+      }
+      h2{
+        margin:0;
+        font-size: 18px;
+        letter-spacing:-0.2px;
+      }
+      .sub{
+        color: var(--muted);
+        font-size: 13px;
+        margin:0;
+      }
+
+      .grid{
+        display:grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 14px;
+        align-items:start;
+      }
+      @media (max-width: 920px){
+        .grid{ grid-template-columns: 1fr; }
+        nav.toc{ position: static; }
+      }
+
+      .card{
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(18,28,61,0.45);
+        padding: 14px;
+      }
+
+      .steps{
+        margin:0;
+        padding-left: 18px;
+      }
+      .steps li{ margin: 8px 0; }
+      .steps li b{ color: var(--text); }
+      .hint{
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-left: 3px solid rgba(139,92,246,0.75);
+        background: rgba(139,92,246,0.10);
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .warn{
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-left: 3px solid rgba(245,158,11,0.85);
+        background: rgba(245,158,11,0.10);
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .shot{
+        display:grid;
+        gap:10px;
+      }
+      figure{
+        margin:0;
+        border: 1px dashed rgba(255,255,255,0.18);
+        border-radius: 16px;
+        padding: 12px;
+        background: rgba(0,0,0,0.10);
+      }
+      figure .ph{
+        width:100%;
+        aspect-ratio: 9 / 16;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.10);
+        background:
+          linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06) 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        color: rgba(233,238,255,0.75);
+        font-size: 13px;
+        padding: 16px;
+      }
+      figure img{
+        width:100%;
+        border-radius: 12px;
+        display:none;
+        border: 1px solid rgba(255,255,255,0.10);
+      }
+      figcaption{
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .faq details{
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px 12px;
+        background: rgba(18,28,61,0.35);
+      }
+      .faq details + details{ margin-top: 10px; }
+      .faq summary{ cursor:pointer; color: var(--text); font-weight: 700; }
+      .faq p{ margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+
+      footer{
+        margin-top: 18px;
+        padding: 16px 18px;
+        color: var(--muted);
+        font-size: 12px;
+        border-top: 1px solid var(--border);
+      }
+
+      .tag{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .tag .dot{
+        width:8px; height:8px; border-radius: 999px;
+        background: rgba(139,92,246,0.9);
+        box-shadow: 0 0 0 3px rgba(139,92,246,0.18);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <!-- Language Switcher -->
+      <div class="lang-bar">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="tl">Tagalog</button>
+        <button class="lang-btn" data-lang="ceb">Cebuano</button>
+      </div>
+
+      <header class="hero" id="top">
+        <h1>Gumi Save</h1>
+        <p data-i18n="hero.sub"></p>
+        <div class="pillrow" aria-label="quick tips"></div>
+      </header>
+
+      <nav class="toc" aria-label="navigation">
+        <div class="row">
+          <div class="links">
+            <a href="#dashboard" data-i18n="nav.dashboard"></a>
+            <a href="#envelope" data-i18n="nav.envelope"></a>
+            <a href="#dream" data-i18n="nav.dream"></a>
+            <a href="#report" data-i18n="nav.report"></a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="tools">
+            <button type="button" id="btnPrint" data-i18n="nav.print"></button>
+            <button type="button" id="btnTop" data-i18n="nav.top"></button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="dash.title"></h2>
+            <p class="sub" data-i18n="dash.sub"></p>
+          </div>
+          <span class="tag"><span class="dot"></span> <span data-i18n="dash.tag"></span></span>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <ol class="steps">
+              <li><b data-i18n="dash.s1.title"></b>: <span data-i18n="dash.s1.body"></span></li>
+              <li><b data-i18n="dash.s2.title"></b>: <span data-i18n="dash.s2.body"></span>
+                <ul>
+                  <li><b>Income</b>: <span data-i18n="dash.s2.income"></span></li>
+                  <li><b>Expense</b>: <span data-i18n="dash.s2.expense"></span></li>
+                  <li><b>Savings</b>: <span data-i18n="dash.s2.savings"></span></li>
+                </ul>
+              </li>
+              <li><b data-i18n="dash.s3.title"></b>: <span data-i18n="dash.s3.body"></span>
+                <ul>
+                  <li><b data-i18n="dash.s3.expense"></b>: <span data-i18n="dash.s3.expense.desc"></span></li>
+                  <li><b data-i18n="dash.s3.income"></b>: <span data-i18n="dash.s3.income.desc"></span></li>
+                  <li><b data-i18n="dash.s3.save"></b>: <span data-i18n="dash.s3.save.desc"></span></li>
+                </ul>
+              </li>
+              <li><b data-i18n="dash.s4.title"></b>: <span data-i18n="dash.s4.body"></span></li>
+            </ol>
+            <div class="hint"><b data-i18n="dash.hint.title"></b><br /><span data-i18n="dash.hint.body"></span></div>
+            <div class="warn"><b data-i18n="dash.warn.title"></b><br /><span data-i18n="dash.warn.body"></span></div>
+          </div>
+          <div class="shot">
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.dashboard"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/dashboard.png</span>
+              </div>
+              <img data-auto src="assets/dashboard.png" alt="Dashboard screen" />
+            </figure>
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.add-expense"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/add-expense.png</span>
+              </div>
+              <img data-auto src="assets/add-expense.png" alt="Add expense screen" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENVELOPE -->
+      <section id="envelope">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="env.title"></h2>
+            <p class="sub" data-i18n="env.sub"></p>
+          </div>
+          <span class="tag"><span class="dot"></span> <span data-i18n="env.tag"></span></span>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <ol class="steps">
+              <li><b data-i18n="env.s1.title"></b>: <span data-i18n="env.s1.body"></span></li>
+              <li><b data-i18n="env.s2.title"></b>: <span data-i18n="env.s2.body"></span></li>
+              <li><b data-i18n="env.s3.title"></b>: <span data-i18n="env.s3.body"></span></li>
+              <li><b data-i18n="env.s4.title"></b>: <span data-i18n="env.s4.body"></span></li>
+            </ol>
+            <div class="hint"><b data-i18n="env.hint.title"></b><br /><span data-i18n="env.hint.body"></span></div>
+            <div class="warn"><b data-i18n="env.warn.title"></b><br /><span data-i18n="env.warn.body"></span></div>
+          </div>
+          <div class="shot">
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.envelope"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/envelope.png</span>
+              </div>
+              <img data-auto src="assets/envelope.png" alt="Envelope screen" />
+            </figure>
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.envelope-manage"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/envelope-manage.png</span>
+              </div>
+              <img data-auto src="assets/envelope-manage.png" alt="Envelope manage screen" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- DREAM -->
+      <section id="dream">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="dream.title"></h2>
+            <p class="sub" data-i18n="dream.sub"></p>
+          </div>
+          <span class="tag"><span class="dot"></span> <span data-i18n="dream.tag"></span></span>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <ol class="steps">
+              <li><b data-i18n="dream.s1.title"></b>: <span data-i18n="dream.s1.body"></span>
+                <ul>
+                  <li><b data-i18n="dream.s1.name"></b>: <span data-i18n="dream.s1.name.desc"></span></li>
+                  <li><b data-i18n="dream.s1.amount"></b>: <span data-i18n="dream.s1.amount.desc"></span></li>
+                  <li><b data-i18n="dream.s1.auto"></b>: <span data-i18n="dream.s1.auto.desc"></span></li>
+                </ul>
+              </li>
+              <li><b data-i18n="dream.s2.title"></b>: <span data-i18n="dream.s2.body"></span></li>
+              <li><b data-i18n="dream.s3.title"></b>: <span data-i18n="dream.s3.body"></span>
+                <ul>
+                  <li><b data-i18n="dream.s3.unlock"></b>: <span data-i18n="dream.s3.unlock.desc"></span></li>
+                  <li><b data-i18n="dream.s3.mid"></b>: <span data-i18n="dream.s3.mid.desc"></span></li>
+                  <li><b data-i18n="dream.s3.final"></b>: <span data-i18n="dream.s3.final.desc"></span></li>
+                  <li><b data-i18n="dream.s3.make"></b>: <span data-i18n="dream.s3.make.desc"></span></li>
+                </ul>
+              </li>
+              <li><b data-i18n="dream.s4.title"></b>: <span data-i18n="dream.s4.body"></span></li>
+            </ol>
+            <div class="hint"><b data-i18n="dream.hint.title"></b><br /><span data-i18n="dream.hint.body"></span></div>
+            <div class="warn"><b data-i18n="dream.warn.title"></b><br /><span data-i18n="dream.warn.body"></span></div>
+          </div>
+          <div class="shot">
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.dream"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/dream.png</span>
+              </div>
+              <img data-auto src="assets/dream.png" alt="Dream screen" />
+            </figure>
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.dream-card"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/dream-card.png</span>
+              </div>
+              <img data-auto src="assets/dream-card.png" alt="Dream card" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORT -->
+      <section id="report">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="rep.title"></h2>
+            <p class="sub" data-i18n="rep.sub"></p>
+          </div>
+          <span class="tag"><span class="dot"></span> <span data-i18n="rep.tag"></span></span>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <ol class="steps">
+              <li><b data-i18n="rep.s1.title"></b>: <span data-i18n="rep.s1.body"></span></li>
+              <li><b data-i18n="rep.s2.title"></b>: <span data-i18n="rep.s2.body"></span></li>
+              <li><b data-i18n="rep.s3.title"></b>: <span data-i18n="rep.s3.body"></span></li>
+              <li><b data-i18n="rep.s4.title"></b>: <span data-i18n="rep.s4.body"></span></li>
+            </ol>
+            <div class="hint"><b data-i18n="rep.hint.title"></b><br /><span data-i18n="rep.hint.body"></span></div>
+            <div class="warn"><b data-i18n="rep.warn.title"></b><br /><span data-i18n="rep.warn.body"></span></div>
+          </div>
+          <div class="shot">
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.report"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/report.png</span>
+              </div>
+              <img data-auto src="assets/report.png" alt="Report screen" />
+            </figure>
+            <figure>
+              <div class="ph" data-fallback>
+                <span data-i18n="ph.report-breakdown"></span><br />
+                <span style="font-family:var(--mono);font-size:11px;opacity:0.7;">assets/report-breakdown.png</span>
+              </div>
+              <img data-auto src="assets/report-breakdown.png" alt="Report breakdown" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq">
+        <div class="section-head">
+          <div>
+            <h2>FAQ</h2>
+            <p class="sub" data-i18n="faq.sub"></p>
+          </div>
+        </div>
+
+        <details>
+          <summary data-i18n="faq.q1"></summary>
+          <p data-i18n="faq.a1"></p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q2"></summary>
+          <p data-i18n="faq.a2"></p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q3"></summary>
+          <p data-i18n="faq.a3"></p>
+        </details>
+      </section>
+
+      <footer>
+        <div data-i18n="footer.copy"></div>
+        <div style="margin-top:6px;">made by KawKaw.dev</div>
+      </footer>
+    </div>
+
+    <script>
+      // ─────────────────────────────────────────────
+      //  Translations
+      // ─────────────────────────────────────────────
+      const translations = {
+        en: {
+          "hero.sub": "App User Guide",
+          "nav.dashboard": "Dashboard",
+          "nav.envelope": "Envelope",
+          "nav.dream": "Dream",
+          "nav.report": "Report",
+          "nav.print": "Print (PDF)",
+          "nav.top": "Back to Top",
+
+          // Dashboard
+          "dash.title": "1) Dashboard",
+          "dash.sub": "Check today's summary and quickly record your expenses, income, and savings.",
+          "dash.tag": "Quick Entry",
+          "dash.s1.title": "Check Summary",
+          "dash.s1.body": "Review the key numbers for this period — Total Budget / Total Expense / Total Savings.",
+          "dash.s2.title": "View History",
+          "dash.s2.body": "Tap the Income / Expense / Savings buttons on the dashboard to see your date-by-date transaction history.",
+          "dash.s2.income": "Date-wise income history",
+          "dash.s2.expense": "Date-wise expense history",
+          "dash.s2.savings": "Date-wise savings history",
+          "dash.s3.title": "Quick Add",
+          "dash.s3.body": "Add records using the buttons below.",
+          "dash.s3.expense": "Add Expense",
+          "dash.s3.expense.desc": "Record an amount spent",
+          "dash.s3.income": "Add Income",
+          "dash.s3.income.desc": "Record an amount received",
+          "dash.s3.save": "Savings",
+          "dash.s3.save.desc": "Record a savings or goal deposit",
+          "dash.s4.title": "Today's Record",
+          "dash.s4.body": "If there are transactions today, you can check them here. \"No records today\" means nothing has been logged yet.",
+          "dash.hint.title": "Recommended Habit",
+          "dash.hint.body": "Check remaining budget in the morning → Enter expenses immediately as they occur → Review today's transactions at night.",
+          "dash.warn.title": "Note",
+          "dash.warn.body": "Depending on which envelope or dream the record is linked to, your statistics and progress will differ. Double-check your selection before saving.",
+
+          // Envelope
+          "env.title": "2) Envelope",
+          "env.sub": "Split your budget by category (food, transport, etc.) and see usage at a glance.",
+          "env.tag": "Budget Management",
+          "env.s1.title": "Check Envelope List",
+          "env.s1.body": "View the budget, usage (expenses + savings), and remaining amount for each envelope.",
+          "env.s2.title": "View Usage (%)",
+          "env.s2.body": "The higher the usage rate, the more you've spent in that category this period.",
+          "env.s3.title": "Daily Average Expense",
+          "env.s3.body": "Useful for estimating whether you're on track for the rest of the period at the current spending rate.",
+          "env.s4.title": "Manage Envelopes",
+          "env.s4.body": "If you need to add or edit envelopes, go to Manage to add, edit, or change budgets.",
+          "env.hint.title": "Recommended Setup",
+          "env.hint.body": "Start with your most-used expense categories and keep names short (e.g., Food / Transport / Kids) for faster dashboard input.",
+          "env.warn.title": "Note",
+          "env.warn.body": "Deleting an envelope may not remove past records (depending on app policy). Before deleting, confirm it's a category you truly won't use this month.",
+
+          // Dream
+          "dream.title": "3) Dream",
+          "dream.sub": "Create goals (e.g., travel / emergency fund / appliance) and track your savings progress toward the target amount.",
+          "dream.tag": "Goal Savings",
+          "dream.s1.title": "Add a Dream",
+          "dream.s1.body": "Tap + to create a goal.",
+          "dream.s1.name": "Title",
+          "dream.s1.name.desc": "What the goal is for",
+          "dream.s1.amount": "Target Amount",
+          "dream.s1.amount.desc": "The amount you want to reach",
+          "dream.s1.auto": "(Optional) Auto Savings",
+          "dream.s1.auto.desc": "Enable if there's a setting to automatically save a fixed amount each month",
+          "dream.s2.title": "Check Progress",
+          "dream.s2.body": "View the current saved amount and the percentage progress toward your target.",
+          "dream.s3.title": "Dream Card Unlock Rules",
+          "dream.s3.body": "New cards unlock sequentially as your Dream progress increases.",
+          "dream.s3.unlock": "Progress Increase = New Card Unlocked",
+          "dream.s3.unlock.desc": "As your savings grow and progress (%) rises, you can receive a new Dream Card for that stage.",
+          "dream.s3.mid": "Mid-Stage Cards",
+          "dream.s3.mid.desc": "Your journey toward the goal is recorded as cards (e.g., \"New Card Opened\", \"Level Up Card\").",
+          "dream.s3.final": "100% = Final Card Unlocked",
+          "dream.s3.final.desc": "When progress reaches 100%, the Final Card is unlocked.",
+          "dream.s3.make": "How to Create",
+          "dream.s3.make.desc": "On the Dream screen, tap \"Make a Dream Card\" to generate a card matching your current progress stage.",
+          "dream.s4.title": "Mark as Complete",
+          "dream.s4.body": "When a goal is achieved, the completed status is shown (wording/status may vary depending on the app).",
+          "dream.hint.title": "Recommended Approach",
+          "dream.hint.body": "Start with 1–3 dreams. Too many leads to management fatigue — goals, like diets, work best in moderation!",
+          "dream.warn.title": "Note",
+          "dream.warn.body": "If auto savings is enabled, verify when and under what conditions it is reflected (monthly, period start date, etc.) alongside the report and dashboard.",
+
+          // Report
+          "rep.title": "4) Report",
+          "rep.sub": "Review results like recent monthly trends, expenses by category, and savings rate.",
+          "rep.tag": "Analysis / Review",
+          "rep.s1.title": "Select Period",
+          "rep.s1.body": "Change the period (last 6 months) to view the time range you want.",
+          "rep.s2.title": "Dream Success Rate",
+          "rep.s2.body": "Check your goal achievement pattern using the ratio of completed vs. in-progress goals.",
+          "rep.s3.title": "Category (Envelope) Breakdown",
+          "rep.s3.body": "See which envelopes have the highest spending, then adjust next month's budget accordingly.",
+          "rep.s4.title": "Check Savings Rate",
+          "rep.s4.body": "See how much you're saving relative to income to determine whether it's a sustainable level.",
+          "rep.hint.title": "Recommended Routine",
+          "rep.hint.body": "Review stats once a week and adjust just 1 envelope with the highest spending — it makes a big difference. Changing everything at once rarely lasts.",
+          "rep.warn.title": "No Data Showing?",
+          "rep.warn.body": "If there are no records for the selected period, it may show \"No Data.\" Try changing the period or add records for that period and check again.",
+
+          // FAQ
+          "faq.sub": "Frequently Asked Questions & Troubleshooting",
+          "faq.q1": "Q. Today's transactions show \"None.\"",
+          "faq.a1": "If there are no expense/income/savings records for today's date, it may show \"No records today.\" Add one transaction on the dashboard and check again.",
+          "faq.q2": "Q. The report shows \"No Data.\"",
+          "faq.a2": "If there are no records for the selected period, data will not be displayed. Try changing the period (month) or add records for that period and check again.",
+          "faq.q3": "Q. How should I set envelope budgets?",
+          "faq.a3": "Start by creating 5–8 envelopes based on your previous month's spending, then adjust 1–2 envelopes per month while reviewing your stats — this is the most sustainable approach.",
+
+          // Placeholders
+          "ph.dashboard": "Add a Dashboard screenshot here.",
+          "ph.add-expense": "(Optional) Add an Add Expense popup/screen screenshot.",
+          "ph.envelope": "Add an Envelope screen screenshot here.",
+          "ph.envelope-manage": "(Optional) Add an Envelope Management screen screenshot.",
+          "ph.dream": "Add a Dream screen screenshot here.",
+          "ph.dream-card": "(Optional) Add a Dream Card result screenshot.",
+          "ph.report": "Add a Report screen screenshot here.",
+          "ph.report-breakdown": "(Optional) Add a category breakdown screenshot.",
+
+          // Footer
+          "footer.copy": "© Guide Page (Single HTML). Placeholders are shown when no image files are provided.",
+        },
+
+        tl: {
+          "hero.sub": "Gabay sa Paggamit ng App",
+          "nav.dashboard": "Dashboard",
+          "nav.envelope": "Sobre",
+          "nav.dream": "Pangarap",
+          "nav.report": "Ulat",
+          "nav.print": "I-print (PDF)",
+          "nav.top": "Bumalik sa Itaas",
+
+          // Dashboard
+          "dash.title": "1) Dashboard",
+          "dash.sub": "Tingnan ang buod ngayon at mabilis na i-record ang gastos, kita, at ipon.",
+          "dash.tag": "Mabilis na Input",
+          "dash.s1.title": "Tingnan ang Buod",
+          "dash.s1.body": "Suriin ang mga pangunahing numero para sa kasalukuyang panahon — Kabuuang Budget / Kabuuang Gastos / Kabuuang Ipon.",
+          "dash.s2.title": "Tingnan ang Kasaysayan",
+          "dash.s2.body": "I-tap ang mga button na Income / Expense / Savings sa dashboard para makita ang kasaysayan ng bawat transaksyon araw-araw.",
+          "dash.s2.income": "Kasaysayan ng kita araw-araw",
+          "dash.s2.expense": "Kasaysayan ng gastos araw-araw",
+          "dash.s2.savings": "Kasaysayan ng ipon araw-araw",
+          "dash.s3.title": "Mabilis na Dagdag",
+          "dash.s3.body": "Mag-dagdag ng rekord gamit ang mga button sa ibaba.",
+          "dash.s3.expense": "Dagdag na Gastos",
+          "dash.s3.expense.desc": "I-record ang ginastos na halaga",
+          "dash.s3.income": "Dagdag na Kita",
+          "dash.s3.income.desc": "I-record ang natanggap na halaga",
+          "dash.s3.save": "Ipon",
+          "dash.s3.save.desc": "I-record ang naipong halaga para sa layunin",
+          "dash.s4.title": "Rekord Ngayon",
+          "dash.s4.body": "Kung may mga transaksyon ngayon, makikita mo ito dito. Ang \"Walang rekord ngayon\" ay nangangahulugang wala pang naitala.",
+          "dash.hint.title": "Inirerekomendang Gawi",
+          "dash.hint.body": "Tingnan ang natitirang budget sa umaga → I-input ang gastos agad-agad → Suriin ang rekord sa gabi.",
+          "dash.warn.title": "Paalala",
+          "dash.warn.body": "Depende sa kung aling sobre o pangarap ang naka-link sa rekord, magbabago ang istatistika at progreso. I-verify ang pagpili bago i-save.",
+
+          // Envelope
+          "env.title": "2) Sobre (Envelope)",
+          "env.sub": "Hatiin ang budget ayon sa kategorya (pagkain, pamasahe, atbp.) at tingnan ang paggamit sa isang sulyap.",
+          "env.tag": "Pamamahala ng Budget",
+          "env.s1.title": "Tingnan ang Listahan ng Sobre",
+          "env.s1.body": "Tingnan ang budget, paggamit (gastos + ipon), at natitirang halaga ng bawat sobre.",
+          "env.s2.title": "Tingnan ang % ng Paggamit",
+          "env.s2.body": "Mas mataas ang rate ng paggamit, mas marami kang nagastos sa kategoryang iyon ngayong panahon.",
+          "env.s3.title": "Araw-araw na Gastos",
+          "env.s3.body": "Kapaki-pakinabang para malaman kung nasa tamang landas ka para sa natitirang panahon sa kasalukuyang rate ng paggastos.",
+          "env.s4.title": "Pamahalaan ang mga Sobre",
+          "env.s4.body": "Kung kailangan mong magdagdag o mag-edit ng sobre, pumunta sa Pamahalaan para magdagdag, mag-edit, o magbago ng budget.",
+          "env.hint.title": "Inirerekomendang Setup",
+          "env.hint.body": "Magsimula sa mga pinaka-ginagamit na kategorya ng gastos at panatilihing maikli ang mga pangalan (hal. Pagkain / Pamasahe / Bata) para sa mas mabilis na input sa dashboard.",
+          "env.warn.title": "Paalala",
+          "env.warn.body": "Ang pag-delete ng sobre ay hindi nangangahulugang nare-remove din ang mga nakaraang rekord (depende sa patakaran ng app). Bago mag-delete, kumpirmahin na hindi mo talagang gagamitin ang kategoryang iyon ngayong buwan.",
+
+          // Dream
+          "dream.title": "3) Pangarap (Dream)",
+          "dream.sub": "Lumikha ng mga layunin (hal. paglalakbay / emergency fund / gamit sa bahay) at subaybayan ang progreso ng ipon hanggang sa target na halaga.",
+          "dream.tag": "Ipon para sa Layunin",
+          "dream.s1.title": "Magdagdag ng Pangarap",
+          "dream.s1.body": "I-tap ang + para lumikha ng layunin.",
+          "dream.s1.name": "Pamagat",
+          "dream.s1.name.desc": "Para sa ano ang layunin",
+          "dream.s1.amount": "Target na Halaga",
+          "dream.s1.amount.desc": "Ang halagang gusto mong abutin",
+          "dream.s1.auto": "(Opsyonal) Auto Ipon",
+          "dream.s1.auto.desc": "I-enable kung may setting para awtomatikong mag-ipon ng fixed na halaga bawat buwan",
+          "dream.s2.title": "Tingnan ang Progreso",
+          "dream.s2.body": "Tingnan ang kasalukuyang naipong halaga at ang porsyento ng progreso kumpara sa target.",
+          "dream.s3.title": "Mga Panuntunan sa Pagbubukas ng Dream Card",
+          "dream.s3.body": "Sunud-sunod na mag-uunlock ang mga bagong card habang tumataas ang progreso ng Pangarap.",
+          "dream.s3.unlock": "Pagtaas ng Progreso = Bagong Card Na-unlock",
+          "dream.s3.unlock.desc": "Habang nag-iipon at tumataas ang progreso (%), matatanggap mo ang bagong Dream Card para sa yugtong iyon.",
+          "dream.s3.mid": "Mga Card sa Kalagitnaan",
+          "dream.s3.mid.desc": "Ang iyong paglalakbay tungo sa layunin ay nire-record bilang mga card (hal. \"Bagong Card Nabuksan\", \"Level Up Card\").",
+          "dream.s3.final": "100% = Panghuling Card Na-unlock",
+          "dream.s3.final.desc": "Kapag umabot ang progreso sa 100%, mabubuksan ang Panghuling Card (Final Card).",
+          "dream.s3.make": "Paano Gumawa",
+          "dream.s3.make.desc": "Sa Dream screen, i-tap ang \"Make a Dream Card\" para gumawa ng card na angkop sa iyong kasalukuyang yugto ng progreso.",
+          "dream.s4.title": "Markahan bilang Kumpleto",
+          "dream.s4.body": "Kapag nakamit ang layunin, ipapakita ang natapos na status (maaaring mag-iba ang wording depende sa app).",
+          "dream.hint.title": "Inirerekomendang Paraan",
+          "dream.hint.body": "Mas mabuting magsimula sa 1–3 na pangarap. Masyadong marami ay nagdudulot ng pagod sa pamamahala — ang mga layunin, tulad ng diyeta, ay mas epektibo kapag katamtaman lang!",
+          "dream.warn.title": "Paalala",
+          "dream.warn.body": "Kung naka-enable ang auto ipon, tingnan kung kailan at sa anong kondisyon ito nare-reflect (buwanan, simula ng panahon, atbp.) kasama ang ulat at dashboard.",
+
+          // Report
+          "rep.title": "4) Ulat (Report)",
+          "rep.sub": "Suriin ang mga resulta tulad ng kamakailang trend buwan-buwan, gastos ayon sa kategorya, at rate ng ipon.",
+          "rep.tag": "Pagsusuri / Review",
+          "rep.s1.title": "Pumili ng Panahon",
+          "rep.s1.body": "Baguhin ang panahon (nakaraang 6 na buwan) para makita ang nais mong time range.",
+          "rep.s2.title": "Rate ng Tagumpay ng Pangarap",
+          "rep.s2.body": "Suriin ang iyong pattern ng pagkamit ng layunin gamit ang ratio ng natapos vs. nasa proseso pa.",
+          "rep.s3.title": "Breakdown ng Kategorya (Sobre)",
+          "rep.s3.body": "Tingnan kung aling sobre ang may pinakamataas na gastos, pagkatapos ay ayusin ang budget para sa susunod na buwan.",
+          "rep.s4.title": "Tingnan ang Rate ng Ipon",
+          "rep.s4.body": "Tingnan kung magkano ang iyong ipon kumpara sa kita para malaman kung ito ay napapanatiling antas.",
+          "rep.hint.title": "Inirerekomendang Rutina",
+          "rep.hint.body": "Suriin ang stats isang beses sa isang linggo at ayusin lang ang 1 sobre na may pinakamataas na gastos — malaki ang pagbabago. Ang pagbabago ng lahat nang sabay ay karaniwang hindi tumatagal.",
+          "rep.warn.title": "Walang Data?",
+          "rep.warn.body": "Kung walang rekord para sa napiling panahon, maaaring ipakita ang \"Walang Data.\" Subukang baguhin ang panahon o magdagdag ng rekord para sa panahong iyon at suriin muli.",
+
+          // FAQ
+          "faq.sub": "Mga Madalas Itanong at Solusyon sa mga Problema",
+          "faq.q1": "T. Ang rekord ngayon ay nagpapakita ng \"Wala.\"",
+          "faq.a1": "Kung walang rekord ng gastos/kita/ipon para sa petsa ngayon, maaaring ipakita ang \"Walang rekord ngayon.\" Magdagdag ng isang transaksyon sa dashboard at suriin muli.",
+          "faq.q2": "T. Nagpapakita ng \"Walang Data\" ang ulat.",
+          "faq.a2": "Kung walang rekord para sa napiling panahon, hindi ipapakita ang data. Subukang baguhin ang panahon (buwan) o magdagdag ng rekord para sa panahong iyon at suriin muli.",
+          "faq.q3": "T. Paano ko dapat itakda ang mga budget ng sobre?",
+          "faq.a3": "Magsimula sa pamamagitan ng paglikha ng 5–8 sobre batay sa iyong nakaraang buwan na paggastos, pagkatapos ay ayusin ang 1–2 sobre bawat buwan habang tinitingnan ang mga istatistika — ito ang pinaka-napapanatiling paraan.",
+
+          // Placeholders
+          "ph.dashboard": "Magdagdag ng Dashboard screenshot dito.",
+          "ph.add-expense": "(Opsyonal) Magdagdag ng Add Expense screen screenshot.",
+          "ph.envelope": "Magdagdag ng Sobre screen screenshot dito.",
+          "ph.envelope-manage": "(Opsyonal) Magdagdag ng Sobre Management screen screenshot.",
+          "ph.dream": "Magdagdag ng Pangarap screen screenshot dito.",
+          "ph.dream-card": "(Opsyonal) Magdagdag ng Dream Card result screenshot.",
+          "ph.report": "Magdagdag ng Ulat screen screenshot dito.",
+          "ph.report-breakdown": "(Opsyonal) Magdagdag ng category breakdown screenshot.",
+
+          "footer.copy": "© Guide Page (Single HTML). Ipapakita ang mga placeholder kung walang image na nakalakip.",
+        },
+
+        ceb: {
+          "hero.sub": "Giya sa Paggamit sa App",
+          "nav.dashboard": "Dashboard",
+          "nav.envelope": "Sobre",
+          "nav.dream": "Damgo",
+          "nav.report": "Estadistika",
+          "nav.print": "I-print (PDF)",
+          "nav.top": "Balik sa Ibabaw",
+
+          // Dashboard
+          "dash.title": "1) Dashboard",
+          "dash.sub": "Tan-awa ang summary karon ug dali nga i-record ang gasto, kita, ug ipon.",
+          "dash.tag": "Dali nga Input",
+          "dash.s1.title": "Tan-awa ang Summary",
+          "dash.s1.body": "Susihon ang mga importanteng numero niining panahona — Tibuok Budget / Tibuok Gasto / Tibuok Ipon.",
+          "dash.s2.title": "Tan-awa ang Kasaysayan",
+          "dash.s2.body": "I-tap ang mga button nga Income / Expense / Savings sa dashboard para makita ang kasaysayan sa matag transaksyon matag adlaw.",
+          "dash.s2.income": "Kasaysayan sa kita matag adlaw",
+          "dash.s2.expense": "Kasaysayan sa gasto matag adlaw",
+          "dash.s2.savings": "Kasaysayan sa ipon matag adlaw",
+          "dash.s3.title": "Dali nga Dugang",
+          "dash.s3.body": "Mag-dugang ug rekord gamit ang mga button sa ubos.",
+          "dash.s3.expense": "Dugang Gasto",
+          "dash.s3.expense.desc": "I-record ang gigastong kantidad",
+          "dash.s3.income": "Dugang Kita",
+          "dash.s3.income.desc": "I-record ang nadawat nga kantidad",
+          "dash.s3.save": "Ipon",
+          "dash.s3.save.desc": "I-record ang naipong kantidad para sa tumong",
+          "dash.s4.title": "Rekord Karon",
+          "dash.s4.body": "Kung adunay mga transaksyon karon, makita mo kini dinhi. Ang \"Walay rekord karon\" nagpasabot nga wala pa'y naitala.",
+          "dash.hint.title": "Girekomendang Batasan",
+          "dash.hint.body": "Tan-awa ang nahibilin nga budget sa buntag → I-input ang gasto dayon-dayon → Susihon ang rekord sa gabii.",
+          "dash.warn.title": "Pahinumdom",
+          "dash.warn.body": "Depende kung unsang sobre o damgo ang nalambigit sa rekord, magbag-o ang mga estadistika ug progreso. I-verify ang imong pagpili sa wala pa i-save.",
+
+          // Envelope
+          "env.title": "2) Sobre (Envelope)",
+          "env.sub": "Bahinon ang budget matag kategorya (pagkaon, pamasahe, ug uban pa) ug tan-awon ang paggamit sa usa ka sulyap.",
+          "env.tag": "Pagdumala sa Budget",
+          "env.s1.title": "Tan-awa ang Listahan sa Sobre",
+          "env.s1.body": "Tan-awa ang budget, paggamit (gasto + ipon), ug nahibilin nga kantidad sa matag sobre.",
+          "env.s2.title": "Tan-awa ang % sa Paggamit",
+          "env.s2.body": "Mas taas ang rate sa paggamit, mas daghan kang nagasto sa maong kategorya niining panahona.",
+          "env.s3.title": "Adlaw-adlaw nga Gasto",
+          "env.s3.body": "Mapuslanon para mahibal-an kung nasa hustong dalan ka alang sa nahibilin nga panahon sa karon nga rate sa paggasto.",
+          "env.s4.title": "Pagdumala sa mga Sobre",
+          "env.s4.body": "Kung kinahanglan ka mag-dugang o mag-edit ug sobre, adto sa Pagdumala para mag-dugang, mag-edit, o magbag-o ug budget.",
+          "env.hint.title": "Girekomendang Setup",
+          "env.hint.body": "Sugdi sa imong pinaka-gigamit nga mga kategorya sa gasto ug paghupti nga mubo ang mga ngalan (hal. Pagkaon / Pamasahe / Bata) para sa mas dali nga input sa dashboard.",
+          "env.warn.title": "Pahinumdom",
+          "env.warn.body": "Ang pag-delete sa sobre dili nagpasabot nga mideleted usab ang mga nauna nga rekord (depende sa patakaran sa app). Sa wala pa mag-delete, pamatud-i nga dili gyud nimo gamiton ang kategoryang iyon niining buwana.",
+
+          // Dream
+          "dream.title": "3) Damgo (Dream)",
+          "dream.sub": "Pagbuhat ug mga tumong (hal. biyahe / emergency fund / gamit sa balay) ug susiha ang progreso sa ipon hangtod sa target nga kantidad.",
+          "dream.tag": "Ipon para sa Tumong",
+          "dream.s1.title": "Mag-dugang ug Damgo",
+          "dream.s1.body": "I-tap ang + para maghimo ug tumong.",
+          "dream.s1.name": "Titulo",
+          "dream.s1.name.desc": "Para sa unsa ang tumong",
+          "dream.s1.amount": "Target nga Kantidad",
+          "dream.s1.amount.desc": "Ang kantidad nga gusto mong abuton",
+          "dream.s1.auto": "(Opsyonal) Auto Ipon",
+          "dream.s1.auto.desc": "I-enable kung adunay setting para awtomatikong mag-ipon ug fixed nga kantidad matag buwan",
+          "dream.s2.title": "Tan-awa ang Progreso",
+          "dream.s2.body": "Tan-awa ang karon nga naipong kantidad ug ang porsyento sa progreso batok sa target.",
+          "dream.s3.title": "Mga Lagda sa Pagbukas sa Dream Card",
+          "dream.s3.body": "Sunod-sunod nga mag-unlock ang mga bag-ong card samtang nagataas ang progreso sa Damgo.",
+          "dream.s3.unlock": "Pagtaas sa Progreso = Bag-ong Card nga Na-unlock",
+          "dream.s3.unlock.desc": "Samtang nag-iipon ug nagataas ang progreso (%), makadawat ka ug bag-ong Dream Card para sa maong yugto.",
+          "dream.s3.mid": "Mga Card sa Katunga",
+          "dream.s3.mid.desc": "Ang imong paglakaw padulong sa tumong gi-record isip mga card (hal. \"Bag-ong Card Nabukas\", \"Level Up Card\").",
+          "dream.s3.final": "100% = Katapusan nga Card Na-unlock",
+          "dream.s3.final.desc": "Kung maabot ang progreso sa 100%, mabuksan ang Katapusan nga Card (Final Card).",
+          "dream.s3.make": "Unsaon Paghimo",
+          "dream.s3.make.desc": "Sa Dream screen, i-tap ang \"Make a Dream Card\" para mohimo ug card nga angay sa imong karon nga yugto sa progreso.",
+          "dream.s4.title": "Markahi isip Kompleto",
+          "dream.s4.body": "Kung nakab-ot na ang tumong, ipakita ang natapos nga status (mahimong magbag-o ang pagkasulat depende sa app).",
+          "dream.hint.title": "Girekomendang Paagi",
+          "dream.hint.body": "Mas maayo nga magsugod sa 1–3 nga damgo. Daghan kaayo nagdala ug pagod sa pagdumala — ang mga tumong, sama sa diyeta, mas epektibo kung kataman lang!",
+          "dream.warn.title": "Pahinumdom",
+          "dream.warn.body": "Kung naka-enable ang auto ipon, susihon kung kanus-a ug sa unsang kondisyon kini mireflect (buwanan, sugod sa panahon, ug uban pa) kasama ang estadistika ug dashboard.",
+
+          // Report
+          "rep.title": "4) Estadistika (Report)",
+          "rep.sub": "Susihon ang mga resulta sama sa bag-ong trend matag buwan, gasto matag kategorya, ug rate sa ipon.",
+          "rep.tag": "Pagtuki / Review",
+          "rep.s1.title": "Pagpili ug Panahon",
+          "rep.s1.body": "Bag-uha ang panahon (nakalabay nga 6 ka buwan) para makita ang gusto nimong time range.",
+          "rep.s2.title": "Rate sa Kalampusan sa Damgo",
+          "rep.s2.body": "Susihon ang imong pattern sa pagkab-ot sa tumong gamit ang ratio sa nahuman vs. naa pa sa proseso.",
+          "rep.s3.title": "Breakdown sa Kategorya (Sobre)",
+          "rep.s3.body": "Tan-awa kung unsang sobre ang adunay labing taas nga gasto, unya i-adjust ang budget para sa sunod nga buwan.",
+          "rep.s4.title": "Tan-awa ang Rate sa Ipon",
+          "rep.s4.body": "Tan-awa kung magkano ang imong ipon batok sa kita para mahibal-an kung kini napadayon nga antas.",
+          "rep.hint.title": "Girekomendang Rutina",
+          "rep.hint.body": "Susihon ang stats kausa sa usa ka semana ug i-adjust lang ang 1 sobre nga adunay labing taas nga gasto — dako ang kalainan. Ang pagbag-o sa tanan sabay-sabay kasagaran dili mopadayon.",
+          "rep.warn.title": "Walay Data?",
+          "rep.warn.body": "Kung walay rekord para sa piniling panahon, mahimong ipakita ang \"Walay Data.\" Sulayi ang pagbag-o sa panahon o mag-dugang ug rekord para sa maong panahon ug sulayi pag-usab.",
+
+          // FAQ
+          "faq.sub": "Mga Kanunay nga Ginapangutana ug Solusyon sa mga Problema",
+          "faq.q1": "P. Ang rekord karon nagpakita ug \"Wala.\"",
+          "faq.a1": "Kung walay rekord sa gasto/kita/ipon para sa petsa karon, mahimong ipakita ang \"Walay rekord karon.\" Mag-dugang ug usa ka transaksyon sa dashboard ug susihon pag-usab.",
+          "faq.q2": "P. Nagpakita ug \"Walay Data\" ang estadistika.",
+          "faq.a2": "Kung walay rekord para sa piniling panahon, dili ipakita ang data. Sulayi ang pagbag-o sa panahon (buwan) o mag-dugang ug rekord para sa maong panahon ug susihon pag-usab.",
+          "faq.q3": "P. Unsaon nako pagtakda ang mga budget sa sobre?",
+          "faq.a3": "Magsugod pinaagi sa pagbuhat ug 5–8 sobre base sa imong nakaaging buwan nga paggasto, unya i-adjust ang 1–2 sobre matag buwan samtang gisusihon ang mga estadistika — kini ang pinaka-napadayon nga paagi.",
+
+          // Placeholders
+          "ph.dashboard": "Idagdag ang Dashboard screenshot dinhi.",
+          "ph.add-expense": "(Opsyonal) Idagdag ang Add Expense screen screenshot.",
+          "ph.envelope": "Idagdag ang Sobre screen screenshot dinhi.",
+          "ph.envelope-manage": "(Opsyonal) Idagdag ang Sobre Management screen screenshot.",
+          "ph.dream": "Idagdag ang Damgo screen screenshot dinhi.",
+          "ph.dream-card": "(Opsyonal) Idagdag ang Dream Card result screenshot.",
+          "ph.report": "Idagdag ang Estadistika screen screenshot dinhi.",
+          "ph.report-breakdown": "(Opsyonal) Idagdag ang category breakdown screenshot.",
+
+          "footer.copy": "© Guide Page (Single HTML). Ipakita ang mga placeholder kung walay image nga gi-attach.",
+        }
+      };
+
+      // ─────────────────────────────────────────────
+      //  Language Switcher
+      // ─────────────────────────────────────────────
+      let currentLang = 'en';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (t[key] !== undefined) el.textContent = t[key];
+        });
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+      });
+
+      // Init with English
+      applyLang('en');
+
+      // ─────────────────────────────────────────────
+      //  Smooth scroll
+      // ─────────────────────────────────────────────
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', id);
+        });
+      });
+
+      // Print / Back to Top
+      document.getElementById('btnPrint')?.addEventListener('click', () => window.print());
+      document.getElementById('btnTop')?.addEventListener('click', () => {
+        document.getElementById('top')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // Auto-image loader
+      document.querySelectorAll('img[data-auto]').forEach((img) => {
+        const figure = img.closest('figure');
+        const fallback = figure?.querySelector('[data-fallback]');
+        img.addEventListener('load', () => {
+          img.style.display = 'block';
+          if (fallback) fallback.style.display = 'none';
+        });
+        img.addEventListener('error', () => {
+          img.style.display = 'none';
+          if (fallback) fallback.style.display = 'flex';
+        });
+      });
+    </script>
+  </body>
+</html>
