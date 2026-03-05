@@ -42,7 +42,7 @@ Gumi Save is a **household budget recording tool only** — it has no payment pr
 | **Company** | KawKaw.dev |
 | **Service** | Gumi Save — Household Budget App |
 | **All Inquiries** | kawkaw.app@gmail.com |
-| **Data Protection Officer (DPO)** | kawkaw.app@gmail.com |
+| **Data Protection Officer (DPO)** | https://mandaluyong.gov.ph/government/city-support-offices/data-protection-office/ |
 | **NPC Registration Status** | **Not currently registered.** KawKaw.dev does not yet meet the mandatory registration thresholds under RA 10173 and NPC Circular 2022-04: (1) employing 250 or more employees; (2) processing sensitive personal information of 1,000 or more data subjects; or (3) processing data that may pose a risk to the rights and freedoms of data subjects. |
 | **Registration Commitment** | KawKaw.dev will register with the NPC as soon as any of the above thresholds is met, in full compliance with NPC Circular 2022-04, including designating a DPO and registering all data processing systems within the required timeframes. |
 
