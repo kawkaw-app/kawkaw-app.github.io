@@ -42,7 +42,7 @@ Ang Gumi Save usa ka **himan lamang sa pagrekord sa gastos sa balay** — walay 
 | **Kompanya** | KawKaw.dev |
 | **Serbisyo** | Gumi Save — Household Budget App |
 | **Tanan nga Pangutana** | kawkaw.app@gmail.com |
-| **Data Protection Officer (DPO)** | kawkaw.app@gmail.com |
+| **Data Protection Officer (DPO)** | https://mandaluyong.gov.ph/government/city-support-offices/data-protection-office/ |
 | **Status sa Pagparehistro sa NPC** | **Wala pay pagparehistro.** Ang KawKaw.dev wala pay naabtan ang mandatory nga mga threshold sa pagparehistro ubos sa RA 10173 ug NPC Circular 2022-04: (1) nagpalangkob sa 250 o labaw pa ka mga empleyado; (2) nagproseso sa sensitibong personal nga impormasyon sa 1,000 o labaw pa ka data subject; o (3) nagproseso sa datos nga mahimong makahatag sa risgo sa mga katungod ug kagawasan sa mga data subject. |
 | **Pangalagad sa Pagparehistro** | Magparehistro ang KawKaw.dev sa NPC sa diha nga maabtan ang bisan hisang threshold, sumala sa NPC Circular 2022-04, lakip ang pagtudlo og DPO ug pagparehistro sa tanan nga sistema sa pagproseso sa datos. |
 
