@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — BAYAD</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:      #1E6A3E;
+      --green-dark: #0F3C26;
+      --green-mid:  #2D8A52;
+      --amber:      #D4890A;
+      --amber-l:    #FFD750;
+      --cream:      #F5F0E8;
+      --cream-dark: #EBE5D8;
+      --ink:        #1A2B1F;
+      --muted:      #5A7060;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--green-dark);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(45,138,82,.35) 0%, transparent 70%);
+    }
+    .logo-wrap {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-coin {
+      width: 72px; height: 72px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 6px rgba(212,137,10,.25), 0 8px 32px rgba(0,0,0,.4);
+      font-size: 32px;
+      position: relative;
+    }
+    .logo-coin::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,215,80,.5);
+    }
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: .04em;
+    }
+    .app-tagline {
+      font-size: .85rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: -6px;
+    }
+    .badge-row {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.8);
+      letter-spacing: .03em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber-l);
+      flex-shrink: 0;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Intro card ── */
+    .intro-card {
+      background: var(--green);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .intro-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .intro-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .intro-card p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+    }
+    .intro-card strong { color: var(--amber-l); font-weight: 500; }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 40px;
+      animation: fadeUp .5s ease both;
+    }
+    .section:nth-child(2) { animation-delay: .05s; }
+    .section:nth-child(3) { animation-delay: .10s; }
+    .section:nth-child(4) { animation-delay: .15s; }
+    .section:nth-child(5) { animation-delay: .20s; }
+    .section:nth-child(6) { animation-delay: .25s; }
+    .section:nth-child(7) { animation-delay: .30s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .section-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green-dark);
+      color: var(--amber-l);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    h2.section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--green-dark);
+    }
+    .section-body {
+      padding-left: 40px;
+    }
+    .section-body p {
+      font-size: .93rem;
+      color: #3a4a3e;
+      margin-bottom: 10px;
+    }
+    .section-body p:last-child { margin-bottom: 0; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: var(--cream-dark);
+      border-left: 3px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: .88rem;
+      color: var(--green-dark);
+    }
+    .highlight strong { color: var(--green); }
+
+    /* ── Feature list ── */
+    .feat-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+    .feat-list li {
+      display: flex;
+      gap: 10px;
+      font-size: .9rem;
+      color: #3a4a3e;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .feat-list li:last-child { border-bottom: none; }
+    .feat-list .check {
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cream-dark) 20%, var(--cream-dark) 80%, transparent);
+      margin: 8px 0 40px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--cream-dark);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-top: 48px;
+    }
+    .contact-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    .contact-card a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--green-dark);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    footer p {
+      font-size: .8rem;
+      color: rgba(255,255,255,.4);
+      line-height: 1.8;
+    }
+    footer span { color: rgba(255,255,255,.6); }
+    .footer-law {
+      margin-top: 6px;
+      font-size: .75rem;
+      color: rgba(255,255,255,.3);
+    }
+
+    /* ── Meta bar ── */
+    .meta-bar {
+      background: var(--cream-dark);
+      border-bottom: 1px solid #ddd7c8;
+      padding: 10px 24px;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    .meta-bar span { color: var(--green); font-weight: 500; }
+
+    @media (max-width: 600px) {
+      .intro-card { flex-direction: column; gap: 12px; padding: 22px 20px; }
+      .container { padding: 36px 16px 60px; }
+      .section-body { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Meta bar -->
+  <div class="meta-bar">
+    Effective date: <span>March 10, 2026</span> &nbsp;·&nbsp; Last updated: <span>March 10, 2026</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-coin">💡</div>
+      <div class="app-name">BAYAD</div>
+      <div class="app-tagline">Utility Bill Tracker · Philippines</div>
+      <div class="badge-row">
+        <span class="badge"><span class="badge-dot"></span>No data collected</span>
+        <span class="badge"><span class="badge-dot"></span>Works offline</span>
+        <span class="badge"><span class="badge-dot"></span>No account required</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+
+    <!-- Intro card -->
+    <div class="intro-card">
+      <div class="intro-icon">🔒</div>
+      <div>
+        <h2>Your privacy is fully protected.</h2>
+        <p>
+          BAYAD does <strong>not collect, store, transmit, or share</strong> any personal information.
+          Everything you enter stays on your device — always. There are no servers, no accounts, and no analytics.
+        </p>
+      </div>
+    </div>
+
+    <!-- 1. Overview -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Overview</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          This Privacy Policy applies to the <strong>BAYAD</strong> mobile application ("App") available on Google Play Store,
+          developed for users in the Philippines. BAYAD is a utility bill tracker that helps Filipino households
+          estimate and monitor electricity, water, and internet expenses.
+        </p>
+        <p>
+          Because the App operates entirely on your device with no server connection,
+          this policy is straightforward: <strong>we do not collect any data about you.</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 2. Information We Do Not Collect -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Information We Do Not Collect</h2>
+      </div>
+      <div class="section-body">
+        <p>BAYAD does not collect any of the following:</p>
+        <ul class="feat-list">
+          <li><span class="check">✕</span> Personal identifiers (name, email, phone number, address)</li>
+          <li><span class="check">✕</span> Device identifiers (device ID, advertising ID, IMEI)</li>
+          <li><span class="check">✕</span> Location data (GPS, IP address, region)</li>
+          <li><span class="check">✕</span> Usage analytics or crash reports</li>
+          <li><span class="check">✕</span> Financial or billing account information</li>
+          <li><span class="check">✕</span> Photos, contacts, or any other device data</li>
+          <li><span class="check">✕</span> Any data entered into the App</li>
+        </ul>
+        <div class="highlight">
+          <strong>No account or login is required.</strong> You can use BAYAD immediately after installation
+          without providing any personal information.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3. How the App Stores Data -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">How the App Stores Data</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          Any data you input (such as estimated consumption or region selection) is saved
+          using <strong>local device storage only</strong> (AsyncStorage). This data:
+        </p>
+        <ul class="feat-list">
+          <li><span class="check">✓</span> Never leaves your device</li>
+          <li><span class="check">✓</span> Is not accessible to the developer or any third party</li>
+          <li><span class="check">✓</span> Is permanently deleted when you uninstall the App</li>
+          <li><span class="check">✓</span> Can be cleared at any time through your device settings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 4. Internet & Third-Party Services -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Internet &amp; Third-Party Services</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          BAYAD works <strong>fully offline</strong>. The App does not make any network requests and
+          does not communicate with any external server, API, or third-party service.
+        </p>
+        <p>
+          No third-party SDKs for advertising, analytics, crash reporting, or social login
+          are integrated into the App.
+        </p>
+        <div class="highlight">
+          The App does not require an internet connection at any point during normal use.
+          Utility rate data is bundled within the App and updated through App Store updates only.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 5. Children's Privacy -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Children's Privacy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          BAYAD does not knowingly collect personal information from anyone, including children
+          under the age of 13. Since the App collects no data whatsoever, it poses no privacy
+          risk to users of any age.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 6. Compliance with Philippine Data Privacy Act -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Philippine Data Privacy Act</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          BAYAD is designed in full compliance with the <strong>Data Privacy Act of 2012
+          (Republic Act No. 10173)</strong> and its Implementing Rules and Regulations,
+          as enforced by the National Privacy Commission (NPC) of the Philippines.
+        </p>
+        <p>
+          Because no personal information is collected, processed, or stored by the developer,
+          there is no data processing activity subject to regulation under RA 10173.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 7. Changes to This Policy -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Changes to This Policy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will be reflected
+          on this page with a revised effective date. We encourage you to review this policy
+          periodically.
+        </p>
+        <p>
+          Continued use of the App after any changes constitutes your acceptance of the updated policy.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <h3>Questions or Concerns?</h3>
+      <p>
+        If you have any questions about this Privacy Policy or the App,
+        please reach out at <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a>.
+        We aim to respond within 5 business days.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <span>BAYAD</span> — Utility Bill Tracker &nbsp;·&nbsp; Philippines<br>
+      © 2026 BAYAD. All rights reserved.
+    </p>
+    <p class="footer-law">
+      In compliance with Republic Act No. 10173 — Data Privacy Act of 2012 (Philippines)
+    </p>
+  </footer>
+
+</body>
+</html>
