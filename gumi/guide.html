@@ -1,1239 +1,2659 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gumi Save – User Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ──────────────────────── TOKENS ──────────────────────── */
-    :root {
-      --bg:        #F7F6F2;
-      --card:      #FFFFFF;
-      --txt:       #1A1A1A;
-      --txt2:      #5C5C5C;
-      --border:    #E8E5DF;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gumi Save - User Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
-      --purple:    #7C5CFC;
-      --purple-l:  #EDE9FF;
-      --green:     #1DB77A;
-      --green-l:   #D6F5E8;
-      --orange:    #F47B24;
-      --orange-l:  #FEF0E5;
-      --pink:      #F06292;
-      --pink-l:    #FDE9F0;
-      --teal:      #26A69A;
-      --teal-l:    #DFF5F3;
-      --blue:      #4A90D9;
-      --blue-l:    #E3EFF9;
+  :root {
+    --pink: #E8839B;
+    --pink-light: #FFF0F3;
+    --purple: #7B61FF;
+    --purple-light: #F0EDFF;
+    --green: #2EC4B6;
+    --green-light: #E8FBF8;
+    --orange: #F4A261;
+    --orange-light: #FFF5EB;
+    --blue: #4A90D9;
+    --blue-light: #EBF3FC;
+    --bg: #FEFCFD;
+    --text: #2D2D3A;
+    --text-light: #6B6B80;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --radius: 16px;
+  }
 
-      --radius:    16px;
-      --shadow:    0 4px 24px rgba(0,0,0,.07);
-      --shadow-lg: 0 12px 48px rgba(0,0,0,.12);
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ──────────────────────── RESET ──────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--txt);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
+  body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
 
-    /* ──────────────────────── NAV ──────────────────────── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(247,246,242,.95);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 20px;
-      display: flex; align-items: center;
-      height: 56px;
-      gap: 12px;
-    }
-    .nav-logo {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 800; font-size: 1.1rem;
-      display: flex; align-items: center; gap: 6px;
-      white-space: nowrap; flex-shrink: 0;
-    }
-    .nav-logo span { color: var(--green); }
-    .nav-divider {
-      width: 1px; height: 24px; background: var(--border);
-      flex-shrink: 0;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 2px;
-      list-style: none; flex: 1;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links li { flex-shrink: 0; }
-    .nav-links a {
-      display: inline-flex; align-items: center;
-      font-size: .77rem; font-weight: 600;
-      padding: 5px 10px; border-radius: 20px;
-      white-space: nowrap; color: var(--txt2);
-      transition: background .15s, color .15s;
-      line-height: 1;
-    }
-    .nav-links a:hover { background: var(--border); color: var(--txt); }
-    .lang-btns {
-      display: flex; gap: 4px; flex-shrink: 0;
-    }
-    .lang-btn {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: .72rem; font-weight: 700;
-      padding: 5px 12px; border-radius: 20px;
-      border: 1.5px solid var(--border);
-      background: transparent; cursor: pointer;
-      color: var(--txt2); transition: all .2s;
-      line-height: 1;
-    }
-    .lang-btn.active {
-      background: var(--green); border-color: var(--green);
-      color: #fff;
-    }
-    .lang-btn:hover:not(.active) { border-color: var(--green); color: var(--green); }
+  /* ---- HEADER ---- */
+  .hero {
+    background: linear-gradient(135deg, #FFE0E8 0%, #E8D5FF 50%, #D5E8FF 100%);
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 40px;
+    background: var(--bg);
+    border-radius: 40px 40px 0 0;
+  }
+  .hero img.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+    filter: drop-shadow(0 8px 24px rgba(232,131,155,0.3));
+  }
+  .hero h1 {
+    font-size: 2.4em;
+    font-weight: 800;
+    margin: 16px 0 4px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .tagline {
+    font-size: 1.15em;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+  .hero .version {
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.7);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    color: var(--text-light);
+  }
 
-    /* ──────────────────────── HERO ──────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, #1A0A3B 0%, #2D1478 50%, #0F3D2E 100%);
-      color: #fff;
-      padding: 100px 24px 80px;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 50%, rgba(124,92,252,.35) 0%, transparent 60%),
-                  radial-gradient(circle at 70% 50%, rgba(29,183,122,.25) 0%, transparent 60%);
-    }
-    .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 40px; padding: 6px 16px;
-      font-size: .78rem; font-weight: 700; letter-spacing: .06em;
-      margin-bottom: 24px; color: #C3F4DB;
-    }
-    .hero h1 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      font-weight: 800; line-height: 1.08;
-      margin-bottom: 20px; letter-spacing: -.02em;
-    }
-    .hero h1 .accent { color: #6EF5B2; }
-    .hero-sub {
-      font-size: 1.1rem; color: rgba(255,255,255,.75);
-      max-width: 520px; margin: 0 auto 36px;
-    }
-    .hero-pills {
-      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-    }
-    .hero-pill {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 30px; padding: 8px 18px;
-      font-size: .85rem; font-weight: 600;
-      display: flex; align-items: center; gap: 6px;
-    }
+  /* ---- LANGUAGE SWITCHER ---- */
+  .lang-bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 0 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .lang-bar button {
+    padding: 8px 22px;
+    border: 2px solid var(--pink);
+    background: white;
+    color: var(--pink);
+    border-radius: 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-bar button.active,
+  .lang-bar button:hover {
+    background: var(--pink);
+    color: white;
+  }
+  .lang-bar .summary-toggle {
+    margin-left: 16px;
+    border-color: var(--purple);
+    color: var(--purple);
+  }
+  .lang-bar .summary-toggle.active,
+  .lang-bar .summary-toggle:hover {
+    background: var(--purple);
+    color: white;
+  }
 
-    /* ──────────────────────── LAYOUT ──────────────────────── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; border-bottom: 1px solid var(--border); }
-    .section:last-child { border-bottom: none; }
+  /* ---- LAYOUT ---- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
 
-    .section-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800; line-height: 1.15; letter-spacing: -.02em;
-      margin-bottom: 14px;
-    }
-    .section-desc {
-      color: var(--txt2); font-size: 1.05rem; max-width: 560px;
-      margin-bottom: 40px; line-height: 1.75;
-    }
+  /* ---- TOC ---- */
+  .toc {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 32px;
+    margin: 30px 0 40px;
+    border-left: 5px solid var(--pink);
+  }
+  .toc h2 {
+    font-size: 1.4em;
+    margin-bottom: 16px;
+    color: var(--pink);
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+  }
+  .toc > ol > li {
+    counter-increment: toc-counter;
+    margin-bottom: 6px;
+  }
+  .toc > ol > li > a::before {
+    content: counter(toc-counter) ". ";
+    font-weight: 800;
+    color: var(--pink);
+  }
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .toc a:hover { color: var(--pink); }
+  .toc ol ol {
+    padding-left: 24px;
+    margin-top: 4px;
+  }
+  .toc ol ol li { margin-bottom: 3px; }
+  .toc ol ol a { font-weight: 400; font-size: 0.95em; }
 
-    /* ──────────────────────── FEATURE LAYOUTS ──────────────────────── */
-    .feature-split {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      align-items: center;
-    }
-    .feature-split.reverse { direction: rtl; }
-    .feature-split.reverse > * { direction: ltr; }
+  /* ---- SECTIONS ---- */
+  section {
+    margin-bottom: 48px;
+  }
+  section > h2 {
+    font-size: 1.8em;
+    font-weight: 800;
+    padding: 12px 0;
+    margin-bottom: 20px;
+    border-bottom: 3px solid;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  section > h3 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    color: var(--text);
+  }
 
-    .phone-wrap {
-      display: flex; justify-content: center; gap: 16px;
-    }
-    .phone-frame {
-      width: 220px; flex-shrink: 0;
-      background: #111;
-      border-radius: 38px;
-      padding: 10px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.05);
-      position: relative;
-      transform: rotate(-1.5deg);
-      transition: transform .3s ease;
-    }
-    .phone-frame:nth-child(2) { transform: rotate(1.5deg) translateY(-8px); }
-    .phone-frame:hover { transform: rotate(0) translateY(-6px) !important; }
-    .phone-screen {
-      border-radius: 30px; overflow: hidden;
-      aspect-ratio: 9/19.5;
-    }
-    .phone-screen img { width: 100%; height: 100%; object-fit: cover; }
+  .color-pink { border-color: var(--pink); color: var(--pink); }
+  .color-purple { border-color: var(--purple); color: var(--purple); }
+  .color-green { border-color: var(--green); color: var(--green); }
+  .color-orange { border-color: var(--orange); color: var(--orange); }
+  .color-blue { border-color: var(--blue); color: var(--blue); }
 
-    /* ──────────────────────── STEPS ──────────────────────── */
-    .steps { display: flex; flex-direction: column; gap: 16px; }
-    .step {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px 24px;
-      transition: box-shadow .2s;
-    }
-    .step:hover { box-shadow: var(--shadow); }
-    .step-num {
-      width: 36px; height: 36px; flex-shrink: 0;
-      border-radius: 50%; font-weight: 800; font-size: .9rem;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff;
-    }
-    .step-content h4 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 700; font-size: 1rem; margin-bottom: 4px;
-    }
-    .step-content p { font-size: .9rem; color: var(--txt2); }
+  /* ---- CARDS ---- */
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .card h4 {
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p, .card li {
+    color: var(--text-light);
+    font-size: 0.95em;
+  }
+  .card ul, .card ol {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  .card li { margin-bottom: 5px; }
 
-    /* ──────────────────────── FEATURE CARDS ──────────────────────── */
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-    .feat-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: box-shadow .2s, transform .2s;
-    }
-    .feat-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-    .feat-icon { font-size: 1.8rem; margin-bottom: 12px; }
-    .feat-card h4 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 700; font-size: 1rem; margin-bottom: 6px;
-    }
-    .feat-card p { font-size: .88rem; color: var(--txt2); }
+  /* ---- SCREENSHOT ---- */
+  .screenshot-wrap {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .screenshot-wrap img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .screenshot-wrap img.cut-img {
+    max-width: 500px;
+    border-radius: 12px;
+  }
+  .screenshot-wrap .caption {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 8px;
+    font-style: italic;
+  }
 
-    /* ──────────────────────── HIGHLIGHT BOX ──────────────────────── */
-    .highlight {
-      border-radius: var(--radius); padding: 28px 32px;
-      display: flex; gap: 16px; align-items: flex-start;
-      margin-bottom: 32px;
-    }
-    .highlight-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .highlight h4 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 700; margin-bottom: 6px;
-    }
-    .highlight p { font-size: .92rem; }
+  /* ---- BADGE ---- */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .badge-online {
+    background: var(--blue-light);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
+  .badge-offline {
+    background: #f0f0f0;
+    color: #888;
+  }
 
-    /* ──────────────────────── STAGE CARDS ──────────────────────── */
-    .stages { display: flex; flex-direction: column; gap: 10px; }
-    .stage {
-      display: flex; align-items: center; gap: 16px;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 14px 20px;
-    }
-    .stage-emoji { font-size: 1.6rem; width: 44px; text-align: center; }
-    .stage-pct {
-      font-size: .75rem; font-weight: 800; color: var(--txt2);
-      width: 80px;
-    }
-    .stage-info h4 { font-weight: 700; font-size: .95rem; }
-    .stage-info p { font-size: .82rem; color: var(--txt2); }
+  /* ---- IMPORTANT BOX ---- */
+  .important-box {
+    background: linear-gradient(135deg, var(--pink-light), var(--purple-light));
+    border-left: 5px solid var(--pink);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .important-box h4 {
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .info-box {
+    background: var(--blue-light);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .info-box h4 { color: var(--blue); margin-bottom: 8px; }
+  .warning-box {
+    background: var(--orange-light);
+    border-left: 5px solid var(--orange);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .warning-box h4 { color: var(--orange); margin-bottom: 8px; }
 
-    /* ──────────────────────── FAQ ──────────────────────── */
-    .faq-list { display: flex; flex-direction: column; gap: 12px; }
-    .faq-item {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .faq-q {
-      padding: 18px 24px; font-weight: 700; font-size: .95rem;
-      cursor: pointer; display: flex; justify-content: space-between;
-      align-items: center; gap: 12px; user-select: none;
-    }
-    .faq-q::after { content: '＋'; font-size: 1.2rem; flex-shrink: 0; transition: transform .2s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .35s ease, padding .35s ease;
-      font-size: .92rem; color: var(--txt2);
-      padding: 0 24px;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+  /* ---- SCENARIO STEPS ---- */
+  .steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step-counter;
+    padding: 12px 16px 12px 52px;
+    position: relative;
+    margin-bottom: 8px;
+    background: #FAFAFA;
+    border-radius: 12px;
+  }
+  .steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    background: var(--pink);
+    color: white;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    /* ──────────────────────── OTP STEPS ──────────────────────── */
-    .otp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .otp-block {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-    }
-    .otp-block h3 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 700; font-size: 1.15rem; margin-bottom: 16px;
-    }
-    .otp-steps { display: flex; flex-direction: column; gap: 12px; counter-reset: otp; }
-    .otp-step {
-      display: flex; gap: 12px; align-items: flex-start;
-      font-size: .88rem;
-    }
-    .otp-step-n {
-      width: 26px; height: 26px; flex-shrink: 0;
-      border-radius: 50%; background: var(--green); color: #fff;
-      font-weight: 800; font-size: .78rem;
-      display: flex; align-items: center; justify-content: center;
-    }
+  /* ---- SUMMARY MODE ---- */
+  .detail-only { display: block; }
+  body.summary-mode .detail-only { display: none; }
+  body.summary-mode .summary-only { display: block; }
+  .summary-only { display: none; }
 
-    /* ──────────────────────── SECURITY PILLS ──────────────────────── */
-    .security-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-    .sec-pill {
-      background: var(--green-l); border: 1px solid #A8E8CF;
-      border-radius: 12px; padding: 16px 18px;
-    }
-    .sec-pill h5 { font-weight: 700; font-size: .88rem; margin-bottom: 4px; color: #0A6E42; }
-    .sec-pill p { font-size: .8rem; color: #1A5C3A; }
+  /* ---- LANGUAGE ---- */
+  [lang="tl"], [lang="ceb"] { display: none; }
 
-    /* ──────────────────────── BOTTOM CTA ──────────────────────── */
-    .footer {
-      background: linear-gradient(135deg, #0F1923 0%, #1A0A3B 100%);
-      color: #fff; text-align: center; padding: 80px 24px;
-    }
-    .footer h2 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.8rem);
-      font-weight: 800; margin-bottom: 14px; letter-spacing: -.02em;
-    }
-    .footer p { color: rgba(255,255,255,.65); margin-bottom: 32px; }
-    .footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .footer-link {
-      padding: 12px 28px; border-radius: 40px; font-weight: 700; font-size: .9rem;
-      display: flex; align-items: center; gap: 8px; transition: all .2s;
-    }
-    .footer-link.primary { background: var(--green); color: #fff; }
-    .footer-link.secondary {
-      border: 2px solid rgba(255,255,255,.25); color: rgba(255,255,255,.8);
-    }
-    .footer-link:hover { opacity: .85; transform: translateY(-2px); }
-    .footer-copy { margin-top: 48px; color: rgba(255,255,255,.35); font-size: .8rem; }
+  /* ---- FOOTER ---- */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 0.9em;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  footer a { color: var(--pink); text-decoration: none; }
 
-    /* ──────────────────────── COLOR HELPERS ──────────────────────── */
-    .c-purple  { --sec: var(--purple); --sec-l: var(--purple-l); }
-    .c-green   { --sec: var(--green);  --sec-l: var(--green-l); }
-    .c-orange  { --sec: var(--orange); --sec-l: var(--orange-l); }
-    .c-pink    { --sec: var(--pink);   --sec-l: var(--pink-l); }
-    .c-teal    { --sec: var(--teal);   --sec-l: var(--teal-l); }
-    .c-blue    { --sec: var(--blue);   --sec-l: var(--blue-l); }
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.8em; }
+    .card { padding: 20px; }
+    .toc { padding: 20px; }
+    .screenshot-wrap img { max-width: 280px; }
+    .screenshot-wrap img.cut-img { max-width: 100%; }
+  }
 
-    .section-tag  { background: var(--sec-l); color: var(--sec); }
-    .step-num     { background: var(--sec); }
-
-    /* ──────────────────────── RESPONSIVE ──────────────────────── */
-    @media (max-width: 768px) {
-      .feature-split { grid-template-columns: 1fr; gap: 40px; }
-      .feature-split.reverse { direction: ltr; }
-      .otp-cols { grid-template-columns: 1fr; }
-      .phone-wrap { gap: 10px; }
-      .phone-frame { width: 160px; }
-      .nav-links { display: none; }
-      .hero { padding: 72px 20px 60px; }
-    }
-
-    /* ──────────────────────── LANG HIDE ──────────────────────── */
-    /* Hide all lang variants by default */
-    [data-lang] { display: none !important; }
-
-    /* Show the active language — use revert so each element keeps its natural display type
-       (inline for span, block for div/p, flex for .step etc.) */
-    body[data-active-lang="en"]  [data-lang="en"]  { display: revert !important; }
-    body[data-active-lang="tl"]  [data-lang="tl"]  { display: revert !important; }
-    body[data-active-lang="ceb"] [data-lang="ceb"] { display: revert !important; }
-
-    /* Restore flex/inline-flex for elements that need it */
-    body[data-active-lang="en"]  .hero-pill[data-lang="en"],
-    body[data-active-lang="tl"]  .hero-pill[data-lang="tl"],
-    body[data-active-lang="ceb"] .hero-pill[data-lang="ceb"]  { display: inline-flex !important; }
-
-    body[data-active-lang="en"]  .step[data-lang="en"],
-    body[data-active-lang="tl"]  .step[data-lang="tl"],
-    body[data-active-lang="ceb"] .step[data-lang="ceb"]       { display: flex !important; }
-
-    body[data-active-lang="en"]  .stage[data-lang="en"],
-    body[data-active-lang="tl"]  .stage[data-lang="tl"],
-    body[data-active-lang="ceb"] .stage[data-lang="ceb"]      { display: flex !important; }
-
-    body[data-active-lang="en"]  .otp-step[data-lang="en"],
-    body[data-active-lang="tl"]  .otp-step[data-lang="tl"],
-    body[data-active-lang="ceb"] .otp-step[data-lang="ceb"]   { display: flex !important; }
-  </style>
+  .two-screenshots {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .two-screenshots .screenshot-wrap { flex: 1; min-width: 250px; }
+</style>
 </head>
-<body data-active-lang="en">
+<body>
 
-<!-- ═══════════════════════ NAV ═══════════════════════ -->
-<nav class="nav">
-  <div class="nav-logo">🐷 Gumi <span>Save</span></div>
-  <div class="nav-divider"></div>
-  <ul class="nav-links">
-    <li><a href="#start">Getting Started</a></li>
-    <li><a href="#dashboard">Dashboard</a></li>
-    <li><a href="#envelope">Envelopes</a></li>
-    <li><a href="#utang">Utang</a></li>
-    <li><a href="#dream">Dream</a></li>
-    <li><a href="#utilities">Utilities</a></li>
-    <li><a href="#backup">Backup</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <div class="lang-btns">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('tl')">TL</button>
-    <button class="lang-btn" onclick="setLang('ceb')">CEB</button>
-  </div>
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <img src="assets/logo.png" alt="Gumi Save Logo" class="logo">
+  <h1>Gumi Save</h1>
+  <p class="tagline" lang="en">When saving becomes fun</p>
+  <p class="tagline" lang="tl">Kapag ang pagtitipid ay naging masaya</p>
+  <p class="tagline" lang="ceb">Kung ang pag-save mahimong makalingaw</p>
+  <div class="version">v2.0.1</div>
+</div>
+
+<!-- ============ LANG BAR ============ -->
+<div class="lang-bar">
+  <button onclick="setLang('en')" class="active" id="btn-en">EN</button>
+  <button onclick="setLang('tl')" id="btn-tl">Tagalog</button>
+  <button onclick="setLang('ceb')" id="btn-ceb">Cebuano</button>
+  <button onclick="toggleSummary()" class="summary-toggle" id="btn-summary">
+    <span lang="en">Summary View</span>
+    <span lang="tl">Buod</span>
+    <span lang="ceb">Summary</span>
+  </button>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!--                     TABLE OF CONTENTS                        -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <h2 lang="en">Table of Contents</h2>
+  <h2 lang="tl">Talaan ng Nilalaman</h2>
+  <h2 lang="ceb">Listahan sa Sulod</h2>
+  <ol>
+    <li><a href="#onboarding" lang="en">Getting Started (Onboarding)</a><a href="#onboarding" lang="tl">Pagsisimula (Onboarding)</a><a href="#onboarding" lang="ceb">Pagsugod (Onboarding)</a></li>
+    <li>
+      <a href="#dashboard" lang="en">Dashboard</a><a href="#dashboard" lang="tl">Dashboard</a><a href="#dashboard" lang="ceb">Dashboard</a>
+      <ol>
+        <li><a href="#dash-summary" lang="en">Summary Card</a><a href="#dash-summary" lang="tl">Summary Card</a><a href="#dash-summary" lang="ceb">Summary Card</a></li>
+        <li><a href="#dash-quick" lang="en">Quick Expense</a><a href="#dash-quick" lang="tl">Quick Expense</a><a href="#dash-quick" lang="ceb">Quick Expense</a></li>
+        <li><a href="#dash-actions" lang="en">Action Buttons (Add Income / Expense / Savings / Scan Receipt)</a><a href="#dash-actions" lang="tl">Mga Action Button</a><a href="#dash-actions" lang="ceb">Action Buttons</a></li>
+        <li><a href="#dash-envelopes" lang="en">Envelopes Preview</a><a href="#dash-envelopes" lang="tl">Preview ng Envelope</a><a href="#dash-envelopes" lang="ceb">Envelope Preview</a></li>
+        <li><a href="#dash-todays" lang="en">Today's Transactions</a><a href="#dash-todays" lang="tl">Mga Transaksyon Ngayon</a><a href="#dash-todays" lang="ceb">Transactions Karon</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#add-expense" lang="en">Adding Transactions (Income / Expense / Savings)</a><a href="#add-expense" lang="tl">Pagdagdag ng Transaksyon</a><a href="#add-expense" lang="ceb">Pagdugang og Transaksyon</a>
+    </li>
+    <li>
+      <a href="#envelope" lang="en">Envelope (Budget Management)</a><a href="#envelope" lang="tl">Envelope (Budget Management)</a><a href="#envelope" lang="ceb">Envelope (Budget Management)</a>
+      <ol>
+        <li><a href="#envelope-view" lang="en">Envelope List &amp; Budget Summary</a><a href="#envelope-view" lang="tl">Listahan ng Envelope</a><a href="#envelope-view" lang="ceb">Lista sa Envelope</a></li>
+        <li><a href="#envelope-manage" lang="en">Envelope Management</a><a href="#envelope-manage" lang="tl">Envelope Management</a><a href="#envelope-manage" lang="ceb">Envelope Management</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#utang" lang="en">Utang (Debt Tracking)</a><a href="#utang" lang="tl">Utang</a><a href="#utang" lang="ceb">Utang</a>
+      <ol>
+        <li><a href="#utang-overview" lang="en">Utang Overview</a><a href="#utang-overview" lang="tl">Utang Overview</a><a href="#utang-overview" lang="ceb">Utang Overview</a></li>
+        <li><a href="#utang-list" lang="en">My Utang List</a><a href="#utang-list" lang="tl">My Utang List</a><a href="#utang-list" lang="ceb">My Utang List</a></li>
+        <li><a href="#hulugan" lang="en">Hulugan Schedule (Payment Plan)</a><a href="#hulugan" lang="tl">Hulugan Schedule</a><a href="#hulugan" lang="ceb">Hulugan Schedule</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#dream" lang="en">Dream Board (Savings Goals)</a><a href="#dream" lang="tl">Dream Board</a><a href="#dream" lang="ceb">Dream Board</a>
+      <ol>
+        <li><a href="#dream-card" lang="en">Dream Card</a><a href="#dream-card" lang="tl">Dream Card</a><a href="#dream-card" lang="ceb">Dream Card</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#calendar" lang="en">Calendar</a><a href="#calendar" lang="tl">Kalendaryo</a><a href="#calendar" lang="ceb">Kalendaryo</a>
+    </li>
+    <li>
+      <a href="#sidebar" lang="en">Side Menu</a><a href="#sidebar" lang="tl">Side Menu</a><a href="#sidebar" lang="ceb">Side Menu</a>
+    </li>
+    <li>
+      <a href="#bills" lang="en">Utility Bills (Calculator / Estimator / History)</a><a href="#bills" lang="tl">Utility Bills</a><a href="#bills" lang="ceb">Utility Bills</a>
+      <ol>
+        <li><a href="#bill-calc" lang="en">Bill Calculator</a><a href="#bill-calc" lang="tl">Bill Calculator</a><a href="#bill-calc" lang="ceb">Bill Calculator</a></li>
+        <li><a href="#bill-est" lang="en">Bill Estimator</a><a href="#bill-est" lang="tl">Bill Estimator</a><a href="#bill-est" lang="ceb">Bill Estimator</a></li>
+        <li><a href="#bill-history" lang="en">Billing History</a><a href="#bill-history" lang="tl">Billing History</a><a href="#bill-history" lang="ceb">Billing History</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#analytics" lang="en">Analytics (AI Coach &amp; Report)</a><a href="#analytics" lang="tl">Analytics</a><a href="#analytics" lang="ceb">Analytics</a>
+      <ol>
+        <li><a href="#ai-coach" lang="en">AI Coach</a><a href="#ai-coach" lang="tl">AI Coach</a><a href="#ai-coach" lang="ceb">AI Coach</a></li>
+        <li><a href="#report" lang="en">Report</a><a href="#report" lang="tl">Report</a><a href="#report" lang="ceb">Report</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#extra" lang="en">Extra Fun (Daily Swerte &amp; Palad Guide)</a><a href="#extra" lang="tl">Extra Fun</a><a href="#extra" lang="ceb">Extra Fun</a>
+    </li>
+    <li>
+      <a href="#settings" lang="en">Settings</a><a href="#settings" lang="tl">Mga Setting</a><a href="#settings" lang="ceb">Settings</a>
+      <ol>
+        <li><a href="#settings-quick" lang="en">Quick Expense Management</a><a href="#settings-quick" lang="tl">Quick Expense Management</a><a href="#settings-quick" lang="ceb">Quick Expense Management</a></li>
+        <li><a href="#settings-backup" lang="en">Backup, Restore &amp; OTP (Device Transfer)</a><a href="#settings-backup" lang="tl">Backup, Restore &amp; OTP</a><a href="#settings-backup" lang="ceb">Backup, Restore &amp; OTP</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#widgets" lang="en">Home Screen Widgets</a><a href="#widgets" lang="tl">Home Screen Widgets</a><a href="#widgets" lang="ceb">Home Screen Widgets</a>
+    </li>
+    <li>
+      <a href="#important-info" lang="en">Important Information</a><a href="#important-info" lang="tl">Mahalagang Impormasyon</a><a href="#important-info" lang="ceb">Importanteng Impormasyon</a>
+    </li>
+    <li>
+      <a href="#easter-eggs" lang="en">Easter Eggs</a><a href="#easter-eggs" lang="tl">Easter Eggs</a><a href="#easter-eggs" lang="ceb">Easter Eggs</a>
+    </li>
+    <li>
+      <a href="#support-us" lang="en">Support Us</a><a href="#support-us" lang="tl">Suportahan Kami</a><a href="#support-us" lang="ceb">Suportahi Kami</a>
+    </li>
+  </ol>
 </nav>
 
-<!-- ═══════════════════════ HERO ═══════════════════════ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span>📖</span>
-      <span data-lang="en">Official User Guide · v1.1.0</span>
-      <span data-lang="tl">Opisyal na Gabay · v1.1.0</span>
-      <span data-lang="ceb">Opisyal nga Giya · v1.1.0</span>
+
+<!-- ============================================================ -->
+<!-- 1. ONBOARDING                                                 -->
+<!-- ============================================================ -->
+<section id="onboarding">
+  <h2 class="color-pink">
+    <span lang="en">1. Getting Started (Onboarding)</span>
+    <span lang="tl">1. Pagsisimula (Onboarding)</span>
+    <span lang="ceb">1. Pagsugod (Onboarding)</span>
+  </h2>
+
+  <div class="screenshot-wrap">
+    <img src="assets/onboarding.png" alt="Onboarding Screen">
+    <div class="caption" lang="en">Welcome screen - first time setup</div>
+    <div class="caption" lang="tl">Welcome screen - unang setup</div>
+    <div class="caption" lang="ceb">Welcome screen - una nga setup</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Welcome to Gumi Save!</h4>
+      <p>When you open the app for the first time, you'll see the onboarding screen with the adorable Gumi piggy bank mascot holding a golden heart.</p>
+      <p>The speech bubble says <em>"Need a hand? Check out the User Guide in Settings!"</em> - that's this guide!</p>
+      <h4 style="margin-top:16px">Components on this screen:</h4>
+      <ul>
+        <li><strong>Language Selector (EN / TL / CEB):</strong> Choose your preferred language - English, Tagalog, or Cebuano (Bisaya). You can change this later in Settings.</li>
+        <li><strong>Your Name:</strong> Enter your display name. This is how Gumi will greet you (e.g., "Hello, Gumi Friend").</li>
+        <li><strong>PIN:</strong> Create a secure 6-digit PIN to protect your data. You will need this PIN every time you open the app.</li>
+        <li><strong>Start Button:</strong> Tap this pink button to complete setup and enter the app.</li>
+      </ul>
     </div>
-    <h1>
-      <span data-lang="en">Everything you need to<br/><span class="accent">master your money</span></span>
-      <span data-lang="tl">Lahat ng kailangan mo para<br/><span class="accent">pamahalaan ang pera</span></span>
-      <span data-lang="ceb">Tanan nga kinahanglan para<br/><span class="accent">dugangan ang kwarta</span></span>
-    </h1>
-    <p class="hero-sub">
-      <span data-lang="en">Gumi Save is the personal finance app built for Filipinos — offline-first, no sign-up required, and packed with tools for OFW families.</span>
-      <span data-lang="tl">Ang Gumi Save ay personal finance app para sa mga Pilipino — gumagana nang walang internet, walang pag-sign up, at may mga tampok para sa OFW families.</span>
-      <span data-lang="ceb">Ang Gumi Save usa ka personal finance app alang sa mga Pilipino — nagtrabaho bisan walay internet, walay sign-up, ug puno sa features para sa OFW families.</span>
-    </p>
-    <div class="hero-pills">
-      <div class="hero-pill">
-        <span data-lang="en">✅ Works Offline</span>
-        <span data-lang="tl">✅ Gumagana Offline</span>
-        <span data-lang="ceb">✅ Nagtrabaho Offline</span>
+    <div lang="tl">
+      <h4>Maligayang pagdating sa Gumi Save!</h4>
+      <p>Kapag unang binuksan mo ang app, makikita mo ang onboarding screen na may cute na Gumi piggy bank mascot na may hawak na gintong puso.</p>
+      <h4 style="margin-top:16px">Mga component sa screen na ito:</h4>
+      <ul>
+        <li><strong>Language Selector (EN / TL / CEB):</strong> Piliin ang iyong wika - English, Tagalog, o Cebuano (Bisaya).</li>
+        <li><strong>Your Name:</strong> Ilagay ang iyong pangalan.</li>
+        <li><strong>PIN:</strong> Gumawa ng 6-digit PIN para sa seguridad.</li>
+        <li><strong>Start Button:</strong> I-tap ang pink na button para magsimula.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Welcome sa Gumi Save!</h4>
+      <p>Kung una nimong ablihan ang app, makita nimo ang onboarding screen nga adunay cute nga Gumi piggy bank mascot.</p>
+      <h4 style="margin-top:16px">Mga component sa screen:</h4>
+      <ul>
+        <li><strong>Language Selector (EN / TL / CEB):</strong> Pilia ang imong pinulongan - English, Tagalog, o Cebuano (Bisaya).</li>
+        <li><strong>Your Name:</strong> Isulat ang imong ngalan.</li>
+        <li><strong>PIN:</strong> Paghimo og 6-digit PIN para sa seguridad.</li>
+        <li><strong>Start Button:</strong> I-tap ang pink nga button para magsugod.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 2. DASHBOARD                                                  -->
+<!-- ============================================================ -->
+<section id="dashboard">
+  <h2 class="color-purple">
+    <span lang="en">2. Dashboard</span>
+    <span lang="tl">2. Dashboard</span>
+    <span lang="ceb">2. Dashboard</span>
+  </h2>
+
+  <div class="card">
+    <div lang="en">
+      <p>The Dashboard is your home screen. It gives you a complete overview of your finances at a glance. You can see your budget summary, quick expense shortcuts, action buttons, envelope status, and today's transactions all in one place.</p>
+    </div>
+    <div lang="tl">
+      <p>Ang Dashboard ay ang iyong home screen. Nagbibigay ito ng buong overview ng iyong pananalapi sa isang tingin.</p>
+    </div>
+    <div lang="ceb">
+      <p>Ang Dashboard mao ang imong home screen. Naghatag kini og tibuok nga overview sa imong pinansyal sa usa ka tan-aw.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Top Bar</h4>
+      <ul>
+        <li><strong>Hamburger Menu (three lines icon):</strong> Opens the slide-out side menu with additional features.</li>
+        <li><strong>Greeting:</strong> Shows "Hello [Your Name]" with a waving hand emoji.</li>
+        <li><strong>Lock Icon (top-right):</strong> Tap to lock the app. Useful for privacy.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Top Bar</h4>
+      <ul>
+        <li><strong>Hamburger Menu:</strong> Binubuksan ang side menu na may mga karagdagang feature.</li>
+        <li><strong>Greeting:</strong> Ipinapakita ang "Hello [Pangalan Mo]".</li>
+        <li><strong>Lock Icon:</strong> I-tap para i-lock ang app agad.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Top Bar</h4>
+      <ul>
+        <li><strong>Hamburger Menu:</strong> Mag-abli sa side menu nga adunay dugang nga mga feature.</li>
+        <li><strong>Greeting:</strong> Nagpakita og "Hello [Imong Ngalan]".</li>
+        <li><strong>Lock Icon:</strong> I-tap para i-lock ang app dayon.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SUMMARY CARD -->
+  <h3 id="dash-summary" lang="en">2.1 Summary Card</h3>
+  <h3 id="dash-summary" lang="tl">2.1 Summary Card</h3>
+  <h3 id="dash-summary" lang="ceb">2.1 Summary Card</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/dashboard_no_quick_expense.png" alt="Dashboard">
+      <div class="caption" lang="en">Dashboard - collapsed summary</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/dashboard_summary_expanded.png" alt="Dashboard summary expanded">
+      <div class="caption" lang="en">Dashboard - expanded summary</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dashboard_summary.webp" alt="Summary detail" class="cut-img">
+    <div class="caption" lang="en">Summary card expanded - detailed view</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Summary Card (Purple Gradient Box)</h4>
+      <p>This is the main financial overview card at the top of the dashboard.</p>
+      <ul>
+        <li><strong>Date Display:</strong> Shows the current date (e.g., "Apr 3, Fri").</li>
+        <li><strong>Budget Used Badge:</strong> Shows the percentage of your total budget used this period (e.g., "1% budget used"). Tap the <strong>"!"</strong> icon for details.</li>
+        <li><strong>Income:</strong> Total income(Include Borrowed (Utang)) for the current budget period. Shows "Borrowed (Utang)" amount separately when expanded.</li>
+        <li><strong>Expense:</strong> Total expenses(Exclude Credit (Utang)) for the current period. Shows "Credit (Utang)" amount separately when expanded.</li>
+        <li><strong>Savings:</strong> Total savings recorded.</li>
+        <li><strong>Balance (= amount):</strong> Net balance calculated as Income - Expense - Savings.</li>
+        <li><strong>"Tap to expand" / "Tap to collapse":</strong> Tap anywhere on the summary card to toggle between collapsed and expanded views. The expanded view shows additional details about Utang-related amounts.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Summary Card</h4>
+      <p>Ito ang pangunahing financial overview card sa itaas ng dashboard.</p>
+      <ul>
+        <li><strong>Petsa:</strong> Kasalukuyang petsa.</li>
+        <li><strong>Budget Used:</strong> Porsyento ng budget na nagamit.</li>
+        <li><strong>Income / Expense / Savings:</strong> Mga halaga para sa kasalukuyang budget period.</li>
+        <li><strong>Balance:</strong> Income - Expense - Savings.</li>
+        <li><strong>"Tap to expand":</strong> I-tap para makita ang mga detalye ng Utang.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Summary Card</h4>
+      <p>Mao ni ang nag-una nga financial overview card sa ibabaw sa dashboard.</p>
+      <ul>
+        <li><strong>Petsa:</strong> Kasamtangan nga petsa.</li>
+        <li><strong>Budget Used:</strong> Porsyento sa budget nga nagamit.</li>
+        <li><strong>Income / Expense / Savings:</strong> Mga kantidad para sa kasamtangan nga budget period.</li>
+        <li><strong>Balance:</strong> Income - Expense - Savings.</li>
+        <li><strong>"Tap to expand":</strong> I-tap para makita ang mga detalye sa Utang.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUICK EXPENSE -->
+  <h3 id="dash-quick" lang="en">2.2 Quick Expense</h3>
+  <h3 id="dash-quick" lang="tl">2.2 Quick Expense</h3>
+  <h3 id="dash-quick" lang="ceb">2.2 Quick Expense</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/dashboard_no_quick_expense.png" alt="No quick expense">
+      <div class="caption" lang="en">Dashboard without Quick Expense</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/dashboard_with_quick_expense.png" alt="With quick expense">
+      <div class="caption" lang="en">Dashboard with Quick Expense</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dashboard_quick_expense.webp" alt="Quick Expense detail" class="cut-img">
+    <div class="caption" lang="en">Quick Expense section - close-up</div>
+  </div>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>What is Quick Expense?</h4>
+      <p>Quick Expense is a shortcut feature that lets you record frequently used expenses with a single tap from the dashboard. For example, if you ride a jeepney every day for P13, you can set it up once and then just tap it each time.</p>
+      <p><strong>How to set it up:</strong></p>
+      <ol class="steps">
+        <li>Go to <strong>Settings</strong> (from the side menu).</li>
+        <li>Scroll down to the <strong>Management</strong> section.</li>
+        <li>Tap <strong>"Quick Expense"</strong>.</li>
+        <li>Tap <strong>"+ Add Item"</strong> at the bottom.</li>
+        <li>Fill in the Item Name (e.g., "Jeepney"), choose an Emoji, set the Amount (e.g., P13), and select an Envelope category.</li>
+        <li>Save. The Quick Expense will now appear on your Dashboard!</li>
+      </ol>
+      <p style="margin-top:12px"><strong>How to use it:</strong> Simply tap the Quick Expense button (e.g., "Jeepney P13") on the dashboard, and the expense is instantly recorded. You also see a "Manage" link to edit your Quick Expense items.</p>
+      <p><strong>Note:</strong> If you haven't added any Quick Expense items, this section will not appear on the dashboard.</p>
+    </div>
+    <div lang="tl">
+      <h4>Ano ang Quick Expense?</h4>
+      <p>Ang Quick Expense ay isang shortcut feature na nagbibigay-daan sa iyo na mag-record ng madalas gamitin na gastos sa isang tap lang mula sa dashboard.</p>
+      <p><strong>Paano i-set up:</strong></p>
+      <ol class="steps">
+        <li>Pumunta sa <strong>Settings</strong>.</li>
+        <li>Mag-scroll pababa sa <strong>Management</strong> section.</li>
+        <li>I-tap ang <strong>"Quick Expense"</strong>.</li>
+        <li>I-tap ang <strong>"+ Add Item"</strong>.</li>
+        <li>Punan ang Item Name, pumili ng Emoji, i-set ang Amount, at pumili ng Envelope.</li>
+        <li>I-save. Lalabas na ang Quick Expense sa iyong Dashboard!</li>
+      </ol>
+      <p style="margin-top:12px"><strong>Paano gamitin:</strong> I-tap lang ang Quick Expense button sa dashboard, at matatala agad ang gastos.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Unsa ang Quick Expense?</h4>
+      <p>Ang Quick Expense usa ka shortcut feature nga nagtugot nimo sa pag-record sa kanunay gamiton nga gastos sa usa ka tap lang gikan sa dashboard.</p>
+      <p><strong>Giunsa pag-set up:</strong></p>
+      <ol class="steps">
+        <li>Adto sa <strong>Settings</strong>.</li>
+        <li>Mag-scroll paubos sa <strong>Management</strong> section.</li>
+        <li>I-tap ang <strong>"Quick Expense"</strong>.</li>
+        <li>I-tap ang <strong>"+ Add Item"</strong>.</li>
+        <li>Pun-a ang Item Name, pilia ang Emoji, i-set ang Amount, ug pilia ang Envelope.</li>
+        <li>I-save. Makita na ang Quick Expense sa imong Dashboard!</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <h3 id="dash-actions" lang="en">2.3 Action Buttons</h3>
+  <h3 id="dash-actions" lang="tl">2.3 Mga Action Button</h3>
+  <h3 id="dash-actions" lang="ceb">2.3 Action Buttons</h3>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dashboard_action_buttons.webp" alt="Action buttons" class="cut-img">
+    <div class="caption" lang="en">Four action buttons on the dashboard</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Four Main Action Buttons</h4>
+      <p>These colorful buttons are your primary way to record transactions:</p>
+      <ul>
+        <li><strong>Add Income (Green):</strong> Record money you received (salary, allowance, etc.).</li>
+        <li><strong>Add Expense (Pink):</strong> Record money you spent.</li>
+        <li><strong>Add Savings (Yellow):</strong> Record money you set aside for savings.</li>
+        <li><strong>Scan Receipt (Blue) <span class="badge badge-online">online</span>:</strong> Take a photo of a receipt to automatically extract and record the expense. This feature uses AI and requires an internet connection.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Apat na Action Button</h4>
+      <ul>
+        <li><strong>Add Income (Green):</strong> Mag-record ng kinitang pera.</li>
+        <li><strong>Add Expense (Pink):</strong> Mag-record ng ginastos na pera.</li>
+        <li><strong>Add Savings (Yellow):</strong> Mag-record ng itinabi na pera.</li>
+        <li><strong>Scan Receipt (Blue) <span class="badge badge-online">online</span>:</strong> Kumuha ng litrato ng resibo para auto-record. Kailangan ng internet.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Upat ka Action Button</h4>
+      <ul>
+        <li><strong>Add Income (Green):</strong> Pag-record sa nadawat nga kwarta.</li>
+        <li><strong>Add Expense (Pink):</strong> Pag-record sa nagasto nga kwarta.</li>
+        <li><strong>Add Savings (Yellow):</strong> Pag-record sa gitipig nga kwarta.</li>
+        <li><strong>Scan Receipt (Blue) <span class="badge badge-online">online</span>:</strong> Pagkuha og litrato sa resibo para auto-record. Kinahanglan og internet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card detail-only">
+    <div lang="en">
+      <h4>Motivational Quote</h4>
+      <p>Below the action buttons, you'll see a rotating motivational tip about saving money. For example: <em>"Don't let lifestyle inflation eat your salary raise. Stay wise!"</em></p>
+    </div>
+    <div lang="tl">
+      <h4>Motivational Quote</h4>
+      <p>Sa ibaba ng mga action button, may makikitang motivational tip tungkol sa pagtitipid.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Motivational Quote</h4>
+      <p>Sa ubos sa mga action button, makita ang motivational tip bahin sa pag-save.</p>
+    </div>
+  </div>
+
+  <!-- ENVELOPES PREVIEW -->
+  <h3 id="dash-envelopes" lang="en">2.4 Envelopes Preview</h3>
+  <h3 id="dash-envelopes" lang="tl">2.4 Preview ng Envelope</h3>
+  <h3 id="dash-envelopes" lang="ceb">2.4 Envelope Preview</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/dashboard_envelopes.png" alt="Dashboard envelopes">
+  </div>
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dashboard_envelopes.webp" alt="Envelopes close-up" class="cut-img">
+    <div class="caption" lang="en">Envelopes section - shows up to 4 pinned envelopes</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Envelopes Section</h4>
+      <p>Shows up to <strong>4 pinned envelopes</strong> from your budget categories. Each envelope card displays:</p>
+      <ul>
+        <li><strong>Envelope Name &amp; Icon:</strong> e.g., "Rice & Ulam" with a rice bowl emoji.</li>
+        <li><strong>Progress Bar:</strong> Visual indicator of how much of the budget has been spent.</li>
+        <li><strong>Spent Amount:</strong> Total amount spent in this category.</li>
+        <li><strong>Remaining Amount:</strong> How much budget is left.</li>
+      </ul>
+      <p>Tap <strong>"View All"</strong> to go to the full Envelope tab for detailed budget information.</p>
+    </div>
+    <div lang="tl">
+      <h4>Envelopes Section</h4>
+      <p>Nagpapakita ng hanggang <strong>4 na pinned envelope</strong>. Bawat envelope card ay nagpapakita ng pangalan, progress bar, nagastos, at natitirang halaga.</p>
+      <p>I-tap ang <strong>"View All"</strong> para pumunta sa buong Envelope tab.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Envelopes Section</h4>
+      <p>Nagpakita og hangtud <strong>4 ka pinned envelope</strong>. Matag envelope card nagpakita sa ngalan, progress bar, nagasto, ug nahibilin nga kantidad.</p>
+      <p>I-tap ang <strong>"View All"</strong> para moadto sa tibuok Envelope tab.</p>
+    </div>
+  </div>
+
+  <!-- TODAY'S -->
+  <h3 id="dash-todays" lang="en">2.5 Today's Transactions</h3>
+  <h3 id="dash-todays" lang="tl">2.5 Mga Transaksyon Ngayon</h3>
+  <h3 id="dash-todays" lang="ceb">2.5 Transactions Karon</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/dashboard_todays.png" alt="Today's transactions">
+  </div>
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dashboard_todays.webp" alt="Today's close-up" class="cut-img">
+    <div class="caption" lang="en">Today's Transactions - detailed view</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Today's Transactions</h4>
+      <p>At the bottom of the dashboard, you'll see all transactions recorded today.</p>
+      <ul>
+        <li><strong>Total Spent:</strong> Shows the total amount spent today (e.g., "- P163 spent") in green text.</li>
+        <li><strong>Transaction List:</strong> Each transaction shows:
+          <ul>
+            <li>Envelope icon and name (e.g., "Pamasahe & Gas")</li>
+            <li>Time recorded (e.g., "07:32")</li>
+            <li>Amount in colored text (red for expense, green for income)</li>
+            <li><strong>"Credit (Utang)"</strong> badge if the expense was marked as borrowed money</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Mga Transaksyon Ngayon</h4>
+      <p>Sa ibaba ng dashboard, makikita mo ang lahat ng transaksyon na naitala ngayon.</p>
+      <ul>
+        <li><strong>Total na Ginastos:</strong> Kabuuang halaga ng ginastos ngayon.</li>
+        <li><strong>Listahan ng Transaksyon:</strong> Bawat transaksyon ay nagpapakita ng envelope icon, pangalan, oras, at halaga.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Mga Transaksyon Karon</h4>
+      <p>Sa ubos sa dashboard, makita nimo ang tanan nga transaksyon nga na-record karon.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 3. ADD EXPENSE                                                -->
+<!-- ============================================================ -->
+<section id="add-expense">
+  <h2 class="color-pink">
+    <span lang="en">3. Adding Transactions</span>
+    <span lang="tl">3. Pagdagdag ng Transaksyon</span>
+    <span lang="ceb">3. Pagdugang og Transaksyon</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/add_expense.png" alt="Add Expense">
+      <div class="caption" lang="en">Add Expense - initial screen</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/add_expense_ex1.png" alt="Add Expense example">
+      <div class="caption" lang="en">Amount entered with envelope selected</div>
+    </div>
+  </div>
+
+  <div class="two-screenshots detail-only">
+    <div class="screenshot-wrap">
+      <img src="assets/add_expense_ex2.png" alt="Add Expense with Utang">
+      <div class="caption" lang="en">Credit (Utang) toggle enabled</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/add_expense_utang.png" alt="Add Expense Utang and Memo">
+      <div class="caption" lang="en">Select Utang person and Memo field</div>
+    </div>
+  </div>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>How the Amount Buttons Work (+1, +5, +10...)</h4>
+      <p>Instead of typing the full amount, you <strong>tap the quick-add buttons to accumulate the amount</strong>. This is especially useful for small daily expenses.</p>
+      <p><strong>Available buttons:</strong> +P1, +P10, +P50, +P100, +P500, +P1k, +P5k, +P10k</p>
+      <p><strong>Example:</strong> To enter P13 for a jeepney fare:</p>
+      <ol class="steps">
+        <li>Tap <strong>+P10</strong> once (Amount shows: P10)</li>
+        <li>Tap <strong>+P1</strong> three times (Amount shows: P13)</li>
+      </ol>
+      <p>The <strong>C button (clear)</strong> resets the amount to 0.</p>
+    </div>
+    <div lang="tl">
+      <h4>Paano Gumagana ang Amount Buttons (+1, +5, +10...)</h4>
+      <p>Sa halip na i-type ang buong halaga, <strong>i-tap mo ang quick-add buttons para dagdagan ang halaga</strong>.</p>
+      <p><strong>Mga button:</strong> +P1, +P10, +P50, +P100, +P500, +P1k, +P5k, +P10k</p>
+      <p><strong>Halimbawa:</strong> Para mag-enter ng P13:</p>
+      <ol class="steps">
+        <li>I-tap ang <strong>+P10</strong> isang beses (P10)</li>
+        <li>I-tap ang <strong>+P1</strong> tatlong beses (P13)</li>
+      </ol>
+      <p>Ang <strong>C button</strong> ay nagre-reset ng halaga sa 0.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Giunsa Paggamit ang Amount Buttons (+1, +5, +10...)</h4>
+      <p>Imbis nga i-type ang tibuok kantidad, <strong>i-tap ang quick-add buttons para idugang ang kantidad</strong>.</p>
+      <p><strong>Mga button:</strong> +P1, +P10, +P50, +P100, +P500, +P1k, +P5k, +P10k</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Add Expense / Income / Savings Screen - All Components</h4>
+      <ul>
+        <li><strong>Date &amp; Time:</strong> Defaults to current date and time. Tap to change if you're recording a past transaction.</li>
+        <li><strong>Amount:</strong> Use the +P1, +P10, +P50, +P100, +P500, +P1k, +P5k, +P10k buttons to add to the amount. Tap C to clear.</li>
+        <li><strong>Select Envelope:</strong> Choose which budget category this transaction belongs to. Tap an envelope chip to select it (highlighted when selected).</li>
+        <li><strong>Credit (Utang) Toggle:</strong> Turn this ON if this expense was paid using borrowed money (utang). When enabled:
+          <ul>
+            <li>A <strong>"Select Utang"</strong> section appears showing your utang list (Sari Sari Store, Cousin, Friend, etc.)</li>
+            <li>Select who you borrowed from</li>
+            <li>This transaction will be tracked in the Utang tab</li>
+          </ul>
+        </li>
+        <li><strong>Memo:</strong> Optional text field (max 100 characters) for notes about the transaction.</li>
+        <li><strong>Cancel / Save buttons:</strong> Cancel discards, Save records the transaction.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Add Expense / Income / Savings Screen</h4>
+      <ul>
+        <li><strong>Petsa at Oras:</strong> Default sa kasalukuyang petsa at oras.</li>
+        <li><strong>Halaga:</strong> Gamitin ang +P buttons para dagdagan ang halaga.</li>
+        <li><strong>Select Envelope:</strong> Pumili ng budget category.</li>
+        <li><strong>Credit (Utang) Toggle:</strong> I-ON kung may hiniram na pera.</li>
+        <li><strong>Memo:</strong> Opsyonal na text field para sa mga tala.</li>
+        <li><strong>Cancel / Save:</strong> Cancel para itapon, Save para i-record.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Add Expense / Income / Savings Screen</h4>
+      <ul>
+        <li><strong>Petsa ug Oras:</strong> Default sa kasamtangan nga petsa ug oras.</li>
+        <li><strong>Kantidad:</strong> Gamita ang +P buttons para idugang ang kantidad.</li>
+        <li><strong>Select Envelope:</strong> Pilia ang budget category.</li>
+        <li><strong>Credit (Utang) Toggle:</strong> I-ON kung may gihulam nga kwarta.</li>
+        <li><strong>Memo:</strong> Opsyonal nga text field para sa mga nota.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 4. ENVELOPE                                                   -->
+<!-- ============================================================ -->
+<section id="envelope">
+  <h2 class="color-green">
+    <span lang="en">4. Envelope (Budget Management)</span>
+    <span lang="tl">4. Envelope (Budget Management)</span>
+    <span lang="ceb">4. Envelope (Budget Management)</span>
+  </h2>
+
+  <h3 id="envelope-view" lang="en">4.1 Envelope List & Budget Summary</h3>
+  <h3 id="envelope-view" lang="tl">4.1 Listahan ng Envelope</h3>
+  <h3 id="envelope-view" lang="ceb">4.1 Lista sa Envelope</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/envelope_tab.png" alt="Envelope Tab">
+    <div class="caption" lang="en">Envelope tab - Budget Summary</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Envelope Tab Components</h4>
+      <p>The Envelope system is based on the <strong>"envelope budgeting method"</strong> - you divide your income into different envelopes (categories) and only spend what's in each envelope.</p>
+      <ul>
+        <li><strong>Manage Button (top-right):</strong> Opens Envelope Management to add, edit, pin, or delete envelopes.</li>
+        <li><strong>Budget Summary Header:</strong>
+          <ul>
+            <li>"Total Budget Usage (include utang)" - shows overall budget status</li>
+            <li><strong>Used:</strong> Amount spent so far</li>
+            <li><strong>Budget:</strong> Total budget across all envelopes</li>
+            <li><strong>Left:</strong> Remaining budget</li>
+            <li>Progress bar showing usage percentage</li>
+          </ul>
+        </li>
+        <li><strong>Envelope Cards:</strong> Each card shows:
+          <ul>
+            <li>Envelope name with emoji icon</li>
+            <li>Description of what the envelope covers</li>
+            <li>Spending percentage (e.g., "0% spent")</li>
+            <li>Budget amount and remaining amount</li>
+            <li>Expand arrow (v) to see transaction details</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Default Envelopes:</strong> Rice & Ulam, Snacks & Bisyo, Pamasahe & Gas, Household Essentials, Monthly Bills, Rent / Bahay, For Biglang Gastos.</p>
+    </div>
+    <div lang="tl">
+      <h4>Envelope Tab</h4>
+      <p>Ang Envelope system ay batay sa <strong>"envelope budgeting method"</strong> - hinahati mo ang iyong kita sa iba't ibang envelope (kategorya).</p>
+      <ul>
+        <li><strong>Manage Button:</strong> Binubuksan ang Envelope Management.</li>
+        <li><strong>Budget Summary:</strong> Nagpapakita ng kabuuang budget status.</li>
+        <li><strong>Envelope Cards:</strong> Nagpapakita ng pangalan, paglalarawan, porsyento, budget at natitirang halaga.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Envelope Tab</h4>
+      <p>Ang Envelope system gibase sa <strong>"envelope budgeting method"</strong> - gibahin nimo ang imong kita sa lain-lain nga envelope (kategorya).</p>
+    </div>
+  </div>
+
+  <h3 id="envelope-manage" lang="en">4.2 Envelope Management</h3>
+  <h3 id="envelope-manage" lang="tl">4.2 Envelope Management</h3>
+  <h3 id="envelope-manage" lang="ceb">4.2 Envelope Management</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/envelope_management.png" alt="Envelope Management">
+    <div class="caption" lang="en">Envelope Management screen</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Envelope Management</h4>
+      <p>Access via the <strong>"Manage"</strong> button on the Envelope tab, or from <strong>Settings > Management > Envelope Management</strong>.</p>
+      <ul>
+        <li><strong>Pin Icon:</strong> Pin/unpin an envelope to show it on the dashboard (max 4 pinned).</li>
+        <li><strong>Edit Icon (pencil):</strong> Edit the envelope name, budget amount, icon, and description.</li>
+        <li><strong>Delete Icon (trash):</strong> Delete an envelope. Transactions in this envelope are NOT deleted.</li>
+        <li><strong>"+ Add Envelope":</strong> Create a new custom envelope with your own name, budget, and icon.</li>
+      </ul>
+      <p>Each envelope shows its monthly budget amount (e.g., "P6,000/mo").</p>
+    </div>
+    <div lang="tl">
+      <h4>Envelope Management</h4>
+      <p>I-access sa pamamagitan ng <strong>"Manage"</strong> button o <strong>Settings > Management > Envelope Management</strong>.</p>
+      <ul>
+        <li><strong>Pin Icon:</strong> Pin/unpin ang envelope para ipakita sa dashboard (max 4).</li>
+        <li><strong>Edit Icon:</strong> I-edit ang pangalan, budget, icon, at paglalarawan.</li>
+        <li><strong>Delete Icon:</strong> I-delete ang envelope.</li>
+        <li><strong>"+ Add Envelope":</strong> Gumawa ng bagong custom envelope.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Envelope Management</h4>
+      <p>I-access pinaagi sa <strong>"Manage"</strong> button o <strong>Settings > Management > Envelope Management</strong>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 5. UTANG                                                      -->
+<!-- ============================================================ -->
+<section id="utang">
+  <h2 class="color-orange">
+    <span lang="en">5. Utang (Debt Tracking)</span>
+    <span lang="tl">5. Utang</span>
+    <span lang="ceb">5. Utang</span>
+  </h2>
+
+  <h3 id="utang-overview" lang="en">5.1 Utang Overview</h3>
+  <h3 id="utang-overview" lang="tl">5.1 Utang Overview</h3>
+  <h3 id="utang-overview" lang="ceb">5.1 Utang Overview</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/utang_tab.png" alt="Utang empty">
+      <div class="caption" lang="en">Utang tab - no debts (Utang-free!)</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/utang_with_data.png" alt="Utang with data">
+      <div class="caption" lang="en">Utang tab - with active debt</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Utang Tab Components</h4>
+      <p>The Utang tab helps you track all your debts (money you owe to people or stores).</p>
+      <ul>
+        <li><strong>Manage Button (top-right):</strong> Opens My Utang List to manage people/stores you owe.</li>
+        <li><strong>Hulugan Summary Card (orange header):</strong>
+          <ul>
+            <li>"Your Hulugan this week" - shows the total payment amount due this week</li>
+            <li>Calendar icon with the current date</li>
+            <li><strong>REMAINING:</strong> Total unpaid amount across all debts</li>
+            <li><strong>TOTAL UTANG:</strong> Grand total of all debts</li>
+          </ul>
+        </li>
+        <li><strong>Filter Tabs:</strong>
+          <ul>
+            <li><strong>Active:</strong> Currently unpaid debts</li>
+            <li><strong>Paid:</strong> Fully paid debts</li>
+            <li><strong>All:</strong> All debts</li>
+          </ul>
+        </li>
+        <li><strong>Debt Cards:</strong> Each person/store card shows their name, category (e.g., "Tropa"), total owed, amount paid, number of utang entries, and an option to add/edit a Hulugan Schedule.</li>
+      </ul>
+      <p>When you have no debts, Gumi celebrates with "Utang-free! Cheers to a worry-free future."</p>
+    </div>
+    <div lang="tl">
+      <h4>Utang Tab</h4>
+      <p>Ang Utang tab ay tumutulong sa iyo na ma-track ang lahat ng iyong utang.</p>
+      <ul>
+        <li><strong>Manage Button:</strong> Binubuksan ang My Utang List.</li>
+        <li><strong>Hulugan Summary Card:</strong> Nagpapakita ng mga bayarin ngayong linggo.</li>
+        <li><strong>Filter Tabs:</strong> Active, Paid, All.</li>
+        <li><strong>Debt Cards:</strong> Bawat card ay nagpapakita ng pangalan, kategorya, kabuuang utang, bayad na, at Hulugan Schedule.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Utang Tab</h4>
+      <p>Ang Utang tab nagtabang nimo sa pag-track sa tanan nimong utang.</p>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/utang_calendar_expanded.png" alt="Utang calendar">
+    <div class="caption" lang="en">Utang tab with calendar expanded - view debts by date</div>
+  </div>
+
+  <div class="card detail-only">
+    <div lang="en">
+      <h4>Utang Calendar View</h4>
+      <p>Tap on a debt card to expand a calendar view. Dates with scheduled payments are marked with dots. Tap on a date to see what's due that day.</p>
+      <ul>
+        <li><strong>Calendar:</strong> Navigate months with &lt; and &gt; arrows. Today's date is highlighted in orange.</li>
+        <li><strong>Date Detail:</strong> Below the calendar, shows transactions for the selected date with envelope name, time, and amount.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Utang Calendar View</h4>
+      <p>I-tap ang debt card para i-expand ang calendar view. Ang mga petsa na may nakatakdang bayarin ay may mga tuldok.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Utang Calendar View</h4>
+      <p>I-tap ang debt card para i-expand ang calendar view.</p>
+    </div>
+  </div>
+
+  <h3 id="utang-list" lang="en">5.2 My Utang List</h3>
+  <h3 id="utang-list" lang="tl">5.2 My Utang List</h3>
+  <h3 id="utang-list" lang="ceb">5.2 My Utang List</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/my_utang_list.png" alt="My Utang List">
+      <div class="caption" lang="en">My Utang List - all visible</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/my_utang_list_hidden.png" alt="My Utang List hidden">
+      <div class="caption" lang="en">My Utang List - one hidden</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>My Utang List</h4>
+      <p>Access via <strong>Utang tab > Manage</strong> or <strong>Settings > Management > My Utang List</strong>.</p>
+      <p>Manage the people or stores you owe money to.</p>
+      <ul>
+        <li><strong>Each entry shows:</strong> Name, category in Tagalog (Tindahan, Pinsan, Kapitbahay, Tropa, Kasama sa trabaho), and action icons.</li>
+        <li><strong>Eye Icon:</strong> Toggle visibility - hide/show an entry in the utang selection when adding expenses. Greyed out = hidden.</li>
+        <li><strong>Bell Icon:</strong> Enable notifications for this utang entry.</li>
+        <li><strong>Edit Icon (pencil):</strong> Edit the name and category.</li>
+        <li><strong>Delete Icon (trash):</strong> Delete the entry.</li>
+        <li><strong>"+ Add Utang":</strong> Add a new person or store.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>My Utang List</h4>
+      <p>I-access sa <strong>Utang tab > Manage</strong> o <strong>Settings > My Utang List</strong>.</p>
+      <p>I-manage ang mga tao o tindahan na may utang ka.</p>
+      <ul>
+        <li><strong>Eye Icon:</strong> Toggle visibility.</li>
+        <li><strong>Bell Icon:</strong> I-enable ang notifications.</li>
+        <li><strong>Edit / Delete Icons:</strong> I-edit o i-delete ang entry.</li>
+        <li><strong>"+ Add Utang":</strong> Magdagdag ng bagong tao o tindahan.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>My Utang List</h4>
+      <p>I-access sa <strong>Utang tab > Manage</strong> o <strong>Settings > My Utang List</strong>.</p>
+    </div>
+  </div>
+
+  <h3 id="hulugan" lang="en">5.3 Hulugan Schedule (Payment Plan)</h3>
+  <h3 id="hulugan" lang="tl">5.3 Hulugan Schedule</h3>
+  <h3 id="hulugan" lang="ceb">5.3 Hulugan Schedule</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/add_hulugan_schedule.png" alt="Add Hulugan Schedule">
+      <div class="caption" lang="en">Add Hulugan Schedule - Weekly mode</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/add_hulugan_manual.png" alt="Manual Hulugan">
+      <div class="caption" lang="en">Manual mode</div>
+    </div>
+  </div>
+
+  <div class="two-screenshots detail-only">
+    <div class="screenshot-wrap">
+      <img src="assets/add_hulugan_manual_add.png" alt="Manual add dates">
+      <div class="caption" lang="en">Manual - adding dates and amounts</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/add_hulugan_manual_calendar.png" alt="Manual calendar">
+      <div class="caption" lang="en">Date picker for manual schedule</div>
+    </div>
+  </div>
+
+  <div class="two-screenshots detail-only">
+    <div class="screenshot-wrap">
+      <img src="assets/add_hulugan_alarm.png" alt="Hulugan Alarm">
+      <div class="caption" lang="en">Payment alarm settings</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/utang_after_hulugan.png" alt="After hulugan added">
+      <div class="caption" lang="en">Utang tab after Hulugan schedule added</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/edit_hulugan_schedule.png" alt="Edit Hulugan">
+    <div class="caption" lang="en">Edit Hulugan Schedule with details</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Hulugan Schedule - Complete Guide</h4>
+      <p>A Hulugan Schedule is a payment plan for paying off your debts in installments. You can set this up for each person/store you owe.</p>
+
+      <h4 style="margin-top:16px">Schedule Types:</h4>
+      <ul>
+        <li><strong>Weekly:</strong> Pay the same amount every week.</li>
+        <li><strong>Biweekly:</strong> Pay every two weeks.</li>
+        <li><strong>Monthly:</strong> Pay once a month.</li>
+        <li><strong>Manual:</strong> Choose specific dates and amounts yourself. Useful for irregular payment plans.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Components:</h4>
+      <ul>
+        <li><strong>Hulugan Schedule Selector:</strong> Choose Weekly, Biweekly, Monthly, or Manual.</li>
+        <li><strong>First Hulugan Date:</strong> The date of your first payment.</li>
+        <li><strong>Hulugan Amount:</strong> The amount per installment.</li>
+        <li><strong>Manual Mode:</strong> Select dates using a calendar picker and enter custom amounts for each date. A running total is shown. The app warns if <em>"The sum of hulugan amounts must equal the total utang amount."</em></li>
+        <li><strong>Payment Alarm:</strong> Toggle ON to receive payment reminders.
+          <ul>
+            <li><strong>Alarm Time:</strong> Set the time for the reminder notification.</li>
+            <li><strong>Notify me:</strong> Choose when to be notified - "On due date", "1 day before", "2 days before", or "3 days before".</li>
+          </ul>
+        </li>
+        <li><strong>Last Hulugan Date:</strong> Shows when the final payment is scheduled.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Scenario: Setting up a Hulugan Schedule</h4>
+      <ol class="steps">
+        <li>Go to the <strong>Utang</strong> tab and find the person/store card.</li>
+        <li>Tap <strong>"Add Hulugan Schedule"</strong> on their card.</li>
+        <li>Choose a schedule type (e.g., Weekly).</li>
+        <li>Set the first payment date and amount per installment.</li>
+        <li>Enable Payment Alarm if desired, set the alarm time and notification timing.</li>
+        <li>Tap <strong>Save</strong>. The schedule is now active!</li>
+        <li>On the Utang tab, you'll now see the Hulugan summary showing upcoming payments and the calendar will display payment dates with dots.</li>
+        <li>When a Hulugan schedule exists, the button changes to <strong>"Edit Hulugan Schedule"</strong> (green button).</li>
+      </ol>
+    </div>
+    <div lang="tl">
+      <h4>Hulugan Schedule</h4>
+      <p>Ang Hulugan Schedule ay isang payment plan para sa pagbabayad ng utang sa installment.</p>
+      <h4 style="margin-top:16px">Mga Uri ng Schedule:</h4>
+      <ul>
+        <li><strong>Weekly / Biweekly / Monthly / Manual</strong></li>
+      </ul>
+      <h4 style="margin-top:16px">Mga Component:</h4>
+      <ul>
+        <li>Schedule Selector, First Hulugan Date, Hulugan Amount</li>
+        <li>Payment Alarm na may Alarm Time at Notify me options</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Hulugan Schedule</h4>
+      <p>Ang Hulugan Schedule usa ka payment plan para sa pagbayad sa utang sa installment.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 6. DREAM BOARD                                                -->
+<!-- ============================================================ -->
+<section id="dream">
+  <h2 class="color-pink">
+    <span lang="en">6. Dream Board (Savings Goals)</span>
+    <span lang="tl">6. Dream Board</span>
+    <span lang="ceb">6. Dream Board</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/dream_tab.png" alt="Dream Board empty">
+      <div class="caption" lang="en">Dream Board - empty state</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/dream_with_data.png" alt="Dream Board with dream">
+      <div class="caption" lang="en">Dream Board - with a dream goal</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/dream_management.png" alt="Dream Management">
+    <div class="caption" lang="en">Dream Management screen</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Dream Board</h4>
+      <p>"Save for what matters most" - The Dream Board lets you set savings goals and track your progress toward them.</p>
+      <ul>
+        <li><strong>Manage Button:</strong> Opens Dream Management to add, edit, or delete dreams.</li>
+        <li><strong>Progress Section:</strong> Shows how many dreams you've completed (e.g., "0 / 1 dreams completed") with a percentage badge.</li>
+        <li><strong>Dream Card:</strong> Each dream shows:
+          <ul>
+            <li>Dream name and description (e.g., "I phone" / "used iphone")</li>
+            <li>Saved amount and target amount (e.g., "P0 saved (0%)" / "P30,000")</li>
+            <li>Progress bar</li>
+            <li><strong>"Your Dream Card has been issued!"</strong> - a special notification when you create a dream</li>
+          </ul>
+        </li>
+      </ul>
+      <p>When empty, Gumi encourages you with "Your dream journey starts here. Make your first Dream!"</p>
+
+      <h4 style="margin-top:16px">Dream Management</h4>
+      <ul>
+        <li><strong>Edit Icon (pencil):</strong> Edit the dream name, description, and target amount.</li>
+        <li><strong>Delete Icon (trash):</strong> Delete the dream.</li>
+        <li><strong>"+ Add Dream":</strong> Create a new savings goal.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Dream Board</h4>
+      <p>"I-save para sa pinaka-mahalaga" - Ang Dream Board ay nagbibigay-daan sa iyo na mag-set ng savings goal at i-track ang iyong progreso.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Dream Board</h4>
+      <p>"I-save para sa pinaka-importante" - Ang Dream Board nagtugot nimo sa pag-set og savings goal.</p>
+    </div>
+  </div>
+
+  <h3 id="dream-card" lang="en">6.1 Dream Card</h3>
+  <h3 id="dream-card" lang="tl">6.1 Dream Card</h3>
+  <h3 id="dream-card" lang="ceb">6.1 Dream Card</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/dream_card.png" alt="Dream Card">
+    <div class="caption" lang="en">Dream Card - shareable motivational card</div>
+  </div>
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_dream_card.webp" alt="Dream Card detail" class="cut-img">
+    <div class="caption" lang="en">Dream Card - close-up view</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Dream Card</h4>
+      <p>When you create a dream, a beautiful <strong>Dream Card</strong> is automatically generated. This is a shareable motivational card featuring:</p>
+      <ul>
+        <li><strong>Gumi Save branding</strong> with pig emoji</li>
+        <li><strong>Status Badge:</strong> Shows your stage (e.g., "JUST STARTED")</li>
+        <li><strong>Egg illustration:</strong> Represents your dream growing - it will hatch as you save more!</li>
+        <li><strong>Motivational message:</strong> e.g., "Good news: you have already started. Bad news: there is no bad news!"</li>
+        <li><strong>Progress info:</strong> Dream name, percentage, saved amount, and goal amount</li>
+        <li><strong>Hashtags:</strong> #GumiSave #MyDream #DreamsComeTrue</li>
+        <li><strong>Share Button:</strong> Tap to share the Dream Card image on social media or messaging apps.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Dream Card</h4>
+      <p>Kapag gumawa ka ng dream, awtomatikong nalilikha ang isang magandang <strong>Dream Card</strong>. Ito ay isang shareable motivational card.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Dream Card</h4>
+      <p>Kung maghimo ka og dream, awtomatiko nga nahimo ang usa ka nindot nga <strong>Dream Card</strong>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 7. CALENDAR                                                   -->
+<!-- ============================================================ -->
+<section id="calendar">
+  <h2 class="color-pink">
+    <span lang="en">7. Calendar</span>
+    <span lang="tl">7. Kalendaryo</span>
+    <span lang="ceb">7. Kalendaryo</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/calendar_tab.png" alt="Calendar empty">
+      <div class="caption" lang="en">Calendar - no transactions</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/calendar_with_items.png" alt="Calendar with items">
+      <div class="caption" lang="en">Calendar - with transactions</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/calendar_list_expanded.png" alt="Calendar list expanded">
+    <div class="caption" lang="en">Calendar - list pulled up for full view</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Calendar Tab</h4>
+      <p>View all your transactions organized by date. The calendar provides a monthly overview of your spending.</p>
+      <ul>
+        <li><strong>Month Navigation:</strong> Use &lt; and &gt; arrows to navigate between months (e.g., "2026 April").</li>
+        <li><strong>Calendar Grid:</strong> Shows the month in a standard Sun-Sat format. Today's date is highlighted with a pink circle.</li>
+        <li><strong>Date Selection:</strong> Tap any date to see transactions for that day.</li>
+        <li><strong>Transaction List (below calendar):</strong>
+          <ul>
+            <li>Shows date heading with total spent and item count (e.g., "Spent P163, 3 items")</li>
+            <li>Each transaction shows: envelope icon, name, time, Credit(Utang) badge if applicable, amount (red for expense, green for income), and an edit (pencil) icon</li>
+          </ul>
+        </li>
+        <li><strong>Drag Up:</strong> You can drag the transaction list upward to hide the calendar and see more transactions.</li>
+      </ul>
+      <p>When no transactions exist for a date, Gumi says "Zero expenses today! Keep it up."</p>
+    </div>
+    <div lang="tl">
+      <h4>Kalendaryo</h4>
+      <p>Tingnan ang lahat ng iyong transaksyon na nakaayos ayon sa petsa.</p>
+      <ul>
+        <li><strong>Month Navigation:</strong> Gamitin ang &lt; at &gt; arrows.</li>
+        <li><strong>Date Selection:</strong> I-tap ang anumang petsa para makita ang mga transaksyon.</li>
+        <li><strong>Drag Up:</strong> I-drag pataas ang listahan para mas maraming makita.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Kalendaryo</h4>
+      <p>Tan-awa ang tanan nimong transaksyon nga na-organisa pinaagi sa petsa.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 8. SIDE MENU                                                  -->
+<!-- ============================================================ -->
+<section id="sidebar">
+  <h2 class="color-purple">
+    <span lang="en">8. Side Menu</span>
+    <span lang="tl">8. Side Menu</span>
+    <span lang="ceb">8. Side Menu</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/slide_menu_upper.png" alt="Side Menu upper">
+      <div class="caption" lang="en">Side Menu - top section</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/slide_menu_lower.png" alt="Side Menu lower">
+      <div class="caption" lang="en">Side Menu - bottom section</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Side Menu (Hamburger Menu)</h4>
+      <p>Access by tapping the three-line icon (hamburger menu) at the top-left of any screen.</p>
+
+      <h4 style="margin-top:16px">Menu Items:</h4>
+      <ul>
+        <li><strong>Profile Section:</strong> Shows your name and "Welcome to Gumi Save" with the Gumi avatar.</li>
+        <li><strong>Support Us <span class="badge badge-online">online</span>:</strong> Support the development of Gumi Save.</li>
+      </ul>
+
+      <p><strong>UTILITY BILLS</strong></p>
+      <ul>
+        <li><strong>Bill Calculator:</strong> Calculate your electricity/water bill.</li>
+        <li><strong>Bill Estimator:</strong> Predict your upcoming bill using AI.</li>
+        <li><strong>Billing History:</strong> View past bill calculations.</li>
+      </ul>
+
+      <p><strong>ANALYTICS</strong></p>
+      <ul>
+        <li><strong>AI Coach <span class="badge badge-online">online</span>:</strong> Get personalized financial coaching from AI.</li>
+        <li><strong>Report:</strong> View spending reports and analytics.</li>
+      </ul>
+
+      <p><strong>EXTRA FUN</strong></p>
+      <ul>
+        <li><strong>Daily Swerte <span class="badge badge-online">online</span>:</strong> Get your daily fortune/horoscope.</li>
+        <li><strong>Palad Guide <span class="badge badge-online">online</span>:</strong> Palm reading using AI and camera.</li>
+      </ul>
+
+      <p><strong>SETTINGS & LEGAL</strong></p>
+      <ul>
+        <li><strong>Settings:</strong> App settings and management.</li>
+        <li><strong>Privacy Policy <span class="badge badge-online">web</span>:</strong> Opens in browser.</li>
+        <li><strong>Terms of Service <span class="badge badge-online">web</span>:</strong> Opens in browser.</li>
+      </ul>
+
+      <p><strong>SUPPORT</strong></p>
+      <ul>
+        <li><strong>User Guide <span class="badge badge-online">web</span>:</strong> This guide!</li>
+        <li><strong>E-mail <span class="badge badge-online">web</span>:</strong> Contact support via email.</li>
+        <li><strong>KawKaw.dev <span class="badge badge-online">web</span>:</strong> Developer website.</li>
+      </ul>
+
+      <p>At the bottom: <strong>"Gumi Save v2.0.1"</strong> - current app version.</p>
+    </div>
+    <div lang="tl">
+      <h4>Side Menu</h4>
+      <p>I-access sa pamamagitan ng pag-tap sa three-line icon sa itaas-kaliwa.</p>
+      <p>Kasama ang: Utility Bills (Calculator, Estimator, History), Analytics (AI Coach, Report), Extra Fun (Daily Swerte, Palad Guide), Settings, Privacy Policy, Terms of Service, User Guide, E-mail, at KawKaw.dev.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Side Menu</h4>
+      <p>I-access pinaagi sa pag-tap sa three-line icon sa ibabaw-wala.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 9. BILLS                                                      -->
+<!-- ============================================================ -->
+<section id="bills">
+  <h2 class="color-blue">
+    <span lang="en">9. Utility Bills</span>
+    <span lang="tl">9. Utility Bills</span>
+    <span lang="ceb">9. Utility Bills</span>
+  </h2>
+
+  <h3 id="bill-calc" lang="en">9.1 Bill Calculator</span></h3>
+  <h3 id="bill-calc" lang="tl">9.1 Bill Calculator</h3>
+  <h3 id="bill-calc" lang="ceb">9.1 Bill Calculator</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/bill_calculator.png" alt="Bill Calculator">
+      <div class="caption" lang="en">Bill Calculator - initial</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/bill_calculator_input.png" alt="Bill Calculator input">
+      <div class="caption" lang="en">Bill Calculator - with input</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/bill_calculator_result.png" alt="Bill Calculator result">
+    <div class="caption" lang="en">Bill Calculator - detailed result</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Bill Calculator</h4>
+      <p>Calculate your electricity or water bill based on meter readings.</p>
+      <ul>
+        <li><strong>Electricity / Water Toggle:</strong> Switch between electricity and water bill calculation.</li>
+        <li><strong>Select Provider:</strong> Choose your utility provider from the dropdown (e.g., "CEBECO I - Cebu Province (Rural)").</li>
+        <li><strong>Previous Reading / Current Reading:</strong> Enter your meter readings (e.g., 1200 and 1350).</li>
+        <li><strong>Usage Display:</strong> Automatically calculates usage (e.g., "150.0 kWh").</li>
+        <li><strong>Billing Month:</strong> Select the billing month (April, March, February).</li>
+        <li><strong>Calculate Button:</strong> Tap to compute the estimated bill.</li>
+        <li><strong>Estimated Bill Breakdown:</strong> Shows detailed charges:
+          <ul>
+            <li>Basic Charge, Generation Charge, Distribution Charge</li>
+            <li>Transmission Charge, System Loss Charge</li>
+            <li>Subsidy Charge, VAT (12%)</li>
+            <li><strong>Total</strong></li>
+          </ul>
+        </li>
+        <li><strong>Save Record:</strong> Save the calculation to Billing History for future reference and for the Bill Estimator's Linear (History) model.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Bill Calculator</h4>
+      <p>Kalkulahin ang iyong bill ng kuryente o tubig batay sa meter readings.</p>
+      <ul>
+        <li>Pumili ng provider, ilagay ang previous at current reading.</li>
+        <li>I-tap ang Calculate para makita ang estimated bill.</li>
+        <li>I-save ang record para sa Billing History.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Bill Calculator</h4>
+      <p>Kuwentaha ang imong bill sa kuryente o tubig base sa meter readings.</p>
+    </div>
+  </div>
+
+  <h3 id="bill-est" lang="en">9.2 Bill Estimator</h3>
+  <h3 id="bill-est" lang="tl">9.2 Bill Estimator</h3>
+  <h3 id="bill-est" lang="ceb">9.2 Bill Estimator</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/bill_estimator.png" alt="Bill Estimator">
+      <div class="caption" lang="en">Bill Estimator - RF/XGBoost mode</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/bill_estimator_appliances.png" alt="Bill Estimator appliances">
+      <div class="caption" lang="en">Appliance list for estimation</div>
+    </div>
+  </div>
+
+  <div class="two-screenshots detail-only">
+    <div class="screenshot-wrap">
+      <img src="assets/bill_estimator_result.png" alt="Bill Estimator result">
+      <div class="caption" lang="en">Estimation result with key factors</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/bill_estimator_history.png" alt="Bill Estimator history mode">
+      <div class="caption" lang="en">Linear (History) prediction model</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Bill Estimator</h4>
+      <p>Predict your upcoming electricity or water bill using AI models.</p>
+
+      <h4 style="margin-top:12px">Prediction Models:</h4>
+      <ul>
+        <li><strong>RF / XGBoost:</strong> Uses machine learning based on your appliance inventory. Enter the number of each appliance and household details:
+          <ul>
+            <li>Air Conditioner, Refrigerator, Washing Machine, Television, Electric Fan, Rice Cooker, Light Bulbs, Water Heater</li>
+            <li>No. of Residents, Avg Temperature</li>
+          </ul>
+        </li>
+        <li><strong>Linear (History):</strong> Uses your saved billing history records to predict future bills. Requires at least 2 records from the Bill Calculator. If not enough data, you'll see a message to start recording.</li>
+      </ul>
+
+      <h4 style="margin-top:12px">Result Display:</h4>
+      <ul>
+        <li><strong>Predicted Usage:</strong> Estimated bill amount and kWh usage.</li>
+        <li><strong>Key Factors:</strong> Shows which appliances contribute most to your bill (e.g., Refrigerator 42%, Rice Cooker 16%).</li>
+        <li><strong>Tip:</strong> AI provides energy-saving advice (e.g., "High temperature significantly increases AC usage. Consider setting AC to 26C to save up to 15% on electricity.").</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Bill Estimator</h4>
+      <p>Hulaan ang iyong paparating na bill gamit ang AI models.</p>
+      <ul>
+        <li><strong>RF / XGBoost:</strong> Gamitin ang iyong mga appliances para mahulaan ang bill.</li>
+        <li><strong>Linear (History):</strong> Gamitin ang iyong nai-save na billing history.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Bill Estimator</h4>
+      <p>Tagnaa ang imong umaabot nga bill gamit ang AI models.</p>
+    </div>
+  </div>
+
+  <h3 id="bill-history" lang="en">9.3 Billing History</h3>
+  <h3 id="bill-history" lang="tl">9.3 Billing History</h3>
+  <h3 id="bill-history" lang="ceb">9.3 Billing History</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/billing_history.png" alt="Billing History">
+    <div class="caption" lang="en">Billing History</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Billing History</h4>
+      <p>View all your saved bill calculations organized by month.</p>
+      <ul>
+        <li><strong>Filter Tabs:</strong> All, Electricity, Water - filter by bill type.</li>
+        <li><strong>History Cards:</strong> Each card shows:
+          <ul>
+            <li>Month and year (e.g., "April 2026")</li>
+            <li>Provider name (e.g., "cebeco")</li>
+            <li>Bill amount (e.g., "P1,467.98")</li>
+            <li>Usage and meter readings (e.g., "150 kWh", "1200 -> 1350")</li>
+            <li>Delete icon (trash) to remove the record</li>
+          </ul>
+        </li>
+      </ul>
+      <p>This data is also used by the Bill Estimator's Linear (History) prediction model.</p>
+    </div>
+    <div lang="tl">
+      <h4>Billing History</h4>
+      <p>Tingnan ang lahat ng nai-save na bill calculations.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Billing History</h4>
+      <p>Tan-awa ang tanan nimong na-save nga bill calculations.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 10. ANALYTICS                                                 -->
+<!-- ============================================================ -->
+<section id="analytics">
+  <h2 class="color-purple">
+    <span lang="en">10. Analytics</span>
+    <span lang="tl">10. Analytics</span>
+    <span lang="ceb">10. Analytics</span>
+  </h2>
+
+  <h3 id="ai-coach" lang="en">10.1 AI Coach <span class="badge badge-online">online</span></h3>
+  <h3 id="ai-coach" lang="tl">10.1 AI Coach <span class="badge badge-online">online</span></h3>
+  <h3 id="ai-coach" lang="ceb">10.1 AI Coach <span class="badge badge-online">online</span></h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/ai_coach.png" alt="AI Coach">
+    <div class="caption" lang="en">AI Coach - Financial health analysis</div>
+  </div>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>AI Coach - Important Details</h4>
+      <p>The AI Coach provides personalized financial health analysis based on your spending data.</p>
+      <ul>
+        <li><strong>"Get AI Coaching" Button (green dot = online):</strong> Tap to request an AI-powered analysis of your financial habits.</li>
+        <li><strong>Disclaimer:</strong> <em>"We don't sugarcoat things here. Brace yourself for a cold-eyed analysis before we proceed."</em> - The AI Coach gives honest, no-nonsense feedback!</li>
+        <li><strong>Recent Analyses:</strong> Shows your past coaching reports.</li>
+      </ul>
+      <p><strong>Important:</strong> The AI Coach's <strong>last report is saved on the server</strong>. This saved report is used as context information when you request your next AI coaching session, helping the AI provide more relevant and continuous advice.</p>
+      <p>This feature requires an internet connection as it uses AI to analyze your data. Data usage is minimal.</p>
+    </div>
+    <div lang="tl">
+      <h4>AI Coach - Mahahalagang Detalye</h4>
+      <p>Ang AI Coach ay nagbibigay ng personalized financial health analysis batay sa iyong spending data.</p>
+      <p><strong>Mahalaga:</strong> Ang <strong>huling report ng AI Coach ay naka-save sa server</strong>. Ginagamit ito bilang context kapag humiling ka ng bagong coaching session.</p>
+      <p>Kailangan ng internet connection ang feature na ito. Minimal ang data usage.</p>
+    </div>
+    <div lang="ceb">
+      <h4>AI Coach - Importanteng Detalye</h4>
+      <p>Ang AI Coach naghatag og personalized financial health analysis base sa imong spending data.</p>
+      <p><strong>Importante:</strong> Ang <strong>katapusang report sa AI Coach na-save sa server</strong>. Gigamit kini isip context kung mag-request ka og bag-ong coaching session.</p>
+    </div>
+  </div>
+
+  <h3 id="report" lang="en">10.2 Report</h3>
+  <h3 id="report" lang="tl">10.2 Report</h3>
+  <h3 id="report" lang="ceb">10.2 Report</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/report.png" alt="Report">
+    <div class="caption" lang="en">Report - monthly analytics</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Report</h4>
+      <p>View comprehensive monthly spending reports and analytics.</p>
+      <ul>
+        <li><strong>Period Selector:</strong> Shows the current month range (e.g., "Apr 1 - Apr 30, 2026").</li>
+        <li><strong>Summary Cards:</strong> Three cards showing total Income, Expense, and Savings for the period, with sub-details for Utang amounts.</li>
+        <li><strong>Select Month Chart:</strong> Visual bar chart showing Expense, Savings, and Utang trends over the past 6 months. Tap a month to view that period.</li>
+        <li><strong>Category Breakdown:</strong> Spending breakdown by envelope category.</li>
+        <li><strong>Utang Summary:</strong> Summary of utang activities for the period.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Report</h4>
+      <p>Tingnan ang buwanang spending reports at analytics.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Report</h4>
+      <p>Tan-awa ang binulan nga spending reports ug analytics.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 11. EXTRA FUN                                                 -->
+<!-- ============================================================ -->
+<section id="extra">
+  <h2 class="color-pink">
+    <span lang="en">11. Extra Fun</span>
+    <span lang="tl">11. Extra Fun</span>
+    <span lang="ceb">11. Extra Fun</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/daily_swerte.png" alt="Daily Swerte">
+      <div class="caption" lang="en">Daily Swerte - Fortune profile</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/daily_swerte_alarm.png" alt="Daily Swerte Alarm">
+      <div class="caption" lang="en">Daily Swerte - Daily alarm setting</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Daily Swerte (Daily Fortune) <span class="badge badge-online">online</span></h4>
+      <p>"Your daily fortune awaits" - Get personalized daily horoscope readings.</p>
+
+      <h4 style="margin-top:12px">Profile Tab:</h4>
+      <ul>
+        <li><strong>Real Name:</strong> Optional. Your info is stored securely on your device.</li>
+        <li><strong>Birthday (required):</strong> Year, Month, Day dropdowns.</li>
+        <li><strong>Gender (required):</strong> Male, Female, or Other.</li>
+        <li><strong>Zodiac Sign:</strong> Optional dropdown (e.g., Aries, Taurus...).</li>
+        <li><strong>Birth Hour:</strong> Optional. AM/PM toggle with hour selector.</li>
+        <li><strong>Region / City:</strong> Optional dropdown.</li>
+        <li><strong>"Get Today's Fortune" Button:</strong> Tap to receive your daily fortune reading. Limited to once per day.</li>
+      </ul>
+
+      <h4 style="margin-top:12px">Bottom Tabs:</h4>
+      <ul>
+        <li><strong>Profile:</strong> Enter your birth details.</li>
+        <li><strong>Your Last Fortune:</strong> View your most recent fortune reading.</li>
+        <li><strong>Daily Alarm:</strong> Set a daily notification to remind you to check your fortune. Toggle "Enable Daily Alarm" and set your preferred time.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Daily Swerte <span class="badge badge-online">online</span></h4>
+      <p>Kunin ang iyong personalized daily horoscope.</p>
+      <ul>
+        <li>Punan ang iyong profile (birthday, gender).</li>
+        <li>I-tap ang "Get Today's Fortune" para makuha ang iyong fortune.</li>
+        <li>I-set ang Daily Alarm para sa araw-araw na paalala.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Daily Swerte <span class="badge badge-online">online</span></h4>
+      <p>Kuhaa ang imong personalized daily horoscope.</p>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap">
+    <img src="assets/palad_guide.png" alt="Palad Guide">
+    <div class="caption" lang="en">Palad Guide - Palm reading camera</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Palad Guide (Palm Reading) <span class="badge badge-online">online</span></h4>
+      <p>Get your palm read by AI! This fun feature uses your camera and AI to analyze your palm lines.</p>
+      <ul>
+        <li><strong>Camera View:</strong> A dark screen with corner brackets showing where to position your palm.</li>
+        <li><strong>Flash Toggle:</strong> Top-right icon to turn flash on/off.</li>
+        <li><strong>Capture Button:</strong> White circle button at the bottom to take the photo.</li>
+        <li><strong>Instructions:</strong> "Point your palm at the camera" - hold your palm open and flat, facing the camera.</li>
+      </ul>
+      <p><strong>Note:</strong> This feature is limited to once per day. It uses AI (online) to analyze the palm image.</p>
+    </div>
+    <div lang="tl">
+      <h4>Palad Guide <span class="badge badge-online">online</span></h4>
+      <p>Magpa-palm reading gamit ang AI! I-point ang iyong palad sa camera at kumuha ng litrato.</p>
+      <p><strong>Tandaan:</strong> Limitado sa isang beses bawat araw.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Palad Guide <span class="badge badge-online">online</span></h4>
+      <p>Pagpa-palm reading gamit ang AI! I-point ang imong palad sa camera ug pagkuha og litrato.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 12. SETTINGS                                                  -->
+<!-- ============================================================ -->
+<section id="settings">
+  <h2 class="color-blue">
+    <span lang="en">12. Settings</span>
+    <span lang="tl">12. Mga Setting</span>
+    <span lang="ceb">12. Settings</span>
+  </h2>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/settings_upper.png" alt="Settings upper">
+      <div class="caption" lang="en">Settings - top section</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/settings_theme_management.png" alt="Settings theme">
+      <div class="caption" lang="en">Settings - theme & management</div>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap">
+    <img src="assets/settings_safe_secure.png" alt="Settings safe & secure">
+    <div class="caption" lang="en">Settings - Safe & Secure section</div>
+  </div>
+
+  <div class="screenshot-wrap detail-only">
+    <img src="assets/cut_settings_management.webp" alt="Settings management detail" class="cut-img">
+    <div class="caption" lang="en">Management section - close-up</div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Settings - All Sections</h4>
+
+      <h4 style="margin-top:16px">Name</h4>
+      <ul>
+        <li>Shows your display name with an edit (pencil) icon to change it.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Budget Period</h4>
+      <ul>
+        <li><strong>Budget Start Day:</strong> The day of month your budget period starts (default: 1). Useful if your salary comes on a specific date.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Touch ID & Face ID</h4>
+      <ul>
+        <li><strong>Use Biometric Authentication:</strong> Toggle to enable fingerprint or face recognition unlock instead of PIN.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Language</h4>
+      <ul>
+        <li>Choose between <strong>English</strong>, <strong>Tagalog</strong>, and <strong>Bisaya</strong> (Cebuano). Selected language has a blue checkmark.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Theme</h4>
+      <ul>
+        <li><strong>System:</strong> Follow device theme.</li>
+        <li><strong>Light:</strong> Light mode.</li>
+        <li><strong>Dark:</strong> Dark mode.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Management</h4>
+      <ul>
+        <li><strong>Quick Expense:</strong> Manage quick expense shortcuts (see below).</li>
+        <li><strong>Envelope Management:</strong> Manage budget envelopes.</li>
+        <li><strong>My Utang List:</strong> Manage people/stores you owe.</li>
+        <li><strong>Dream Management:</strong> Manage savings goals.</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Settings</h4>
+      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management (Quick Expense, Envelope, Utang, Dream), Safe & Secure.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Settings</h4>
+      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management, Safe & Secure.</p>
+    </div>
+  </div>
+
+  <h3 id="settings-quick" lang="en">12.1 Quick Expense Management</h3>
+  <h3 id="settings-quick" lang="tl">12.1 Quick Expense Management</h3>
+  <h3 id="settings-quick" lang="ceb">12.1 Quick Expense Management</h3>
+
+  <div class="two-screenshots">
+    <div class="screenshot-wrap">
+      <img src="assets/quick_expense_manage.png" alt="Quick Expense manage">
+      <div class="caption" lang="en">Quick Expense management list</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="assets/quick_expense_add.png" alt="Quick Expense add">
+      <div class="caption" lang="en">Add Quick Expense item</div>
+    </div>
+  </div>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>Quick Expense Management - Setup Guide</h4>
+      <p>This is where you create and manage your Quick Expense shortcuts that appear on the Dashboard.</p>
+
+      <h4 style="margin-top:12px">Existing Items:</h4>
+      <ul>
+        <li>Each item shows: Emoji, Name, Amount, assigned Envelope (e.g., "Jeepney P13 - Pamasahe & Gas").</li>
+        <li>Expand arrow to reveal <strong>Edit</strong> and <strong>Delete</strong> buttons.</li>
+      </ul>
+
+      <h4 style="margin-top:12px">Adding a New Quick Expense:</h4>
+      <ol class="steps">
+        <li>Tap <strong>"+ Add Item"</strong> at the bottom.</li>
+        <li>Enter <strong>Item Name</strong> (e.g., "Jeepney").</li>
+        <li>Choose an <strong>Emoji</strong> from the emoji grid (bus, coffee, rice, game controller, etc.).</li>
+        <li>Enter the <strong>Amount</strong> using the same +P buttons (tap +P10 then +P1 three times for P13).</li>
+        <li>Select an <strong>Envelope</strong> category for this expense.</li>
+        <li>Save. The item now appears on your Dashboard!</li>
+      </ol>
+
+      <p style="margin-top:12px"><strong>Usage Scenario:</strong> You ride a jeepney daily for P13. Set it up once. Every day, just tap "Jeepney P13" on the dashboard - done! No need to open the Add Expense form each time.</p>
+    </div>
+    <div lang="tl">
+      <h4>Quick Expense Management</h4>
+      <p>Dito ka gagawa at magma-manage ng Quick Expense shortcuts na lalabas sa Dashboard.</p>
+      <ol class="steps">
+        <li>I-tap ang <strong>"+ Add Item"</strong>.</li>
+        <li>Ilagay ang <strong>Item Name</strong>.</li>
+        <li>Pumili ng <strong>Emoji</strong>.</li>
+        <li>Ilagay ang <strong>Amount</strong> gamit ang +P buttons.</li>
+        <li>Pumili ng <strong>Envelope</strong>.</li>
+        <li>I-save. Lalabas na sa Dashboard!</li>
+      </ol>
+    </div>
+    <div lang="ceb">
+      <h4>Quick Expense Management</h4>
+      <p>Dinhi ka maghimo ug mag-manage og Quick Expense shortcuts nga makita sa Dashboard.</p>
+    </div>
+  </div>
+
+  <h3 id="settings-backup" lang="en">12.2 Backup, Restore & OTP (Device Transfer)</h3>
+  <h3 id="settings-backup" lang="tl">12.2 Backup, Restore & OTP</h3>
+  <h3 id="settings-backup" lang="ceb">12.2 Backup, Restore & OTP</h3>
+
+  <div class="screenshot-wrap">
+    <img src="assets/settings_safe_secure.png" alt="Safe & Secure">
+    <div class="caption" lang="en">Safe & Secure section in Settings</div>
+  </div>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>Safe & Secure Section</h4>
+
+      <h4 style="margin-top:16px">Backup <span class="badge badge-online">online</span></h4>
+      <p>Export your data securely to the cloud.</p>
+      <ul>
+        <li>Tap <strong>Backup</strong> to upload your data.</li>
+        <li class="warning-box" style="list-style:none;margin:8px 0"><strong>Backup files are automatically deleted after 30 days!</strong> Make sure to restore within this period if transferring devices. After 30 days, the backup data is permanently removed from the server and cannot be recovered.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Restore <span class="badge badge-online">online</span></h4>
+      <p>Import data from a previously created backup.</p>
+
+      <h4 style="margin-top:16px">OTP (One-Time Password) <span class="badge badge-online">online</span></h4>
+      <p>A secure verification code needed for the data restore process.</p>
+
+      <h4 style="margin-top:16px">Reset App</h4>
+      <p><strong style="color:red">Danger Zone!</strong> Permanently reset the app and delete ALL data on this device. This cannot be undone.</p>
+
+      <h4 style="margin-top:16px">Change PIN</h4>
+      <p>Update your 6-digit lock PIN.</p>
+    </div>
+    <div lang="tl">
+      <h4>Safe & Secure Section</h4>
+      <p>Kasama ang Backup, Restore, OTP, Reset App, at Change PIN.</p>
+      <p><strong>Mahalaga:</strong> Ang backup files ay awtomatikong nadi-delete pagkalipas ng 30 araw!</p>
+    </div>
+    <div lang="ceb">
+      <h4>Safe & Secure Section</h4>
+      <p>Kasama ang Backup, Restore, OTP, Reset App, ug Change PIN.</p>
+      <p><strong>Importante:</strong> Ang backup files awtomatiko nga na-delete human sa 30 ka adlaw!</p>
+    </div>
+  </div>
+
+  <div class="important-box" style="background: linear-gradient(135deg, var(--orange-light), var(--pink-light)); border-left-color: var(--orange);">
+    <div lang="en">
+      <h4>How to Transfer Data to a New Device - Step by Step</h4>
+      <p>When you get a new phone and want to keep all your Gumi Save data, follow these steps carefully:</p>
+
+      <h4 style="margin-top:16px">On Your OLD Device:</h4>
+      <ol class="steps">
+        <li>Open Gumi Save and go to <strong>Settings</strong>.</li>
+        <li>Scroll down to <strong>Safe & Secure</strong> section.</li>
+        <li>Tap <strong>Backup</strong>. Wait for the upload to complete. Your data is now securely stored on the server.</li>
+        <li>Tap <strong>OTP</strong>. A one-time password (verification code) will be generated. <strong>Write this code down or screenshot it!</strong> You will need it on the new device.</li>
+      </ol>
+
+      <h4 style="margin-top:16px">On Your NEW Device:</h4>
+      <ol class="steps">
+        <li>Install and open Gumi Save. Complete the initial onboarding (enter name and PIN).</li>
+        <li>Go to <strong>Settings > Safe & Secure</strong>.</li>
+        <li>Tap <strong>Restore</strong>.</li>
+        <li>Enter the <strong>OTP code</strong> you received from the old device.</li>
+        <li>Wait for the restore to complete. All your data (envelopes, transactions, utang, dreams, etc.) will be restored!</li>
+      </ol>
+
+      <div class="warning-box" style="margin-top:16px">
+        <h4>Important Reminders:</h4>
+        <ul>
+          <li>Complete the transfer <strong>within 30 days</strong> of creating the backup! After 30 days, the backup is automatically deleted from the server.</li>
+          <li>The OTP is a <strong>one-time use</strong> code. If you lose it, you'll need to create a new backup and OTP from the old device.</li>
+          <li>Make sure you have an <strong>internet connection</strong> on both devices for Backup, OTP, and Restore.</li>
+        </ul>
       </div>
-      <div class="hero-pill">
-        <span data-lang="en">🔒 No Sign-Up</span>
-        <span data-lang="tl">🔒 Walang Sign-Up</span>
-        <span data-lang="ceb">🔒 Walay Sign-Up</span>
+    </div>
+    <div lang="tl">
+      <h4>Paano Mag-transfer ng Data sa Bagong Device</h4>
+      <h4 style="margin-top:16px">Sa LUMANG Device:</h4>
+      <ol class="steps">
+        <li>Buksan ang Gumi Save at pumunta sa <strong>Settings</strong>.</li>
+        <li>Mag-scroll pababa sa <strong>Safe & Secure</strong>.</li>
+        <li>I-tap ang <strong>Backup</strong>. Hintaying matapos ang upload.</li>
+        <li>I-tap ang <strong>OTP</strong>. Isulat ang code!</li>
+      </ol>
+      <h4 style="margin-top:16px">Sa BAGONG Device:</h4>
+      <ol class="steps">
+        <li>I-install at buksan ang Gumi Save. Tapusin ang onboarding.</li>
+        <li>Pumunta sa <strong>Settings > Safe & Secure</strong>.</li>
+        <li>I-tap ang <strong>Restore</strong>.</li>
+        <li>Ilagay ang <strong>OTP code</strong>.</li>
+        <li>Hintaying matapos ang restore.</li>
+      </ol>
+      <div class="warning-box" style="margin-top:16px">
+        <h4>Mga Paalala:</h4>
+        <ul>
+          <li>Tapusin ang transfer <strong>sa loob ng 30 araw</strong>!</li>
+          <li>Ang OTP ay <strong>isang beses</strong> lang magagamit.</li>
+          <li>Kailangan ng <strong>internet connection</strong> sa dalawang device.</li>
+        </ul>
       </div>
-      <div class="hero-pill">
-        <span data-lang="en">🤖 AI Receipt Scan</span>
-        <span data-lang="tl">🤖 AI Scan ng Resibo</span>
-        <span data-lang="ceb">🤖 AI Scan sa Resibo</span>
-      </div>
-      <div class="hero-pill">
-        <span data-lang="en">₱ Philippine Peso</span>
-        <span data-lang="tl">₱ Piso</span>
-        <span data-lang="ceb">₱ Piso</span>
+    </div>
+    <div lang="ceb">
+      <h4>Giunsa Pag-transfer sa Data sa Bag-ong Device</h4>
+      <h4 style="margin-top:16px">Sa DAAN nga Device:</h4>
+      <ol class="steps">
+        <li>Ablihan ang Gumi Save ug adto sa <strong>Settings</strong>.</li>
+        <li>Mag-scroll paubos sa <strong>Safe & Secure</strong>.</li>
+        <li>I-tap ang <strong>Backup</strong>. Hulata nga mahuman ang upload.</li>
+        <li>I-tap ang <strong>OTP</strong>. Isulat ang code!</li>
+      </ol>
+      <h4 style="margin-top:16px">Sa BAG-ONG Device:</h4>
+      <ol class="steps">
+        <li>I-install ug ablihan ang Gumi Save.</li>
+        <li>Adto sa <strong>Settings > Safe & Secure</strong>.</li>
+        <li>I-tap ang <strong>Restore</strong>.</li>
+        <li>Isulod ang <strong>OTP code</strong>.</li>
+        <li>Hulata nga mahuman ang restore.</li>
+      </ol>
+      <div class="warning-box" style="margin-top:16px">
+        <h4>Mga Pahinumdom:</h4>
+        <ul>
+          <li>Tapusa ang transfer <strong>sulod sa 30 ka adlaw</strong>!</li>
+          <li>Ang OTP <strong>usa ka higayon</strong> ra magamit.</li>
+          <li>Kinahanglan og <strong>internet connection</strong> sa duha ka device.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 1. GETTING STARTED ═══════════════════════ -->
-<section class="section c-green" id="start">
-  <div class="container">
-    <div class="feature-split">
-      <div>
-        <div class="section-tag">
-          <span>🚀</span>
-          <span data-lang="en">Step 1 · Getting Started</span>
-          <span data-lang="tl">Hakbang 1 · Pagsisimula</span>
-          <span data-lang="ceb">Lakang 1 · Pagsugod</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">No account.<br/>No problem.</span>
-          <span data-lang="tl">Walang account.<br/>Walang problema.</span>
-          <span data-lang="ceb">Walay account.<br/>Walay problema.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Set up in under a minute with just a name and a PIN. No email, no phone number, no social login required.</span>
-          <span data-lang="tl">Mag-set up sa loob ng isang minuto gamit lang ang pangalan at PIN. Walang email, numero ng telepono, o social login na kailangan.</span>
-          <span data-lang="ceb">Mag-setup sulod sa usa ka minuto gamit lang ang ngalan ug PIN. Walay email, numero sa telepono, o social login nga gikinahanglan.</span>
-        </p>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-content">
-              <h4>
-                <span data-lang="en">Enter Your Name</span>
-                <span data-lang="tl">Ilagay ang Pangalan</span>
-                <span data-lang="ceb">Isulod ang Imong Ngalan</span>
-              </h4>
-              <p>
-                <span data-lang="en">Display name only — real name or nickname is fine (2+ characters).</span>
-                <span data-lang="tl">Display name lang — totoong pangalan o palayaw (2+ karakter).</span>
-                <span data-lang="ceb">Display name lang — tinuod nga ngalan o alias (2+ karakter).</span>
-              </p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-content">
-              <h4>
-                <span data-lang="en">Set a 6-Digit PIN</span>
-                <span data-lang="tl">Magtakda ng 6-Digit na PIN</span>
-                <span data-lang="ceb">Itakda ang 6-Digit nga PIN</span>
-              </h4>
-              <p>
-                <span data-lang="en">Your numeric lock code. Forgotten PINs can be recovered using your monthly budget totals.</span>
-                <span data-lang="tl">Ang iyong numeric lock code. Ang nakalimutang PIN ay maaaring ma-recover gamit ang iyong monthly budget totals.</span>
-                <span data-lang="ceb">Ang imong numeric lock code. Ang nalimtang PIN mapabawi gamit ang imong monthly budget totals.</span>
-              </p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-content">
-              <h4>
-                <span data-lang="en">Choose Your Language</span>
-                <span data-lang="tl">Pumili ng Wika</span>
-                <span data-lang="ceb">Pili sa Imong Pinulongan</span>
-              </h4>
-              <p>
-                <span data-lang="en">English · Tagalog · Bisaya (Cebuano) — changeable any time in Settings.</span>
-                <span data-lang="tl">English · Tagalog · Bisaya (Cebuano) — mababago anumang oras sa Settings.</span>
-                <span data-lang="ceb">English · Tagalog · Bisaya (Cebuano) — mausab bisan kanus-a sa Settings.</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/dashboard.jpg" alt="Gumi Save Dashboard" />
-          </div>
-        </div>
-      </div>
+
+<!-- ============================================================ -->
+<!-- 13. WIDGETS                                                   -->
+<!-- ============================================================ -->
+<section id="widgets">
+  <h2 class="color-green">
+    <span lang="en">13. Home Screen Widgets</span>
+    <span lang="tl">13. Home Screen Widgets</span>
+    <span lang="ceb">13. Home Screen Widgets</span>
+  </h2>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Gumi Save Widgets</h4>
+      <p>Gumi Save offers <strong>3 types of home screen widgets</strong> so you can access key features without even opening the app. Add them to your phone's home screen for instant access!</p>
+    </div>
+    <div lang="tl">
+      <h4>Gumi Save Widgets</h4>
+      <p>Nag-aalok ang Gumi Save ng <strong>3 uri ng home screen widget</strong> para ma-access ang mga pangunahing feature nang hindi binubuksan ang app.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Gumi Save Widgets</h4>
+      <p>Nag-offer ang Gumi Save og <strong>3 ka klase sa home screen widget</strong> para ma-access ang mga nag-una nga feature nga dili na mag-abli sa app.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Widget Types</h4>
+      <table style="width:100%;border-collapse:collapse;margin-top:12px">
+        <thead>
+          <tr style="border-bottom:2px solid var(--green)">
+            <th style="text-align:left;padding:8px 12px">Widget</th>
+            <th style="text-align:left;padding:8px 12px">Size</th>
+            <th style="text-align:left;padding:8px 12px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#f9f9f9">
+            <td style="padding:10px 12px"><strong>Dashboard Widget</strong></td>
+            <td style="padding:10px 12px">Large (4x2)</td>
+            <td style="padding:10px 12px">Opens the app directly to the <strong>Dashboard</strong> screen. Shows a quick overview of your financial status at a glance.</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px"><strong>Add Expense Widget</strong></td>
+            <td style="padding:10px 12px">Small (2x1)</td>
+            <td style="padding:10px 12px">Opens the <strong>Add Expense</strong> form directly. Perfect for quickly recording a purchase right after you make it.</td>
+          </tr>
+          <tr style="background:#f9f9f9">
+            <td style="padding:10px 12px"><strong>Scan Receipt Widget</strong></td>
+            <td style="padding:10px 12px">Small (2x1)</td>
+            <td style="padding:10px 12px">Opens the <strong>Scan Receipt</strong> camera directly. Snap a photo of your receipt and let AI do the rest. <span class="badge badge-online">online</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div lang="tl">
+      <h4>Mga Uri ng Widget</h4>
+      <ul>
+        <li><strong>Dashboard Widget (Malaki):</strong> Binubuksan ang Dashboard screen.</li>
+        <li><strong>Add Expense Widget (Maliit):</strong> Binubuksan ang Add Expense form.</li>
+        <li><strong>Scan Receipt Widget (Maliit):</strong> Binubuksan ang Scan Receipt camera. <span class="badge badge-online">online</span></li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Mga Klase sa Widget</h4>
+      <ul>
+        <li><strong>Dashboard Widget (Dako):</strong> Mag-abli sa Dashboard screen.</li>
+        <li><strong>Add Expense Widget (Gamay):</strong> Mag-abli sa Add Expense form.</li>
+        <li><strong>Scan Receipt Widget (Gamay):</strong> Mag-abli sa Scan Receipt camera. <span class="badge badge-online">online</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div lang="en">
+      <h4>How to Add Widgets to Your Home Screen</h4>
+      <ol class="steps">
+        <li><strong>Long press</strong> on an empty area of your phone's home screen.</li>
+        <li>Tap the <strong>"+"</strong> button or <strong>"Widgets"</strong> option that appears.</li>
+        <li>Search for <strong>"Gumi Save"</strong> in the widget list.</li>
+        <li>Choose the widget you want (Dashboard, Add Expense, or Scan Receipt).</li>
+        <li>Drag it to your preferred position on the home screen.</li>
+      </ol>
+      <p style="margin-top:12px"><strong>Tip:</strong> Place the small Add Expense widget right on your main home screen for the fastest expense tracking experience!</p>
+    </div>
+    <div lang="tl">
+      <h4>Paano Magdagdag ng Widget sa Home Screen</h4>
+      <ol class="steps">
+        <li><strong>Long press</strong> sa walang laman na lugar sa home screen.</li>
+        <li>I-tap ang <strong>"+"</strong> button o <strong>"Widgets"</strong> option.</li>
+        <li>Hanapin ang <strong>"Gumi Save"</strong> sa widget list.</li>
+        <li>Piliin ang gusto mong widget.</li>
+        <li>I-drag sa gusto mong posisyon.</li>
+      </ol>
+    </div>
+    <div lang="ceb">
+      <h4>Giunsa Pagdugang og Widget sa Home Screen</h4>
+      <ol class="steps">
+        <li><strong>Long press</strong> sa walay sulod nga lugar sa home screen.</li>
+        <li>I-tap ang <strong>"+"</strong> button o <strong>"Widgets"</strong> option.</li>
+        <li>Pangitaa ang <strong>"Gumi Save"</strong> sa widget list.</li>
+        <li>Pilia ang gusto nimong widget.</li>
+        <li>I-drag sa gusto nimong posisyon.</li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 2. DASHBOARD ═══════════════════════ -->
-<section class="section c-purple" id="dashboard">
-  <div class="container">
-    <div class="feature-split reverse">
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/receipt_scanner.jpg" alt="Receipt Scanner" />
-          </div>
-        </div>
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/dashboard.jpg" alt="Dashboard" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="section-tag">
-          <span>🏠</span>
-          <span data-lang="en">Dashboard</span>
-          <span data-lang="tl">Dashboard</span>
-          <span data-lang="ceb">Dashboard</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">Your finances<br/>at a glance</span>
-          <span data-lang="tl">Ang iyong pera<br/>sa isang tingin</span>
-          <span data-lang="ceb">Ang imong kwarta<br/>sa usa ka sulyap</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">The home screen shows your monthly summary card, pinned envelopes, today's transactions, and quick-action buttons.</span>
-          <span data-lang="tl">Ang home screen ay nagpapakita ng iyong monthly summary card, pinned envelopes, transaksyon ngayon, at mga quick-action button.</span>
-          <span data-lang="ceb">Ang home screen nagpakita sa imong monthly summary card, pinned envelopes, transaksyon karon, ug mga quick-action button.</span>
-        </p>
-        <div class="cards-grid">
-          <div class="feat-card">
-            <div class="feat-icon">💸</div>
-            <h4><span data-lang="en">+ Expense</span><span data-lang="tl">+ Gastos</span><span data-lang="ceb">+ Gastos</span></h4>
-            <p><span data-lang="en">Record money spent</span><span data-lang="tl">I-record ang nagastos</span><span data-lang="ceb">I-record ang ginagastos</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">💰</div>
-            <h4><span data-lang="en">+ Income</span><span data-lang="tl">+ Kita</span><span data-lang="ceb">+ Kita</span></h4>
-            <p><span data-lang="en">Record money received</span><span data-lang="tl">I-record ang natanggap</span><span data-lang="ceb">I-record ang nadawat</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🐷</div>
-            <h4><span data-lang="en">+ Savings</span><span data-lang="tl">+ Ipon</span><span data-lang="ceb">+ Ipon</span></h4>
-            <p><span data-lang="en">Allocate to a Dream goal</span><span data-lang="tl">Ilaan sa isang Dream goal</span><span data-lang="ceb">Ilaan sa usa ka Dream goal</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">📸</div>
-            <h4><span data-lang="en">Scan Receipt</span><span data-lang="tl">I-scan ang Resibo</span><span data-lang="ceb">I-scan ang Resibo</span></h4>
-            <p><span data-lang="en">AI auto-fills your expense</span><span data-lang="tl">AI ang awtomatikong magsulat</span><span data-lang="ceb">AI ang awtomatik mag-fill</span></p>
-          </div>
-        </div>
-      </div>
+
+<!-- ============================================================ -->
+<!-- 14. IMPORTANT INFO                                            -->
+<!-- ============================================================ -->
+<section id="important-info">
+  <h2 class="color-pink">
+    <span lang="en">14. Important Information</span>
+    <span lang="tl">14. Mahalagang Impormasyon</span>
+    <span lang="ceb">14. Importanteng Impormasyon</span>
+  </h2>
+
+  <div class="important-box">
+    <div lang="en">
+      <h4>Offline-First App</h4>
+      <p>Gumi Save is designed to work <strong>without an internet connection</strong> for all core features. Your financial data (transactions, envelopes, utang, dreams, calendar) is stored locally on your device and does <strong>NOT</strong> require any online connection.</p>
+      <p>Only features marked with the <span class="badge badge-online">online</span> badge use internet data. These are mostly AI-powered features, and the <strong>data usage is minimal</strong>.</p>
+
+      <h4 style="margin-top:16px">Online Features List:</h4>
+      <ul>
+        <li>Scan Receipt - AI receipt scanning</li>
+        <li>Bill Estimator - AI prediction</li>
+        <li>AI Coach - AI financial analysis</li>
+        <li>Daily Swerte - AI fortune reading</li>
+        <li>Palad Guide - AI palm reading</li>
+        <li>Backup / Restore / OTP - cloud data transfer</li>
+        <li>Support Us</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Offline-First App</h4>
+      <p>Ang Gumi Save ay gumagana <strong>nang walang internet connection</strong> para sa lahat ng pangunahing feature. Ang mga feature na may <span class="badge badge-online">online</span> badge lang ang gumagamit ng internet. Minimal ang data usage.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Offline-First App</h4>
+      <p>Ang Gumi Save nagagana <strong>nga walay internet connection</strong> para sa tanan nga nag-una nga feature. Ang mga feature nga adunay <span class="badge badge-online">online</span> badge ra ang naggamit og internet. Minimal ang data usage.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div lang="en">
+      <h4>Backup File Auto-Deletion</h4>
+      <p>Backup files stored on the server are <strong>automatically deleted after 30 days</strong>. This is for security and privacy purposes. Always complete your device transfer within this window. There is no way to recover expired backups.</p>
+    </div>
+    <div lang="tl">
+      <h4>Auto-Delete ng Backup File</h4>
+      <p>Ang mga backup file na naka-store sa server ay <strong>awtomatikong nadi-delete pagkalipas ng 30 araw</strong>. Para ito sa seguridad at privacy. Tapusin ang device transfer sa loob ng 30 araw.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Auto-Delete sa Backup File</h4>
+      <p>Ang mga backup file nga na-store sa server <strong>awtomatiko nga na-delete human sa 30 ka adlaw</strong>. Para kini sa seguridad ug privacy.</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div lang="en">
+      <h4>AI Coach Data Storage</h4>
+      <p>The AI Coach's <strong>most recent report is saved on the server</strong>. This is the only personal data stored remotely (besides backup files). The saved report serves as context when generating your next AI coaching session, ensuring continuity and more personalized advice over time.</p>
+    </div>
+    <div lang="tl">
+      <h4>AI Coach Data Storage</h4>
+      <p>Ang <strong>pinakabagong report ng AI Coach ay naka-save sa server</strong>. Ito lang ang personal data na naka-store remotely (bukod sa backup files). Ginagamit ito bilang context kapag gumawa ng bagong AI coaching session.</p>
+    </div>
+    <div lang="ceb">
+      <h4>AI Coach Data Storage</h4>
+      <p>Ang <strong>pinakabag-o nga report sa AI Coach na-save sa server</strong>. Mao ra ni ang personal data nga na-store remotely (gawas sa backup files).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Bottom Navigation Bar</h4>
+      <p>The app has 5 main tabs accessible from the bottom navigation:</p>
+      <ul>
+        <li><strong>Dashboard</strong> - Home screen with overview</li>
+        <li><strong>Utang</strong> - Debt tracking</li>
+        <li><strong>Envelope</strong> - Budget management</li>
+        <li><strong>Dream</strong> - Savings goals</li>
+        <li><strong>Calendar</strong> - Transaction calendar</li>
+      </ul>
+    </div>
+    <div lang="tl">
+      <h4>Bottom Navigation Bar</h4>
+      <p>Ang app ay may 5 pangunahing tab: Dashboard, Utang, Envelope, Dream, Calendar.</p>
+    </div>
+    <div lang="ceb">
+      <h4>Bottom Navigation Bar</h4>
+      <p>Ang app adunay 5 ka nag-una nga tab: Dashboard, Utang, Envelope, Dream, Calendar.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Multilingual Support</h4>
+      <p>Gumi Save supports three languages:</p>
+      <ul>
+        <li><strong>English</strong> - Default language</li>
+        <li><strong>Tagalog</strong> - Filipino national language</li>
+        <li><strong>Cebuano (Bisaya)</strong> - Visayan language</li>
+      </ul>
+      <p>Change language anytime in <strong>Settings > Language</strong> or during onboarding.</p>
+    </div>
+    <div lang="tl">
+      <h4>Multilingual Support</h4>
+      <p>Sinusuportahan ng Gumi Save ang tatlong wika: English, Tagalog, Cebuano (Bisaya).</p>
+    </div>
+    <div lang="ceb">
+      <h4>Multilingual Support</h4>
+      <p>Gisuportahan sa Gumi Save ang tulo ka pinulongan: English, Tagalog, Cebuano (Bisaya).</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 3. AI RECEIPT SCANNER ═══════════════════════ -->
-<section class="section c-purple" id="scanner" style="background: var(--purple-l);">
-  <div class="container">
-    <div class="section-tag" style="margin:0 auto 16px; display:table;">
-      <span>📸</span>
-      <span data-lang="en">AI Receipt Scanner</span>
-      <span data-lang="tl">AI Receipt Scanner</span>
-      <span data-lang="ceb">AI Receipt Scanner</span>
-    </div>
-    <h2 class="section-title" style="text-align:center; max-width:600px; margin:0 auto 14px;">
-      <span data-lang="en">Snap a photo.<br/>Done.</span>
-      <span data-lang="tl">Kumuha ng litrato.<br/>Tapos na.</span>
-      <span data-lang="ceb">Kuha og litrato.<br/>Natapos na.</span>
-    </h2>
-    <p class="section-desc" style="text-align:center; margin:0 auto 40px;">
-      <span data-lang="en">Point your camera at any receipt and AI reads the amount, item name, and suggests the right envelope automatically.</span>
-      <span data-lang="tl">Itutok ang camera sa anumang resibo at awtomatikong mababasa ng AI ang halaga, pangalan ng item, at iminumungkahi ang tamang sobre.</span>
-      <span data-lang="ceb">Itutok ang camera sa bisan unsang resibo ug awtomatikong mabasa sa AI ang kantidad, ngalan sa item, ug suguhon ang sakto nga sobre.</span>
-    </p>
-    <div style="display:grid; grid-template-columns: 1fr 280px; gap:48px; align-items:start; max-width:900px; margin:0 auto;">
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4><span data-lang="en">Tap "📸 Scan Receipt" on the Dashboard</span><span data-lang="tl">I-tap ang "📸 I-scan ang Resibo"</span><span data-lang="ceb">I-tap ang "📸 I-scan ang Resibo"</span></h4>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4><span data-lang="en">Allow camera access (first time only)</span><span data-lang="tl">Payagan ang camera access (unang beses lang)</span><span data-lang="ceb">Tugotan ang camera access (usa ka beses lang)</span></h4>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4><span data-lang="en">Photograph the entire receipt clearly</span><span data-lang="tl">Litratuhan ang buong resibo nang malinaw</span><span data-lang="ceb">Litrato ang tibuok resibo nga klaro</span></h4>
-            <p><span data-lang="en">Clearer photos = better accuracy</span><span data-lang="tl">Mas malinaw = mas tumpak</span><span data-lang="ceb">Mas klaro = mas tumpak</span></p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4><span data-lang="en">AI analyzes and auto-fills the form</span><span data-lang="tl">Sinusuri ng AI at awtomatikong kinukumpleto ang form</span><span data-lang="ceb">Gisusi sa AI ug awtomatik gi-fill ang form</span></h4>
-            <p><span data-lang="en">Amount · Memo · Suggested Envelope</span><span data-lang="tl">Halaga · Memo · Minungkahing Sobre</span><span data-lang="ceb">Kantidad · Memo · Gi-suggest nga Sobre</span></p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h4><span data-lang="en">Review and Save</span><span data-lang="tl">Suriin at I-save</span><span data-lang="ceb">Tan-awa ug I-save</span></h4>
-            <p><span data-lang="en">Edit anything if needed, then tap Save.</span><span data-lang="tl">I-edit kung kailangan, pagkatapos i-tap ang Save.</span><span data-lang="ceb">I-edit kung gikinahanglan, dayon i-tap ang Save.</span></p>
-          </div>
-        </div>
-        <div class="highlight" style="background:#FFF3CD; border:1px solid #FFD966; margin-top:8px;">
-          <div class="highlight-icon">⚠️</div>
-          <div>
-            <h4><span data-lang="en">Beta Feature</span><span data-lang="tl">Beta na Tampok</span><span data-lang="ceb">Beta nga Feature</span></h4>
-            <p><span data-lang="en">Always verify before saving. Requires internet. Blurry or glare-affected photos may reduce accuracy.</span><span data-lang="tl">Laging suriin bago i-save. Nangangailangan ng internet. Ang malabo o may reflection na litrato ay maaaring magbawas ng katumpakan.</span><span data-lang="ceb">Lagi pangitaa sa wala pa ma-save. Kinahanglan og internet. Ang malayo o may reflection nga litrato makapababa sa katumpakan.</span></p>
-          </div>
-        </div>
-      </div>
-      <div class="phone-wrap" style="justify-content:center;">
-        <div class="phone-frame" style="transform:none; width:240px;">
-          <div class="phone-screen">
-            <img src="images/receipt_scanner.jpg" alt="Receipt Scanner" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════ 4. ENVELOPE BUDGETING ═══════════════════════ -->
-<section class="section c-teal" id="envelope">
-  <div class="container">
-    <div class="feature-split">
-      <div>
-        <div class="section-tag">
-          <span>✉️</span>
-          <span data-lang="en">Envelope Budgeting</span>
-          <span data-lang="tl">Pamamaraan ng Sobre</span>
-          <span data-lang="ceb">Pamaagi sa Sobre</span>
+<!-- ============================================================ -->
+<!-- 15. EASTER EGGS                                               -->
+<!-- ============================================================ -->
+<section id="easter-eggs">
+  <h2 class="color-purple">
+    <span lang="en">15. Easter Eggs</span>
+    <span lang="tl">15. Easter Eggs</span>
+    <span lang="ceb">15. Easter Eggs</span>
+  </h2>
+
+  <div class="card" style="background: linear-gradient(135deg, #FFF8E1, #FFF0F3, #F0EDFF); border: 2px dashed var(--purple);">
+    <div lang="en">
+      <h4 style="color: var(--purple);">Hidden Surprises!</h4>
+      <p>Gumi Save has <strong>3 hidden Easter Eggs</strong> tucked away in the app! Can you find them all?</p>
+      <p>We won't tell you exactly where they are, but here are some hints to get you started:</p>
+
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--pink)">Hint #1</strong></p>
+          <p style="color:var(--text-light);margin:0">Try tapping on the number <strong>10</strong> somewhere special... What could the number 10 mean?</p>
         </div>
-        <h2 class="section-title">
-          <span data-lang="en">Your budget,<br/>organized.</span>
-          <span data-lang="tl">Ang iyong badyet,<br/>naayos na.</span>
-          <span data-lang="ceb">Ang imong badyet,<br/>naorganisa na.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Split your monthly budget into named categories — Food, Transport, Bills — and track spending per envelope in real time.</span>
-          <span data-lang="tl">Hatiin ang iyong buwanang badyet sa mga kategorya — Pagkain, Transportasyon, Bayarin — at subaybayan ang gastos bawat sobre nang real time.</span>
-          <span data-lang="ceb">Bahinon ang imong buwanang badyet sa mga kategorya — Pagkaon, Transportasyon, Bayad — ug susiha ang ginagastos matag sobre sa real time.</span>
-        </p>
-        <div class="cards-grid">
-          <div class="feat-card">
-            <div class="feat-icon">📊</div>
-            <h4><span data-lang="en">Usage %</span><span data-lang="tl">% Gamit</span><span data-lang="ceb">% Gamit</span></h4>
-            <p><span data-lang="en">See how much of each envelope is spent</span><span data-lang="tl">Makita kung magkano ang nagastos sa bawat sobre</span><span data-lang="ceb">Makita kung pila ang nagastos sa matag sobre</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">📌</div>
-            <h4><span data-lang="en">Pin to Dashboard</span><span data-lang="tl">I-pin sa Dashboard</span><span data-lang="ceb">I-pin sa Dashboard</span></h4>
-            <p><span data-lang="en">Up to 4 envelopes pinned for quick access</span><span data-lang="tl">Hanggang 4 sobre ang maaaring i-pin</span><span data-lang="ceb">Hangtod 4 ka sobre ang ma-pin</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🏦</div>
-            <h4><span data-lang="en">Utang Included</span><span data-lang="tl">Kasama ang Utang</span><span data-lang="ceb">Apil ang Utang</span></h4>
-            <p><span data-lang="en">See Utang totals per envelope</span><span data-lang="tl">Makita ang kabuuang Utang bawat sobre</span><span data-lang="ceb">Makita ang total Utang matag sobre</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🎨</div>
-            <h4><span data-lang="en">Custom Icons & Colors</span><span data-lang="tl">Custom Icons at Kulay</span><span data-lang="ceb">Custom Icons ug Kolor</span></h4>
-            <p><span data-lang="en">Personalize every envelope</span><span data-lang="tl">Ipersonalisa ang bawat sobre</span><span data-lang="ceb">I-personalize ang matag sobre</span></p>
-          </div>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--purple)">Hint #2</strong></p>
+          <p style="color:var(--text-light);margin:0">The words <strong>"Gumi Save"</strong> appear in many places throughout the app. But one of them is more than just a label...</p>
         </div>
-        <div style="margin-top:20px; padding:16px 20px; background:var(--teal-l); border-radius:12px; font-size:.88rem; color:#0D5952;">
-          <strong>💡 <span data-lang="en">Tip:</span><span data-lang="tl">Tip:</span><span data-lang="ceb">Tip:</span></strong>
-          <span data-lang="en"> Pin your most-used envelopes to always see remaining budget from the home screen.</span>
-          <span data-lang="tl"> I-pin ang mga pinaka-ginagamit mong sobre para makita ang natitirang badyet sa home screen.</span>
-          <span data-lang="ceb"> I-pin ang imong pinaka-gigamit nga sobre para makita ang nahibilin nga badyet sa home screen.</span>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--green)">Hint #3</strong></p>
+          <p style="color:var(--text-light);margin:0">You add <strong>Income</strong>, <strong>Expense</strong>, and <strong>Savings</strong> every day... but have you tried tapping on their <em>icons</em> in an unexpected place?</p>
         </div>
       </div>
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/envelope.jpg" alt="Envelope Budgeting" />
-          </div>
+
+      <p style="margin-top:20px; color:var(--text-light); font-style:italic; text-align:center;">Happy hunting! If you find one, try sharing it with your friends and see if they found the same ones.</p>
+    </div>
+    <div lang="tl">
+      <h4 style="color: var(--purple);">Mga Nakatagong Sorpresa!</h4>
+      <p>May <strong>3 nakatagong Easter Egg</strong> ang Gumi Save! Mahahanap mo ba silang lahat?</p>
+      <p>Hindi namin sasabihin kung saan exacto, pero narito ang mga pahiwatig:</p>
+
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--pink)">Pahiwatig #1</strong></p>
+          <p style="color:var(--text-light);margin:0">Subukang i-tap ang number na <strong>10</strong> sa isang espesyal na lugar...</p>
+        </div>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--purple)">Pahiwatig #2</strong></p>
+          <p style="color:var(--text-light);margin:0">Ang salitang <strong>"Gumi Save"</strong> ay lumilitaw sa maraming lugar sa app. Pero isa sa kanila ay higit pa sa isang label...</p>
+        </div>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--green)">Pahiwatig #3</strong></p>
+          <p style="color:var(--text-light);margin:0">Araw-araw kang nagdadagdag ng <strong>Income</strong>, <strong>Expense</strong>, at <strong>Savings</strong>... pero nasubukan mo na bang i-tap ang kanilang <em>icons</em> sa isang hindi inaasahang lugar?</p>
         </div>
       </div>
+
+      <p style="margin-top:20px; color:var(--text-light); font-style:italic; text-align:center;">Masayang paghahanap! Kung nakahanap ka ng isa, i-share sa mga kaibigan mo!</p>
+    </div>
+    <div lang="ceb">
+      <h4 style="color: var(--purple);">Mga Natagong Sorpresa!</h4>
+      <p>Adunay <strong>3 ka natagong Easter Egg</strong> ang Gumi Save! Makit-an ba nimo silang tanan?</p>
+      <p>Dili namo isulti kung asa exacto, pero ania ang mga pahibalo:</p>
+
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--pink)">Pahibalo #1</strong></p>
+          <p style="color:var(--text-light);margin:0">Sulayi pag-tap sa numero nga <strong>10</strong> sa usa ka espesyal nga lugar...</p>
+        </div>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--purple)">Pahibalo #2</strong></p>
+          <p style="color:var(--text-light);margin:0">Ang pulong <strong>"Gumi Save"</strong> makita sa daghang lugar sa app. Pero usa kanila labaw pa sa usa ka label...</p>
+        </div>
+
+        <div style="background:white; border-radius:12px; padding:16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin-bottom:4px"><strong style="color:var(--green)">Pahibalo #3</strong></p>
+          <p style="color:var(--text-light);margin:0">Adlaw-adlaw ka nagdugang og <strong>Income</strong>, <strong>Expense</strong>, ug <strong>Savings</strong>... pero nasulay ba nimo pag-tap sa ilang <em>icons</em> sa usa ka wala gidahom nga lugar?</p>
+        </div>
+      </div>
+
+      <p style="margin-top:20px; color:var(--text-light); font-style:italic; text-align:center;">Malipayon nga pagpangita! Kung nakit-an nimo ang usa, i-share sa imong mga higala!</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 5. UTANG ═══════════════════════ -->
-<section class="section c-orange" id="utang">
-  <div class="container">
-    <div class="feature-split reverse">
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/utang.jpg" alt="Utang Tracker" />
+
+<!-- ============================================================ -->
+<!-- 16. SUPPORT US                                                -->
+<!-- ============================================================ -->
+<section id="support-us">
+  <h2 class="color-pink">
+    <span lang="en">16. Support Us</span>
+    <span lang="tl">16. Suportahan Kami</span>
+    <span lang="ceb">16. Suportahi Kami</span>
+  </h2>
+
+  <div class="card" style="background: linear-gradient(135deg, #FFF8E1 0%, #FFE0E8 40%, #E8D5FF 100%); border: none; box-shadow: 0 8px 32px rgba(232,131,155,0.15);">
+    <div lang="en">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="assets/logo.png" alt="Gumi" style="width:80px; height:80px; border-radius:20px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <h3 style="margin-top:12px; color:var(--pink); font-size:1.4em;">Help Gumi Grow & Give Back</h3>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--pink); margin-bottom:12px;">For the Children</h4>
+        <p>A portion of all donations will be used to support children in <strong>Tarlac Bamban</strong> and <strong>Hansonville</strong>.</p>
+        <p style="margin-top:10px;">We hope that the time these children spend begging on the streets can instead be spent <strong>studying at school</strong>. Every small amount helps build a brighter future for them. Your support, no matter how small, can make a real difference in a child's life.</p>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">Behind Gumi Save</h4>
+        <p>All features in Gumi Save are <strong>completely free</strong>. This app is built by a <strong>single developer</strong> in their personal time, with passion and dedication.</p>
+        <p style="margin-top:10px;">The <strong>server costs for AI features</strong> (AI Coach, Scan Receipt, Bill Estimator, Daily Swerte, Palad Guide, etc.) are all paid out of pocket by one person. Continuous upgrades, bug fixes, and new features require personal time investment every day.</p>
+        <p style="margin-top:10px;">Your generous support directly helps:</p>
+        <ul style="margin-top:8px;">
+          <li>Keep the AI-powered features running</li>
+          <li>Fund continuous improvements and new features</li>
+          <li>Support children's education in Clark and Hansonville</li>
+        </ul>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--orange); margin-bottom:12px;">How to Support</h4>
+        <p>You can donate through the <strong>"Support Us"</strong> menu in the app's side menu. Please only give what you're comfortable with &mdash; even the smallest amount is deeply appreciated and makes a difference.</p>
+      </div>
+
+      <div style="background: linear-gradient(135deg, var(--purple-light), var(--pink-light)); border-radius:16px; padding:24px; border: 2px solid var(--purple); box-shadow: 0 2px 12px rgba(123,97,255,0.1);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">The Best Support of All</h4>
+        <p>More than any donation, the <strong>greatest support</strong> you can give is:</p>
+        <ol class="steps">
+          <li><strong>Don't delete the app.</strong> Keep using Gumi Save as your daily companion for managing your finances.</li>
+          <li><strong>Give us your feedback.</strong> Tell us what features you need, what's not working, or what could be better.</li>
+          <li><strong>Spread the word.</strong> Share Gumi Save with your family and friends who could benefit from it.</li>
+        </ol>
+        <p style="margin-top:16px;">Your continued use and honest feedback is what drives this app forward. Join our community and let your voice be heard:</p>
+        <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue); margin-bottom:4px;">Gumi Facebook Club</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Join the community, share tips, and give feedback</p>
+          </div>
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue); margin-bottom:4px;">E-mail</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Send suggestions, bug reports, or just say hi!</p>
           </div>
         </div>
       </div>
-      <div>
-        <div class="section-tag">
-          <span>🧾</span>
-          <span data-lang="en">Utang Tracker</span>
-          <span data-lang="tl">Tagasunod ng Utang</span>
-          <span data-lang="ceb">Tracker sa Utang</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">Never miss<br/>a payment.</span>
-          <span data-lang="tl">Huwag palampasin<br/>ang bayad.</span>
-          <span data-lang="ceb">Ayaw pagpalabay<br/>sa bayad.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Track borrowed money and installments with flexible payment schedules and built-in reminders.</span>
-          <span data-lang="tl">Subaybayan ang hiniram na pera at mga installment na may flexible na payment schedule at built-in na mga paalala.</span>
-          <span data-lang="ceb">Susiha ang gihiram nga kwarta ug mga installment nga adunay flexible nga payment schedule ug built-in nga mga pahinumdom.</span>
-        </p>
-        <div class="cards-grid">
-          <div class="feat-card">
-            <div class="feat-icon">📅</div>
-            <h4><span data-lang="en">Weekly / Biweekly / Monthly</span><span data-lang="tl">Linggu / Dalawang Linggu / Buwanan</span><span data-lang="ceb">Semana / Duha ka Semana / Buwan</span></h4>
-            <p><span data-lang="en">Flexible payment schedules</span><span data-lang="tl">Flexible na payment schedules</span><span data-lang="ceb">Flexible nga payment schedules</span></p>
+
+      <p style="margin-top:24px; text-align:center; font-size:1.1em; font-weight:700; color:var(--pink);">Thank you for being part of the Gumi Save family!</p>
+    </div>
+
+    <div lang="tl">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="assets/logo.png" alt="Gumi" style="width:80px; height:80px; border-radius:20px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <h3 style="margin-top:12px; color:var(--pink); font-size:1.4em;">Tulungan si Gumi na Lumaki at Magbigay Pabalik</h3>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--pink); margin-bottom:12px;">Para sa mga Bata</h4>
+        <p>Ang isang bahagi ng lahat ng donasyon ay gagamitin para suportahan ang mga bata sa <strong>Clark, Tarlac (Bamban)</strong> at <strong>Hansonville</strong>.</p>
+        <p style="margin-top:10px;">Umaasa kami na ang oras na ginugugol ng mga batang ito sa paghingi ng limos sa kalsada ay maaari na nilang gugulin sa <strong>pag-aaral sa paaralan</strong>. Bawat maliit na halaga ay nakakatulong para sa mas maliwanag na kinabukasan nila.</p>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">Ang Likod ng Gumi Save</h4>
+        <p>Lahat ng feature sa Gumi Save ay <strong>ganap na libre</strong>. Ang app na ito ay ginawa ng <strong>isang developer</strong> lang sa kanyang personal na oras.</p>
+        <p style="margin-top:10px;">Ang <strong>server costs para sa AI features</strong> ay binabayaran ng isang tao lang. Ang tuluy-tuloy na upgrade, bug fix, at bagong features ay nangangailangan ng personal na oras at pagsisikap araw-araw.</p>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--orange); margin-bottom:12px;">Paano Suportahan</h4>
+        <p>Maaari kang mag-donate sa pamamagitan ng <strong>"Support Us"</strong> menu sa side menu ng app. Magbigay lang ng halaga na komportable ka &mdash; kahit maliit, lubos na pinapahalagahan.</p>
+      </div>
+
+      <div style="background: linear-gradient(135deg, var(--purple-light), var(--pink-light)); border-radius:16px; padding:24px; border: 2px solid var(--purple);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">Ang Pinakamahalagang Suporta</h4>
+        <p>Higit sa anumang donasyon, ang <strong>pinakamahalagang suporta</strong> na maaari mong ibigay ay:</p>
+        <ol class="steps">
+          <li><strong>Huwag i-delete ang app.</strong> Patuloy na gamitin ang Gumi Save araw-araw.</li>
+          <li><strong>Magbigay ng feedback.</strong> Sabihin sa amin kung ano ang kailangan mo, ano ang hindi gumagana, o ano ang maaaring mas mapabuti.</li>
+          <li><strong>I-share ang Gumi Save.</strong> I-recommend sa pamilya at mga kaibigan mo.</li>
+        </ol>
+        <p style="margin-top:16px;">Sumali sa aming komunidad:</p>
+        <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue);">Gumi Facebook Club</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Sumali sa komunidad at magbigay ng feedback</p>
           </div>
-          <div class="feat-card">
-            <div class="feat-icon">✍️</div>
-            <h4><span data-lang="en">Manual Schedule</span><span data-lang="tl">Manual na Iskedyul</span><span data-lang="ceb">Manual nga Iskedyul</span></h4>
-            <p><span data-lang="en">Set custom dates and amounts</span><span data-lang="tl">Magtakda ng custom na petsa at halaga</span><span data-lang="ceb">Ibutang ang custom nga petsa ug kantidad</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🔔</div>
-            <h4><span data-lang="en">Payment Reminders</span><span data-lang="tl">Paalala sa Bayad</span><span data-lang="ceb">Pahinumdom sa Bayad</span></h4>
-            <p><span data-lang="en">Get notified 0–3 days before due</span><span data-lang="tl">Makatanggap ng abiso 0–3 araw bago mag-due</span><span data-lang="ceb">Makadawat og abiso 0–3 adlaw sa wala pa mag-due</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">✅</div>
-            <h4><span data-lang="en">Mark as Paid</span><span data-lang="tl">Markahan bilang Bayad Na</span><span data-lang="ceb">Markahan nga Nabayran Na</span></h4>
-            <p><span data-lang="en">Track progress toward full payment</span><span data-lang="tl">Subaybayan ang progreso hanggang sa ganap na mabayaran</span><span data-lang="ceb">Susiha ang progreso hangtod sa bug-os mabayaran</span></p>
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue);">E-mail</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Magpadala ng mga suhestyon o bug report</p>
           </div>
         </div>
       </div>
+
+      <p style="margin-top:24px; text-align:center; font-size:1.1em; font-weight:700; color:var(--pink);">Salamat sa pagiging bahagi ng Gumi Save family!</p>
+    </div>
+
+    <div lang="ceb">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="assets/logo.png" alt="Gumi" style="width:80px; height:80px; border-radius:20px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <h3 style="margin-top:12px; color:var(--pink); font-size:1.4em;">Tabangi si Gumi nga Motubo ug Mohatag Balik</h3>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--pink); margin-bottom:12px;">Para sa mga Bata</h4>
+        <p>Usa ka bahin sa tanan nga donasyon gamiton para suportahan ang mga bata sa <strong>Clark, Tarlac (Bamban)</strong> ug <strong>Hansonville</strong>.</p>
+        <p style="margin-top:10px;">Naglaum kami nga ang oras nga gigugol niining mga bata sa pagpakilimos sa kadalanan mahimo na nilang gamiton sa <strong>pagtuon sa eskwelahan</strong>. Bisan gamay nga kantidad makatabang para sa mas hayag nga kaugmaon nila.</p>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">Ang Luyo sa Gumi Save</h4>
+        <p>Tanan nga feature sa Gumi Save <strong>libre kaayo</strong>. Kini nga app gihimo sa <strong>usa ka developer</strong> lang sa iyang personal nga oras.</p>
+        <p style="margin-top:10px;">Ang <strong>server costs para sa AI features</strong> gibayaran sa usa ka tawo lang. Ang padayon nga upgrade, bug fix, ug bag-ong features nagkinahanglan og personal nga oras ug paningkamot matag adlaw.</p>
+      </div>
+
+      <div style="background:white; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+        <h4 style="color:var(--orange); margin-bottom:12px;">Giunsa Pagsuporta</h4>
+        <p>Mahimo kang mag-donate pinaagi sa <strong>"Support Us"</strong> menu sa side menu sa app. Maghatag lang sa kantidad nga komportable ka &mdash; bisan gamay, dakong pasalamat namo.</p>
+      </div>
+
+      <div style="background: linear-gradient(135deg, var(--purple-light), var(--pink-light)); border-radius:16px; padding:24px; border: 2px solid var(--purple);">
+        <h4 style="color:var(--purple); margin-bottom:12px;">Ang Pinakamaayong Suporta</h4>
+        <p>Labaw pa sa bisan unsang donasyon, ang <strong>pinakamaayong suporta</strong> nga imong ikahatag mao:</p>
+        <ol class="steps">
+          <li><strong>Ayaw i-delete ang app.</strong> Padayon gamita ang Gumi Save matag adlaw.</li>
+          <li><strong>Paghatag og feedback.</strong> Sultihi kami kung unsa ang imong kinahanglan, unsa ang dili nagtrabaho, o unsa ang mahimong mas maayo.</li>
+          <li><strong>I-share ang Gumi Save.</strong> I-recommend sa imong pamilya ug mga higala.</li>
+        </ol>
+        <p style="margin-top:16px;">Apil sa among komunidad:</p>
+        <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue);">Gumi Facebook Club</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Apil sa komunidad ug maghatag og feedback</p>
+          </div>
+          <div style="flex:1; min-width:200px; background:white; border-radius:12px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--blue);">E-mail</p>
+            <p style="font-size:0.85em; color:var(--text-light);">Magpadala og mga suhestyon o bug report</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; text-align:center; font-size:1.1em; font-weight:700; color:var(--pink);">Salamat sa pagka-bahin sa Gumi Save family!</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 6. DREAM CARD ═══════════════════════ -->
-<section class="section c-pink" id="dream">
-  <div class="container">
-    <div class="feature-split">
-      <div>
-        <div class="section-tag">
-          <span>⭐</span>
-          <span data-lang="en">Dream Card</span>
-          <span data-lang="tl">Dream Card</span>
-          <span data-lang="ceb">Dream Card</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">Watch your<br/>savings grow.</span>
-          <span data-lang="tl">Panoorin ang paglaki<br/>ng iyong ipon.</span>
-          <span data-lang="ceb">Tan-awa ang pagdako<br/>sa imong ipon.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Each savings goal gets an animated Dream Card — your mascot evolves as your progress climbs through 5 stages.</span>
-          <span data-lang="tl">Ang bawat savings goal ay may animated Dream Card — ang iyong mascot ay nagbabago habang lumalaki ang iyong progreso sa 5 antas.</span>
-          <span data-lang="ceb">Ang matag savings goal adunay animated Dream Card — ang imong mascot nag-ilis samtang nagdako ang imong progreso sa 5 lebel.</span>
-        </p>
-        <div class="stages">
-          <div class="stage">
-            <div class="stage-emoji">🥚</div>
-            <div class="stage-pct">0 – 10%</div>
-            <div class="stage-info">
-              <h4>Just Hatching</h4>
-              <p><span data-lang="en">You're just getting started</span><span data-lang="tl">Nagsisimula ka pa lang</span><span data-lang="ceb">Nagsugod ka pa lang</span></p>
-            </div>
-          </div>
-          <div class="stage">
-            <div class="stage-emoji">🐣</div>
-            <div class="stage-pct">11 – 30%</div>
-            <div class="stage-info">
-              <h4>Baby Steps</h4>
-              <p><span data-lang="en">Taking your first steps</span><span data-lang="tl">Ginagawa na ang unang hakbang</span><span data-lang="ceb">Gihimo na ang unang lakang</span></p>
-            </div>
-          </div>
-          <div class="stage">
-            <div class="stage-emoji">🐥</div>
-            <div class="stage-pct">31 – 60%</div>
-            <div class="stage-info">
-              <h4>Getting Chubby</h4>
-              <p><span data-lang="en">Things are filling up nicely</span><span data-lang="tl">Pumupuno na nang maayos</span><span data-lang="ceb">Nagpuno na og maayo</span></p>
-            </div>
-          </div>
-          <div class="stage">
-            <div class="stage-emoji">🐓</div>
-            <div class="stage-pct">61 – 89%</div>
-            <div class="stage-info">
-              <h4>Almost There</h4>
-              <p><span data-lang="en">You're so close!</span><span data-lang="tl">Malapit ka na!</span><span data-lang="ceb">Hapit na ka!</span></p>
-            </div>
-          </div>
-          <div class="stage" style="border-color:var(--pink); background:var(--pink-l);">
-            <div class="stage-emoji">👑</div>
-            <div class="stage-pct" style="color:var(--pink);">90 – 100%</div>
-            <div class="stage-info">
-              <h4>Dream Achieved!</h4>
-              <p><span data-lang="en">You did it! 🎉 Confetti time!</span><span data-lang="tl">Nagawa mo! 🎉 Oras na ng confetti!</span><span data-lang="ceb">Nahimo nimo! 🎉 Oras na sa confetti!</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="phone-wrap" style="flex-direction:column; align-items:center; gap:20px;">
-        <div class="phone-frame" style="width:240px; transform:none;">
-          <div class="phone-screen">
-            <img src="images/dream_card.jpg" alt="Dream Card" />
-          </div>
-        </div>
-        <div class="phone-frame" style="width:240px; transform:none;">
-          <div class="phone-screen">
-            <img src="images/dream_board.jpg" alt="Dream Board" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div><!-- end container -->
 
-<!-- ═══════════════════════ 7. CALENDAR ═══════════════════════ -->
-<section class="section c-pink" id="calendar" style="background:#FFF5F8;">
-  <div class="container">
-    <div class="feature-split reverse">
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/calendar.jpg" alt="Calendar" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="section-tag">
-          <span>📅</span>
-          <span data-lang="en">Calendar</span>
-          <span data-lang="tl">Kalendaryo</span>
-          <span data-lang="ceb">Kalendaryo</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">Every peso,<br/>every day.</span>
-          <span data-lang="tl">Bawat piso,<br/>bawat araw.</span>
-          <span data-lang="ceb">Matag piso,<br/>matag adlaw.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Browse all your transactions on a monthly calendar. Dots mark active days. Tap any date to see and edit its records.</span>
-          <span data-lang="tl">Tingnan ang lahat ng iyong transaksyon sa monthly calendar. Ang mga tuldok ay nagmamarka ng mga araw na may aktibidad. I-tap ang anumang petsa para makita at i-edit ang mga rekord nito.</span>
-          <span data-lang="ceb">Tan-awa ang tanan nimong transaksyon sa monthly calendar. Ang mga tuldok nag-marka sa mga adlaw nga may aktibidad. I-tap ang bisan unsang petsa para makita ug i-edit ang mga rekord niini.</span>
-        </p>
-        <div class="cards-grid">
-          <div class="feat-card">
-            <div class="feat-icon">🔴</div>
-            <h4><span data-lang="en">Activity Dots</span><span data-lang="tl">Mga Tuldok ng Aktibidad</span><span data-lang="ceb">Mga Tuldok sa Aktibidad</span></h4>
-            <p><span data-lang="en">See which days have transactions at a glance</span><span data-lang="tl">Makita sa isang tingin kung aling araw may transaksyon</span><span data-lang="ceb">Makita sa usa ka sulyap kung unsang adlaw adunay transaksyon</span></p>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">✏️</div>
-            <h4><span data-lang="en">Tap to Edit</span><span data-lang="tl">I-tap para I-edit</span><span data-lang="ceb">I-tap para I-edit</span></h4>
-            <p><span data-lang="en">Modify or delete any past transaction</span><span data-lang="tl">Baguhin o burahin ang anumang nakaraang transaksyon</span><span data-lang="ceb">Usba o tangtanga ang bisan unsang nakaaging transaksyon</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════ 8. UTILITIES ═══════════════════════ -->
-<section class="section c-blue" id="utilities">
-  <div class="container">
-    <div class="feature-split">
-      <div>
-        <div class="section-tag">
-          <span>⚡</span>
-          <span data-lang="en">Electricity & Water Utilities</span>
-          <span data-lang="tl">Kuryente at Tubig</span>
-          <span data-lang="ceb">Kuryente ug Tubig</span>
-        </div>
-        <h2 class="section-title">
-          <span data-lang="en">Know your bill<br/>before it arrives.</span>
-          <span data-lang="tl">Alamin ang iyong bayarin<br/>bago pa dumating.</span>
-          <span data-lang="ceb">Hibaloi ang imong bayad<br/>sa wala pa moabut.</span>
-        </h2>
-        <p class="section-desc">
-          <span data-lang="en">Calculate electricity and water bills from meter readings, then predict next month's cost using AI — based on your appliances and household size.</span>
-          <span data-lang="tl">Kalkulahin ang bayarin sa kuryente at tubig mula sa meter readings, pagkatapos hulaan ang gastos ng susunod na buwan gamit ang AI — batay sa iyong mga gamit sa bahay at bilang ng miyembro ng pamilya.</span>
-          <span data-lang="ceb">Kalkulahon ang bayad sa kuryente ug tubig gikan sa mga meter reading, unya tagna ang gastos sa sunod nga buwan gamit ang AI — base sa imong mga gamit sa balay ug gidaghanon sa pamilya.</span>
-        </p>
-        <div class="steps" style="margin-bottom:20px;">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-content">
-              <h4><span data-lang="en">Calculator Tab</span><span data-lang="tl">Tab na Calculator</span><span data-lang="ceb">Calculator Tab</span></h4>
-              <p><span data-lang="en">Enter previous & current meter readings, choose provider (MERALCO, CEBECO, etc.)</span><span data-lang="tl">Ilagay ang nakaraang at kasalukuyang meter readings, pumili ng provider</span><span data-lang="ceb">Ibutang ang nakaaging ug karon nga meter readings, pili sa provider</span></p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-content">
-              <h4><span data-lang="en">AI Estimator Tab</span><span data-lang="tl">AI Estimator Tab</span><span data-lang="ceb">AI Estimator Tab</span></h4>
-              <p><span data-lang="en">Input appliances, residents, and temperature → get predicted amount + key factors</span><span data-lang="tl">Ilagay ang mga gamit sa bahay, bilang ng tao, at temperatura → makuha ang hulang halaga + mga pangunahing salik</span><span data-lang="ceb">Ibutang ang mga gamit sa balay, gidaghanon sa tawo, ug temperatura → makuha ang tagna nga kantidad + mga key factors</span></p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-content">
-              <h4><span data-lang="en">History Tab</span><span data-lang="tl">History Tab</span><span data-lang="ceb">History Tab</span></h4>
-              <p><span data-lang="en">Browse past electricity and water billing records</span><span data-lang="tl">Tingnan ang mga nakaraang rekord ng kuryente at tubig</span><span data-lang="ceb">Tan-awa ang nakaaging mga rekord sa kuryente ug tubig</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="phone-wrap" style="flex-direction:column; align-items:center; gap:20px;">
-        <div class="phone-frame" style="width:220px; transform:none;">
-          <div class="phone-screen">
-            <img src="images/bill_estimator.jpg" alt="Bill Estimator" />
-          </div>
-        </div>
-        <div class="phone-frame" style="width:220px; transform:none;">
-          <div class="phone-screen">
-            <img src="images/bill_result.jpg" alt="Bill Result" />
-          </div>
-        </div>
-        <div class="phone-frame" style="width:220px; transform:none;">
-          <div class="phone-screen">
-            <img src="images/billing_history.jpg" alt="Billing History" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 9. BACKUP & RESTORE ═══════════════════════ -->
-<section class="section c-green" id="backup" style="background:#F0FBF6;">
-  <div class="container">
-    <div class="section-tag" style="margin-bottom:16px;">
-      <span>🔐</span>
-      <span data-lang="en">Backup & Restore (OTP)</span>
-      <span data-lang="tl">Backup at Restore (OTP)</span>
-      <span data-lang="ceb">Backup ug Restore (OTP)</span>
-    </div>
-    <h2 class="section-title" style="max-width:560px;">
-      <span data-lang="en">Switch devices.<br/>Keep everything.</span>
-      <span data-lang="tl">Palitan ang device.<br/>Panatilihin ang lahat.</span>
-      <span data-lang="ceb">Ilisan ang device.<br/>Tipigan ang tanan.</span>
-    </h2>
-    <p class="section-desc">
-      <span data-lang="en">A one-time 6-digit OTP transfers your entire backup securely — no email or password needed.</span>
-      <span data-lang="tl">Ang isang 6-digit na OTP ay ligtas na naglilipat ng iyong buong backup — walang email o password na kailangan.</span>
-      <span data-lang="ceb">Ang usa ka 6-digit nga OTP luwas nga nag-transfer sa imong tibuok backup — walay email o password nga gikinahanglan.</span>
-    </p>
-    <div class="otp-cols" style="margin-bottom:32px;">
-      <div class="otp-block">
-        <h3>
-          <span data-lang="en">📤 How to Back Up</span>
-          <span data-lang="tl">📤 Paano Mag-Backup</span>
-          <span data-lang="ceb">📤 Unsaon Pag-Backup</span>
-        </h3>
-        <p style="font-size:.82rem; color:var(--txt2); margin-bottom:14px;">Settings → Safe &amp; Secure → Backup</p>
-        <div class="otp-steps">
-          <div class="otp-step"><div class="otp-step-n">1</div><p><span data-lang="en">Tap [Backup] — app compresses & uploads all your data</span><span data-lang="tl">I-tap ang [Backup] — pine-pack at ina-upload ang lahat ng data</span><span data-lang="ceb">I-tap ang [Backup] — gi-compress ug gi-upload ang tanan nga data</span></p></div>
-          <div class="otp-step"><div class="otp-step-n">2</div><p><span data-lang="en">Tap [Get OTP] to receive your 6-digit code</span><span data-lang="tl">I-tap ang [Get OTP] para makuha ang iyong 6-digit na code</span><span data-lang="ceb">I-tap ang [Get OTP] para makuha ang imong 6-digit code</span></p></div>
-          <div class="otp-step"><div class="otp-step-n">3</div><p><span data-lang="en">Enter the code on your new device within <strong>3 minutes</strong></span><span data-lang="tl">Ilagay ang code sa iyong bagong device sa loob ng <strong>3 minuto</strong></span><span data-lang="ceb">Ibutang ang code sa imong bag-ong device sulod sa <strong>3 minuto</strong></span></p></div>
-        </div>
-      </div>
-      <div class="otp-block">
-        <h3>
-          <span data-lang="en">📥 How to Restore</span>
-          <span data-lang="tl">📥 Paano Mag-Restore</span>
-          <span data-lang="ceb">📥 Unsaon Pag-Restore</span>
-        </h3>
-        <p style="font-size:.82rem; color:var(--txt2); margin-bottom:14px;">Settings → Safe &amp; Secure → Restore</p>
-        <div class="otp-steps">
-          <div class="otp-step"><div class="otp-step-n">1</div><p><span data-lang="en">Tap [Restore] on your new device</span><span data-lang="tl">I-tap ang [Restore] sa iyong bagong device</span><span data-lang="ceb">I-tap ang [Restore] sa imong bag-ong device</span></p></div>
-          <div class="otp-step"><div class="otp-step-n">2</div><p><span data-lang="en">Enter the 6-digit OTP from your old device</span><span data-lang="tl">Ilagay ang 6-digit na OTP mula sa iyong lumang device</span><span data-lang="ceb">Ibutang ang 6-digit nga OTP gikan sa imong daan nga device</span></p></div>
-          <div class="otp-step"><div class="otp-step-n">3</div><p><span data-lang="en">Confirm the prompt → restoration begins automatically</span><span data-lang="tl">Kumpirmahin ang prompt → awtomatikong magsisimula ang restore</span><span data-lang="ceb">I-confirm ang prompt → awtomatik magsugod ang restore</span></p></div>
-          <div class="otp-step"><div class="otp-step-n">4</div><p><span data-lang="en">All data restored to your new device!</span><span data-lang="tl">Lahat ng data naibalik sa iyong bagong device!</span><span data-lang="ceb">Tanan nga data naibalik sa imong bag-ong device!</span></p></div>
-        </div>
-      </div>
-    </div>
-    <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:16px;">
-      🔒 <span data-lang="en">Security Structure</span><span data-lang="tl">Istruktura ng Seguridad</span><span data-lang="ceb">Istruktura sa Seguridad</span>
-    </h3>
-    <div class="security-grid">
-      <div class="sec-pill">
-        <h5><span data-lang="en">6-Digit OTP</span><span data-lang="tl">6-Digit na OTP</span><span data-lang="ceb">6-Digit nga OTP</span></h5>
-        <p><span data-lang="en">1 million possible combinations, randomly generated</span><span data-lang="tl">1 milyong posibleng kombinasyon, random na ginawa</span><span data-lang="ceb">1 milyon nga posibleng kombinasyon, random nga gibuhat</span></p>
-      </div>
-      <div class="sec-pill">
-        <h5><span data-lang="en">3-Minute Expiry</span><span data-lang="tl">3-Minutong Bisa</span><span data-lang="ceb">3-Minutong Pagkahuman</span></h5>
-        <p><span data-lang="en">OTP becomes invalid after 3 minutes</span><span data-lang="tl">Hindi na balido ang OTP pagkatapos ng 3 minuto</span><span data-lang="ceb">Dili na valid ang OTP human sa 3 minuto</span></p>
-      </div>
-      <div class="sec-pill">
-        <h5><span data-lang="en">Signed URL</span><span data-lang="tl">Signed URL</span><span data-lang="ceb">Signed URL</span></h5>
-        <p><span data-lang="en">Download link auto-expires after 60 seconds</span><span data-lang="tl">Ang download link ay awtomatikong mag-expire pagkatapos ng 60 segundo</span><span data-lang="ceb">Ang download link awtomatik mag-expire human sa 60 segundo</span></p>
-      </div>
-      <div class="sec-pill">
-        <h5><span data-lang="en">Anonymous Session</span><span data-lang="tl">Anonymous na Session</span><span data-lang="ceb">Anonymous nga Session</span></h5>
-        <p><span data-lang="en">Auth uses anonymous ID — no email or phone</span><span data-lang="tl">Gumagamit ng anonymous ID — walang email o telepono</span><span data-lang="ceb">Naggamit og anonymous ID — walay email o telepono</span></p>
-      </div>
-      <div class="sec-pill">
-        <h5><span data-lang="en">gzip Compression</span><span data-lang="tl">gzip na Compression</span><span data-lang="ceb">gzip nga Compression</span></h5>
-        <p><span data-lang="en">Lightweight & secure file transfer</span><span data-lang="tl">Magaan at ligtas na paglipat ng file</span><span data-lang="ceb">Magaan ug luwas nga paglipat sa file</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 10. FAQ ═══════════════════════ -->
-<section class="section" id="faq">
-  <div class="container">
-    <div class="section-tag" style="--sec:var(--green); --sec-l:var(--green-l); margin-bottom:16px;">
-      <span>❓</span>
-      <span data-lang="en">FAQ</span>
-      <span data-lang="tl">Mga Madalas na Tanong</span>
-      <span data-lang="ceb">Mga Kasagarang Pangutana</span>
-    </div>
-    <h2 class="section-title" style="max-width:500px; margin-bottom:40px;">
-      <span data-lang="en">Got questions?</span>
-      <span data-lang="tl">May mga tanong?</span>
-      <span data-lang="ceb">May mga pangutana?</span>
-    </h2>
-    <div style="max-width:720px;" class="faq-list">
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">Can I use Gumi Save without internet?</span>
-          <span data-lang="tl">Maaari ba akong gumamit ng Gumi Save nang walang internet?</span>
-          <span data-lang="ceb">Makagaramit ba ko sa Gumi Save bisan walay internet?</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">Yes. All core features — transactions, envelopes, Dream Cards, and reports — work completely offline. Only AI Receipt Scanning and Backup/Restore require internet.</span>
-          <span data-lang="tl">Oo. Lahat ng pangunahing tampok — transaksyon, sobre, Dream Card, at ulat — ay gumagana nang ganap na offline. Ang AI Receipt Scan at Backup/Restore lamang ang nangangailangan ng internet.</span>
-          <span data-lang="ceb">Oo. Tanan nga pangunahing feature — transaksyon, sobre, Dream Card, ug mga ulat — nagtrabaho nga bug-os nga offline. Ang AI Receipt Scan ug Backup/Restore lang ang nagkinahanglan og internet.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">Do I need to sign up or create an account?</span>
-          <span data-lang="tl">Kailangan ba akong mag-sign up o lumikha ng account?</span>
-          <span data-lang="ceb">Kinahanglan ba ko mag-sign up o maghimo og account?</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">No. Just set a name and PIN and you're ready to go. Email, phone number, and social logins are optional.</span>
-          <span data-lang="tl">Hindi. Itakda lang ang pangalan at PIN at handa ka nang gumamit. Ang email, numero ng telepono, at social login ay opsyonal.</span>
-          <span data-lang="ceb">Dili. Butang lang ang ngalan ug PIN ug andam ka na. Ang email, numero sa telepono, ug social login mga opsyonal.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">Where is my financial data stored?</span>
-          <span data-lang="tl">Saan naka-imbak ang aking financial data?</span>
-          <span data-lang="ceb">Asa nakatipig ang akong financial data?</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">All data lives only on your smartphone. It is uploaded to the cloud in encrypted form only when you use the Backup feature.</span>
-          <span data-lang="tl">Lahat ng data ay nakaimbak lamang sa iyong smartphone. Ina-upload ito sa cloud sa naka-encrypt na anyo kapag ginamit mo ang Backup feature.</span>
-          <span data-lang="ceb">Tanan nga data nakabutang lamang sa imong smartphone. Gi-upload kini sa cloud sa naka-encrypt nga porma kung gamiton mo ang Backup feature.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">I switched phones. Will I lose my data?</span>
-          <span data-lang="tl">Nagpalit ako ng telepono. Mawawala ba ang aking data?</span>
-          <span data-lang="ceb">Nagilis ako og telepono. Mawala ba ang akong data?</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">No! Use Safe & Secure → Backup on your old phone, then Restore on your new phone using the OTP. All data transfers safely.</span>
-          <span data-lang="tl">Hindi! Gamitin ang Safe & Secure → Backup sa lumang telepono, pagkatapos ay Restore sa bagong telepono gamit ang OTP. Ligtas na malilipat ang lahat ng data.</span>
-          <span data-lang="ceb">Dili! Gamiton ang Safe & Secure → Backup sa imong daan nga telepono, dayon Restore sa bag-ong telepono gamit ang OTP. Luwas nga ma-transfer ang tanan nga data.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">My OTP expired. What do I do?</span>
-          <span data-lang="tl">Nag-expire na ang aking OTP. Ano ang gagawin ko?</span>
-          <span data-lang="ceb">Nag-expire na ang akong OTP. Unsa ang buhaton ko?</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">Go to Settings → Safe & Secure → Backup and tap it again to generate a fresh OTP. Each code is valid for 3 minutes.</span>
-          <span data-lang="tl">Pumunta sa Settings → Safe & Secure → Backup at i-tap muli para makakuha ng bagong OTP. Ang bawat code ay valid ng 3 minuto.</span>
-          <span data-lang="ceb">Adto sa Settings → Safe & Secure → Backup ug i-tap pag-usab para makakuha og bag-ong OTP. Ang matag code valid sa 3 minuto.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">The receipt scan wasn't accurate.</span>
-          <span data-lang="tl">Hindi tumpak ang receipt scan.</span>
-          <span data-lang="ceb">Dili tumpak ang receipt scan.</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">AI Receipt Scanning is a Beta feature — accuracy improves with clearer photos. Always verify before saving, and leave feedback in the Facebook community.</span>
-          <span data-lang="tl">Ang AI Receipt Scanning ay isang Beta na tampok — ang katumpakan ay nagpapabuti sa mas malinaw na larawan. Laging suriin bago i-save, at mag-iwan ng feedback sa Facebook community.</span>
-          <span data-lang="ceb">Ang AI Receipt Scanning usa ka Beta nga feature — ang katumpakan nagpabayo sa mas klaro nga litrato. Lagi pangitaa sa wala pa ma-save, ug magbilin og feedback sa Facebook community.</span>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
-          <span data-lang="en">I forgot my PIN.</span>
-          <span data-lang="tl">Nalimutan ko ang aking PIN.</span>
-          <span data-lang="ceb">Nalimtan ko ang akong PIN.</span>
-        </div>
-        <div class="faq-a">
-          <span data-lang="en">Tap "Forgot PIN?" on the lock screen, then enter the exact total of your current month's income, expenses, or savings to verify your identity and reset your PIN.</span>
-          <span data-lang="tl">I-tap ang "Forgot PIN?" sa lock screen, pagkatapos ay ilagay ang eksaktong kabuuan ng kita, gastos, o ipon ngayong buwan para ma-verify ang iyong pagkakakilanlan at ma-reset ang PIN.</span>
-          <span data-lang="ceb">I-tap ang "Forgot PIN?" sa lock screen, dayon ibutang ang eksaktong total sa kita, gastos, o ipon niining buwana para ma-verify ang imong pagkatawo ug ma-reset ang PIN.</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="footer">
-  <div class="container">
-    <h2>
-      <span data-lang="en">Ready to take control<br/>of your finances?</span>
-      <span data-lang="tl">Handa na bang kontrolin<br/>ang iyong pera?</span>
-      <span data-lang="ceb">Andam na ba mag-kontrol<br/>sa imong kwarta?</span>
-    </h2>
-    <p>
-      <span data-lang="en">Download Gumi Save — free, offline-first, built for Filipino families.</span>
-      <span data-lang="tl">I-download ang Gumi Save — libre, offline-first, ginawa para sa mga pamilyang Pilipino.</span>
-      <span data-lang="ceb">I-download ang Gumi Save — libre, offline-first, gihimo para sa mga pamilyang Pilipino.</span>
-    </p>
-    <div class="footer-links">
-      <a href="https://play.google.com/store/apps/details?id=com.kawkaw.gumisave" class="footer-link primary">
-        <span>🎮</span>
-        <span data-lang="en">Get on Google Play</span>
-        <span data-lang="tl">Kunin sa Google Play</span>
-        <span data-lang="ceb">Kuha sa Google Play</span>
-      </a>
-      <a href="https://www.facebook.com/groups/895486153385755" class="footer-link secondary">
-        <span>💬</span>
-        <span data-lang="en">Join the Community</span>
-        <span data-lang="tl">Sumali sa Komunidad</span>
-        <span data-lang="ceb">Apil sa Komunidad</span>
-      </a>
-    </div>
-    <div class="footer-copy">
-      Gumi Save v1.1.0 &nbsp;·&nbsp; © 2024 KawKaw (Philippines) &nbsp;·&nbsp; All Rights Reserved
-    </div>
-  </div>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <img src="assets/logo.png" alt="Gumi Save" style="width:48px;height:48px;border-radius:12px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto">
+  <p><strong>Gumi Save</strong> v2.0.1</p>
+  <p lang="en">When saving becomes fun</p>
+  <p lang="tl">Kapag ang pagtitipid ay naging masaya</p>
+  <p lang="ceb">Kung ang pag-save mahimong makalingaw</p>
+  <p style="margin-top:12px">
+    <span lang="en">Made with love by</span>
+    <span lang="tl">Gawa nang may pagmamahal ng</span>
+    <span lang="ceb">Gihimo nga may gugma sa</span>
+    <a href="#">KawKaw.dev</a>
+  </p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* ── Language Switcher ── */
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+  let currentLang = 'en';
+  let summaryMode = false;
+
   function setLang(lang) {
-    document.body.dataset.activeLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    currentLang = lang;
+
+    // Hide all lang elements
+    document.querySelectorAll('[lang="en"], [lang="tl"], [lang="ceb"]').forEach(el => {
+      el.style.display = 'none';
+    });
+
+    // Show selected lang
+    document.querySelectorAll('[lang="' + lang + '"]').forEach(el => {
+      // Restore the element's natural display value
+      const tag = el.tagName.toLowerCase();
+      if (tag === 'span') el.style.display = 'inline';
+      else if (tag === 'a') el.style.display = 'inline';
+      else el.style.display = 'block';
+    });
+
+    // Update buttons
+    ['en', 'tl', 'ceb'].forEach(l => {
+      document.getElementById('btn-' + l).classList.toggle('active', l === lang);
     });
   }
 
-  /* ── FAQ Toggle ── */
-  function toggleFaq(el) {
-    const isOpen = el.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) el.classList.add('open');
+  function toggleSummary() {
+    summaryMode = !summaryMode;
+    document.body.classList.toggle('summary-mode', summaryMode);
+    document.getElementById('btn-summary').classList.toggle('active', summaryMode);
   }
 
-  /* ── Active nav link on scroll ── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => {
-          a.style.background = a.getAttribute('href') === '#' + e.target.id ? 'var(--border)' : '';
-          a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--txt)' : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
+  // Init
+  setLang('en');
+</script>
 
-  /* ── Scroll reveal ── */
-  const fadeEls = document.querySelectorAll('.feat-card, .step, .stage, .otp-block, .sec-pill');
-  const fadeObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        fadeObs.unobserve(e.target);
-      }
-    });
-  }, { 
+</body>
+</html>
