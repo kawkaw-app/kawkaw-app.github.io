@@ -569,7 +569,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <a href="https://kawkaw.dev" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;"><span>🐻</span> Gumi Save</a>
+    <a href="https://kawkaw.dev" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;"><img src="image/ci_icon.png" style="height:36px;width:36px;object-fit:contain;border-radius:8px;" alt="KawKaw" /> KawKaw.dev</a>
   </div>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
@@ -842,24 +842,14 @@ We promise to make it worth your trust.</div>
     <button class="submit-btn" id="submit-btn">
       Send Message 🚀
     </button>
-    <p class="form-note">No login needed · Or email us: <a href="mailto:kawkaw.app@gmail.com" style="color:var(--leaf-deep);font-weight:800;">kawkaw.app@gmail.com</a> 📧</p>
+    <p class="form-note">No login needed · Or email us: <a href="/cdn-cgi/l/email-protection#e883899f83899fc6899898a88f85898184c68b8785" style="color:var(--leaf-deep);font-weight:800;"><span class="__cf_email__" data-cfemail="5b303a2c303a2c753a2b2b1b3c363a323775383436">[email&#160;protected]</span></a> 📧</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">🐻 Gumi Save</div>
+  <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;"><img src="image/logo.webp" style="height:48px;width:48px;object-fit:contain;" alt="Gumi Save" /> Gumi Save</div>
   <p>Your cute & friendly budgeting buddy — built in the Philippines, for the Philippines (and beyond!)</p>
-  <div class="apps-list">
-    <span class="app-pill">🐻 GUMI SAVE</span>
-  </div>
-  <div class="footer-links">
-    <a href="#features">Features</a>
-    <a href="#why">Why Us</a>
-    <a href="#promise">Our Promise</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#feedback">Feedback</a>
-  </div>
   <div style="margin:18px 0 8px; display:flex; flex-direction:column; gap:10px; align-items:center;">
     <div style="font-size:0.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,251,240,.4);margin-bottom:2px;">🐻 GUMI SAVE Resources</div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
@@ -872,14 +862,13 @@ We promise to make it worth your trust.</div>
     </div>
   </div>
   <p>Made with ❤️ for every Filipino family managing their money one day at a time.</p>
-  <p style="margin-top:10px;"><a href="https://kawkaw.dev" style="color:rgba(255,212,59,.85);font-weight:800;text-decoration:none;">🌐 kawkaw.dev</a></p>
   <p class="copy">© 2026 KawKaw. Free forever. Always listening.</p>
 </footer>
 
 <!-- TOAST -->
 <div id="toast">✅ Salamat! We'll read your message soon 🙏</div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── FORM SUBMISSION ──
   async function submitFeedback() {
     const name  = document.getElementById('fname').value.trim();
@@ -947,12 +936,4 @@ We promise to make it worth your trust.</div>
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.app-card, .why-card, .road-item').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(28px)';
-    el.style.transition = `opacity .5s ease ${i * 0.07}s, transform .5s ease ${i * 0.07}s`;
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.querySelectorAll('.app-card, .why-card, .road-item')
