@@ -56,7 +56,7 @@
 <!-- ======================== ENGLISH ======================== -->
 <div id="lang-en" class="lang-section active">
 
-<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: April 3, 2026</p>
+<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: April 7, 2026</p>
 
 <p>Welcome to <strong>Gumi Save</strong> ("the App"), a personal finance management application developed and operated by <strong>KawKaw.dev</strong> ("we," "us," or "our"). We are committed to protecting your privacy and personal information in accordance with the <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> of the Philippines and its Implementing Rules and Regulations.</p>
 
@@ -84,6 +84,7 @@
     <tr><td>Daily Fortune last result</td><td>To cache your most recent daily fortune</td><td>Until overwritten or account deletion</td></tr>
     <tr><td>Backup file (gzip)</td><td>To allow data transfer when changing devices</td><td>Automatically deleted within 1-3 months</td></tr>
     <tr><td>User ID and email (if registered)</td><td>Authentication and account identification</td><td>Until account deletion</td></tr>
+    <tr><td>Facebook identity (if linked)</td><td>Account linking for extended features — stores Facebook user ID, name, and email in our authentication system</td><td>Until you disconnect Facebook or delete your account</td></tr>
 </table>
 <p><strong>Important:</strong> Other than the items listed above, no user data is stored on our servers. All your financial data remains on your device.</p>
 
@@ -94,6 +95,7 @@
     <li><strong>AI Coach:</strong> Your transaction summary and monthly financial data are sent to Google Gemini AI to generate financial coaching advice. Only aggregated summary data is sent, not individual transaction details.</li>
     <li><strong>Palm Reading (Palad Guide):</strong> Your palm photo is sent to Google Gemini AI for entertainment-only palm reading. Images are processed in real-time and not stored.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Your profile information (birthday, gender, zodiac sign, birth hour, region) is sent to generate your daily fortune.</li>
+    <li><strong>Facebook Connect:</strong> If you choose to link your Facebook account, we request access to your <strong>public profile</strong> and <strong>email address</strong> (via the <code>public_profile</code> and <code>email</code> OAuth scopes). We receive your Facebook user ID, name, email, and profile picture URL. This data is used for account linking and upcoming extended features (such as viewing your Facebook friends who also use the App, and verifying your identity for in-app events and promotions), and is stored in our authentication system (Supabase Auth). Facebook linking is <strong>not</strong> required to use the App and does <strong>not</strong> function as an app login method. We do <strong>not</strong> post on your Facebook or access your posts, photos, or other Facebook data beyond the basic profile information listed above.</li>
 </ul>
 
 <h3>1.4 Information We Do NOT Collect</h3>
@@ -145,6 +147,7 @@
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading</td><td>Aggregated financial data, images, profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution and in-app purchases</td><td>As per their respective privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Optional account linking for extended features</td><td>Facebook user ID, name, email, profile picture URL (used for account linking and extended features)</td></tr>
 </table>
 <p>Each third-party service operates under its own privacy policy. We encourage you to review them.</p>
 
@@ -172,6 +175,9 @@
     <li><strong>Local data:</strong> Remains on your device until you delete the App or clear app data</li>
     <li><strong>Backup files:</strong> Automatically deleted from our servers within 1 to 3 months</li>
     <li><strong>Server-stored data:</strong> AI Coach reports and Daily Fortune results are retained until overwritten or until you request deletion</li>
+    <li><strong>Facebook data:</strong> If you linked your Facebook account, you may disconnect it at any time from the App's Settings screen. Upon disconnection, all Facebook-related data (Facebook user ID, name, email, profile picture URL) is <strong>immediately and permanently deleted</strong> from our authentication system. Your financial data and app records are not affected by Facebook disconnection.</li>
+    <li><strong>Facebook-initiated removal:</strong> If you remove Gumi Save from your Facebook account settings, we receive a deauthorization callback from Facebook and automatically delete all your Facebook identity data from our servers.</li>
+    <li><strong>Complete data wipe:</strong> You may perform a complete data wipe from the App's Settings screen, which automatically disconnects Facebook (if linked), signs out your session, and erases all local data including financial records, settings, and scheduled notifications.</li>
     <li><strong>Account deletion:</strong> You may request complete deletion of all server-side data by contacting us at <strong>kawkaw.app@gmail.com</strong>. We will process your request within 30 days.</li>
 </ul>
 
@@ -230,7 +236,7 @@
 <!-- ======================== TAGALOG ======================== -->
 <div id="lang-tl" class="lang-section">
 
-<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Abril 3, 2026</p>
+<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Abril 7, 2026</p>
 
 <p>Maligayang pagdating sa <strong>Gumi Save</strong> ("ang App"), isang application para sa pamamahala ng personal na pananalapi na binuo at pinapatakbo ng <strong>KawKaw.dev</strong> ("kami," "namin," o "aming"). Kami ay nakatuon sa pagprotekta ng iyong privacy at personal na impormasyon alinsunod sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> ng Pilipinas at ang mga Implementing Rules and Regulations nito.</p>
 
@@ -258,6 +264,7 @@
     <tr><td>Huling resulta ng Daily Fortune</td><td>Para i-cache ang iyong pinakabagong daily fortune</td><td>Hanggang mapalitan o deletion ng account</td></tr>
     <tr><td>Backup file (gzip)</td><td>Para payagan ang paglipat ng datos kapag nagpalit ng device</td><td>Awtomatikong dini-delete sa loob ng 1-3 buwan</td></tr>
     <tr><td>User ID at email (kung nakarehistro)</td><td>Authentication at pagkilala ng account</td><td>Hanggang sa deletion ng account</td></tr>
+    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtatago ng Facebook user ID, pangalan, at email sa aming authentication system</td><td>Hanggang i-disconnect mo ang Facebook o i-delete ang iyong account</td></tr>
 </table>
 <p><strong>Mahalaga:</strong> Bukod sa mga nakalista sa itaas, walang datos ng user ang naka-store sa aming mga server. Lahat ng iyong financial data ay nananatili sa iyong device.</p>
 
@@ -268,6 +275,7 @@
     <li><strong>AI Coach:</strong> Ang iyong buod ng transaksyon at monthly financial data ay ipinapadala sa Google Gemini AI para mag-generate ng financial coaching advice. Aggregated summary data lang ang ipinapadala, hindi ang bawat detalye ng transaksyon.</li>
     <li><strong>Palm Reading (Palad Guide):</strong> Ang iyong palm photo ay ipinapadala sa Google Gemini AI para sa entertainment-only na palm reading. Ang mga imahe ay pinoproseso sa real-time at hindi sino-store.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Ang iyong profile information (birthday, kasarian, zodiac sign, oras ng kapanganakan, rehiyon) ay ipinapadala para i-generate ang iyong daily fortune.</li>
+    <li><strong>Facebook Connect:</strong> Kung pipiliin mong i-link ang iyong Facebook account, humihiling kami ng access sa iyong <strong>public profile</strong> at <strong>email address</strong> (sa pamamagitan ng <code>public_profile</code> at <code>email</code> OAuth scopes). Natatanggap namin ang iyong Facebook user ID, pangalan, email, at URL ng profile picture. Ang datos na ito ay ginagamit para sa account linking at mga paparating na extended features (tulad ng pagtingin sa iyong mga Facebook friends na gumagamit din ng App, at pag-verify ng iyong identity para sa mga in-app events at promotions), at naka-store sa aming authentication system (Supabase Auth). Ang pag-link ng Facebook ay <strong>hindi</strong> kinakailangan para magamit ang App at <strong>hindi</strong> ito gumagana bilang paraan ng pag-login sa app. <strong>Hindi</strong> kami magpo-post sa iyong Facebook o mag-a-access ng iyong mga post, litrato, o anumang ibang datos sa Facebook bukod sa mga basic profile information na nakalista sa itaas.</li>
 </ul>
 
 <h3>1.4 Impormasyong HINDI Namin Kinokolekta</h3>
@@ -319,6 +327,7 @@
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading</td><td>Aggregated financial data, mga imahe, profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution at in-app purchases</td><td>Ayon sa kani-kanilang privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal na account linking para sa mga extended features</td><td>Facebook user ID, pangalan, email, URL ng profile picture (ginagamit para sa account linking at extended features)</td></tr>
 </table>
 
 <h2>6. Seguridad ng Datos</h2>
@@ -345,6 +354,9 @@
     <li><strong>Lokal na datos:</strong> Nananatili sa iyong device hanggang tanggalin mo ang App o i-clear ang app data</li>
     <li><strong>Backup files:</strong> Awtomatikong dini-delete mula sa aming mga server sa loob ng 1 hanggang 3 buwan</li>
     <li><strong>Server-stored data:</strong> Ang AI Coach reports at Daily Fortune results ay pinapanatili hanggang mapalitan o hanggang humiling ka ng deletion</li>
+    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang iyong Facebook account, maaari mo itong i-disconnect anumang oras mula sa Settings screen ng App. Kapag na-disconnect, lahat ng datos na may kaugnayan sa Facebook (Facebook user ID, pangalan, email, URL ng profile picture) ay <strong>agad at permanenteng tatanggalin</strong> mula sa aming authentication system. Ang iyong financial data at mga talaan sa app ay hindi maaapektuhan ng Facebook disconnection.</li>
+    <li><strong>Pagtanggal na sinimulan ng Facebook:</strong> Kung tatanggalin mo ang Gumi Save mula sa iyong Facebook account settings, makakatanggap kami ng deauthorization callback mula sa Facebook at awtomatikong tatanggalin ang lahat ng iyong Facebook identity data mula sa aming mga server.</li>
+    <li><strong>Kumpletong pagtanggal ng datos:</strong> Maaari kang magsagawa ng kumpletong data wipe mula sa Settings screen ng App, na awtomatikong nagdi-disconnect ng Facebook (kung naka-link), nagsa-sign out ng iyong session, at nag-aalis ng lahat ng lokal na datos kabilang ang mga financial record, settings, at mga naka-schedule na notification.</li>
     <li><strong>Pagtatanggal ng account:</strong> Maaari kang humiling ng kumpletong pagtanggal ng lahat ng server-side data sa pamamagitan ng pag-contact sa amin sa <strong>kawkaw.app@gmail.com</strong>. Ipoproseso namin ang iyong kahilingan sa loob ng 30 araw.</li>
 </ul>
 
@@ -403,7 +415,7 @@
 <!-- ======================== CEBUANO ======================== -->
 <div id="lang-ceb" class="lang-section">
 
-<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Abril 3, 2026</p>
+<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Abril 7, 2026</p>
 
 <p>Maayong pag-abot sa <strong>Gumi Save</strong> ("ang App"), usa ka application para sa pagdumala sa personal nga pananalapi nga gihimo ug gipadagan sa <strong>KawKaw.dev</strong> ("kami," "among," o "namo"). Kami nakatutok sa pagpanalipod sa imong privacy ug personal nga impormasyon sumala sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> sa Pilipinas ug ang mga Implementing Rules and Regulations niini.</p>
 
@@ -431,6 +443,7 @@
     <tr><td>Katapusang resulta sa Daily Fortune</td><td>Para i-cache ang imong pinakabag-o nga daily fortune</td><td>Hangtud mapulihan o deletion sa account</td></tr>
     <tr><td>Backup file (gzip)</td><td>Para tugotan ang pagbalhin sa datos kung mag-ilis og device</td><td>Awtomatiko nga gina-delete sulod sa 1-3 ka bulan</td></tr>
     <tr><td>User ID ug email (kung nakarehistro)</td><td>Authentication ug pag-ila sa account</td><td>Hangtud sa deletion sa account</td></tr>
+    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtipig sa Facebook user ID, ngalan, ug email sa among authentication system</td><td>Hangtud i-disconnect nimo ang Facebook o i-delete ang imong account</td></tr>
 </table>
 <p><strong>Importante:</strong> Gawas sa mga gilista sa ibabaw, walay datos sa user ang naka-store sa among mga server. Tanan nimong financial data nagpabilin sa imong device.</p>
 
@@ -441,6 +454,7 @@
     <li><strong>AI Coach:</strong> Ang imong buod sa transaksyon ug monthly financial data ipadala sa Google Gemini AI para mag-generate og financial coaching advice. Aggregated summary data ra ang gipadala, dili ang matag detalye sa transaksyon.</li>
     <li><strong>Palm Reading (Palad Guide):</strong> Ang imong palm photo ipadala sa Google Gemini AI para sa entertainment-only nga palm reading. Ang mga imahe giproseso sa real-time ug dili gisave.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Ang imong profile information (birthday, kasarian, zodiac sign, oras sa pagkatawo, rehiyon) ipadala para ma-generate ang imong daily fortune.</li>
+    <li><strong>Facebook Connect:</strong> Kung mopili ka nga i-link ang imong Facebook account, mangayo kami og access sa imong <strong>public profile</strong> ug <strong>email address</strong> (pinaagi sa <code>public_profile</code> ug <code>email</code> OAuth scopes). Makadawat kami sa imong Facebook user ID, ngalan, email, ug URL sa profile picture. Kining datos gigamit para sa account linking ug mga umaabot nga extended features (sama sa pagtan-aw sa imong mga Facebook friends nga naggamit usab sa App, ug pag-verify sa imong identity para sa mga in-app events ug promotions), ug naka-store sa among authentication system (Supabase Auth). Ang pag-link sa Facebook <strong>dili</strong> gikinahanglan para magamit ang App ug <strong>dili</strong> kini mogana isip paagi sa pag-login sa app. <strong>Dili</strong> kami mag-post sa imong Facebook o mag-access sa imong mga post, litrato, o bisan unsang ubang datos sa Facebook gawas sa mga basic profile information nga gilista sa ibabaw.</li>
 </ul>
 
 <h3>1.4 Impormasyon nga DILI Namo Gikolekta</h3>
@@ -492,6 +506,7 @@
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading</td><td>Aggregated financial data, mga imahe, profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution ug in-app purchases</td><td>Sumala sa ilang tagsa-tagsa ka privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal nga account linking para sa mga extended features</td><td>Facebook user ID, ngalan, email, URL sa profile picture (gigamit para sa account linking ug extended features)</td></tr>
 </table>
 
 <h2>6. Seguridad sa Datos</h2>
@@ -518,6 +533,9 @@
     <li><strong>Lokal nga datos:</strong> Nagpabilin sa imong device hangtud walaon nimo ang App o i-clear ang app data</li>
     <li><strong>Backup files:</strong> Awtomatiko nga gina-delete gikan sa among mga server sulod sa 1 hangtud 3 ka bulan</li>
     <li><strong>Server-stored data:</strong> Ang AI Coach reports ug Daily Fortune results gipatunhay hangtud mapulihan o hangtud mangayo ka og deletion</li>
+    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang imong Facebook account, mahimo nimo kining i-disconnect bisan unsang oras gikan sa Settings screen sa App. Kung ma-disconnect, tanan nga datos nga may kalabutan sa Facebook (Facebook user ID, ngalan, email, URL sa profile picture) <strong>dayon ug permanente nga wagtangon</strong> gikan sa among authentication system. Ang imong financial data ug mga talaan sa app dili maapektuhan sa Facebook disconnection.</li>
+    <li><strong>Pagwagtang nga gisugdan sa Facebook:</strong> Kung imong tangtangon ang Gumi Save gikan sa imong Facebook account settings, makadawat kami og deauthorization callback gikan sa Facebook ug awtomatiko nga wagtangon ang tanan nimong Facebook identity data gikan sa among mga server.</li>
+    <li><strong>Kumpleto nga pagwagtang sa datos:</strong> Mahimo kang maghimo og kumpleto nga data wipe gikan sa Settings screen sa App, nga awtomatiko nga mag-disconnect sa Facebook (kung naka-link), mag-sign out sa imong session, ug magwagtang sa tanan nga lokal nga datos lakip ang mga financial record, settings, ug mga na-schedule nga notification.</li>
     <li><strong>Pagwagtang sa account:</strong> Mahimo kang mangayo og kumpleto nga pagwagtang sa tanan nga server-side data pinaagi sa pag-contact namo sa <strong>kawkaw.app@gmail.com</strong>. Iproseso namo ang imong hangyo sulod sa 30 ka adlaw.</li>
 </ul>
 
