@@ -1,0 +1,176 @@
+{
+  "lastUpdated": "2026-04-04",
+  "dataNote": "메랄코·다바오 라이트는 2026년 3월 공식 발표 기준. VECO·CEBECO는 2026년 2월 공식 확인. ERC 결의안 2호(2026) 적용: 전국 통일 lifeline 보조금 P0.01/kWh (2026년 3월 청구분부터). 4월 이후 중동 유가 급등 영향으로 전 지역 요금 추가 인상 예상.",
+  "monthlyWeights": {
+    "January": 1.0,
+    "February": 1.0,
+    "March": 1.3,
+    "April": 1.3,
+    "May": 1.3,
+    "June": 1.3,
+    "July": 1.1,
+    "August": 1.1,
+    "September": 1.1,
+    "October": 1.1,
+    "November": 1.1,
+    "December": 1.0
+  },
+  "providers": [
+    {
+      "id": "meralco",
+      "name": "Meralco",
+      "region": "Metro Manila & Nearby Provinces",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 44.95,
+      "distributionCharge": 1.2214,
+      "transmissionCharge": 1.5223,
+      "systemLossRate": 0.5834,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 200, "ratePerKwh": 7.8607 },
+        { "upTo": null, "ratePerKwh": 7.8607 }
+      ],
+      "totalRateKwh": 13.8161,
+      "note": "2026년 3월 공식 발표 기준. 전체 요금 13.8161/kWh (2월 13.1734 대비 +0.6427). 발전요금 7.8607/kWh(+0.2209, 확정), 송전요금 1.5223/kWh(+0.2880, NGCP 예비력 시장 보조서비스 요금 70% 급등), 배전요금 2022년 8월 이후 동결. ERC 결의안에 따라 lifeline 보조금 0.0171→0.01/kWh로 변경(3월 청구분부터). 메랄코 대변인은 4월 요금이 중동 사태 여파로 추가 인상 가능성 경고(에너지부 최대 +16% 예측). 4월 요금은 4월 10일 전후 발표 예정.",
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "veco",
+      "name": "VECO (Visayan Electric)",
+      "region": "Cebu City & Mandaue",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 39.50,
+      "distributionCharge": 1.1580,
+      "transmissionCharge": 1.10,
+      "systemLossRate": 0.5240,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 100, "ratePerKwh": 5.15 },
+        { "upTo": null, "ratePerKwh": 5.57 }
+      ],
+      "totalRateKwh": 12.79,
+      "note": "2026년 2월 전체 요금 12.79/kWh 공식 확인(CERA 발표, +0.35). 3월 요금 발표 미확인 — VECO는 3월 12일 기준 중동 사태 여파 모니터링 중이라고만 공지, 이전 월 수준 유지 추정. 하절기(4~6월) WESM 수요 급등으로 추가 인상 경고. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 발전·송전요금은 총 요금 역산 추정값.",
+      "lastUpdated": "2026-02"
+    },
+    {
+      "id": "cebeco",
+      "name": "CEBECO I",
+      "region": "Cebu Province (Rural)",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 35.00,
+      "distributionCharge": 1.3200,
+      "transmissionCharge": 1.17,
+      "systemLossRate": 0.6200,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 50, "ratePerKwh": 5.02 },
+        { "upTo": 100, "ratePerKwh": 5.33 },
+        { "upTo": null, "ratePerKwh": 5.78 }
+      ],
+      "totalRateKwh": 13.37,
+      "note": "2026년 2월 전체 요금 13.37/kWh 공식 확인(CERA 발표, +1.30). 3월 요금 발표 미확인. 농촌 협동조합 특성상 추가 부과금 높음. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 발전·송전요금은 역산 추정값.",
+      "lastUpdated": "2026-02"
+    },
+    {
+      "id": "davao_light",
+      "name": "Davao Light",
+      "region": "Davao City",
+      "island": "Mindanao",
+      "currency": "PHP",
+      "basicCharge": 38.20,
+      "distributionCharge": 1.0980,
+      "transmissionCharge": 0.95,
+      "systemLossRate": 0.4920,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 100, "ratePerKwh": 5.18 },
+        { "upTo": null, "ratePerKwh": 5.50 }
+      ],
+      "totalRateKwh": 10.63,
+      "note": "2026년 3월 공식 발표 기준(3월 12일~4월 11일 청구분). 전체 요금 10.63/kWh (2월 10.30 대비 +0.33, WESM 가격 상승). 1월 급등(11.72) 후 2월 하락(10.30)→3월 소폭 반등. ERC 결의안 2호 적용: lifeline 보조금 P0.01/kWh. 전력 공급원: NPC-PSALM 수력 50%, Therma South 석탄 20~30%, 나머지 WESM. 중동 사태 장기화 시 4월 추가 인상 경고. 발전요금은 역산 추정값.",
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "cotabato_light",
+      "name": "Cotabato Light",
+      "region": "Cotabato City",
+      "island": "Mindanao",
+      "currency": "PHP",
+      "basicCharge": 33.50,
+      "distributionCharge": 1.2500,
+      "transmissionCharge": 1.09,
+      "systemLossRate": 0.5800,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": null, "ratePerKwh": 4.82 }
+      ],
+      "note": "2026년 3월 기준 추정값. 민다나오 WESM 동향(다바오 라이트 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "iloilo_power",
+      "name": "MORE Power (Iloilo)",
+      "region": "Iloilo City",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 37.00,
+      "distributionCharge": 1.1800,
+      "transmissionCharge": 1.08,
+      "systemLossRate": 0.5100,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 100, "ratePerKwh": 5.14 },
+        { "upTo": null, "ratePerKwh": 5.56 }
+      ],
+      "note": "2026년 3월 기준 추정값. 비사야스 WESM 동향(VECO 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "bohol_light",
+      "name": "BOHECO II (Bohol)",
+      "region": "Tagbilaran & Bohol",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 32.00,
+      "distributionCharge": 1.3500,
+      "transmissionCharge": 1.19,
+      "systemLossRate": 0.6500,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 50, "ratePerKwh": 4.85 },
+        { "upTo": null, "ratePerKwh": 5.40 }
+      ],
+      "note": "2026년 3월 기준 추정값. 비사야스 WESM 동향(VECO 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "beneco",
+      "name": "BENECO (Baguio)",
+      "region": "Baguio City & Benguet",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 36.50,
+      "distributionCharge": 1.2800,
+      "transmissionCharge": 1.35,
+      "systemLossRate": 0.5600,
+      "subsidyCharge": 0.0100,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 100, "ratePerKwh": 5.74 },
+        { "upTo": null, "ratePerKwh": 6.23 }
+      ],
+      "note": "2026년 3월 기준 추정값. 루손 WESM 동향 반영(협동조합 특성상 메랄코 대비 상승폭 작게 적용). ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "lastUpdated": "2026-03"
+    }
+  ]
+}

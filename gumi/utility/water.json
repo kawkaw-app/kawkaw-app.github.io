@@ -1,0 +1,159 @@
+[
+  {
+    "id": "manila_water",
+    "name": "Manila Water",
+    "region": "Metro Manila (East Zone)",
+    "island": "Luzon",
+    "currency": "PHP",
+    "basicCharge": 166.91,
+    "sewerageRate": 0.5,
+    "environmentalCharge": 0.3,
+    "vatRate": 0.12,
+    "fcda": 0.39,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 14.61 },
+      { "upTo": 20,   "ratePerCubicMeter": 23.27 },
+      { "upTo": 30,   "ratePerCubicMeter": 34.48 },
+      { "upTo": 40,   "ratePerCubicMeter": 43.89 },
+      { "upTo": 50,   "ratePerCubicMeter": 50.93 },
+      { "upTo": null, "ratePerCubicMeter": 54.18 }
+    ],
+    "note": "2026년 1월 4차 Rate Rebasing 적용(+6.96% 요금 재산정 + CPI 0.68%). 2026년 4월 Q2 FCDA +P0.39/m³(평균 기본요금 P50.70의 0.76%) 적용 — Q1(+P0.35) 대비 P0.04 인상. FCDA는 각 m³당 일률 가산. 환경요금 25%→30%로 상향(Manila Water 하수 커버리지 목표 달성 반영). 하수요금은 기본 수도요금의 50%. 4Ps 수혜가구·20m³ 이하 저소득층은 Enhanced Lifeline Program으로 FCDA 면제 및 할인 적용.",
+    "lastUpdated": "2026-04"
+  },
+  {
+    "id": "maynilad",
+    "name": "Maynilad",
+    "region": "Metro Manila (West Zone)",
+    "island": "Luzon",
+    "currency": "PHP",
+    "basicCharge": 187.61,
+    "sewerageRate": 0.5,
+    "environmentalCharge": 0.25,
+    "vatRate": 0.12,
+    "fcda": -0.13,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 15.47 },
+      { "upTo": 20,   "ratePerCubicMeter": 24.79 },
+      { "upTo": 30,   "ratePerCubicMeter": 36.35 },
+      { "upTo": 40,   "ratePerCubicMeter": 49.85 },
+      { "upTo": 50,   "ratePerCubicMeter": 58.81 },
+      { "upTo": null, "ratePerCubicMeter": 64.61 }
+    ],
+    "note": "2026년 1월 4차 Rate Rebasing 적용(+2.81%). 2026년 4월 Q2 FCDA -P0.13/m³ 적용 (환급 성격 — 음수). Q1 FCDA -P0.22보다 환급폭 축소 → 실질 m³당 P0.09 인상 효과. 10m³ 가구 +P0.27/월, 20m³ +P1.00/월, 30m³ +P2.07/월. 4Ps 수혜가구·20m³ 이하 저소득층은 Enhanced Lifeline Program으로 FCDA 면제.",
+    "lastUpdated": "2026-04"
+  },
+  {
+    "id": "metro_cebu_water",
+    "name": "MCWD (Metro Cebu Water)",
+    "region": "Cebu City & Metro Cebu",
+    "island": "Visayas",
+    "currency": "PHP",
+    "basicCharge": 259.16,
+    "sewerageRate": 0.0,
+    "environmentalCharge": 0.0,
+    "vatRate": 0.0,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 0 },
+      { "upTo": 20,   "ratePerCubicMeter": 28.64 },
+      { "upTo": 30,   "ratePerCubicMeter": 33.71 },
+      { "upTo": null, "ratePerCubicMeter": 82.52 }
+    ],
+    "billingNote": "MCWD는 '최소요금제' 구조: basicCharge(P259.16)는 첫 10m³의 전체 청구금액(VAT·환경·하수 포함 all-in). 초과분 tiers는 공시된 상품 요금(m³당 가산 marginal rate). 청구식: 총액 = 259.16 + Σ(추가구간×해당 tier요금). 환경·하수·VAT는 별도 가산 없이 all-in 단가에 포함됨.",
+    "note": "2026년 4월 1일 최종 10% 인상 공식 시행(LWUA 승인). 최소요금 P235.60→P259.16(+P23.56). 상위 tier: 11–20m³ P28.64, 21–30m³ P33.71, 31m³이상 P82.52. 10년 만의 첫 요금 조정(마지막 5차분) — 2015년 이후 팬데믹 기간 동결 유지. MCWD 운영 적자 심각(일 P650만 손실), 벌크워터 단가 P65 vs 소비자 판매가 P25 역마진 구조 해소 목적. 추가 인상 가능성 상존.",
+    "lastUpdated": "2026-04"
+  },
+  {
+    "id": "davao_city_water",
+    "name": "DCWD (Davao City Water)",
+    "region": "Davao City",
+    "island": "Mindanao",
+    "currency": "PHP",
+    "basicCharge": 112.01,
+    "sewerageRate": 0.25,
+    "environmentalCharge": 0.05,
+    "vatRate": 0.12,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 12.41 },
+      { "upTo": 20,   "ratePerCubicMeter": 20.88 },
+      { "upTo": 30,   "ratePerCubicMeter": 30.63 },
+      { "upTo": null, "ratePerCubicMeter": 41.51 }
+    ],
+    "note": "2026년 3월 청구분부터 12.5% 인상 시행 확인(DCWD 공식 사이트 공지). 2021년 LWUA 승인 60% 인상분의 단계적 적용 중. 유가 급등 연계 추가 인상은 없다고 3월 18일 공식 발표. 2027년 추가 15% 인상 계획(LWUA 심사 중). 5m³ 이하 저소득층 Lifeline Rate P100 고정 유지. 각 tier 단가는 기존 요금 ×1.125 산출값 — 공식 요금표 원문 확인 시 보정 필요.",
+    "lastUpdated": "2026-03"
+  },
+  {
+    "id": "cagayan_water",
+    "name": "COWD (Cagayan de Oro Water)",
+    "region": "Cagayan de Oro",
+    "island": "Mindanao",
+    "currency": "PHP",
+    "basicCharge": 92,
+    "sewerageRate": 0.28,
+    "environmentalCharge": 0.05,
+    "vatRate": 0.12,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 10.2 },
+      { "upTo": 20,   "ratePerCubicMeter": 17.1 },
+      { "upTo": null, "ratePerCubicMeter": 27.5 }
+    ],
+    "note": "2025-01 기준 유지. COWD 2025~2026 10% 인상안 제출 이력 있으나 2024.1 연기. 2026년 최종 시행 여부 미확인 — 공식 요금표 재검증 필요.",
+    "lastUpdated": "2025-01"
+  },
+  {
+    "id": "iloilo_water",
+    "name": "MIWD (Metro Iloilo Water)",
+    "region": "Iloilo City",
+    "island": "Visayas",
+    "currency": "PHP",
+    "basicCharge": 82,
+    "sewerageRate": 0.22,
+    "environmentalCharge": 0.04,
+    "vatRate": 0.12,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 9.5 },
+      { "upTo": 20,   "ratePerCubicMeter": 15.8 },
+      { "upTo": null, "ratePerCubicMeter": 25.3 }
+    ],
+    "note": "2025-01 기준 유지. MPIW(운영사)가 2025.11(P25.20/m³) + 2026.3(P28.67/m³) 두 차례 인상 시행. 0~10m³ 총 청구액 P200→약P287 추정. 단, basicCharge vs 종량 구분이 불명확하여 요금 구조 미반영 — MPIW 공식 요금표 확인 후 tier 구조 업데이트 필요.",
+    "lastUpdated": "2025-01"
+  },
+  {
+    "id": "pampanga_water",
+    "name": "PAWD (Pampanga Water District)",
+    "region": "Angeles & Pampanga",
+    "island": "Luzon",
+    "currency": "PHP",
+    "basicCharge": 78,
+    "sewerageRate": 0.2,
+    "environmentalCharge": 0.04,
+    "vatRate": 0.12,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 9.0 },
+      { "upTo": 20,   "ratePerCubicMeter": 14.5 },
+      { "upTo": 30,   "ratePerCubicMeter": 22.0 },
+      { "upTo": null, "ratePerCubicMeter": 29.5 }
+    ],
+    "note": "2025-01 기준 유지. 2026년 요금 변경 공식 발표 미확인 — 재검증 필요.",
+    "lastUpdated": "2025-01"
+  },
+  {
+    "id": "laguna_water",
+    "name": "LUWD (Laguna Water)",
+    "region": "Sta. Rosa & Laguna",
+    "island": "Luzon",
+    "currency": "PHP",
+    "basicCharge": 120,
+    "sewerageRate": 0.35,
+    "environmentalCharge": 0.06,
+    "vatRate": 0.12,
+    "tiers": [
+      { "upTo": 10,   "ratePerCubicMeter": 11.0 },
+      { "upTo": 20,   "ratePerCubicMeter": 18.5 },
+      { "upTo": 30,   "ratePerCubicMeter": 28.0 },
+      { "upTo": null, "ratePerCubicMeter": 38.0 }
+    ],
+    "note": "2025-01 기준 유지. 2026년 요금 변경 공식 발표 미확인 — 재검증 필요.",
+    "lastUpdated": "2025-01"
+  }
+]
