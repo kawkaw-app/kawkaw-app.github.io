@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-04-04",
-  "dataNote": "메랄코·다바오 라이트는 2026년 3월 공식 발표 기준. VECO·CEBECO는 2026년 2월 공식 확인. ERC 결의안 2호(2026) 적용: 전국 통일 lifeline 보조금 P0.01/kWh (2026년 3월 청구분부터). 4월 이후 중동 유가 급등 영향으로 전 지역 요금 추가 인상 예상.",
+  "lastUpdated": "2026-04-10",
+  "recommendedUpdateIntervalDays": 30,
+  "notes": [
+    {
+      "type": "info",
+      "en": "Meralco and Davao Light rates are based on official March 2026 announcements. VECO and CEBECO are officially confirmed as of February 2026. ERC Resolution No. 2 (2026) applied: nationwide uniform lifeline subsidy of P0.01/kWh (effective March 2026 billing). Additional rate increases expected across all regions due to Middle East oil price surge from April onward.",
+      "tl": "Ang mga rate ng Meralco at Davao Light ay batay sa opisyal na anunsyo noong Marso 2026. Ang VECO at CEBECO ay opisyal na nakumpirma noong Pebrero 2026. Nailapat ang ERC Resolution No. 2 (2026): pambansang lifeline subsidy na P0.01/kWh (simula sa billing ng Marso 2026). Inaasahang magkakaroon ng dagdag na pagtaas ng rate sa lahat ng rehiyon dahil sa pagtaas ng presyo ng langis sa Middle East mula Abril.",
+      "ceb": "Ang mga rate sa Meralco ug Davao Light gibase sa opisyal nga pagpahibalo sa Marso 2026. Ang VECO ug CEBECO opisyal nga nakumpirma sa Pebrero 2026. Giaplikar ang ERC Resolution No. 2 (2026): tibuok nasud nga lifeline subsidy nga P0.01/kWh (sugod sa billing sa Marso 2026). Gilauman nga motaas pa ang rate sa tanang rehiyon tungod sa pagsaka sa presyo sa lana sa Middle East gikan sa Abril."
+    }
+  ],
   "monthlyWeights": {
     "January": 1.0,
     "February": 1.0,
@@ -33,7 +41,14 @@
         { "upTo": null, "ratePerKwh": 7.8607 }
       ],
       "totalRateKwh": 13.8161,
-      "note": "2026년 3월 공식 발표 기준. 전체 요금 13.8161/kWh (2월 13.1734 대비 +0.6427). 발전요금 7.8607/kWh(+0.2209, 확정), 송전요금 1.5223/kWh(+0.2880, NGCP 예비력 시장 보조서비스 요금 70% 급등), 배전요금 2022년 8월 이후 동결. ERC 결의안에 따라 lifeline 보조금 0.0171→0.01/kWh로 변경(3월 청구분부터). 메랄코 대변인은 4월 요금이 중동 사태 여파로 추가 인상 가능성 경고(에너지부 최대 +16% 예측). 4월 요금은 4월 10일 전후 발표 예정.",
+      "notes": [
+        {
+          "type": "rate",
+          "en": "Based on official March 2026 announcement. Total rate 13.8161/kWh (+0.6427 from February's 13.1734). Generation charge 7.8607/kWh (+0.2209, confirmed), transmission charge 1.5223/kWh (+0.2880, NGCP ancillary service charge surged 70%). Distribution charge frozen since August 2022. Per ERC resolution, lifeline subsidy changed from 0.0171 to 0.01/kWh (effective March billing). Meralco spokesperson warned April rates may rise further due to Middle East crisis (DOE projects up to +16%). April rates expected to be announced around April 10.",
+          "tl": "Batay sa opisyal na anunsyo noong Marso 2026. Kabuuang rate na 13.8161/kWh (+0.6427 mula sa 13.1734 noong Pebrero). Generation charge 7.8607/kWh (+0.2209, kumpirmado), transmission charge 1.5223/kWh (+0.2880, tumaas ng 70% ang NGCP ancillary service charge). Distribution charge hindi nagbago mula Agosto 2022. Ayon sa ERC resolution, lifeline subsidy nabago mula 0.0171 tungong 0.01/kWh (simula sa billing ng Marso). Nagbabala ang Meralco na posibleng tumaas pa ang rate sa Abril dahil sa krisis sa Middle East (DOE: hanggang +16%). Inaanunsyo ang rate sa Abril sa paligid ng Abril 10.",
+          "ceb": "Gibase sa opisyal nga pagpahibalo sa Marso 2026. Total rate 13.8161/kWh (+0.6427 gikan sa 13.1734 sa Pebrero). Generation charge 7.8607/kWh (+0.2209, nakumpirma), transmission charge 1.5223/kWh (+0.2880, misaka ug 70% ang NGCP ancillary service charge). Distribution charge wala nausab sukad Agosto 2022. Sumala sa ERC resolution, lifeline subsidy nausab gikan 0.0171 ngadto 0.01/kWh (sugod sa billing sa Marso). Nagpasidaan ang Meralco nga posible mosaka pa ang rate sa Abril tungod sa krisis sa Middle East (DOE: hangtod +16%). Ang rate sa Abril ipahibalo mga Abril 10."
+        }
+      ],
       "lastUpdated": "2026-03"
     },
     {
@@ -53,7 +68,14 @@
         { "upTo": null, "ratePerKwh": 5.57 }
       ],
       "totalRateKwh": 12.79,
-      "note": "2026년 2월 전체 요금 12.79/kWh 공식 확인(CERA 발표, +0.35). 3월 요금 발표 미확인 — VECO는 3월 12일 기준 중동 사태 여파 모니터링 중이라고만 공지, 이전 월 수준 유지 추정. 하절기(4~6월) WESM 수요 급등으로 추가 인상 경고. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 발전·송전요금은 총 요금 역산 추정값.",
+      "notes": [
+        {
+          "type": "rate",
+          "en": "February 2026 total rate of 12.79/kWh officially confirmed (CERA announcement, +0.35). March rate not yet confirmed — VECO announced on March 12 that it is monitoring the Middle East situation; rate estimated to remain at previous month's level. Summer season (April–June) WESM demand surge may cause additional increases. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation and transmission charges are reverse-calculated estimates.",
+          "tl": "Opisyal na nakumpirma ang kabuuang rate na 12.79/kWh noong Pebrero 2026 (anunsyo ng CERA, +0.35). Hindi pa nakumpirma ang rate sa Marso — inanunsyo ng VECO noong Marso 12 na minomonitor nila ang sitwasyon sa Middle East; tinatayang nananatili sa antas ng nakaraang buwan. Posibleng tumaas pa dahil sa pagtaas ng demand sa WESM sa tag-init (Abril–Hunyo). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation at transmission charges ay mga tinatayang halaga.",
+          "ceb": "Opisyal nga nakumpirma ang total rate nga 12.79/kWh sa Pebrero 2026 (CERA announcement, +0.35). Wala pa makumpirma ang rate sa Marso — gipahibalo sa VECO niadtong Marso 12 nga nag-monitor sila sa sitwasyon sa Middle East; gitantya nga magpabilin sa lebel sa miaging bulan. Posible mosaka pa tungod sa pagsaka sa demand sa WESM sa ting-init (Abril–Hunyo). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation ug transmission charges mga gitantya nga kantidad."
+        }
+      ],
       "lastUpdated": "2026-02"
     },
     {
@@ -74,7 +96,14 @@
         { "upTo": null, "ratePerKwh": 5.78 }
       ],
       "totalRateKwh": 13.37,
-      "note": "2026년 2월 전체 요금 13.37/kWh 공식 확인(CERA 발표, +1.30). 3월 요금 발표 미확인. 농촌 협동조합 특성상 추가 부과금 높음. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 발전·송전요금은 역산 추정값.",
+      "notes": [
+        {
+          "type": "rate",
+          "en": "February 2026 total rate of 13.37/kWh officially confirmed (CERA announcement, +1.30). March rate not yet confirmed. Higher surcharges typical of rural cooperatives. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation and transmission charges are reverse-calculated estimates.",
+          "tl": "Opisyal na nakumpirma ang kabuuang rate na 13.37/kWh noong Pebrero 2026 (anunsyo ng CERA, +1.30). Hindi pa nakumpirma ang rate sa Marso. Mas mataas ang mga surcharge dahil sa katangian ng mga rural cooperative. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation at transmission charges ay mga tinatayang halaga.",
+          "ceb": "Opisyal nga nakumpirma ang total rate nga 13.37/kWh sa Pebrero 2026 (CERA announcement, +1.30). Wala pa makumpirma ang rate sa Marso. Mas taas ang mga surcharge tungod sa kinaiya sa rural cooperatives. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation ug transmission charges mga gitantya nga kantidad."
+        }
+      ],
       "lastUpdated": "2026-02"
     },
     {
@@ -94,7 +123,14 @@
         { "upTo": null, "ratePerKwh": 5.50 }
       ],
       "totalRateKwh": 10.63,
-      "note": "2026년 3월 공식 발표 기준(3월 12일~4월 11일 청구분). 전체 요금 10.63/kWh (2월 10.30 대비 +0.33, WESM 가격 상승). 1월 급등(11.72) 후 2월 하락(10.30)→3월 소폭 반등. ERC 결의안 2호 적용: lifeline 보조금 P0.01/kWh. 전력 공급원: NPC-PSALM 수력 50%, Therma South 석탄 20~30%, 나머지 WESM. 중동 사태 장기화 시 4월 추가 인상 경고. 발전요금은 역산 추정값.",
+      "notes": [
+        {
+          "type": "rate",
+          "en": "Based on official March 2026 announcement (billing period March 12 – April 11). Total rate 10.63/kWh (+0.33 from February's 10.30, due to WESM price increase). Rates spiked in January (11.72), dropped in February (10.30), then slightly rebounded in March. ERC Resolution No. 2 applied: lifeline subsidy P0.01/kWh. Power sources: NPC-PSALM hydro 50%, Therma South coal 20–30%, remainder from WESM. Warning of additional increases in April if Middle East crisis continues. Generation charge is a reverse-calculated estimate.",
+          "tl": "Batay sa opisyal na anunsyo noong Marso 2026 (billing period Marso 12 – Abril 11). Kabuuang rate na 10.63/kWh (+0.33 mula sa 10.30 noong Pebrero, dahil sa pagtaas ng presyo sa WESM). Tumaas ang rate noong Enero (11.72), bumaba noong Pebrero (10.30), pagkatapos bahagyang tumaas sa Marso. Nailapat ang ERC Resolution No. 2: lifeline subsidy na P0.01/kWh. Pinagmumulan ng kuryente: NPC-PSALM hydro 50%, Therma South coal 20–30%, natira mula sa WESM. Babala na posibleng tumaas pa sa Abril kung magpapatuloy ang krisis sa Middle East. Ang generation charge ay tinatayang halaga.",
+          "ceb": "Gibase sa opisyal nga pagpahibalo sa Marso 2026 (billing period Marso 12 – Abril 11). Total rate 10.63/kWh (+0.33 gikan sa 10.30 sa Pebrero, tungod sa pagsaka sa presyo sa WESM). Misaka ang rate sa Enero (11.72), mikunhod sa Pebrero (10.30), dayon gamay nga misaka sa Marso. Giaplikar ang ERC Resolution No. 2: lifeline subsidy nga P0.01/kWh. Tinubdan sa kuryente: NPC-PSALM hydro 50%, Therma South coal 20–30%, nahibilin gikan sa WESM. Pasidaan nga posible mosaka pa sa Abril kung magpadayon ang krisis sa Middle East. Ang generation charge gitantya nga kantidad."
+        }
+      ],
       "lastUpdated": "2026-03"
     },
     {
@@ -112,7 +148,14 @@
       "tiers": [
         { "upTo": null, "ratePerKwh": 4.82 }
       ],
-      "note": "2026년 3월 기준 추정값. 민다나오 WESM 동향(다바오 라이트 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "notes": [
+        {
+          "type": "estimate",
+          "en": "Estimated values as of March 2026 based on Mindanao WESM trends (Davao Light reference). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Official announcement not yet confirmed.",
+          "tl": "Tinatayang halaga noong Marso 2026 batay sa mga trend ng WESM sa Mindanao (basehan: Davao Light). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Hindi pa nakumpirma ang opisyal na anunsyo.",
+          "ceb": "Gitantya nga kantidad sa Marso 2026 base sa mga trend sa WESM sa Mindanao (basehan: Davao Light). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Wala pa makumpirma ang opisyal nga pagpahibalo."
+        }
+      ],
       "lastUpdated": "2026-03"
     },
     {
@@ -131,7 +174,14 @@
         { "upTo": 100, "ratePerKwh": 5.14 },
         { "upTo": null, "ratePerKwh": 5.56 }
       ],
-      "note": "2026년 3월 기준 추정값. 비사야스 WESM 동향(VECO 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "notes": [
+        {
+          "type": "estimate",
+          "en": "Estimated values as of March 2026 based on Visayas WESM trends (VECO reference). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Official announcement not yet confirmed.",
+          "tl": "Tinatayang halaga noong Marso 2026 batay sa mga trend ng WESM sa Visayas (basehan: VECO). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Hindi pa nakumpirma ang opisyal na anunsyo.",
+          "ceb": "Gitantya nga kantidad sa Marso 2026 base sa mga trend sa WESM sa Visayas (basehan: VECO). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Wala pa makumpirma ang opisyal nga pagpahibalo."
+        }
+      ],
       "lastUpdated": "2026-03"
     },
     {
@@ -150,7 +200,14 @@
         { "upTo": 50, "ratePerKwh": 4.85 },
         { "upTo": null, "ratePerKwh": 5.40 }
       ],
-      "note": "2026년 3월 기준 추정값. 비사야스 WESM 동향(VECO 기준) 반영. ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "notes": [
+        {
+          "type": "estimate",
+          "en": "Estimated values as of March 2026 based on Visayas WESM trends (VECO reference). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Official announcement not yet confirmed.",
+          "tl": "Tinatayang halaga noong Marso 2026 batay sa mga trend ng WESM sa Visayas (basehan: VECO). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Hindi pa nakumpirma ang opisyal na anunsyo.",
+          "ceb": "Gitantya nga kantidad sa Marso 2026 base sa mga trend sa WESM sa Visayas (basehan: VECO). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Wala pa makumpirma ang opisyal nga pagpahibalo."
+        }
+      ],
       "lastUpdated": "2026-03"
     },
     {
@@ -169,7 +226,14 @@
         { "upTo": 100, "ratePerKwh": 5.74 },
         { "upTo": null, "ratePerKwh": 6.23 }
       ],
-      "note": "2026년 3월 기준 추정값. 루손 WESM 동향 반영(협동조합 특성상 메랄코 대비 상승폭 작게 적용). ERC 결의안 2호 적용: subsidyCharge 0.01/kWh. 공식 발표 미확인.",
+      "notes": [
+        {
+          "type": "estimate",
+          "en": "Estimated values as of March 2026 based on Luzon WESM trends (cooperative characteristics result in smaller increases compared to Meralco). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Official announcement not yet confirmed.",
+          "tl": "Tinatayang halaga noong Marso 2026 batay sa mga trend ng WESM sa Luzon (ang katangian ng cooperative ay nagdudulot ng mas maliit na pagtaas kumpara sa Meralco). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Hindi pa nakumpirma ang opisyal na anunsyo.",
+          "ceb": "Gitantya nga kantidad sa Marso 2026 base sa mga trend sa WESM sa Luzon (ang kinaiya sa cooperative naghimo nga mas gamay ang pagsaka kumpara sa Meralco). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Wala pa makumpirma ang opisyal nga pagpahibalo."
+        }
+      ],
       "lastUpdated": "2026-03"
     }
   ]

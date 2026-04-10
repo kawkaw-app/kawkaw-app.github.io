@@ -1,159 +1,232 @@
-[
-  {
-    "id": "manila_water",
-    "name": "Manila Water",
-    "region": "Metro Manila (East Zone)",
-    "island": "Luzon",
-    "currency": "PHP",
-    "basicCharge": 166.91,
-    "sewerageRate": 0.5,
-    "environmentalCharge": 0.3,
-    "vatRate": 0.12,
-    "fcda": 0.39,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 14.61 },
-      { "upTo": 20,   "ratePerCubicMeter": 23.27 },
-      { "upTo": 30,   "ratePerCubicMeter": 34.48 },
-      { "upTo": 40,   "ratePerCubicMeter": 43.89 },
-      { "upTo": 50,   "ratePerCubicMeter": 50.93 },
-      { "upTo": null, "ratePerCubicMeter": 54.18 }
-    ],
-    "note": "2026년 1월 4차 Rate Rebasing 적용(+6.96% 요금 재산정 + CPI 0.68%). 2026년 4월 Q2 FCDA +P0.39/m³(평균 기본요금 P50.70의 0.76%) 적용 — Q1(+P0.35) 대비 P0.04 인상. FCDA는 각 m³당 일률 가산. 환경요금 25%→30%로 상향(Manila Water 하수 커버리지 목표 달성 반영). 하수요금은 기본 수도요금의 50%. 4Ps 수혜가구·20m³ 이하 저소득층은 Enhanced Lifeline Program으로 FCDA 면제 및 할인 적용.",
-    "lastUpdated": "2026-04"
-  },
-  {
-    "id": "maynilad",
-    "name": "Maynilad",
-    "region": "Metro Manila (West Zone)",
-    "island": "Luzon",
-    "currency": "PHP",
-    "basicCharge": 187.61,
-    "sewerageRate": 0.5,
-    "environmentalCharge": 0.25,
-    "vatRate": 0.12,
-    "fcda": -0.13,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 15.47 },
-      { "upTo": 20,   "ratePerCubicMeter": 24.79 },
-      { "upTo": 30,   "ratePerCubicMeter": 36.35 },
-      { "upTo": 40,   "ratePerCubicMeter": 49.85 },
-      { "upTo": 50,   "ratePerCubicMeter": 58.81 },
-      { "upTo": null, "ratePerCubicMeter": 64.61 }
-    ],
-    "note": "2026년 1월 4차 Rate Rebasing 적용(+2.81%). 2026년 4월 Q2 FCDA -P0.13/m³ 적용 (환급 성격 — 음수). Q1 FCDA -P0.22보다 환급폭 축소 → 실질 m³당 P0.09 인상 효과. 10m³ 가구 +P0.27/월, 20m³ +P1.00/월, 30m³ +P2.07/월. 4Ps 수혜가구·20m³ 이하 저소득층은 Enhanced Lifeline Program으로 FCDA 면제.",
-    "lastUpdated": "2026-04"
-  },
-  {
-    "id": "metro_cebu_water",
-    "name": "MCWD (Metro Cebu Water)",
-    "region": "Cebu City & Metro Cebu",
-    "island": "Visayas",
-    "currency": "PHP",
-    "basicCharge": 259.16,
-    "sewerageRate": 0.0,
-    "environmentalCharge": 0.0,
-    "vatRate": 0.0,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 0 },
-      { "upTo": 20,   "ratePerCubicMeter": 28.64 },
-      { "upTo": 30,   "ratePerCubicMeter": 33.71 },
-      { "upTo": null, "ratePerCubicMeter": 82.52 }
-    ],
-    "billingNote": "MCWD는 '최소요금제' 구조: basicCharge(P259.16)는 첫 10m³의 전체 청구금액(VAT·환경·하수 포함 all-in). 초과분 tiers는 공시된 상품 요금(m³당 가산 marginal rate). 청구식: 총액 = 259.16 + Σ(추가구간×해당 tier요금). 환경·하수·VAT는 별도 가산 없이 all-in 단가에 포함됨.",
-    "note": "2026년 4월 1일 최종 10% 인상 공식 시행(LWUA 승인). 최소요금 P235.60→P259.16(+P23.56). 상위 tier: 11–20m³ P28.64, 21–30m³ P33.71, 31m³이상 P82.52. 10년 만의 첫 요금 조정(마지막 5차분) — 2015년 이후 팬데믹 기간 동결 유지. MCWD 운영 적자 심각(일 P650만 손실), 벌크워터 단가 P65 vs 소비자 판매가 P25 역마진 구조 해소 목적. 추가 인상 가능성 상존.",
-    "lastUpdated": "2026-04"
-  },
-  {
-    "id": "davao_city_water",
-    "name": "DCWD (Davao City Water)",
-    "region": "Davao City",
-    "island": "Mindanao",
-    "currency": "PHP",
-    "basicCharge": 112.01,
-    "sewerageRate": 0.25,
-    "environmentalCharge": 0.05,
-    "vatRate": 0.12,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 12.41 },
-      { "upTo": 20,   "ratePerCubicMeter": 20.88 },
-      { "upTo": 30,   "ratePerCubicMeter": 30.63 },
-      { "upTo": null, "ratePerCubicMeter": 41.51 }
-    ],
-    "note": "2026년 3월 청구분부터 12.5% 인상 시행 확인(DCWD 공식 사이트 공지). 2021년 LWUA 승인 60% 인상분의 단계적 적용 중. 유가 급등 연계 추가 인상은 없다고 3월 18일 공식 발표. 2027년 추가 15% 인상 계획(LWUA 심사 중). 5m³ 이하 저소득층 Lifeline Rate P100 고정 유지. 각 tier 단가는 기존 요금 ×1.125 산출값 — 공식 요금표 원문 확인 시 보정 필요.",
-    "lastUpdated": "2026-03"
-  },
-  {
-    "id": "cagayan_water",
-    "name": "COWD (Cagayan de Oro Water)",
-    "region": "Cagayan de Oro",
-    "island": "Mindanao",
-    "currency": "PHP",
-    "basicCharge": 92,
-    "sewerageRate": 0.28,
-    "environmentalCharge": 0.05,
-    "vatRate": 0.12,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 10.2 },
-      { "upTo": 20,   "ratePerCubicMeter": 17.1 },
-      { "upTo": null, "ratePerCubicMeter": 27.5 }
-    ],
-    "note": "2025-01 기준 유지. COWD 2025~2026 10% 인상안 제출 이력 있으나 2024.1 연기. 2026년 최종 시행 여부 미확인 — 공식 요금표 재검증 필요.",
-    "lastUpdated": "2025-01"
-  },
-  {
-    "id": "iloilo_water",
-    "name": "MIWD (Metro Iloilo Water)",
-    "region": "Iloilo City",
-    "island": "Visayas",
-    "currency": "PHP",
-    "basicCharge": 82,
-    "sewerageRate": 0.22,
-    "environmentalCharge": 0.04,
-    "vatRate": 0.12,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 9.5 },
-      { "upTo": 20,   "ratePerCubicMeter": 15.8 },
-      { "upTo": null, "ratePerCubicMeter": 25.3 }
-    ],
-    "note": "2025-01 기준 유지. MPIW(운영사)가 2025.11(P25.20/m³) + 2026.3(P28.67/m³) 두 차례 인상 시행. 0~10m³ 총 청구액 P200→약P287 추정. 단, basicCharge vs 종량 구분이 불명확하여 요금 구조 미반영 — MPIW 공식 요금표 확인 후 tier 구조 업데이트 필요.",
-    "lastUpdated": "2025-01"
-  },
-  {
-    "id": "pampanga_water",
-    "name": "PAWD (Pampanga Water District)",
-    "region": "Angeles & Pampanga",
-    "island": "Luzon",
-    "currency": "PHP",
-    "basicCharge": 78,
-    "sewerageRate": 0.2,
-    "environmentalCharge": 0.04,
-    "vatRate": 0.12,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 9.0 },
-      { "upTo": 20,   "ratePerCubicMeter": 14.5 },
-      { "upTo": 30,   "ratePerCubicMeter": 22.0 },
-      { "upTo": null, "ratePerCubicMeter": 29.5 }
-    ],
-    "note": "2025-01 기준 유지. 2026년 요금 변경 공식 발표 미확인 — 재검증 필요.",
-    "lastUpdated": "2025-01"
-  },
-  {
-    "id": "laguna_water",
-    "name": "LUWD (Laguna Water)",
-    "region": "Sta. Rosa & Laguna",
-    "island": "Luzon",
-    "currency": "PHP",
-    "basicCharge": 120,
-    "sewerageRate": 0.35,
-    "environmentalCharge": 0.06,
-    "vatRate": 0.12,
-    "tiers": [
-      { "upTo": 10,   "ratePerCubicMeter": 11.0 },
-      { "upTo": 20,   "ratePerCubicMeter": 18.5 },
-      { "upTo": 30,   "ratePerCubicMeter": 28.0 },
-      { "upTo": null, "ratePerCubicMeter": 38.0 }
-    ],
-    "note": "2025-01 기준 유지. 2026년 요금 변경 공식 발표 미확인 — 재검증 필요.",
-    "lastUpdated": "2025-01"
-  }
-]
+{
+  "lastUpdated": "2026-04-10",
+  "recommendedUpdateIntervalDays": 90,
+  "notes": [
+    {
+      "type": "info",
+      "en": "Manila Water and Maynilad rates reflect Q2 2026 FCDA adjustments (effective April). MCWD final 10% tranche applied April 1, 2026. DCWD 12.5% increase effective March 2026 billing. COWD, MIWD, PAWD, and LUWD rates are based on January 2025 data — verification recommended.",
+      "tl": "Ang mga rate ng Manila Water at Maynilad ay nagsasalamin ng Q2 2026 FCDA adjustments (simula Abril). Huling 10% tranche ng MCWD inilapat noong Abril 1, 2026. 12.5% pagtaas ng DCWD simula sa billing ng Marso 2026. Ang mga rate ng COWD, MIWD, PAWD, at LUWD ay batay sa datos noong Enero 2025 — inirerekomenda ang pagberipika.",
+      "ceb": "Ang mga rate sa Manila Water ug Maynilad nagsalamin sa Q2 2026 FCDA adjustments (sugod Abril). Katapusang 10% tranche sa MCWD giaplikar niadtong Abril 1, 2026. 12.5% pagsaka sa DCWD sugod sa billing sa Marso 2026. Ang mga rate sa COWD, MIWD, PAWD, ug LUWD gibase sa datos sa Enero 2025 — girekomendar ang pagberipika."
+    }
+  ],
+  "providers": [
+    {
+      "id": "manila_water",
+      "name": "Manila Water",
+      "region": "Metro Manila (East Zone)",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 166.91,
+      "sewerageRate": 0.5,
+      "environmentalCharge": 0.3,
+      "vatRate": 0.12,
+      "fcda": 0.39,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 14.61 },
+        { "upTo": 20,   "ratePerCubicMeter": 23.27 },
+        { "upTo": 30,   "ratePerCubicMeter": 34.48 },
+        { "upTo": 40,   "ratePerCubicMeter": 43.89 },
+        { "upTo": 50,   "ratePerCubicMeter": 50.93 },
+        { "upTo": null, "ratePerCubicMeter": 54.18 }
+      ],
+      "notes": [
+        {
+          "type": "rate",
+          "en": "4th Rate Rebasing applied January 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% of average basic rate P50.70) applied April — up P0.04 from Q1's +P0.35. FCDA is a flat per-m³ surcharge. Environmental charge raised from 25% to 30% (reflecting Manila Water sewerage coverage target). Sewerage charge is 50% of basic water charge. 4Ps beneficiary households and low-income users under 20m³ qualify for Enhanced Lifeline Program (FCDA exemption and discounts).",
+          "tl": "4th Rate Rebasing inilapat noong Enero 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% ng average basic rate na P50.70) inilapat sa Abril — tumaas ng P0.04 mula sa Q1 na +P0.35. Ang FCDA ay flat na surcharge bawat m³. Environmental charge tumaas mula 25% tungong 30% (salamin ng Manila Water sewerage coverage target). Ang sewerage charge ay 50% ng basic water charge. Ang mga beneficiary ng 4Ps at mababang kita na gumagamit ng 20m³ pababa ay kwalipikado sa Enhanced Lifeline Program (FCDA exemption at diskwento).",
+          "ceb": "4th Rate Rebasing giaplikar sa Enero 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% sa average basic rate nga P50.70) giaplikar sa Abril — misaka ug P0.04 gikan sa Q1 nga +P0.35. Ang FCDA usa ka flat surcharge matag m³. Environmental charge misaka gikan 25% ngadto 30% (salamin sa Manila Water sewerage coverage target). Ang sewerage charge 50% sa basic water charge. Ang mga beneficiary sa 4Ps ug low-income users ubos sa 20m³ kwalipikado sa Enhanced Lifeline Program (FCDA exemption ug diskwento)."
+        }
+      ],
+      "lastUpdated": "2026-04"
+    },
+    {
+      "id": "maynilad",
+      "name": "Maynilad",
+      "region": "Metro Manila (West Zone)",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 187.61,
+      "sewerageRate": 0.5,
+      "environmentalCharge": 0.25,
+      "vatRate": 0.12,
+      "fcda": -0.13,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 15.47 },
+        { "upTo": 20,   "ratePerCubicMeter": 24.79 },
+        { "upTo": 30,   "ratePerCubicMeter": 36.35 },
+        { "upTo": 40,   "ratePerCubicMeter": 49.85 },
+        { "upTo": 50,   "ratePerCubicMeter": 58.81 },
+        { "upTo": null, "ratePerCubicMeter": 64.61 }
+      ],
+      "notes": [
+        {
+          "type": "rate",
+          "en": "4th Rate Rebasing applied January 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund nature — negative value). Q1 FCDA was -P0.22, so refund narrowed → effective increase of P0.09/m³. Impact: 10m³ household +P0.27/month, 20m³ +P1.00/month, 30m³ +P2.07/month. 4Ps beneficiary households and low-income users under 20m³ qualify for Enhanced Lifeline Program (FCDA exemption).",
+          "tl": "4th Rate Rebasing inilapat noong Enero 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund — negatibong halaga). Ang Q1 FCDA ay -P0.22, kaya lumiliit ang refund → epektibong pagtaas ng P0.09/m³. Epekto: 10m³ na sambahayan +P0.27/buwan, 20m³ +P1.00/buwan, 30m³ +P2.07/buwan. Ang mga beneficiary ng 4Ps at mababang kita na gumagamit ng 20m³ pababa ay kwalipikado sa Enhanced Lifeline Program (FCDA exemption).",
+          "ceb": "4th Rate Rebasing giaplikar sa Enero 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund — negatibo nga kantidad). Ang Q1 FCDA -P0.22, mao nga migamay ang refund → epektibong pagsaka ug P0.09/m³. Epekto: 10m³ nga panimalay +P0.27/bulan, 20m³ +P1.00/bulan, 30m³ +P2.07/bulan. Ang mga beneficiary sa 4Ps ug low-income users ubos sa 20m³ kwalipikado sa Enhanced Lifeline Program (FCDA exemption)."
+        }
+      ],
+      "lastUpdated": "2026-04"
+    },
+    {
+      "id": "metro_cebu_water",
+      "name": "MCWD (Metro Cebu Water)",
+      "region": "Cebu City & Metro Cebu",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 259.16,
+      "sewerageRate": 0.0,
+      "environmentalCharge": 0.0,
+      "vatRate": 0.0,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 0 },
+        { "upTo": 20,   "ratePerCubicMeter": 28.64 },
+        { "upTo": 30,   "ratePerCubicMeter": 33.71 },
+        { "upTo": null, "ratePerCubicMeter": 82.52 }
+      ],
+      "notes": [
+        {
+          "type": "rate",
+          "en": "Final 10% rate increase officially implemented on April 1, 2026 (LWUA approved). Minimum charge raised from P235.60 to P259.16 (+P23.56). Upper tiers: 11–20m³ P28.64, 21–30m³ P33.71, 31m³+ P82.52. First rate adjustment in 10 years (final 5th tranche) — frozen since 2015 during pandemic. MCWD operating at severe deficit (P6.5M daily loss); bulk water cost P65 vs consumer selling price P25 negative margin structure. Further increases possible.",
+          "tl": "Huling 10% rate increase opisyal na ipinatupad noong Abril 1, 2026 (LWUA approved). Minimum charge tumaas mula P235.60 tungong P259.16 (+P23.56). Upper tiers: 11–20m³ P28.64, 21–30m³ P33.71, 31m³+ P82.52. Unang rate adjustment sa loob ng 10 taon (huling 5th tranche) — naka-freeze mula 2015 habang pandemya. Ang MCWD ay may malubhang operational deficit (P6.5M daily loss); presyo ng bulk water P65 vs presyo sa consumer P25. Posible pa ang dagdag na pagtaas.",
+          "ceb": "Katapusang 10% rate increase opisyal nga gipatuman niadtong Abril 1, 2026 (LWUA approved). Minimum charge misaka gikan P235.60 ngadto P259.16 (+P23.56). Upper tiers: 11–20m³ P28.64, 21–30m³ P33.71, 31m³+ P82.52. Unang rate adjustment sa sulod sa 10 ka tuig (katapusang 5th tranche) — gi-freeze sukad 2015 panahon sa pandemya. Ang MCWD adunay grabe nga operational deficit (P6.5M daily loss); presyo sa bulk water P65 vs presyo sa consumer P25. Posible pa ang dugang pagsaka."
+        },
+        {
+          "type": "billing",
+          "en": "MCWD uses a 'minimum charge' structure: basicCharge (P259.16) covers the full bill for the first 10m³ (all-in: VAT, environmental, sewerage included). Tiers above 10m³ are the published commodity rates (marginal rate per additional m³). Billing formula: Total = 259.16 + sum of (excess bracket × tier rate). No separate environmental, sewerage, or VAT surcharges are added.",
+          "tl": "Ang MCWD ay gumagamit ng 'minimum charge' na istraktura: basicCharge (P259.16) ang buong bayarin para sa unang 10m³ (lahat kasama: VAT, environmental, sewerage). Ang mga tier na higit sa 10m³ ay ang inilathala na commodity rates (marginal rate bawat dagdag na m³). Pormula ng billing: Total = 259.16 + kabuuan ng (excess bracket × tier rate). Walang hiwalay na environmental, sewerage, o VAT na surcharge ang idinaragdag.",
+          "ceb": "Ang MCWD naggamit ug 'minimum charge' nga istruktura: basicCharge (P259.16) ang tibuok bayad para sa unang 10m³ (tanan apil: VAT, environmental, sewerage). Ang mga tier nga labaw sa 10m³ mao ang gipatik nga commodity rates (marginal rate matag dugang m³). Pormula sa billing: Total = 259.16 + sum sa (excess bracket × tier rate). Walay bulag nga environmental, sewerage, o VAT surcharge nga idugang."
+        }
+      ],
+      "lastUpdated": "2026-04"
+    },
+    {
+      "id": "davao_city_water",
+      "name": "DCWD (Davao City Water)",
+      "region": "Davao City",
+      "island": "Mindanao",
+      "currency": "PHP",
+      "basicCharge": 112.01,
+      "sewerageRate": 0.25,
+      "environmentalCharge": 0.05,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 12.41 },
+        { "upTo": 20,   "ratePerCubicMeter": 20.88 },
+        { "upTo": 30,   "ratePerCubicMeter": 30.63 },
+        { "upTo": null, "ratePerCubicMeter": 41.51 }
+      ],
+      "notes": [
+        {
+          "type": "rate",
+          "en": "12.5% rate increase confirmed effective March 2026 billing (DCWD official website announcement). Part of phased implementation of LWUA-approved 60% increase from 2021. No additional fuel-related surcharge as officially announced on March 18. Additional 15% increase planned for 2027 (under LWUA review). Low-income households using 5m³ or less maintain Lifeline Rate of P100 fixed. Tier rates calculated by applying ×1.125 to previous rates — may need correction when official rate schedule is confirmed.",
+          "tl": "12.5% rate increase nakumpirma simula sa billing ng Marso 2026 (DCWD official website announcement). Bahagi ng phased implementation ng LWUA-approved na 60% increase mula 2021. Walang dagdag na fuel-related surcharge ayon sa opisyal na anunsyo noong Marso 18. Dagdag na 15% increase nakaplanong ipatupad sa 2027 (under LWUA review). Ang mga sambahayan na gumagamit ng 5m³ pababa ay nananatiling may Lifeline Rate na P100. Ang mga tier rate ay kinalkulá sa pamamagitan ng ×1.125 sa dating rate — posibleng kailangang itama kapag nakumpirma ang opisyal na rate schedule.",
+          "ceb": "12.5% rate increase nakumpirma sugod sa billing sa Marso 2026 (DCWD official website announcement). Bahin sa phased implementation sa LWUA-approved nga 60% increase gikan 2021. Walay dugang fuel-related surcharge sumala sa opisyal nga pagpahibalo niadtong Marso 18. Dugang 15% increase giplano para sa 2027 (ubos sa LWUA review). Ang mga panimalay nga naggamit ug 5m³ o ubos nagpabilin sa Lifeline Rate nga P100. Ang mga tier rate gikalkula pinaagi sa ×1.125 sa kanhing rate — posible nga kinahanglan koreksyon kung makumpirma ang opisyal nga rate schedule."
+        }
+      ],
+      "lastUpdated": "2026-03"
+    },
+    {
+      "id": "cagayan_water",
+      "name": "COWD (Cagayan de Oro Water)",
+      "region": "Cagayan de Oro",
+      "island": "Mindanao",
+      "currency": "PHP",
+      "basicCharge": 92,
+      "sewerageRate": 0.28,
+      "environmentalCharge": 0.05,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 10.2 },
+        { "upTo": 20,   "ratePerCubicMeter": 17.1 },
+        { "upTo": null, "ratePerCubicMeter": 27.5 }
+      ],
+      "notes": [
+        {
+          "type": "warning",
+          "en": "Rates based on January 2025 data. COWD submitted a 10% increase proposal for 2025–2026 but deferred it in January 2024. Final implementation status for 2026 unconfirmed — official rate schedule verification recommended.",
+          "tl": "Ang mga rate ay batay sa datos noong Enero 2025. Nagsumite ang COWD ng 10% increase proposal para sa 2025–2026 ngunit ipinagpaliban noong Enero 2024. Hindi pa nakumpirma ang final implementation status para sa 2026 — inirerekomenda ang pagberipika ng opisyal na rate schedule.",
+          "ceb": "Ang mga rate gibase sa datos sa Enero 2025. Nagsumite ang COWD ug 10% increase proposal para sa 2025–2026 apan gipalayo niadtong Enero 2024. Wala pa makumpirma ang final implementation status para sa 2026 — girekomendar ang pagberipika sa opisyal nga rate schedule."
+        }
+      ],
+      "lastUpdated": "2025-01"
+    },
+    {
+      "id": "iloilo_water",
+      "name": "MIWD (Metro Iloilo Water)",
+      "region": "Iloilo City",
+      "island": "Visayas",
+      "currency": "PHP",
+      "basicCharge": 82,
+      "sewerageRate": 0.22,
+      "environmentalCharge": 0.04,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 9.5 },
+        { "upTo": 20,   "ratePerCubicMeter": 15.8 },
+        { "upTo": null, "ratePerCubicMeter": 25.3 }
+      ],
+      "notes": [
+        {
+          "type": "warning",
+          "en": "Rates based on January 2025 data. MPIW (operator) implemented two rate increases: November 2025 (P25.20/m³) and March 2026 (P28.67/m³). Estimated total bill for 0–10m³ went from P200 to approximately P287. However, the breakdown between basicCharge and per-m³ rate is unclear — tier structure not updated until MPIW official rate schedule is confirmed.",
+          "tl": "Ang mga rate ay batay sa datos noong Enero 2025. Nagpatupad ang MPIW (operator) ng dalawang rate increase: Nobyembre 2025 (P25.20/m³) at Marso 2026 (P28.67/m³). Tinatayang kabuuang bayarin para sa 0–10m³ mula P200 tungong mga P287. Ngunit hindi malinaw ang pagkakahati ng basicCharge at per-m³ rate — hindi na-update ang tier structure hanggang makumpirma ang opisyal na rate schedule ng MPIW.",
+          "ceb": "Ang mga rate gibase sa datos sa Enero 2025. Nagpatuman ang MPIW (operator) ug duha ka rate increase: Nobyembre 2025 (P25.20/m³) ug Marso 2026 (P28.67/m³). Gitantya nga total bill para sa 0–10m³ gikan P200 ngadto mga P287. Apan dili klaro ang pagbahin sa basicCharge ug per-m³ rate — wala na-update ang tier structure hangtod makumpirma ang opisyal nga rate schedule sa MPIW."
+        }
+      ],
+      "lastUpdated": "2025-01"
+    },
+    {
+      "id": "pampanga_water",
+      "name": "PAWD (Pampanga Water District)",
+      "region": "Angeles & Pampanga",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 78,
+      "sewerageRate": 0.2,
+      "environmentalCharge": 0.04,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 9.0 },
+        { "upTo": 20,   "ratePerCubicMeter": 14.5 },
+        { "upTo": 30,   "ratePerCubicMeter": 22.0 },
+        { "upTo": null, "ratePerCubicMeter": 29.5 }
+      ],
+      "notes": [
+        {
+          "type": "warning",
+          "en": "Rates based on January 2025 data. No official 2026 rate change announcement confirmed — verification recommended.",
+          "tl": "Ang mga rate ay batay sa datos noong Enero 2025. Walang nakumpirmang opisyal na pagbabago ng rate para sa 2026 — inirerekomenda ang pagberipika.",
+          "ceb": "Ang mga rate gibase sa datos sa Enero 2025. Walay nakumpirma nga opisyal nga pagbag-o sa rate para sa 2026 — girekomendar ang pagberipika."
+        }
+      ],
+      "lastUpdated": "2025-01"
+    },
+    {
+      "id": "laguna_water",
+      "name": "LUWD (Laguna Water)",
+      "region": "Sta. Rosa & Laguna",
+      "island": "Luzon",
+      "currency": "PHP",
+      "basicCharge": 120,
+      "sewerageRate": 0.35,
+      "environmentalCharge": 0.06,
+      "vatRate": 0.12,
+      "tiers": [
+        { "upTo": 10,   "ratePerCubicMeter": 11.0 },
+        { "upTo": 20,   "ratePerCubicMeter": 18.5 },
+        { "upTo": 30,   "ratePerCubicMeter": 28.0 },
+        { "upTo": null, "ratePerCubicMeter": 38.0 }
+      ],
+      "notes": [
+        {
+          "type": "warning",
+          "en": "Rates based on January 2025 data. No official 2026 rate change announcement confirmed — verification recommended.",
+          "tl": "Ang mga rate ay batay sa datos noong Enero 2025. Walang nakumpirmang opisyal na pagbabago ng rate para sa 2026 — inirerekomenda ang pagberipika.",
+          "ceb": "Ang mga rate gibase sa datos sa Enero 2025. Walay nakumpirma nga opisyal nga pagbag-o sa rate para sa 2026 — girekomendar ang pagberipika."
+        }
+      ],
+      "lastUpdated": "2025-01"
+    }
+  ]
+}
