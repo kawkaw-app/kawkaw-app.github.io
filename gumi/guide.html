@@ -435,8 +435,9 @@
       <a href="#sidebar" lang="en">Side Menu</a><a href="#sidebar" lang="tl">Side Menu</a><a href="#sidebar" lang="ceb">Side Menu</a>
     </li>
     <li>
-      <a href="#bills" lang="en">Utility Bills (Calculator / Estimator / History)</a><a href="#bills" lang="tl">Utility Bills</a><a href="#bills" lang="ceb">Utility Bills</a>
+      <a href="#bills" lang="en">Utility Bills (Rates / Calculator / Estimator / History)</a><a href="#bills" lang="tl">Utility Bills</a><a href="#bills" lang="ceb">Utility Bills</a>
       <ol>
+        <li><a href="#bill-rates" lang="en">Rate Info</a><a href="#bill-rates" lang="tl">Rate Info</a><a href="#bill-rates" lang="ceb">Rate Info</a></li>
         <li><a href="#bill-calc" lang="en">Bill Calculator</a><a href="#bill-calc" lang="tl">Bill Calculator</a><a href="#bill-calc" lang="ceb">Bill Calculator</a></li>
         <li><a href="#bill-est" lang="en">Bill Estimator</a><a href="#bill-est" lang="tl">Bill Estimator</a><a href="#bill-est" lang="ceb">Bill Estimator</a></li>
         <li><a href="#bill-history" lang="en">Billing History</a><a href="#bill-history" lang="tl">Billing History</a><a href="#bill-history" lang="ceb">Billing History</a></li>
@@ -1488,6 +1489,7 @@
 
       <p><strong>UTILITY BILLS</strong></p>
       <ul>
+        <li><strong>Rate Info <span class="badge badge-online">online</span>:</strong> View and update utility rate data. Rates can be refreshed from the server without app update.</li>
         <li><strong>Bill Calculator:</strong> Calculate your electricity/water bill.</li>
         <li><strong>Bill Estimator:</strong> Predict your upcoming bill using AI.</li>
         <li><strong>Billing History:</strong> View past bill calculations.</li>
@@ -1525,7 +1527,7 @@
     <div lang="tl">
       <h4>Side Menu</h4>
       <p>I-access sa pamamagitan ng pag-tap sa three-line icon sa itaas-kaliwa.</p>
-      <p>Kasama ang: Utility Bills (Calculator, Estimator, History), Analytics (AI Coach, Report), Extra Fun (Daily Swerte, Palad Guide), Settings, Privacy Policy, Terms of Service, User Guide, <a href="mailto:kawkaw.app@gmail.com">E-mail</a>, <a href="https://www.facebook.com/groups/895486153385755" target="_blank">Facebook Club</a>, at <a href="https://kawkaw.dev" target="_blank">KawKaw.dev</a>.</p>
+      <p>Kasama ang: Utility Bills (Rate Info, Calculator, Estimator, History), Analytics (AI Coach, Report), Extra Fun (Daily Swerte, Palad Guide), Settings, Privacy Policy, Terms of Service, User Guide, <a href="mailto:kawkaw.app@gmail.com">E-mail</a>, <a href="https://www.facebook.com/groups/895486153385755" target="_blank">Facebook Club</a>, at <a href="https://kawkaw.dev" target="_blank">KawKaw.dev</a>.</p>
     </div>
     <div lang="ceb">
       <h4>Side Menu</h4>
@@ -1545,9 +1547,52 @@
     <span lang="ceb">9. Utility Bills</span>
   </h2>
 
-  <h3 id="bill-calc" lang="en">9.1 Bill Calculator</span></h3>
-  <h3 id="bill-calc" lang="tl">9.1 Bill Calculator</h3>
-  <h3 id="bill-calc" lang="ceb">9.1 Bill Calculator</h3>
+  <h3 id="bill-rates" lang="en">9.1 Rate Info <span class="badge badge-online">online</span></h3>
+  <h3 id="bill-rates" lang="tl">9.1 Rate Info <span class="badge badge-online">online</span></h3>
+  <h3 id="bill-rates" lang="ceb">9.1 Rate Info <span class="badge badge-online">online</span></h3>
+
+  <div class="card">
+    <div lang="en">
+      <h4>Rate Info</h4>
+      <p>View and update utility rate data used for bill calculations. Rate data is stored locally and can be refreshed from the server without updating the app.</p>
+      <ul>
+        <li><strong>Last Updated:</strong> Shows when you last fetched rate data, and how many days have passed.</li>
+        <li><strong>Update Rates <span class="badge badge-online">online</span>:</strong> Tap to download the latest electricity and water rate data from the server. Requires internet connection.</li>
+        <li><strong>Update Recommendation:</strong> Electricity rates change monthly (recommended: every 30 days). Water rates change quarterly (recommended: every 90 days).</li>
+        <li><strong>Electricity / Water Toggle:</strong> Switch between viewing electricity and water provider information.</li>
+        <li><strong>General Notes:</strong> Shows overall rate data notes (e.g., which rates are official vs estimated, regulatory changes).</li>
+        <li><strong>Provider Cards:</strong> Each provider shows:
+          <ul>
+            <li>Provider name and region</li>
+            <li>Rate data date (e.g., "Rate as of: 2026-03")</li>
+            <li>Detailed notes about rate changes, sources, and warnings</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Note:</strong> If you never tap "Update Rates", the app uses built-in default rates. After updating, the latest rates are cached locally and used for all calculations — even offline.</p>
+    </div>
+    <div lang="tl">
+      <h4>Rate Info</h4>
+      <p>Tingnan at i-update ang rate data ng utility na ginagamit sa pagkalkula ng bill. Naka-store ang rate data sa lokal at maaaring i-refresh mula sa server nang hindi ina-update ang app.</p>
+      <ul>
+        <li><strong>Update Rates <span class="badge badge-online">online</span>:</strong> I-tap para i-download ang pinakabagong rate data. Kailangan ng internet.</li>
+        <li><strong>Recommendation:</strong> Kuryente: i-update tuwing 30 araw. Tubig: tuwing 90 araw.</li>
+        <li>Kung hindi ka nag-update, gagamitin ang default na built-in rates.</li>
+      </ul>
+    </div>
+    <div lang="ceb">
+      <h4>Rate Info</h4>
+      <p>Tan-awa ug i-update ang rate data sa utility nga gigamit sa pagkalkula sa bill. Naka-store ang rate data sa lokal ug mahimong i-refresh gikan sa server nga dili mag-update sa app.</p>
+      <ul>
+        <li><strong>Update Rates <span class="badge badge-online">online</span>:</strong> I-tap para i-download ang pinakabag-o nga rate data. Kinahanglan og internet.</li>
+        <li>Kung wala ka nag-update, gamiton ang default nga built-in rates.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 id="bill-calc" lang="en">9.2 Bill Calculator</h3>
+  <h3 id="bill-calc" lang="tl">9.2 Bill Calculator</h3>
+  <h3 id="bill-calc" lang="ceb">9.2 Bill Calculator</h3>
 
   <div class="two-screenshots">
     <div class="screenshot-wrap">
@@ -1602,9 +1647,9 @@
     </div>
   </div>
 
-  <h3 id="bill-est" lang="en">9.2 Bill Estimator</h3>
-  <h3 id="bill-est" lang="tl">9.2 Bill Estimator</h3>
-  <h3 id="bill-est" lang="ceb">9.2 Bill Estimator</h3>
+  <h3 id="bill-est" lang="en">9.3 Bill Estimator</h3>
+  <h3 id="bill-est" lang="tl">9.3 Bill Estimator</h3>
+  <h3 id="bill-est" lang="ceb">9.3 Bill Estimator</h3>
 
   <div class="two-screenshots">
     <div class="screenshot-wrap">
@@ -1665,9 +1710,9 @@
     </div>
   </div>
 
-  <h3 id="bill-history" lang="en">9.3 Billing History</h3>
-  <h3 id="bill-history" lang="tl">9.3 Billing History</h3>
-  <h3 id="bill-history" lang="ceb">9.3 Billing History</h3>
+  <h3 id="bill-history" lang="en">9.4 Billing History</h3>
+  <h3 id="bill-history" lang="tl">9.4 Billing History</h3>
+  <h3 id="bill-history" lang="ceb">9.4 Billing History</h3>
 
   <div class="screenshot-wrap">
     <img src="assets/billing_history.png" alt="Billing History">
@@ -1934,6 +1979,7 @@
 
       <h4 style="margin-top:16px">Management</h4>
       <ul>
+        <li><strong>Utility Rates <span class="badge badge-online">online</span>:</strong> View and update electricity/water rate data from the server. Opens the Rate Info screen.</li>
         <li><strong>Quick Expense:</strong> Manage quick expense shortcuts (see below).</li>
         <li><strong>Envelope Management:</strong> Manage budget envelopes.</li>
         <li><strong>My Utang List:</strong> Manage people/stores you owe.</li>
@@ -1942,11 +1988,11 @@
     </div>
     <div lang="tl">
       <h4>Settings</h4>
-      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management (Quick Expense, Envelope, Utang, Dream), Safe & Secure.</p>
+      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management (Utility Rates, Quick Expense, Envelope, Utang, Dream), Safe & Secure.</p>
     </div>
     <div lang="ceb">
       <h4>Settings</h4>
-      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management, Safe & Secure.</p>
+      <p>Mga section: Name, Budget Period, Touch/Face ID, Language, Theme, Management (Utility Rates, Quick Expense, Envelope, Utang, Dream), Safe & Secure.</p>
     </div>
   </div>
 
