@@ -2,6 +2,10 @@
   "schemaVersion": 2,
   "lastUpdated": "2026-04-10",
   "recommendedUpdateIntervalDays": 90,
+  "_paramGuide": {
+    "model.seasonalFactors": "RF수도모델 전용. 건기/우기에 따른 수도 사용 패턴 보정. 유일한 계절 보정 경로 (온도 입력 없음). 범위 0.90~1.20 권장.",
+    "model.lrSeasonalFactors": "LR모델 전용. 과거 기록 기반 선형회귀에 계절 효과 반영. usage와 bill 모두에 적용됨. 범위 0.85~1.20 권장."
+  },
   "notes": [
     {
       "type": "info",
