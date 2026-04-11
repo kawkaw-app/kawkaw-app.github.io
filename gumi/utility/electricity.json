@@ -27,20 +27,6 @@
   "model": {
     "version": "1.0",
     "calibratedAt": "2026-04",
-    "monthlyWeights": {
-      "January": 1.00,
-      "February": 1.00,
-      "March": 1.04,
-      "April": 1.07,
-      "May": 1.06,
-      "June": 1.00,
-      "July": 0.98,
-      "August": 0.98,
-      "September": 0.98,
-      "October": 0.98,
-      "November": 1.00,
-      "December": 1.05
-    },
     "lrSeasonalFactors": {
       "January": 0.95,
       "February": 0.97,
