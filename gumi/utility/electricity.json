@@ -82,6 +82,7 @@
       "transmissionCharge": 1.5223,
       "systemLossRate": 0.5834,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.14,
       "vatRate": 0.12,
       "tiers": [
         { "upTo": 200, "ratePerKwh": 7.8607 },
@@ -109,10 +110,11 @@
       "transmissionCharge": 1.10,
       "systemLossRate": 0.5240,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 5.15 },
-        { "upTo": null, "ratePerKwh": 5.57 }
+        { "upTo": 100, "ratePerKwh": 7.32 },
+        { "upTo": null, "ratePerKwh": 7.74 }
       ],
       "totalRateKwh": 12.79,
       "notes": [
@@ -136,11 +138,12 @@
       "transmissionCharge": 1.17,
       "systemLossRate": 0.6200,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 50, "ratePerKwh": 5.02 },
-        { "upTo": 100, "ratePerKwh": 5.33 },
-        { "upTo": null, "ratePerKwh": 5.78 }
+        { "upTo": 50, "ratePerKwh": 7.26 },
+        { "upTo": 100, "ratePerKwh": 7.57 },
+        { "upTo": null, "ratePerKwh": 8.02 }
       ],
       "totalRateKwh": 13.37,
       "notes": [
@@ -164,10 +167,11 @@
       "transmissionCharge": 0.95,
       "systemLossRate": 0.4920,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 5.18 },
-        { "upTo": null, "ratePerKwh": 5.50 }
+        { "upTo": 100, "ratePerKwh": 5.68 },
+        { "upTo": null, "ratePerKwh": 6.00 }
       ],
       "totalRateKwh": 10.63,
       "notes": [
@@ -191,9 +195,10 @@
       "transmissionCharge": 1.09,
       "systemLossRate": 0.5800,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": null, "ratePerKwh": 4.82 }
+        { "upTo": null, "ratePerKwh": 5.32 }
       ],
       "notes": [
         {
@@ -216,10 +221,11 @@
       "transmissionCharge": 1.08,
       "systemLossRate": 0.5100,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 5.14 },
-        { "upTo": null, "ratePerKwh": 5.56 }
+        { "upTo": 100, "ratePerKwh": 7.31 },
+        { "upTo": null, "ratePerKwh": 7.73 }
       ],
       "notes": [
         {
@@ -242,10 +248,11 @@
       "transmissionCharge": 1.19,
       "systemLossRate": 0.6500,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 50, "ratePerKwh": 4.85 },
-        { "upTo": null, "ratePerKwh": 5.40 }
+        { "upTo": 50, "ratePerKwh": 7.02 },
+        { "upTo": null, "ratePerKwh": 7.57 }
       ],
       "notes": [
         {
@@ -268,10 +275,11 @@
       "transmissionCharge": 1.35,
       "systemLossRate": 0.5600,
       "subsidyCharge": 0.0100,
+      "otherChargesPerKwh": 1.10,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 5.74 },
-        { "upTo": null, "ratePerKwh": 6.23 }
+        { "upTo": 100, "ratePerKwh": 6.74 },
+        { "upTo": null, "ratePerKwh": 7.23 }
       ],
       "notes": [
         {
