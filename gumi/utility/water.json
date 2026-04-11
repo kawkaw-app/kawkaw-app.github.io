@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 2,
   "lastUpdated": "2026-04-10",
   "recommendedUpdateIntervalDays": 90,
   "notes": [
@@ -9,6 +10,38 @@
       "ceb": "Ang mga rate sa Manila Water ug Maynilad nagsalamin sa Q2 2026 FCDA adjustments (sugod Abril). Katapusang 10% tranche sa MCWD giaplikar niadtong Abril 1, 2026. 12.5% pagsaka sa DCWD sugod sa billing sa Marso 2026. Ang mga rate sa COWD, MIWD, PAWD, ug LUWD gibase sa datos sa Enero 2025 — girekomendar ang pagberipika."
     }
   ],
+  "model": {
+    "version": "1.0",
+    "calibratedAt": "2026-04",
+    "seasonalFactors": {
+      "January": 0.95,
+      "February": 0.95,
+      "March": 1.10,
+      "April": 1.15,
+      "May": 1.12,
+      "June": 1.00,
+      "July": 0.95,
+      "August": 0.95,
+      "September": 0.95,
+      "October": 0.95,
+      "November": 0.98,
+      "December": 1.00
+    },
+    "lrSeasonalFactors": {
+      "January": 0.95,
+      "February": 0.97,
+      "March": 1.10,
+      "April": 1.15,
+      "May": 1.10,
+      "June": 0.98,
+      "July": 0.92,
+      "August": 0.90,
+      "September": 0.92,
+      "October": 0.93,
+      "November": 0.97,
+      "December": 0.98
+    }
+  },
   "providers": [
     {
       "id": "manila_water",
