@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-04-10",
+  "lastUpdated": "2026-04-13",
   "recommendedUpdateIntervalDays": 30,
   "_paramGuide": {
     "monthlyWeights": "RF전기모델 전용. 온도 외 잔여 행동 패턴 보정 (재택률, 방학, 연말 등). 온도에 의한 소비 변화는 appliance 모델이 별도 처리하므로 여기선 제외할 것. 범위 0.95~1.10 권장.",
@@ -28,7 +28,7 @@
   "notes": [
     {
       "type": "info",
-      "en": "Meralco and Davao Light rates are based on official March 2026 announcements. VECO and CEBECO are officially confirmed as of February 2026. ERC Resolution No. 2 (2026) applied: nationwide uniform lifeline subsidy of P0.01/kWh (effective March 2026 billing). Additional rate increases expected across all regions due to Middle East oil price surge from April onward.",
+      "en": "Meralco April 2026 rate officially confirmed at 14.3496/kWh (announced April 10). Davao Light March–April rate 10.63/kWh confirmed. VECO and CEBECO confirmed at February 2026 levels — March/April not yet announced. Middle East conflict driving fuel prices higher; Meralco warns May rates will likely increase further. ERC new lifeline threshold (50kWh = 100% discount) effective April 2026.",
       "tl": "Ang mga rate ng Meralco at Davao Light ay batay sa opisyal na anunsyo noong Marso 2026. Ang VECO at CEBECO ay opisyal na nakumpirma noong Pebrero 2026. Nailapat ang ERC Resolution No. 2 (2026): pambansang lifeline subsidy na P0.01/kWh (simula sa billing ng Marso 2026). Inaasahang magkakaroon ng dagdag na pagtaas ng rate sa lahat ng rehiyon dahil sa pagtaas ng presyo ng langis sa Middle East mula Abril.",
       "ceb": "Ang mga rate sa Meralco ug Davao Light gibase sa opisyal nga pagpahibalo sa Marso 2026. Ang VECO ug CEBECO opisyal nga nakumpirma sa Pebrero 2026. Giaplikar ang ERC Resolution No. 2 (2026): tibuok nasud nga lifeline subsidy nga P0.01/kWh (sugod sa billing sa Marso 2026). Gilauman nga motaas pa ang rate sa tanang rehiyon tungod sa pagsaka sa presyo sa lana sa Middle East gikan sa Abril."
     }
@@ -89,24 +89,24 @@
       "rateMode": "totalRate",
       "basicCharge": 44.95,
       "distributionCharge": 1.2214,
-      "transmissionCharge": 1.5223,
+      "transmissionCharge": 1.4567,
       "systemLossRate": 0.5834,
       "subsidyCharge": 0.0100,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 200, "ratePerKwh": 7.8607 },
-        { "upTo": null, "ratePerKwh": 7.8607 }
+        { "upTo": 200, "ratePerKwh": 8.3864 },
+        { "upTo": null, "ratePerKwh": 8.3864 }
       ],
-      "totalRateKwh": 13.8161,
+      "totalRateKwh": 14.3496,
       "notes": [
         {
           "type": "rate",
-          "en": "Based on official March 2026 announcement. Total rate 13.8161/kWh (+0.6427 from February's 13.1734). Generation charge 7.8607/kWh (+0.2209, confirmed), transmission charge 1.5223/kWh (+0.2880, NGCP ancillary service charge surged 70%). Distribution charge frozen since August 2022. Per ERC resolution, lifeline subsidy changed from 0.0171 to 0.01/kWh (effective March billing). Meralco spokesperson warned April rates may rise further due to Middle East crisis (DOE projects up to +16%). April rates expected to be announced around April 10.",
-          "tl": "Batay sa opisyal na anunsyo noong Marso 2026. Kabuuang rate na 13.8161/kWh (+0.6427 mula sa 13.1734 noong Pebrero). Generation charge 7.8607/kWh (+0.2209, kumpirmado), transmission charge 1.5223/kWh (+0.2880, tumaas ng 70% ang NGCP ancillary service charge). Distribution charge hindi nagbago mula Agosto 2022. Ayon sa ERC resolution, lifeline subsidy nabago mula 0.0171 tungong 0.01/kWh (simula sa billing ng Marso). Nagbabala ang Meralco na posibleng tumaas pa ang rate sa Abril dahil sa krisis sa Middle East (DOE: hanggang +16%). Inaanunsyo ang rate sa Abril sa paligid ng Abril 10.",
-          "ceb": "Gibase sa opisyal nga pagpahibalo sa Marso 2026. Total rate 13.8161/kWh (+0.6427 gikan sa 13.1734 sa Pebrero). Generation charge 7.8607/kWh (+0.2209, nakumpirma), transmission charge 1.5223/kWh (+0.2880, misaka ug 70% ang NGCP ancillary service charge). Distribution charge wala nausab sukad Agosto 2022. Sumala sa ERC resolution, lifeline subsidy nausab gikan 0.0171 ngadto 0.01/kWh (sugod sa billing sa Marso). Nagpasidaan ang Meralco nga posible mosaka pa ang rate sa Abril tungod sa krisis sa Middle East (DOE: hangtod +16%). Ang rate sa Abril ipahibalo mga Abril 10."
+          "en": "Based on official April 2026 announcement (April 10). Total rate 14.3496/kWh (+0.5335 from March's 13.8161). Generation charge 8.3864/kWh (+0.5257, driven by peso depreciation to P60.748/USD — largest monthly drop since June 2022, affecting 99% of First Gas and 44% of PSA costs). Transmission charge 1.4567/kWh (−0.0656, lower NGCP ancillary service charges). Distribution charge frozen since August 2022. Fuel price impact from Middle East conflict NOT yet reflected in April rates — Meralco VP warned May rates will likely rise further. New ERC lifeline discount: 50kWh or less = 100% off; 51–70kWh = 35% off; 71–100kWh = 20% off (effective April).",
+          "tl": "Batay sa opisyal na anunsyo noong Abril 10, 2026. Kabuuang rate na 14.3496/kWh (+0.5335 mula sa 13.8161 noong Marso). Generation charge 8.3864/kWh (+0.5257, dahil sa pagbaba ng peso sa P60.748/USD — pinakamalaking pagbaba sa isang buwan mula Hunyo 2022, nakaapekto sa 99% ng gastos ng First Gas at 44% ng PSA). Transmission charge 1.4567/kWh (−0.0656, mas mababang NGCP ancillary service charges). Distribution charge hindi nagbago mula Agosto 2022. Ang epekto ng pagtaas ng presyo ng gasolina dahil sa krisis sa Middle East ay HINDI pa naisasalamin sa rate ng Abril — Babala ng Meralco VP na malamang na tataas pa ang rate ng Mayo. Bagong ERC lifeline discount: 50kWh pababa = 100% diskwento; 51–70kWh = 35%; 71–100kWh = 20% (simula Abril).",
+          "ceb": "Gibase sa opisyal nga pagpahibalo niadtong Abril 10, 2026. Total rate 14.3496/kWh (+0.5335 gikan sa 13.8161 sa Marso). Generation charge 8.3864/kWh (+0.5257, tungod sa paghulog sa peso sa P60.748/USD — pinakadako nga paghulog sulod sa usa ka bulan sukad Hunyo 2022, nakaapekto sa 99% sa gastos sa First Gas ug 44% sa PSA). Transmission charge 1.4567/kWh (−0.0656, mas ubos nga NGCP ancillary service charges). Distribution charge wala nausab sukad Agosto 2022. Ang epekto sa pagsaka sa presyo sa gasolina tungod sa krisis sa Middle East WALA pa masalamin sa rate sa Abril — Gipasidaan sa Meralco VP nga posible mosaka pa ang rate sa Mayo. Bag-ong ERC lifeline discount: 50kWh o ubos = 100% diskwento; 51–70kWh = 35%; 71–100kWh = 20% (sugod Abril)."
         }
       ],
-      "lastUpdated": "2026-03"
+      "lastUpdated": "2026-04"
     },
     {
       "id": "veco",
