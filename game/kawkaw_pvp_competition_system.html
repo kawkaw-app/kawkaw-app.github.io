@@ -1,0 +1,665 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4A843;--gold2:#F0C96A;--deep:#0A0714;--navy:#0F0D1E;
+  --panel:#14112A;--panel2:#1C1836;--purple:#7B5EA7;--teal:#1DBAAD;
+  --rose:#C9445A;--green:#2ECC71;--amber:#E8943A;--text:#F0E8D8;--muted:#9A8F7E;
+  --s1:#FF4500;--s2:#FF8C00;--s3:#D4A843;--s4:#A8A8A8;--s5:#CD7F32;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#06040E;font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;padding:12px 8px 24px;gap:10px;}
+
+.nav{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;}
+.nb{padding:5px 11px;border:1px solid rgba(212,168,67,.25);border-radius:14px;font-size:10px;font-family:'Cinzel',serif;color:var(--muted);cursor:pointer;background:transparent;transition:all .18s;letter-spacing:.04em;}
+.nb.active{background:rgba(212,168,67,.14);color:var(--gold);border-color:var(--gold);}
+
+.device{width:min(680px,97vw);aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid rgba(212,168,67,.22);box-shadow:0 0 48px rgba(212,168,67,.07),0 20px 55px rgba(0,0,0,.88);position:relative;}
+.scr{display:none;width:100%;height:100%;position:absolute;inset:0;overflow:hidden;}
+.scr.active{display:flex;flex-direction:column;}
+
+.tb{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:rgba(0,0,0,.5);border-bottom:0.5px solid rgba(212,168,67,.1);flex-shrink:0;z-index:20;}
+.tb-logo{font-family:'Cinzel Decorative',serif;font-size:10px;color:var(--gold);}
+.tb-title{font-family:'Cinzel',serif;font-size:11px;color:var(--text);letter-spacing:.07em;}
+.chip{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.05);border:0.5px solid rgba(255,255,255,.09);border-radius:10px;padding:2px 7px;font-size:9px;color:var(--text);font-weight:700;}
+.bnav-bar{display:flex;padding:5px 4px 6px;gap:2px;background:rgba(0,0,0,.55);border-top:0.5px solid rgba(212,168,67,.08);flex-shrink:0;z-index:20;}
+.bn{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 2px;border-radius:8px;cursor:pointer;}
+.bn.on{background:rgba(212,168,67,.1);}
+.bn-i{font-size:14px;line-height:1;}
+.bn-l{font-size:7px;color:var(--muted);font-family:'Cinzel',serif;}
+.bn.on .bn-l{color:var(--gold);}
+.main{flex:1;display:flex;overflow:hidden;position:relative;}
+
+/* ═══ S1: PvP LOBBY ═══ */
+#s1 .bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D0A22 0%,#0A0714 50%,#180A0A 100%);}
+#s1 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,68,90,.12) 0%,transparent 55%),radial-gradient(ellipse at 75% 30%,rgba(212,168,67,.07) 0%,transparent 45%);}
+
+.pvp-left{width:32%;border-right:0.5px solid rgba(255,255,255,.07);display:flex;flex-direction:column;padding:8px;gap:5px;z-index:5;}
+.season-card{background:linear-gradient(135deg,rgba(201,68,90,.15),rgba(212,168,67,.08));border:1px solid rgba(201,68,90,.3);border-radius:12px;padding:8px 10px;}
+.sc-title{font-family:'Cinzel Decorative',serif;font-size:9px;color:var(--gold2);letter-spacing:.08em;}
+.sc-season{font-size:8px;color:var(--muted);margin-top:1px;}
+.sc-timer{font-size:10px;font-weight:700;color:var(--rose);margin-top:3px;font-family:'Cinzel',serif;}
+.sc-reward{display:flex;gap:4px;margin-top:6px;}
+.scr-item{flex:1;background:rgba(0,0,0,.25);border-radius:6px;padding:4px 5px;text-align:center;font-size:7px;color:var(--muted);}
+.scr-val{font-size:10px;font-weight:700;display:block;margin-bottom:1px;}
+
+/* My rank card */
+.my-rank-card{background:var(--panel2);border:0.5px solid rgba(255,255,255,.08);border-radius:12px;padding:8px 10px;}
+.mr-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.mr-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--gold));display:flex;align-items:center;justify-content:center;font-size:18px;border:1.5px solid rgba(212,168,67,.4);flex-shrink:0;}
+.mr-info{flex:1;}
+.mr-name{font-size:10px;font-weight:700;color:var(--text);font-family:'Cinzel',serif;}
+.mr-tier{font-size:8px;margin-top:1px;}
+.mr-stats{display:flex;gap:6px;}
+.mrs{text-align:center;flex:1;}
+.mrs-v{font-size:11px;font-weight:800;color:var(--text);}
+.mrs-k{font-size:7px;color:var(--muted);font-family:'Cinzel',serif;}
+.rank-bar-wrap{margin-top:5px;}
+.rb-label{display:flex;justify-content:space-between;font-size:7px;color:var(--muted);margin-bottom:3px;}
+.rb-track{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.rb-fill{height:100%;border-radius:3px;}
+
+/* Mode buttons */
+.mode-section{flex:1;display:flex;flex-direction:column;gap:4px;}
+.mode-title{font-size:7px;font-family:'Cinzel',serif;color:rgba(212,168,67,.55);letter-spacing:.1em;}
+.mode-btn{border-radius:9px;border:1px solid;padding:7px 9px;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:7px;}
+.mode-btn:hover{filter:brightness(1.1);}
+.mb-1v1{background:rgba(201,68,90,.1);border-color:rgba(201,68,90,.4);}
+.mb-3v3{background:rgba(212,168,67,.08);border-color:rgba(212,168,67,.3);}
+.mb-siege{background:rgba(123,94,167,.1);border-color:rgba(123,94,167,.4);}
+.mb-tower{background:rgba(29,186,173,.08);border-color:rgba(29,186,173,.3);}
+.mb-icon{font-size:18px;flex-shrink:0;}
+.mb-info{flex:1;}
+.mb-name{font-family:'Cinzel',serif;font-size:9px;font-weight:600;}
+.mb-desc{font-size:7px;color:var(--muted);margin-top:1px;}
+.mb-badge{font-size:7px;padding:1px 5px;border-radius:5px;flex-shrink:0;}
+
+/* Center: Tier chart */
+.pvp-center{flex:1;display:flex;flex-direction:column;z-index:5;padding:8px 6px;}
+.tier-title{font-family:'Cinzel',serif;font-size:9px;color:rgba(212,168,67,.6);letter-spacing:.09em;margin-bottom:6px;}
+.tier-list{display:flex;flex-direction:column;gap:3px;flex:1;}
+.tier-row{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:8px;cursor:pointer;transition:all .15s;}
+.tier-row.mine{border:1px solid;}
+.tier-row:hover{background:rgba(255,255,255,.04);}
+.tier-emblem{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;border:1.5px solid;}
+.tier-name{font-family:'Cinzel',serif;font-size:9px;flex:1;}
+.tier-range{font-size:7px;color:var(--muted);}
+.tier-count{font-size:8px;color:var(--muted);}
+.tier-bar-bg{flex:2;height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;}
+.tier-bar-f{height:100%;border-radius:2px;}
+
+/* Right: Leaderboard */
+.pvp-right{width:30%;border-left:0.5px solid rgba(255,255,255,.07);display:flex;flex-direction:column;z-index:5;padding:6px 8px;}
+.lb-title{font-family:'Cinzel',serif;font-size:9px;color:rgba(212,168,67,.6);letter-spacing:.08em;margin-bottom:5px;}
+.lb-row{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:0.5px solid rgba(255,255,255,.05);cursor:pointer;transition:background .15s;}
+.lb-row:last-child{border-bottom:none;}
+.lb-row.mine{background:rgba(212,168,67,.06);border-radius:6px;padding:5px 6px;}
+.lb-rank{font-family:'Cinzel',serif;font-size:10px;font-weight:700;width:20px;flex-shrink:0;text-align:center;}
+.lb-avatar{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;border:1px solid;}
+.lb-info{flex:1;}
+.lb-name{font-size:9px;font-weight:700;color:var(--text);}
+.lb-tier-badge{font-size:7px;}
+.lb-pts{font-size:9px;font-weight:700;text-align:right;flex-shrink:0;}
+.crown{font-size:10px;}
+
+/* ═══ S2: PvP BATTLE ═══ */
+#s2 .bg{position:absolute;inset:0;background:linear-gradient(140deg,#1A0A0A 0%,#0A0714 50%,#0A0A1A 100%);}
+#s2 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,68,90,.15) 0%,transparent 55%);}
+
+.pvp-battle-wrap{flex:1;display:flex;position:relative;z-index:5;}
+
+/* VS header */
+.battle-vs-bar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:rgba(0,0,0,.5);z-index:20;border-bottom:0.5px solid rgba(201,68,90,.2);}
+.bvs-player{display:flex;align-items:center;gap:6px;}
+.bvs-avatar{width:28px;height:28px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.bvs-name{font-family:'Cinzel',serif;font-size:9px;}
+.bvs-tier{font-size:7px;}
+.vs-badge{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--rose);text-shadow:0 0 10px rgba(201,68,90,.6);}
+.bvs-hp{text-align:right;}
+.bvs-hp-bar{width:80px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin-top:2px;}
+.bvs-hp-f{height:100%;border-radius:2px;}
+
+/* Arena */
+.pvp-arena{flex:1;display:flex;align-items:center;justify-content:space-between;padding:30px 14px 8px;}
+.pvp-player-side{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.pvp-sprite{font-size:clamp(36px,7vw,56px);filter:drop-shadow(0 0 14px rgba(29,186,173,.4));animation:pf 2s ease-in-out infinite;line-height:1;}
+.pvp-sprite-enemy{font-size:clamp(36px,7vw,56px);filter:drop-shadow(0 0 14px rgba(201,68,90,.45));animation:pf 2.3s ease-in-out infinite .3s;transform:scaleX(-1);line-height:1;}
+@keyframes pf{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes pfe{0%,100%{transform:scaleX(-1) translateY(0)}50%{transform:scaleX(-1) translateY(-5px)}}
+.pvp-sprite-enemy{animation:pfe 2.3s ease-in-out infinite .3s;}
+.pvp-hud-mini{background:rgba(0,0,0,.4);border-radius:8px;padding:4px 8px;text-align:center;}
+.pvp-hm-name{font-family:'Cinzel',serif;font-size:7px;color:var(--teal);}
+.pvp-hm-stat{font-size:7px;color:var(--muted);}
+
+/* Center combat log */
+.combat-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;}
+.turn-badge{font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,67,.1);border:0.5px solid rgba(212,168,67,.3);border-radius:8px;padding:3px 10px;display:flex;align-items:center;gap:4px;}
+.turn-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.combat-log{background:rgba(0,0,0,.5);border:0.5px solid rgba(255,255,255,.07);border-radius:10px;padding:6px 8px;width:140px;}
+.cl-row{font-size:8px;color:var(--muted);padding:2px 0;border-bottom:0.5px solid rgba(255,255,255,.04);line-height:1.4;}
+.cl-row:last-child{border-bottom:none;}
+.cl-dmg{color:var(--rose);font-weight:700;}
+.cl-heal{color:var(--green);font-weight:700;}
+.cl-buff{color:var(--gold);}
+
+/* Skill bar */
+.pvp-skill-bar{display:flex;gap:5px;padding:4px 10px;background:rgba(0,0,0,.4);border-top:0.5px solid rgba(255,255,255,.06);}
+.pvp-sk{flex:1;border-radius:8px;border:1px solid;padding:5px 4px;text-align:center;cursor:pointer;transition:transform .1s;}
+.pvp-sk:active{transform:scale(.93);}
+.pvs-t{background:rgba(29,186,173,.12);border-color:rgba(29,186,173,.4);}
+.pvs-g{background:rgba(212,168,67,.1);border-color:rgba(212,168,67,.35);}
+.pvs-p{background:rgba(123,94,167,.1);border-color:rgba(123,94,167,.35);}
+.pvs-r{background:rgba(201,68,90,.1);border-color:rgba(201,68,90,.35);}
+.psk-i{font-size:16px;display:block;}
+.psk-n{font-size:7px;font-family:'Cinzel',serif;color:var(--text);display:block;margin-top:1px;}
+.psk-c{font-size:7px;display:block;}
+.forfeit-btn{padding:5px 10px;border-radius:8px;border:0.5px solid rgba(201,68,90,.3);background:rgba(201,68,90,.08);color:var(--rose);font-family:'Cinzel',serif;font-size:8px;cursor:pointer;align-self:center;flex-shrink:0;}
+
+/* ═══ S3: RANKING ═══ */
+#s3 .bg{position:absolute;inset:0;background:linear-gradient(160deg,#0A0D1A 0%,#0A0714 60%,#0D0A10 100%);}
+#s3 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(212,168,67,.1) 0%,transparent 50%);}
+
+.rank-left{width:30%;border-right:0.5px solid rgba(255,255,255,.07);display:flex;flex-direction:column;z-index:5;padding:8px;}
+.rank-filter{display:flex;flex-direction:column;gap:4px;margin-bottom:8px;}
+.rf-title{font-size:7px;font-family:'Cinzel',serif;color:var(--muted);letter-spacing:.08em;margin-bottom:3px;}
+.rf-btn{padding:5px 8px;border-radius:8px;border:0.5px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:9px;font-family:'Cinzel',serif;color:var(--muted);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;}
+.rf-btn.active{background:rgba(212,168,67,.1);border-color:rgba(212,168,67,.3);color:var(--gold);}
+
+.my-stat-card{background:var(--panel2);border:0.5px solid rgba(255,255,255,.07);border-radius:10px;padding:8px;margin-top:auto;}
+.ms-title{font-size:7px;font-family:'Cinzel',serif;color:var(--muted);margin-bottom:5px;letter-spacing:.06em;}
+.ms-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.msg{background:rgba(255,255,255,.03);border-radius:6px;padding:4px 6px;text-align:center;}
+.msg-v{font-size:10px;font-weight:800;display:block;}
+.msg-k{font-size:7px;color:var(--muted);font-family:'Cinzel',serif;}
+
+.rank-center{flex:1;display:flex;flex-direction:column;z-index:5;padding:8px 6px;}
+
+/* Top 3 podium */
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin-bottom:10px;padding:6px 0;}
+.pod{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.pod-avatar{border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid;position:relative;}
+.pod-crown{position:absolute;top:-10px;font-size:14px;}
+.pod-name{font-family:'Cinzel',serif;font-size:7px;text-align:center;}
+.pod-pts{font-size:8px;font-weight:700;}
+.pod-base{border-radius:6px 6px 0 0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:12px;font-weight:700;}
+
+/* Rank list */
+.rank-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:3px;}
+.rank-item{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:9px;background:rgba(255,255,255,.02);border:0.5px solid rgba(255,255,255,.05);cursor:pointer;transition:all .15s;}
+.rank-item:hover{background:rgba(255,255,255,.05);}
+.rank-item.mine{background:rgba(212,168,67,.07);border-color:rgba(212,168,67,.25);}
+.ri-num{font-family:'Cinzel',serif;font-size:10px;font-weight:700;width:22px;text-align:center;flex-shrink:0;}
+.ri-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;border:1px solid;flex-shrink:0;}
+.ri-info{flex:1;}
+.ri-name{font-size:9px;font-weight:700;color:var(--text);}
+.ri-sub{font-size:7px;color:var(--muted);margin-top:1px;}
+.ri-pts{font-size:10px;font-weight:800;text-align:right;}
+.ri-change{font-size:7px;text-align:right;}
+
+.rank-right{width:28%;border-left:0.5px solid rgba(255,255,255,.07);display:flex;flex-direction:column;z-index:5;padding:8px;}
+.reward-title{font-family:'Cinzel',serif;font-size:9px;color:rgba(212,168,67,.6);letter-spacing:.08em;margin-bottom:6px;}
+.reward-tier-card{border-radius:10px;border:1px solid;padding:7px 9px;margin-bottom:5px;cursor:pointer;transition:all .15s;}
+.rtc:hover{filter:brightness(1.08);}
+.rtc-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.rtc-emblem{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.rtc-name{font-family:'Cinzel',serif;font-size:9px;font-weight:600;}
+.rtc-range{font-size:7px;color:var(--muted);}
+.rtc-rewards{display:flex;gap:3px;flex-wrap:wrap;}
+.rtc-rew{font-size:7px;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.2);}
+.boost-card{background:rgba(201,68,90,.08);border:1px solid rgba(201,68,90,.25);border-radius:10px;padding:8px;margin-top:auto;}
+.bc-title{font-family:'Cinzel',serif;font-size:9px;color:var(--rose);margin-bottom:3px;}
+.bc-desc{font-size:8px;color:var(--muted);line-height:1.5;margin-bottom:5px;}
+.bc-btn{width:100%;padding:6px;border-radius:7px;border:none;background:linear-gradient(135deg,#C9445A,#7B5EA7);color:#fff;font-family:'Cinzel',serif;font-size:9px;cursor:pointer;letter-spacing:.05em;}
+
+/* ═══ S4: RESULT ═══ */
+#s4{align-items:center;justify-content:center;}
+#s4 .bg{position:absolute;inset:0;background:linear-gradient(160deg,#0A0D1A 0%,#0A0714 50%,#1A0A0A 100%);}
+#s4 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(212,168,67,.12) 0%,transparent 60%);}
+
+.result-box{z-index:5;width:500px;display:flex;flex-direction:column;align-items:center;}
+.result-badge{font-family:'Cinzel Decorative',serif;font-size:22px;letter-spacing:.15em;text-shadow:0 0 30px;margin-bottom:8px;animation:rb 1s ease-out;}
+@keyframes rb{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.result-sub{font-family:'Cinzel',serif;font-size:9px;color:var(--muted);letter-spacing:.12em;margin-bottom:14px;}
+
+.result-vs{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.rv-side{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.rv-sprite{font-size:40px;line-height:1;}
+.rv-name{font-family:'Cinzel',serif;font-size:9px;}
+.rv-pts{font-size:8px;}
+.rv-vs{font-family:'Cinzel Decorative',serif;font-size:14px;color:var(--rose);}
+
+.result-rewards{display:flex;gap:8px;margin-bottom:12px;}
+.rr-card{flex:1;background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:10px;padding:8px;text-align:center;}
+.rr-icon{font-size:20px;margin-bottom:4px;display:block;}
+.rr-val{font-size:12px;font-weight:800;display:block;}
+.rr-key{font-size:8px;color:var(--muted);display:block;margin-top:2px;}
+
+.result-rank-change{display:flex;align-items:center;gap:6px;background:rgba(212,168,67,.08);border:0.5px solid rgba(212,168,67,.25);border-radius:10px;padding:7px 12px;margin-bottom:10px;}
+.rrc-arrow{font-size:16px;}
+.rrc-info{flex:1;}
+.rrc-title{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);}
+.rrc-sub{font-size:8px;color:var(--muted);margin-top:1px;}
+.rrc-pts{font-family:'Cinzel',serif;font-size:13px;font-weight:700;}
+
+.result-btns{display:flex;gap:6px;width:100%;}
+.rb-rematch{flex:2;padding:8px;border-radius:9px;border:none;background:linear-gradient(135deg,#B8922E,#D4A843);color:#0A0714;font-family:'Cinzel',serif;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.06em;}
+.rb-shop{flex:1;padding:8px;border-radius:9px;border:1px solid rgba(212,168,67,.3);background:rgba(212,168,67,.08);color:var(--gold);font-family:'Cinzel',serif;font-size:9px;cursor:pointer;}
+.rb-home{flex:1;padding:8px;border-radius:9px;border:0.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--muted);font-family:'Cinzel',serif;font-size:9px;cursor:pointer;}
+
+/* Particles */
+.particle{position:absolute;pointer-events:none;border-radius:50%;animation:pfloat 2s ease-out forwards;}
+@keyframes pfloat{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-60px) scale(0);opacity:0}}
+</style>
+
+<div class="nav">
+  <div class="nb active" onclick="show(1,this)">⚔️ PvP 로비</div>
+  <div class="nb" onclick="show(2,this)">🥊 전투 중</div>
+  <div class="nb" onclick="show(3,this)">🏆 랭킹</div>
+  <div class="nb" onclick="show(4,this)">🎉 결과 화면</div>
+</div>
+
+<div class="device">
+
+<!-- ═══ S1: PvP LOBBY ═══ -->
+<div class="scr active" id="s1">
+  <div class="bg"></div>
+  <div class="tb">
+    <div class="tb-logo">KawKaw</div>
+    <div class="tb-title">⚔️ 아레나 — PvP</div>
+    <div style="display:flex;gap:5px;"><div class="chip">💎 1,240</div><div class="chip">🏆 2,840 RP</div></div>
+  </div>
+  <div class="main">
+    <!-- Left -->
+    <div class="pvp-left">
+      <!-- Season card -->
+      <div class="season-card">
+        <div class="sc-title">⚔️ SEASON 3 — PAHIYAS</div>
+        <div class="sc-season">시즌 종료까지</div>
+        <div class="sc-timer">11일 08:42:17</div>
+        <div class="sc-reward">
+          <div class="scr-item"><span class="scr-val" style="color:var(--rose)">✦ Mythic</span>스킨 1위</div>
+          <div class="scr-item"><span class="scr-val" style="color:var(--gold)">◆ Legend</span>Top 100</div>
+          <div class="scr-item"><span class="scr-val" style="color:var(--purple)">💎×500</span>Top 1,000</div>
+        </div>
+      </div>
+
+      <!-- My rank -->
+      <div class="my-rank-card">
+        <div class="mr-header">
+          <div class="mr-avatar">🧙</div>
+          <div class="mr-info">
+            <div class="mr-name">Bayani_Sungsung</div>
+            <div class="mr-tier" style="color:var(--gold)">◆ Gold III · #142</div>
+          </div>
+        </div>
+        <div class="mr-stats">
+          <div class="mrs"><div class="mrs-v" style="color:var(--green)">68%</div><div class="mrs-k">승률</div></div>
+          <div class="mrs"><div class="mrs-v">124</div><div class="mrs-k">전적</div></div>
+          <div class="mrs"><div class="mrs-v" style="color:var(--gold)">2,840</div><div class="mrs-k">RP</div></div>
+          <div class="mrs"><div class="mrs-v" style="color:var(--rose)">7연승</div><div class="mrs-k">현재</div></div>
+        </div>
+        <div class="rank-bar-wrap">
+          <div class="rb-label"><span>Gold III</span><span style="color:var(--gold)">2,840 / 3,000 RP</span></div>
+          <div class="rb-track"><div class="rb-fill" style="width:94%;background:linear-gradient(90deg,var(--gold),var(--gold2))"></div></div>
+        </div>
+      </div>
+
+      <!-- Modes -->
+      <div class="mode-section">
+        <div class="mode-title">── 전투 모드 선택 ──</div>
+        <div class="mode-btn mb-1v1" onclick="show(2,document.querySelectorAll('.nb')[1])">
+          <span class="mb-icon">👤</span>
+          <div class="mb-info">
+            <div class="mb-name" style="color:var(--rose)">1 vs 1 랭크</div>
+            <div class="mb-desc">개인 RP · 실시간 매칭</div>
+          </div>
+          <div class="mb-badge" style="background:rgba(46,204,113,.15);color:var(--green);border:0.5px solid rgba(46,204,113,.3)">●대기 38명</div>
+        </div>
+        <div class="mode-btn mb-3v3">
+          <span class="mb-icon">👥</span>
+          <div class="mb-info">
+            <div class="mb-name" style="color:var(--gold)">3 vs 3 팀전</div>
+            <div class="mb-desc">팀 RP · 길드원 우선 매칭</div>
+          </div>
+          <div class="mb-badge" style="background:rgba(212,168,67,.12);color:var(--gold);border:0.5px solid rgba(212,168,67,.3)">●대기 21팀</div>
+        </div>
+        <div class="mode-btn mb-siege">
+          <span class="mb-icon">🏰</span>
+          <div class="mb-info">
+            <div class="mb-name" style="color:var(--purple)">공성전 (주말)</div>
+            <div class="mb-desc">길드 vs 길드 · 성 점령</div>
+          </div>
+          <div class="mb-badge" style="background:rgba(123,94,167,.15);color:var(--purple);border:0.5px solid rgba(123,94,167,.3)">토·일 20시</div>
+        </div>
+        <div class="mode-btn mb-tower">
+          <span class="mb-icon">🗼</span>
+          <div class="mb-info">
+            <div class="mb-name" style="color:var(--teal)">무한 탑 오르기</div>
+            <div class="mb-desc">AI 적 · 개인 기록 도전</div>
+          </div>
+          <div class="mb-badge" style="background:rgba(29,186,173,.1);color:var(--teal);border:0.5px solid rgba(29,186,173,.3)">내 기록 47F</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Tier chart -->
+    <div class="pvp-center">
+      <div class="tier-title">── 티어 분포 (전체 서버) ──</div>
+      <div class="tier-list">
+        <div class="tier-row" style="background:rgba(201,68,90,.06)">
+          <div class="tier-emblem" style="background:rgba(201,68,90,.2);border-color:var(--rose)">👁️</div>
+          <div style="flex:1"><div class="tier-name" style="color:var(--rose)">✦ Mythic</div><div class="tier-range">4,000+ RP</div></div>
+          <div class="tier-count" style="color:var(--rose)">0.3%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:3%;background:var(--rose)"></div></div>
+        </div>
+        <div class="tier-row" style="background:rgba(240,201,106,.06)">
+          <div class="tier-emblem" style="background:rgba(240,201,106,.15);border-color:var(--gold2)">💎</div>
+          <div style="flex:1"><div class="tier-name" style="color:var(--gold2)">◆ Diamond</div><div class="tier-range">3,500–4,000 RP</div></div>
+          <div class="tier-count" style="color:var(--gold2)">1.5%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:8%;background:var(--gold2)"></div></div>
+        </div>
+        <div class="tier-row mine" style="background:rgba(212,168,67,.08);border-color:rgba(212,168,67,.4)">
+          <div class="tier-emblem" style="background:rgba(212,168,67,.2);border-color:var(--gold)">🥇</div>
+          <div style="flex:1"><div class="tier-name" style="color:var(--gold)">◆ Gold ← 나</div><div class="tier-range">2,500–3,500 RP</div></div>
+          <div class="tier-count" style="color:var(--gold)">8.2%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:24%;background:var(--gold)"></div></div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-emblem" style="background:rgba(192,192,192,.15);border-color:#C0C0C0">🥈</div>
+          <div style="flex:1"><div class="tier-name" style="color:#C0C0C0">● Silver</div><div class="tier-range">1,500–2,500 RP</div></div>
+          <div class="tier-count" style="color:#C0C0C0">22%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:55%;background:#C0C0C0"></div></div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-emblem" style="background:rgba(205,127,50,.15);border-color:#CD7F32">🥉</div>
+          <div style="flex:1"><div class="tier-name" style="color:#CD7F32">● Bronze</div><div class="tier-range">500–1,500 RP</div></div>
+          <div class="tier-count" style="color:#CD7F32">45%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:100%;background:#CD7F32"></div></div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-emblem" style="background:rgba(154,143,126,.1);border-color:var(--muted)">🔰</div>
+          <div style="flex:1"><div class="tier-name" style="color:var(--muted)">Rookie</div><div class="tier-range">0–500 RP</div></div>
+          <div class="tier-count" style="color:var(--muted)">23%</div>
+          <div class="tier-bar-bg"><div class="tier-bar-f" style="width:58%;background:var(--muted)"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Leaderboard -->
+    <div class="pvp-right">
+      <div class="lb-title">🏆 실시간 랭킹 Top 10</div>
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;">
+        <div class="lb-row"><div class="lb-rank" style="color:#FFD700"><span class="crown">👑</span>1</div><div class="lb-avatar" style="background:rgba(201,68,90,.15);border-color:var(--rose)">😈</div><div class="lb-info"><div class="lb-name">GrandMaster_Apo</div><div class="lb-tier-badge" style="color:var(--rose)">✦ Mythic</div></div><div class="lb-pts" style="color:var(--rose)">5,840</div></div>
+        <div class="lb-row"><div class="lb-rank" style="color:#C0C0C0">2</div><div class="lb-avatar" style="background:rgba(240,201,106,.15);border-color:var(--gold2)">🔥</div><div class="lb-info"><div class="lb-name">Kidlat_PH_King</div><div class="lb-tier-badge" style="color:var(--gold2)">◆ Diamond</div></div><div class="lb-pts" style="color:var(--gold2)">4,920</div></div>
+        <div class="lb-row"><div class="lb-rank" style="color:#CD7F32">3</div><div class="lb-avatar" style="background:rgba(240,201,106,.1);border-color:var(--gold)">⚡</div><div class="lb-info"><div class="lb-name">Dalagang_Batangan</div><div class="lb-tier-badge" style="color:var(--gold)">◆ Diamond</div></div><div class="lb-pts" style="color:var(--gold)">4,380</div></div>
+        <div class="lb-row"><div class="lb-rank" style="color:var(--muted)">4</div><div class="lb-avatar" style="background:rgba(123,94,167,.12);border-color:var(--purple)">🔮</div><div class="lb-info"><div class="lb-name">Mangkukulam_88</div><div class="lb-tier-badge" style="color:var(--gold)">◆ Gold I</div></div><div class="lb-pts" style="color:var(--gold)">3,840</div></div>
+        <div class="lb-row"><div class="lb-rank" style="color:var(--muted)">5</div><div class="lb-avatar" style="background:rgba(29,186,173,.1);border-color:var(--teal)">🌊</div><div class="lb-info"><div class="lb-name">Bakunawa_Slayer</div><div class="lb-tier-badge" style="color:var(--gold)">◆ Gold I</div></div><div class="lb-pts" style="color:var(--gold)">3,720</div></div>
+        <div style="text-align:center;padding:4px 0;font-size:8px;color:var(--muted)">· · ·</div>
+        <div class="lb-row mine"><div class="lb-rank" style="color:var(--gold)">142</div><div class="lb-avatar" style="background:rgba(212,168,67,.12);border-color:var(--gold)">🧙</div><div class="lb-info"><div class="lb-name" style="color:var(--gold)">Bayani_Sungsung</div><div class="lb-tier-badge" style="color:var(--gold)">◆ Gold III · 나</div></div><div class="lb-pts" style="color:var(--gold)">2,840</div></div>
+        <div class="lb-row"><div class="lb-rank" style="color:var(--muted)">143</div><div class="lb-avatar" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">🏹</div><div class="lb-info"><div class="lb-name">Mamamana_456</div><div class="lb-tier-badge" style="color:var(--gold)">◆ Gold III</div></div><div class="lb-pts" style="color:var(--gold)">2,825</div></div>
+      </div>
+      <div style="background:rgba(212,168,67,.07);border:0.5px solid rgba(212,168,67,.2);border-radius:8px;padding:6px 8px;margin-top:5px;">
+        <div style="font-size:8px;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:2px;">⚡ 7연승 보너스 진행 중!</div>
+        <div style="font-size:7px;color:var(--muted);">3연승↑ 획득 RP +20% 보너스 · 현재 적용 중</div>
+      </div>
+    </div>
+  </div>
+  <div class="bnav-bar">
+    <div class="bn"><div class="bn-i">🗺️</div><div class="bn-l">World</div></div>
+    <div class="bn on"><div class="bn-i">⚔️</div><div class="bn-l">Arena</div></div>
+    <div class="bn"><div class="bn-i">✨</div><div class="bn-l">Summon</div></div>
+    <div class="bn"><div class="bn-i">🎒</div><div class="bn-l">Items</div></div>
+    <div class="bn"><div class="bn-i">👥</div><div class="bn-l">Guild</div></div>
+  </div>
+</div>
+
+<!-- ═══ S2: PvP BATTLE ═══ -->
+<div class="scr" id="s2">
+  <div class="bg"></div>
+  <div class="tb">
+    <div style="font-family:'Cinzel',serif;font-size:9px;color:var(--muted)">1 vs 1 랭크매치</div>
+    <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--rose);text-shadow:0 0 8px rgba(201,68,90,.4)">⚔️ BATTLE</div>
+    <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold)">01:42</div>
+  </div>
+  <div class="main" style="flex-direction:column;">
+    <!-- VS bar -->
+    <div class="battle-vs-bar">
+      <div class="bvs-player">
+        <div class="bvs-avatar" style="background:rgba(29,186,173,.15);border-color:var(--teal)">🧙</div>
+        <div>
+          <div class="bvs-name" style="color:var(--teal)">Bayani_Sungsung</div>
+          <div class="bvs-tier" style="color:var(--gold)">◆ Gold III</div>
+          <div class="bvs-hp-bar"><div class="bvs-hp-f" style="width:78%;background:linear-gradient(90deg,#2ECC71,#1DBAAD)"></div></div>
+        </div>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="bvs-player" style="flex-direction:row-reverse;">
+        <div class="bvs-avatar" style="background:rgba(201,68,90,.15);border-color:var(--rose)">🔮</div>
+        <div style="text-align:right;">
+          <div class="bvs-name" style="color:var(--rose)">Mangkukulam_88</div>
+          <div class="bvs-tier" style="color:var(--gold)">◆ Gold I</div>
+          <div class="bvs-hp-bar"><div class="bvs-hp-f" style="width:55%;background:linear-gradient(90deg,#C9445A,#E85D24)"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arena -->
+    <div class="pvp-battle-wrap">
+      <div class="pvp-arena">
+        <!-- Player -->
+        <div class="pvp-player-side">
+          <div class="pvp-hud-mini">
+            <div class="pvp-hm-name">내 캐릭터</div>
+            <div class="pvp-hm-stat">HP 14,240 / MP 550</div>
+          </div>
+          <div class="pvp-sprite">🧙</div>
+          <div style="display:flex;gap:3px;flex-wrap:wrap;justify-content:center;max-width:80px;">
+            <div style="font-size:7px;padding:2px 4px;border-radius:4px;background:rgba(29,186,173,.12);color:var(--teal);border:0.5px solid rgba(29,186,173,.3)">⚡+30%</div>
+            <div style="font-size:7px;padding:2px 4px;border-radius:4px;background:rgba(212,168,67,.1);color:var(--gold);border:0.5px solid rgba(212,168,67,.2)">🛡막</div>
+          </div>
+        </div>
+
+        <!-- Combat center -->
+        <div class="combat-center">
+          <div class="turn-badge"><div class="turn-dot"></div>Turn 5 · 내 차례</div>
+          <div class="combat-log">
+            <div class="cl-row">나: Kidlat Strike → <span class="cl-dmg">-8,420 CRIT!</span></div>
+            <div class="cl-row">상대: Dilim Nova → <span class="cl-dmg">-5,180</span></div>
+            <div class="cl-row">나: Kalasag Wall → <span class="cl-buff">방어막 +30%</span></div>
+            <div class="cl-row">상대: Kidlat Burst → <span class="cl-dmg">-4,240</span></div>
+            <div class="cl-row" style="color:var(--gold)">나: 7연승 보너스 RP+20%</div>
+          </div>
+          <div style="display:flex;gap:5px;">
+            <div style="font-size:7px;padding:2px 8px;border-radius:6px;background:rgba(201,68,90,.1);color:var(--rose);border:0.5px solid rgba(201,68,90,.3)">상대 HP 55%</div>
+            <div style="font-size:7px;padding:2px 8px;border-radius:6px;background:rgba(29,186,173,.1);color:var(--teal);border:0.5px solid rgba(29,186,173,.3)">내 HP 78%</div>
+          </div>
+        </div>
+
+        <!-- Enemy -->
+        <div class="pvp-player-side">
+          <div class="pvp-hud-mini" style="text-align:right;">
+            <div class="pvp-hm-name" style="color:var(--rose)">Mangkukulam_88</div>
+            <div class="pvp-hm-stat">HP 11,020 / MP 420</div>
+          </div>
+          <div class="pvp-sprite-enemy">🔮</div>
+          <div style="display:flex;gap:3px;flex-wrap:wrap;justify-content:center;max-width:80px;">
+            <div style="font-size:7px;padding:2px 4px;border-radius:4px;background:rgba(201,68,90,.12);color:var(--rose);border:0.5px solid rgba(201,68,90,.3)">독 2중첩</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skill bar -->
+    <div class="pvp-skill-bar">
+      <div class="pvp-sk pvs-t" onclick="pvpAtk(this)"><span class="psk-i">⚡</span><span class="psk-n">Kidlat</span><span class="psk-c" style="color:var(--teal)">READY</span></div>
+      <div class="pvp-sk pvs-g" onclick="pvpAtk(this)"><span class="psk-i">🛡️</span><span class="psk-n">Kalasag</span><span class="psk-c" style="color:var(--gold)">READY</span></div>
+      <div class="pvp-sk pvs-p"><span class="psk-i">🔄</span><span class="psk-n">Sigla</span><span class="psk-c" style="color:var(--purple)">CD 2</span></div>
+      <div class="pvp-sk pvs-r" onclick="pvpAtk(this)"><span class="psk-i">🌩️</span><span class="psk-n">Storm</span><span class="psk-c" style="color:var(--rose)">READY</span></div>
+      <div style="width:0.5px;background:rgba(255,255,255,.07);margin:4px 2px;"></div>
+      <div class="forfeit-btn" onclick="show(4,document.querySelectorAll('.nb')[3])">🏳 기권</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S3: RANKING ═══ -->
+<div class="scr" id="s3">
+  <div class="bg"></div>
+  <div class="tb">
+    <div class="tb-logo">KawKaw</div>
+    <div class="tb-title">🏆 랭킹 / 시즌 보상</div>
+    <div style="display:flex;gap:5px;"><div class="chip">🏆 2,840 RP</div><div class="chip">◆ Gold III</div></div>
+  </div>
+  <div class="main">
+    <!-- Left filter -->
+    <div class="rank-left">
+      <div class="rank-filter">
+        <div class="rf-title">── 랭킹 종류 ──</div>
+        <div class="rf-btn active" onclick="activateRf(this)"><span>⚔️</span> 1vs1 랭크</div>
+        <div class="rf-btn" onclick="activateRf(this)"><span>👥</span> 3vs3 팀전</div>
+        <div class="rf-btn" onclick="activateRf(this)"><span>🏰</span> 공성전</div>
+        <div class="rf-btn" onclick="activateRf(this)"><span>🗼</span> 무한 탑</div>
+        <div class="rf-btn" onclick="activateRf(this)"><span>👥</span> 길드 랭킹</div>
+        <div class="rf-btn" onclick="activateRf(this)"><span>👗</span> 패션 배틀</div>
+      </div>
+      <div class="my-stat-card">
+        <div class="ms-title">── 내 시즌 통계 ──</div>
+        <div class="ms-grid">
+          <div class="msg"><span class="msg-v" style="color:var(--green)">68%</span><span class="msg-k">승률</span></div>
+          <div class="msg"><span class="msg-v">124</span><span class="msg-k">총 전적</span></div>
+          <div class="msg"><span class="msg-v" style="color:var(--gold)">84</span><span class="msg-k">승</span></div>
+          <div class="msg"><span class="msg-v" style="color:var(--rose)">40</span><span class="msg-k">패</span></div>
+          <div class="msg"><span class="msg-v" style="color:var(--purple)">7</span><span class="msg-k">연승</span></div>
+          <div class="msg"><span class="msg-v" style="color:var(--amber)">142</span><span class="msg-k">순위</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Podium + list -->
+    <div class="rank-center">
+      <!-- Top 3 podium -->
+      <div class="podium">
+        <div class="pod">
+          <div class="pod-avatar" style="width:36px;height:36px;background:rgba(192,192,192,.15);border-color:#C0C0C0;font-size:18px;">🔥</div>
+          <div class="pod-name" style="color:#C0C0C0">Kidlat_PH</div>
+          <div class="pod-pts" style="color:#C0C0C0">4,920</div>
+          <div class="pod-base" style="width:50px;height:30px;background:rgba(192,192,192,.15);color:#C0C0C0;">2</div>
+        </div>
+        <div class="pod">
+          <div class="pod-avatar" style="width:44px;height:44px;background:rgba(255,215,0,.15);border-color:#FFD700;font-size:22px;position:relative;">😈<div class="pod-crown">👑</div></div>
+          <div class="pod-name" style="color:#FFD700">GrandMaster</div>
+          <div class="pod-pts" style="color:#FFD700">5,840</div>
+          <div class="pod-base" style="width:50px;height:42px;background:rgba(255,215,0,.12);color:#FFD700;">1</div>
+        </div>
+        <div class="pod">
+          <div class="pod-avatar" style="width:32px;height:32px;background:rgba(205,127,50,.15);border-color:#CD7F32;font-size:16px;">⚡</div>
+          <div class="pod-name" style="color:#CD7F32">Dalagang_B</div>
+          <div class="pod-pts" style="color:#CD7F32">4,380</div>
+          <div class="pod-base" style="width:50px;height:22px;background:rgba(205,127,50,.15);color:#CD7F32;">3</div>
+        </div>
+      </div>
+
+      <div class="rank-list">
+        <div class="rank-item"><div class="ri-num" style="color:var(--muted)">4</div><div class="ri-avatar" style="background:rgba(123,94,167,.12);border-color:var(--purple)">🔮</div><div class="ri-info"><div class="ri-name">Mangkukulam_88</div><div class="ri-sub">◆ Gold I · 승률 72%</div></div><div><div class="ri-pts" style="color:var(--gold)">3,840</div><div class="ri-change" style="color:var(--green)">▲ +2</div></div></div>
+        <div class="rank-item"><div class="ri-num" style="color:var(--muted)">5</div><div class="ri-avatar" style="background:rgba(29,186,173,.1);border-color:var(--teal)">🌊</div><div class="ri-info"><div class="ri-name">Bakunawa_Slayer</div><div class="ri-sub">◆ Gold I · 승률 65%</div></div><div><div class="ri-pts" style="color:var(--gold)">3,720</div><div class="ri-change" style="color:var(--rose)">▼ -1</div></div></div>
+        <div style="text-align:center;padding:3px 0;font-size:8px;color:var(--muted)">· · ·</div>
+        <div class="rank-item mine"><div class="ri-num" style="color:var(--gold)">142</div><div class="ri-avatar" style="background:rgba(212,168,67,.12);border-color:var(--gold)">🧙</div><div class="ri-info"><div class="ri-name" style="color:var(--gold)">Bayani_Sungsung (나)</div><div class="ri-sub" style="color:var(--teal)">◆ Gold III · 7연승 🔥</div></div><div><div class="ri-pts" style="color:var(--gold)">2,840</div><div class="ri-change" style="color:var(--green)">▲ +18</div></div></div>
+        <div class="rank-item"><div class="ri-num" style="color:var(--muted)">143</div><div class="ri-avatar" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">🏹</div><div class="ri-info"><div class="ri-name">Mamamana_456</div><div class="ri-sub">◆ Gold III · 승률 61%</div></div><div><div class="ri-pts" style="color:var(--gold)">2,825</div><div class="ri-change" style="color:var(--muted)">— 0</div></div></div>
+      </div>
+    </div>
+
+    <!-- Right: Rewards -->
+    <div class="rank-right">
+      <div class="reward-title">🎁 시즌 보상 (종료 시 지급)</div>
+      <div class="reward-tier-card rtc" style="background:rgba(201,68,90,.08);border-color:rgba(201,68,90,.3);">
+        <div class="rtc-header"><div class="rtc-emblem" style="background:rgba(201,68,90,.2);border-color:var(--rose)">👁️</div><div><div class="rtc-name" style="color:var(--rose)">✦ Mythic</div><div class="rtc-range">Top 0.3%</div></div></div>
+        <div class="rtc-rewards"><div class="rtc-rew" style="color:var(--rose)">✦ Mythic 스킨</div><div class="rtc-rew" style="color:var(--gold)">💎×2,000</div><div class="rtc-rew" style="color:var(--purple)">칭호</div></div>
+      </div>
+      <div class="reward-tier-card rtc" style="background:rgba(240,201,106,.07);border-color:rgba(240,201,106,.3);">
+        <div class="rtc-header"><div class="rtc-emblem" style="background:rgba(240,201,106,.15);border-color:var(--gold2)">💎</div><div><div class="rtc-name" style="color:var(--gold2)">Diamond</div><div class="rtc-range">Top 1.5%</div></div></div>
+        <div class="rtc-rewards"><div class="rtc-rew" style="color:var(--gold2)">◆ Legend 무기</div><div class="rtc-rew" style="color:var(--gold)">💎×1,000</div></div>
+      </div>
+      <div class="reward-tier-card rtc" style="background:rgba(212,168,67,.08);border-color:rgba(212,168,67,.35);">
+        <div class="rtc-header"><div class="rtc-emblem" style="background:rgba(212,168,67,.15);border-color:var(--gold)">🥇</div><div><div class="rtc-name" style="color:var(--gold)">Gold ← 내 티어</div><div class="rtc-range">Top 8.2%</div></div></div>
+        <div class="rtc-rewards"><div class="rtc-rew" style="color:var(--gold)">▲ Epic 스킨</div><div class="rtc-rew" style="color:var(--gold)">💎×500</div></div>
+      </div>
+      <div class="boost-card">
+        <div class="bc-title">🔥 랭크 부스터</div>
+        <div class="bc-desc">다음 5경기 획득 RP +50%<br>Diamond 진입 도전 중이라면 지금이 기회!</div>
+        <button class="bc-btn" onclick="show(1,document.querySelectorAll('.nb')[0])">부스터 구매 ₱49 →</button>
+      </div>
+    </div>
+  </div>
+  <div class="bnav-bar">
+    <div class="bn"><div class="bn-i">🗺️</div><div class="bn-l">World</div></div>
+    <div class="bn on"><div class="bn-i">⚔️</div><div class="bn-l">Arena</div></div>
+    <div class="bn"><div class="bn-i">✨</div><div class="bn-l">Summon</div></div>
+    <div class="bn"><div class="bn-i">🎒</div><div class="bn-l">Items</div></div>
+    <div class="bn"><div class="bn-i">👥</div><div class="bn-l">Guild</div></div>
+  </div>
+</div>
+
+<!-- ═══ S4: RESULT ═══ -->
+<div class="scr" id="s4">
+  <div class="bg"></div>
+  <div class="result-box">
+    <div class="result-badge" style="color:var(--gold2);text-shadow:0 0 30px rgba(212,168,67,.7);">🏆 VICTORY!</div>
+    <div class="result-sub">1 vs 1 랭크매치 · 8연승 달성!</div>
+
+    <div class="result-vs">
+      <div class="rv-side">
+        <div class="rv-sprite">🧙</div>
+        <div class="rv-name" style="color:var(--teal)">Bayani_S</div>
+        <div class="rv-pts" style="color:var(--green)">HP 62% 잔존</div>
+      </div>
+      <div class="rv-vs">VS</div>
+      <div class="rv-side">
+        <div class="rv-sprite" style="filter:grayscale(.6) opacity(.6)">🔮</div>
+        <div class="rv-name" style="color:var(--muted)">Mangkukulam_88</div>
+        <div class="rv-pts" style="color:var(--rose)">패배</div>
+      </div>
+    </div>
+
+    <div class="result-rewards">
+      <div class="rr-card"><span class="rr-icon">🏆</span><span class="rr-val" style="color:var(--gold)">+48 RP</span><span class="rr-key">랭크 포인트</span></div>
+      <div class="rr-card"><span class="rr-icon">💎</span><span class="rr-val" style="color:var(--purple)">+80</span><span class="rr-key">다이아 획득</span></div>
+      <div class="rr-card" style="border-color:rgba(46,204,113,.3);background:rgba(46,204,113,.05);"><span class="rr-icon">🔥</span><span class="rr-val" style="color:var(--green)">8연승!</span><span class="rr-key">RP×1.2 보너스</span></div>
+      <div class="rr-card"><span class="rr-icon">🎨</span><span class="rr-val" style="color:var(--teal)">+30</span><span class="rr-key">스타일 코인</span></div>
+    </div>
+
+    <div class="result-rank-change">
+      <div class="rrc-arrow">📈</div>
+      <div class="rrc-info">
+        <div class="rrc-title">Gold III #142 → Gold III #138</div>
+        <div class="rrc-sub">Diamond 진입까지 <b style="color:var(--gold)">500 RP</b> 남음 · 랭크 부스터 사용 시 10경기 단축 예상</div>
+      </div>
+      <div class="rrc-pts" style="color:var(--green)">+48</div>
+    </div>
+
+    <div class="result-btns">
+      <button class="rb-shop" onclick="show(3,document.querySelectorAll('.nb')[2])">🏆 랭킹 확인</button>
+      <button class="rb-rematch" onclick="show(2,document.querySelectorAll('.nb')[1])">⚔️ 다시 매칭</button>
+      <button class="rb-shop" style="color:var(--rose);border-color:rgba(201,68,90,.3);">🔥 부스터 ₱49</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(n,el){
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  el.classList.add('active');
+}
+function activateRf(el){
+  document.querySelectorAll('.rf-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+function pvpAtk(el){
+  el.style.transform='scale(.9)';
+  setTimeout(()=>el.style.transform='',150);
+  show(4,document.querySelectorAll('.nb')[3]);
+}
+</script>

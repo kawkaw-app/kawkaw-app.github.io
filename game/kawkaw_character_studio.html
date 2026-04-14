@@ -1,0 +1,552 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4A843;--gold2:#F0C96A;--deep:#0A0714;--navy:#0F0D1E;
+  --panel:#14112A;--panel2:#1C1836;--purple:#7B5EA7;--teal:#1DBAAD;
+  --rose:#C9445A;--green:#2ECC71;--amber:#E8943A;--text:#F0E8D8;--muted:#9A8F7E;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#06040E;font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;padding:12px 8px 24px;gap:10px;}
+
+.device{width:min(680px,97vw);aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid rgba(212,168,67,.22);box-shadow:0 0 48px rgba(212,168,67,.07),0 20px 55px rgba(0,0,0,.88);position:relative;display:flex;flex-direction:column;}
+
+/* BG */
+.studio-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D0A22 0%,#0A0714 50%,#0D0A18 100%);}
+.studio-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 35% 50%,rgba(123,94,167,.14) 0%,transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(212,168,67,.06) 0%,transparent 45%);}
+
+/* TOPBAR */
+.tb{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:rgba(0,0,0,.5);border-bottom:0.5px solid rgba(212,168,67,.1);flex-shrink:0;z-index:20;position:relative;}
+.tb-logo{font-family:'Cinzel Decorative',serif;font-size:10px;color:var(--gold);letter-spacing:.08em;}
+.tb-title{font-family:'Cinzel',serif;font-size:11px;color:var(--text);letter-spacing:.08em;}
+.tb-res{display:flex;gap:5px;}
+.chip{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.05);border:0.5px solid rgba(255,255,255,.09);border-radius:10px;padding:2px 7px;font-size:9px;color:var(--text);font-weight:700;}
+
+/* MAIN 3-col layout */
+.main{flex:1;display:flex;overflow:hidden;position:relative;z-index:5;}
+
+/* ── LEFT: Category tabs ── */
+.cat-bar{width:68px;flex-shrink:0;background:rgba(0,0,0,.35);border-right:0.5px solid rgba(255,255,255,.06);display:flex;flex-direction:column;padding:6px 4px;gap:3px;overflow-y:auto;}
+.cat-btn{border-radius:9px;padding:6px 3px;cursor:pointer;text-align:center;transition:all .18s;border:0.5px solid transparent;}
+.cat-btn.active{background:rgba(212,168,67,.12);border-color:rgba(212,168,67,.3);}
+.cat-btn:hover:not(.active){background:rgba(255,255,255,.04);}
+.cat-icon{font-size:16px;display:block;line-height:1;}
+.cat-label{font-size:6px;font-family:'Cinzel',serif;color:var(--muted);letter-spacing:.04em;margin-top:2px;display:block;}
+.cat-btn.active .cat-label{color:var(--gold);}
+.cat-new{width:5px;height:5px;border-radius:50%;background:var(--rose);margin:2px auto 0;}
+
+/* ── CENTER: Preview ── */
+.preview-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:6px 10px;position:relative;}
+.preview-stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;width:100%;}
+
+/* Character doll — layered emoji composition */
+.char-doll{position:relative;width:100px;height:140px;margin:0 auto;}
+.doll-layer{position:absolute;left:50%;transform:translateX(-50%);font-size:0;transition:all .3s;filter:drop-shadow(0 0 0 transparent);}
+.doll-body{bottom:0;font-size:56px;filter:drop-shadow(0 0 16px rgba(123,94,167,.3));}
+.doll-hair{top:-4px;font-size:34px;transition:all .3s;}
+.doll-acc{top:-10px;left:50%;transform:translateX(-50%);font-size:22px;position:absolute;}
+.doll-weapon{bottom:20px;right:-20px;font-size:28px;position:absolute;transform:rotate(15deg);}
+.doll-wing{bottom:40px;font-size:36px;position:absolute;left:50%;transform:translateX(-130%);animation:wingflap 3s ease-in-out infinite;}
+@keyframes wingflap{0%,100%{transform:translateX(-130%) scaleX(1)}50%{transform:translateX(-130%) scaleX(.85)}}
+.doll-mount{bottom:-10px;font-size:40px;position:absolute;left:50%;transform:translateX(-50%);}
+.doll-effect{position:absolute;inset:-20px;pointer-events:none;}
+.doll-aura{position:absolute;inset:0;border-radius:50%;animation:aura 2.5s ease-in-out infinite;}
+@keyframes aura{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.12);opacity:.9}}
+
+/* Stage floor */
+.stage-floor{width:110px;height:8px;background:rgba(123,94,167,.2);border-radius:50%;filter:blur(3px);margin-top:4px;}
+
+/* Pose selector */
+.pose-row{display:flex;gap:5px;margin-top:6px;}
+.pose-btn{padding:4px 8px;border-radius:7px;border:0.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:7px;font-family:'Cinzel',serif;color:var(--muted);cursor:pointer;transition:all .15s;}
+.pose-btn.active{background:rgba(212,168,67,.12);border-color:rgba(212,168,67,.3);color:var(--gold);}
+
+/* Preview action buttons */
+.preview-actions{display:flex;gap:5px;width:100%;}
+.pa-btn{flex:1;padding:6px 4px;border-radius:8px;border:0.5px solid;font-size:8px;font-family:'Cinzel',serif;cursor:pointer;text-align:center;transition:all .15s;letter-spacing:.04em;}
+.pa-save{background:rgba(212,168,67,.12);border-color:rgba(212,168,67,.35);color:var(--gold);}
+.pa-save:hover{background:rgba(212,168,67,.2);}
+.pa-share{background:rgba(29,186,173,.08);border-color:rgba(29,186,173,.3);color:var(--teal);}
+.pa-catwalk{background:rgba(123,94,167,.1);border-color:rgba(123,94,167,.35);color:var(--purple);}
+
+/* ── RIGHT: Options panel ── */
+.options-col{width:46%;border-left:0.5px solid rgba(255,255,255,.06);display:flex;flex-direction:column;}
+.opt-header{padding:7px 10px 5px;border-bottom:0.5px solid rgba(255,255,255,.06);}
+.opt-title{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);letter-spacing:.07em;}
+.opt-sub{font-size:7px;color:var(--muted);margin-top:1px;}
+
+/* Item grid */
+.item-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:6px 8px;overflow-y:auto;flex:1;}
+.item-cell{aspect-ratio:1;border-radius:8px;border:1px solid;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:18px;transition:all .18s;position:relative;}
+.item-cell:hover{transform:scale(1.06);}
+.item-cell.selected{border-width:2px;}
+.item-cell.sel-myth{background:rgba(201,68,90,.15);border-color:var(--rose);}
+.item-cell.sel-legend{background:rgba(212,168,67,.15);border-color:var(--gold);}
+.item-cell.sel-epic{background:rgba(123,94,167,.15);border-color:var(--purple);}
+.item-cell.sel-rare{background:rgba(29,186,173,.1);border-color:var(--teal);}
+.item-cell.unowned{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.07);filter:grayscale(.7);opacity:.5;}
+.item-cell.free-item{background:rgba(46,204,113,.06);border-color:rgba(46,204,113,.25);}
+.item-grade{position:absolute;top:2px;right:2px;width:6px;height:6px;border-radius:50%;}
+.item-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);border-radius:7px;font-size:10px;}
+.item-price{position:absolute;bottom:2px;font-size:6px;font-family:'Cinzel',serif;color:var(--gold2);}
+
+/* Color picker */
+.color-section{padding:5px 8px;border-top:0.5px solid rgba(255,255,255,.06);}
+.color-title{font-size:7px;font-family:'Cinzel',serif;color:var(--muted);letter-spacing:.07em;margin-bottom:5px;}
+.color-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;}
+.color-swatch{width:18px;height:18px;border-radius:50%;cursor:pointer;border:1.5px solid transparent;transition:all .18s;flex-shrink:0;}
+.color-swatch.selected{border-color:#fff;transform:scale(1.15);}
+.color-swatch:hover{transform:scale(1.1);}
+.custom-color{width:18px;height:18px;border-radius:50%;border:1px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:9px;cursor:pointer;color:var(--muted);}
+
+/* Slider (for opacity/size) */
+.slider-row{display:flex;align-items:center;gap:7px;margin-top:4px;}
+.slider-lbl{font-size:7px;color:var(--muted);font-family:'Cinzel',serif;width:36px;flex-shrink:0;}
+.slider-inp{flex:1;height:3px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.1);border-radius:2px;cursor:pointer;}
+.slider-inp::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--gold);cursor:pointer;}
+.slider-val{font-size:7px;color:var(--gold);width:24px;text-align:right;}
+
+/* Preset row */
+.preset-section{padding:5px 8px;border-top:0.5px solid rgba(255,255,255,.06);}
+.preset-title{font-size:7px;font-family:'Cinzel',serif;color:var(--muted);letter-spacing:.07em;margin-bottom:4px;}
+.preset-row{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px;}
+.preset-card{flex-shrink:0;width:48px;border-radius:7px;border:0.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);cursor:pointer;padding:4px;text-align:center;transition:all .18s;}
+.preset-card:hover{border-color:rgba(212,168,67,.3);}
+.preset-card.active{border-color:var(--gold);background:rgba(212,168,67,.08);}
+.preset-icon{font-size:14px;display:block;}
+.preset-name{font-size:6px;color:var(--muted);font-family:'Cinzel',serif;margin-top:2px;}
+
+/* Item detail popup */
+.item-detail{position:absolute;top:6px;right:48%;background:var(--panel);border:1px solid rgba(212,168,67,.25);border-radius:10px;padding:8px 10px;width:120px;z-index:30;box-shadow:0 8px 32px rgba(0,0,0,.6);display:none;}
+.id-name{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);margin-bottom:3px;}
+.id-grade{font-size:7px;padding:1px 5px;border-radius:4px;display:inline-block;margin-bottom:4px;}
+.id-desc{font-size:8px;color:var(--muted);line-height:1.5;margin-bottom:5px;}
+.id-price{font-size:10px;font-weight:700;color:var(--gold2);}
+.id-btn{width:100%;padding:5px;border-radius:6px;border:none;background:linear-gradient(135deg,#B8922E,#D4A843);color:#0A0714;font-family:'Cinzel',serif;font-size:8px;cursor:pointer;margin-top:5px;}
+
+/* Stat display (bottom of preview) */
+.stat-mini{display:flex;gap:6px;justify-content:center;margin-top:4px;}
+.sm-item{text-align:center;}
+.sm-val{font-size:9px;font-weight:800;color:var(--text);}
+.sm-key{font-size:6px;color:var(--muted);font-family:'Cinzel',serif;}
+
+/* BOTTOM NAV */
+.bnav-bar{display:flex;padding:5px 4px 6px;gap:2px;background:rgba(0,0,0,.55);border-top:0.5px solid rgba(212,168,67,.08);flex-shrink:0;z-index:20;position:relative;}
+.bn{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 2px;border-radius:8px;cursor:pointer;}
+.bn.on{background:rgba(212,168,67,.1);}
+.bn-i{font-size:14px;line-height:1;}
+.bn-l{font-size:7px;color:var(--muted);font-family:'Cinzel',serif;letter-spacing:.04em;}
+.bn.on .bn-l{color:var(--gold);}
+
+/* Tabs within options */
+.sub-tabs{display:flex;gap:3px;padding:5px 8px 0;flex-shrink:0;}
+.stab{padding:3px 8px;border-radius:7px 7px 0 0;font-size:8px;font-family:'Cinzel',serif;color:var(--muted);cursor:pointer;border:0.5px solid rgba(255,255,255,.06);border-bottom:none;transition:all .15s;}
+.stab.active{background:rgba(212,168,67,.1);color:var(--gold);border-color:rgba(212,168,67,.2);}
+</style>
+
+<div class="device">
+  <div class="studio-bg"></div>
+
+  <!-- TOPBAR -->
+  <div class="tb">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:10px;color:var(--muted);font-family:'Cinzel',serif;cursor:pointer;">◀ 뒤로</span>
+      <div class="tb-title">✦ 캐릭터 스튜디오</div>
+    </div>
+    <div class="tb-res">
+      <div class="chip">💎 1,240</div>
+      <div class="chip">🎨 스타일 코인 380</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- ── LEFT CATEGORY BAR ── -->
+    <div class="cat-bar">
+      <div class="cat-btn active" onclick="switchCat('body',this)">
+        <span class="cat-icon">🧍</span>
+        <span class="cat-label">체형</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('face',this)">
+        <span class="cat-icon">😊</span>
+        <span class="cat-label">얼굴</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('hair',this)">
+        <span class="cat-icon">💈</span>
+        <span class="cat-label">헤어</span>
+        <div class="cat-new"></div>
+      </div>
+      <div class="cat-btn" onclick="switchCat('outfit',this)">
+        <span class="cat-icon">👘</span>
+        <span class="cat-label">의상</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('acc',this)">
+        <span class="cat-icon">👑</span>
+        <span class="cat-label">악세</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('weapon',this)">
+        <span class="cat-icon">⚔️</span>
+        <span class="cat-label">무기</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('wing',this)">
+        <span class="cat-icon">🪶</span>
+        <span class="cat-label">날개</span>
+        <div class="cat-new"></div>
+      </div>
+      <div class="cat-btn" onclick="switchCat('mount',this)">
+        <span class="cat-icon">🐎</span>
+        <span class="cat-label">탈것</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('aura',this)">
+        <span class="cat-icon">✨</span>
+        <span class="cat-label">오라</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('title',this)">
+        <span class="cat-icon">📛</span>
+        <span class="cat-label">칭호</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('emote',this)">
+        <span class="cat-icon">💃</span>
+        <span class="cat-label">감정</span>
+      </div>
+      <div class="cat-btn" onclick="switchCat('pet',this)">
+        <span class="cat-icon">🐾</span>
+        <span class="cat-label">펫</span>
+      </div>
+    </div>
+
+    <!-- ── CENTER PREVIEW ── -->
+    <div class="preview-col">
+      <div class="preview-stage">
+        <!-- Aura glow -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(123,94,167,.25),transparent 70%);animation:aura 2.5s ease-in-out infinite;pointer-events:none;"></div>
+
+        <!-- Character doll -->
+        <div class="char-doll" id="charDoll">
+          <!-- Wing -->
+          <div class="doll-wing" id="dollWing">🪶</div>
+          <!-- Body/outfit -->
+          <div class="doll-layer doll-body" id="dollBody" style="font-size:56px;filter:drop-shadow(0 0 16px rgba(123,94,167,.4));">🧙</div>
+          <!-- Hair -->
+          <div class="doll-layer doll-hair" id="dollHair" style="top:-2px;font-size:32px;">💈</div>
+          <!-- Accessory -->
+          <div class="doll-acc" id="dollAcc">👑</div>
+          <!-- Weapon -->
+          <div class="doll-weapon" id="dollWeapon">⚡</div>
+          <!-- Effect overlay -->
+          <div class="doll-effect" id="dollEffect"></div>
+        </div>
+        <div class="stage-floor"></div>
+
+        <!-- Character name + title -->
+        <div style="margin-top:8px;text-align:center;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;color:var(--text);">Bayani_Sungsung</div>
+          <div style="font-size:7px;color:var(--gold);margin-top:1px;font-family:'Cinzel',serif;" id="charTitle">✦ Apolaki의 선택받은 자</div>
+        </div>
+
+        <!-- Mini stats -->
+        <div class="stat-mini">
+          <div class="sm-item"><div class="sm-val" style="color:var(--rose)">+240</div><div class="sm-key">ATK</div></div>
+          <div class="sm-item"><div class="sm-val" style="color:var(--teal)">+180</div><div class="sm-key">DEF</div></div>
+          <div class="sm-item"><div class="sm-val" style="color:var(--gold)">+8%</div><div class="sm-key">CRIT</div></div>
+          <div class="sm-item"><div class="sm-val" style="color:var(--purple)">+12%</div><div class="sm-key">CDR</div></div>
+        </div>
+      </div>
+
+      <!-- Pose selector -->
+      <div class="pose-row">
+        <div class="pose-btn active" onclick="setPose(0,this)">🧍 기본</div>
+        <div class="pose-btn" onclick="setPose(1,this)">⚔️ 전투</div>
+        <div class="pose-btn" onclick="setPose(2,this)">🙌 승리</div>
+        <div class="pose-btn" onclick="setPose(3,this)">🪑 휴식</div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="preview-actions">
+        <div class="pa-btn pa-save">💾 저장</div>
+        <div class="pa-btn pa-share">📤 공유</div>
+        <div class="pa-btn pa-catwalk" onclick="doCatwalk()">💃 캣워크</div>
+      </div>
+    </div>
+
+    <!-- ── RIGHT OPTIONS ── -->
+    <div class="options-col">
+      <div class="opt-header">
+        <div class="opt-title" id="optTitle">🧍 체형 / 외형 설정</div>
+        <div class="opt-sub" id="optSub">성별 · 키 · 체형 · 피부톤 · 문신 선택</div>
+      </div>
+
+      <!-- Sub tabs -->
+      <div class="sub-tabs" id="subTabBar">
+        <div class="stab active" onclick="switchSubTab(0,this)">기본</div>
+        <div class="stab" onclick="switchSubTab(1,this)">프리셋</div>
+        <div class="stab" onclick="switchSubTab(2,this)">콜라보</div>
+      </div>
+
+      <!-- Item grid -->
+      <div class="item-grid" id="itemGrid"></div>
+
+      <!-- Color picker -->
+      <div class="color-section" id="colorSection">
+        <div class="color-title">색상 선택</div>
+        <div class="color-row" id="colorRow"></div>
+        <div class="slider-row">
+          <div class="slider-lbl">투명도</div>
+          <input class="slider-inp" type="range" min="0" max="100" value="100" oninput="document.getElementById('opacityVal').textContent=this.value+'%'">
+          <div class="slider-val" id="opacityVal">100%</div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-lbl">크기</div>
+          <input class="slider-inp" type="range" min="50" max="150" value="100" oninput="document.getElementById('sizeVal').textContent=this.value+'%'">
+          <div class="slider-val" id="sizeVal">100%</div>
+        </div>
+      </div>
+
+      <!-- Preset row -->
+      <div class="preset-section" id="presetSection">
+        <div class="preset-title">추천 프리셋</div>
+        <div class="preset-row" id="presetRow"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bnav-bar">
+    <div class="bn"><div class="bn-i">🗺️</div><div class="bn-l">World</div></div>
+    <div class="bn"><div class="bn-i">⚔️</div><div class="bn-l">Battle</div></div>
+    <div class="bn"><div class="bn-i">✨</div><div class="bn-l">Summon</div></div>
+    <div class="bn on"><div class="bn-i">👗</div><div class="bn-l">Studio</div></div>
+    <div class="bn"><div class="bn-i">👥</div><div class="bn-l">Guild</div></div>
+  </div>
+</div>
+
+<script>
+const catData = {
+  body: {
+    title:'🧍 체형 / 외형 설정', sub:'성별 · 키 · 체형 · 피부톤 · 문신 선택',
+    colors:['#FDBCB4','#E8956D','#C68642','#8D5524','#4A2912','#F5CBA7'],
+    items:[
+      {e:'🧍',n:'기본형',g:'free',sel:true},{e:'🧍‍♀️',n:'슬림형',g:'free'},{e:'🏋️',n:'근육형',g:'rare'},{e:'🧝',n:'엘프형',g:'epic'},
+      {e:'🧝‍♀️',n:'여신형',g:'legend'},{e:'🧜',n:'인어형',g:'myth',lock:true},{e:'🧟',n:'망령형',g:'epic',lock:true},{e:'🦸',n:'영웅형',g:'legend',lock:true},
+      {e:'🧞',n:'정령형',g:'myth',lock:true},{e:'🧚',n:'요정형',g:'epic'},{e:'🧛',n:'뱀파이어',g:'rare'},{e:'🦊',n:'구미호형',g:'legend',lock:true},
+      {e:'🐉',n:'용인형',g:'myth',lock:true},{e:'⚡',n:'번개신형',g:'myth',lock:true},{e:'🌊',n:'해신형',g:'legend',lock:true},
+    ],
+    presets:[{e:'🌟',n:'천상의 여전사'},{e:'🌊',n:'해신 전사'},{e:'🔥',n:'화염 마법사'},{e:'🌿',n:'숲의 정령'},{e:'🌑',n:'어둠의 기사'}]
+  },
+  face: {
+    title:'😊 얼굴 / 표정 설정', sub:'눈 · 코 · 입 · 눈썹 · 흉터 · 문신 · 표정',
+    colors:['#FF6B6B','#FF8E53','#FFC300','#6BCB77','#4D96FF','#C77DFF','#FF69B4','#FFFFFF'],
+    items:[
+      {e:'😊',n:'기본 눈',g:'free',sel:true},{e:'😍',n:'하트눈',g:'rare'},{e:'🌟',n:'별눈',g:'epic'},{e:'😤',n:'날카로운눈',g:'rare'},
+      {e:'🥺',n:'순한눈',g:'free'},{e:'👁️',n:'Bathala눈',g:'myth',lock:true},{e:'😎',n:'냉정한눈',g:'legend'},{e:'🔮',n:'수정눈',g:'epic'},
+      {e:'🎭',n:'가면눈',g:'legend',lock:true},{e:'⚡',n:'번개눈',g:'myth',lock:true},{e:'🌊',n:'바다눈',g:'epic',lock:true},{e:'🌸',n:'꽃잎눈',g:'rare'},
+      {e:'🦊',n:'여우눈',g:'legend',lock:true},{e:'💀',n:'해골흉터',g:'epic'},{e:'🌙',n:'달빛점',g:'rare'},
+    ],
+    presets:[{e:'😈',n:'악마 메이크업'},{e:'🌸',n:'봄 화장'},{e:'💀',n:'전투 흉터'},{e:'👁️',n:'신안 문신'},{e:'🦊',n:'구미호 얼굴'}]
+  },
+  hair: {
+    title:'💈 헤어스타일 설정', sub:'헤어 · 색상 · 그라데이션 · 파마 · 장식',
+    colors:['#1A1A1A','#8B4513','#D4A843','#FF6B6B','#6BCB77','#4D96FF','#C77DFF','#FF69B4','#FFFFFF','#C0C0C0'],
+    items:[
+      {e:'💇',n:'단발',g:'free',sel:true},{e:'👱',n:'롱헤어',g:'free'},{e:'🧑‍🦱',n:'곱슬',g:'rare'},{e:'🧑‍🦳',n:'백발',g:'epic'},
+      {e:'🧜‍♀️',n:'인어헤어',g:'legend'},{e:'⚡',n:'번개 스파이크',g:'myth',lock:true},{e:'🌊',n:'파도헤어',g:'epic'},{e:'🌸',n:'꽃장식',g:'rare'},
+      {e:'👑',n:'왕관헤어',g:'legend',lock:true},{e:'🦁',n:'갈기헤어',g:'epic'},{e:'🔥',n:'불꽃헤어',g:'myth',lock:true},{e:'🌙',n:'달빛은발',g:'legend'},
+      {e:'🌿',n:'넝쿨헤어',g:'rare'},{e:'💎',n:'크리스탈헤어',g:'myth',lock:true},{e:'🦋',n:'나비핀',g:'rare'},
+    ],
+    presets:[{e:'🌊',n:'바다소녀'},{e:'🔥',n:'불꽃전사'},{e:'❄️',n:'설국의여신'},{e:'🌸',n:'봄바람'},{e:'⚡',n:'천둥기사'}]
+  },
+  outfit: {
+    title:'👘 의상 / 세트 설정', sub:'갑옷 · 로브 · 캐주얼 · 세트 효과 · 염색',
+    colors:['#1A1A2E','#16213E','#7B5EA7','#D4A843','#C9445A','#1DBAAD','#2ECC71','#E8943A'],
+    items:[
+      {e:'🧙',n:'기본 로브',g:'free',sel:true},{e:'⚔️',n:'철갑 전신',g:'rare'},{e:'👘',n:'Diwata 한복',g:'epic'},{e:'🥋',n:'Mandirigma 도복',g:'rare'},
+      {e:'👗',n:'Mayari 드레스',g:'legend'},{e:'🦺',n:'Apolaki 갑옷',g:'legend'},{e:'🩱',n:'Bakunawa 비늘',g:'myth',lock:true},{e:'🎭',n:'Tikbalang 가죽',g:'epic'},
+      {e:'🛡️',n:'Bathala 전투복',g:'myth',lock:true},{e:'🌊',n:'해신 수의',g:'legend',lock:true},{e:'🌸',n:'꽃의 무녀',g:'epic'},{e:'🌑',n:'밤의 암살자',g:'legend'},
+      {e:'☀️',n:'태양신 예복',g:'myth',lock:true},{e:'🌿',n:'숲의 정령복',g:'rare'},{e:'💎',n:'크리스탈 아머',g:'myth',lock:true},
+    ],
+    presets:[{e:'🌊',n:'해신 세트'},{e:'☀️',n:'태양신 세트'},{e:'🌑',n:'암흑 세트'},{e:'🌸',n:'정령 세트'},{e:'💀',n:'해골 세트'}]
+  },
+  acc: {
+    title:'👑 악세사리 설정', sub:'머리띠 · 귀걸이 · 목걸이 · 반지 · 문신 · 안경',
+    colors:['#D4A843','#C0C0C0','#B87333','#E5E5E5','#FF6B6B','#4D96FF','#C77DFF','#1DBAAD'],
+    items:[
+      {e:'👑',n:'왕관',g:'legend',sel:true},{e:'💍',n:'Bathala 반지',g:'myth',lock:true},{e:'📿',n:'산호 목걸이',g:'rare'},{e:'🌸',n:'꽃관',g:'epic'},
+      {e:'⚡',n:'번개 귀걸이',g:'epic'},{e:'🌙',n:'달빛 머리핀',g:'rare'},{e:'🔮',n:'수정 안경',g:'legend'},{e:'🦋',n:'나비 브로치',g:'rare'},
+      {e:'🐚',n:'조개껍데기',g:'free'},{e:'🌊',n:'파도 팔찌',g:'epic'},{e:'💎',n:'다이아 목걸이',g:'myth',lock:true},{e:'🌿',n:'넝쿨 머리띠',g:'rare'},
+      {e:'🔥',n:'불꽃 반지',g:'legend',lock:true},{e:'🌟',n:'별빛 귀걸이',g:'epic'},{e:'📛',n:'신성한 문신',g:'myth',lock:true},
+    ],
+    presets:[{e:'💎',n:'귀족 세트'},{e:'🌊',n:'해신 악세'},{e:'⚡',n:'번개 악세'},{e:'🌸',n:'봄꽃 악세'},{e:'💀',n:'해골 악세'}]
+  },
+  weapon: {
+    title:'⚔️ 무기 스킨 설정', sub:'무기 외형 · 이펙트 색상 · 타격음 · 궤적',
+    colors:['#D4A843','#C0C0C0','#FF6B6B','#4D96FF','#C77DFF','#1DBAAD','#2ECC71','#FF8C00'],
+    items:[
+      {e:'⚡',n:'Kidlat 창',g:'legend',sel:true},{e:'🗡️',n:'기본 검',g:'free'},{e:'🔱',n:'Aman 삼지창',g:'myth',lock:true},{e:'🏹',n:'바람활',g:'rare'},
+      {e:'🪄',n:'Diwata 지팡이',g:'epic'},{e:'🌊',n:'해신 도끼',g:'legend'},{e:'🔥',n:'불꽃 장검',g:'epic'},{e:'💀',n:'망령 낫',g:'legend',lock:true},
+      {e:'⚙️',n:'기계 총',g:'rare'},{e:'🌸',n:'꽃 지팡이',g:'rare'},{e:'🌑',n:'암흑 단검',g:'epic'},{e:'☀️',n:'Apolaki 창',g:'myth',lock:true},
+      {e:'🐍',n:'독사 채찍',g:'legend',lock:true},{e:'💎',n:'크리스탈 검',g:'myth',lock:true},{e:'🌿',n:'생명의 지팡이',g:'epic'},
+    ],
+    presets:[{e:'⚡',n:'번개 세트'},{e:'🔥',n:'불꽃 세트'},{e:'🌊',n:'해신 세트'},{e:'🌑',n:'암흑 세트'},{e:'🌸',n:'정령 세트'}]
+  },
+  wing: {
+    title:'🪶 날개 / 등 장식 설정', sub:'날개 형태 · 색상 · 펼침 이펙트 · 비행 모션',
+    colors:['#FFFFFF','#D4A843','#C9445A','#4D96FF','#C77DFF','#1DBAAD','#2ECC71','#FF8C00'],
+    items:[
+      {e:'🪶',n:'깃털 날개',g:'rare',sel:true},{e:'🦋',n:'나비 날개',g:'epic'},{e:'🦅',n:'KawKaw 날개',g:'legend'},{e:'🔥',n:'불꽃 날개',g:'legend'},
+      {e:'🌊',n:'물결 날개',g:'epic'},{e:'⚡',n:'번개 날개',g:'myth',lock:true},{e:'🌙',n:'달빛 날개',g:'legend'},{e:'💀',n:'망령 날개',g:'epic'},
+      {e:'🌸',n:'꽃잎 날개',g:'rare'},{e:'🌑',n:'암흑 날개',g:'myth',lock:true},{e:'☀️',n:'빛의 날개',g:'myth',lock:true},{e:'🐉',n:'용 날개',g:'myth',lock:true},
+      {e:'🌿',n:'넝쿨 날개',g:'rare'},{e:'💎',n:'크리스탈 날개',g:'myth',lock:true},{e:'🦁',n:'갈기 망토',g:'legend'},
+    ],
+    presets:[{e:'🦅',n:'신성한 날개'},{e:'🔥',n:'불사조'},{e:'🌑',n:'타락천사'},{e:'🌸',n:'꽃의 요정'},{e:'⚡',n:'뇌신'}]
+  },
+  mount: {
+    title:'🐎 탈것 / 마운트 설정', sub:'마운트 종류 · 색상 · 탑승 모션 · 속도 이펙트',
+    colors:['#8B4513','#D4A843','#C0C0C0','#1A1A1A','#FF6B6B','#4D96FF','#2ECC71','#C77DFF'],
+    items:[
+      {e:'🐎',n:'기본 말',g:'free',sel:true},{e:'🦄',n:'유니콘',g:'legend'},{e:'🐉',n:'용',g:'myth',lock:true},{e:'🐊',n:'Buaya',g:'legend'},
+      {e:'🦅',n:'KawKaw 독수리',g:'epic'},{e:'🌊',n:'파도 서퍼',g:'rare'},{e:'⚡',n:'번개구름',g:'myth',lock:true},{e:'🌸',n:'꽃구름',g:'epic'},
+      {e:'🔥',n:'불꽃 사자',g:'legend'},{e:'🌑',n:'암흑 망아지',g:'epic'},{e:'🐍',n:'Bakunawa',g:'myth',lock:true},{e:'🦁',n:'황금 사자',g:'legend',lock:true},
+      {e:'🐅',n:'호랑이',g:'rare'},{e:'💎',n:'수정 봉황',g:'myth',lock:true},{e:'🌿',n:'나무 골렘',g:'epic'},
+    ],
+    presets:[{e:'🐉',n:'용기사'},{e:'🦄',n:'빛의 기수'},{e:'🌊',n:'해신 기수'},{e:'🔥',n:'불꽃 기수'},{e:'🌑',n:'어둠 기수'}]
+  },
+  aura: {
+    title:'✨ 오라 / 이펙트 설정', sub:'오라 형태 · 색상 · 강도 · 발자국 · 입장 연출',
+    colors:['#C77DFF','#D4A843','#FF6B6B','#4D96FF','#1DBAAD','#2ECC71','#FF8C00','#FFFFFF'],
+    items:[
+      {e:'✨',n:'기본 빛',g:'free',sel:true},{e:'🔥',n:'불꽃 오라',g:'rare'},{e:'⚡',n:'번개 오라',g:'epic'},{e:'🌊',n:'물결 오라',g:'rare'},
+      {e:'🌑',n:'암흑 오라',g:'legend'},{e:'☀️',n:'태양 오라',g:'legend',lock:true},{e:'🌙',n:'달빛 오라',g:'epic'},{e:'💀',n:'망령 오라',g:'legend'},
+      {e:'🌸',n:'꽃잎 오라',g:'rare'},{e:'💎',n:'크리스탈 오라',g:'myth',lock:true},{e:'🌈',n:'무지개 오라',g:'epic'},{e:'🌿',n:'생명 오라',g:'rare'},
+      {e:'👁️',n:'Bathala 오라',g:'myth',lock:true},{e:'🐉',n:'용의 기운',g:'myth',lock:true},{e:'🌟',n:'별자리 오라',g:'legend'},
+    ],
+    presets:[{e:'🌟',n:'신성 오라'},{e:'🔥',n:'불꽃 기운'},{e:'🌑',n:'암흑 기운'},{e:'⚡',n:'뇌신 기운'},{e:'🌸',n:'정령 기운'}]
+  },
+  title: {
+    title:'📛 칭호 설정', sub:'업적 칭호 · 시즌 칭호 · 구매 칭호 · 색상',
+    colors:['#D4A843','#C0C0C0','#C9445A','#4D96FF','#2ECC71','#C77DFF','#FF8C00','#FFFFFF'],
+    items:[
+      {e:'✦',n:'Apolaki의 선택',g:'legend',sel:true},{e:'👑',n:'Bathala의 후계자',g:'myth',lock:true},{e:'⚔️',n:'레이드 정복자',g:'epic'},{e:'🏆',n:'시즌 1위',g:'legend'},
+      {e:'🌊',n:'바다의 지배자',g:'epic'},{e:'🔥',n:'불꽃의 계승자',g:'rare'},{e:'🌸',n:'정령의 벗',g:'rare'},{e:'💀',n:'망령 사냥꾼',g:'legend'},
+      {e:'🦅',n:'KawKaw 전설',g:'myth',lock:true},{e:'⚡',n:'번개 기사단장',g:'legend',lock:true},{e:'🌿',n:'자연의 수호자',g:'epic'},{e:'🌑',n:'어둠의 왕',g:'myth',lock:true},
+      {e:'🎭',n:'1000승 전사',g:'epic'},{e:'💎',n:'과금왕',g:'legend',lock:true},{e:'🌟',n:'신화 창조자',g:'myth',lock:true},
+    ],
+    presets:[{e:'✦',n:'신성 칭호'},{e:'⚔️',n:'전쟁 칭호'},{e:'🌊',n:'바다 칭호'},{e:'🌸',n:'자연 칭호'},{e:'💀',n:'죽음 칭호'}]
+  },
+  emote: {
+    title:'💃 감정표현 / 모션 설정', sub:'승리 포즈 · 기본 대기 · 특수 댄스 · 인사',
+    colors:['#FF6B6B','#D4A843','#4D96FF','#2ECC71','#C77DFF','#1DBAAD','#FF8C00','#FFFFFF'],
+    items:[
+      {e:'🙌',n:'만세 기본',g:'free',sel:true},{e:'💃',n:'필리핀 댄스',g:'epic'},{e:'🕺',n:'승리의 춤',g:'rare'},{e:'🤙',n:'Shaka 포즈',g:'free'},
+      {e:'🫡',n:'경례 포즈',g:'rare'},{e:'😂',n:'배꼽잡기',g:'epic'},{e:'🔥',n:'불꽃 세레모니',g:'legend',lock:true},{e:'⚡',n:'번개 포즈',g:'epic'},
+      {e:'🙏',n:'Mano Po 인사',g:'free'},{e:'🌊',n:'파도 타기',g:'legend'},{e:'👑',n:'왕의 입장',g:'myth',lock:true},{e:'🎉',n:'파티 댄스',g:'rare'},
+      {e:'🥊',n:'격투 포즈',g:'rare'},{e:'🌸',n:'꽃비 세레모니',g:'epic'},{e:'💀',n:'망령 춤',g:'legend',lock:true},
+    ],
+    presets:[{e:'💃',n:'댄스 팩'},{e:'⚔️',n:'전투 포즈'},{e:'🌸',n:'우아한 포즈'},{e:'🔥',n:'불꽃 연출'},{e:'😂',n:'코믹 팩'}]
+  },
+  pet: {
+    title:'🐾 펫 / 동반자 설정', sub:'펫 종류 · 외형 · 색상 · 특수 스킬 · 성장',
+    colors:['#FF6B6B','#D4A843','#8B4513','#C0C0C0','#4D96FF','#2ECC71','#C77DFF','#1DBAAD'],
+    items:[
+      {e:'🐱',n:'고양이 정령',g:'free',sel:true},{e:'🐶',n:'아수와',g:'rare'},{e:'🦊',n:'구미호',g:'legend'},{e:'🐉',n:'아기 용',g:'myth',lock:true},
+      {e:'🦋',n:'나비 요정',g:'epic'},{e:'🌊',n:'물고기 정령',g:'rare'},{e:'⚡',n:'번개 새끼',g:'epic'},{e:'🌸',n:'꽃의 요정',g:'rare'},
+      {e:'🌑',n:'그림자 고양이',g:'legend'},{e:'🔥',n:'불꽃 강아지',g:'legend',lock:true},{e:'🐍',n:'아기 Bakunawa',g:'myth',lock:true},{e:'🦅',n:'아기 KawKaw',g:'epic'},
+      {e:'🌿',n:'나무 정령',g:'rare'},{e:'💎',n:'크리스탈 팬텀',g:'myth',lock:true},{e:'☀️',n:'Apolaki 새끼',g:'myth',lock:true},
+    ],
+    presets:[{e:'🦊',n:'신비 팩'},{e:'🔥',n:'불꽃 팩'},{e:'🌊',n:'바다 팩'},{e:'🌸',n:'정령 팩'},{e:'💀',n:'어둠 팩'}]
+  }
+};
+
+const gradeColors={myth:'var(--rose)',legend:'var(--gold)',epic:'var(--purple)',rare:'var(--teal)',free:'var(--green)'};
+const gradeBg={myth:'rgba(201,68,90,.15)',legend:'rgba(212,168,67,.14)',epic:'rgba(123,94,167,.14)',rare:'rgba(29,186,173,.1)',free:'rgba(46,204,113,.08)'};
+
+function switchCat(key, el){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  const d=catData[key];
+  document.getElementById('optTitle').textContent=d.title;
+  document.getElementById('optSub').textContent=d.sub;
+  renderItems(d.items);
+  renderColors(d.colors);
+  renderPresets(d.presets);
+}
+
+function renderItems(items){
+  const grid=document.getElementById('itemGrid');
+  grid.innerHTML=items.map((it,i)=>{
+    const gc=gradeColors[it.g]||'var(--muted)';
+    const bg=gradeBg[it.g]||'rgba(255,255,255,.03)';
+    const selClass=it.sel?` sel-${it.g}`:'';
+    const lock=it.lock?`<div class="item-lock">🔒</div>`:'';
+    const price=it.g==='myth'?`<div class="item-price">💎 500</div>`:it.g==='legend'?`<div class="item-price">💎 200</div>`:it.g==='free'?`<div class="item-price" style="color:var(--green)">FREE</div>`:'';
+    return `<div class="item-cell${selClass}" style="background:${bg};border-color:${it.sel?gc:'rgba(255,255,255,.08)'}" onclick="selectItem(this,${i},'${it.g}')">
+      <div class="item-grade" style="background:${gc}"></div>
+      ${it.e ? `<span style="font-size:${it.lock?'14':'18'}px">${it.e}</span>` : ''}
+      ${lock}
+      ${price}
+    </div>`;
+  }).join('');
+}
+
+function selectItem(el, idx, grade){
+  document.querySelectorAll('.item-cell').forEach(c=>{
+    c.className=c.className.replace(/ sel-\w+/g,'');
+    c.style.borderColor='rgba(255,255,255,.08)';
+  });
+  const gc=gradeColors[grade];
+  el.classList.add('sel-'+grade);
+  el.style.borderColor=gc;
+}
+
+function renderColors(colors){
+  const row=document.getElementById('colorRow');
+  row.innerHTML=colors.map((c,i)=>`<div class="color-swatch${i===0?' selected':''}" style="background:${c}" onclick="selectColor(this)"></div>`).join('')
+    +`<div class="custom-color" title="커스텀 색상">+</div>`;
+}
+
+function selectColor(el){
+  document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function renderPresets(presets){
+  const row=document.getElementById('presetRow');
+  row.innerHTML=presets.map((p,i)=>`<div class="preset-card${i===0?' active':''}" onclick="selectPreset(this)">
+    <span class="preset-icon">${p.e}</span>
+    <div class="preset-name">${p.n}</div>
+  </div>`).join('');
+}
+
+function selectPreset(el){
+  document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function switchSubTab(idx, el){
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function setPose(idx, el){
+  document.querySelectorAll('.pose-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  const bodies=['🧙','⚔️','🙌','🪑'];
+  document.getElementById('dollBody').textContent=bodies[idx]||'🧙';
+}
+
+let catwalkOn=false;
+function doCatwalk(){
+  const doll=document.getElementById('charDoll');
+  if(catwalkOn)return;
+  catwalkOn=true;
+  doll.style.animation='catwalk 1.5s ease-in-out';
+  doll.style.filter='drop-shadow(0 0 20px rgba(212,168,67,.7))';
+  setTimeout(()=>{doll.style.animation='';doll.style.filter='';catwalkOn=false;},1500);
+}
+
+// Init
+renderItems(catData.body.items);
+renderColors(catData.body.colors);
+renderPresets(catData.body.presets);
+</script>
