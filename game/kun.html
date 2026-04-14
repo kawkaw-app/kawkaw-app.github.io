@@ -26,6 +26,9 @@ body{background:var(--deep);color:var(--text);font-family:'Nunito',sans-serif;di
 .sb-item{display:flex;align-items:center;gap:8px;padding:7px 14px;cursor:pointer;transition:all .18s;border-left:2px solid transparent;font-size:11px;color:var(--muted);font-family:'Cinzel',serif;letter-spacing:.04em;text-decoration:none;}
 .sb-item:hover{color:var(--text);background:rgba(255,255,255,.03);}
 .sb-item.active{color:var(--gold);background:rgba(212,168,67,.08);border-left-color:var(--gold);}
+.sb-item.mock-link{color:rgba(29,186,173,.7);font-size:10px;}
+.sb-item.mock-link:hover{color:var(--teal);background:rgba(29,186,173,.06);}
+.sb-item.mock-link.active{color:var(--teal);background:rgba(29,186,173,.08);border-left-color:var(--teal);}
 .sb-icon{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
 .sb-new{font-size:7px;padding:1px 4px;border-radius:4px;background:rgba(201,68,90,.2);color:var(--rose);margin-left:auto;}
 
@@ -184,6 +187,14 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
 
 /* ── SCROLL HIGHLIGHT ── */
 :target{scroll-margin-top:20px;}
+
+/* ── MOCKUP LINK ── */
+.mockup-link-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.mockup-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:10px;border:1px solid rgba(212,168,67,.35);background:rgba(212,168,67,.07);color:var(--gold);font-family:'Cinzel',serif;font-size:10px;letter-spacing:.06em;cursor:pointer;text-decoration:none;transition:all .18s;}
+.mockup-btn:hover{background:rgba(212,168,67,.14);border-color:var(--gold);color:var(--gold2);}
+.mockup-btn-icon{font-size:14px;}
+.mockup-divider{height:0.5px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.15),transparent);margin:8px 0 20px;}
+.mockup-label{font-size:8px;color:var(--muted);font-family:'Cinzel',serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
 </style>
 </head>
 <body>
@@ -218,6 +229,12 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
   <a class="sb-item" href="#tech"><span class="sb-icon">🛠️</span>기술 스택</a>
   <a class="sb-item" href="#design"><span class="sb-icon">🎨</span>디자인 전략</a>
   <a class="sb-item" href="#roadmap"><span class="sb-icon">🗓️</span>로드맵 & KPI</a>
+
+  <div class="sb-section">Mockups</div>
+  <a class="sb-item mock-link" href="kawkaw_onboarding_flow.html" target="_blank"><span class="sb-icon">🎬</span>온보딩 플로우 ↗</a>
+  <a class="sb-item mock-link" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="sb-icon">📱</span>전체 화면 6종 ↗</a>
+  <a class="sb-item mock-link" href="kawkaw_character_studio.html" target="_blank"><span class="sb-icon">👗</span>캐릭터 스튜디오 ↗</a>
+  <a class="sb-item mock-link" href="kawkaw_pvp_competition_system.html" target="_blank"><span class="sb-icon">🥊</span>PvP 시스템 ↗</a>
 </nav>
 
 <!-- ── MAIN ── -->
@@ -234,6 +251,15 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
       <span class="tag tag-teal">🇵🇭 필리핀 타겟</span>
       <span class="tag tag-purple">⚡ 자동전투 수집형</span>
       <span class="tag tag-gold">💰 가챠 수익모델</span>
+    </div>
+    <div style="margin-top:18px;">
+      <div style="font-size:9px;color:rgba(154,143,126,.6);font-family:'Cinzel',serif;letter-spacing:.1em;margin-bottom:8px;">INTERACTIVE MOCKUPS</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a class="mockup-btn" href="kawkaw_onboarding_flow.html" target="_blank" style="font-size:9px;padding:6px 12px;"><span class="mockup-btn-icon">🎬</span>온보딩</a>
+        <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank" style="font-size:9px;padding:6px 12px;"><span class="mockup-btn-icon">📱</span>전체 화면 6종</a>
+        <a class="mockup-btn" href="kawkaw_character_studio.html" target="_blank" style="font-size:9px;padding:6px 12px;"><span class="mockup-btn-icon">👗</span>캐릭터 스튜디오</a>
+        <a class="mockup-btn" href="kawkaw_pvp_competition_system.html" target="_blank" style="font-size:9px;padding:6px 12px;"><span class="mockup-btn-icon">🥊</span>PvP 시스템</a>
+      </div>
     </div>
   </div>
   <div class="hero-emblem">🦅</div>
@@ -328,6 +354,12 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <h2 class="section-title">온보딩 플로우</h2>
     <span class="section-num">04</span>
   </div>
+
+  <div class="mockup-label">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_onboarding_flow.html" target="_blank"><span class="mockup-btn-icon">🎬</span>온보딩 플로우 목업 열기 ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
 
   <div class="subsection">
     <div class="sub-title">전체 플로우 (7단계)</div>
@@ -426,6 +458,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">05</span>
   </div>
   <div class="screen-label">📐 좌(퀘스트 사이드바 22%) + 우(지도 영역) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">🗺️</span>전체 화면 목업 열기 (월드맵·소환·인벤토리·상점·전투·길드) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
   <div class="subsection">
     <div class="sub-title">레이아웃 구성</div>
     <ul class="styled">
@@ -447,7 +484,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">06</span>
   </div>
   <div class="screen-label">📐 좌(포털+버튼 40%) + 우(확률표+Pity) · 가로 고정</div>
-
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">✨</span>소환 화면 목업 보기 (탭 2번째) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
   <div class="subsection">
     <div class="sub-title">가챠 상품 라인업</div>
     <div class="card-grid">
@@ -488,6 +529,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">07</span>
   </div>
   <div class="screen-label">📐 좌(캐릭터 정보 32%) + 우(그리드+탭) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">🎒</span>인벤토리 목업 보기 (탭 3번째) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
   <div class="subsection">
     <div class="sub-title">레이아웃 구성</div>
     <ul class="styled">
@@ -509,6 +555,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">08</span>
   </div>
   <div class="screen-label">📐 좌(스트릭+VIP 35%) + 우(특가 리스트) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">🛒</span>일일 상점 목업 보기 (탭 4번째) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
 
   <div class="subsection">
     <div class="sub-title">일일 과금 루프</div>
@@ -532,6 +583,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">09</span>
   </div>
   <div class="screen-label">📐 좌(플레이어 26%) + 중(아레나) + 우(스킬 30%) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">⚔️</span>전투 화면 목업 보기 (탭 5번째) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
 
   <div class="subsection">
     <div class="sub-title">전투 모드 3종 (설정에서 선택)</div>
@@ -574,6 +630,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">10</span>
   </div>
   <div class="screen-label">📐 좌(길드 정보+채팅 30%) + 중(레이드) + 우(기여도 28%) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_all_landscape_screens.html" target="_blank"><span class="mockup-btn-icon">👥</span>길드 화면 목업 보기 (탭 6번째) ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
 
   <div class="subsection">
     <div class="sub-title">소셜 과금 유발 루프</div>
@@ -610,6 +671,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">11</span>
   </div>
   <div class="screen-label">📐 좌(카테고리 사이드바 68px) + 중(프리뷰) + 우(옵션 패널 46%) · 가로 고정</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_character_studio.html" target="_blank"><span class="mockup-btn-icon">👗</span>캐릭터 스튜디오 목업 열기 ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
   <div class="callout callout-purple">✨ <strong>핵심 철학</strong>: 캐릭터 꾸미기 자체가 독립적인 콘텐츠. 12개 카테고리 × 평균 15종 = 수천만 가지 조합. 일반 가챠와 <strong>패션 가챠를 분리 운영</strong>하여 전투에 관심 없는 라이트 유저도 과금.</div>
 
   <div class="subsection">
@@ -660,6 +726,11 @@ ol.styled li{padding:5px 0;font-size:12px;color:rgba(240,232,216,.85);}
     <span class="section-num">12</span>
   </div>
   <div class="screen-label">📐 PvP 로비 / 전투 중 / 랭킹 / 결과 — 4개 화면</div>
+  <div class="mockup-label" style="margin-top:10px;">인터랙티브 목업</div>
+  <div class="mockup-link-bar">
+    <a class="mockup-btn" href="kawkaw_pvp_competition_system.html" target="_blank"><span class="mockup-btn-icon">🥊</span>PvP 시스템 목업 열기 ↗</a>
+  </div>
+  <div class="mockup-divider"></div>
 
   <div class="subsection">
     <div class="sub-title">경쟁 과금 유발 3대 심리 루프</div>
