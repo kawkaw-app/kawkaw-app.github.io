@@ -1,1408 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gumi Save — Privacy Policy</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #faf9f7;
-    --surface: #ffffff;
-    --border: #e8e4de;
-    --text: #1a1a1a;
-    --text-muted: #6b6560;
-    --accent: #2d6a4f;
-    --accent-light: #e8f4ee;
-    --accent-mid: #52b788;
-    --header-bg: #1a2e25;
-    --tag-en: #1d4ed8;
-    --tag-tl: #b91c1c;
-    --tag-ceb: #92400e;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  /* Header */
-  .site-header {
-    background: var(--header-bg);
-    padding: 28px 40px 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  }
-
-  .header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .header-brand {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .header-brand .app-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    color: #ffffff;
-    letter-spacing: -0.3px;
-  }
-
-  .header-brand .app-sub {
-    font-size: 12px;
-    color: #86a896;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  /* Language Switcher */
-  .lang-switcher {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.07);
-    color: rgba(255,255,255,0.65);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: 0.2px;
-  }
-
-  .lang-btn:hover {
-    background: rgba(255,255,255,0.14);
-    color: #fff;
-    border-color: rgba(255,255,255,0.3);
-  }
-
-  .lang-btn.active {
-    background: var(--accent-mid);
-    border-color: var(--accent-mid);
-    color: #fff;
-    box-shadow: 0 2px 10px rgba(82,183,136,0.35);
-  }
-
-  .lang-flag {
-    font-size: 16px;
-    line-height: 1;
-  }
-
-  /* Content Wrapper */
-  .content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 40px 80px;
-  }
-
-  /* Policy Content */
-  .policy-content { display: none; }
-  .policy-content.active { display: block; }
-
-  /* Doc Header */
-  .doc-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 32px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .doc-header-left {}
-
-  .doc-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .doc-meta {
-    font-size: 13px;
-    color: var(--text-muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 6px;
-  }
-
-  .doc-meta span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .doc-meta span::before {
-    content: '·';
-    color: var(--accent-mid);
-    font-weight: bold;
-  }
-
-  .doc-meta span:first-child::before { display: none; }
-
-  .lang-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .lang-badge.en { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-  .lang-badge.tl { background: #fff1f2; color: #b91c1c; border: 1px solid #fecdd3; }
-  .lang-badge.ceb { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
-
-  /* Sections */
-  .policy-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 16px;
-    transition: box-shadow 0.2s;
-  }
-
-  .policy-section:hover {
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-
-  .section-number {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  h2, h3 {
-    font-family: 'DM Serif Display', serif;
-    color: var(--text);
-  }
-
-  .policy-section > h3 {
-    font-size: 20px;
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-
-  h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 18px 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  p { margin-bottom: 12px; }
-  p:last-child { margin-bottom: 0; }
-
-  ul, ol {
-    padding-left: 20px;
-    margin-bottom: 12px;
-  }
-
-  li {
-    margin-bottom: 5px;
-  }
-
-  strong {
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  /* Tables */
-  .table-wrap {
-    overflow-x: auto;
-    margin: 14px 0;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-
-  th {
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 10px 14px;
-    text-align: left;
-  }
-
-  td {
-    padding: 10px 14px;
-    border-top: 1px solid var(--border);
-    vertical-align: top;
-    color: var(--text);
-    font-size: 13.5px;
-  }
-
-  tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: #fafaf9; }
-
-  /* Callout */
-  .callout {
-    background: #f0faf5;
-    border-left: 3px solid var(--accent-mid);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 16px;
-    margin: 12px 0;
-    font-size: 13.5px;
-    color: #1a3a2a;
-  }
-
-  .callout strong {
-    color: var(--accent);
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  /* Step blocks */
-  .step-block {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-  }
-
-  .step-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-bottom: 8px;
-  }
-
-  /* Contact block */
-  .contact-block {
-    background: var(--header-bg);
-    border-radius: 10px;
-    padding: 20px 24px;
-    color: #fff;
-    margin-top: 12px;
-  }
-
-  .contact-block a {
-    color: var(--accent-mid);
-    text-decoration: none;
-  }
-
-  .contact-block a:hover { text-decoration: underline; }
-
-  .contact-org { font-weight: 600; margin-bottom: 4px; }
-  .contact-detail { font-size: 13px; color: #aac4b5; }
-
-  /* TOC */
-  .toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 16px;
-  }
-
-  .toc-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
-  }
-
-  .toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 6px;
-  }
-
-  .toc-item {
-    font-size: 13px;
-    color: var(--accent);
-    cursor: pointer;
-    padding: 4px 0;
-    display: flex;
-    gap: 7px;
-    align-items: flex-start;
-    transition: color 0.15s;
-  }
-
-  .toc-item:hover { color: var(--accent); text-decoration: underline; }
-  .toc-num { color: var(--text-muted); font-size: 11px; font-weight: 600; min-width: 18px; padding-top: 1px; }
-
-  /* Responsive */
-  @media (max-width: 640px) {
-    .site-header { padding: 20px; }
-    .content-wrapper { padding: 24px 20px 60px; }
-    .policy-section, .doc-header { padding: 20px; }
-    .lang-btn span:not(.lang-flag) { display: none; }
-    .lang-btn { padding: 8px 10px; }
-    .toc-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Gumi Glowup</title>
+  <style>
+    :root{--bg:#fff;--bg2:#f8f9fa;--txt:#1a1a1a;--txt2:#6b7280;--border:#e5e7eb;--accent:#7C6BFF;--accent-bg:#ede9fe}
+    @media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--bg2:#2a2a2a;--txt:#f0f0f0;--txt2:#9ca3af;--border:#3a3a3a;--accent:#a78bfa;--accent-bg:#2e2654}}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:24px 20px 60px;max-width:720px;margin:0 auto;-webkit-text-size-adjust:100%}
+    h1{font-size:24px;font-weight:700;margin-bottom:8px}
+    h2{font-size:18px;font-weight:700;margin:32px 0 12px}
+    h3{font-size:15px;font-weight:600;margin:20px 0 8px}
+    p,li{font-size:14px;color:var(--txt2);margin-bottom:12px}
+    ul,ol{padding-left:20px;margin-bottom:16px}
+    li{margin-bottom:6px}
+    .date{font-size:13px;color:var(--txt2);margin-bottom:24px}
+    .section{background:var(--bg2);border-radius:12px;padding:20px;margin-bottom:16px}
+    .section h2{margin-top:0}
+    .highlight{background:var(--accent-bg);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+    .highlight p{color:var(--txt);margin:0}
+    a{color:var(--accent);text-decoration:none}
+    .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
+    .contact a{display:inline-block;margin-top:8px;font-weight:600}
+    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
+    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
+    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    [lang="ko"]{display:none}
+    .ko [lang="ko"]{display:block}
+    .ko [lang="en"]{display:none}
+  </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-brand">
-      <span class="app-name">Gumi Save</span>
-      <span class="app-sub">Privacy Policy · KawKaw.dev</span>
-    </div>
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="switchLang('en', this)">
-        <span class="lang-flag">🇺🇸</span>
-        <span>English</span>
-      </button>
-      <button class="lang-btn" onclick="switchLang('tl', this)">
-        <span class="lang-flag">🇵🇭</span>
-        <span>Filipino</span>
-      </button>
-      <button class="lang-btn" onclick="switchLang('ceb', this)">
-        <span class="lang-flag">🌺</span>
-        <span>Bisaya</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="content-wrapper">
-
-<!-- ===================== ENGLISH ===================== -->
-<div id="lang-en" class="policy-content active">
-
-  <div class="doc-header">
-    <div class="doc-header-left">
-      <div class="doc-title">Privacy Policy</div>
-      <div class="doc-meta">
-        <span>Version 1.2</span>
-        <span>Effective: March 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge en">🇺🇸 English</span>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
   </div>
 
-  <div class="toc">
-    <div class="toc-title">Table of Contents</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Introduction</div>
-      <div class="toc-item"><span class="toc-num">02</span> Data Controller</div>
-      <div class="toc-item"><span class="toc-num">03</span> Data We Collect</div>
-      <div class="toc-item"><span class="toc-num">04</span> Legal Basis</div>
-      <div class="toc-item"><span class="toc-num">05</span> How We Use Data</div>
-      <div class="toc-item"><span class="toc-num">06</span> Automated Processing</div>
-      <div class="toc-item"><span class="toc-num">07</span> Data Sharing</div>
-      <div class="toc-item"><span class="toc-num">08</span> Data Retention</div>
-      <div class="toc-item"><span class="toc-num">09</span> Data Security</div>
-      <div class="toc-item"><span class="toc-num">10</span> Your Rights</div>
-      <div class="toc-item"><span class="toc-num">11</span> Age & Eligibility</div>
-      <div class="toc-item"><span class="toc-num">12</span> Facebook Login</div>
-      <div class="toc-item"><span class="toc-num">13</span> International Transfers</div>
-      <div class="toc-item"><span class="toc-num">14</span> Privacy Impact Assessment</div>
-      <div class="toc-item"><span class="toc-num">15</span> Policy Changes</div>
-      <div class="toc-item"><span class="toc-num">16</span> Contact</div>
-    </div>
-  </div>
+  <!-- ═══════════════ ENGLISH ═══════════════ -->
+  <div lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective Date: April 17, 2025</p>
+    <p>KawKaw ("Company," "we," "us," or "our") operates the Gumi Glowup mobile application ("App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. By using the App, you consent to the practices described in this policy.</p>
 
-  <div class="policy-section">
-    <span class="section-number">Section 01</span>
-    <h3>Introduction</h3>
-    <p>Welcome to <strong>Gumi Save</strong> ("App," "we," "us," or "our"), a personal household budgeting application operated by KawKaw.dev. We are committed to protecting your personal information in full compliance with:</p>
-    <ul>
-      <li><strong>Republic Act No. 10173</strong> — Data Privacy Act of 2012 (DPA) and its Implementing Rules and Regulations (IRR)</li>
-      <li><strong>NPC Circular No. 2022-01</strong> — Guidelines on Administrative Fines</li>
-      <li><strong>NPC Circular No. 2022-04</strong> — Registration of Data Processing Systems and Designation of DPO</li>
-      <li><strong>NPC Circular No. 2023-04</strong> — Guidelines on Consent</li>
-      <li><strong>NPC Circular No. 2023-06</strong> — Minimum Security Requirements</li>
-      <li><strong>NPC Advisory No. 2023-01</strong> — Guidelines on Deceptive Design Patterns</li>
-      <li><strong>NPC Advisory No. 2024-01</strong> — Model Contractual Clauses for Cross-Border Transfers</li>
-      <li><strong>Republic Act No. 10175</strong> — Cybercrime Prevention Act of 2012</li>
-    </ul>
-    <div class="callout">
-      <strong>Important Notice</strong>
-      Gumi Save is a <strong>household budget recording tool only</strong> — it has no payment processing, financial transaction, or wagering features. No money is transferred through this app.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 02</span>
-    <h3>Data Controller &amp; Registration Information</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Field</th><th>Details</th></tr>
-        <tr><td><strong>Company</strong></td><td>KawKaw.dev</td></tr>
-        <tr><td><strong>Service</strong></td><td>Gumi Save — Household Budget App</td></tr>
-        <tr><td><strong>All Inquiries</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Data Protection Officer (DPO)</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>NPC Registration Status</strong></td><td><strong>Not currently registered.</strong> KawKaw.dev does not yet meet the mandatory registration thresholds under RA 10173 and NPC Circular 2022-04: (1) employing 250 or more employees; (2) processing sensitive personal information of 1,000 or more data subjects; or (3) processing data that may pose a risk to the rights and freedoms of data subjects.</td></tr>
-        <tr><td><strong>Registration Commitment</strong></td><td>KawKaw.dev will register with the NPC as soon as any of the above thresholds is met, in full compliance with NPC Circular 2022-04, including designating a DPO and registering all data processing systems within the required timeframes.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 03</span>
-    <h3>Personal Data We Collect</h3>
-    <p>Gumi Save collects only the minimum data necessary to operate the service (data minimization principle).</p>
-
-    <h4>3.1 Facebook Login Data</h4>
-    <p>When you log in using Facebook, we receive only the following data that you have authorized in your Facebook privacy settings:</p>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Data</th><th>Purpose</th></tr>
-        <tr><td>Profile name (display name)</td><td>To identify and display your account</td></tr>
-        <tr><td>Email address</td><td>Account creation, login, and service notifications</td></tr>
-        <tr><td>Birthday (date of birth)</td><td>Age-appropriate service delivery per Facebook's API</td></tr>
-      </table>
-    </div>
-    <p>We do <strong>not</strong> access your Facebook friends list, posts, messages, likes, or any other Facebook data.</p>
-    <div class="callout">
-      <strong>Optional Facebook Sharing Feature</strong>
-      If you choose to share a savings milestone or budget achievement via the in-app sharing feature, the App will request your explicit permission before posting to your Facebook timeline. This feature is entirely opt-in — you will always see a preview of what will be posted and must actively confirm each post. You may revoke Facebook posting permission at any time through Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions.
-    </div>
-
-    <h4>3.2 Household Budget Data</h4>
-    <p>Data you voluntarily enter into the app:</p>
-    <ul>
-      <li>Income and expense records (amounts, dates, categories)</li>
-      <li>Budget envelope allocations and balances</li>
-      <li>Savings goals, target amounts, and progress notes</li>
-      <li>Transaction descriptions and personal notes</li>
-      <li>Receipt images (only when you voluntarily use the receipt scanning feature; images are processed locally or via OCR for text extraction and are not stored permanently after processing)</li>
-    </ul>
-
-    <h4>3.3 What We Do NOT Collect</h4>
-    <ul>
-      <li>Precise GPS location</li>
-      <li>Device contacts or call logs</li>
-      <li>SMS messages</li>
-      <li>Bank account numbers, credit card numbers, or other payment credentials</li>
-      <li>GCash or Maya account credentials, passwords, or PINs</li>
-      <li>Any data from other apps on your device</li>
-      <li>Device identifiers beyond what is required for push notifications</li>
-    </ul>
-    <div class="callout">
-      <strong>All financial data in Gumi Save is self-reported by you.</strong> We do not currently connect to any bank, remittance service, or payment system, and no actual money moves through this app.<br><br>
-      <strong>Planned GCash / Maya Integration:</strong> A future version is planned to include optional GCash and Maya account linking. If introduced, a separate, updated Privacy Policy and explicit opt-in consent will be presented before any payment account data is accessed.
-    </div>
-
-    <h4>3.4 Technical Data (Automatically Collected)</h4>
-    <ul>
-      <li>App version number</li>
-      <li>Operating system type and version (Android/iOS)</li>
-      <li>Crash logs and error reports (anonymized, for bug fixing only)</li>
-      <li>Language preference</li>
-    </ul>
-    <p><strong>Device Permissions:</strong> Gumi Save requests camera permission only when you use the receipt scanning feature. Camera access is never activated without your action. You may revoke camera permission at any time through your device settings (Settings → Apps → Gumi Save → Permissions → Camera).</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 04</span>
-    <h3>Legal Basis for Processing</h3>
-    <p>Under RA 10173, we process your data on the following legal grounds:</p>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Processing Activity</th><th>Legal Basis</th></tr>
-        <tr><td>Account creation via Facebook Login</td><td>Contractual necessity + Consent</td></tr>
-        <tr><td>Budget data storage and sync</td><td>Contractual necessity</td></tr>
-        <tr><td>Crash logs and performance monitoring</td><td>Legitimate interest</td></tr>
-        <tr><td>Anonymized aggregate analytics</td><td>Legitimate interest</td></tr>
-        <tr><td>Compliance with court orders or NPC directives</td><td>Legal obligation</td></tr>
-      </table>
-    </div>
-    <div class="callout"><strong>Marketing Notifications:</strong> This feature does not currently exist. If introduced in a future version, a separate opt-in consent will be requested before any marketing communications are sent.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 05</span>
-    <h3>How We Use Your Data</h3>
-
-    <h4>5.1 To Provide the Service</h4>
-    <ul>
-      <li>Create and maintain your Gumi Save account</li>
-      <li>Store and sync your budget data across your devices</li>
-      <li>Generate savings reports, budget summaries, and progress visualizations</li>
-      <li>Send budget alerts and savings milestone notifications</li>
-      <li>Process receipt images via OCR to pre-fill expense records (image data is discarded after text extraction)</li>
-    </ul>
-
-    <h4>5.2 To Improve the Service</h4>
-    <ul>
-      <li>Analyze anonymized, aggregated usage patterns to improve app features</li>
-      <li>Diagnose and fix technical issues</li>
-    </ul>
-
-    <h4>5.3 To Communicate With You</h4>
-    <ul>
-      <li>Respond to support requests sent to kawkaw.app@gmail.com</li>
-      <li>Send service announcements and important updates</li>
-      <li>Send optional in-app service tips (marketing notifications are not currently available)</li>
-    </ul>
-
-    <h4>5.4 What We Do NOT Do</h4>
-    <ul>
-      <li>We do <strong>not</strong> sell, rent, or trade your personal data to any third party</li>
-      <li>We do <strong>not</strong> use your data for advertising on other platforms</li>
-      <li>We do <strong>not</strong> share individual financial data with employers, government agencies, or any other party without a valid legal order</li>
-      <li>We do <strong>not</strong> use your data to train third-party AI or machine learning models</li>
-      <li>We do <strong>not</strong> use deceptive design patterns (dark patterns) to collect consent, in compliance with NPC Advisory No. 2023-01</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 06</span>
-    <h3>Automated Decision-Making and Profiling</h3>
-    <p>In compliance with <strong>NPC Circular No. 2022-04</strong>, Gumi Save may use automated processing to generate budget summaries, spending insights, or savings suggestions based on the data you enter. These are informational displays only — no automated decisions are made that produce legal effects or significantly affect your rights. You may contact kawkaw.app@gmail.com at any time to obtain an explanation of any automated output.</p>
-    <p>KawKaw.dev does not currently meet the NPC registration thresholds (see Section 2). When registration becomes required, we will disclose all automated processing activities to the NPC as part of our registration record in compliance with NPC Circular 2022-04.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 07</span>
-    <h3>Data Sharing &amp; Third-Party Sub-Processors</h3>
-    <p>We share your data only with trusted service providers who are contractually bound to protect it in accordance with RA 10173. We do not sell your data.</p>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Sub-Processor</th><th>Purpose</th><th>Data Shared</th><th>Location</th></tr>
-        <tr><td>Supabase</td><td>Database hosting and authentication</td><td>Account data, budget data</td><td>US/EU (ISO 27001)</td></tr>
-        <tr><td>Meta (Facebook)</td><td>Social login via Facebook</td><td>Profile name, email, birthday</td><td>Global</td></tr>
-        <tr><td>Expo / EAS</td><td>App deployment and push notifications</td><td>Device push token</td><td>US</td></tr>
-      </table>
-    </div>
-    <p>All sub-processors are subject to Data Processing Agreements (DPAs). For cross-border data transfers, we apply Model Contractual Clauses aligned with <strong>NPC Advisory No. 2024-01</strong> (ASEAN/Global MCC frameworks), ensuring appropriate safeguards for personal data transferred outside the Philippines.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 08</span>
-    <h3>Data Retention</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Data Type</th><th>Retention Period</th></tr>
-        <tr><td>Account and Facebook login data</td><td>Duration of account + 30 days after deletion request</td></tr>
-        <tr><td>Budget and financial data</td><td>Duration of account + 30 days after deletion request</td></tr>
-        <tr><td>Crash logs and technical data</td><td>90 days, then automatically deleted</td></tr>
-        <tr><td>Backups</td><td>Up to 30 days after primary deletion</td></tr>
-        <tr><td>Legal compliance records</td><td>As required by applicable Philippine law</td></tr>
-      </table>
-    </div>
-    <p>After the retention period ends, data is permanently and irreversibly deleted from our systems and from all sub-processors.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 09</span>
-    <h3>Data Security</h3>
-    <p>Our security measures comply with <strong>NPC Circular No. 2023-06</strong> (Minimum Security Requirements):</p>
-
-    <h4>Technical Measures</h4>
-    <ul>
-      <li>All data in transit is encrypted using TLS 1.2 or higher</li>
-      <li>Database storage is encrypted at rest using AES-256</li>
-      <li>Authentication tokens are stored securely and rotated regularly</li>
-      <li>Strict role-based access controls (RBAC) limit who within KawKaw.dev can access user data</li>
-    </ul>
-
-    <h4>Organizational Measures</h4>
-    <ul>
-      <li>Privacy Impact Assessment (PIA) is conducted before implementing new data processing activities</li>
-      <li>Staff handling personal data are trained on data privacy obligations</li>
-      <li>Vendor contracts (DPAs) are maintained for all sub-processors</li>
-    </ul>
-
-    <h4>Incident Management — Personal Data Breach Notification</h4>
-    <p>In the event of a personal data breach, we will follow this mandatory two-step procedure:</p>
-    <div class="step-block">
-      <div class="step-label">Step 1 — Within 72 hours of discovery</div>
+    <div class="section">
+      <h2>1. Information We Collect</h2>
+      <h3>1.1 Information You Provide</h3>
       <ul>
-        <li>Notify the NPC via the official <strong>NPC Data Breach Notification Management System (DBNMS)</strong> (submissions outside DBNMS are not valid)</li>
-        <li>Notify affected data subjects individually via email</li>
-        <li>If the breach involves 100 or more data subjects, or involves sensitive personal information — no delay, notification is immediate</li>
+        <li><strong>Account Information:</strong> Name, email address, password, date of birth, gender, country/region.</li>
+        <li><strong>Profile Information:</strong> Skin type, skin concerns, zodiac sign (for the fortune feature).</li>
+        <li><strong>Photos:</strong> Selfie photos you take for AI skin analysis.</li>
+        <li><strong>Routine Data:</strong> Skincare products you use, AM/PM routine configurations.</li>
+        <li><strong>Communications:</strong> Messages you send to our support team.</li>
+      </ul>
+      <h3>1.2 Information Collected Automatically</h3>
+      <ul>
+        <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers.</li>
+        <li><strong>Usage Data:</strong> App feature usage, interaction patterns, session duration.</li>
+        <li><strong>Push Notification Tokens:</strong> For delivering notifications you opt into.</li>
+      </ul>
+      <h3>1.3 Information We Do NOT Collect</h3>
+      <ul>
+        <li>We do not collect precise geolocation data.</li>
+        <li>We do not access your contacts, calendar, or other apps.</li>
+        <li>We do not use advertising trackers or sell your data to advertisers.</li>
       </ul>
     </div>
-    <div class="step-block">
-      <div class="step-label">Step 2 — Within 5 business days</div>
+
+    <div class="section">
+      <h2>2. How We Use Your Information</h2>
       <ul>
-        <li>Submit a complete detailed breach report to the NPC via DBNMS containing: nature of the breach, personal data involved, number of affected data subjects, remediation steps taken, and designated representative contact details</li>
+        <li><strong>Skin Analysis:</strong> Your selfie photos are processed by AI to assess skin condition (hydration, elasticity, pores, pigmentation, wrinkles) and estimate skin age.</li>
+        <li><strong>Personalised Recommendations:</strong> We use your skin type, concerns, age, and analysis results to recommend skincare products and routines.</li>
+        <li><strong>Fortune Feature:</strong> Name, birthday, gender, and zodiac sign are used to generate daily fortune readings.</li>
+        <li><strong>App Functionality:</strong> To manage your account, track your skincare routine streaks, and deliver notifications.</li>
+        <li><strong>Service Improvement:</strong> Aggregated, anonymised usage data helps us improve the App.</li>
+        <li><strong>Communication:</strong> To respond to your support inquiries and send important service updates.</li>
       </ul>
     </div>
-    <p><strong>Annual Reporting:</strong> In accordance with NPC requirements, we submit an Annual Security Incident Report (ASIR) via the NPC DBNMS every year, documenting all security incidents including those that did not require immediate breach notification.</p>
-  </div>
 
-  <div class="policy-section">
-    <span class="section-number">Section 10</span>
-    <h3>Your Rights as a Data Subject</h3>
-    <p>Under the Data Privacy Act of 2012 (RA 10173) and NPC Advisory No. 2021-01, you have the following rights:</p>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Right</th><th>Description</th><th>How to Exercise</th></tr>
-        <tr><td><strong>Right to be Informed</strong></td><td>Know how your data is collected and used</td><td>This Privacy Policy</td></tr>
-        <tr><td><strong>Right to Access</strong></td><td>Request a copy of your personal data we hold</td><td>Email kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Right to Rectification</strong></td><td>Correct inaccurate or incomplete data</td><td>In-app Settings or email kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Right to Erasure / Blocking</strong></td><td>Request deletion or blocking of your data</td><td>"Delete Account" in-app or email kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Right to Object</strong></td><td>Object to processing for profiling or any future marketing communications</td><td>Email kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Right to Data Portability</strong></td><td>Receive your data in a machine-readable format</td><td>Email kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Right to Lodge a Complaint</strong></td><td>File a complaint with the NPC</td><td>www.privacy.gov.ph / complaints@privacy.gov.ph</td></tr>
-        <tr><td><strong>Right to Damages</strong></td><td>Seek compensation for violations of RA 10173</td><td>Through the NPC or courts</td></tr>
-      </table>
-    </div>
-    <div class="callout">
-      <strong>Consent Withdrawal Procedure (NPC Circular 2023-04)</strong>
-      Withdrawing consent is as easy as giving it. To withdraw any consent, email <strong>kawkaw.app@gmail.com</strong> with subject line "Withdraw Consent" — describe which processing you wish to stop. We will cease processing for that purpose within <strong>15 business days</strong> and confirm via email. We will respond to all data subject rights requests within <strong>15 business days</strong> of receipt.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 11</span>
-    <h3>Age and Eligibility</h3>
-    <p>Gumi Save is a household budget recording app with no payment processing, no financial transactions, no wagering features, and no age-restricted content. <strong>There is no minimum age requirement for this app.</strong></p>
-    <p>If we discover that a minor's data has been collected in a way that conflicts with applicable child protection laws, we will take appropriate corrective action promptly. Parents or guardians with concerns may contact kawkaw.app@gmail.com.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 12</span>
-    <h3>Facebook Login</h3>
-    <p>When you sign in with Facebook, we receive only the data described in Section 3.1 (profile name, email, birthday) as authorized by your Facebook privacy settings. You can revoke our access at any time through Facebook's App Settings: <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Remove</strong>.</p>
-    <p>After revoking Facebook access, your Gumi Save account and budget data remain accessible. Your Facebook login will be deactivated; contact kawkaw.app@gmail.com to set an alternative login method.</p>
-    <p>To revoke only the posting permission (without removing login): <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions → Remove "Publish to your timeline"</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 13</span>
-    <h3>International Data Transfers</h3>
-    <p>Some sub-processors (see Section 7) are located outside the Philippines, including in the United States and European Union. All such transfers are governed by Data Processing Agreements that include Model Contractual Clauses aligned with <strong>NPC Advisory No. 2024-01</strong> (ASEAN Model Contract Clauses and other recognized MCC frameworks). KawKaw.dev remains accountable for the protection of personal data transferred to these processors.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 14</span>
-    <h3>Privacy Impact Assessment</h3>
-    <p>Prior to introducing any new data processing activity, KawKaw.dev conducts a Privacy Impact Assessment (PIA) to identify and mitigate privacy risks, in line with NPC guidelines. PIA records are maintained and available for NPC inspection upon request.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 15</span>
-    <h3>Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. We will notify you of material changes via:</p>
-    <ul>
-      <li><strong>In-app notification</strong> — at least 30 days before the change takes effect</li>
-      <li><strong>Email</strong> to your registered address — at least 30 days before the change takes effect</li>
-    </ul>
-    <p>Continued use of the app after the effective date constitutes acceptance of the revised policy. If you do not agree with the changes, you may delete your account before the effective date.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 16</span>
-    <h3>Contact</h3>
-    <p>For all privacy-related questions, requests, or complaints:</p>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
-    </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">National Privacy Commission (Philippines)</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
-    </div>
-  </div>
-
-</div><!-- /lang-en -->
-
-
-<!-- ===================== TAGALOG ===================== -->
-<div id="lang-tl" class="policy-content">
-
-  <div class="doc-header">
-    <div class="doc-header-left">
-      <div class="doc-title">Patakaran sa Pagkapribado</div>
-      <div class="doc-meta">
-        <span>Bersyon 1.2</span>
-        <span>Petsa ng Bisa: Marso 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge tl">🇵🇭 Filipino</span>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Talaan ng Nilalaman</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Panimula</div>
-      <div class="toc-item"><span class="toc-num">02</span> Data Controller</div>
-      <div class="toc-item"><span class="toc-num">03</span> Datos na Kinokolekta</div>
-      <div class="toc-item"><span class="toc-num">04</span> Legal na Batayan</div>
-      <div class="toc-item"><span class="toc-num">05</span> Paggamit ng Datos</div>
-      <div class="toc-item"><span class="toc-num">06</span> Automated na Proseso</div>
-      <div class="toc-item"><span class="toc-num">07</span> Pagbabahagi ng Datos</div>
-      <div class="toc-item"><span class="toc-num">08</span> Pagtatago ng Datos</div>
-      <div class="toc-item"><span class="toc-num">09</span> Seguridad</div>
-      <div class="toc-item"><span class="toc-num">10</span> Inyong mga Karapatan</div>
-      <div class="toc-item"><span class="toc-num">11</span> Edad at Karapat-dapat</div>
-      <div class="toc-item"><span class="toc-num">12</span> Facebook Login</div>
-      <div class="toc-item"><span class="toc-num">13</span> International na Paglipat</div>
-      <div class="toc-item"><span class="toc-num">14</span> Privacy Impact Assessment</div>
-      <div class="toc-item"><span class="toc-num">15</span> Mga Pagbabago</div>
-      <div class="toc-item"><span class="toc-num">16</span> Makipag-ugnayan</div>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 01</span>
-    <h3>Panimula</h3>
-    <p>Maligayang pagdating sa <strong>Gumi Save</strong>, isang personal na aplikasyon sa pamamahala ng gastos sa tahanan na pinapatakbo ng KawKaw.dev. Kami ay nakatuon sa pagprotekta ng inyong personal na impormasyon ayon sa:</p>
-    <ul>
-      <li><strong>RA 10173</strong> — Data Privacy Act of 2012 at ang IRR nito</li>
-      <li><strong>NPC Circular No. 2022-01</strong> — Alituntunin sa Mga Administratibong Multa</li>
-      <li><strong>NPC Circular No. 2022-04</strong> — Pagpaparehistro ng Data Processing System at DPO</li>
-      <li><strong>NPC Circular No. 2023-04</strong> — Alituntunin sa Pahintulot (Consent)</li>
-      <li><strong>NPC Circular No. 2023-06</strong> — Minimum na Mga Kinakailangan sa Seguridad</li>
-      <li><strong>NPC Advisory No. 2023-01</strong> — Alituntunin sa Mapanlinlang na mga Disenyo (Dark Patterns)</li>
-      <li><strong>NPC Advisory No. 2024-01</strong> — Model Contractual Clauses para sa Cross-Border na Paglipat</li>
-      <li><strong>RA 10175</strong> — Cybercrime Prevention Act of 2012</li>
-    </ul>
-    <div class="callout">
-      <strong>Mahalaga</strong>
-      Ang Gumi Save ay isang <strong>kasangkapan lamang sa pagtatala ng gastos sa tahanan</strong> — walang tampok na pagbabayad, pagsasalin ng pera, o sugal. Walang aktwal na pera ang lumalabas o pumapasok sa pamamagitan ng app na ito.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 02</span>
-    <h3>Impormasyon ng Data Controller at Pagpaparehistro</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Field</th><th>Detalye</th></tr>
-        <tr><td><strong>Kumpanya</strong></td><td>KawKaw.dev</td></tr>
-        <tr><td><strong>Serbisyo</strong></td><td>Gumi Save — Household Budget App</td></tr>
-        <tr><td><strong>Lahat ng Katanungan</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Data Protection Officer (DPO)</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katayuan ng Pagpaparehistro sa NPC</strong></td><td><strong>Hindi pa nakarehistrong.</strong> Ang KawKaw.dev ay hindi pa nakakatugon sa mga mandatory na threshold ng pagpaparehistro sa ilalim ng RA 10173 at NPC Circular 2022-04: (1) nagtatrabaho ng 250 o higit pang empleyado; (2) nagpoproseso ng sensitibong personal na impormasyon ng 1,000 o higit pang data subject; o (3) nagpoproseso ng datos na maaaring magdulot ng panganib sa mga karapatan at kalayaan ng mga data subject.</td></tr>
-        <tr><td><strong>Pangako sa Pagpaparehistro</strong></td><td>Magpaparehistro ang KawKaw.dev sa NPC sa sandaling matugunan ang alinman sa mga threshold na ito, alinsunod sa NPC Circular 2022-04, kasama ang pagtatalaga ng DPO at pagpaparehistro ng lahat ng sistema ng pagpoproseso ng datos.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 03</span>
-    <h3>Personal na Datos na Kinokolekta Namin</h3>
-    <p>Ang Gumi Save ay nagkokolekta lamang ng pinakamaliit na datos na kinakailangan upang mapatakbo ang serbisyo (prinsipyo ng data minimization).</p>
-
-    <h4>3.1 Datos ng Facebook Login</h4>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Datos</th><th>Layunin</th></tr>
-        <tr><td>Profile name (display name)</td><td>Upang matukoy at maipakita ang inyong account</td></tr>
-        <tr><td>Email address</td><td>Paglikha ng account, pag-log in, at mga abiso ng serbisyo</td></tr>
-        <tr><td>Kaarawan (petsa ng kapanganakan)</td><td>Paghahatid ng serbisyo ayon sa edad base sa Facebook API</td></tr>
-      </table>
-    </div>
-    <p>Hindi namin ina-access ang inyong listahan ng mga kaibigan sa Facebook, mga post, mensahe, likes, o anumang iba pang datos sa Facebook.</p>
-    <div class="callout">
-      <strong>Opsyonal na Tampok ng Pagbabahagi sa Facebook</strong>
-      Kung pipiliin ninyong ibahagi ang isang savings milestone o tagumpay sa badyet, hihiling ang App ng inyong tahasang pahintulot bago mag-post sa inyong Facebook timeline. Ang tampok na ito ay ganap na opt-in. Maaari ninyong bawiin ang pahintulot sa pag-post sa Facebook anumang oras: Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions.
-    </div>
-
-    <h4>3.2 Datos ng Gastos sa Tahanan</h4>
-    <ul>
-      <li>Mga rekord ng kita at gastos (mga halaga, petsa, kategorya)</li>
-      <li>Mga alokasyon ng envelope budget at mga balanse</li>
-      <li>Mga layunin sa ipon, target na halaga, at mga tala ng progreso</li>
-      <li>Mga paglalarawan ng transaksyon at personal na tala</li>
-      <li>Mga larawan ng resibo (tanging kapag boluntaryo ninyong ginagamit ang tampok na pag-scan)</li>
-    </ul>
-
-    <h4>3.3 Ano ang HINDI Namin Kinokolekta</h4>
-    <ul>
-      <li>Eksaktong lokasyon ng GPS</li>
-      <li>Mga contact o call log ng device</li>
-      <li>Mga mensahe ng SMS</li>
-      <li>Numero ng bank account, credit card, o anumang kredensyal ng pagbabayad</li>
-      <li>GCash o Maya account credentials, password, o PIN</li>
-      <li>Anumang datos mula sa ibang apps sa inyong device</li>
-      <li>Mga identifier ng device maliban sa kinakailangan para sa mga push notification</li>
-    </ul>
-    <div class="callout">
-      <strong>Planong Integrasyon ng GCash / Maya:</strong> Ang isang hinaharap na bersyon ng app ay naplanong magsama ng opsyonal na pag-link ng GCash at Maya account. Kung at kapag ipinakilala ang tampok na ito, isang na-update na Patakaran sa Pagkapribado at tahasang pahintulot (opt-in) ang ipapakita sa inyo bago i-access ang anumang datos ng payment account.
-    </div>
-
-    <h4>3.4 Teknikal na Datos (Awtomatikong Kinokolekta)</h4>
-    <ul>
-      <li>Numero ng bersyon ng app</li>
-      <li>Uri at bersyon ng operating system (Android/iOS)</li>
-      <li>Mga crash log at ulat ng error (anonymized)</li>
-      <li>Kagustuhan sa wika</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 04</span>
-    <h3>Legal na Batayan ng Pagpoproseso</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Aktibidad sa Pagpoproseso</th><th>Legal na Batayan</th></tr>
-        <tr><td>Paglikha ng account sa pamamagitan ng Facebook Login</td><td>Kinakailangan sa kontrata + Pahintulot</td></tr>
-        <tr><td>Pag-iimbak at pag-sync ng datos ng badyet</td><td>Kinakailangan sa kontrata</td></tr>
-        <tr><td>Mga crash log at pagsubaybay sa pagganap</td><td>Lehitimong interes</td></tr>
-        <tr><td>Anonymized na pinagsama-samang analytics</td><td>Lehitimong interes</td></tr>
-        <tr><td>Pagsunod sa mga utos ng korte o NPC</td><td>Legal na obligasyon</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 05</span>
-    <h3>Paano Namin Ginagamit ang Inyong Datos</h3>
-
-    <h4>5.1 Para Maibigay ang Serbisyo</h4>
-    <ul>
-      <li>Paglikha at pagpapanatili ng inyong Gumi Save account</li>
-      <li>Pag-iimbak at pag-sync ng inyong datos ng badyet sa inyong mga device</li>
-      <li>Pagbuo ng mga ulat ng ipon, buod ng badyet, at mga visualization ng progreso</li>
-      <li>Pagpapadala ng mga alerto sa badyet at mga notification ng savings milestone</li>
-      <li>Pagpoproseso ng mga larawan ng resibo sa pamamagitan ng OCR</li>
-    </ul>
-
-    <h4>5.2 Para Mapabuti ang Serbisyo</h4>
-    <ul>
-      <li>Pag-aralan ang anonymized na mga pattern ng paggamit upang mapabuti ang mga tampok ng app</li>
-      <li>Masuri at maayos ang mga teknikal na isyu</li>
-    </ul>
-
-    <h4>5.3 Para Makipag-ugnayan sa Inyo</h4>
-    <ul>
-      <li>Pagtugon sa mga kahilingan ng suporta sa kawkaw.app@gmail.com</li>
-      <li>Pagpapadala ng mga anunsyo ng serbisyo at mahahalagang update</li>
-    </ul>
-
-    <h4>5.4 Ano ang HINDI Namin Ginagawa</h4>
-    <ul>
-      <li>Hindi namin <strong>ibinebenta, inuupahan, o ipinagpapalit</strong> ang inyong personal na datos sa anumang third party</li>
-      <li>Hindi namin ginagamit ang inyong datos para sa advertising sa ibang mga plataporma</li>
-      <li>Hindi namin ibinabahagi ang indibidwal na datos sa pananalapi nang walang valid na legal na utos</li>
-      <li>Hindi namin ginagamit ang inyong datos para sanayin ang third-party na AI o machine learning model</li>
-      <li>Hindi namin ginagamit ang mga mapanlinlang na pattern ng disenyo (dark patterns), alinsunod sa <strong>NPC Advisory No. 2023-01</strong></li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 06</span>
-    <h3>Automated na Pagpoproseso at Profiling</h3>
-    <p>Alinsunod sa <strong>NPC Circular No. 2022-04</strong>, ang Gumi Save ay maaaring gumamit ng automated na pagpoproseso upang makabuo ng mga buod ng badyet, mga pananaw sa gastos, o mga mungkahi sa ipon batay sa datos na inyong inilalagay. Mga pagpapakita ng impormasyon lamang ito — walang automated na desisyon ang ginagawa na nagdudulot ng mga legal na epekto.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 07</span>
-    <h3>Pagbabahagi ng Datos at Mga Third-Party Sub-Processor</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Sub-Processor</th><th>Layunin</th><th>Datos na Ibinabahagi</th><th>Lokasyon</th></tr>
-        <tr><td>Supabase</td><td>Hosting ng database at authentication</td><td>Account data, budget data</td><td>US/EU (ISO 27001)</td></tr>
-        <tr><td>Meta (Facebook)</td><td>Social login via Facebook</td><td>Profile name, email, kaarawan</td><td>Global</td></tr>
-        <tr><td>Expo / EAS</td><td>Deployment ng app at push notification</td><td>Device push token</td><td>US</td></tr>
-      </table>
-    </div>
-    <p>Lahat ng sub-processor ay napapailalim sa Mga Kasunduan sa Pagpoproseso ng Datos (DPA), alinsunod sa <strong>NPC Advisory No. 2024-01</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 08</span>
-    <h3>Pagtatago at Pagtanggal ng Datos</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Uri ng Datos</th><th>Panahon ng Pagtatago</th></tr>
-        <tr><td>Account at Facebook login data</td><td>Para sa tagal ng account + 30 araw pagkatapos ng kahilingang tanggalin</td></tr>
-        <tr><td>Budget at datos sa pananalapi</td><td>Para sa tagal ng account + 30 araw pagkatapos ng kahilingang tanggalin</td></tr>
-        <tr><td>Mga crash log at teknikal na datos</td><td>90 araw, pagkatapos ay awtomatikong tinatanggal</td></tr>
-        <tr><td>Mga backup</td><td>Hanggang 30 araw pagkatapos ng pangunahing pagtanggal</td></tr>
-        <tr><td>Mga rekord ng legal na pagsunod</td><td>Ayon sa naaangkop na batas ng Pilipinas</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 09</span>
-    <h3>Seguridad ng Datos</h3>
-    <p>Ang aming mga hakbang sa seguridad ay sumusunod sa <strong>NPC Circular No. 2023-06</strong>:</p>
-    <h4>Teknikal na Hakbang</h4>
-    <ul>
-      <li>Lahat ng datos sa transit ay naka-encrypt gamit ang TLS 1.2 o mas mataas</li>
-      <li>Ang imbakan ng database ay naka-encrypt gamit ang AES-256</li>
-      <li>Mahigpit na kontrol ng pag-access batay sa tungkulin (RBAC)</li>
-    </ul>
-    <h4>Mandatory na Two-Step na Pamamaraan sa Personal Data Breach</h4>
-    <div class="step-block">
-      <div class="step-label">Hakbang 1 — Sa loob ng 72 oras mula sa pagkatuklas</div>
+    <div class="section">
+      <h2>3. AI Data Processing</h2>
+      <div class="highlight"><p>Your privacy during AI processing is a top priority.</p></div>
       <ul>
-        <li>Aabisuhan ang NPC sa pamamagitan ng opisyal na <strong>NPC DBNMS</strong></li>
-        <li>Aabisuhan ang mga apektadong data subject nang indibidwal sa pamamagitan ng email</li>
-        <li>Kung kinabibilangan ng 100 o higit pang data subjects — agarang abiso</li>
+        <li>Selfie photos and personal data (age, skin type, concerns, region, analysis history, product/routine history) are sent to AI services for real-time analysis.</li>
+        <li><strong>Your email address and account ID are never sent to AI services.</strong></li>
+        <li>Data is processed in real-time and <strong>not stored on third-party AI servers</strong> after analysis is complete.</li>
+        <li>Your data is <strong>never used to train AI models</strong>.</li>
       </ul>
     </div>
-    <div class="step-block">
-      <div class="step-label">Hakbang 2 — Sa loob ng 5 araw ng negosyo</div>
+
+    <div class="section">
+      <h2>4. Data Sharing and Disclosure</h2>
+      <p>We do not sell, rent, or trade your personal information. We may share your information only in the following circumstances:</p>
       <ul>
-        <li>Mag-submit ng kumpletong detalyadong ulat ng paglabag sa NPC sa pamamagitan ng DBNMS</li>
+        <li><strong>Service Providers:</strong> Trusted third-party services that help us operate the App (e.g., cloud hosting, AI analysis providers). These providers are contractually obligated to protect your data.</li>
+        <li><strong>Legal Requirements:</strong> When required by law, regulation, legal process, or government request.</li>
+        <li><strong>Safety:</strong> To protect the rights, property, or safety of KawKaw, our users, or the public.</li>
+        <li><strong>Business Transfer:</strong> In connection with a merger, acquisition, or sale of assets, with equivalent privacy protections.</li>
       </ul>
     </div>
-  </div>
 
-  <div class="policy-section">
-    <span class="section-number">Seksyon 10</span>
-    <h3>Inyong Mga Karapatan bilang Isang Data Subject</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Karapatan</th><th>Paglalarawan</th><th>Paano Gamitin</th></tr>
-        <tr><td><strong>Karapatang Maabisuhan</strong></td><td>Malaman kung paano kinokolekta at ginagamit ang inyong datos</td><td>Ang Patakarang ito</td></tr>
-        <tr><td><strong>Karapatang Mag-access</strong></td><td>Humiling ng kopya ng inyong personal na datos</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Karapatang Itama</strong></td><td>Itama ang hindi tumpak o hindi kumpletong datos</td><td>In-app Settings o kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Karapatang Tanggalin / I-block</strong></td><td>Humiling ng pagtanggal o pag-block ng inyong datos</td><td>"Delete Account" sa app o kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Karapatang Tumutol</strong></td><td>Tumutol sa pagpoproseso para sa profiling o marketing</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Karapatang sa Portability</strong></td><td>Matanggap ang inyong datos sa machine-readable na format</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Karapatang Mag-reklamo</strong></td><td>Maghain ng reklamo sa NPC</td><td>www.privacy.gov.ph</td></tr>
-        <tr><td><strong>Karapatang sa Danyos</strong></td><td>Humingi ng kabayaran para sa mga paglabag</td><td>Sa pamamagitan ng NPC o korte</td></tr>
-      </table>
-    </div>
-    <div class="callout">
-      <strong>Pamamaraan sa Pag-withdraw ng Pahintulot (NPC Circular 2023-04)</strong>
-      I-email ang kawkaw.app@gmail.com na may subject na "Withdraw Consent". Ihihinto namin ang pagpoproseso sa loob ng <strong>15 araw ng negosyo</strong> at magpapadala ng kumpirmasyon.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 11</span>
-    <h3>Edad at Pagiging Karapat-dapat</h3>
-    <p>Ang Gumi Save ay isang aplikasyon sa pagtatala ng gastos sa tahanan na walang tampok na pagpoproseso ng pagbabayad, walang transaksyon sa pananalapi, at walang nilalaman na may paghihigpit sa edad. <strong>Walang minimum na limitasyon sa edad para sa app na ito.</strong></p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 12</span>
-    <h3>Facebook Login</h3>
-    <p>Kapag nag-sign in kayo gamit ang Facebook, matatanggap lamang namin ang datos na inilarawan sa Seksyon 3.1. Maaari ninyong bawiin ang aming access anumang oras: <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Remove</strong>.</p>
-    <p>Upang bawiin lamang ang pahintulot sa pag-post (nang hindi inaalis ang login): <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions → Alisin ang "Mag-publish sa inyong timeline"</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 13</span>
-    <h3>Internasyonal na Paglipat ng Datos</h3>
-    <p>Ang ilang sub-processor ay matatagpuan sa labas ng Pilipinas (US, EU). Ang lahat ng paglipat ay pinamamahalaan ng mga Kasunduan sa Pagpoproseso ng Datos na naglalaman ng Model Contractual Clauses alinsunod sa <strong>NPC Advisory No. 2024-01</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 14</span>
-    <h3>Privacy Impact Assessment</h3>
-    <p>Bago ipakilala ang anumang bagong aktibidad sa pagpoproseso ng datos, ang KawKaw.dev ay nagsasagawa ng Privacy Impact Assessment (PIA) upang matukoy at maiwasan ang mga panganib sa pagkapribado, alinsunod sa mga alituntunin ng NPC.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 15</span>
-    <h3>Mga Pagbabago sa Patakarang Ito</h3>
-    <p>Aabisuhan namin kayo ng mga mahahalagang pagbabago sa pamamagitan ng in-app na abiso at/o email nang hindi bababa sa <strong>30 araw</strong> bago magkabisa ang mga pagbabago.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 16</span>
-    <h3>Makipag-ugnayan sa Amin</h3>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
-    </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">Pambansang Komisyon sa Pagkapribado</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
-    </div>
-  </div>
-
-</div><!-- /lang-tl -->
-
-
-<!-- ===================== CEBUANO ===================== -->
-<div id="lang-ceb" class="policy-content">
-
-  <div class="doc-header">
-    <div class="doc-header-left">
-      <div class="doc-title">Polisiya sa Pribasidad</div>
-      <div class="doc-meta">
-        <span>Bersyon 1.2</span>
-        <span>Petsa sa Epekto: Marso 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge ceb">🌺 Bisaya</span>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Talaan sa Sulod</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Pasiuna</div>
-      <div class="toc-item"><span class="toc-num">02</span> Data Controller</div>
-      <div class="toc-item"><span class="toc-num">03</span> Datos nga Gikolekta</div>
-      <div class="toc-item"><span class="toc-num">04</span> Legal nga Basehan</div>
-      <div class="toc-item"><span class="toc-num">05</span> Paggamit sa Datos</div>
-      <div class="toc-item"><span class="toc-num">06</span> Awtomatiko nga Proseso</div>
-      <div class="toc-item"><span class="toc-num">07</span> Pagpaambit sa Datos</div>
-      <div class="toc-item"><span class="toc-num">08</span> Pagtipig sa Datos</div>
-      <div class="toc-item"><span class="toc-num">09</span> Seguridad</div>
-      <div class="toc-item"><span class="toc-num">10</span> Imong mga Katungod</div>
-      <div class="toc-item"><span class="toc-num">11</span> Edad ug Kwalipikasyon</div>
-      <div class="toc-item"><span class="toc-num">12</span> Facebook Login</div>
-      <div class="toc-item"><span class="toc-num">13</span> Internasyonal nga Pagsalin</div>
-      <div class="toc-item"><span class="toc-num">14</span> Privacy Impact Assessment</div>
-      <div class="toc-item"><span class="toc-num">15</span> Mga Pagbag-o</div>
-      <div class="toc-item"><span class="toc-num">16</span> Pakig-ugnod</div>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 01</span>
-    <h3>Pasiuna</h3>
-    <p>Maayong pag-abot sa <strong>Gumi Save</strong>, usa ka personal nga aplikasyon sa pagdumala sa gastos sa balay nga gipadagan sa KawKaw.dev. Kami nakatuon sa pagprotekta sa imong personal nga impormasyon sumala sa:</p>
-    <ul>
-      <li><strong>RA 10173</strong> — Data Privacy Act of 2012 ug ang IRR niini</li>
-      <li><strong>NPC Circular No. 2022-01</strong> — Mga Tukdoan sa Administrative Fines</li>
-      <li><strong>NPC Circular No. 2022-04</strong> — Pagparehistro sa Data Processing System ug DPO</li>
-      <li><strong>NPC Circular No. 2023-04</strong> — Mga Tukdoan sa Pagtugot (Consent)</li>
-      <li><strong>NPC Circular No. 2023-06</strong> — Minimum nga mga Kinahanglanon sa Seguridad</li>
-      <li><strong>NPC Advisory No. 2023-01</strong> — Mga Tukdoan sa Mapang-aghat nga Disenyo (Dark Patterns)</li>
-      <li><strong>NPC Advisory No. 2024-01</strong> — Model Contractual Clauses alang sa Cross-Border nga Pagsalin</li>
-      <li><strong>RA 10175</strong> — Cybercrime Prevention Act of 2012</li>
-    </ul>
-    <div class="callout">
-      <strong>Importante</strong>
-      Ang Gumi Save usa ka <strong>himan lamang sa pagrekord sa gastos sa balay</strong> — walay tampok sa bayad, pagsalin sa salapi, o sugal. Walay tinuod nga salapi ang moagi niini nga app.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 02</span>
-    <h3>Impormasyon sa Data Controller ug Pagparehistro</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Field</th><th>Detalye</th></tr>
-        <tr><td><strong>Kompanya</strong></td><td>KawKaw.dev</td></tr>
-        <tr><td><strong>Serbisyo</strong></td><td>Gumi Save — Household Budget App</td></tr>
-        <tr><td><strong>Tanan nga Pangutana</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Data Protection Officer (DPO)</strong></td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Status sa Pagparehistro sa NPC</strong></td><td><strong>Wala pay pagparehistro.</strong> Ang KawKaw.dev wala pay naabtan ang mandatory nga mga threshold sa pagparehistro ubos sa RA 10173 ug NPC Circular 2022-04.</td></tr>
-        <tr><td><strong>Pangalagad sa Pagparehistro</strong></td><td>Magparehistro ang KawKaw.dev sa NPC sa diha nga maabtan ang bisan hisang threshold, sumala sa NPC Circular 2022-04.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 03</span>
-    <h3>Personal nga Datos nga Amon Gikolekta</h3>
-    <p>Ang Gumi Save nagkolekta lamang sa pinakagamay nga datos nga gikinahanglan aron mapadagan ang serbisyo (prinsipyo sa data minimization).</p>
-
-    <h4>3.1 Datos sa Facebook Login</h4>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Datos</th><th>Katuyoan</th></tr>
-        <tr><td>Profile name (display name)</td><td>Aron maila ug mapakita ang imong account</td></tr>
-        <tr><td>Email address</td><td>Paghimo sa account, pag-log in, ug mga abiso sa serbisyo</td></tr>
-        <tr><td>Adlaw sa pagkatawo</td><td>Paghatag sa serbisyo base sa edad sumala sa Facebook API</td></tr>
-      </table>
-    </div>
-    <p>Dili namo ma-access ang imong listahan sa mga higala sa Facebook, mga post, mensahe, likes, o bisan unsang ubang datos sa Facebook.</p>
-    <div class="callout">
-      <strong>Opsyonal nga Bahin sa Pagpaambit sa Facebook</strong>
-      Kung pilion nimong ipaambit ang usa ka savings milestone, ang App mohangyo sa imong hayag nga pagtugot sa wala pa mag-post sa imong Facebook timeline. Kini nga bahin hingpit nga opt-in. Mahimo nimong bawion ang pagtugot bisan kanus-a pinaagi sa: Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions.
-    </div>
-
-    <h4>3.2 Datos sa Gastos sa Balay</h4>
-    <ul>
-      <li>Mga rekord sa kita ug gasto (mga kantidad, petsa, kategorya)</li>
-      <li>Mga pag-allocate sa envelope budget ug mga balanse</li>
-      <li>Mga tumong sa pagtipig, target nga kantidad, ug mga nota sa progreso</li>
-      <li>Mga paghulagway sa transaksyon ug personal nga mga nota</li>
-      <li>Mga hulagway sa resibo (sa diha lang nga boluntaryo nimong gamiton ang bahin sa pag-scan)</li>
-    </ul>
-
-    <h4>3.3 Unsa ang DILI Namo Gikolekta</h4>
-    <ul>
-      <li>Eksakto nga lokasyon sa GPS</li>
-      <li>Mga contact o call log sa device</li>
-      <li>Mga mensahe sa SMS</li>
-      <li>Numero sa bank account, credit card, o bisan unsang kredensyal sa bayad</li>
-      <li>GCash o Maya account credentials, password, o PIN</li>
-      <li>Bisan unsang datos gikan sa ubang mga app sa imong device</li>
-      <li>Mga identifier sa device gawas sa gikinahanglan alang sa mga push notification</li>
-    </ul>
-    <div class="callout">
-      <strong>Giplano nga Integrasyon sa GCash / Maya:</strong> Ang sunod nga bersyon sa app gilaraw nga adunay opsyonal nga pag-link sa GCash ug Maya account. Kung ipaila kini nga bahin, usa ka na-update nga Polisiya sa Pribasidad ug hayag nga opt-in consent ang ipakita kanimo sa wala pa ma-access ang bisan unsang datos sa payment account.
-    </div>
-
-    <h4>3.4 Teknikal nga Datos (Awtomatiko nga Gikolekta)</h4>
-    <ul>
-      <li>Numero sa bersyon sa app</li>
-      <li>Uri ug bersyon sa operating system (Android/iOS)</li>
-      <li>Mga crash log ug ulat sa error (anonymized)</li>
-      <li>Kagustuhan sa pinulongan</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 04</span>
-    <h3>Legal nga Basehan sa Pagproseso</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Aktibidad sa Pagproseso</th><th>Legal nga Basehan</th></tr>
-        <tr><td>Paghimo sa account pinaagi sa Facebook Login</td><td>Kinahanglan sa kontrata + Pagtugot</td></tr>
-        <tr><td>Pagtipig ug pag-sync sa datos sa badyet</td><td>Kinahanglan sa kontrata</td></tr>
-        <tr><td>Mga crash log ug pagmonitor sa performance</td><td>Lehitimong interes</td></tr>
-        <tr><td>Anonymized nga pinagsama nga analytics</td><td>Lehitimong interes</td></tr>
-        <tr><td>Pagsunod sa mga mando sa korte o NPC</td><td>Legal nga obligasyon</td></tr>
-      </table>
-    </div>
-    <div class="callout"><strong>Mga Marketing Notification:</strong> Kini nga bahin wala pa karon. Kung ipaila sa sunod nga bersyon, usa ka hiwalay nga opt-in consent ang ihangyo.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 05</span>
-    <h3>Unsaon Namo Paggamit ang Imong Datos</h3>
-
-    <h4>5.1 Aron Mahatag ang Serbisyo</h4>
-    <ul>
-      <li>Paghimo ug pagpadayon sa imong Gumi Save account</li>
-      <li>Pagtipig ug pag-sync sa imong datos sa badyet sa imong mga device</li>
-      <li>Pagbuhat sa mga ulat sa pagtipig, buod sa badyet, ug mga visual sa progreso</li>
-      <li>Pagpadala sa mga alerto sa badyet ug mga abiso sa savings milestone</li>
-    </ul>
-
-    <h4>5.2 Aron Mapauswag ang Serbisyo</h4>
-    <ul>
-      <li>Pag-analyze sa anonymized nga mga pattern sa paggamit aron mapauswag ang mga bahin sa app</li>
-      <li>Pag-diagnose ug pagtul-id sa mga teknikal nga problema</li>
-    </ul>
-
-    <h4>5.3 Aron Makigsulti Kanimo</h4>
-    <ul>
-      <li>Pagtubag sa mga hangyo sa suporta sa kawkaw.app@gmail.com</li>
-      <li>Pagpadala sa mga anunsyo sa serbisyo ug importanteng mga update</li>
-    </ul>
-
-    <h4>5.4 Unsa ang DILI Namo Ginahimo</h4>
-    <ul>
-      <li>Dili namo <strong>ibaligya, ipaabang, o ipatrao</strong> ang imong personal nga datos sa bisan unsang third party</li>
-      <li>Dili namo gamiton ang imong datos alang sa advertising sa ubang mga plataporma</li>
-      <li>Dili namo ipaambit ang indibidwal nga datos sa pinansyal nga walay valid nga legal nga mando</li>
-      <li>Dili namo gamiton ang imong datos aron saulohon ang third-party nga AI o machine learning model</li>
-      <li>Dili namo gamiton ang mga mapang-aghat nga pattern sa disenyo (dark patterns), sumala sa <strong>NPC Advisory No. 2023-01</strong></li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 06</span>
-    <h3>Awtomatiko nga Pagproseso ug Profiling</h3>
-    <p>Sumala sa <strong>NPC Circular No. 2022-04</strong>, ang Gumi Save mahimong mogamit sa awtomatiko nga pagproseso aron makahimo sa mga buod sa badyet, mga pananaw sa gasto, o mga sugyot sa pagtipig. Mga pagpakita lamang kini sa impormasyon — walay awtomatiko nga desisyon nga makahimo og legal nga epekto.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 07</span>
-    <h3>Pagpaambit sa Datos ug mga Third-Party Sub-Processor</h3>
-    <p>Dili namo ibaligya ang imong datos. Giapil lamang namo kini sa mga pinagkakatiwalaang service provider nga kontraktwal nga nakatakda sa pagpanalipod niini sumala sa RA 10173.</p>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Sub-Processor</th><th>Katuyoan</th><th>Datos nga Gipaambit</th><th>Lokasyon</th></tr>
-        <tr><td>Supabase</td><td>Hosting sa database ug authentication</td><td>Account data, budget data</td><td>US/EU (ISO 27001)</td></tr>
-        <tr><td>Meta (Facebook)</td><td>Social login via Facebook</td><td>Profile name, email, adlaw sa pagkatawo</td><td>Global</td></tr>
-        <tr><td>Expo / EAS</td><td>Pag-deploy sa app ug push notification</td><td>Device push token</td><td>US</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 08</span>
-    <h3>Pagtipig ug Pagtanggal sa Datos</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Uri sa Datos</th><th>Panahon sa Pagtipig</th></tr>
-        <tr><td>Account ug Facebook login data</td><td>Para sa tagal sa account + 30 ka adlaw pagkahuman sa hangyo sa pagtanggal</td></tr>
-        <tr><td>Budget ug datos sa pinansyal</td><td>Para sa tagal sa account + 30 ka adlaw pagkahuman sa hangyo sa pagtanggal</td></tr>
-        <tr><td>Mga crash log ug teknikal nga datos</td><td>90 ka adlaw, unya awtomatiko nga matanggal</td></tr>
-        <tr><td>Mga backup</td><td>Hangtod 30 ka adlaw pagkahuman sa pangunahing pagtanggal</td></tr>
-        <tr><td>Mga rekord sa legal nga pagsunod</td><td>Sumala sa naaangkop nga balaod sa Pilipinas</td></tr>
-      </table>
-    </div>
-    <p>Pagkahuman sa panahon sa pagtipig, ang datos permanente ug dili na mabawi nga matanggal gikan sa among mga sistema ug sa tanan nga sub-processor.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 09</span>
-    <h3>Seguridad sa Datos</h3>
-    <p>Ang among mga lakang sa seguridad nagsunod sa <strong>NPC Circular No. 2023-06</strong>:</p>
-    <h4>Teknikal nga mga Lakang</h4>
-    <ul>
-      <li>Ang tanan nga datos sa transit naka-encrypt gamit ang TLS 1.2 o mas taas</li>
-      <li>Ang pagtipig sa database naka-encrypt gamit ang AES-256</li>
-      <li>Mahigpit nga kontrol sa pag-access base sa tungkulin (RBAC)</li>
-      <li>Ang mga authentication token luwas nga gitipigan ug regular nga giilis</li>
-    </ul>
-    <h4>Mandatory nga Two-Step nga Pamaagi sa Personal Data Breach</h4>
-    <div class="step-block">
-      <div class="step-label">Lakang 1 — Sulod sa 72 oras gikan sa pagkadiskubre</div>
+    <div class="section">
+      <h2>5. Data Retention</h2>
       <ul>
-        <li>Abisohan ang NPC pinaagi sa opisyal nga <strong>NPC DBNMS</strong></li>
-        <li>Abisohan ang mga apektadong data subject sa individual pinaagi sa email</li>
-        <li>Kung naglakip sa 100 o labaw pa ka data subjects o sensitive nga impormasyon — agarang abiso</li>
+        <li>Your account data is retained as long as your account is active.</li>
+        <li>Skin analysis photos and results are retained until you delete them or your account.</li>
+        <li>When you delete your account, all personal data is permanently removed from our servers within 30 days.</li>
+        <li>Anonymised, aggregated data may be retained for analytical purposes.</li>
       </ul>
     </div>
-    <div class="step-block">
-      <div class="step-label">Lakang 2 — Sulod sa 5 ka adlaw sa negosyo</div>
+
+    <div class="section">
+      <h2>6. Data Security</h2>
+      <p>We implement industry-standard security measures to protect your data:</p>
       <ul>
-        <li>Mag-submit sa kompleto ug detalyadong ulat sa paglabag sa NPC pinaagi sa DBNMS</li>
+        <li>Authentication tokens are stored using secure device storage (Keychain on iOS, Keystore on Android).</li>
+        <li>All data transmissions are encrypted using TLS/SSL.</li>
+        <li>Access to personal data is restricted to authorised personnel on a need-to-know basis.</li>
+        <li>We conduct regular security reviews of our infrastructure.</li>
+      </ul>
+      <p>While we strive to protect your information, no method of electronic storage or transmission is 100% secure. We cannot guarantee absolute security.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Your Rights</h2>
+      <p>Depending on your location, you may have the following rights:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of your personal data.</li>
+        <li><strong>Correction:</strong> Update or correct inaccurate data via the Profile settings.</li>
+        <li><strong>Deletion:</strong> Delete your account and all associated data from Settings &gt; Account &gt; Delete Account.</li>
+        <li><strong>Data Portability:</strong> Request your data in a portable format.</li>
+        <li><strong>Withdraw Consent:</strong> Withdraw consent for data processing at any time.</li>
+        <li><strong>Opt-Out:</strong> Opt out of marketing notifications from Settings.</li>
+      </ul>
+      <h3>For EU/EEA Users (GDPR)</h3>
+      <p>Our legal basis for processing your data includes: your consent, performance of our contract with you, and our legitimate interests in operating and improving the App. You may lodge a complaint with your local data protection authority.</p>
+      <h3>For California Residents (CCPA)</h3>
+      <p>You have the right to know what personal information we collect, request deletion, and opt out of the sale of personal information. We do not sell your personal information.</p>
+      <h3>For Korean Residents (PIPA)</h3>
+      <p>In accordance with the Personal Information Protection Act, you have the right to access, correct, delete, and suspend the processing of your personal data. Requests can be made through the App settings or by contacting us.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Children's Privacy</h2>
+      <p>The App is not intended for children under 16 years of age (or the applicable minimum age in your jurisdiction). We do not knowingly collect personal information from children under 16. If we discover that we have collected data from a child under 16, we will delete it promptly. If you believe a child has provided us with personal information, please contact us.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. International Data Transfers</h2>
+      <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. We ensure appropriate safeguards are in place to protect your data in compliance with applicable laws.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Third-Party Links and Services</h2>
+      <p>The App may contain links to third-party websites or services (e.g., product purchase links). We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Push Notifications</h2>
+      <p>With your permission, we may send push notifications for routine reminders, monthly rescan reminders, and service updates. You can manage notification preferences in Settings or through your device settings.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the App or via email. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ KOREAN ═══════════════ -->
+  <div lang="ko">
+    <h1>개인정보처리방침</h1>
+    <p class="date">시행일: 2025년 4월 17일</p>
+    <p>KawKaw(이하 "회사", "당사")는 Gumi Glowup 모바일 애플리케이션(이하 "앱")을 운영합니다. 본 개인정보처리방침은 귀하가 앱을 이용할 때 당사가 귀하의 정보를 어떻게 수집, 이용, 공개 및 보호하는지 설명합니다. 앱을 사용함으로써 귀하는 본 방침에 설명된 관행에 동의하게 됩니다.</p>
+
+    <div class="section">
+      <h2>1. 수집하는 정보</h2>
+      <h3>1.1 귀하가 제공하는 정보</h3>
+      <ul>
+        <li><strong>계정 정보:</strong> 이름, 이메일 주소, 비밀번호, 생년월일, 성별, 국가/지역.</li>
+        <li><strong>프로필 정보:</strong> 피부 타입, 피부 고민, 별자리(운세 기능용).</li>
+        <li><strong>사진:</strong> AI 피부 분석을 위해 촬영하는 셀카 사진.</li>
+        <li><strong>루틴 데이터:</strong> 사용 중인 스킨케어 제품, AM/PM 루틴 설정.</li>
+        <li><strong>문의 내용:</strong> 고객 지원팀에 보내는 메시지.</li>
+      </ul>
+      <h3>1.2 자동으로 수집되는 정보</h3>
+      <ul>
+        <li><strong>기기 정보:</strong> 기기 모델, 운영체제 버전, 고유 기기 식별자.</li>
+        <li><strong>이용 데이터:</strong> 앱 기능 사용 현황, 상호작용 패턴, 세션 시간.</li>
+        <li><strong>푸시 알림 토큰:</strong> 귀하가 동의한 알림 전송용.</li>
+      </ul>
+      <h3>1.3 수집하지 않는 정보</h3>
+      <ul>
+        <li>정밀 위치정보를 수집하지 않습니다.</li>
+        <li>연락처, 캘린더 또는 다른 앱에 접근하지 않습니다.</li>
+        <li>광고 추적기를 사용하거나 광고주에게 데이터를 판매하지 않습니다.</li>
       </ul>
     </div>
-    <p><strong>Tinuig nga Pag-report sa Seguridad:</strong> Nagsumite kami og Annual Security Incident Report (ASIR) pinaagi sa NPC DBNMS matag tuig.</p>
-  </div>
 
-  <div class="policy-section">
-    <span class="section-number">Seksyon 10</span>
-    <h3>Imong mga Katungod isip Data Subject</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Katungod</th><th>Paghulagway</th><th>Unsaon Paggamit</th></tr>
-        <tr><td><strong>Katungod nga Mahibaloan</strong></td><td>Mahibalo kung unsaon pagkolekta ug paggamit sa imong datos</td><td>Kini nga Polisiya</td></tr>
-        <tr><td><strong>Katungod sa Pag-access</strong></td><td>Mohangyo og kopya sa imong personal nga datos</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katungod sa Pagkoreksyon</strong></td><td>Itulod ang dili tukma o dili kompleto nga datos</td><td>In-app Settings o kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katungod sa Pagtanggal / Pag-block</strong></td><td>Mohangyo sa pagtanggal o pag-block sa imong datos</td><td>"Delete Account" sa app o kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katungod sa Pagsupak</strong></td><td>Supaki ang pagproseso alang sa profiling o marketing</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katungod sa Portability</strong></td><td>Makadawat sa imong datos sa machine-readable nga format</td><td>kawkaw.app@gmail.com</td></tr>
-        <tr><td><strong>Katungod sa Pag-reklamo</strong></td><td>Mag-file og reklamo sa NPC</td><td>www.privacy.gov.ph</td></tr>
-        <tr><td><strong>Katungod sa Kompensasyon</strong></td><td>Mohangyo og bayad-silot alang sa mga paglabag sa RA 10173</td><td>Pinaagi sa NPC o korte</td></tr>
-      </table>
+    <div class="section">
+      <h2>2. 정보 이용 목적</h2>
+      <ul>
+        <li><strong>피부 분석:</strong> 셀카 사진을 AI로 처리하여 피부 상태(수분, 탄력, 모공, 색소침착, 주름)를 분석하고 피부 나이를 추정합니다.</li>
+        <li><strong>맞춤형 추천:</strong> 피부 타입, 고민, 나이, 분석 결과를 활용하여 스킨케어 제품과 루틴을 추천합니다.</li>
+        <li><strong>운세 기능:</strong> 이름, 생년월일, 성별, 별자리를 사용하여 일일 운세를 생성합니다.</li>
+        <li><strong>앱 기능 제공:</strong> 계정 관리, 스킨케어 루틴 스트릭 추적, 알림 전송.</li>
+        <li><strong>서비스 개선:</strong> 집계된 비식별 이용 데이터를 서비스 개선에 활용합니다.</li>
+        <li><strong>소통:</strong> 고객 문의 답변 및 중요한 서비스 업데이트 안내.</li>
+      </ul>
     </div>
-    <div class="callout">
-      <strong>Pamaagi sa Pag-withdraw sa Pagtugot (NPC Circular 2023-04)</strong>
-      I-email ang kawkaw.app@gmail.com nga adunay subject nga "Withdraw Consent". Ihunong namo ang pagproseso sulod sa <strong>15 ka adlaw sa negosyo</strong> ug magpadala og kumpirmasyon sa email.
+
+    <div class="section">
+      <h2>3. AI 데이터 처리</h2>
+      <div class="highlight"><p>당사는 AI 처리 과정에서의 개인정보 보호를 최우선으로 합니다.</p></div>
+      <ul>
+        <li>셀카 사진과 개인 데이터(나이, 피부 타입, 고민, 지역, 분석 이력, 제품/루틴 이력)는 실시간 분석을 위해 AI 서비스로 전송됩니다.</li>
+        <li><strong>이메일 주소와 계정 ID는 AI 서비스로 절대 전송되지 않습니다.</strong></li>
+        <li>데이터는 실시간으로 처리되며 분석 완료 후 <strong>제3자 AI 서버에 저장되지 않습니다</strong>.</li>
+        <li>귀하의 데이터는 <strong>AI 모델 학습에 절대 사용되지 않습니다</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. 정보 공유 및 공개</h2>
+      <p>당사는 귀하의 개인정보를 판매, 임대 또는 거래하지 않습니다. 다음의 경우에만 정보를 공유할 수 있습니다:</p>
+      <ul>
+        <li><strong>서비스 제공업체:</strong> 앱 운영을 돕는 신뢰할 수 있는 제3자 서비스(예: 클라우드 호스팅, AI 분석 제공업체). 이들 제공업체는 계약상 귀하의 데이터를 보호할 의무가 있습니다.</li>
+        <li><strong>법적 요구:</strong> 법률, 규정, 법적 절차 또는 정부 요청에 의해 요구되는 경우.</li>
+        <li><strong>안전:</strong> KawKaw, 사용자 또는 공공의 권리, 재산 또는 안전을 보호하기 위한 경우.</li>
+        <li><strong>사업 양도:</strong> 합병, 인수 또는 자산 매각과 관련하여, 동등한 개인정보 보호가 보장되는 경우.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. 데이터 보유 기간</h2>
+      <ul>
+        <li>계정 데이터는 계정이 활성화되어 있는 동안 보유됩니다.</li>
+        <li>피부 분석 사진과 결과는 귀하가 삭제하거나 계정을 탈퇴할 때까지 보유됩니다.</li>
+        <li>계정을 삭제하면 모든 개인 데이터가 30일 이내에 서버에서 영구적으로 제거됩니다.</li>
+        <li>비식별화된 집계 데이터는 분석 목적으로 보유될 수 있습니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 데이터 보안</h2>
+      <p>당사는 귀하의 데이터를 보호하기 위해 업계 표준 보안 조치를 시행합니다:</p>
+      <ul>
+        <li>인증 토큰은 보안 기기 저장소(iOS Keychain, Android Keystore)를 사용하여 저장됩니다.</li>
+        <li>모든 데이터 전송은 TLS/SSL로 암호화됩니다.</li>
+        <li>개인 데이터에 대한 접근은 필요한 경우에만 권한이 부여된 담당자로 제한됩니다.</li>
+        <li>인프라에 대한 정기적인 보안 검토를 실시합니다.</li>
+      </ul>
+      <p>당사는 귀하의 정보를 보호하기 위해 최선을 다하지만, 전자 저장 또는 전송 방법이 100% 안전한 것은 아닙니다. 절대적인 보안을 보장할 수 없습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. 귀하의 권리</h2>
+      <p>거주 지역에 따라 다음과 같은 권리를 가질 수 있습니다:</p>
+      <ul>
+        <li><strong>접근:</strong> 개인 데이터의 사본을 요청할 수 있습니다.</li>
+        <li><strong>정정:</strong> 프로필 설정을 통해 부정확한 데이터를 업데이트하거나 수정할 수 있습니다.</li>
+        <li><strong>삭제:</strong> 설정 &gt; 계정 &gt; 계정 삭제에서 계정과 관련된 모든 데이터를 삭제할 수 있습니다.</li>
+        <li><strong>데이터 이동:</strong> 이동 가능한 형식으로 데이터를 요청할 수 있습니다.</li>
+        <li><strong>동의 철회:</strong> 언제든지 데이터 처리에 대한 동의를 철회할 수 있습니다.</li>
+        <li><strong>수신 거부:</strong> 설정에서 마케팅 알림을 거부할 수 있습니다.</li>
+      </ul>
+      <h3>EU/EEA 거주자 (GDPR)</h3>
+      <p>당사의 데이터 처리 법적 근거에는 귀하의 동의, 귀하와의 계약 이행, 앱 운영 및 개선에 대한 당사의 정당한 이익이 포함됩니다. 현지 데이터 보호 기관에 불만을 제기할 수 있습니다.</p>
+      <h3>캘리포니아 거주자 (CCPA)</h3>
+      <p>당사가 수집하는 개인정보의 내용을 알 권리, 삭제를 요청할 권리, 개인정보 판매를 거부할 권리가 있습니다. 당사는 귀하의 개인정보를 판매하지 않습니다.</p>
+      <h3>한국 거주자 (개인정보보호법)</h3>
+      <p>개인정보보호법에 따라, 귀하는 개인정보의 열람, 정정, 삭제 및 처리 정지를 요구할 권리가 있습니다. 앱 설정을 통해 또는 당사에 연락하여 요청할 수 있습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. 아동의 개인정보 보호</h2>
+      <p>본 앱은 16세 미만(또는 귀하의 관할권에서 적용되는 최소 연령 미만)의 아동을 대상으로 하지 않습니다. 당사는 16세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다. 16세 미만 아동의 데이터를 수집한 것을 발견하면 즉시 삭제합니다. 아동이 당사에 개인정보를 제공한 것으로 판단되시면 당사에 연락해 주시기 바랍니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. 국제 데이터 이전</h2>
+      <p>귀하의 정보는 거주 국가 이외의 국가로 전송되어 처리될 수 있습니다. 해당 국가들의 데이터 보호법은 다를 수 있습니다. 당사는 관련 법률을 준수하여 귀하의 데이터를 보호하기 위한 적절한 안전조치를 마련합니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 제3자 링크 및 서비스</h2>
+      <p>앱에는 제3자 웹사이트 또는 서비스(예: 제품 구매 링크)로의 링크가 포함될 수 있습니다. 당사는 이러한 제3자의 개인정보 보호 관행에 대해 책임지지 않습니다. 해당 업체의 개인정보처리방침을 검토하시기 바랍니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. 푸시 알림</h2>
+      <p>귀하의 동의 하에, 루틴 알림, 월간 리스캔 알림 및 서비스 업데이트를 위한 푸시 알림을 보낼 수 있습니다. 설정 또는 기기 설정에서 알림 환경설정을 관리할 수 있습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. 방침의 변경</h2>
+      <p>당사는 수시로 본 개인정보처리방침을 업데이트할 수 있습니다. 중요한 변경 사항은 앱 또는 이메일을 통해 알려드립니다. 변경 후 앱을 계속 사용하면 업데이트된 방침에 동의하는 것으로 간주됩니다.</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. 문의처</h2>
+      <p>본 개인정보처리방침 또는 당사의 데이터 관행에 대해 질문이나 우려 사항이 있으시면 아래로 연락해 주시기 바랍니다:</p>
+      <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
     </div>
   </div>
 
-  <div class="policy-section">
-    <span class="section-number">Seksyon 11</span>
-    <h3>Edad ug Kwalipikasyon</h3>
-    <p>Ang Gumi Save usa ka aplikasyon sa pagrekord sa gastos sa balay nga walay tampok sa pagproseso sa bayad, walay transaksyon sa pinansyal, ug walay sulod nga adunay pagdili sa edad. <strong>Walay minimum nga limitasyon sa edad alang niini nga app.</strong></p>
-    <p>Kung matuklasan namo nga ang datos sa usa ka menor de edad nakolekta sa paagi nga supak sa mga naaangkop nga balaod, dayon kaming magsagop og angay nga aksyon. Ang mga ginikanan o guardian mahimong makig-ugnod sa kawkaw.app@gmail.com.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 12</span>
-    <h3>Facebook Login</h3>
-    <p>Kung mag-sign in ka gamit ang Facebook, makadawat lamang kami sa datos nga gihulagway sa Seksyon 3.1. Mahimo nimong bawion ang among access bisan kanus-a: <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Remove</strong>.</p>
-    <p>Aron bawion lamang ang pagtugot sa pag-post (nga dili tanggalon ang login): <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites → Gumi Save → Permissions → Tanggala ang "Mag-publish sa imong timeline"</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 13</span>
-    <h3>Internasyonal nga Pagsalin sa Datos</h3>
-    <p>Ang pipila ka sub-processor nahimutang sa gawas sa Pilipinas (US, EU). Ang tanan nga ingon nga mga pagsalin gipadagan sa mga Kasunduan sa Pagproseso sa Datos nga naglakip sa Model Contractual Clauses sumala sa <strong>NPC Advisory No. 2024-01</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 14</span>
-    <h3>Privacy Impact Assessment</h3>
-    <p>Sa wala pa ipakilala ang bisan unsang bag-ong aktibidad sa pagproseso sa datos, ang KawKaw.dev nagsagop sa Privacy Impact Assessment (PIA) aron mahibaloan ug maminusan ang mga risgo sa pribasidad, sumala sa mga tukdoan sa NPC.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 15</span>
-    <h3>Mga Pagbag-o sa Kini nga Polisiya</h3>
-    <p>Ipahibalo namo kanimo ang mga hinungdanon nga kausaban pinaagi sa:</p>
-    <ul>
-      <li><strong>In-app nga abiso</strong> — labing menos 30 ka adlaw sa wala pa magkabisa ang pagbabago</li>
-      <li><strong>Email</strong> sa imong naregistrang address — labing menos 30 ka adlaw sa wala pa magkabisa</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 16</span>
-    <h3>Makig-ugnod Kanamo</h3>
-    <p>Alang sa tanan nga mga pangutana, hangyo, o reklamo nga may kalabotan sa pribasidad:</p>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
-    </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">National Privacy Commission (Pilipinas)</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
-    </div>
-  </div>
-
-</div><!-- /lang-ceb -->
-
-</div><!-- /content-wrapper -->
-
-<script>
-function switchLang(lang, btn) {
-  // Hide all
-  document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-  // Show selected
-  document.getElementById('lang-' + lang).classList.add('active');
-  btn.classList.add('active');
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-
+  <script>
+    function setLang(lang) {
+      document.body.className = lang === 'ko' ? 'ko' : '';
+      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
+      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      history.replaceState(null, '', '?lang=' + lang);
+    }
+    (function() {
+      var p = new URLSearchParams(location.search);
+      var lang = p.get('lang');
+      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      setLang(lang);
+    })();
+  </script>
 </body>
 </html>

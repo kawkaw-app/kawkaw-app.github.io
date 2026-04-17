@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Guide — Gumi Glowup</title>
+  <style>
+    :root{--bg:#fff;--bg2:#f8f9fa;--txt:#1a1a1a;--txt2:#6b7280;--border:#e5e7eb;--accent:#7C6BFF;--accent-bg:#ede9fe}
+    @media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--bg2:#2a2a2a;--txt:#f0f0f0;--txt2:#9ca3af;--border:#3a3a3a;--accent:#a78bfa;--accent-bg:#2e2654}}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:24px 20px 60px;max-width:720px;margin:0 auto;-webkit-text-size-adjust:100%}
+    h1{font-size:24px;font-weight:700;margin-bottom:8px}
+    h2{font-size:18px;font-weight:700;margin:32px 0 12px}
+    h3{font-size:15px;font-weight:600;margin:20px 0 8px}
+    p,li{font-size:14px;color:var(--txt2);margin-bottom:12px}
+    ul,ol{padding-left:20px;margin-bottom:16px}
+    li{margin-bottom:6px}
+    .subtitle{font-size:14px;color:var(--txt2);margin-bottom:24px}
+    .section{background:var(--bg2);border-radius:12px;padding:20px;margin-bottom:16px}
+    .section h2{margin-top:0}
+    a{color:var(--accent);text-decoration:none}
+    .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
+    .contact a{display:inline-block;margin-top:8px;font-weight:600}
+    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
+    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
+    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    [lang="ko"]{display:none}
+    .ko [lang="ko"]{display:block}
+    .ko [lang="en"]{display:none}
+    .step{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+    .step-badge{min-width:56px;padding:4px 8px;background:var(--accent-bg);color:var(--accent);border-radius:6px;font-size:12px;font-weight:600;text-align:center}
+    .step-title{font-weight:600;color:var(--txt);font-size:14px;margin-bottom:2px}
+    .step-desc{font-size:13px;color:var(--txt2)}
+    .faq-q{font-weight:600;color:var(--txt);font-size:14px;margin-bottom:4px}
+    .faq-a{font-size:13px;color:var(--txt2);padding-left:8px;border-left:2px solid var(--border);margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+  </div>
+
+  <!-- ═══════════════ ENGLISH ═══════════════ -->
+  <div lang="en">
+    <h1>Service Guide</h1>
+    <p class="subtitle">Everything you need to know about Gumi Glowup</p>
+
+    <div class="section">
+      <h2>1. What is Gumi Glowup?</h2>
+      <p>Gumi Glowup is an AI-powered skincare companion app that helps you understand your skin, build a personalised skincare routine, and track your skin's improvement over time. Simply take a selfie, and our AI analyses your skin to provide science-backed insights and recommendations.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Key Features</h2>
+
+      <h3>AI Skin Analysis</h3>
+      <ul>
+        <li>Take a selfie and receive an instant AI-powered skin analysis.</li>
+        <li>Get your estimated skin age based on five key metrics: Hydration, Elasticity, Pores, Pigmentation, and Wrinkles.</li>
+        <li>Receive detailed strengths and areas for improvement.</li>
+        <li>Retake monthly to track your skin's progress.</li>
+      </ul>
+
+      <h3>Personalised Product Recommendations</h3>
+      <ul>
+        <li>After your skin analysis, AI selects skincare products matched to your specific skin needs.</li>
+        <li>Products are categorised by type: Cleanser, Toner, Serum, Cream, SPF, and more.</li>
+        <li>Each recommendation includes the reason it was chosen for you.</li>
+      </ul>
+
+      <h3>Smart Routine Builder</h3>
+      <ul>
+        <li>AI creates optimised AM and PM skincare routines based on your products.</li>
+        <li>Step-by-step instructions for each product with application tips.</li>
+        <li>Set routine reminders to build consistent skincare habits.</li>
+        <li>Track your daily streak to stay motivated.</li>
+      </ul>
+
+      <h3>Skin Progress Tracking</h3>
+      <ul>
+        <li>View your skin age and score trends over time.</li>
+        <li>Compare before/after analysis results.</li>
+        <li>AI-generated insights on what's working and what to adjust.</li>
+        <li>Category-level breakdown to see exactly where you're improving.</li>
+      </ul>
+
+      <h3>Knowledge Articles</h3>
+      <ul>
+        <li>Curated skincare education content covering ingredients, routines, trouble care, and more.</li>
+        <li>Stay updated with the latest skincare trends and new product information.</li>
+      </ul>
+
+      <h3>Daily Fortune</h3>
+      <ul>
+        <li>Fun daily fortune readings personalised to you.</li>
+        <li>Skincare, beauty, and wellness tips included.</li>
+        <li>Check once per day for your daily dose of inspiration.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Getting Started</h2>
+      <div class="step"><div class="step-badge">Step 1</div><div><div class="step-title">Create Account</div><div class="step-desc">Sign up with email or continue with Google/Apple.</div></div></div>
+      <div class="step"><div class="step-badge">Step 2</div><div><div class="step-title">Set Up Profile</div><div class="step-desc">Tell us your name, birthday, region, skin type, and skin concerns.</div></div></div>
+      <div class="step"><div class="step-badge">Step 3</div><div><div class="step-title">Take Your First Glowup</div><div class="step-desc">Take a selfie in good lighting for your first skin analysis.</div></div></div>
+      <div class="step"><div class="step-badge">Step 4</div><div><div class="step-title">Get Product Picks</div><div class="step-desc">Review AI-selected products matched to your skin.</div></div></div>
+      <div class="step"><div class="step-badge">Step 5</div><div><div class="step-title">Build Your Routine</div><div class="step-desc">Set up your daily AM/PM skincare routine.</div></div></div>
+      <div class="step"><div class="step-badge">Step 6</div><div><div class="step-title">Track &amp; Improve</div><div class="step-desc">Follow your routine daily and retake the analysis monthly.</div></div></div>
+    </div>
+
+    <div class="section">
+      <h2>4. Subscription Plans</h2>
+      <h3>Free</h3>
+      <ul>
+        <li>Basic skin analysis</li>
+        <li>Limited product recommendations</li>
+        <li>Basic routine features</li>
+      </ul>
+      <h3>Premium — $9.99/month</h3>
+      <ul>
+        <li>Unlimited AI skin analyses</li>
+        <li>Full product recommendations with detailed insights</li>
+        <li>Advanced routine builder with AI feedback</li>
+        <li>Complete skin progress reports and AI insights</li>
+        <li>Priority support</li>
+      </ul>
+      <p>Subscriptions are managed through the Apple App Store or Google Play Store. You can cancel anytime from your store account settings.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Photo Tips for Best Results</h2>
+      <ul>
+        <li><strong>Lighting:</strong> Use bright, even, natural lighting. Avoid harsh shadows or backlighting.</li>
+        <li><strong>Position:</strong> Face the camera directly, keeping your face centred.</li>
+        <li><strong>Cleanliness:</strong> Remove makeup if possible for the most accurate analysis.</li>
+        <li><strong>Stability:</strong> Hold your device steady for a clear photo.</li>
+        <li><strong>Frequency:</strong> For best progress tracking, take a new analysis once per month.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Your Data &amp; Privacy</h2>
+      <ul>
+        <li>Your photos are stored securely and used only for skin analysis.</li>
+        <li>Your data is never sold to third parties or used for AI training.</li>
+        <li>You can delete all your data at any time from Settings.</li>
+        <li>Read our full <a href="privacy-policy.html">Privacy Policy</a> for more details.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Notifications</h2>
+      <p>Gumi Glowup can send helpful reminders to support your skincare journey:</p>
+      <ul>
+        <li><strong>Routine Reminders:</strong> Morning and evening notifications to follow your routine.</li>
+        <li><strong>Monthly Rescan:</strong> A monthly reminder to take a new skin analysis.</li>
+        <li><strong>Fortune:</strong> Daily fortune notification.</li>
+      </ul>
+      <p>All notifications are optional and can be managed from Settings &gt; Notification Settings.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Account Management</h2>
+      <ul>
+        <li><strong>Edit Profile:</strong> Update your name, skin type, and other information anytime from Settings.</li>
+        <li><strong>Change Language:</strong> Switch between supported languages from Settings.</li>
+        <li><strong>Dark Mode:</strong> Toggle dark mode for comfortable viewing.</li>
+        <li><strong>Log Out:</strong> Sign out from Settings. Your data is preserved.</li>
+        <li><strong>Delete Account:</strong> Permanently delete your account and all data from Settings &gt; Account &gt; Delete Account. This action cannot be undone.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Troubleshooting</h2>
+      <div class="faq-q">Q. My analysis failed</div>
+      <div class="faq-a">A. Ensure good lighting, face the camera directly, and hold still. Try removing makeup for a clearer photo.</div>
+      <div class="faq-q">Q. Products aren't loading</div>
+      <div class="faq-a">A. Check your internet connection and try again. Pull down to refresh.</div>
+      <div class="faq-q">Q. Notifications aren't working</div>
+      <div class="faq-a">A. Check that notifications are enabled in your device settings and in the App's notification settings.</div>
+      <div class="faq-q">Q. App is slow or crashing</div>
+      <div class="faq-a">A. Make sure you're running the latest version. Try closing and reopening the App.</div>
+    </div>
+
+    <div class="contact">
+      <h2>10. Contact &amp; Support</h2>
+      <p>We're here to help! If you have questions, feedback, or issues:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
+      <p style="font-size:12px;margin-top:8px;">We aim to respond to all inquiries within 48 hours.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ KOREAN ═══════════════ -->
+  <div lang="ko">
+    <h1>서비스 가이드</h1>
+    <p class="subtitle">Gumi Glowup에 대해 알아야 할 모든 것</p>
+
+    <div class="section">
+      <h2>1. Gumi Glowup이란?</h2>
+      <p>Gumi Glowup은 AI 기반 스킨케어 도우미 앱으로, 피부를 이해하고 맞춤형 스킨케어 루틴을 세우며 시간에 따른 피부 개선을 추적할 수 있도록 도와줍니다. 셀카를 찍기만 하면 AI가 피부를 분석하여 과학적 근거에 기반한 인사이트와 추천을 제공합니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. 주요 기능</h2>
+
+      <h3>AI 피부 분석</h3>
+      <ul>
+        <li>셀카를 찍으면 즉시 AI 기반 피부 분석을 받을 수 있습니다.</li>
+        <li>수분, 탄력, 모공, 색소침착, 주름 5가지 핵심 지표를 기반으로 추정 피부 나이를 확인합니다.</li>
+        <li>피부의 강점과 개선이 필요한 부분에 대한 상세한 분석을 제공합니다.</li>
+        <li>매월 재촬영하여 피부 변화를 추적할 수 있습니다.</li>
+      </ul>
+
+      <h3>맞춤형 제품 추천</h3>
+      <ul>
+        <li>피부 분석 후, AI가 피부에 맞는 스킨케어 제품을 선별합니다.</li>
+        <li>클렌저, 토너, 세럼, 크림, SPF 등 유형별로 분류됩니다.</li>
+        <li>각 추천에는 선택 이유가 포함됩니다.</li>
+      </ul>
+
+      <h3>스마트 루틴 빌더</h3>
+      <ul>
+        <li>AI가 선택한 제품을 기반으로 최적화된 아침/저녁 스킨케어 루틴을 생성합니다.</li>
+        <li>각 제품의 사용법과 팁을 단계별로 안내합니다.</li>
+        <li>루틴 알림을 설정하여 일관된 스킨케어 습관을 만들 수 있습니다.</li>
+        <li>매일 스트릭을 추적하여 동기 부여를 유지합니다.</li>
+      </ul>
+
+      <h3>피부 변화 추적</h3>
+      <ul>
+        <li>시간에 따른 피부 나이와 점수 변화를 확인합니다.</li>
+        <li>이전/이후 분석 결과를 비교할 수 있습니다.</li>
+        <li>효과가 있는 것과 조정이 필요한 것에 대한 AI 인사이트를 제공합니다.</li>
+        <li>카테고리별 분석으로 정확히 어디가 개선되고 있는지 확인합니다.</li>
+      </ul>
+
+      <h3>지식 아티클</h3>
+      <ul>
+        <li>성분, 루틴, 트러블 케어 등 스킨케어 교육 콘텐츠를 큐레이션합니다.</li>
+        <li>최신 스킨케어 트렌드와 신제품 정보를 확인할 수 있습니다.</li>
+      </ul>
+
+      <h3>오늘의 운세</h3>
+      <ul>
+        <li>개인 맞춤형 일일 운세 리딩을 즐길 수 있습니다.</li>
+        <li>스킨케어, 뷰티, 웰니스 팁이 포함됩니다.</li>
+        <li>하루에 한 번 확인하여 일일 영감을 얻으세요.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. 시작하기</h2>
+      <div class="step"><div class="step-badge">1단계</div><div><div class="step-title">계정 생성</div><div class="step-desc">이메일로 가입하거나 Google/Apple로 계속합니다.</div></div></div>
+      <div class="step"><div class="step-badge">2단계</div><div><div class="step-title">프로필 설정</div><div class="step-desc">이름, 생년월일, 지역, 피부 타입, 피부 고민을 알려주세요.</div></div></div>
+      <div class="step"><div class="step-badge">3단계</div><div><div class="step-title">첫 Glowup 시작</div><div class="step-desc">좋은 조명에서 셀카를 찍어 첫 피부 분석을 받으세요.</div></div></div>
+      <div class="step"><div class="step-badge">4단계</div><div><div class="step-title">추천 제품 확인</div><div class="step-desc">피부에 맞게 AI가 선별한 제품을 확인하세요.</div></div></div>
+      <div class="step"><div class="step-badge">5단계</div><div><div class="step-title">루틴 구성</div><div class="step-desc">일일 아침/저녁 스킨케어 루틴을 설정하세요.</div></div></div>
+      <div class="step"><div class="step-badge">6단계</div><div><div class="step-title">추적 및 개선</div><div class="step-desc">매일 루틴을 따르고 매월 분석을 다시 받으세요.</div></div></div>
+    </div>
+
+    <div class="section">
+      <h2>4. 구독 플랜</h2>
+      <h3>무료</h3>
+      <ul>
+        <li>기본 피부 분석</li>
+        <li>제한된 제품 추천</li>
+        <li>기본 루틴 기능</li>
+      </ul>
+      <h3>프리미엄 — 월 $9.99</h3>
+      <ul>
+        <li>무제한 AI 피부 분석</li>
+        <li>상세 인사이트 포함 전체 제품 추천</li>
+        <li>AI 피드백 포함 고급 루틴 빌더</li>
+        <li>완전한 피부 변화 리포트 및 AI 인사이트</li>
+        <li>우선 지원</li>
+      </ul>
+      <p>구독은 Apple App Store 또는 Google Play Store를 통해 관리됩니다. 스토어 계정 설정에서 언제든지 취소할 수 있습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. 최상의 결과를 위한 촬영 팁</h2>
+      <ul>
+        <li><strong>조명:</strong> 밝고 균일한 자연광을 사용하세요. 강한 그림자나 역광을 피하세요.</li>
+        <li><strong>위치:</strong> 카메라를 정면으로 바라보고 얼굴을 중앙에 맞추세요.</li>
+        <li><strong>청결:</strong> 가능하면 메이크업을 지워서 더 정확한 분석을 받으세요.</li>
+        <li><strong>안정:</strong> 선명한 사진을 위해 기기를 흔들리지 않게 고정하세요.</li>
+        <li><strong>주기:</strong> 최적의 변화 추적을 위해 한 달에 한 번 새 분석을 받으세요.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 데이터 및 개인정보</h2>
+      <ul>
+        <li>사진은 안전하게 저장되며 피부 분석 목적으로만 사용됩니다.</li>
+        <li>데이터는 제3자에게 판매되거나 AI 학습에 사용되지 않습니다.</li>
+        <li>설정에서 언제든지 모든 데이터를 삭제할 수 있습니다.</li>
+        <li>자세한 내용은 <a href="privacy-policy.html">개인정보처리방침</a>을 확인하세요.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. 알림</h2>
+      <p>Gumi Glowup은 스킨케어 여정을 지원하기 위해 유용한 알림을 보낼 수 있습니다:</p>
+      <ul>
+        <li><strong>루틴 알림:</strong> 루틴을 수행할 수 있도록 아침/저녁 알림을 보냅니다.</li>
+        <li><strong>월간 리스캔:</strong> 새 피부 분석을 찍을 시간을 알려주는 월간 알림입니다.</li>
+        <li><strong>운세:</strong> 일일 운세 알림입니다.</li>
+      </ul>
+      <p>모든 알림은 선택 사항이며 설정 &gt; 알림 설정에서 관리할 수 있습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. 계정 관리</h2>
+      <ul>
+        <li><strong>프로필 편집:</strong> 설정에서 이름, 피부 타입 등의 정보를 언제든지 수정할 수 있습니다.</li>
+        <li><strong>언어 변경:</strong> 설정에서 지원되는 언어로 전환할 수 있습니다.</li>
+        <li><strong>다크 모드:</strong> 편안한 시청을 위해 다크 모드를 전환할 수 있습니다.</li>
+        <li><strong>로그아웃:</strong> 설정에서 로그아웃합니다. 데이터는 보존됩니다.</li>
+        <li><strong>계정 삭제:</strong> 설정 &gt; 계정 &gt; 계정 삭제에서 계정과 모든 데이터를 영구 삭제합니다. 이 작업은 되돌릴 수 없습니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. 문제 해결</h2>
+      <div class="faq-q">Q. 분석이 실패했어요</div>
+      <div class="faq-a">A. 좋은 조명을 확보하고, 카메라를 정면으로 바라보며, 흔들리지 않게 고정해 주세요. 메이크업을 지워보세요.</div>
+      <div class="faq-q">Q. 제품이 로딩되지 않아요</div>
+      <div class="faq-a">A. 인터넷 연결을 확인하고 다시 시도해 주세요. 아래로 당겨서 새로고침하세요.</div>
+      <div class="faq-q">Q. 알림이 작동하지 않아요</div>
+      <div class="faq-a">A. 기기 설정과 앱 내 알림 설정에서 알림이 활성화되어 있는지 확인하세요.</div>
+      <div class="faq-q">Q. 앱이 느리거나 충돌해요</div>
+      <div class="faq-a">A. 최신 버전을 사용 중인지 확인하세요. 앱을 닫았다가 다시 열어보세요.</div>
+    </div>
+
+    <div class="contact">
+      <h2>10. 문의 및 지원</h2>
+      <p>도움이 필요하시면! 질문, 피드백 또는 문제가 있으시면:</p>
+      <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
+      <p style="font-size:12px;margin-top:8px;">모든 문의에 48시간 이내 답변을 목표로 합니다.</p>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang === 'ko' ? 'ko' : '';
+      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
+      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      history.replaceState(null, '', '?lang=' + lang);
+    }
+    (function() {
+      var p = new URLSearchParams(location.search);
+      var lang = p.get('lang');
+      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      setLang(lang);
+    })();
+  </script>
+</body>
+</html>

@@ -1,1325 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gumi Save — Terms of Service</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #faf9f7;
-    --surface: #ffffff;
-    --border: #e8e4de;
-    --text: #1a1a1a;
-    --text-muted: #6b6560;
-    --accent: #2d6a4f;
-    --accent-light: #e8f4ee;
-    --accent-mid: #52b788;
-    --header-bg: #1a2e25;
-    --tag-en: #1d4ed8;
-    --tag-tl: #b91c1c;
-    --tag-ceb: #92400e;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .site-header {
-    background: var(--header-bg);
-    padding: 28px 40px 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  }
-
-  .header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .header-brand .app-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    color: #ffffff;
-    letter-spacing: -0.3px;
-  }
-
-  .header-brand .app-sub {
-    font-size: 12px;
-    color: #86a896;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  .lang-switcher {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.07);
-    color: rgba(255,255,255,0.65);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: 0.2px;
-  }
-
-  .lang-btn:hover {
-    background: rgba(255,255,255,0.14);
-    color: #fff;
-    border-color: rgba(255,255,255,0.3);
-  }
-
-  .lang-btn.active {
-    background: var(--accent-mid);
-    border-color: var(--accent-mid);
-    color: #fff;
-    box-shadow: 0 2px 10px rgba(82,183,136,0.35);
-  }
-
-  .lang-flag { font-size: 16px; line-height: 1; }
-
-  .content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 40px 80px;
-  }
-
-  .policy-content { display: none; }
-  .policy-content.active { display: block; }
-
-  .doc-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 32px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .doc-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .doc-meta {
-    font-size: 13px;
-    color: var(--text-muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 6px;
-  }
-
-  .doc-meta span { display: flex; align-items: center; gap: 5px; }
-  .doc-meta span::before { content: '·'; color: var(--accent-mid); font-weight: bold; }
-  .doc-meta span:first-child::before { display: none; }
-
-  .lang-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .lang-badge.en { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-  .lang-badge.tl { background: #fff1f2; color: #b91c1c; border: 1px solid #fecdd3; }
-  .lang-badge.ceb { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
-
-  .toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 16px;
-  }
-
-  .toc-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
-  }
-
-  .toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 6px;
-  }
-
-  .toc-item {
-    font-size: 13px;
-    color: var(--accent);
-    padding: 4px 0;
-    display: flex;
-    gap: 7px;
-    align-items: flex-start;
-  }
-
-  .toc-num { color: var(--text-muted); font-size: 11px; font-weight: 600; min-width: 18px; padding-top: 1px; }
-
-  .policy-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 16px;
-    transition: box-shadow 0.2s;
-  }
-
-  .policy-section:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-
-  .section-number {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-
-  h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 18px 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  p { margin-bottom: 12px; }
-  p:last-child { margin-bottom: 0; }
-
-  ul, ol {
-    padding-left: 20px;
-    margin-bottom: 12px;
-  }
-
-  li { margin-bottom: 5px; }
-  strong { font-weight: 600; color: var(--text); }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 14px 0;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-  }
-
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-
-  th {
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 10px 14px;
-    text-align: left;
-  }
-
-  td {
-    padding: 10px 14px;
-    border-top: 1px solid var(--border);
-    vertical-align: top;
-    font-size: 13.5px;
-  }
-
-  tr:nth-child(even) td { background: #fafaf9; }
-
-  .callout {
-    background: #f0faf5;
-    border-left: 3px solid var(--accent-mid);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 16px;
-    margin: 12px 0;
-    font-size: 13.5px;
-    color: #1a3a2a;
-  }
-
-  .callout strong {
-    color: var(--accent);
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .warning-callout {
-    background: #fffbeb;
-    border-left: 3px solid #f59e0b;
-    border-radius: 0 8px 8px 0;
-    padding: 14px 16px;
-    margin: 12px 0;
-    font-size: 13.5px;
-    color: #78350f;
-  }
-
-  .warning-callout strong {
-    color: #92400e;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .caps-block {
-    background: #f8f8f7;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 18px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #444;
-    margin: 12px 0;
-    font-weight: 500;
-  }
-
-  .contact-block {
-    background: var(--header-bg);
-    border-radius: 10px;
-    padding: 20px 24px;
-    color: #fff;
-    margin-top: 12px;
-  }
-
-  .contact-block a { color: var(--accent-mid); text-decoration: none; }
-  .contact-block a:hover { text-decoration: underline; }
-  .contact-org { font-weight: 600; margin-bottom: 4px; }
-  .contact-detail { font-size: 13px; color: #aac4b5; }
-
-  @media (max-width: 640px) {
-    .site-header { padding: 20px; }
-    .content-wrapper { padding: 24px 20px 60px; }
-    .policy-section, .doc-header { padding: 20px; }
-    .lang-btn span:not(.lang-flag) { display: none; }
-    .lang-btn { padding: 8px 10px; }
-    .toc-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Gumi Glowup</title>
+  <style>
+    :root{--bg:#fff;--bg2:#f8f9fa;--txt:#1a1a1a;--txt2:#6b7280;--border:#e5e7eb;--accent:#7C6BFF;--accent-bg:#ede9fe}
+    @media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--bg2:#2a2a2a;--txt:#f0f0f0;--txt2:#9ca3af;--border:#3a3a3a;--accent:#a78bfa;--accent-bg:#2e2654}}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:24px 20px 60px;max-width:720px;margin:0 auto;-webkit-text-size-adjust:100%}
+    h1{font-size:24px;font-weight:700;margin-bottom:8px}
+    h2{font-size:18px;font-weight:700;margin:32px 0 12px}
+    h3{font-size:15px;font-weight:600;margin:20px 0 8px}
+    p,li{font-size:14px;color:var(--txt2);margin-bottom:12px}
+    ul,ol{padding-left:20px;margin-bottom:16px}
+    li{margin-bottom:6px}
+    .date{font-size:13px;color:var(--txt2);margin-bottom:24px}
+    .section{background:var(--bg2);border-radius:12px;padding:20px;margin-bottom:16px}
+    .section h2{margin-top:0}
+    .highlight{background:var(--accent-bg);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+    .highlight p{color:var(--txt);margin:0}
+    a{color:var(--accent);text-decoration:none}
+    .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
+    .contact a{display:inline-block;margin-top:8px;font-weight:600}
+    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
+    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
+    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    [lang="ko"]{display:none}
+    .ko [lang="ko"]{display:block}
+    .ko [lang="en"]{display:none}
+  </style>
 </head>
 <body>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+  </div>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-brand">
-      <span class="app-name">Gumi Save</span>
-      <span class="app-sub">Terms of Service · KawKaw.dev</span>
+  <!-- ═══════════════ ENGLISH ═══════════════ -->
+  <div lang="en">
+    <h1>Terms of Service</h1>
+    <p class="date">Effective Date: April 17, 2025</p>
+    <p>Welcome to Gumi Glowup. These Terms of Service ("Terms") govern your use of the Gumi Glowup mobile application ("App") operated by KawKaw ("Company," "we," "us," or "our"). By downloading, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
+
+    <div class="section">
+      <h2>1. Eligibility</h2>
+      <p>You must be at least 16 years of age (or the minimum age required in your jurisdiction) to use the App. By using the App, you represent and warrant that you meet this age requirement. If you are under the age of legal majority in your jurisdiction, you must have your parent or legal guardian's consent to use the App.</p>
     </div>
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="switchLang('en', this)">
-        <span class="lang-flag">🇺🇸</span>
-        <span>English</span>
-      </button>
-      <button class="lang-btn" onclick="switchLang('tl', this)">
-        <span class="lang-flag">🇵🇭</span>
-        <span>Filipino</span>
-      </button>
-      <button class="lang-btn" onclick="switchLang('ceb', this)">
-        <span class="lang-flag">🌺</span>
-        <span>Bisaya</span>
-      </button>
-    </div>
-  </div>
-</header>
 
-<div class="content-wrapper">
-
-<!-- ===================== ENGLISH ===================== -->
-<div id="lang-en" class="policy-content active">
-
-  <div class="doc-header">
-    <div>
-      <div class="doc-title">Terms of Service</div>
-      <div class="doc-meta">
-        <span>Version 1.2</span>
-        <span>Effective: March 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge en">🇺🇸 English</span>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Table of Contents</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Agreement to Terms</div>
-      <div class="toc-item"><span class="toc-num">02</span> About Gumi Save</div>
-      <div class="toc-item"><span class="toc-num">03</span> Eligibility</div>
-      <div class="toc-item"><span class="toc-num">04</span> Account Registration</div>
-      <div class="toc-item"><span class="toc-num">05</span> Acceptable Use</div>
-      <div class="toc-item"><span class="toc-num">06</span> Financial Data Disclaimer</div>
-      <div class="toc-item"><span class="toc-num">07</span> Family Account Features</div>
-      <div class="toc-item"><span class="toc-num">08</span> Consent &amp; Data Privacy</div>
-      <div class="toc-item"><span class="toc-num">09</span> Automated Processing</div>
-      <div class="toc-item"><span class="toc-num">10</span> Intellectual Property</div>
-      <div class="toc-item"><span class="toc-num">11</span> Third-Party Services</div>
-      <div class="toc-item"><span class="toc-num">12</span> Disclaimer &amp; Liability</div>
-      <div class="toc-item"><span class="toc-num">13</span> Indemnification</div>
-      <div class="toc-item"><span class="toc-num">14</span> Account Termination</div>
-      <div class="toc-item"><span class="toc-num">15</span> Dispute Resolution</div>
-      <div class="toc-item"><span class="toc-num">16</span> Changes to Terms</div>
-      <div class="toc-item"><span class="toc-num">17</span> Severability</div>
-      <div class="toc-item"><span class="toc-num">18</span> Contact</div>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 01</span>
-    <h3>Agreement to Terms</h3>
-    <p>By downloading, installing, accessing, or using the Gumi Save application ("App," "Service"), you ("User," "you") agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-    <p>These Terms constitute a legally binding agreement between you and <strong>KawKaw.dev</strong> ("Company," "we," "us"). These Terms are governed by the laws of the Republic of the Philippines, including:</p>
-    <ul>
-      <li><strong>Republic Act No. 10173</strong> — Data Privacy Act of 2012</li>
-      <li><strong>Republic Act No. 7394</strong> — Consumer Act of the Philippines</li>
-      <li><strong>Republic Act No. 8792</strong> — Electronic Commerce Act of 2000</li>
-      <li><strong>Republic Act No. 10175</strong> — Cybercrime Prevention Act of 2012</li>
-      <li><strong>NPC Circular No. 2022-01</strong> — Guidelines on Administrative Fines</li>
-      <li><strong>NPC Circular No. 2022-04</strong> — Registration of Data Processing Systems and DPO</li>
-      <li><strong>NPC Circular No. 2023-04</strong> — Guidelines on Consent</li>
-      <li><strong>NPC Circular No. 2023-06</strong> — Minimum Security Requirements</li>
-      <li><strong>NPC Advisory No. 2023-01</strong> — Guidelines on Deceptive Design Patterns</li>
-      <li><strong>NPC Advisory No. 2024-01</strong> — Model Contractual Clauses for Cross-Border Transfers</li>
-    </ul>
-    <div class="callout">
-      <strong>Note on NPC Registration</strong>
-      KawKaw.dev does not currently meet the mandatory NPC registration thresholds under RA 10173 (employing 250+ employees; processing sensitive personal information of 1,000+ data subjects; or processing data posing risk to data subjects' rights). KawKaw.dev will register as soon as any threshold is met. Our Privacy Policy describes these commitments in detail.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 02</span>
-    <h3>About Gumi Save</h3>
-    <p>Gumi Save is a <strong>household budget recording application</strong> that helps you track income, expenses, savings goals, and budget allocations. The App is designed primarily for Overseas Filipino Workers (OFWs) and Filipino families.</p>
-
-    <h4>What Gumi Save IS</h4>
-    <ul>
-      <li>A personal household budget and savings tracking tool</li>
-      <li>A self-reporting financial diary app</li>
-      <li>A receipt scanning tool (using OCR to pre-fill expense records from photos)</li>
-      <li>An optional social sharing platform (savings milestones may be shared to Facebook with your explicit consent)</li>
-    </ul>
-
-    <h4>What Gumi Save is NOT (currently)</h4>
-    <ul>
-      <li>A bank, e-money service, payment processor, or remittance platform</li>
-      <li>An investment platform or financial advisory service</li>
-      <li>A lending institution or credit service</li>
-      <li>A gambling or wagering platform</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Planned Features</strong>
-      A future version is planned to include optional GCash and Maya account linking. This feature is not yet available. When introduced, updated Terms and explicit opt-in consent will be presented before any payment account data is accessed.
-    </div>
-    <div class="warning-callout">
-      <strong>BSP Licensing Notice</strong>
-      KawKaw.dev is not licensed by the Bangko Sentral ng Pilipinas (BSP) as a financial institution, payment system operator, or electronic money issuer. No actual money is transferred through this App. All financial figures in the App are self-reported records entered by the user.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 03</span>
-    <h3>Eligibility</h3>
-    <p>Gumi Save is a household budget app with no payment processing, no financial transactions, no wagering features, and no age-restricted content. <strong>There is no minimum age requirement for this App.</strong></p>
-    <p>By creating an account, you represent that:</p>
-    <ul>
-      <li>You have the legal capacity to agree to these Terms in your jurisdiction</li>
-      <li>You are not prohibited from using the App under any applicable law or court order</li>
-      <li>You will provide accurate and complete registration information</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 04</span>
-    <h3>Account Registration</h3>
-
-    <h4>4.1 Account Creation</h4>
-    <p>You may register for a Gumi Save account using Facebook Login (via Meta's authentication service). We receive only your profile name, email address, and birthday as authorized by your Facebook privacy settings.</p>
-
-    <h4>4.2 Account Security</h4>
-    <p>You are responsible for:</p>
-    <ul>
-      <li>Maintaining the confidentiality of your account credentials</li>
-      <li>All activities that occur under your account</li>
-      <li>Immediately notifying us at <strong>kawkaw.app@gmail.com</strong> if you suspect unauthorized access to your account</li>
-    </ul>
-
-    <h4>4.3 Account Accuracy</h4>
-    <p>You agree to provide accurate, current, and complete registration information. If your information changes, please update it promptly through the App or by contacting kawkaw.app@gmail.com.</p>
-
-    <h4>4.4 One Account Per Person</h4>
-    <p>Each individual may maintain only one active Gumi Save account. KawKaw.dev reserves the right to merge or terminate duplicate accounts upon notice.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 05</span>
-    <h3>Acceptable Use</h3>
-
-    <h4>5.1 Permitted Uses</h4>
-    <p>You may use Gumi Save to:</p>
-    <ul>
-      <li>Record your personal income, expenses, and savings data</li>
-      <li>Set and monitor personal and family savings goals</li>
-      <li>View budget summaries and financial progress reports for personal use</li>
-      <li>Share budget data with designated family members within the same account group</li>
-    </ul>
-
-    <h4>5.2 Prohibited Uses</h4>
-    <p>You agree NOT to:</p>
-    <ul>
-      <li><strong>Provide false information:</strong> Input fictitious or misleading financial data intended to deceive other account members, KawKaw.dev, or any third party</li>
-      <li><strong>Unauthorized access:</strong> Access or attempt to access another user's account without their permission</li>
-      <li><strong>Reverse engineering:</strong> Decompile, disassemble, or attempt to derive the source code, algorithms, or structure of the App through any means</li>
-      <li><strong>Circumvent security:</strong> Bypass, disable, or interfere with any security features, authentication systems, or access controls</li>
-      <li><strong>Commercial misuse:</strong> Resell, sublicense, copy, or use the Service for commercial purposes beyond personal use without prior written consent from KawKaw.dev</li>
-      <li><strong>Harmful content:</strong> Upload or transmit viruses, malware, ransomware, or any code designed to harm the App, servers, or other users</li>
-      <li><strong>Illegal activities:</strong> Use the App in connection with any activity that violates Philippine law (including RA 10175) or the laws of your country of residence</li>
-      <li><strong>System abuse:</strong> Engage in automated scraping, excessive API calls, or any action that unreasonably burdens our infrastructure</li>
-      <li><strong>Impersonation:</strong> Misrepresent your identity or affiliation with any person or organization</li>
-      <li><strong>Deceptive consent manipulation:</strong> Attempt to manipulate consent mechanisms in ways that violate <strong>NPC Advisory No. 2023-01</strong> on deceptive design patterns</li>
-    </ul>
-    <div class="warning-callout">Violation of these prohibitions may result in immediate account suspension or termination.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 06</span>
-    <h3>Financial Data Disclaimer</h3>
-    <div class="warning-callout">
-      <strong>Gumi Save is a personal budget recording tool, not a financial advisory service.</strong>
-    </div>
-    <ul>
-      <li>All financial data in the App is <strong>self-reported by you</strong>. KawKaw.dev does not verify the accuracy of any financial information you enter.</li>
-      <li>The App does <strong>not</strong> provide investment advice, tax advice, accounting services, legal advice, or any other professional financial services.</li>
-      <li>Budget summaries, savings projections, spending insights, and automated suggestions are <strong>for informational and motivational purposes only</strong>. They are calculated based solely on the data you enter and do not reflect real-time market data, tax obligations, or professional financial analysis.</li>
-      <li><strong>Do not rely on figures displayed in this App for significant financial decisions.</strong> Please consult a licensed financial advisor, accountant, or banker for professional financial advice.</li>
-      <li>KawKaw.dev is not responsible for financial decisions you make based on information displayed in the App.</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 07</span>
-    <h3>Family Account Features</h3>
-    <p>Gumi Save may allow an OFW account holder to share budget data with family members.</p>
-    <ul>
-      <li>The OFW account holder ("Account Owner") is responsible for managing access permissions for family members and for ensuring Linked Members understand and agree to these Terms</li>
-      <li>Family members added to an account group ("Linked Members") can only access data shared by the Account Owner</li>
-      <li>Either party may remove a Linked Member from an account group at any time through app settings</li>
-      <li>KawKaw.dev is not responsible for disputes arising between family members regarding financial data, budget decisions, or account access</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 08</span>
-    <h3>Consent &amp; Data Privacy</h3>
-
-    <h4>8.1 Consent Standards (NPC Circular 2023-04)</h4>
-    <p>Your consent to personal data processing must be:</p>
-    <ul>
-      <li><strong>Freely given</strong> — not required for access to core features</li>
-      <li><strong>Specific</strong> — given for defined purposes</li>
-      <li><strong>Informed</strong> — based on clear information</li>
-      <li><strong>Unambiguous</strong> — indicated by clear affirmative action</li>
-    </ul>
-    <p>We do not use pre-checked boxes, bundled consent, or any deceptive design patterns (dark patterns) to collect consent, in compliance with <strong>NPC Advisory No. 2023-01</strong>.</p>
-
-    <h4>8.2 Consent Withdrawal</h4>
-    <p>Gumi Save does not currently have a marketing notification feature. The primary consent that can be withdrawn is Facebook posting permission (see Section 11) and any future optional features. To withdraw any consent:</p>
-    <ul>
-      <li><strong>Email:</strong> kawkaw.app@gmail.com with subject "Withdraw Consent" — specify which processing you wish to stop</li>
-    </ul>
-    <p>Withdrawal does not affect the lawfulness of processing carried out before withdrawal.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 09</span>
-    <h3>Automated Processing Disclosure</h3>
-    <p>Gumi Save uses automated processing to generate budget summaries, spending breakdowns, and savings suggestions based on data you enter. These are display features only. No automated processing in this App makes legally binding decisions about you or significantly affects your rights.</p>
-    <p>KawKaw.dev does not currently meet the NPC registration thresholds. When registration becomes required, we will disclose all automated processing activities to the NPC in compliance with <strong>NPC Circular 2022-04</strong>. You may contact kawkaw.app@gmail.com at any time to request a human review or explanation of any automated output.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 10</span>
-    <h3>Intellectual Property</h3>
-
-    <h4>10.1 KawKaw.dev's Property</h4>
-    <p>All rights, title, and interest in and to the Gumi Save App, including software code, user interface designs, the "Gumi Save" name, logo, and brand identity, are the exclusive property of KawKaw.dev. Nothing in these Terms grants you any right to use our intellectual property except as expressly permitted for personal use of the Service.</p>
-
-    <h4>10.2 Your Content</h4>
-    <p>You retain ownership of all budget data, notes, and other content you input into the App ("User Content"). By using the App, you grant KawKaw.dev a limited, non-exclusive, royalty-free license to process and store your User Content solely to provide the Service.</p>
-    <p>You may export or delete your data at any time through the App or by contacting kawkaw.app@gmail.com.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 11</span>
-    <h3>Third-Party Services</h3>
-    <p>Gumi Save integrates with Facebook (Meta) for login. Your use of Facebook is governed by Meta's Terms of Service and Privacy Policy (<a href="https://www.facebook.com/terms.php" target="_blank">https://www.facebook.com/terms.php</a>). KawKaw.dev is not responsible for the practices, content, or availability of third-party services.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 12</span>
-    <h3>Disclaimer and Limitation of Liability</h3>
-
-    <h4>12.1 Service Provided "As Is"</h4>
-    <div class="caps-block">THE GUMI SAVE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. KAWKAW.DEV MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</div>
-
-    <h4>12.2 No Guarantee of Availability</h4>
-    <p>KawKaw.dev does not guarantee that the App will be available at all times or free from interruption. We may perform maintenance or updates that temporarily affect availability. We will make reasonable efforts to provide advance notice.</p>
-
-    <h4>12.3 Limitation of Civil Liability</h4>
-    <div class="caps-block">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, KAWKAW.DEV'S TOTAL CIVIL LIABILITY TO YOU SHALL NOT EXCEED THE GREATER OF: (a) THE AMOUNT YOU PAID TO KAWKAW.DEV IN THE 12 MONTHS PRECEDING THE CLAIM, OR (b) PHP 1,000.</div>
-    <div class="callout">
-      <strong>Important clarifications regarding this limitation:</strong>
-      <ul style="margin-top:8px;">
-        <li>This civil liability cap applies <strong>only to civil damages claims</strong> between you and KawKaw.dev</li>
-        <li>This cap does <strong>not</strong> apply to: Administrative fines imposed by the NPC under <strong>NPC Circular No. 2022-01</strong> (which may range from 0.25% to 3% of annual gross income, with a maximum of PHP 5,000,000 per act); Criminal penalties under RA 10173 or RA 10175; Your statutory rights under the Consumer Act (RA 7394); Any mandatory rights under Philippine consumer protection law that cannot be excluded by contract</li>
-        <li>Nothing in these Terms excludes liability for fraud, gross negligence, or willful misconduct</li>
+    <div class="section">
+      <h2>2. Account Registration</h2>
+      <ul>
+        <li>You may create an account using email/password or supported social login providers (Google, Apple).</li>
+        <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+        <li>You agree to provide accurate, current, and complete information during registration.</li>
+        <li>You are responsible for all activities that occur under your account.</li>
+        <li>You must notify us immediately of any unauthorised use of your account.</li>
       </ul>
     </div>
 
-    <h4>12.4 Exclusion of Consequential Damages</h4>
-    <div class="caps-block">TO THE EXTENT PERMITTED BY LAW, KAWKAW.DEV SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 13</span>
-    <h3>Indemnification</h3>
-    <p>You agree to defend, indemnify, and hold harmless KawKaw.dev and its officers, directors, employees, and agents from and against any claims, damages, losses, or expenses (including reasonable legal fees) arising from:</p>
-    <ul>
-      <li>Your use of the App in violation of these Terms</li>
-      <li>Your User Content</li>
-      <li>Your violation of any applicable law or third-party rights</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 14</span>
-    <h3>Account Termination</h3>
-
-    <h4>14.1 Termination by You</h4>
-    <p>You may terminate your account at any time through:</p>
-    <ul>
-      <li>The <strong>"Delete Account"</strong> feature in App Settings</li>
-      <li>Sending a request to kawkaw.app@gmail.com</li>
-    </ul>
-    <p>Upon deletion, your data will be retained for <strong>30 days</strong> for recovery purposes, then permanently and irreversibly deleted from our systems and all sub-processors.</p>
-
-    <h4>14.2 Termination by KawKaw.dev</h4>
-    <p>KawKaw.dev reserves the right to suspend or terminate your account, with or without prior notice, if: you violate any provision of these Terms; your use of the App creates a security risk or legal liability; or required by applicable law, NPC directive, or court order. Where reasonably possible, we will provide advance notice before termination, except in cases of serious or ongoing violations.</p>
-
-    <h4>14.3 Effect of Termination</h4>
-    <p>Upon termination, your right to access and use the App immediately ceases. Provisions that by their nature survive termination — including intellectual property rights, disclaimers, limitations of liability, and indemnification obligations — shall continue in full force and effect.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 15</span>
-    <h3>Dispute Resolution</h3>
-
-    <h4>15.1 Informal Resolution</h4>
-    <p>Before initiating any formal proceeding, we encourage you to contact us at <strong>kawkaw.app@gmail.com</strong> to attempt informal resolution. We will respond within 15 business days and make good-faith efforts to resolve your concern.</p>
-
-    <h4>15.2 Governing Law</h4>
-    <p>These Terms are governed exclusively by the laws of the Republic of the Philippines.</p>
-
-    <h4>15.3 Jurisdiction</h4>
-    <p>Any legal proceedings arising from these Terms shall be subject to the exclusive jurisdiction of the appropriate courts of the Philippines.</p>
-
-    <h4>15.4 Consumer Protection Rights</h4>
-    <p>Nothing in these Terms limits or waives any rights you have under RA 7394 (Consumer Act), RA 10173 (Data Privacy Act), or any other mandatory Philippine consumer protection law. These consumer protection rights cannot be excluded or limited by contract.</p>
-
-    <h4>15.5 NPC Complaints</h4>
-    <p>Nothing in these Terms prevents you from filing a complaint with the <strong>National Privacy Commission (NPC)</strong> at www.privacy.gov.ph or complaints@privacy.gov.ph at any time regarding data privacy concerns.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 16</span>
-    <h3>Changes to These Terms</h3>
-    <p>KawKaw.dev reserves the right to update these Terms at any time. We will notify you of material changes via:</p>
-    <ul>
-      <li><strong>In-app notification</strong> — at least 30 days before the changes take effect</li>
-      <li><strong>Email</strong> to your registered address — at least 30 days before the changes take effect</li>
-    </ul>
-    <p>Continued use of the App after the effective date constitutes acceptance of the revised Terms. If you do not agree with the changes, you may delete your account before the effective date at no penalty.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 17</span>
-    <h3>Severability</h3>
-    <p>If any provision of these Terms is found to be unenforceable or invalid by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Section 18</span>
-    <h3>Contact</h3>
-    <p>For all inquiries regarding these Terms:</p>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
+    <div class="section">
+      <h2>3. Description of Service</h2>
+      <p>Gumi Glowup is an AI-powered skincare companion that provides:</p>
+      <ul>
+        <li><strong>AI Skin Analysis:</strong> Selfie-based skin condition analysis using artificial intelligence.</li>
+        <li><strong>Product Recommendations:</strong> Personalised skincare product suggestions based on your skin analysis.</li>
+        <li><strong>Routine Management:</strong> AM/PM skincare routine creation, tracking, and reminders.</li>
+        <li><strong>Skin Tracking:</strong> Historical tracking of skin condition changes over time.</li>
+        <li><strong>Knowledge Articles:</strong> Skincare education content.</li>
+        <li><strong>Daily Fortune:</strong> Entertainment-based fortune readings.</li>
+      </ul>
+      <div class="highlight"><p><strong>Disclaimer:</strong> The App provides informational and entertainment content only. Skin analysis results and product recommendations are AI-generated estimates and do not constitute medical advice. Always consult a dermatologist or healthcare professional for medical skin conditions.</p></div>
     </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">National Privacy Commission (Philippines)</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
+
+    <div class="section">
+      <h2>4. Subscription and Payments</h2>
+      <h3>4.1 Free and Premium Plans</h3>
+      <p>The App offers both free and premium subscription tiers. Premium features are clearly marked within the App.</p>
+      <h3>4.2 Payment Processing</h3>
+      <ul>
+        <li>Payments are processed through the Apple App Store or Google Play Store.</li>
+        <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</li>
+        <li>You can manage and cancel subscriptions through your App Store or Google Play account settings.</li>
+      </ul>
+      <h3>4.3 Refund Policy</h3>
+      <p>Refunds are handled according to the policies of the Apple App Store or Google Play Store. We do not directly process refunds.</p>
+      <h3>4.4 Price Changes</h3>
+      <p>We may change subscription prices with reasonable advance notice. Price changes will not affect your current billing period.</p>
     </div>
-  </div>
 
-</div><!-- /lang-en -->
-
-
-<!-- ===================== TAGALOG ===================== -->
-<div id="lang-tl" class="policy-content">
-
-  <div class="doc-header">
-    <div>
-      <div class="doc-title">Mga Tuntunin ng Serbisyo</div>
-      <div class="doc-meta">
-        <span>Bersyon 1.2</span>
-        <span>Petsa ng Bisa: Marso 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge tl">🇵🇭 Filipino</span>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Talaan ng Nilalaman</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Pagsang-ayon sa mga Tuntunin</div>
-      <div class="toc-item"><span class="toc-num">02</span> Tungkol sa Gumi Save</div>
-      <div class="toc-item"><span class="toc-num">03</span> Pagiging Karapat-dapat</div>
-      <div class="toc-item"><span class="toc-num">04</span> Pagpaparehistro ng Account</div>
-      <div class="toc-item"><span class="toc-num">05</span> Katanggap-tanggap na Paggamit</div>
-      <div class="toc-item"><span class="toc-num">06</span> Disclaimer sa Pananalapi</div>
-      <div class="toc-item"><span class="toc-num">07</span> Tampok ng Family Account</div>
-      <div class="toc-item"><span class="toc-num">08</span> Pahintulot at Pagkapribado</div>
-      <div class="toc-item"><span class="toc-num">09</span> Automated na Pagpoproseso</div>
-      <div class="toc-item"><span class="toc-num">10</span> Intelektwal na Ari-arian</div>
-      <div class="toc-item"><span class="toc-num">11</span> Mga Third-Party na Serbisyo</div>
-      <div class="toc-item"><span class="toc-num">12</span> Disclaimer at Limitasyon</div>
-      <div class="toc-item"><span class="toc-num">13</span> Pananagutang Kabayaran</div>
-      <div class="toc-item"><span class="toc-num">14</span> Pagtatapos ng Account</div>
-      <div class="toc-item"><span class="toc-num">15</span> Paglutas ng Alitan</div>
-      <div class="toc-item"><span class="toc-num">16</span> Mga Pagbabago sa Tuntunin</div>
-      <div class="toc-item"><span class="toc-num">17</span> Severability</div>
-      <div class="toc-item"><span class="toc-num">18</span> Pakikipag-ugnayan</div>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 01</span>
-    <h3>Pagsang-ayon sa mga Tuntunin</h3>
-    <p>Sa pamamagitan ng pag-download, pag-install, pag-access, o paggamit ng Gumi Save, kayo ay sumasang-ayon na mapailalim sa mga Tuntuning ito. Ang mga Tuntuning ito ay pinamamahalaan ng mga batas ng Republika ng Pilipinas, kasama ang:</p>
-    <ul>
-      <li><strong>RA 10173</strong> — Data Privacy Act of 2012</li>
-      <li><strong>RA 7394</strong> — Consumer Act of the Philippines</li>
-      <li><strong>RA 8792</strong> — Electronic Commerce Act of 2000</li>
-      <li><strong>RA 10175</strong> — Cybercrime Prevention Act of 2012</li>
-      <li><strong>NPC Circular No. 2022-01, 2022-04, 2023-04, 2023-06</strong></li>
-      <li><strong>NPC Advisory No. 2023-01, 2024-01</strong></li>
-    </ul>
-    <div class="callout">
-      <strong>Tala sa Pagpaparehistro sa NPC</strong>
-      Ang KawKaw.dev ay hindi pa nakakatugon sa mga mandatory na threshold ng pagpaparehistro sa NPC sa ilalim ng RA 10173 (250+ empleyado; sensitibong personal na impormasyon ng 1,000+ data subject; o datos na nagdudulot ng panganib sa mga karapatan ng data subject). Magpaparehistro ang KawKaw.dev sa sandaling matugunan ang alinman sa mga threshold. Para sa karagdagang detalye, tingnan ang aming Patakaran sa Pagkapribado.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 02</span>
-    <h3>Tungkol sa Gumi Save</h3>
-    <p>Ang Gumi Save ay isang <strong>aplikasyon sa pagtatala ng gastos sa tahanan</strong> na tumutulong sa inyo na subaybayan ang kita, gastos, layunin sa ipon, at mga alokasyon ng badyet.</p>
-
-    <h4>Ang Gumi Save ay:</h4>
-    <ul>
-      <li>Isang personal na kasangkapan sa pagsubaybay ng badyet at ipon</li>
-      <li>Isang app sa pagtatala ng pananalapi na self-reported</li>
-      <li>Isang kasangkapan sa pag-scan ng resibo (gumagamit ng OCR upang mapuno ang mga rekord ng gastos mula sa mga larawan)</li>
-      <li>Isang opsyonal na plataporma sa pagbabahagi (ang mga savings milestone ay maaaring ibahagi sa Facebook nang may tahasang pahintulot)</li>
-    </ul>
-
-    <h4>Ang Gumi Save ay HINDI (sa kasalukuyan):</h4>
-    <ul>
-      <li>Isang bangko, serbisyong e-money, processor ng pagbabayad, o plataporma ng remittance</li>
-      <li>Isang plataporma ng pamumuhunan o serbisyong tagapayo sa pananalapi</li>
-      <li>Isang institusyong nagpapautang o serbisyong kredito</li>
-      <li>Isang plataporma ng sugal o pagpusta</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Mga Planong Tampok</strong>
-      Ang isang hinaharap na bersyon ay naplanong magsama ng opsyonal na pag-link ng GCash at Maya account. Hindi pa ito available. Kapag ipinakilala, ang na-update na mga Tuntunin at tahasang pahintulot (opt-in) ay ipapakita bago ma-access ang anumang datos ng payment account.
-    </div>
-    <div class="warning-callout">
-      <strong>Abiso sa Lisensya ng BSP</strong>
-      Ang KawKaw.dev ay hindi lisensyado ng Bangko Sentral ng Pilipinas bilang isang institusyong pinansyal. Walang aktwal na pera ang inilipat sa pamamagitan ng App na ito.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 03</span>
-    <h3>Pagiging Karapat-dapat</h3>
-    <p>Ang Gumi Save ay isang app sa pagtatala ng gastos sa tahanan na walang pagpoproseso ng pagbabayad, walang transaksyon sa pananalapi, walang tampok na sugal, at walang nilalaman na may paghihigpit sa edad. <strong>Walang minimum na limitasyon sa edad para sa App na ito.</strong></p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 04</span>
-    <h3>Pagpaparehistro ng Account</h3>
-
-    <h4>4.1 Paglikha ng Account</h4>
-    <p>Maaari kayong magrehistro gamit ang Facebook Login. Matatanggap lamang namin ang inyong profile name, email address, at kaarawan ayon sa inyong mga setting ng privacy sa Facebook.</p>
-
-    <h4>4.2 Seguridad ng Account</h4>
-    <ul>
-      <li>Pagpapanatili ng kumpidensyalidad ng inyong mga kredensyal</li>
-      <li>Lahat ng aktibidad sa ilalim ng inyong account</li>
-      <li>Agad na abisuhan kami sa <strong>kawkaw.app@gmail.com</strong> kung pinaghihinalaang may hindi awtorisadong access</li>
-    </ul>
-
-    <h4>4.3 Katumpakan ng Impormasyon</h4>
-    <p>Sumasang-ayon kayo na magbibigay ng tumpak, kasalukuyan, at kumpletong impormasyon sa pagpaparehistro. Kung magbabago ang inyong impormasyon, mangyaring i-update ito sa lalong madaling panahon.</p>
-
-    <h4>4.4 Isang Account sa Bawat Tao</h4>
-    <p>Ang bawat indibidwal ay maaaring mapanatili lamang ang isang aktibong Gumi Save account. Ang KawKaw.dev ay nakalaan ang karapatang pagsamahin o wakasan ang mga duplicate na account sa paunang abiso.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 05</span>
-    <h3>Katanggap-tanggap na Paggamit</h3>
-
-    <h4>5.1 Mga Pinahintulutang Paggamit</h4>
-    <ul>
-      <li>Itala ang inyong personal na kita, gastos, at datos ng ipon</li>
-      <li>Magtakda at subaybayan ang personal at pampamilyang layunin sa ipon</li>
-      <li>Tingnan ang mga buod ng badyet at mga ulat ng progreso sa pananalapi</li>
-      <li>Ibahagi ang datos ng badyet sa mga itinalagang miyembro ng pamilya</li>
-    </ul>
-
-    <h4>5.2 Mga Ipinagbabawal na Paggamit</h4>
-    <p>Sumasang-ayon kayo na HINDI:</p>
-    <ul>
-      <li>Magbigay ng maling o mapanlinlang na datos sa pananalapi</li>
-      <li>Mag-access ng account ng ibang gumagamit nang walang pahintulot</li>
-      <li>I-decompile, i-disassemble, o subukang makuha ang source code ng App</li>
-      <li>Lampasan ang anumang tampok ng seguridad o sistema ng authentication</li>
-      <li>Muling ibenta, sublicense, o gamitin ang Serbisyo para sa komersyal na layunin nang walang nakasulat na pahintulot</li>
-      <li>Mag-upload ng mga virus, malware, o anumang mapaminsalang code</li>
-      <li>Gumamit ng App kaugnay ng anumang iligal na aktibidad sa ilalim ng batas ng Pilipinas (kabilang ang RA 10175)</li>
-      <li>Subukang manipulahin ang mga mekanismo ng pahintulot laban sa <strong>NPC Advisory No. 2023-01</strong></li>
-    </ul>
-    <div class="warning-callout">Ang paglabag sa mga pagbabawal na ito ay maaaring magresulta sa agarang suspensiyon o pagwawakas ng account.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 06</span>
-    <h3>Disclaimer sa Datos sa Pananalapi</h3>
-    <div class="warning-callout"><strong>Ang Gumi Save ay isang kasangkapan sa pagtatala ng badyet, hindi isang serbisyong tagapayo sa pananalapi.</strong></div>
-    <ul>
-      <li>Lahat ng datos sa pananalapi sa App ay <strong>self-reported ninyo</strong>. Hindi nagbe-verify ang KawKaw.dev ng katumpakan ng anumang datos sa pananalapi.</li>
-      <li>Ang mga buod ng badyet, proyeksyon ng ipon, at mga mungkahi ay <strong>para sa impormasyon at pagganyak lamang</strong>.</li>
-      <li><strong>Huwag umasa sa mga figure na ipinakita sa App para sa mahahalagang desisyon sa pananalapi.</strong> Mangyaring kumonsulta sa isang lisensyadong tagapayo sa pananalapi para sa propesyonal na payo.</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 07</span>
-    <h3>Tampok ng Family Account</h3>
-    <p>Ang Gumi Save ay maaaring magpahintulot sa isang OFW account holder na ibahagi ang datos ng badyet sa mga miyembro ng pamilya.</p>
-    <ul>
-      <li>Ang OFW account holder ("May-ari ng Account") ay responsable sa pamamahala ng mga pahintulot sa access para sa mga miyembro ng pamilya at sa pagtitiyak na ang mga Linked Member ay naiintindihan at sumasang-ayon sa mga Tuntuning ito</li>
-      <li>Ang mga miyembro ng pamilya ("Mga Linked Member") ay maaari lamang ma-access ang datos na ibinabahagi ng May-ari ng Account</li>
-      <li>Ang alinmang partido ay maaaring mag-alis ng isang Linked Member mula sa grupo ng account anumang oras</li>
-      <li>Ang KawKaw.dev ay hindi responsable para sa mga hindi pagkakasundo na nagmumula sa pagitan ng mga miyembro ng pamilya</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 08</span>
-    <h3>Pahintulot at Pagkapribado ng Datos</h3>
-
-    <h4>8.1 Mga Pamantayan ng Pahintulot (NPC Circular 2023-04)</h4>
-    <p>Ang inyong pahintulot sa pagpoproseso ng personal na datos ay dapat na:</p>
-    <ul>
-      <li><strong>Malaya</strong> — hindi kinakailangan para sa paggamit ng mga pangunahing tampok</li>
-      <li><strong>Tiyak</strong> — ibinibigay para sa mga tinukoy na layunin</li>
-      <li><strong>May kaalaman</strong> — batay sa malinaw na impormasyon</li>
-      <li><strong>Hindi malabo</strong> — ipinakita sa pamamagitan ng malinaw na mapagkumpirmang aksyon</li>
-    </ul>
-    <p>Hindi kami gumagamit ng mga pre-checked na kahon, pinagsama-samang pahintulot, o anumang dark patterns upang makuha ang pahintulot, alinsunod sa <strong>NPC Advisory No. 2023-01</strong>.</p>
-
-    <h4>8.2 Pag-withdraw ng Pahintulot</h4>
-    <p>Para bawiin ang anumang pahintulot, i-email ang <strong>kawkaw.app@gmail.com</strong> na may subject na "Withdraw Consent" — ilarawan kung aling pagpoproseso ang nais ninyong itigil.</p>
-    <p>Ang pag-withdraw ay hindi nakakaapekto sa karapatan ng pagpoproseso bago ang pag-withdraw.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 09</span>
-    <h3>Automated na Pagpoproseso</h3>
-    <p>Ang Gumi Save ay gumagamit ng automated na pagpoproseso upang bumuo ng mga buod ng badyet at mga mungkahi sa ipon batay sa datos na inyong inilalagay. Mga tampok na pagpapakita lamang ito — walang automated na desisyon ang ginagawa na nagdudulot ng mga legal na epekto. Maaari kayong makipag-ugnayan sa kawkaw.app@gmail.com upang humiling ng review ng tao, alinsunod sa <strong>NPC Circular 2022-04</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 10</span>
-    <h3>Intelektwal na Ari-arian</h3>
-    <p>Lahat ng karapatan sa Gumi Save App, kasama ang code ng software, mga disenyo ng interface, at tatak, ay nananatiling eksklusibong pag-aari ng KawKaw.dev.</p>
-    <p>Pinapanatili ninyo ang pagmamay-ari ng lahat ng datos ng badyet at iba pang nilalaman na inyong ini-input. Maaari ninyong i-export o tanggalin ang inyong datos anumang oras sa pamamagitan ng App o sa pamamagitan ng pakikipag-ugnayan sa kawkaw.app@gmail.com.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 11</span>
-    <h3>Mga Third-Party na Serbisyo</h3>
-    <p>Ang Gumi Save ay naka-integrate sa Facebook (Meta) para sa pag-login. Ang inyong paggamit ng Facebook ay pinamamahalaan ng Mga Tuntunin ng Serbisyo at Patakaran sa Pagkapribado ng Meta (<a href="https://www.facebook.com/terms.php" target="_blank">https://www.facebook.com/terms.php</a>). Ang KawKaw.dev ay hindi responsable para sa mga gawi, nilalaman, o pagkakaroon ng mga third-party na serbisyo.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 12</span>
-    <h3>Disclaimer at Limitasyon ng Pananagutan</h3>
-
-    <h4>12.1 Serbisyong Ibinibigay "As Is"</h4>
-    <div class="caps-block">ANG GUMI SAVE APP AY IBINIBIGAY SA BATAYAN NG "AS IS" AT "AS AVAILABLE" NANG WALANG ANUMANG URI NG GARANTIYA.</div>
-
-    <h4>12.2 Limitasyon ng Civil na Pananagutan</h4>
-    <div class="caps-block">HANGGANG SA PINAKAMALAKING LAWAK NA PINAHINTULUTAN NG NAAANGKOP NA BATAS, ANG KABUUANG CIVIL NA PANANAGUTAN NG KAWKAW.DEV SA INYO AY HINDI LALAMPAS SA PINAKAMALAKING: (a) HALAGANG BINAYAD NINYO SA KAWKAW.DEV SA NAKARAANG 12 BUWAN, O (b) PHP 1,000.</div>
-    <div class="callout">
-      <strong>Mahahalagang paglilinaw:</strong>
-      <ul style="margin-top:8px;">
-        <li>Ang limitasyong ito ay naaangkop <strong>lamang sa mga civil na paghahabol</strong> sa pagitan ninyo at ng KawKaw.dev</li>
-        <li>Ang limitasyong ito ay <strong>hindi</strong> naaangkop sa: Mga administratibong multa ng NPC sa ilalim ng <strong>NPC Circular No. 2022-01</strong> (maaaring maabot ng 0.25% hanggang 3% ng taunang gross income, na may maximum na PHP 5,000,000 bawat aksyon); Mga kriminal na parusa sa ilalim ng RA 10173 o RA 10175; Inyong mga batayang karapatan sa ilalim ng Consumer Act (RA 7394)</li>
+    <div class="section">
+      <h2>5. User Content</h2>
+      <h3>5.1 Your Content</h3>
+      <ul>
+        <li>You retain ownership of all photos and content you submit to the App.</li>
+        <li>By submitting content, you grant us a limited, non-exclusive licence to process, analyse, and store your content solely for the purpose of providing the App's services to you.</li>
+        <li>You represent that you have the right to submit the content and that it does not violate any third party's rights.</li>
+      </ul>
+      <h3>5.2 Photo Usage</h3>
+      <ul>
+        <li>Selfie photos are used exclusively for AI skin analysis and are stored securely.</li>
+        <li>Photos are never shared with other users, used for marketing, or published without your explicit consent.</li>
+        <li>You can delete your photos at any time from within the App.</li>
       </ul>
     </div>
-  </div>
 
-  <div class="policy-section">
-    <span class="section-number">Seksyon 13</span>
-    <h3>Pananagutang Kabayaran (Indemnification)</h3>
-    <p>Sumasang-ayon kayo na ipagtanggol, bigyan ng kabayaran, at pangalagaan ang KawKaw.dev at ang mga opisyal, direktor, empleyado, at ahente nito mula sa anumang mga paghahabol, pinsala, pagkawala, o mga gastos (kasama ang makatwirang bayad sa abogado) na nagmumula sa:</p>
-    <ul>
-      <li>Inyong paggamit ng App na lumalabag sa mga Tuntuning ito</li>
-      <li>Inyong User Content</li>
-      <li>Inyong paglabag sa anumang naaangkop na batas o karapatan ng third party</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 14</span>
-    <h3>Pagtatapos ng Account</h3>
-
-    <h4>14.1 Pagtatapos ng Gumagamit</h4>
-    <p>Maaari ninyong wakasan ang inyong account anumang oras sa pamamagitan ng <strong>"Delete Account"</strong> sa App Settings o pagpapadala ng kahilingan sa kawkaw.app@gmail.com.</p>
-    <p>Pagkatapos ng pagtanggal, ang inyong datos ay itatago sa loob ng <strong>30 araw</strong> para sa pagbabawi, pagkatapos ay permanenteng tatanggalin.</p>
-
-    <h4>14.2 Pagtatapos ng KawKaw.dev</h4>
-    <p>Ang KawKaw.dev ay may karapatang isuspinde o wakasan ang inyong account kung lumalagpas kayo sa anumang probisyon ng mga Tuntuning ito, kung ang inyong paggamit ay lumikha ng panganib sa seguridad, o kung iniaatas ng naaangkop na batas o utos ng korte. Kung makatwirang posible, magbibigay kami ng paunang abiso bago ang pagtatapos.</p>
-
-    <h4>14.3 Epekto ng Pagtatapos</h4>
-    <p>Sa pagtatapos, ang inyong karapatang ma-access at gamitin ang App ay agad na titigil. Ang mga probisyong sa kalikasan ay nananatili pagkatapos ng pagtatapos ay magpapatuloy na may bisa.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 15</span>
-    <h3>Paglutas ng Alitan</h3>
-
-    <h4>15.1 Impormal na Paglutas</h4>
-    <p>Bago magsimula ng anumang pormal na proseso, makipag-ugnayan sa amin sa <strong>kawkaw.app@gmail.com</strong>. Tutugon kami sa loob ng 15 araw ng negosyo.</p>
-
-    <h4>15.2 Namamahalang Batas</h4>
-    <p>Ang mga Tuntuning ito ay pinamamahalaan ng mga batas ng Republika ng Pilipinas.</p>
-
-    <h4>15.3 Mga Karapatang Pampagamit</h4>
-    <p>Walang nilalaman ng mga Tuntuning ito ang nagtatanggal o nagtatakda ng limitasyon sa inyong mga karapatan sa ilalim ng RA 7394, RA 10173, o anumang iba pang mandatory na batas sa proteksyon ng mamimili ng Pilipinas.</p>
-
-    <h4>15.4 Mga Reklamo sa NPC</h4>
-    <p>Walang nilalaman ng mga Tuntuning ito ang pumipigil sa inyo mula sa paghahain ng reklamo sa <strong>NPC</strong> sa www.privacy.gov.ph anumang oras.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 16</span>
-    <h3>Mga Pagbabago sa mga Tuntuning Ito</h3>
-    <p>Aabisuhan namin kayo ng mga mahahalagang pagbabago sa pamamagitan ng in-app na abiso at/o email nang hindi bababa sa <strong>30 araw</strong> bago magkabisa ang mga pagbabago.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 17</span>
-    <h3>Paghihiwalay ng mga Probisyon (Severability)</h3>
-    <p>Kung ang anumang probisyon ng mga Tuntuning ito ay matuklasan na hindi maipatupad o walang bisa ng isang hukuman ng may kapangyarihang hurisdiksyon, ang probisyong iyon ay bibaguhin sa pinakamaliit na lawak upang maging maipatupad, at ang natitirang mga probisyon ay magpapatuloy na may buong bisa at epekto.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 18</span>
-    <h3>Pakikipag-ugnayan</h3>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
-    </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">Pambansang Komisyon sa Pagkapribado</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
-    </div>
-  </div>
-
-</div><!-- /lang-tl -->
-
-
-<!-- ===================== CEBUANO ===================== -->
-<div id="lang-ceb" class="policy-content">
-
-  <div class="doc-header">
-    <div>
-      <div class="doc-title">Mga Termino sa Serbisyo</div>
-      <div class="doc-meta">
-        <span>Bersyon 1.2</span>
-        <span>Petsa sa Epekto: Marso 1, 2026</span>
-        <span>KawKaw.dev</span>
-        <span><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></span>
-      </div>
-    </div>
-    <span class="lang-badge ceb">🌺 Bisaya</span>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Talaan sa Sulod</div>
-    <div class="toc-grid">
-      <div class="toc-item"><span class="toc-num">01</span> Pag-uyon sa mga Termino</div>
-      <div class="toc-item"><span class="toc-num">02</span> Bahin sa Gumi Save</div>
-      <div class="toc-item"><span class="toc-num">03</span> Kwalipikasyon</div>
-      <div class="toc-item"><span class="toc-num">04</span> Pagparehistro sa Account</div>
-      <div class="toc-item"><span class="toc-num">05</span> Angay nga Paggamit</div>
-      <div class="toc-item"><span class="toc-num">06</span> Pagpahayag sa Datos sa Pinansyal</div>
-      <div class="toc-item"><span class="toc-num">07</span> Tampok sa Family Account</div>
-      <div class="toc-item"><span class="toc-num">08</span> Pagtugot ug Pribasidad</div>
-      <div class="toc-item"><span class="toc-num">09</span> Awtomatiko nga Pagproseso</div>
-      <div class="toc-item"><span class="toc-num">10</span> Intelektwal nga Ari-arian</div>
-      <div class="toc-item"><span class="toc-num">11</span> Mga Third-Party nga Serbisyo</div>
-      <div class="toc-item"><span class="toc-num">12</span> Pagpahayag ug Limitasyon</div>
-      <div class="toc-item"><span class="toc-num">13</span> Indemnipikasiyon</div>
-      <div class="toc-item"><span class="toc-num">14</span> Pagtapus sa Account</div>
-      <div class="toc-item"><span class="toc-num">15</span> Pagsulbad sa Panagbangi</div>
-      <div class="toc-item"><span class="toc-num">16</span> Mga Pagbag-o sa Termino</div>
-      <div class="toc-item"><span class="toc-num">17</span> Severability</div>
-      <div class="toc-item"><span class="toc-num">18</span> Makig-ugnod Kanamo</div>
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 01</span>
-    <h3>Pag-uyon sa mga Termino</h3>
-    <p>Pinaagi sa pag-download, pag-install, pag-access, o paggamit sa Gumi Save, ikaw moayon nga matapod sa kini nga mga Termino. Kini nga mga Termino gipadagan sa mga balaod sa Republika sa Pilipinas, lakip ang:</p>
-    <ul>
-      <li><strong>RA 10173</strong> — Data Privacy Act of 2012</li>
-      <li><strong>RA 7394</strong> — Consumer Act of the Philippines</li>
-      <li><strong>RA 8792</strong> — Electronic Commerce Act of 2000</li>
-      <li><strong>RA 10175</strong> — Cybercrime Prevention Act of 2012</li>
-      <li><strong>NPC Circular No. 2022-01, 2022-04, 2023-04, 2023-06</strong></li>
-      <li><strong>NPC Advisory No. 2023-01, 2024-01</strong></li>
-    </ul>
-    <div class="callout">
-      <strong>Nota sa Pagparehistro sa NPC</strong>
-      Ang KawKaw.dev wala pay naabtan ang mandatory nga mga threshold sa pagparehistro sa NPC ubos sa RA 10173 (250+ empleyado; sensitibong personal nga impormasyon sa 1,000+ data subject; o datos nga nakahatag og risgo sa mga katungod sa data subject). Magparehistro ang KawKaw.dev sa diha nga maabtan ang bisan hisang threshold. Para sa dugang detalye, tan-awa ang among Polisiya sa Pribasidad.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 02</span>
-    <h3>Bahin sa Gumi Save</h3>
-    <p>Ang Gumi Save usa ka <strong>aplikasyon sa pagrekord sa gastos sa balay</strong> nga nagtabang kanimo sa pagsubay sa kita, gasto, mga tumong sa pagtipig, ug mga pag-allocate sa badyet.</p>
-
-    <h4>Unsa ang Gumi Save:</h4>
-    <ul>
-      <li>Usa ka personal nga himan sa pagsubay sa badyet ug pagtipig</li>
-      <li>Usa ka self-reporting financial diary app</li>
-      <li>Usa ka himan sa pag-scan sa resibo (naggamit og OCR aron mapuno ang mga rekord sa gasto gikan sa mga hulagway)</li>
-      <li>Usa ka opsyonal nga plataporma sa pagpaambit sa sosyal (ang mga savings milestone mahimong ipaambit sa Facebook nga adunay hayag nga pagtugot)</li>
-    </ul>
-
-    <h4>Unsa ang Gumi Save DILI (sa karon):</h4>
-    <ul>
-      <li>Usa ka bangko, serbisyo sa e-money, processor sa bayad, o plataporma sa remittance</li>
-      <li>Usa ka plataporma sa pamumuhunan o serbisyo sa tagapayo sa pinansyal</li>
-      <li>Usa ka institusyon sa pagpautang o serbisyo sa kredito</li>
-      <li>Usa ka plataporma sa sugal o taya</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Mga Giplano nga Bahin</strong>
-      Ang sunod nga bersyon gilaraw nga adunay opsyonal nga pag-link sa GCash ug Maya account. Wala pa kini magamit. Sa pagpaila niini, na-update nga mga Termino ug hayag nga opt-in consent ang ipakita sa wala pa ma-access ang bisan unsang datos sa payment account.
-    </div>
-    <div class="warning-callout">
-      <strong>Abiso sa Lisensya sa BSP</strong>
-      Ang KawKaw.dev wala lisensyahan sa Bangko Sentral ng Pilipinas isip usa ka institusyon sa pinansyal. Walay tinuod nga salapi ang gipalihok pinaagi niini nga App.
-    </div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 03</span>
-    <h3>Kwalipikasyon</h3>
-    <p>Ang Gumi Save usa ka app sa pagrekord sa gastos sa balay nga walay tampok sa pagproseso sa bayad, walay transaksyon sa pinansyal, walay tampok sa sugal, ug walay sulod nga adunay pagdili sa edad. <strong>Walay minimum nga limitasyon sa edad alang niini nga App.</strong></p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 04</span>
-    <h3>Pagparehistro sa Account</h3>
-
-    <h4>4.1 Paghimo sa Account</h4>
-    <p>Mahimo kang magrehistro gamit ang Facebook Login. Makadawat lamang kami sa imong profile name, email address, ug adlaw sa pagkatawo.</p>
-
-    <h4>4.2 Seguridad sa Account</h4>
-    <p>Ikaw responsable alang sa:</p>
-    <ul>
-      <li>Pagpadayon sa pagkakompidensyal sa imong mga kredensyal</li>
-      <li>Tanan nga mga kalihokan ubos sa imong account</li>
-      <li>Dayon nga pag-abiso kanamo sa <strong>kawkaw.app@gmail.com</strong> kung adunay giduhaduha nga dili awtorisadong pag-access</li>
-    </ul>
-
-    <h4>4.3 Katukma-on sa Impormasyon</h4>
-    <p>Nagkauyon ka nga maghatag sa tukma, kasamtangan, ug kumpletong kasayuran sa pagparehistro. Kung magbag-o ang imong impormasyon, palihog i-update kini pinaagi sa app o pinaagi sa pakig-ugnod sa kawkaw.app@gmail.com.</p>
-
-    <h4>4.4 Usa ka Account sa Matag Tawo</h4>
-    <p>Ang matag indibidwal mahimong adunay usa lamang ka aktibong Gumi Save account. Ang KawKaw.dev nagreserbang katungod sa paghiusa o pagtapos sa mga duplicate nga account.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 05</span>
-    <h3>Angay nga Paggamit</h3>
-
-    <h4>5.1 Gitugotan nga mga Paggamit</h4>
-    <ul>
-      <li>Irehistro ang imong personal nga kita, gasto, ug datos sa pagtipig</li>
-      <li>Magtakda ug magsubay sa personal ug pampamilyang tumong sa pagtipig</li>
-      <li>Tan-awon ang mga buod sa badyet ug mga ulat sa pinansyal</li>
-    </ul>
-
-    <h4>5.2 Gidili nga mga Paggamit</h4>
-    <p>Ikaw mouyon nga DILI:</p>
-    <ul>
-      <li>Maghatag og sayop o mapang-aghat nga datos sa pinansyal</li>
-      <li>Mag-access sa account sa ubang tiggamit nga wala'y pagtugot</li>
-      <li>I-decompile, i-disassemble, o mosulay sa pagkuha sa source code sa App</li>
-      <li>Lampason ang bisan unsang bahin sa seguridad o sistema sa authentication</li>
-      <li>Mubaligya pag-usab, sublicense, o gamiton ang Serbisyo alang sa komersyal nga mga katuyoan nga wala'y nakasulat nga pagtugot</li>
-      <li>Mag-upload sa mga virus, malware, o bisan unsang makadaot nga code</li>
-      <li>Gamiton ang App kauban ang bisan unsang ilegal nga kalihokan ubos sa balaod sa Pilipinas (lakip ang RA 10175)</li>
-      <li>Sulayon ang pagmaniobra sa mga mekanismo sa pagtugot pinaagi sa mga mapang-aghat nga disenyo batok sa <strong>NPC Advisory No. 2023-01</strong></li>
-    </ul>
-    <div class="warning-callout">Ang paglapas sa kini nga mga pagdili mahimong mosangpot sa agarang suspensiyon o pagtapos sa account.</div>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 06</span>
-    <h3>Pagpahayag bahin sa Datos sa Pinansyal</h3>
-    <div class="warning-callout"><strong>Ang Gumi Save usa ka himan sa pagrekord sa badyet, dili usa ka serbisyo sa tagapatambag sa pinansyal.</strong></div>
-    <ul>
-      <li>Ang tanan nga datos sa pinansyal sa App gihulagway sa tiggamit. Ang KawKaw.dev wala magpamatuod sa katukma.</li>
-      <li>Ang mga buod sa badyet, proyeksyon sa pagtipig, ug mga sugyot alang sa impormasyon ug pagdasig lamang.</li>
-      <li><strong>Dili manghinalok sa mga numero nga gipakita sa App para sa dagkong desisyon sa pinansyal.</strong> Pakig-konsulta sa usa ka lisensyadong tagapayo sa pinansyal para sa propesyonal nga tambag.</li>
-      <li>Ang KawKaw.dev dili responsable alang sa mga desisyon sa pinansyal base sa impormasyon sa App.</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 07</span>
-    <h3>Tampok sa Family Account</h3>
-    <p>Ang Gumi Save mahimong motugot sa usa ka OFW account holder sa pagpaambit sa datos sa badyet sa mga miyembro sa pamilya.</p>
-    <ul>
-      <li>Ang OFW account holder ("Tag-iya sa Account") responsable sa pagdumala sa mga permiso sa pag-access para sa mga miyembro sa pamilya ug sa pagtiyak nga ang mga Linked Member nakasabot ug nagkauyon sa kini nga mga Termino</li>
-      <li>Ang mga miyembro sa pamilya ("Mga Linked Member") mahimong ma-access lamang ang datos nga gipaambit sa Tag-iya sa Account</li>
-      <li>Ang bisan kinsa nga partido mahimong mokuha og Linked Member gikan sa grupo sa account bisan kanus-a</li>
-      <li>Ang KawKaw.dev dili responsable sa mga dili pagsinabtanay tali sa mga miyembro sa pamilya</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 08</span>
-    <h3>Pagtugot ug Pribasidad sa Datos</h3>
-
-    <h4>8.1 Mga Sukdanan sa Pagtugot (NPC Circular 2023-04)</h4>
-    <p>Ang imong pagtugot sa pagproseso sa personal nga datos kinahanglan nga:</p>
-    <ul>
-      <li><strong>Gawasnon</strong> — dili kinahanglan alang sa paggamit sa mga pangunahong bahin</li>
-      <li><strong>Espesipiko</strong> — gihatag alang sa mga gitukod nga katuyoan</li>
-      <li><strong>Nailhan</strong> — base sa klaro nga impormasyon</li>
-      <li><strong>Dili malibog</strong> — gipakita pinaagi sa klaro ug hayag nga pagkumpirma</li>
-    </ul>
-    <p>Dili kami mogamit sa mga pre-checked nga kahon, pinagsama nga pagtugot, o bisan unsang dark patterns aron makuha ang pagtugot, sumala sa <strong>NPC Advisory No. 2023-01</strong>.</p>
-
-    <h4>8.2 Pag-withdraw sa Pagtugot</h4>
-    <p>Aron bawion ang bisan unsang pagtugot, i-email ang <strong>kawkaw.app@gmail.com</strong> nga adunay subject nga "Withdraw Consent" — ihulagway kung unsang pagproseso ang gusto nimong ihunong.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 09</span>
-    <h3>Awtomatiko nga Pagproseso</h3>
-    <p>Ang Gumi Save mogamit sa awtomatiko nga pagproseso aron makahimo sa mga buod sa badyet ug mga sugyot sa pagtipig. Kini mga pagpapakita lamang sa impormasyon — walay awtomatikong desisyon ang gihimo nga adunay legal nga epekto. Mahimo kang makig-ugnod sa kawkaw.app@gmail.com aron mohangyo sa pagrepaso sa tawo, sumala sa <strong>NPC Circular 2022-04</strong>.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 10</span>
-    <h3>Intelektwal nga Ari-arian</h3>
-    <p>Ang tanan nga mga katungod sa Gumi Save App nabilin nga eksklusibong kabtangan sa KawKaw.dev.</p>
-    <p>Gipadayon nimo ang pagpanag-iya sa tanan nimong datos sa badyet ug sulod. Mahimo nimong i-export o punaon ang imong datos bisan kanus-a pinaagi sa App o pinaagi sa pakig-ugnod sa kawkaw.app@gmail.com.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 11</span>
-    <h3>Mga Third-Party nga Serbisyo</h3>
-    <p>Ang Gumi Save naka-integrate sa Facebook (Meta) alang sa pag-login. Ang imong paggamit sa Facebook gipadagan sa Mga Termino sa Serbisyo ug Patakaran sa Pribasidad sa Meta (<a href="https://www.facebook.com/terms.php" target="_blank">https://www.facebook.com/terms.php</a>). Ang KawKaw.dev dili responsable sa mga gawi, sulod, o pagkaanaa sa mga third-party nga serbisyo.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 12</span>
-    <h3>Pagpahayag ug Limitasyon sa Responsibilidad</h3>
-
-    <h4>12.1 Serbisyo nga "As Is"</h4>
-    <div class="caps-block">ANG GUMI SAVE APP GIHATAG SA BATAYAN NGA "AS IS" ug "AS AVAILABLE" NGA WALAY BISAN UNSANG URI SA GARANTIYA.</div>
-
-    <h4>12.2 Limitasyon sa Civil nga Responsibilidad</h4>
-    <div class="caps-block">HANGTOD SA GIPAGTUGOT SA NAAANGKOP NGA BALAOD, ANG TIBUOK CIVIL NGA RESPONSIBILIDAD SA KAWKAW.DEV KANIMO DILI MOLAPAS SA PINAKATUBO SA: (a) ANG KANTIDAD NGA IMONG GIBAYAD SA KAWKAW.DEV SA MIAGING 12 BUWAN, O (b) PHP 1,000.</div>
-    <div class="callout">
-      <strong>Importante nga mga pagpatin-aw:</strong>
-      <ul style="margin-top:8px;">
-        <li>Kini nga limitasyon sa civil nga responsibilidad naaangkop <strong>lamang sa mga civil nga hangyo</strong> tali kanimo ug sa KawKaw.dev</li>
-        <li>Kini nga limitasyon <strong>dili</strong> naaangkop sa: Mga administrative fines sa NPC ubos sa <strong>NPC Circular No. 2022-01</strong> (mahimong moabot sa 0.25% hangtod 3% sa tinuig nga gross income, adunay maximum nga PHP 5,000,000 bawat aksyon); Mga kriminal nga silot ubos sa RA 10173 o RA 10175; Imong mga balaodong katungod ubos sa Consumer Act (RA 7394)</li>
+    <div class="section">
+      <h2>6. Prohibited Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the App for any unlawful purpose or in violation of these Terms.</li>
+        <li>Submit false, misleading, or inaccurate information.</li>
+        <li>Upload content that is offensive, harmful, or infringes on others' rights.</li>
+        <li>Attempt to reverse engineer, decompile, or disassemble the App.</li>
+        <li>Interfere with or disrupt the App's infrastructure or security.</li>
+        <li>Use automated systems (bots, scrapers) to access the App.</li>
+        <li>Resell, redistribute, or commercially exploit the App's content or services.</li>
+        <li>Impersonate another person or entity.</li>
+        <li>Circumvent any access restrictions or usage limits.</li>
       </ul>
     </div>
-  </div>
 
-  <div class="policy-section">
-    <span class="section-number">Seksyon 13</span>
-    <h3>Indemnipikasiyon</h3>
-    <p>Nagkauyon ka nga idepensa, bayaran, ug luwasan ang KawKaw.dev ug ang mga opisyal, direktor, empleyado, ug ahente niini gikan sa bisan unsang mga claim, kadaot, pagkawala, o gasto (lakip ang makatarunganon nga bayad sa abogado) nga naggikan sa:</p>
-    <ul>
-      <li>Imong paggamit sa app nga naglapas sa kini nga mga Termino</li>
-      <li>Imong User Content</li>
-      <li>Imong paglapas sa bisan unsang naaangkop nga balaod o katungod sa third party</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 14</span>
-    <h3>Pagtapus sa Account</h3>
-
-    <h4>14.1 Pagtapus sa Tiggamit</h4>
-    <p>Mahimo nimong tapuson ang imong account bisan kanus-a pinaagi sa <strong>"Delete Account"</strong> sa App Settings o pagpadala sa kahilinganan sa kawkaw.app@gmail.com.</p>
-    <p>Pagkahuman sa pagtanggal, ang imong datos tipigan sulod sa <strong>30 ka adlaw</strong> alang sa pagbawi, unya permanenteng mapapas.</p>
-
-    <h4>14.2 Pagtapus sa KawKaw.dev</h4>
-    <p>Ang KawKaw.dev adunay katungod sa pagsuspendi o pagtapus sa imong account kung molabay ka sa bisan unsang probisyon sa kini nga mga Termino, kung ang imong paggamit naghimo sa risgo sa seguridad, o kung inayos sa naaangkop nga balaod o mando sa korte. Kung mahimo, maghatag kami og abiso sa wala pa ang pagtapus.</p>
-
-    <h4>14.3 Epekto sa Pagtapus</h4>
-    <p>Sa pagtapus, ang imong katungod sa pag-access ug paggamit sa App dali-dali nga mohunong. Ang mga probisyon nga sa ilang kinaiyahan nagpabilin pagkahuman sa pagtapus magpadayon nga adunay bug-os nga kusog.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 15</span>
-    <h3>Pagsulbad sa Panagbangi</h3>
-
-    <h4>15.1 Impormal nga Pagsulbad</h4>
-    <p>Sa wala pa magsugod sa pormal nga proseso, makig-ugnod kanamo sa <strong>kawkaw.app@gmail.com</strong>. Motubag kami sulod sa 15 ka adlaw sa negosyo.</p>
-
-    <h4>15.2 Nagdumala nga Balaod</h4>
-    <p>Kini nga mga Termino gipadagan sa mga balaod sa Republika sa Pilipinas.</p>
-
-    <h4>15.3 Mga Katungod sa Pagpanalipod sa Konsumer</h4>
-    <p>Walay sulod niini nga mga Termino ang nag-aalis o nagtatakda og limitasyon sa imong mga katungod ubos sa RA 7394, RA 10173, o bisan unsang mandatory nga balaod sa pagpanalipod sa konsumer sa Pilipinas.</p>
-
-    <h4>15.4 Mga Reklamo sa NPC</h4>
-    <p>Walay sulod niini nga mga Termino ang nagpugong kanimo sa pag-file sa reklamo sa <strong>NPC</strong> sa www.privacy.gov.ph bisan kanus-a.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 16</span>
-    <h3>Mga Pagbag-o sa Kini nga mga Termino</h3>
-    <p>Ipahibalo namo kanimo ang mga makisnahanglan nga pagbabago pinaagi sa in-app nga abiso ug/o email labing menos <strong>30 ka adlaw</strong> sa wala pa ang mga pagbabago mahimong epektibo.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 17</span>
-    <h3>Pagbulag sa mga Probisyon (Severability)</h3>
-    <p>Kung ang bisan unsang probisyon sa kini nga mga Termino makit-an nga dili mapailuspad o dili balido sa korte nga adunay hurisdiksyon, kana nga probisyon usab-on sa kinagamay nga sukod aron mahimong mapailuspad, ug ang nahibilin nga mga probisyon magpadayon nga adunay bug-os nga kusog ug epekto.</p>
-  </div>
-
-  <div class="policy-section">
-    <span class="section-number">Seksyon 18</span>
-    <h3>Makig-ugnod Kanamo</h3>
-    <div class="contact-block">
-      <div class="contact-org">KawKaw.dev — Gumi Save</div>
-      <div class="contact-detail"><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></div>
+    <div class="section">
+      <h2>7. Intellectual Property</h2>
+      <ul>
+        <li>The App, including its design, code, features, content, logos, and trademarks, is owned by KawKaw and protected by intellectual property laws.</li>
+        <li>You are granted a limited, non-exclusive, non-transferable, revocable licence to use the App for personal, non-commercial purposes.</li>
+        <li>AI-generated content (analysis results, recommendations, routines) provided to you may be used for your personal purposes but may not be commercially redistributed.</li>
+      </ul>
     </div>
-    <div class="contact-block" style="margin-top:10px;">
-      <div class="contact-org">National Privacy Commission (Pilipinas)</div>
-      <div class="contact-detail">
-        <a href="https://www.privacy.gov.ph" target="_blank">www.privacy.gov.ph</a> &nbsp;|&nbsp;
-        <a href="mailto:complaints@privacy.gov.ph">complaints@privacy.gov.ph</a> &nbsp;|&nbsp; Tel: +632 5322 1322
-      </div>
+
+    <div class="section">
+      <h2>8. Disclaimers</h2>
+      <ul>
+        <li>The App is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, whether express or implied.</li>
+        <li>We do not warrant that the App will be uninterrupted, error-free, or secure.</li>
+        <li><strong>AI skin analysis is an estimate and not a medical diagnosis.</strong> Results may vary and should not replace professional dermatological advice.</li>
+        <li>Product recommendations are suggestions based on AI analysis and do not guarantee results.</li>
+        <li>Fortune readings are for entertainment purposes only.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, KawKaw and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising from:</p>
+      <ul>
+        <li>Your use of or inability to use the App.</li>
+        <li>Any errors or inaccuracies in the App's content or AI analysis.</li>
+        <li>Unauthorised access to your account or data.</li>
+        <li>Any third-party content or services accessed through the App.</li>
+      </ul>
+      <p>Our total liability for any claim arising from these Terms or your use of the App shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless KawKaw and its affiliates from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your use of the App, your violation of these Terms, or your violation of any third party's rights.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Termination</h2>
+      <ul>
+        <li>You may terminate your account at any time by deleting your account through the App's Settings.</li>
+        <li>We may suspend or terminate your account if you violate these Terms, with or without prior notice.</li>
+        <li>Upon termination, your right to use the App ceases immediately.</li>
+        <li>Account deletion is permanent. All data associated with your account will be removed within 30 days.</li>
+        <li>Sections that by their nature should survive termination (Disclaimers, Limitation of Liability, Indemnification) will survive.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. Modifications to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. We will notify you of material changes through the App or via email. Your continued use of the App after changes take effect constitutes acceptance of the modified Terms. If you do not agree to the modified Terms, you must stop using the App.</p>
+    </div>
+
+    <div class="section">
+      <h2>13. Governing Law and Dispute Resolution</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of Korea, without regard to its conflict of law provisions. Any dispute arising from or relating to these Terms shall be resolved through good-faith negotiation first. If negotiation fails, the dispute shall be submitted to the competent courts of the Republic of Korea.</p>
+    </div>
+
+    <div class="section">
+      <h2>14. General Provisions</h2>
+      <ul>
+        <li><strong>Entire Agreement:</strong> These Terms, together with the Privacy Policy and Service Guide, constitute the entire agreement between you and KawKaw regarding the App.</li>
+        <li><strong>Severability:</strong> If any provision of these Terms is found invalid or unenforceable, the remaining provisions shall continue in full force.</li>
+        <li><strong>Waiver:</strong> Our failure to enforce any provision of these Terms shall not constitute a waiver of that provision.</li>
+        <li><strong>Assignment:</strong> You may not assign your rights under these Terms. We may assign our rights without restriction.</li>
+        <li><strong>Force Majeure:</strong> We shall not be liable for any failure or delay caused by circumstances beyond our reasonable control.</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. Contact Us</h2>
+      <p>For questions about these Terms, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
     </div>
   </div>
 
-</div><!-- /lang-ceb -->
+  <!-- ═══════════════ KOREAN ═══════════════ -->
+  <div lang="ko">
+    <h1>이용약관</h1>
+    <p class="date">시행일: 2025년 4월 17일</p>
+    <p>Gumi Glowup에 오신 것을 환영합니다. 본 이용약관("약관")은 KawKaw(이하 "회사", "당사")가 운영하는 Gumi Glowup 모바일 애플리케이션(이하 "앱")의 이용에 관한 사항을 규정합니다. 앱을 다운로드, 접근 또는 사용함으로써 귀하는 본 약관에 동의하게 됩니다. 동의하지 않으시면 앱을 사용하지 마시기 바랍니다.</p>
 
-</div><!-- /content-wrapper -->
+    <div class="section">
+      <h2>1. 이용 자격</h2>
+      <p>앱을 이용하려면 만 16세 이상(또는 귀하의 관할권에서 요구하는 최소 연령 이상)이어야 합니다. 앱을 사용함으로써 귀하는 이 연령 요건을 충족함을 표명하고 보증합니다. 귀하의 관할권에서 법적 성년 미만인 경우, 부모 또는 법적 보호자의 동의가 있어야 합니다.</p>
+    </div>
 
-<script>
-function switchLang(lang, btn) {
-  document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('lang-' + lang).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
+    <div class="section">
+      <h2>2. 계정 등록</h2>
+      <ul>
+        <li>이메일/비밀번호 또는 지원되는 소셜 로그인(Google, Apple)을 통해 계정을 생성할 수 있습니다.</li>
+        <li>계정 자격 증명의 기밀성을 유지할 책임은 귀하에게 있습니다.</li>
+        <li>등록 시 정확하고 최신의 완전한 정보를 제공하는 데 동의합니다.</li>
+        <li>계정에서 발생하는 모든 활동에 대한 책임은 귀하에게 있습니다.</li>
+        <li>계정의 무단 사용이 발견되면 즉시 당사에 알려야 합니다.</li>
+      </ul>
+    </div>
 
+    <div class="section">
+      <h2>3. 서비스 설명</h2>
+      <p>Gumi Glowup은 AI 기반 스킨케어 도우미로 다음 기능을 제공합니다:</p>
+      <ul>
+        <li><strong>AI 피부 분석:</strong> 인공지능을 활용한 셀카 기반 피부 상태 분석.</li>
+        <li><strong>제품 추천:</strong> 피부 분석 결과를 기반으로 한 맞춤형 스킨케어 제품 제안.</li>
+        <li><strong>루틴 관리:</strong> AM/PM 스킨케어 루틴 생성, 추적 및 알림.</li>
+        <li><strong>피부 추적:</strong> 시간에 따른 피부 상태 변화 이력 추적.</li>
+        <li><strong>지식 아티클:</strong> 스킨케어 교육 콘텐츠.</li>
+        <li><strong>오늘의 운세:</strong> 엔터테인먼트 기반 운세 리딩.</li>
+      </ul>
+      <div class="highlight"><p><strong>면책 사항:</strong> 앱은 정보 제공 및 엔터테인먼트 목적의 콘텐츠만을 제공합니다. 피부 분석 결과와 제품 추천은 AI가 생성한 추정치이며 의학적 조언이 아닙니다. 의학적 피부 질환에 대해서는 반드시 피부과 전문의 또는 의료 전문가와 상담하시기 바랍니다.</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. 구독 및 결제</h2>
+      <h3>4.1 무료 및 프리미엄 플랜</h3>
+      <p>앱은 무료 및 프리미엄 구독 등급을 제공합니다. 프리미엄 기능은 앱 내에서 명확하게 표시됩니다.</p>
+      <h3>4.2 결제 처리</h3>
+      <ul>
+        <li>결제는 Apple App Store 또는 Google Play Store를 통해 처리됩니다.</li>
+        <li>구독은 현재 결제 기간 종료 최소 24시간 전에 취소하지 않으면 자동으로 갱신됩니다.</li>
+        <li>App Store 또는 Google Play 계정 설정에서 구독을 관리하고 취소할 수 있습니다.</li>
+      </ul>
+      <h3>4.3 환불 정책</h3>
+      <p>환불은 Apple App Store 또는 Google Play Store의 정책에 따라 처리됩니다. 당사는 직접 환불을 처리하지 않습니다.</p>
+      <h3>4.4 가격 변경</h3>
+      <p>합리적인 사전 통지를 통해 구독 가격을 변경할 수 있습니다. 가격 변경은 현재 결제 기간에는 영향을 미치지 않습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. 사용자 콘텐츠</h2>
+      <h3>5.1 귀하의 콘텐츠</h3>
+      <ul>
+        <li>귀하가 앱에 제출하는 모든 사진과 콘텐츠의 소유권은 귀하에게 있습니다.</li>
+        <li>콘텐츠를 제출함으로써, 귀하는 앱의 서비스를 귀하에게 제공하기 위한 목적으로만 귀하의 콘텐츠를 처리, 분석 및 저장할 수 있는 제한적, 비독점적 라이선스를 당사에 부여합니다.</li>
+        <li>귀하는 콘텐츠를 제출할 권리가 있으며, 제3자의 권리를 침해하지 않음을 보증합니다.</li>
+      </ul>
+      <h3>5.2 사진 사용</h3>
+      <ul>
+        <li>셀카 사진은 AI 피부 분석 목적으로만 사용되며 안전하게 저장됩니다.</li>
+        <li>사진은 다른 사용자와 공유되거나, 마케팅에 사용되거나, 명시적 동의 없이 게시되지 않습니다.</li>
+        <li>앱 내에서 언제든지 사진을 삭제할 수 있습니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 금지 행위</h2>
+      <p>귀하는 다음 행위를 하지 않을 것에 동의합니다:</p>
+      <ul>
+        <li>불법적인 목적 또는 본 약관을 위반하여 앱을 사용하는 행위.</li>
+        <li>허위, 오해의 소지가 있는 또는 부정확한 정보를 제출하는 행위.</li>
+        <li>불쾌하거나 유해하거나 타인의 권리를 침해하는 콘텐츠를 업로드하는 행위.</li>
+        <li>앱을 역설계, 디컴파일 또는 역어셈블하려는 시도.</li>
+        <li>앱의 인프라 또는 보안을 방해하거나 교란하는 행위.</li>
+        <li>자동화된 시스템(봇, 스크래퍼)을 사용하여 앱에 접근하는 행위.</li>
+        <li>앱의 콘텐츠 또는 서비스를 재판매, 재배포 또는 상업적으로 이용하는 행위.</li>
+        <li>다른 사람 또는 단체를 사칭하는 행위.</li>
+        <li>접근 제한 또는 사용 한도를 우회하는 행위.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. 지적 재산권</h2>
+      <ul>
+        <li>앱의 디자인, 코드, 기능, 콘텐츠, 로고 및 상표를 포함한 앱은 KawKaw의 소유이며 지적재산권법에 의해 보호됩니다.</li>
+        <li>귀하에게는 개인적, 비상업적 목적으로 앱을 사용할 수 있는 제한적, 비독점적, 양도 불가능한, 철회 가능한 라이선스가 부여됩니다.</li>
+        <li>AI가 생성한 콘텐츠(분석 결과, 추천, 루틴)는 개인적 목적으로 사용할 수 있으나 상업적으로 재배포할 수 없습니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. 면책 조항</h2>
+      <ul>
+        <li>앱은 명시적이든 묵시적이든 어떠한 종류의 보증 없이 "있는 그대로" 및 "이용 가능한 상태로" 제공됩니다.</li>
+        <li>당사는 앱이 중단 없이, 오류 없이 또는 안전하게 운영될 것을 보증하지 않습니다.</li>
+        <li><strong>AI 피부 분석은 추정치이며 의학적 진단이 아닙니다.</strong> 결과는 달라질 수 있으며 전문적인 피부과 조언을 대체해서는 안 됩니다.</li>
+        <li>제품 추천은 AI 분석에 기반한 제안이며 결과를 보장하지 않습니다.</li>
+        <li>운세 리딩은 엔터테인먼트 목적으로만 제공됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. 책임 제한</h2>
+      <p>관련 법률이 허용하는 최대 범위 내에서, KawKaw와 그 임원, 이사, 직원 및 대리인은 다음으로 인해 발생하는 이익, 데이터 또는 영업권의 손실을 포함하되 이에 제한되지 않는 간접적, 우발적, 특별, 결과적 또는 징벌적 손해에 대해 책임을 지지 않습니다:</p>
+      <ul>
+        <li>귀하의 앱 사용 또는 사용 불능.</li>
+        <li>앱의 콘텐츠 또는 AI 분석의 오류 또는 부정확성.</li>
+        <li>귀하의 계정 또는 데이터에 대한 무단 접근.</li>
+        <li>앱을 통해 접근하는 제3자 콘텐츠 또는 서비스.</li>
+      </ul>
+      <p>본 약관 또는 귀하의 앱 사용으로 인한 청구에 대한 당사의 총 책임은 청구 전 12개월 동안 귀하가 당사에 지불한 금액을 초과하지 않습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 면책</h2>
+      <p>귀하는 앱 사용, 본 약관 위반 또는 제3자의 권리 침해로 인해 발생하는 모든 청구, 손해, 손실 또는 비용(합리적인 법률 비용 포함)에 대해 KawKaw와 그 계열사를 면책하고 방어하며 피해가 없도록 할 것에 동의합니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. 이용 해지</h2>
+      <ul>
+        <li>앱의 설정에서 계정을 삭제하여 언제든지 계정을 해지할 수 있습니다.</li>
+        <li>귀하가 본 약관을 위반하는 경우, 당사는 사전 통지 여부와 관계없이 귀하의 계정을 정지하거나 해지할 수 있습니다.</li>
+        <li>해지 시 앱 사용 권리는 즉시 소멸됩니다.</li>
+        <li>계정 삭제는 영구적입니다. 계정과 관련된 모든 데이터는 30일 이내에 제거됩니다.</li>
+        <li>그 성격상 해지 후에도 유효해야 하는 조항(면책 조항, 책임 제한, 면책)은 존속됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. 약관 변경</h2>
+      <p>당사는 언제든지 본 약관을 수정할 권리를 보유합니다. 중요한 변경 사항은 앱 또는 이메일을 통해 알려드립니다. 변경이 발효된 후 앱을 계속 사용하면 수정된 약관에 동의하는 것으로 간주됩니다. 수정된 약관에 동의하지 않으시면 앱 사용을 중단해야 합니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>13. 준거법 및 분쟁 해결</h2>
+      <p>본 약관은 대한민국의 법률에 따라 해석되고 적용됩니다. 본 약관에서 발생하거나 이와 관련된 분쟁은 먼저 성실한 협의를 통해 해결합니다. 협의가 이루어지지 않을 경우, 분쟁은 대한민국의 관할 법원에 제소합니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>14. 일반 조항</h2>
+      <ul>
+        <li><strong>완전한 합의:</strong> 본 약관은 개인정보처리방침 및 서비스 가이드와 함께 앱에 관한 귀하와 KawKaw 간의 전체 합의를 구성합니다.</li>
+        <li><strong>분리 가능성:</strong> 본 약관의 어떤 조항이 무효 또는 집행 불가능한 것으로 판명되더라도, 나머지 조항은 완전한 효력을 유지합니다.</li>
+        <li><strong>권리 불포기:</strong> 당사가 본 약관의 어떤 조항을 집행하지 않더라도 해당 조항의 포기로 간주되지 않습니다.</li>
+        <li><strong>양도:</strong> 귀하는 본 약관에 따른 권리를 양도할 수 없습니다. 당사는 제한 없이 권리를 양도할 수 있습니다.</li>
+        <li><strong>불가항력:</strong> 당사는 합리적인 통제 범위를 벗어난 상황으로 인한 불이행 또는 지연에 대해 책임을 지지 않습니다.</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. 문의처</h2>
+      <p>본 약관에 대한 문의사항은 아래로 연락해 주시기 바랍니다:</p>
+      <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang === 'ko' ? 'ko' : '';
+      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
+      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      history.replaceState(null, '', '?lang=' + lang);
+    }
+    (function() {
+      var p = new URLSearchParams(location.search);
+      var lang = p.get('lang');
+      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      setLang(lang);
+    })();
+  </script>
 </body>
 </html>
