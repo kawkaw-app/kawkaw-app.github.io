@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account & Data Deletion Request · KawKaw</title>
+<meta name="description" content="Request deletion of your gumi save / gumi glowup account and related data">
+<style>
+  :root {
+    --bg: #FFF5F7;
+    --surface: #FFFFFF;
+    --primary: #FFB8D0;
+    --primary-dark: #FF8FB3;
+    --primary-hover: #FF7AA3;
+    --text: #3D3D3D;
+    --text-muted: #8A8A8A;
+    --border: #FFE0E9;
+    --note-bg: #FFF9FB;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Thai', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 24px 28px 32px;
+    box-shadow: 0 8px 32px rgba(255, 143, 179, 0.18);
+  }
+  .lang-switcher {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+  .lang-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 34px 8px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23FF8FB3' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+  .lang-pill:hover { border-color: var(--primary-dark); background: var(--note-bg); }
+  .lang-pill .globe { font-size: 14px; line-height: 1; }
+  .lang-pill select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    appearance: none;
+    font: inherit;
+  }
+  [dir="rtl"] .lang-pill {
+    padding: 8px 12px 8px 34px;
+    background-position: left 12px center;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    letter-spacing: -0.2px;
+  }
+  p.desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0 0 24px;
+  }
+  .field { margin-bottom: 20px; }
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .radio-group {
+    display: flex;
+    gap: 8px;
+  }
+  .radio-option { flex: 1; }
+  .radio-option input { display: none; }
+  .radio-option label {
+    display: block;
+    text-align: center;
+    padding: 14px 8px;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    background: #FFFFFF;
+  }
+  .radio-option input:checked + label {
+    border-color: var(--primary-dark);
+    background: var(--primary);
+    color: #FFFFFF;
+  }
+  input[type="email"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+    background: #FFFFFF;
+    color: var(--text);
+  }
+  input[type="email"]:focus {
+    border-color: var(--primary-dark);
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-dark);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    margin-top: 4px;
+  }
+  button:hover:not(:disabled) { background: var(--primary-hover); }
+  button:disabled {
+    background: #D9D9D9;
+    cursor: not-allowed;
+  }
+  .note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: var(--note-bg);
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .footer a {
+    color: var(--primary-dark);
+    text-decoration: none;
+  }
+  .success {
+    text-align: center;
+    padding: 32px 12px 12px;
+  }
+  .success .emoji { font-size: 40px; }
+  .success h2 { font-size: 18px; margin: 12px 0 8px; }
+  .success p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="lang-switcher">
+    <label class="lang-pill">
+      <span class="globe" aria-hidden="true">🌐</span>
+      <span id="lang-current">English</span>
+      <select id="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="tl">Tagalog</option>
+        <option value="ceb">Bisaya</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="th">ไทย</option>
+        <option value="ar">العربية</option>
+      </select>
+    </label>
+  </div>
+
+  <h1 id="h1"></h1>
+  <p class="desc">
+    <span id="desc-1"></span><br>
+    <span id="desc-2"></span>
+  </p>
+
+  <form id="form" action="https://formspree.io/f/xjgjwbpk" method="POST">
+    <div class="field">
+      <span class="label" id="service-label"></span>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" id="gumi-save" name="service" value="gumi save" required>
+          <label for="gumi-save">gumi save</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="gumi-glowup" name="service" value="gumi glowup" required>
+          <label for="gumi-glowup">gumi glowup</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="email" id="email-label"></label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email">
+    </div>
+
+    <input type="hidden" name="_subject" id="email-subject" value="">
+
+    <button type="submit" id="submit-btn"></button>
+
+    <p class="note" id="email-note"></p>
+  </form>
+
+  <p class="footer">
+    <span id="contact-label"></span> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a>
+  </p>
+</div>
+
+<script>
+  const i18n = {
+    ko: {
+      title: "계정 및 데이터 삭제 요청 · KawKaw",
+      h1: "계정 및 데이터 삭제 요청",
+      desc1: "삭제하고자 하는 서비스와 계정 이메일을 입력해주세요.",
+      desc2: "요청 접수 후 영업일 기준 7일 이내 처리됩니다.",
+      serviceLabel: "서비스 선택",
+      emailLabelDefault: "계정 이메일",
+      emailLabelFb: "Facebook 계정 이메일",
+      emailLabelLogin: "로그인 이메일",
+      submit: "삭제 요청 보내기",
+      sending: "전송 중...",
+      noteInitial: "서비스를 먼저 선택해주세요.",
+      noteSave: "gumi save 가입 시 사용한 Facebook 계정의 이메일 주소를 입력해주세요.",
+      noteGlowup: "gumi glowup에 로그인할 때 사용하는 이메일 주소를 입력해주세요.",
+      subjectDefault: "[계정 삭제 요청]",
+      subjectSave: "[계정 삭제 요청] gumi save",
+      subjectGlowup: "[계정 삭제 요청] gumi glowup",
+      contact: "문의:",
+      successTitle: "요청이 접수되었습니다",
+      successDesc1: "영업일 기준 7일 이내에 처리되며,",
+      successDesc2: "완료 시 입력하신 이메일로 안내드립니다.",
+      error: "전송에 실패했습니다. kawkaw.app@gmail.com 으로 직접 이메일 주세요."
+    },
+    en: {
+      title: "Account & Data Deletion Request · KawKaw",
+      h1: "Account & Data Deletion Request",
+      desc1: "Please select the service and enter your account email.",
+      desc2: "Requests are processed within 7 business days.",
+      serviceLabel: "Select Service",
+      emailLabelDefault: "Account Email",
+      emailLabelFb: "Facebook Account Email",
+      emailLabelLogin: "Login Email",
+      submit: "Send Deletion Request",
+      sending: "Sending...",
+      noteInitial: "Please select a service first.",
+      noteSave: "Enter the Facebook account email used to sign up for gumi save.",
+      noteGlowup: "Enter the email you use to log in to gumi glowup.",
+      subjectDefault: "[Deletion Request]",
+      subjectSave: "[Deletion Request] gumi save",
+      subjectGlowup: "[Deletion Request] gumi glowup",
+      contact: "Contact:",
+      successTitle: "Your request has been received",
+      successDesc1: "We will process your request within 7 business days",
+      successDesc2: "and notify you via email once complete.",
+      error: "Failed to send. Please email kawkaw.app@gmail.com directly."
+    },
+    tl: {
+      title: "Paghiling ng Pagbura ng Account · KawKaw",
+      h1: "Paghiling ng Pagbura ng Account at Data",
+      desc1: "Pakipili ang serbisyo at ilagay ang email ng iyong account.",
+      desc2: "Ang mga kahilingan ay pinoproseso sa loob ng 7 araw ng negosyo.",
+      serviceLabel: "Pumili ng Serbisyo",
+      emailLabelDefault: "Email ng Account",
+      emailLabelFb: "Email ng Facebook Account",
+      emailLabelLogin: "Email sa Pag-login",
+      submit: "Ipadala ang Kahilingan",
+      sending: "Ipinapadala...",
+      noteInitial: "Pakipili muna ang serbisyo.",
+      noteSave: "Ilagay ang email ng Facebook account na ginamit sa pag-sign up sa gumi save.",
+      noteGlowup: "Ilagay ang email na ginagamit mo sa pag-log in sa gumi glowup.",
+      subjectDefault: "[Kahilingan ng Pagbura]",
+      subjectSave: "[Kahilingan ng Pagbura] gumi save",
+      subjectGlowup: "[Kahilingan ng Pagbura] gumi glowup",
+      contact: "Makipag-ugnayan:",
+      successTitle: "Natanggap na ang iyong kahilingan",
+      successDesc1: "Iproseso namin ito sa loob ng 7 araw ng negosyo",
+      successDesc2: "at aabisuhan ka sa pamamagitan ng email.",
+      error: "Hindi nakapagpadala. Mangyaring direktang mag-email sa kawkaw.app@gmail.com."
+    },
+    ceb: {
+      title: "Hangyo sa Pagpapas sa Account · KawKaw",
+      h1: "Hangyo sa Pagpapas sa Account ug Data",
+      desc1: "Palihug pagpili sa serbisyo ug isulat ang email sa imong account.",
+      desc2: "Ang mga hangyo maproseso sulod sa 7 ka adlaw nga negosyo.",
+      serviceLabel: "Pagpili og Serbisyo",
+      emailLabelDefault: "Email sa Account",
+      emailLabelFb: "Email sa Facebook Account",
+      emailLabelLogin: "Email sa Pag-login",
+      submit: "Ipadala ang Hangyo",
+      sending: "Gipadala...",
+      noteInitial: "Palihug pagpili og serbisyo una.",
+      noteSave: "Isulat ang email sa Facebook account nga gigamit sa pag-sign up sa gumi save.",
+      noteGlowup: "Isulat ang email nga imong gigamit sa pag-log in sa gumi glowup.",
+      subjectDefault: "[Hangyo sa Pagpapas]",
+      subjectSave: "[Hangyo sa Pagpapas] gumi save",
+      subjectGlowup: "[Hangyo sa Pagpapas] gumi glowup",
+      contact: "Kontaka:",
+      successTitle: "Nadawat na ang imong hangyo",
+      successDesc1: "Among iproseso kini sulod sa 7 ka adlaw nga negosyo",
+      successDesc2: "ug pahibaloon ka pinaagi sa email.",
+      error: "Wala nakapadala. Palihug direkta nga mag-email sa kawkaw.app@gmail.com."
+    },
+    zh: {
+      title: "账户与数据删除请求 · KawKaw",
+      h1: "账户与数据删除请求",
+      desc1: "请选择服务并输入您的账户邮箱。",
+      desc2: "请求将在 7 个工作日内处理。",
+      serviceLabel: "选择服务",
+      emailLabelDefault: "账户邮箱",
+      emailLabelFb: "Facebook 账户邮箱",
+      emailLabelLogin: "登录邮箱",
+      submit: "发送删除请求",
+      sending: "发送中...",
+      noteInitial: "请先选择服务。",
+      noteSave: "请输入注册 gumi save 时使用的 Facebook 账户邮箱。",
+      noteGlowup: "请输入您登录 gumi glowup 时使用的邮箱。",
+      subjectDefault: "[删除请求]",
+      subjectSave: "[删除请求] gumi save",
+      subjectGlowup: "[删除请求] gumi glowup",
+      contact: "联系我们:",
+      successTitle: "您的请求已收到",
+      successDesc1: "我们将在 7 个工作日内处理您的请求,",
+      successDesc2: "完成后会通过邮件通知您。",
+      error: "发送失败。请直接发送邮件至 kawkaw.app@gmail.com。"
+    },
+    ja: {
+      title: "アカウントとデータの削除リクエスト · KawKaw",
+      h1: "アカウントとデータの削除リクエスト",
+      desc1: "サービスを選択し、アカウントのメールアドレスを入力してください。",
+      desc2: "リクエストは7営業日以内に処理されます。",
+      serviceLabel: "サービスを選択",
+      emailLabelDefault: "アカウントのメール",
+      emailLabelFb: "Facebookアカウントのメール",
+      emailLabelLogin: "ログイン用メール",
+      submit: "削除リクエストを送信",
+      sending: "送信中...",
+      noteInitial: "先にサービスを選択してください。",
+      noteSave: "gumi save の登録に使用した Facebook アカウントのメールアドレスを入力してください。",
+      noteGlowup: "gumi glowup にログインする際に使用するメールアドレスを入力してください。",
+      subjectDefault: "[削除リクエスト]",
+      subjectSave: "[削除リクエスト] gumi save",
+      subjectGlowup: "[削除リクエスト] gumi glowup",
+      contact: "お問い合わせ:",
+      successTitle: "リクエストを受け付けました",
+      successDesc1: "7営業日以内に処理し、",
+      successDesc2: "完了時にメールでお知らせします。",
+      error: "送信に失敗しました。kawkaw.app@gmail.com まで直接メールをお送りください。"
+    },
+    es: {
+      title: "Solicitud de eliminación de cuenta y datos · KawKaw",
+      h1: "Solicitud de eliminación de cuenta y datos",
+      desc1: "Seleccione el servicio e introduzca el correo de su cuenta.",
+      desc2: "Las solicitudes se procesan en un plazo de 7 días hábiles.",
+      serviceLabel: "Seleccionar servicio",
+      emailLabelDefault: "Correo de la cuenta",
+      emailLabelFb: "Correo de la cuenta de Facebook",
+      emailLabelLogin: "Correo de inicio de sesión",
+      submit: "Enviar solicitud",
+      sending: "Enviando...",
+      noteInitial: "Por favor, seleccione un servicio primero.",
+      noteSave: "Introduzca el correo de Facebook utilizado para registrarse en gumi save.",
+      noteGlowup: "Introduzca el correo que usa para iniciar sesión en gumi glowup.",
+      subjectDefault: "[Solicitud de eliminación]",
+      subjectSave: "[Solicitud de eliminación] gumi save",
+      subjectGlowup: "[Solicitud de eliminación] gumi glowup",
+      contact: "Contacto:",
+      successTitle: "Su solicitud ha sido recibida",
+      successDesc1: "Procesaremos su solicitud en un plazo de 7 días hábiles",
+      successDesc2: "y le notificaremos por correo cuando esté completa.",
+      error: "Error al enviar. Por favor, envíe un correo directamente a kawkaw.app@gmail.com."
+    },
+    fr: {
+      title: "Demande de suppression de compte et de données · KawKaw",
+      h1: "Demande de suppression de compte et de données",
+      desc1: "Veuillez sélectionner le service et saisir l'e-mail de votre compte.",
+      desc2: "Les demandes sont traitées sous 7 jours ouvrés.",
+      serviceLabel: "Sélectionner un service",
+      emailLabelDefault: "E-mail du compte",
+      emailLabelFb: "E-mail du compte Facebook",
+      emailLabelLogin: "E-mail de connexion",
+      submit: "Envoyer la demande",
+      sending: "Envoi en cours...",
+      noteInitial: "Veuillez d'abord sélectionner un service.",
+      noteSave: "Saisissez l'e-mail du compte Facebook utilisé pour l'inscription à gumi save.",
+      noteGlowup: "Saisissez l'e-mail que vous utilisez pour vous connecter à gumi glowup.",
+      subjectDefault: "[Demande de suppression]",
+      subjectSave: "[Demande de suppression] gumi save",
+      subjectGlowup: "[Demande de suppression] gumi glowup",
+      contact: "Contact :",
+      successTitle: "Votre demande a bien été reçue",
+      successDesc1: "Nous traiterons votre demande sous 7 jours ouvrés",
+      successDesc2: "et vous en informerons par e-mail une fois terminée.",
+      error: "Échec de l'envoi. Veuillez envoyer un e-mail directement à kawkaw.app@gmail.com."
+    },
+    vi: {
+      title: "Yêu cầu xóa tài khoản và dữ liệu · KawKaw",
+      h1: "Yêu cầu xóa tài khoản và dữ liệu",
+      desc1: "Vui lòng chọn dịch vụ và nhập email tài khoản của bạn.",
+      desc2: "Yêu cầu sẽ được xử lý trong vòng 7 ngày làm việc.",
+      serviceLabel: "Chọn dịch vụ",
+      emailLabelDefault: "Email tài khoản",
+      emailLabelFb: "Email tài khoản Facebook",
+      emailLabelLogin: "Email đăng nhập",
+      submit: "Gửi yêu cầu xóa",
+      sending: "Đang gửi...",
+      noteInitial: "Vui lòng chọn dịch vụ trước.",
+      noteSave: "Nhập email tài khoản Facebook dùng để đăng ký gumi save.",
+      noteGlowup: "Nhập email bạn dùng để đăng nhập gumi glowup.",
+      subjectDefault: "[Yêu cầu xóa]",
+      subjectSave: "[Yêu cầu xóa] gumi save",
+      subjectGlowup: "[Yêu cầu xóa] gumi glowup",
+      contact: "Liên hệ:",
+      successTitle: "Yêu cầu của bạn đã được tiếp nhận",
+      successDesc1: "Chúng tôi sẽ xử lý yêu cầu trong vòng 7 ngày làm việc",
+      successDesc2: "và thông báo qua email khi hoàn tất.",
+      error: "Gửi thất bại. Vui lòng gửi email trực tiếp đến kawkaw.app@gmail.com."
+    },
+    th: {
+      title: "คำขอลบบัญชีและข้อมูล · KawKaw",
+      h1: "คำขอลบบัญชีและข้อมูล",
+      desc1: "กรุณาเลือกบริการและกรอกอีเมลบัญชีของคุณ",
+      desc2: "คำขอจะได้รับการดำเนินการภายใน 7 วันทำการ",
+      serviceLabel: "เลือกบริการ",
+      emailLabelDefault: "อีเมลบัญชี",
+      emailLabelFb: "อีเมลบัญชี Facebook",
+      emailLabelLogin: "อีเมลเข้าสู่ระบบ",
+      submit: "ส่งคำขอลบ",
+      sending: "กำลังส่ง...",
+      noteInitial: "กรุณาเลือกบริการก่อน",
+      noteSave: "กรอกอีเมลบัญชี Facebook ที่ใช้สมัคร gumi save",
+      noteGlowup: "กรอกอีเมลที่คุณใช้เข้าสู่ระบบ gumi glowup",
+      subjectDefault: "[คำขอลบ]",
+      subjectSave: "[คำขอลบ] gumi save",
+      subjectGlowup: "[คำขอลบ] gumi glowup",
+      contact: "ติดต่อ:",
+      successTitle: "ได้รับคำขอของคุณแล้ว",
+      successDesc1: "เราจะดำเนินการภายใน 7 วันทำการ",
+      successDesc2: "และแจ้งให้คุณทราบทางอีเมลเมื่อเสร็จสิ้น",
+      error: "ส่งไม่สำเร็จ กรุณาส่งอีเมลโดยตรงไปที่ kawkaw.app@gmail.com"
+    },
+    ar: {
+      title: "طلب حذف الحساب والبيانات · KawKaw",
+      h1: "طلب حذف الحساب والبيانات",
+      desc1: "يرجى اختيار الخدمة وإدخال البريد الإلكتروني لحسابك.",
+      desc2: "تتم معالجة الطلبات خلال 7 أيام عمل.",
+      serviceLabel: "اختر الخدمة",
+      emailLabelDefault: "البريد الإلكتروني للحساب",
+      emailLabelFb: "البريد الإلكتروني لحساب Facebook",
+      emailLabelLogin: "البريد الإلكتروني لتسجيل الدخول",
+      submit: "إرسال طلب الحذف",
+      sending: "جاري الإرسال...",
+      noteInitial: "يرجى اختيار خدمة أولاً.",
+      noteSave: "أدخل البريد الإلكتروني لحساب Facebook المستخدم للتسجيل في gumi save.",
+      noteGlowup: "أدخل البريد الإلكتروني الذي تستخدمه لتسجيل الدخول إلى gumi glowup.",
+      subjectDefault: "[طلب حذف]",
+      subjectSave: "[طلب حذف] gumi save",
+      subjectGlowup: "[طلب حذف] gumi glowup",
+      contact: "للتواصل:",
+      successTitle: "تم استلام طلبك",
+      successDesc1: "سنعالج طلبك خلال 7 أيام عمل",
+      successDesc2: "وسنخبرك عبر البريد الإلكتروني عند الانتهاء.",
+      error: "فشل الإرسال. يرجى إرسال بريد إلكتروني مباشرة إلى kawkaw.app@gmail.com."
+    }
+  };
+
+  const SUPPORTED = ['ko', 'en', 'tl', 'ceb', 'zh', 'ja', 'es', 'fr', 'vi', 'th', 'ar'];
+  const RTL_LANGS = ['ar'];
+  const LANG_NAMES = {
+    ko: '한국어', en: 'English', tl: 'Tagalog', ceb: 'Bisaya',
+    zh: '中文', ja: '日本語', es: 'Español', fr: 'Français',
+    vi: 'Tiếng Việt', th: 'ไทย', ar: 'العربية'
+  };
+
+  function detectLang() {
+    const saved = localStorage.getItem('lang');
+    if (saved && i18n[saved]) return saved;
+    const candidates = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || 'en'];
+    for (const raw of candidates) {
+      const low = (raw || '').toLowerCase();
+      if (low.startsWith('ko')) return 'ko';
+      if (low.startsWith('ceb')) return 'ceb';
+      if (low.startsWith('tl') || low.startsWith('fil')) return 'tl';
+      if (low.startsWith('zh')) return 'zh';
+      if (low.startsWith('ja')) return 'ja';
+      if (low.startsWith('es')) return 'es';
+      if (low.startsWith('fr')) return 'fr';
+      if (low.startsWith('vi')) return 'vi';
+      if (low.startsWith('th')) return 'th';
+      if (low.startsWith('ar')) return 'ar';
+      if (low.startsWith('en')) return 'en';
+    }
+    return 'en';
+  }
+
+  const gumiSave = document.getElementById('gumi-save');
+  const gumiGlowup = document.getElementById('gumi-glowup');
+  const emailLabel = document.getElementById('email-label');
+  const emailNote = document.getElementById('email-note');
+  const emailSubject = document.getElementById('email-subject');
+  const form = document.getElementById('form');
+  const card = document.getElementById('card');
+  const langSelect = document.getElementById('lang-select');
+  const submitBtn = document.getElementById('submit-btn');
+
+  let currentLang = 'en';
+  let t = i18n.en;
+
+  function applyLang(lang) {
+    currentLang = lang;
+    t = i18n[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
+    document.title = t.title;
+    document.getElementById('h1').textContent = t.h1;
+    document.getElementById('desc-1').textContent = t.desc1;
+    document.getElementById('desc-2').textContent = t.desc2;
+    document.getElementById('service-label').textContent = t.serviceLabel;
+    document.getElementById('contact-label').textContent = t.contact;
+    document.getElementById('lang-current').textContent = LANG_NAMES[lang] || lang;
+    submitBtn.textContent = t.submit;
+    updateLabel();
+  }
+
+  function updateLabel() {
+    if (gumiSave.checked) {
+      emailLabel.textContent = t.emailLabelFb;
+      emailNote.textContent = t.noteSave;
+      emailSubject.value = t.subjectSave;
+    } else if (gumiGlowup.checked) {
+      emailLabel.textContent = t.emailLabelLogin;
+      emailNote.textContent = t.noteGlowup;
+      emailSubject.value = t.subjectGlowup;
+    } else {
+      emailLabel.textContent = t.emailLabelDefault;
+      emailNote.textContent = t.noteInitial;
+      emailSubject.value = t.subjectDefault;
+    }
+  }
+
+  gumiSave.addEventListener('change', updateLabel);
+  gumiGlowup.addEventListener('change', updateLabel);
+
+  langSelect.addEventListener('change', (e) => {
+    const lang = e.target.value;
+    localStorage.setItem('lang', lang);
+    applyLang(lang);
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = t.sending;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('network');
+      card.innerHTML = `<div class="success"><div class="emoji">✉️</div><h2>${t.successTitle}</h2><p>${t.successDesc1}<br>${t.successDesc2}</p></div>`;
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = t.submit;
+      alert(t.error);
+    }
+  });
+
+  const initialLang = detectLang();
+  langSelect.value = initialLang;
+  applyLang(initialLang);
+</script>
+</body>
+</html>
