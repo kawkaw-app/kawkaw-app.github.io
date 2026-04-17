@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUMI GLOWUP — Your Skincare Routine Coach ✨</title>
+  <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <style>
+    .app-card.glowup {
+      background: linear-gradient(135deg, #FFE8F4 0%, #FFF3E0 100%);
+      border: 2.5px solid #F7B8C8;
+    }
+    .glowup .app-icon { background: linear-gradient(135deg, #F7B8C8, #FFD6B8); }
+    .glowup h3 { color: #B55A7A; }
+    .glowup .app-tagline { color: #D88AA3; }
+    .glowup .app-badge { background: #FFE0EC; color: #B55A7A; }
+    .glowup .blob { background: #F7B8C8; }
+
+    .glowup-links { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .glowup-links-title {
+      font-size: 0.78rem; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; color: #D88AA3; margin-bottom: 2px;
+    }
+    .glowup-link-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .glowup-link-label {
+      font-size: 0.85rem; font-weight: 700; color: var(--brown); min-width: 90px;
+    }
+    .lang-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 13px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 800;
+      text-decoration: none;
+      background: #FFE0EC; color: #B55A7A;
+      border: 2px solid #F7B8C8;
+      transition: background .18s, transform .15s, box-shadow .15s;
+      box-shadow: 0 2px 0 #E88FA6;
+    }
+    .lang-pill:hover { background: #FFD0DC; transform: translateY(-2px); box-shadow: 0 4px 0 #E88FA6; }
+    .lang-pill:active { transform: translateY(1px); box-shadow: 0 1px 0 #E88FA6; }
+    .glowup-divider {
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #F7B8C8, transparent);
+      margin: 6px 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="../image/ci_icon.png" alt="KawKaw" /> KawKaw.dev</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">← Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('feedback').scrollIntoView({behavior:'smooth'})">
+    💬 Talk to Us
+  </button>
+</nav>
+
+<section class="hero">
+  <span class="floater">✨</span>
+  <span class="floater">💖</span>
+  <span class="floater">🌸</span>
+  <span class="floater">🌿</span>
+  <span class="floater">💧</span>
+  <span class="floater">🫧</span>
+  <span class="floater">🌟</span>
+
+  <div class="hero-badge">🤖 AI Skincare Coach · 🌍 Available worldwide</div>
+
+  <h1>
+    Your <span class="highlight">AI skincare</span><br/>
+    <span class="highlight2">glow-up coach</span>
+  </h1>
+
+  <p class="hero-sub">
+    Snap a photo — our AI reads your skin and builds a routine tuned to <strong>you</strong>.<br/>
+    Track progress. Glow at your own pace. 🤖✨
+  </p>
+
+  <div class="hero-cta">
+    <a class="btn-primary" href="#about">✨ See Features</a>
+    <a class="btn-secondary" href="#feedback">💌 Talk to Us</a>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">🤖 AI-powered</div>
+    <div class="trust-item">🍎 iOS · 🤖 Android</div>
+    <div class="trust-item">🌍 Global</div>
+    <div class="trust-item">🌱 Gentle, not salesy</div>
+    <div class="trust-item">🔒 Private</div>
+  </div>
+</section>
+
+<section class="apps" id="about">
+  <div class="center">
+    <span class="section-label">Features</span>
+    <h2 class="section-title">AI skincare that meets you where you are ✨</h2>
+    <p class="section-desc center">A daily coach that actually understands your skin — powered by AI, gently delivered.</p>
+  </div>
+
+  <div class="apps-grid" style="grid-template-columns: 1fr; max-width: 520px;">
+    <div class="app-card glowup">
+      <div class="blob"></div>
+      <div class="app-icon"><img src="../image/glowup.webp" alt="GUMI GLOWUP" /></div>
+      <div class="app-tagline">AI Skincare Coach</div>
+      <h3>GUMI GLOWUP</h3>
+      <p class="app-desc">
+        Your AI skincare companion. Snap a photo — our AI reads your skin and builds a personalized
+        routine, recommends products, and tracks your progress over time. 🤖✨
+      </p>
+      <ul class="app-features">
+        <li><span class="feat-icon">🤖</span> AI skin analysis from a single photo</li>
+        <li><span class="feat-icon">✨</span> AI-personalized daily routine</li>
+        <li><span class="feat-icon">🧴</span> AI product recommendations for your skin</li>
+        <li><span class="feat-icon">📸</span> Skin progress tracking &amp; reports</li>
+        <li><span class="feat-icon">🌱</span> Gentle, science-friendly guidance</li>
+        <li><span class="feat-icon">🍎</span> Available on iOS &amp; 🤖 Android</li>
+        <li><span class="feat-icon">🌍</span> Worldwide</li>
+      </ul>
+      <span class="app-badge" style="margin-top:12px;">✨ Available now</span>
+
+      <div class="glowup-divider"></div>
+
+      <div class="glowup-links">
+        <div class="glowup-links-title">📚 Resources</div>
+
+        <div class="glowup-link-row">
+          <span class="glowup-link-label">🔒 Privacy</span>
+          <a class="lang-pill" href="https://kawkaw.dev/glowup/privacy-policy" target="_blank" rel="noopener">Privacy policy ✨</a>
+        </div>
+        <div class="glowup-link-row">
+          <span class="glowup-link-label">📜 Terms</span>
+          <a class="lang-pill" href="https://kawkaw.dev/glowup/terms-of-service" target="_blank" rel="noopener">Terms of Service ✨</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feedback" id="feedback">
+  <div class="center">
+    <span class="section-label">Talk to Us</span>
+    <h2 class="section-title">Shape GUMI GLOWUP with us 💬</h2>
+    <p class="section-desc center">What do you wish your skincare app did? We're listening before we ship. 🙏</p>
+  </div>
+
+  <div class="feedback-form">
+    <div id="form-fields">
+      <h3>💌 Send us a message</h3>
+      <div class="form-group">
+        <label for="fname">Your Name</label>
+        <input type="text" id="fname" placeholder="How should we address you?" />
+      </div>
+      <div class="form-group">
+        <label for="ftype">Type of Feedback</label>
+        <select id="ftype">
+          <option value="">Select type...</option>
+          <option>💡 Feature Suggestion</option>
+          <option>🤔 Question</option>
+          <option>❤️ I'd use this!</option>
+          <option>🔔 Notify me at launch</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fmsg">Your Message</label>
+        <textarea id="fmsg" placeholder="Tell us anything! We really do read every message..."></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn">Send Message 🚀</button>
+      <p class="form-note">No login needed · Or email us: <a href="mailto:kawkaw.app@gmail.com" style="color:var(--leaf-deep);font-weight:800;">kawkaw.app@gmail.com</a> 📧</p>
+    </div>
+    <div id="form-success" class="form-success" style="display:none;">
+      <h4>Thank you! 🙏</h4>
+      <p>We'll read your message soon. Expect a reply from a real person.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="../image/glowup.webp" alt="GUMI GLOWUP" /> GUMI GLOWUP</div>
+  <p>A KawKaw app. Skincare, gently guided.</p>
+  <div class="footer-service-block">
+    <div class="footer-service-label">✨ GUMI GLOWUP Resources</div>
+    <div class="footer-legal-row">
+      <a href="https://kawkaw.dev/glowup/privacy-policy" target="_blank" rel="noopener">🔒 Privacy Policy</a>
+      <span class="dot">·</span>
+      <a href="https://kawkaw.dev/glowup/terms-of-service" target="_blank" rel="noopener">📜 Terms of Service</a>
+    </div>
+  </div>
+  <p class="footer-back"><a href="/">← Back to KawKaw</a></p>
+  <p class="copy">© 2026 KawKaw. Always listening.</p>
+</footer>
+
+<div id="toast">✅ Thanks! We'll read your message soon 🙏</div>
+
+<script>
+  async function submitFeedback() {
+    const name = document.getElementById('fname').value.trim();
+    const type = document.getElementById('ftype').value;
+    const msg  = document.getElementById('fmsg').value.trim();
+
+    if (!msg) {
+      document.getElementById('fmsg').style.borderColor = '#e03131';
+      document.getElementById('fmsg').focus();
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending... ⏳';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    try {
+      await fetch('https://formspree.io/f/xgonaebn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, app: 'gumi-glowup', type, message: msg })
+      });
+    } catch (e) {}
+
+    document.getElementById('form-fields').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  document.getElementById('submit-btn').addEventListener('click', submitFeedback);
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.app-card, .why-card, .road-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

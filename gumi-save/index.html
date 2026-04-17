@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" translate="yes">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUMI SAVE — Your Cute & Friendly Budgeting Buddy 🐻</title>
+  <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <style>
+    .app-card.gumi {
+      background: linear-gradient(135deg, #F0EAFF 0%, #FFE8F4 100%);
+      border: 2.5px solid #CDBFEF;
+    }
+    .gumi .app-icon { background: linear-gradient(135deg, #C9B8F0, #F7B8C8); }
+    .gumi h3 { color: #6A4FA0; }
+    .gumi .app-tagline { color: #7A5FBF; }
+    .gumi .app-badge { background: #E4DAFF; color: #6A4FA0; }
+    .gumi .blob { background: #C9B8F0; }
+
+    .app-screenshot {
+      width: calc(100% + 64px);
+      margin: -36px -32px 24px;
+      border-radius: 28px 28px 0 0;
+      overflow: hidden;
+      max-height: 230px;
+    }
+    .app-screenshot img {
+      width: 100%; height: 230px;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+
+    .gumi-links { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .gumi-links-title {
+      font-size: 0.78rem; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; color: #9D87DC; margin-bottom: 2px;
+    }
+    .gumi-link-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .gumi-link-label {
+      font-size: 0.85rem; font-weight: 700; color: var(--brown); min-width: 90px;
+    }
+    .lang-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 13px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 800;
+      text-decoration: none;
+      background: #EDE0FF; color: #6A4FA0;
+      border: 2px solid #D4C4F8;
+      transition: background .18s, transform .15s, box-shadow .15s;
+      box-shadow: 0 2px 0 #C9B0F0;
+    }
+    .lang-pill:hover { background: #D4C4F8; transform: translateY(-2px); box-shadow: 0 4px 0 #B09ADE; }
+    .lang-pill:active { transform: translateY(1px); box-shadow: 0 1px 0 #B09ADE; }
+    .lang-pill.guide {
+      background: linear-gradient(135deg, #C9B8F0, #F7B8C8);
+      border: 2px solid #D4C4F8; color: #4A3880;
+      box-shadow: 0 2px 0 #B09ADE;
+    }
+    .lang-pill.guide:hover { background: linear-gradient(135deg, #B8A5E8, #F0A8C0); }
+    .gumi-divider {
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #D4C4F8, transparent);
+      margin: 6px 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="../image/ci_icon.png" alt="KawKaw" /> KawKaw.dev</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">← Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('feedback').scrollIntoView({behavior:'smooth'})">
+    💬 Talk to Us
+  </button>
+</nav>
+
+<section class="hero">
+  <span class="floater">🌟</span>
+  <span class="floater">💰</span>
+  <span class="floater">⚡</span>
+  <span class="floater">🐻</span>
+  <span class="floater">🌿</span>
+  <span class="floater">✨</span>
+  <span class="floater">💧</span>
+
+  <div class="hero-badge">🤖 AI Budget Coach · 🇵🇭 Made for the Philippines</div>
+
+  <h1>
+    Your <span class="highlight">AI budgeting</span><br/>
+    buddy for<br/>
+    <span class="highlight2">everyday money</span>
+  </h1>
+
+  <p class="hero-sub">
+    Track income, expenses, utang, and savings — with an <strong>AI coach</strong> that turns your spending into clear, gentle insights.<br/>
+    Friendly, not overwhelming. 🤖✨
+  </p>
+
+  <div class="hero-cta">
+    <a class="btn-primary" href="#features">🚀 See Features</a>
+    <a class="btn-secondary" href="#roadmap">🗺️ See Roadmap</a>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">🤖 AI-powered</div>
+    <div class="trust-item">🍎 iOS · 🤖 Android</div>
+    <div class="trust-item">✅ 100% Free Forever</div>
+    <div class="trust-item">📵 Works Offline</div>
+    <div class="trust-item">🔒 Your Data Stays Yours</div>
+  </div>
+</section>
+
+<section class="apps" id="features">
+  <div class="center">
+    <span class="section-label">Features</span>
+    <h2 class="section-title">Everything you need to manage your money 🎯</h2>
+    <p class="section-desc center">Help every Filipino family take control of their money — without stress, without cost, and without needing the internet.</p>
+  </div>
+
+  <div class="apps-grid" style="grid-template-columns: 1fr; max-width: 520px;">
+    <div class="app-card gumi">
+      <div class="blob"></div>
+      <div class="app-screenshot"><img src="image/gumi-save-app-screenshot.png" alt="GUMI SAVE App Screenshot" /></div>
+      <div class="app-icon"><img src="../image/save.webp" alt="GUMI SAVE" /></div>
+      <div class="app-tagline">AI Budget Coach</div>
+      <h3>GUMI SAVE</h3>
+      <p class="app-desc">
+        Your AI budgeting buddy. Track income, expenses, utang, and savings — with an AI coach
+        that turns your spending into clear, gentle insights. Friendly, not overwhelming. 🤖✨
+      </p>
+      <ul class="app-features">
+        <li><span class="feat-icon">🤖</span> AI Coach — personalized spending insights &amp; tips</li>
+        <li><span class="feat-icon">🧾</span> AI receipt scanning — instant entry from a photo</li>
+        <li><span class="feat-icon">💵</span> Track income, expenses, utang &amp; savings</li>
+        <li><span class="feat-icon">📦</span> Envelope budgeting system</li>
+        <li><span class="feat-icon">🤝</span> Utang (debt) tracker with Hulugan schedule</li>
+        <li><span class="feat-icon">🐷</span> Dream Board — savings goals with progress</li>
+        <li><span class="feat-icon">⚡</span> Quick Expense — one-tap daily spending</li>
+        <li><span class="feat-icon">📅</span> Calendar view for all transactions</li>
+        <li><span class="feat-icon">💡</span> Utility Bill Calculator &amp; Estimator</li>
+        <li><span class="feat-icon">🏠</span> Home Screen Widgets</li>
+        <li><span class="feat-icon">🍎</span> Available on iOS &amp; 🤖 Android</li>
+        <li><span class="feat-icon">📵</span> Works 100% offline, anytime</li>
+      </ul>
+      <span class="app-badge">🆓 100% Free</span>
+
+      <div class="gumi-divider"></div>
+
+      <div class="gumi-links">
+        <div class="gumi-links-title">📚 Resources</div>
+
+        <div class="gumi-link-row">
+          <span class="gumi-link-label">📖 User Guide</span>
+          <a class="lang-pill guide" href="https://www.kawkaw.dev/gumi/guide" target="_blank" rel="noopener">Read Guide ✨</a>
+        </div>
+        <div class="gumi-link-row">
+          <span class="gumi-link-label">🔒 Privacy</span>
+          <a class="lang-pill" href="https://kawkaw.dev/gumi/privacy-policy" target="_blank" rel="noopener">Privacy policy ✨</a>
+        </div>
+        <div class="gumi-link-row">
+          <span class="gumi-link-label">📜 Terms</span>
+          <a class="lang-pill" href="https://kawkaw.dev/gumi/terms-of-service" target="_blank" rel="noopener">Terms of Service ✨</a>
+        </div>
+        <div class="gumi-link-row">
+          <span class="gumi-link-label">[f] Facebook</span>
+          <a class="lang-pill" href="https://www.facebook.com/groups/895486153385755/" target="_blank" rel="noopener">Facebook Group ✨</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promise" id="promise">
+  <div class="letter-card">
+    <div class="letter-date">From our small team to you 🌸</div>
+    <div class="letter-body">Dear Ate, Kuya, Manang, Mano, and everyone finding their way,
+
+We're not here to get rich quick. We're not here to collect your data. We're not here to disappear after a year.
+
+We built <em>GUMI SAVE</em> because we saw real people — families, solo earners, students — struggling with bills they didn't see coming and budgets that slipped away without warning.
+
+Simple. Honest. Free.
+
+Right now, this app is just a small helping hand — a companion for your everyday budgeting. But if you keep supporting us, sharing your ideas, and helping us grow, we have a bigger dream: to build real financial tools that make a difference — <em>micro-loans, micro-investments, point rewards</em>, and more. A system that truly empowers every Filipino, not just tracks their money.
+
+But here's what matters most to us: <em>we will keep listening to you.</em>
+
+Every message you send, every idea you share, every "sana may ganito" you mention — we take it seriously. That's not marketing talk. That's our commitment.
+
+We might be small today. But we'll be here tomorrow, and the day after that. Building quietly, improving constantly, and always putting you first.
+
+<em>Salamat for giving us a chance. 🙏</em></div>
+    <div class="letter-sig">
+      — The KawKaw Team
+      <small>Your neighborhood app friends 🏠</small>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap" id="roadmap">
+  <div class="center">
+    <span class="section-label">What's Coming</span>
+    <h2 class="section-title">GUMI SAVE journey, together 🗺️</h2>
+    <p class="section-desc center">We're just getting started. Here's where we've been and where we're going — shaped by your feedback.</p>
+  </div>
+
+  <div class="road-wrap">
+    <div class="road-item done">
+      <div class="road-dot">✅</div>
+      <div class="road-text">
+        <span class="road-tag">Launched!</span>
+        <h4>GUMI SAVE — Household Budget App</h4>
+        <p>Income, expenses, utang, savings, envelope budgeting & receipt scanning.</p>
+      </div>
+    </div>
+    <div class="road-item soon">
+      <div class="road-dot">💭</div>
+      <div class="road-text">
+        <span class="road-tag">Coming Soon</span>
+        <h4>Features for OFWs &amp; Business Owners</h4>
+        <p>Special tools designed for OFW families managing remittances, and small business owners tracking multiple income streams.</p>
+      </div>
+    </div>
+    <div class="road-item soon">
+      <div class="road-dot">💭</div>
+      <div class="road-text">
+        <span class="road-tag">Coming Soon</span>
+        <h4>GCash &amp; Maya Integration</h4>
+        <p>Link your GCash and Maya accounts to automatically sync transactions — no more manual entry!</p>
+      </div>
+    </div>
+    <div class="road-item future">
+      <div class="road-dot">🌟</div>
+      <div class="road-text">
+        <span class="road-tag">Big Dream</span>
+        <h4>Expanding across Southeast Asia 🌏</h4>
+        <p>Bringing GUMI SAVE to Indonesia, Vietnam, and beyond — growing with you!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feedback" id="feedback">
+  <div class="center">
+    <span class="section-label">Talk to Us</span>
+    <h2 class="section-title">Your voice shapes GUMI SAVE 💬</h2>
+    <p class="section-desc center">Got a suggestion? Found a bug? Just want to say hi? We read everything. Promise. 🙏</p>
+  </div>
+
+  <div class="feedback-form">
+    <div id="form-fields">
+      <h3>💌 Send us a message</h3>
+      <div class="form-group">
+        <label for="fname">Your Name</label>
+        <input type="text" id="fname" placeholder="Ate Maria, Kuya Juan..." />
+      </div>
+      <div class="form-group">
+        <label for="ftype">Type of Feedback</label>
+        <select id="ftype">
+          <option value="">Select type...</option>
+          <option>💡 Feature Suggestion</option>
+          <option>🐛 Bug Report</option>
+          <option>❤️ Just saying thanks!</option>
+          <option>🤔 Question</option>
+          <option>😤 Complaint (we want to know!)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fmsg">Your Message</label>
+        <textarea id="fmsg" placeholder="Tell us anything! We really do read every message..."></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn">Send Message 🚀</button>
+      <p class="form-note">No login needed · Or email us: <a href="mailto:kawkaw.app@gmail.com" style="color:var(--leaf-deep);font-weight:800;">kawkaw.app@gmail.com</a> 📧</p>
+    </div>
+    <div id="form-success" class="form-success" style="display:none;">
+      <h4>Salamat! 🙏</h4>
+      <p>We'll read your message soon. Expect a reply from a real person.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="../image/save.webp" alt="Gumi Save" /> Gumi Save</div>
+  <p>Your cute & friendly budgeting buddy — built in the Philippines, for the Philippines (and beyond!)</p>
+  <div class="footer-service-block">
+    <div class="footer-service-label">🐻 GUMI SAVE Resources</div>
+    <div class="footer-legal-row">
+      <a href="https://www.kawkaw.dev/gumi/guide" target="_blank" rel="noopener">📖 User Guide</a>
+    </div>
+    <div class="footer-legal-row">
+      <a href="https://kawkaw.dev/gumi/privacy-policy" target="_blank" rel="noopener">🔒 Privacy Policy</a>
+      <span class="dot">·</span>
+      <a href="https://kawkaw.dev/gumi/terms-of-service" target="_blank" rel="noopener">📜 Terms of Service</a>
+    </div>
+  </div>
+  <p>Made with ❤️ for every Filipino family managing their money one day at a time.</p>
+  <p class="footer-back"><a href="/">← Back to KawKaw</a></p>
+  <p class="copy">© 2026 KawKaw. Free forever. Always listening.</p>
+</footer>
+
+<div id="toast">✅ Salamat! We'll read your message soon 🙏</div>
+
+<script>
+  async function submitFeedback() {
+    const name = document.getElementById('fname').value.trim();
+    const type = document.getElementById('ftype').value;
+    const msg  = document.getElementById('fmsg').value.trim();
+
+    if (!msg) {
+      document.getElementById('fmsg').style.borderColor = '#e03131';
+      document.getElementById('fmsg').focus();
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending... ⏳';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    try {
+      await fetch('https://formspree.io/f/xgonaebn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, app: 'gumi-save', type, message: msg })
+      });
+    } catch (e) {}
+
+    document.getElementById('form-fields').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  document.getElementById('submit-btn').addEventListener('click', submitFeedback);
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.app-card, .why-card, .road-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

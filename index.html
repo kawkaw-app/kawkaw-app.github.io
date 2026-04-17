@@ -1,809 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" translate="yes">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GUMI SAVE — Your Cute & Friendly Budgeting Buddy 🐻</title>
+  <title>KawKaw — Honest apps for everyday life</title>
   <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --sun: #FFD580;
-      --sun-deep: #FFBF40;
-      --leaf: #7EC8A4;
-      --leaf-deep: #4DAF82;
-      --sky: #A8D8EA;
-      --sky-deep: #6BB8D4;
-      --lavender: #C9B8F0;
-      --lavender-deep: #9D87DC;
-      --pink: #F7B8C8;
-      --pink-deep: #E88FA6;
-      --mint: #B8EDD8;
-      --peach: #FFD6B8;
-      --cream: #F8F5FF;
-      --warm-white: #F2F0FF;
-      --brown: #4A4063;
-      --text: #2D2546;
-      --text-light: #8B82A8;
-      --card-shadow: 0 8px 32px rgba(74,64,99,0.10);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(248,245,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px dashed rgba(74,64,99,0.10);
-      padding: 14px 32px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800; font-size: 1.5rem;
-      color: var(--brown);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-logo span { font-size: 1.6rem; }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 700; font-size: 0.95rem;
-      color: var(--text-light);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--brown); }
-    .nav-btn {
-      background: linear-gradient(135deg, #C9B8F0, #F7B8C8);
-      border: none; border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 0.9rem;
-      color: #4A3880;
-      padding: 10px 22px; cursor: pointer;
-      box-shadow: 0 4px 0 #B09ADE;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #B09ADE; }
-    .nav-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #B09ADE; }
-
-    /* ── HERO ── */
-    .hero {
-      margin-top: 70px;
-      min-height: 92vh;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 60px 24px 40px;
-      position: relative;
-      background:
-        radial-gradient(ellipse 70% 40% at 50% 0%, #E8DFFF 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 10% 60%, #C8EEE0 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 90% 60%, #FFD6E8 0%, transparent 60%),
-        var(--cream);
-    }
-
-    /* floating emojis */
-    .floater {
-      position: absolute;
-      animation: floatUp 5s ease-in-out infinite;
-      font-size: 2rem;
-      opacity: 0.55;
-      user-select: none;
-      pointer-events: none;
-    }
-    .floater:nth-child(1){ top:8%; left:5%; animation-delay:0s; font-size:2.4rem; }
-    .floater:nth-child(2){ top:15%; right:8%; animation-delay:1s; font-size:1.8rem; }
-    .floater:nth-child(3){ top:40%; left:3%; animation-delay:2s; font-size:2rem; }
-    .floater:nth-child(4){ top:55%; right:5%; animation-delay:.5s; font-size:2.2rem; }
-    .floater:nth-child(5){ top:75%; left:10%; animation-delay:1.5s; font-size:1.6rem; }
-    .floater:nth-child(6){ top:20%; left:25%; animation-delay:3s; font-size:1.4rem; }
-    .floater:nth-child(7){ top:70%; right:12%; animation-delay:2.5s; font-size:1.8rem; }
-    @keyframes floatUp {
-      0%,100%{ transform: translateY(0) rotate(-3deg); }
-      50%{ transform: translateY(-16px) rotate(3deg); }
-    }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #EDE0FF;
-      border: 2px solid var(--lavender);
-      border-radius: 50px;
-      padding: 6px 18px;
-      font-weight: 800; font-size: 0.85rem;
-      color: #5D4A99;
-      margin-bottom: 20px;
-      animation: fadeInDown .6s ease both;
-    }
-
-    .hero h1 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: clamp(2.4rem, 7vw, 5rem);
-      line-height: 1.15;
-      color: var(--brown);
-      animation: fadeInDown .7s ease .1s both;
-    }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, #FFD43B, #FF9F43);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero h1 .highlight2 {
-      background: linear-gradient(135deg, #51CF66, #20C997);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .hero-sub {
-      max-width: 600px;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      line-height: 1.8;
-      color: var(--text-light);
-      margin: 20px auto 36px;
-      animation: fadeInDown .7s ease .2s both;
-    }
-
-    .hero-cta {
-      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
-      animation: fadeInDown .7s ease .3s both;
-    }
-    .btn-primary, .btn-secondary {
-      padding: 16px 36px; border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 1rem;
-      cursor: pointer; border: none;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #A8D8EA, #7EC8A4);
-      color: #1A5C50;
-      box-shadow: 0 5px 0 #5BAAA0;
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 0 #5BAAA0; }
-    .btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 #5BAAA0; }
-    .btn-secondary {
-      background: #fff;
-      color: var(--brown);
-      border: 2.5px solid rgba(107,66,38,0.15);
-      box-shadow: 0 5px 0 rgba(107,66,38,0.08);
-    }
-    .btn-secondary:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(107,66,38,0.12); }
-
-    /* trust strip */
-    .trust-strip {
-      margin-top: 56px;
-      display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
-      animation: fadeInDown .7s ease .4s both;
-    }
-    .trust-item {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 50px;
-      padding: 10px 20px;
-      font-weight: 700; font-size: 0.9rem;
-      color: var(--text);
-      border: 2px solid rgba(74,64,99,0.08);
-      box-shadow: var(--card-shadow);
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── SECTION SHARED ── */
-    section { padding: 80px 24px; }
-    .section-label {
-      display: inline-block;
-      font-weight: 800; font-size: 0.82rem; letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      color: var(--brown);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .section-desc {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      max-width: 560px;
-    }
-    .center { text-align: center; margin: 0 auto; }
-
-    /* ── APPS ── */
-    .apps { background: linear-gradient(180deg, #F8F5FF 0%, #EFF8FF 100%); }
-    .apps-grid {
-      display: grid;
-      grid-template-columns: 1fr; max-width: 520px;
-      gap: 28px;
-      max-width: 900px;
-      margin: 50px auto 0;
-    }
-    .app-card {
-      border-radius: 28px;
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .app-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(107,66,38,0.15); }
-
-    .app-card.gumi {
-      background: linear-gradient(135deg, #F0EAFF 0%, #FFE8F4 100%);
-      border: 2.5px solid #CDBFEF;
-    }
-    .app-icon {
-      width: 72px; height: 72px;
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-    .gumi .app-icon  { background: linear-gradient(135deg, #C9B8F0, #F7B8C8); }
-    .app-card h3 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800; font-size: 1.7rem;
-      margin-bottom: 6px;
-    }
-    .gumi h3  { color: #6A4FA0; }
-    .app-tagline {
-      font-size: 0.82rem; font-weight: 800; letter-spacing: .08em;
-      text-transform: uppercase; margin-bottom: 14px;
-    }
-    .gumi .app-tagline  { color: #7A5FBF; }
-    .app-desc {
-      font-size: 1rem; color: var(--text-light); line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .app-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-    .app-features li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.95rem; font-weight: 600; color: var(--text);
-    }
-    .app-features li span.feat-icon {
-      font-size: 1.1rem; flex-shrink: 0; margin-top: 1px;
-    }
-    .app-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-weight: 800; font-size: 0.82rem;
-      padding: 8px 18px; border-radius: 50px;
-    }
-    .gumi .app-badge  { background: #E4DAFF; color: #6A4FA0; }
-
-    /* decorative blob */
-    .blob {
-      position: absolute; border-radius: 50%;
-      opacity: 0.18; pointer-events: none;
-    }
-    .gumi .blob  { width: 180px; height: 180px; background: #C9B8F0; bottom: -50px; right: -50px; }
-
-    /* ── WHY US ── */
-    .why { background: #FFF0F8; }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 48px auto 0;
-    }
-    .why-card {
-      background: #fff;
-      border-radius: 24px;
-      padding: 30px 24px;
-      box-shadow: var(--card-shadow);
-      border: 2px solid transparent;
-      transition: border-color .2s, transform .2s;
-    }
-    .why-card:hover { border-color: var(--lavender); transform: translateY(-4px); }
-    .why-icon {
-      font-size: 2.6rem; margin-bottom: 14px;
-      display: block;
-    }
-    .why-card h4 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 700; font-size: 1.15rem;
-      margin-bottom: 8px; color: var(--brown);
-    }
-    .why-card p {
-      font-size: 0.92rem; line-height: 1.7;
-      color: var(--text-light);
-    }
-
-    /* ── PROMISE / LETTER ── */
-    .promise {
-      background: linear-gradient(135deg, #EDE0FF 0%, #FFE8F4 100%);
-      border-top: 3px dashed #C9B8F0;
-      border-bottom: 3px dashed #F7B8C8;
-    }
-    .letter-card {
-      max-width: 680px; margin: 0 auto;
-      background: #fff;
-      border-radius: 28px;
-      padding: 48px 44px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-    }
-    .letter-card::before {
-      content: '💌';
-      position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
-      font-size: 2.8rem;
-    }
-    .letter-date {
-      font-size: 0.85rem; color: var(--text-light); font-weight: 700;
-      margin-bottom: 18px;
-    }
-    .letter-body {
-      font-size: 1.05rem; line-height: 1.9; color: var(--text);
-      white-space: pre-line;
-    }
-    .letter-body em { font-style: normal; color: var(--leaf-deep); font-weight: 700; }
-    .letter-sig {
-      margin-top: 28px;
-      font-family: 'Baloo 2', cursive;
-      font-weight: 700; font-size: 1.3rem;
-      color: var(--brown);
-    }
-    .letter-sig small { display: block; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--text-light); }
-
-    /* ── ROADMAP ── */
-    .roadmap { background: linear-gradient(180deg, #EFF8FF 0%, #F8F5FF 100%); }
-    .road-wrap { max-width: 680px; margin: 48px auto 0; position: relative; }
-    .road-wrap::before {
-      content: '';
-      position: absolute; left: 22px; top: 0; bottom: 0;
-      width: 3px;
-      background: repeating-linear-gradient(to bottom, var(--lavender) 0, var(--lavender) 8px, transparent 8px, transparent 16px);
-    }
-    .road-item {
-      display: flex; gap: 20px; align-items: flex-start;
-      margin-bottom: 32px; padding-left: 4px;
-    }
-    .road-dot {
-      width: 46px; height: 46px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-      position: relative; z-index: 1;
-    }
-    .road-item.done   .road-dot { background: var(--mint); color: var(--leaf-deep); }
-    .road-item.now    .road-dot { background: var(--sun); color: #7A6010; animation: pulse 1.5s infinite; }
-    .road-item.soon   .road-dot { background: #E9ECEF; border: 3px dashed #CED4DA; }
-    .road-item.future .road-dot { background: #E9ECEF; border: 3px dashed #CED4DA; }
-    @keyframes pulse { 0%,100%{ box-shadow: 0 0 0 0 rgba(201,184,240,.8); } 50%{ box-shadow: 0 0 0 10px rgba(201,184,240,0); } }
-    .road-text h4 { font-weight: 800; font-size: 1rem; margin-bottom: 4px; color: var(--brown); }
-    .road-text p  { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
-    .road-tag {
-      display: inline-block; padding: 3px 12px; border-radius: 50px;
-      font-size: 0.75rem; font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .done .road-tag   { background: #C8EEE4; color: #2A7A6A; }
-    .now .road-tag    { background: #FFF3BF; color: #5D4A99; }
-    .soon .road-tag   { background: #E8DCFF; color: #6A4FA0; }
-    .future .road-tag { background: #E9ECEF; color: #868E96; }
-
-    /* ── FEEDBACK ── */
-    .feedback { background: #F8F5FF; }
-    .feedback-form {
-      max-width: 560px; margin: 40px auto 0;
-      background: #fff;
-      border-radius: 28px;
-      padding: 40px 36px;
-      box-shadow: var(--card-shadow);
-    }
-    .feedback-form h3 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800; font-size: 1.4rem;
-      margin-bottom: 24px; color: var(--brown);
-    }
-    .form-group { margin-bottom: 18px; }
-    .form-group label {
-      display: block; font-weight: 700; font-size: 0.9rem;
-      margin-bottom: 6px; color: var(--text);
-    }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%; padding: 13px 16px;
-      border: 2px solid #E9ECEF;
-      border-radius: 14px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem; color: var(--text);
-      outline: none; resize: none;
-      transition: border-color .2s;
-      background: #FAFAFF;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      border-color: var(--lavender);
-    }
-    .form-group textarea { height: 110px; }
-    .submit-btn {
-      width: 100%; padding: 16px;
-      background: linear-gradient(135deg, #C9B8F0, #F7B8C8);
-      color: #4A3880; border: none;
-      border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 5px 0 #B09ADE;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 0 #B09ADE; }
-    .submit-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #B09ADE; }
-    .form-note {
-      text-align: center; margin-top: 14px;
-      font-size: 0.85rem; color: var(--text-light); font-weight: 600;
-    }
-
-    /* thank-you toast */
-    #toast {
-      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
-      background: var(--leaf); color: #fff;
-      padding: 16px 32px; border-radius: 50px;
-      font-weight: 800; font-size: 1rem;
-      box-shadow: 0 8px 24px rgba(47,158,68,.35);
-      z-index: 999; transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-    }
-    #toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: linear-gradient(135deg, #3A2E5C, #5A4080);
-      color: rgba(255,251,240,.75);
-      text-align: center;
-      padding: 48px 24px;
-    }
-    footer .footer-logo {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800; font-size: 1.8rem;
-      color: var(--sun);
-      margin-bottom: 8px;
-    }
-    footer p { font-size: 0.9rem; line-height: 1.8; }
-    footer .footer-links {
-      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    footer .footer-links a {
-      color: rgba(255,251,240,.6);
-      text-decoration: none; font-weight: 700; font-size: 0.88rem;
-      transition: color .2s;
-    }
-    footer .footer-links a:hover { color: var(--sun); }
-    footer .apps-list {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    footer .app-pill {
-      background: rgba(255,251,240,.08);
-      border: 1.5px solid rgba(255,251,240,.15);
-      border-radius: 50px;
-      padding: 8px 20px;
-      font-weight: 700; font-size: 0.88rem;
-      color: rgba(255,251,240,.8);
-    }
-    footer .copy { font-size: 0.8rem; margin-top: 24px; opacity: .45; }
-
-
-    /* app screenshot */
-    .app-screenshot {
-      width: calc(100% + 64px);
-      margin: -36px -32px 24px;
-      border-radius: 28px 28px 0 0;
-      overflow: hidden;
-      max-height: 230px;
-    }
-    .app-screenshot img {
-      width: 100%; height: 230px;
-      object-fit: cover; object-position: top;
-      display: block;
-    }
-
-    /* ── GUMI LINKS ── */
-    .gumi-links {
-      margin-top: 20px;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .gumi-links-title {
-      font-size: 0.78rem; font-weight: 800; letter-spacing: .08em;
-      text-transform: uppercase; color: #9D87DC; margin-bottom: 2px;
-    }
-    .gumi-link-row {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-    }
-    .gumi-link-label {
-      font-size: 0.85rem; font-weight: 700; color: var(--brown);
-      min-width: 90px;
-    }
-    .lang-pill {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 5px 13px; border-radius: 50px;
-      font-size: 0.78rem; font-weight: 800;
-      text-decoration: none;
-      background: #EDE0FF; color: #6A4FA0;
-      border: 2px solid #D4C4F8;
-      transition: background .18s, transform .15s, box-shadow .15s;
-      box-shadow: 0 2px 0 #C9B0F0;
-    }
-    .lang-pill:hover {
-      background: #D4C4F8; transform: translateY(-2px);
-      box-shadow: 0 4px 0 #B09ADE;
-    }
-    .lang-pill:active { transform: translateY(1px); box-shadow: 0 1px 0 #B09ADE; }
-    .lang-pill.guide {
-      background: linear-gradient(135deg, #C9B8F0, #F7B8C8);
-      border: 2px solid #D4C4F8; color: #4A3880;
-      box-shadow: 0 2px 0 #B09ADE;
-    }
-    .lang-pill.guide:hover { background: linear-gradient(135deg, #B8A5E8, #F0A8C0); }
-    .gumi-divider {
-      height: 1.5px; background: linear-gradient(90deg, transparent, #D4C4F8, transparent);
-      margin: 6px 0 2px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      nav { padding: 12px 16px; }
-      .nav-links { display: none; }
-      .letter-card { padding: 36px 24px; }
-      .feedback-form { padding: 28px 20px; }
-    }
-  </style>
+  <link rel="stylesheet" href="shared.css" />
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <a href="https://kawkaw.dev" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;"><img src="image/ci_icon.png" style="height:36px;width:36px;object-fit:contain;border-radius:8px;" alt="KawKaw" /> KawKaw.dev</a>
+    <a href="/"><img src="image/ci_icon.png" alt="KawKaw" /> KawKaw.dev</a>
   </div>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#why">Why Us</a></li>
+    <li><a href="#apps">Our Apps</a></li>
+    <li><a href="#why">Why KawKaw</a></li>
     <li><a href="#promise">Our Promise</a></li>
-    <li><a href="#feedback">Feedback</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-btn" onclick="document.getElementById('feedback').scrollIntoView({behavior:'smooth'})">
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
     💬 Talk to Us
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <span class="floater">🌟</span>
-  <span class="floater">💰</span>
-  <span class="floater">⚡</span>
   <span class="floater">🐻</span>
-  <span class="floater">🌿</span>
   <span class="floater">✨</span>
-  <span class="floater">💧</span>
+  <span class="floater">🌿</span>
+  <span class="floater">💌</span>
+  <span class="floater">💫</span>
+  <span class="floater">☀️</span>
 
-  <div class="hero-badge">🇵🇭 Made with love for the Philippines</div>
+  <div class="hero-badge">👋 A small studio building caring apps</div>
 
   <h1>
-    Your cute & friendly<br/>
-    <span class="highlight">budgeting buddy</span> for<br/>
-    <span class="highlight2">everyday money</span>
+    Honest apps that make<br/>
+    <span class="highlight">everyday life</span><br/>
+    <span class="highlight2">a little lighter</span>
   </h1>
 
   <p class="hero-sub">
-    Track income, expenses, utang, and savings all in one place.<br/>
-    Make budgeting feel like a game, not a chore — completely <strong>offline</strong> and <strong>100% free</strong>. 🎮
+    We're KawKaw — a small team building apps that listen, respect your privacy, and actually help.
+    Two apps today, more on the way.
   </p>
 
   <div class="hero-cta">
-    <button class="btn-primary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
-      🚀 See Features
-    </button>
-    <button class="btn-secondary" onclick="document.getElementById('promise').scrollIntoView({behavior:'smooth'})">
-      💌 Read Our Promise
-    </button>
+    <a class="btn-primary" href="#apps">🚀 See Our Apps</a>
+    <a class="btn-secondary" href="#promise">💌 Read Our Promise</a>
   </div>
 
   <div class="trust-strip">
-    <div class="trust-item">✅ 100% Free Forever</div>
-    <div class="trust-item">📵 Works Offline</div>
-    <div class="trust-item">🇵🇭 Built for Filipinos</div>
-    <div class="trust-item">🔒 Your Data Stays Yours</div>
+    <div class="trust-item">👂 We actually listen</div>
+    <div class="trust-item">🔒 Privacy first</div>
+    <div class="trust-item">💛 Built with care</div>
+    <div class="trust-item">📵 Offline-friendly</div>
   </div>
 </section>
 
-<!-- APPS -->
-<section class="apps" id="features">
+<section class="apps" id="apps">
   <div class="center">
-    <span class="section-label">Features</span>
-    <h2 class="section-title">Everything you need to manage your money 🎯</h2>
-    <p class="section-desc center">Help every Filipino family take control of their money — without stress, without cost, and without needing the internet.</p>
+    <span class="section-label">Our Apps</span>
+    <h2 class="section-title">Small family of apps, big intent 🎯</h2>
+    <p class="section-desc center">Each app is built for a specific audience, with its own story. Pick one to learn more.</p>
   </div>
-
-  <div class="apps-grid">
-    <!-- GUMI SAVE -->
-    <div class="app-card gumi">
-      <div class="blob"></div>
-      <div class="app-screenshot"><img src="image/gumi-save-app-screenshot.png" alt="GUMI SAVE App Screenshot" /></div>
-      <div class="app-icon">🐻</div>
-      <div class="app-tagline">Household Budget App</div>
-      <h3>GUMI SAVE</h3>
-      <p class="app-desc">
-        Your cute & friendly budgeting buddy! Track income, expenses, utang, and savings
-        all in one place. Make budgeting feel like a game, not a chore. 🎮
-      </p>
-      <ul class="app-features">
-        <li><span class="feat-icon">💵</span> Track income & expenses easily</li>
-        <li><span class="feat-icon">📦</span> Envelope budgeting system</li>
-        <li><span class="feat-icon">🤝</span> Utang (debt) tracker with Hulugan schedule</li>
-        <li><span class="feat-icon">🐷</span> Dream Board — savings goals with progress</li>
-        <li><span class="feat-icon">🧾</span> Scan receipts for quick entry</li>
-        <li><span class="feat-icon">⚡</span> Quick Expense — one-tap daily spending</li>
-        <li><span class="feat-icon">📅</span> Calendar view for all transactions</li>
-        <li><span class="feat-icon">💡</span> Utility Bill Calculator & Estimator</li>
-        <li><span class="feat-icon">🤖</span> AI Coach & spending analytics</li>
-        <li><span class="feat-icon">🏠</span> Home Screen Widgets</li>
-        <li><span class="feat-icon">📵</span> Works 100% offline, anytime</li>
-      </ul>
-      <span class="app-badge">🆓 100% Free</span>
-
-      <div class="gumi-divider"></div>
-
-      <div class="gumi-links">
-        <div class="gumi-links-title">📚 Resources</div>
-
-        <div class="gumi-link-row">
-          <span class="gumi-link-label">📖 User Guide</span>
-          <a class="lang-pill guide" href="https://www.kawkaw.dev/gumi/guide" target="_blank" rel="noopener">Read Guide ✨</a>
-        </div>
-
-        <div class="gumi-link-row">
-          <span class="gumi-link-label">🔒 Privacy</span>
-          <a class="lang-pill" href="https://kawkaw.dev/gumi/privacy-policy" target="_blank" rel="noopener">Privacy policy ✨</a>
-        </div>
-
-        <div class="gumi-link-row">
-          <span class="gumi-link-label">📜 Terms</span>
-          <a class="lang-pill" href="https://kawkaw.dev/gumi/terms-of-service" target="_blank" rel="noopener">Terms of Service ✨</a>
-        </div>
-
-        <div class="gumi-link-row">
-          <span class="gumi-link-label">[f] Facebook</span>
-          <a class="lang-pill" href="https://www.facebook.com/groups/895486153385755/" target="_blank" rel="noopener">Facebook Group ✨</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="apps-grid" id="apps-grid"></div>
 </section>
 
-<!-- WHY US -->
 <section class="why" id="why">
   <div class="center">
-    <span class="section-label">Why Choose Us</span>
+    <span class="section-label">Why KawKaw</span>
     <h2 class="section-title">We're different — in a good way 🌱</h2>
-    <p class="section-desc center">We don't have a huge office. We don't have investors pushing us. We just want to build apps that truly help.</p>
+    <p class="section-desc center">No investors pushing us. No boardroom deciding what you need. Just a small team that cares.</p>
   </div>
-
   <div class="why-grid">
     <div class="why-card">
       <span class="why-icon">👂</span>
       <h4>We Actually Listen</h4>
-      <p>Every feedback you send gets read by a real person. Your ideas shape our next update — not a boardroom decision.</p>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">🏘️</span>
-      <h4>Neighborhood Feel</h4>
-      <p>We're like that reliable friend who's always around. No corporate nonsense — just honest, helpful tools for real life.</p>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">🆓</span>
-      <h4>Free. Always.</h4>
-      <p>No hidden fees, no premium traps. We believe financial tools should be accessible to everyone, not just those who can pay.</p>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">📵</span>
-      <h4>No Internet? No Problem.</h4>
-      <p>We know not everyone has stable data. Both apps work completely offline — because real life doesn't pause for WiFi.</p>
+      <p>Every feedback message gets read by a real person. Your ideas shape the next update — not a pitch deck.</p>
     </div>
     <div class="why-card">
       <span class="why-icon">🔒</span>
-      <h4>Your Privacy First</h4>
-      <p>Your financial data never leaves your phone. We don't collect, sell, or peek at anything. Your life is your life.</p>
+      <h4>Privacy First</h4>
+      <p>We don't sell data. Your personal information stays where it belongs — with you.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💛</span>
+      <h4>Honest Pricing</h4>
+      <p>No dark patterns. No hidden premium traps. When something is free, it's actually free.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📵</span>
+      <h4>Offline-Friendly</h4>
+      <p>We know not everyone has stable data. Our apps keep working when the signal doesn't.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🌱</span>
+      <h4>Built to Last</h4>
+      <p>We're not here to get rich quick or disappear after a year. We're here for the long run.</p>
     </div>
     <div class="why-card">
       <span class="why-icon">🌏</span>
-      <h4>Growing Together</h4>
-      <p>Starting in the Philippines, but dreaming bigger. As we grow, you grow with us — and your feedback guides the way.</p>
+      <h4>Built for Real Lives</h4>
+      <p>Each app is shaped around the people who use it — not a generic template copied across regions.</p>
     </div>
   </div>
 </section>
 
-<!-- PROMISE LETTER -->
 <section class="promise" id="promise">
   <div class="letter-card">
-    <div class="letter-date">March 2026 — From our small team to you 🌸</div>
-    <div class="letter-body">Dear Ate, Kuya, Manang, Mano, and everyone finding their way,
+    <div class="letter-date">From the KawKaw team 🌸</div>
+    <div class="letter-body">We started <em>KawKaw</em> because we saw real people — families, solo earners, students, anyone trying to take better care of themselves — underserved by apps designed in rooms they'd never enter.
 
-We're not here to get rich quick. We're not here to collect your data. We're not here to disappear after a year.
+So we build differently. Small, focused apps for specific audiences. <em>GUMI SAVE</em> for Filipino households learning to budget. <em>GUMI GLOWUP</em> for anyone, anywhere, building a skincare routine they can stick with. More apps will follow — each one made for someone real.
 
-We started <em>KawKaw</em> because we saw real people — families, solo earners, students — struggling with bills they didn't see coming and budgets that slipped away without warning.
+Here's what we promise across every app we ship:
 
-So we built <em>GUMI SAVE</em>. Simple. Honest. Free.
+<em>We'll keep listening.</em> Every message. Every idea. Every "sana may ganito."
+<em>We won't sell you out.</em> Your data is yours. Full stop.
+<em>We'll be here tomorrow.</em> And the day after that. Building quietly, improving constantly.
 
-Right now, this app is just a small helping hand — a companion for your everyday budgeting. But if you keep supporting us, sharing your ideas, and helping us grow, we have a bigger dream: to build real financial tools that make a difference — <em>micro-loans, micro-investments, point rewards</em>, and more. A system that truly empowers every Filipino, not just tracks their money.
-
-But here's what matters most to us: <em>we will keep listening to you.</em>
-
-Every message you send, every idea you share, every "sana may ganito" you mention — we take it seriously. That's not marketing talk. That's our commitment.
-
-We might be small today. But we'll be here tomorrow, and the day after that. Building quietly, improving constantly, and always putting you first.
-
-<em>Salamat for giving us a chance. 🙏</em>
-
-We promise to make it worth your trust.</div>
+Thank you for giving us a chance.</div>
     <div class="letter-sig">
       — The KawKaw Team
-      <small>Your neighborhood app friends 🏠</small>
+      <small>Small team · Big care 🌱</small>
     </div>
   </div>
 </section>
 
-<!-- ROADMAP -->
 <section class="roadmap" id="roadmap">
   <div class="center">
-    <span class="section-label">What's Coming</span>
-    <h2 class="section-title">Our journey, together 🗺️</h2>
-    <p class="section-desc center">We're just getting started. Here's where we've been and where we're going — shaped by your feedback.</p>
+    <span class="section-label">Where We're Going</span>
+    <h2 class="section-title">Our journey, shaped by you 🗺️</h2>
+    <p class="section-desc center">Where KawKaw has been and where we're headed — guided by the feedback you send.</p>
   </div>
-
-  <div class="road-wrap">
-    <div class="road-item done">
-      <div class="road-dot">✅</div>
-      <div class="road-text">
-        <span class="road-tag">Launched!</span>
-        <h4>GUMI SAVE — Household Budget App</h4>
-        <p>Income, expenses, utang, savings, envelope budgeting & receipt scanning.</p>
-      </div>
-    </div>
-        <div class="road-item soon">
-      <div class="road-dot">💭</div>
-      <div class="road-text">
-        <span class="road-tag">Coming Soon</span>
-        <h4>GUMI SAVE — Features for OFWs &amp; Business Owners</h4>
-        <p>Special tools designed for OFW families managing remittances, and small business owners tracking multiple income streams.</p>
-      </div>
-    </div>
-    <div class="road-item soon">
-      <div class="road-dot">💭</div>
-      <div class="road-text">
-        <span class="road-tag">Coming Soon</span>
-        <h4>GCash &amp; Maya Integration</h4>
-        <p>Link your GCash and Maya accounts to automatically sync transactions — no more manual entry!</p>
-      </div>
-    </div>
-    <div class="road-item future">
-      <div class="road-dot">🌟</div>
-      <div class="road-text">
-        <span class="road-tag">Big Dream</span>
-        <h4>Going Global 🌏</h4>
-        <p>Bringing KawKaw apps to Indonesia, Vietnam, and beyond — growing with you!</p>
-      </div>
-    </div>
-  </div>
+  <div class="road-wrap" id="roadmap-wrap"></div>
 </section>
 
-<!-- FEEDBACK -->
-<section class="feedback" id="feedback">
+<section class="feedback" id="contact">
   <div class="center">
     <span class="section-label">Talk to Us</span>
     <h2 class="section-title">Your voice shapes our apps 💬</h2>
@@ -811,70 +147,153 @@ We promise to make it worth your trust.</div>
   </div>
 
   <div class="feedback-form">
-    <h3>💌 Send us a message</h3>
-    <div class="form-group">
-      <label for="fname">Your Name</label>
-      <input type="text" id="fname" placeholder="Ate Maria, Kuya Juan..." />
+    <div id="form-fields">
+      <h3>💌 Send us a message</h3>
+      <div class="form-group">
+        <label for="fname">Your Name</label>
+        <input type="text" id="fname" placeholder="How should we address you?" />
+      </div>
+      <div class="form-group">
+        <label for="fapp">Which App?</label>
+        <select id="fapp"></select>
+      </div>
+      <div class="form-group">
+        <label for="ftype">Type of Feedback</label>
+        <select id="ftype">
+          <option value="">Select type...</option>
+          <option>💡 Feature Suggestion</option>
+          <option>🐛 Bug Report</option>
+          <option>❤️ Just saying thanks!</option>
+          <option>🤔 Question</option>
+          <option>😤 Complaint (we want to know!)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fmsg">Your Message</label>
+        <textarea id="fmsg" placeholder="Tell us anything! We really do read every message..."></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn">Send Message 🚀</button>
+      <p class="form-note">No login needed · Or email us: <a href="mailto:kawkaw.app@gmail.com" style="color:var(--leaf-deep);font-weight:800;">kawkaw.app@gmail.com</a> 📧</p>
     </div>
-    <div class="form-group">
-      <label for="fapp">Which App?</label>
-      <select id="fapp">
-        <option value="">Select a topic...</option>
-        <option value="gumi">🐻 GUMI SAVE</option>
-        <option value="general">General / Other</option>
-      </select>
+    <div id="form-success" class="form-success" style="display:none;">
+      <h4>Thank you! 🙏</h4>
+      <p>We'll read your message soon. Expect a reply from a real person.</p>
     </div>
-    <div class="form-group">
-      <label for="ftype">Type of Feedback</label>
-      <select id="ftype">
-        <option value="">Select type...</option>
-        <option>💡 Feature Suggestion</option>
-        <option>🐛 Bug Report</option>
-        <option>❤️ Just saying thanks!</option>
-        <option>🤔 Question</option>
-        <option>😤 Complaint (we want to know!)</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="fmsg">Your Message</label>
-      <textarea id="fmsg" placeholder="Tell us anything! We really do read every message..."></textarea>
-    </div>
-    <button class="submit-btn" id="submit-btn">
-      Send Message 🚀
-    </button>
-    <p class="form-note">No login needed · Or email us: <a href="/cdn-cgi/l/email-protection#e883899f83899fc6899898a88f85898184c68b8785" style="color:var(--leaf-deep);font-weight:800;"><span class="__cf_email__" data-cfemail="5b303a2c303a2c753a2b2b1b3c363a323775383436">[email&#160;protected]</span></a> 📧</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;"><img src="image/logo.webp" style="height:48px;width:48px;object-fit:contain;" alt="Gumi Save" /> Gumi Save</div>
-  <p>Your cute & friendly budgeting buddy — built in the Philippines, for the Philippines (and beyond!)</p>
-  <div style="margin:18px 0 8px; display:flex; flex-direction:column; gap:10px; align-items:center;">
-    <div style="font-size:0.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,251,240,.4);margin-bottom:2px;">🐻 GUMI SAVE Resources</div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <a href="https://www.kawkaw.dev/gumi/guide" target="_blank" rel="noopener" style="color:var(--sun);font-weight:800;font-size:0.84rem;text-decoration:none;background:rgba(255,212,59,.12);border:1.5px solid rgba(255,212,59,.25);border-radius:50px;padding:5px 14px;transition:background .2s;" onmouseover="this.style.background='rgba(255,212,59,.22)'" onmouseout="this.style.background='rgba(255,212,59,.12)'">📖 User Guide</a>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;">
-      <a href="https://kawkaw.dev/gumi/privacy-policy" target="_blank" rel="noopener" style="color:rgba(255,251,240,.6);font-weight:700;font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--sun)'" onmouseout="this.style.color='rgba(255,251,240,.6)'">🔒 Privacy Policy</a>
-      <span style="color:rgba(255,251,240,.2);">·</span>
-      <a href="https://kawkaw.dev/gumi/terms-of-service" target="_blank" rel="noopener" style="color:rgba(255,251,240,.6);font-weight:700;font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--sun)'" onmouseout="this.style.color='rgba(255,251,240,.6)'">📜 Terms of Service</a>
-    </div>
-  </div>
-  <p>Made with ❤️ for every Filipino family managing their money one day at a time.</p>
-  <p class="copy">© 2026 KawKaw. Free forever. Always listening.</p>
+  <div class="footer-logo"><img src="image/ci_icon.png" alt="KawKaw" /> KawKaw</div>
+  <p>A small studio building honest, caring apps.</p>
+  <p class="copy">© 2026 KawKaw. Always listening.</p>
 </footer>
 
-<!-- TOAST -->
-<div id="toast">✅ Salamat! We'll read your message soon 🙏</div>
+<div id="toast">✅ Thanks! We'll read your message soon 🙏</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── FORM SUBMISSION ──
+<script>
+  const SERVICES = [
+    {
+      id: 'gumi-save',
+      name: 'GUMI SAVE',
+      emoji: '🐻',
+      iconImg: 'image/save.webp',
+      tagline: 'AI Budget Coach',
+      regions: ['🇵🇭 Philippines'],
+      aiPowered: true,
+      platforms: ['🍎 iOS', '🤖 Android'],
+      summary: "Your AI budgeting buddy. Track income, expenses, utang, and savings — with an AI coach that turns your spending into clear, gentle insights.",
+      highlights: [
+        { icon: '🤖', text: 'AI Coach — personalized spending insights' },
+        { icon: '🧾', text: 'AI receipt scanning — one-tap entry' },
+        { icon: '📦', text: 'Envelope budgeting, utang & Dream Board' },
+        { icon: '📵', text: 'Works offline · 100% free' }
+      ],
+      href: '/gumi-save/',
+      statusLabel: 'Available now',
+    },
+    {
+      id: 'gumi-glowup',
+      name: 'GUMI GLOWUP',
+      emoji: '✨',
+      iconImg: 'image/glowup.webp',
+      tagline: 'AI Skincare Coach',
+      regions: ['🌍 Global'],
+      aiPowered: true,
+      platforms: ['🍎 iOS', '🤖 Android'],
+      summary: "AI-powered skincare coach. Snap a photo — get a routine and product recommendations tuned to your skin, tracked over time.",
+      highlights: [
+        { icon: '🤖', text: 'AI skin analysis from a single photo' },
+        { icon: '✨', text: 'AI-personalized routine recommendations' },
+        { icon: '🧴', text: 'AI product picks for your skin type' },
+        { icon: '📸', text: 'Progress reports over time' }
+      ],
+      href: '/gumi-glowup/',
+      statusLabel: 'Available now'
+    }
+  ];
+
+  const ROADMAP = [
+    { state: 'done',   icon: '✅', tag: 'Launched',     title: 'GUMI SAVE — AI Budget Coach',           desc: 'Live in the Philippines on iOS & Android. AI coach, receipt scanning, envelope budgeting, utang tracker.' },
+    { state: 'done',   icon: '✅', tag: 'Launched',     title: 'GUMI GLOWUP — AI Skincare Coach',       desc: 'Live worldwide on iOS & Android. AI skin analysis, personalized routines, product recommendations.' },
+    { state: 'soon',   icon: '💭', tag: 'Coming Soon',  title: 'More apps in the KawKaw family',        desc: 'Each built for a specific audience, with the same care.' },
+    { state: 'future', icon: '🌏', tag: 'Big Dream',    title: 'Going further, together',               desc: "We'll grow where you need us — guided by your feedback." }
+  ];
+
+  function renderApps() {
+    const grid = document.getElementById('apps-grid');
+    grid.innerHTML = SERVICES.map(svc => `
+      <div class="app-card">
+        <div class="blob"></div>
+        <div class="app-icon">${svc.iconImg ? `<img src="${svc.iconImg}" alt="${svc.name}" />` : svc.emoji}</div>
+        <div class="app-tagline">${svc.tagline}</div>
+        <h3>${svc.name}</h3>
+        <div class="app-regions">
+          ${svc.aiPowered ? `<span class="region-pill ai-pill">🤖 AI-powered</span>` : ''}
+          ${svc.regions.map(r => `<span class="region-pill">${r}</span>`).join('')}
+          ${(svc.platforms || []).map(p => `<span class="region-pill">${p}</span>`).join('')}
+          <span class="region-pill">${svc.statusLabel}</span>
+        </div>
+        <p class="app-desc">${svc.summary}</p>
+        <ul class="app-features">
+          ${svc.highlights.map(h => `<li><span class="feat-icon">${h.icon}</span> ${h.text}</li>`).join('')}
+        </ul>
+        <div class="app-cta-row">
+          <a class="app-learn-more" href="${svc.href}">Learn more →</a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderRoadmap() {
+    const wrap = document.getElementById('roadmap-wrap');
+    wrap.innerHTML = ROADMAP.map(item => `
+      <div class="road-item ${item.state}">
+        <div class="road-dot">${item.icon}</div>
+        <div class="road-text">
+          <span class="road-tag">${item.tag}</span>
+          <h4>${item.title}</h4>
+          <p>${item.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderAppSelect() {
+    const sel = document.getElementById('fapp');
+    sel.innerHTML = `<option value="">Select a topic...</option>`
+      + SERVICES.map(svc => `<option value="${svc.id}">${svc.emoji} ${svc.name}</option>`).join('')
+      + `<option value="general">General / Other</option>`;
+  }
+
+  renderApps();
+  renderRoadmap();
+  renderAppSelect();
+
   async function submitFeedback() {
-    const name  = document.getElementById('fname').value.trim();
-    const app   = document.getElementById('fapp').value;
-    const type  = document.getElementById('ftype').value;
-    const msg   = document.getElementById('fmsg').value.trim();
+    const name = document.getElementById('fname').value.trim();
+    const app  = document.getElementById('fapp').value;
+    const type = document.getElementById('ftype').value;
+    const msg  = document.getElementById('fmsg').value.trim();
 
     if (!msg) {
       document.getElementById('fmsg').style.borderColor = '#e03131';
@@ -891,32 +310,16 @@ We promise to make it worth your trust.</div>
       await fetch('https://formspree.io/f/xgonaebn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, app, type, message: msg })
+        body: JSON.stringify({ name, app: app || 'general', type, message: msg })
       });
-    } catch (e) {
-      // Formspree still processes the request even if CORS/redirect causes a JS error
-    }
+    } catch (e) {}
+
     document.getElementById('form-fields').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
   }
 
-  function resetForm() {
-    document.getElementById('form-fields').style.display = 'block';
-    document.getElementById('form-success').style.display = 'none';
-    document.getElementById('fname').value  = '';
-    document.getElementById('fmsg').value   = '';
-    document.getElementById('fapp').value   = '';
-    document.getElementById('ftype').value  = '';
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Send Message 🚀';
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  }
-
-  // ── BUTTON LISTENERS ──
   document.getElementById('submit-btn').addEventListener('click', submitFeedback);
 
-  // ── SMOOTH SCROLL ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -925,7 +328,6 @@ We promise to make it worth your trust.</div>
     });
   });
 
-  // ── SCROLL ENTRANCE ANIMATION ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -936,4 +338,13 @@ We promise to make it worth your trust.</div>
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.app-card, .why-card, .road-item')
+  document.querySelectorAll('.app-card, .why-card, .road-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
