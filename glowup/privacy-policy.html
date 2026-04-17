@@ -23,24 +23,39 @@
     a{color:var(--accent);text-decoration:none}
     .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
     .contact a{display:inline-block;margin-top:8px;font-weight:600}
-    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
-    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
-    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    /* Language selector */
+    .lang-selector{position:relative;display:inline-block;margin-bottom:24px}
+    .lang-selector select{
+      appearance:none;-webkit-appearance:none;
+      padding:8px 36px 8px 14px;
+      border-radius:8px;border:1px solid var(--border);
+      background:var(--bg);color:var(--txt);
+      font-size:14px;font-weight:500;cursor:pointer;
+      min-width:160px;
+    }
+    .lang-selector select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+    .lang-selector::after{
+      content:'';position:absolute;right:12px;top:50%;transform:translateY(-50%);
+      width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+      border-top:5px solid var(--txt2);pointer-events:none;
+    }
     [lang="ko"]{display:none}
     .ko [lang="ko"]{display:block}
     .ko [lang="en"]{display:none}
   </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
-    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+  <div class="lang-selector">
+    <select id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+    </select>
   </div>
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div lang="en">
     <h1>Privacy Policy</h1>
-    <p class="date">Effective Date: April 17, 2025</p>
+    <p class="date">Effective Date: April 17, 2025 | Last Updated: April 17, 2026</p>
     <p>KawKaw ("Company," "we," "us," or "our") operates the Gumi Glowup mobile application ("App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. By using the App, you consent to the practices described in this policy.</p>
 
     <div class="section">
@@ -64,13 +79,14 @@
         <li>We do not collect precise geolocation data.</li>
         <li>We do not access your contacts, calendar, or other apps.</li>
         <li>We do not use advertising trackers or sell your data to advertisers.</li>
+        <li><strong>We do not collect, infer, or derive racial or ethnic origin, religious beliefs, or other special category personal data from your photos, skin analysis, or any other data.</strong></li>
       </ul>
     </div>
 
     <div class="section">
       <h2>2. How We Use Your Information</h2>
       <ul>
-        <li><strong>Skin Analysis:</strong> Your selfie photos are processed by AI to assess skin condition (hydration, elasticity, pores, pigmentation, wrinkles) and estimate skin age.</li>
+        <li><strong>Skin Analysis:</strong> Your selfie photos are processed by AI to assess skin condition (hydration, elasticity, pores, pigmentation, wrinkles) and estimate skin age. <strong>Analysis is limited strictly to dermatological skin condition metrics and does not evaluate, classify, or make any determination based on race, ethnicity, or skin colour.</strong></li>
         <li><strong>Personalised Recommendations:</strong> We use your skin type, concerns, age, and analysis results to recommend skincare products and routines.</li>
         <li><strong>Fortune Feature:</strong> Name, birthday, gender, and zodiac sign are used to generate daily fortune readings.</li>
         <li><strong>App Functionality:</strong> To manage your account, track your skincare routine streaks, and deliver notifications.</li>
@@ -87,6 +103,14 @@
         <li><strong>Your email address and account ID are never sent to AI services.</strong></li>
         <li>Data is processed in real-time and <strong>not stored on third-party AI servers</strong> after analysis is complete.</li>
         <li>Your data is <strong>never used to train AI models</strong>.</li>
+      </ul>
+      <h3>3.1 AI Analysis Scope and Restrictions</h3>
+      <div class="highlight"><p>Our AI is designed and instructed to analyse skin health only.</p></div>
+      <ul>
+        <li>AI analysis is <strong>strictly limited to dermatological skin condition metrics</strong> such as hydration, elasticity, pore condition, pigmentation levels, and wrinkles.</li>
+        <li>Our AI is <strong>explicitly prohibited from identifying, classifying, inferring, or commenting on</strong> race, ethnicity, skin colour categorisation, national origin, or any other demographic characteristic from user photos or data.</li>
+        <li>AI prompts and system instructions are designed with safeguards to ensure these restrictions are enforced.</li>
+        <li>AI-generated results reflect <strong>individual skin condition only</strong> and do not reference or compare against any racial, ethnic, or demographic group.</li>
       </ul>
     </div>
 
@@ -135,11 +159,11 @@
         <li><strong>Opt-Out:</strong> Opt out of marketing notifications from Settings.</li>
       </ul>
       <h3>For EU/EEA Users (GDPR)</h3>
-      <p>Our legal basis for processing your data includes: your consent, performance of our contract with you, and our legitimate interests in operating and improving the App. You may lodge a complaint with your local data protection authority.</p>
+      <p>Our legal basis for processing your data includes: your consent, performance of our contract with you, and our legitimate interests in operating and improving the App. We do not process special category data as defined under Article 9 of the GDPR (including racial or ethnic origin). You may lodge a complaint with your local data protection authority.</p>
       <h3>For California Residents (CCPA)</h3>
       <p>You have the right to know what personal information we collect, request deletion, and opt out of the sale of personal information. We do not sell your personal information.</p>
       <h3>For Korean Residents (PIPA)</h3>
-      <p>In accordance with the Personal Information Protection Act, you have the right to access, correct, delete, and suspend the processing of your personal data. Requests can be made through the App settings or by contacting us.</p>
+      <p>In accordance with the Personal Information Protection Act, you have the right to access, correct, delete, and suspend the processing of your personal data. We do not process sensitive information (race, ethnicity, beliefs) as defined under Article 23 of PIPA. Requests can be made through the App settings or by contacting us.</p>
     </div>
 
     <div class="section">
@@ -178,7 +202,7 @@
   <!-- ═══════════════ KOREAN ═══════════════ -->
   <div lang="ko">
     <h1>개인정보처리방침</h1>
-    <p class="date">시행일: 2025년 4월 17일</p>
+    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 4월 17일</p>
     <p>KawKaw(이하 "회사", "당사")는 Gumi Glowup 모바일 애플리케이션(이하 "앱")을 운영합니다. 본 개인정보처리방침은 귀하가 앱을 이용할 때 당사가 귀하의 정보를 어떻게 수집, 이용, 공개 및 보호하는지 설명합니다. 앱을 사용함으로써 귀하는 본 방침에 설명된 관행에 동의하게 됩니다.</p>
 
     <div class="section">
@@ -202,13 +226,14 @@
         <li>정밀 위치정보를 수집하지 않습니다.</li>
         <li>연락처, 캘린더 또는 다른 앱에 접근하지 않습니다.</li>
         <li>광고 추적기를 사용하거나 광고주에게 데이터를 판매하지 않습니다.</li>
+        <li><strong>사진, 피부 분석 또는 기타 데이터로부터 인종, 민족, 종교적 신념 등 민감정보(특별 범주 개인정보)를 수집, 추론 또는 도출하지 않습니다.</strong></li>
       </ul>
     </div>
 
     <div class="section">
       <h2>2. 정보 이용 목적</h2>
       <ul>
-        <li><strong>피부 분석:</strong> 셀카 사진을 AI로 처리하여 피부 상태(수분, 탄력, 모공, 색소침착, 주름)를 분석하고 피부 나이를 추정합니다.</li>
+        <li><strong>피부 분석:</strong> 셀카 사진을 AI로 처리하여 피부 상태(수분, 탄력, 모공, 색소침착, 주름)를 분석하고 피부 나이를 추정합니다. <strong>분석은 피부과학적 피부 상태 지표에 엄격히 한정되며, 인종, 민족 또는 피부색을 기반으로 평가, 분류 또는 판단하지 않습니다.</strong></li>
         <li><strong>맞춤형 추천:</strong> 피부 타입, 고민, 나이, 분석 결과를 활용하여 스킨케어 제품과 루틴을 추천합니다.</li>
         <li><strong>운세 기능:</strong> 이름, 생년월일, 성별, 별자리를 사용하여 일일 운세를 생성합니다.</li>
         <li><strong>앱 기능 제공:</strong> 계정 관리, 스킨케어 루틴 스트릭 추적, 알림 전송.</li>
@@ -225,6 +250,14 @@
         <li><strong>이메일 주소와 계정 ID는 AI 서비스로 절대 전송되지 않습니다.</strong></li>
         <li>데이터는 실시간으로 처리되며 분석 완료 후 <strong>제3자 AI 서버에 저장되지 않습니다</strong>.</li>
         <li>귀하의 데이터는 <strong>AI 모델 학습에 절대 사용되지 않습니다</strong>.</li>
+      </ul>
+      <h3>3.1 AI 분석 범위 및 제한사항</h3>
+      <div class="highlight"><p>당사의 AI는 피부 건강만을 분석하도록 설계되고 지시받습니다.</p></div>
+      <ul>
+        <li>AI 분석은 수분, 탄력, 모공 상태, 색소침착 수준, 주름 등 <strong>피부과학적 피부 상태 지표에 엄격히 한정</strong>됩니다.</li>
+        <li>당사의 AI는 사용자 사진이나 데이터로부터 <strong>인종, 민족, 피부색 분류, 출신 국가 또는 기타 인구통계학적 특성을 식별, 분류, 추론 또는 언급하는 것이 명시적으로 금지</strong>되어 있습니다.</li>
+        <li>AI 프롬프트와 시스템 지시사항에는 이러한 제한을 강제하기 위한 안전장치가 설계되어 있습니다.</li>
+        <li>AI가 생성한 결과는 <strong>개인의 피부 상태만을 반영</strong>하며, 인종, 민족 또는 인구통계학적 그룹을 참조하거나 비교하지 않습니다.</li>
       </ul>
     </div>
 
@@ -273,11 +306,11 @@
         <li><strong>수신 거부:</strong> 설정에서 마케팅 알림을 거부할 수 있습니다.</li>
       </ul>
       <h3>EU/EEA 거주자 (GDPR)</h3>
-      <p>당사의 데이터 처리 법적 근거에는 귀하의 동의, 귀하와의 계약 이행, 앱 운영 및 개선에 대한 당사의 정당한 이익이 포함됩니다. 현지 데이터 보호 기관에 불만을 제기할 수 있습니다.</p>
+      <p>당사의 데이터 처리 법적 근거에는 귀하의 동의, 귀하와의 계약 이행, 앱 운영 및 개선에 대한 당사의 정당한 이익이 포함됩니다. 당사는 GDPR 제9조에 정의된 특별 범주 데이터(인종 또는 민족적 출신 포함)를 처리하지 않습니다. 현지 데이터 보호 기관에 불만을 제기할 수 있습니다.</p>
       <h3>캘리포니아 거주자 (CCPA)</h3>
       <p>당사가 수집하는 개인정보의 내용을 알 권리, 삭제를 요청할 권리, 개인정보 판매를 거부할 권리가 있습니다. 당사는 귀하의 개인정보를 판매하지 않습니다.</p>
       <h3>한국 거주자 (개인정보보호법)</h3>
-      <p>개인정보보호법에 따라, 귀하는 개인정보의 열람, 정정, 삭제 및 처리 정지를 요구할 권리가 있습니다. 앱 설정을 통해 또는 당사에 연락하여 요청할 수 있습니다.</p>
+      <p>개인정보보호법에 따라, 귀하는 개인정보의 열람, 정정, 삭제 및 처리 정지를 요구할 권리가 있습니다. 당사는 개인정보보호법 제23조에 정의된 민감정보(인종, 민족, 사상, 신조 등)를 처리하지 않습니다. 앱 설정을 통해 또는 당사에 연락하여 요청할 수 있습니다.</p>
     </div>
 
     <div class="section">
@@ -308,22 +341,32 @@
     <div class="contact">
       <h2>13. 문의처</h2>
       <p>본 개인정보처리방침 또는 당사의 데이터 관행에 대해 질문이나 우려 사항이 있으시면 아래로 연락해 주시기 바랍니다:</p>
-      <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
-      <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
     </div>
   </div>
 
   <script>
+    var SUPPORTED_LANGS = ['en', 'ko'];
+
     function setLang(lang) {
-      document.body.className = lang === 'ko' ? 'ko' : '';
-      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
-      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
+      document.body.className = lang === 'en' ? '' : lang;
+      document.getElementById('lang-select').value = lang;
+      document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
     }
+
     (function() {
       var p = new URLSearchParams(location.search);
       var lang = p.get('lang');
-      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      if (!lang) {
+        var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var matched = SUPPORTED_LANGS.find(function(l) {
+          return browserLang === l || browserLang.startsWith(l + '-');
+        });
+        lang = matched || 'en';
+      }
       setLang(lang);
     })();
   </script>

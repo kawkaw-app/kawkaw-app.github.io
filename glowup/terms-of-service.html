@@ -23,24 +23,39 @@
     a{color:var(--accent);text-decoration:none}
     .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
     .contact a{display:inline-block;margin-top:8px;font-weight:600}
-    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
-    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
-    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    /* Language selector */
+    .lang-selector{position:relative;display:inline-block;margin-bottom:24px}
+    .lang-selector select{
+      appearance:none;-webkit-appearance:none;
+      padding:8px 36px 8px 14px;
+      border-radius:8px;border:1px solid var(--border);
+      background:var(--bg);color:var(--txt);
+      font-size:14px;font-weight:500;cursor:pointer;
+      min-width:160px;
+    }
+    .lang-selector select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+    .lang-selector::after{
+      content:'';position:absolute;right:12px;top:50%;transform:translateY(-50%);
+      width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+      border-top:5px solid var(--txt2);pointer-events:none;
+    }
     [lang="ko"]{display:none}
     .ko [lang="ko"]{display:block}
     .ko [lang="en"]{display:none}
   </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
-    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+  <div class="lang-selector">
+    <select id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+    </select>
   </div>
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div lang="en">
     <h1>Terms of Service</h1>
-    <p class="date">Effective Date: April 17, 2025</p>
+    <p class="date">Effective Date: April 17, 2025 | Last Updated: April 17, 2026</p>
     <p>Welcome to Gumi Glowup. These Terms of Service ("Terms") govern your use of the Gumi Glowup mobile application ("App") operated by KawKaw ("Company," "we," "us," or "our"). By downloading, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
 
     <div class="section">
@@ -63,7 +78,7 @@
       <h2>3. Description of Service</h2>
       <p>Gumi Glowup is an AI-powered skincare companion that provides:</p>
       <ul>
-        <li><strong>AI Skin Analysis:</strong> Selfie-based skin condition analysis using artificial intelligence.</li>
+        <li><strong>AI Skin Analysis:</strong> Selfie-based skin condition analysis using artificial intelligence. Analysis is limited strictly to dermatological skin condition metrics (hydration, elasticity, pores, pigmentation, wrinkles) and does not perform racial, ethnic, or demographic classification of any kind.</li>
         <li><strong>Product Recommendations:</strong> Personalised skincare product suggestions based on your skin analysis.</li>
         <li><strong>Routine Management:</strong> AM/PM skincare routine creation, tracking, and reminders.</li>
         <li><strong>Skin Tracking:</strong> Historical tracking of skin condition changes over time.</li>
@@ -138,6 +153,7 @@
         <li><strong>AI skin analysis is an estimate and not a medical diagnosis.</strong> Results may vary and should not replace professional dermatological advice.</li>
         <li>Product recommendations are suggestions based on AI analysis and do not guarantee results.</li>
         <li>Fortune readings are for entertainment purposes only.</li>
+        <li><strong>AI analysis evaluates individual skin condition metrics only. It does not classify, categorise, or make any determination based on race, ethnicity, skin colour classification, or any other demographic characteristic.</strong> Any perceived correlation in results is unintentional and does not reflect the design or intent of the service.</li>
       </ul>
     </div>
 
@@ -201,7 +217,7 @@
   <!-- ═══════════════ KOREAN ═══════════════ -->
   <div lang="ko">
     <h1>이용약관</h1>
-    <p class="date">시행일: 2025년 4월 17일</p>
+    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 4월 17일</p>
     <p>Gumi Glowup에 오신 것을 환영합니다. 본 이용약관("약관")은 KawKaw(이하 "회사", "당사")가 운영하는 Gumi Glowup 모바일 애플리케이션(이하 "앱")의 이용에 관한 사항을 규정합니다. 앱을 다운로드, 접근 또는 사용함으로써 귀하는 본 약관에 동의하게 됩니다. 동의하지 않으시면 앱을 사용하지 마시기 바랍니다.</p>
 
     <div class="section">
@@ -224,7 +240,7 @@
       <h2>3. 서비스 설명</h2>
       <p>Gumi Glowup은 AI 기반 스킨케어 도우미로 다음 기능을 제공합니다:</p>
       <ul>
-        <li><strong>AI 피부 분석:</strong> 인공지능을 활용한 셀카 기반 피부 상태 분석.</li>
+        <li><strong>AI 피부 분석:</strong> 인공지능을 활용한 셀카 기반 피부 상태 분석. 분석은 피부과학적 피부 상태 지표(수분, 탄력, 모공, 색소침착, 주름)에 엄격히 한정되며, 인종, 민족 또는 인구통계학적 분류를 일체 수행하지 않습니다.</li>
         <li><strong>제품 추천:</strong> 피부 분석 결과를 기반으로 한 맞춤형 스킨케어 제품 제안.</li>
         <li><strong>루틴 관리:</strong> AM/PM 스킨케어 루틴 생성, 추적 및 알림.</li>
         <li><strong>피부 추적:</strong> 시간에 따른 피부 상태 변화 이력 추적.</li>
@@ -299,6 +315,7 @@
         <li><strong>AI 피부 분석은 추정치이며 의학적 진단이 아닙니다.</strong> 결과는 달라질 수 있으며 전문적인 피부과 조언을 대체해서는 안 됩니다.</li>
         <li>제품 추천은 AI 분석에 기반한 제안이며 결과를 보장하지 않습니다.</li>
         <li>운세 리딩은 엔터테인먼트 목적으로만 제공됩니다.</li>
+        <li><strong>AI 분석은 개인의 피부 상태 지표만을 평가합니다. 인종, 민족, 피부색 분류 또는 기타 인구통계학적 특성을 기반으로 분류, 구분 또는 판단하지 않습니다.</strong> 결과에서 인지되는 상관관계가 있더라도 이는 의도된 것이 아니며 서비스의 설계나 의도를 반영하지 않습니다.</li>
       </ul>
     </div>
 
@@ -354,22 +371,32 @@
     <div class="contact">
       <h2>15. 문의처</h2>
       <p>본 약관에 대한 문의사항은 아래로 연락해 주시기 바랍니다:</p>
-      <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
-      <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
     </div>
   </div>
 
   <script>
+    var SUPPORTED_LANGS = ['en', 'ko'];
+
     function setLang(lang) {
-      document.body.className = lang === 'ko' ? 'ko' : '';
-      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
-      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
+      document.body.className = lang === 'en' ? '' : lang;
+      document.getElementById('lang-select').value = lang;
+      document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
     }
+
     (function() {
       var p = new URLSearchParams(location.search);
       var lang = p.get('lang');
-      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      if (!lang) {
+        var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var matched = SUPPORTED_LANGS.find(function(l) {
+          return browserLang === l || browserLang.startsWith(l + '-');
+        });
+        lang = matched || 'en';
+      }
       setLang(lang);
     })();
   </script>
