@@ -21,12 +21,25 @@
     a{color:var(--accent);text-decoration:none}
     .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
     .contact a{display:inline-block;margin-top:8px;font-weight:600}
-    .lang-toggle{display:flex;gap:8px;margin-bottom:24px}
-    .lang-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--txt2);font-size:13px;cursor:pointer}
-    .lang-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    [lang="ko"]{display:none}
-    .ko [lang="ko"]{display:block}
-    .ko [lang="en"]{display:none}
+    /* Language selector */
+    .lang-selector{position:relative;display:inline-block;margin-bottom:24px}
+    .lang-selector select{
+      appearance:none;-webkit-appearance:none;
+      padding:8px 36px 8px 14px;
+      border-radius:8px;border:1px solid var(--border);
+      background:var(--bg);color:var(--txt);
+      font-size:14px;font-weight:500;cursor:pointer;
+      min-width:160px;
+    }
+    .lang-selector select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+    .lang-selector::after{
+      content:'';position:absolute;right:12px;top:50%;transform:translateY(-50%);
+      width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+      border-top:5px solid var(--txt2);pointer-events:none;
+    }
+    body>[lang="ko"]{display:none}
+    .ko>body>[lang="ko"],.ko>[lang="ko"]{display:block}
+    .ko>body>[lang="en"],.ko>[lang="en"]{display:none}
     .step{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
     .step-badge{min-width:56px;padding:4px 8px;background:var(--accent-bg);color:var(--accent);border-radius:6px;font-size:12px;font-weight:600;text-align:center}
     .step-title{font-weight:600;color:var(--txt);font-size:14px;margin-bottom:2px}
@@ -36,9 +49,11 @@
   </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
-    <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+  <div class="lang-selector">
+    <select id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+    </select>
   </div>
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
@@ -344,16 +359,26 @@
   </div>
 
   <script>
+    var SUPPORTED_LANGS = ['en', 'ko'];
+
     function setLang(lang) {
-      document.body.className = lang === 'ko' ? 'ko' : '';
-      document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
-      document.getElementById('btn-ko').className = lang === 'ko' ? 'active' : '';
+      if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
+      document.body.className = lang === 'en' ? '' : lang;
+      document.getElementById('lang-select').value = lang;
+      document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
     }
+
     (function() {
       var p = new URLSearchParams(location.search);
       var lang = p.get('lang');
-      if (!lang) lang = (navigator.language || '').startsWith('ko') ? 'ko' : 'en';
+      if (!lang) {
+        var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var matched = SUPPORTED_LANGS.find(function(l) {
+          return browserLang === l || browserLang.startsWith(l + '-');
+        });
+        lang = matched || 'en';
+      }
       setLang(lang);
     })();
   </script>
