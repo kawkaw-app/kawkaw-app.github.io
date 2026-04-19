@@ -3,33 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="glowup.ico">
   <title>Service Guide — Gumi Glowup</title>
   <style>
-    :root{--bg:#fff;--bg2:#f8f9fa;--txt:#1a1a1a;--txt2:#6b7280;--border:#e5e7eb;--accent:#7C6BFF;--accent-bg:#ede9fe}
-    @media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--bg2:#2a2a2a;--txt:#f0f0f0;--txt2:#9ca3af;--border:#3a3a3a;--accent:#a78bfa;--accent-bg:#2e2654}}
+    :root{
+      --bg:#fff;--bg2:#f8f9fa;--bg3:#fff;
+      --txt:#1a1a1a;--txt2:#6b7280;--border:#e5e7eb;
+      --accent:#7C6BFF;--accent-bg:#ede9fe;--accent-soft:#f5f3ff;
+      --warn-bg:#fef3c7;--warn-border:#f59e0b;--warn-txt:#78350f;
+      --ok-bg:#dcfce7;--ok-border:#22c55e;--ok-txt:#14532d;
+    }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --bg:#0f0f12;--bg2:#1a1a1f;--bg3:#22222a;
+        --txt:#f0f0f0;--txt2:#9ca3af;--border:#2e2e36;
+        --accent:#a78bfa;--accent-bg:#2e2654;--accent-soft:#1d1830;
+        --warn-bg:#3b2f10;--warn-border:#fbbf24;--warn-txt:#fde68a;
+        --ok-bg:#0f2e1c;--ok-border:#4ade80;--ok-txt:#bbf7d0;
+      }
+    }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:24px 20px 60px;max-width:720px;margin:0 auto;-webkit-text-size-adjust:100%}
-    h1{font-size:24px;font-weight:700;margin-bottom:8px}
-    h2{font-size:18px;font-weight:700;margin:32px 0 12px}
-    h3{font-size:15px;font-weight:600;margin:20px 0 8px}
-    p,li{font-size:14px;color:var(--txt2);margin-bottom:12px}
-    ul,ol{padding-left:20px;margin-bottom:16px}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+      background:var(--bg);color:var(--txt);line-height:1.7;
+      padding:20px 16px 60px;max-width:760px;margin:0 auto;
+      -webkit-text-size-adjust:100%;
+    }
+    h1{font-size:26px;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
+    h2{font-size:20px;font-weight:700;margin:28px 0 12px;letter-spacing:-0.3px}
+    h3{font-size:16px;font-weight:700;margin:22px 0 10px;color:var(--txt)}
+    h4{font-size:14px;font-weight:700;margin:14px 0 6px;color:var(--txt)}
+    p,li{font-size:14.5px;color:var(--txt2);margin-bottom:10px}
+    ul,ol{padding-left:20px;margin-bottom:14px}
     li{margin-bottom:6px}
-    .subtitle{font-size:14px;color:var(--txt2);margin-bottom:24px}
-    .section{background:var(--bg2);border-radius:12px;padding:20px;margin-bottom:16px}
-    .section h2{margin-top:0}
+    strong{color:var(--txt);font-weight:600}
     a{color:var(--accent);text-decoration:none}
-    .contact{background:var(--bg2);border-radius:12px;padding:20px;margin-top:32px;text-align:center}
-    .contact a{display:inline-block;margin-top:8px;font-weight:600}
+    a:hover{text-decoration:underline}
+
+    .subtitle{font-size:15px;color:var(--txt2);margin-bottom:20px}
+    .hero{
+      background:linear-gradient(135deg,var(--accent-soft) 0%,var(--bg2) 100%);
+      border-radius:16px;padding:24px 20px;margin-bottom:20px;
+      border:1px solid var(--border);
+    }
+    .hero h1{margin-bottom:6px}
+    .hero p{font-size:14px;margin-bottom:0}
+    .badge{
+      display:inline-block;padding:3px 10px;background:var(--accent-bg);
+      color:var(--accent);border-radius:999px;font-size:11px;font-weight:700;
+      letter-spacing:0.3px;margin-bottom:8px;
+    }
+
+    .section{
+      background:var(--bg2);border:1px solid var(--border);
+      border-radius:14px;padding:20px 18px;margin-bottom:14px;
+    }
+    .section h2{margin-top:0}
+    .section h2 .num{color:var(--accent);margin-right:6px;font-weight:800}
+
+    /* TOC */
+    .toc{background:var(--bg2);border-radius:12px;padding:16px 18px;margin-bottom:18px;border:1px solid var(--border)}
+    .toc h3{margin:0 0 8px;font-size:13px;color:var(--txt2);text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
+    .toc ol{padding-left:18px;margin:0}
+    .toc li{font-size:13.5px;margin-bottom:4px;color:var(--accent)}
+    .toc a{color:var(--accent)}
+
     /* Language selector */
-    .lang-selector{position:relative;display:inline-block;margin-bottom:24px}
+    .lang-selector{position:relative;display:inline-block;margin-bottom:18px}
     .lang-selector select{
       appearance:none;-webkit-appearance:none;
-      padding:8px 36px 8px 14px;
-      border-radius:8px;border:1px solid var(--border);
-      background:var(--bg);color:var(--txt);
-      font-size:14px;font-weight:500;cursor:pointer;
-      min-width:160px;
+      padding:8px 36px 8px 14px;border-radius:8px;border:1px solid var(--border);
+      background:var(--bg);color:var(--txt);font-size:14px;font-weight:500;cursor:pointer;min-width:160px;
     }
     .lang-selector select:focus{outline:2px solid var(--accent);outline-offset:-1px}
     .lang-selector::after{
@@ -40,12 +85,105 @@
     body>[lang="ko"]{display:none}
     .ko>body>[lang="ko"],.ko>[lang="ko"]{display:block}
     .ko>body>[lang="en"],.ko>[lang="en"]{display:none}
-    .step{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
-    .step-badge{min-width:56px;padding:4px 8px;background:var(--accent-bg);color:var(--accent);border-radius:6px;font-size:12px;font-weight:600;text-align:center}
-    .step-title{font-weight:600;color:var(--txt);font-size:14px;margin-bottom:2px}
-    .step-desc{font-size:13px;color:var(--txt2)}
-    .faq-q{font-weight:600;color:var(--txt);font-size:14px;margin-bottom:4px}
-    .faq-a{font-size:13px;color:var(--txt2);padding-left:8px;border-left:2px solid var(--border);margin-bottom:16px}
+
+    /* Steps */
+    .step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+    .step-badge{
+      min-width:58px;padding:5px 8px;background:var(--accent-bg);color:var(--accent);
+      border-radius:8px;font-size:12px;font-weight:700;text-align:center;flex-shrink:0;
+    }
+    .step-title{font-weight:700;color:var(--txt);font-size:14.5px;margin-bottom:3px}
+    .step-desc{font-size:13.5px;color:var(--txt2);line-height:1.6}
+
+    /* FAQ */
+    .faq-q{font-weight:700;color:var(--txt);font-size:14.5px;margin:14px 0 4px}
+    .faq-a{font-size:13.5px;color:var(--txt2);padding-left:12px;border-left:3px solid var(--border);margin-bottom:14px;line-height:1.65}
+
+    /* Screenshots */
+    .shot-wrap{margin:18px 0 8px;text-align:center}
+    .shot{
+      display:block;width:100%;max-width:280px;height:auto;margin:0 auto;
+      border-radius:18px;border:1px solid var(--border);
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+      background:var(--bg3);
+    }
+    .shot-row{
+      display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+      margin:18px 0 8px;
+    }
+    .shot-row .shot{max-width:240px;flex:1 1 200px}
+    .caption{
+      font-size:12px;color:var(--txt2);text-align:center;
+      margin-top:8px;margin-bottom:8px;font-style:italic;
+    }
+
+    /* Callouts */
+    .callout{
+      border-radius:10px;padding:14px 16px;margin:14px 0;
+      border-left:4px solid var(--accent);background:var(--accent-soft);
+    }
+    .callout p,.callout li{color:var(--txt);font-size:13.5px;margin-bottom:6px}
+    .callout strong{color:var(--accent)}
+    .callout-title{font-weight:700;color:var(--accent);font-size:13px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px}
+
+    .warn{
+      border-radius:10px;padding:14px 16px;margin:14px 0;
+      border-left:4px solid var(--warn-border);background:var(--warn-bg);
+    }
+    .warn p,.warn li{color:var(--warn-txt);font-size:13.5px;margin-bottom:6px}
+    .warn strong{color:var(--warn-txt)}
+    .warn-title{font-weight:700;color:var(--warn-txt);font-size:13px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px}
+
+    .ok{
+      border-radius:10px;padding:14px 16px;margin:14px 0;
+      border-left:4px solid var(--ok-border);background:var(--ok-bg);
+    }
+    .ok p,.ok li{color:var(--ok-txt);font-size:13.5px;margin-bottom:6px}
+    .ok strong{color:var(--ok-txt)}
+    .ok-title{font-weight:700;color:var(--ok-txt);font-size:13px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px}
+
+    /* Feature card */
+    .feature{
+      background:var(--bg3);border:1px solid var(--border);
+      border-radius:12px;padding:16px;margin-bottom:14px;
+    }
+    .feature h3{margin-top:0;display:flex;align-items:center;gap:8px}
+    .feature h3 .dot{
+      display:inline-block;width:6px;height:6px;border-radius:50%;
+      background:var(--accent);flex-shrink:0;
+    }
+
+    /* Plan table */
+    .plan{
+      background:var(--bg3);border:1px solid var(--border);
+      border-radius:12px;padding:16px;margin-bottom:12px;
+    }
+    .plan.premium{border:2px solid var(--accent);position:relative}
+    .plan.premium::before{
+      content:'RECOMMENDED';position:absolute;top:-10px;right:14px;
+      background:var(--accent);color:#fff;font-size:10px;font-weight:700;
+      padding:3px 10px;border-radius:999px;letter-spacing:0.5px;
+    }
+    .ko .plan.premium::before{content:'추천'}
+    .plan h3{margin-top:0}
+    .plan .price{font-size:20px;font-weight:800;color:var(--txt);margin:6px 0 12px}
+    .plan .price small{font-size:13px;color:var(--txt2);font-weight:500}
+
+    /* Contact */
+    .contact{
+      background:linear-gradient(135deg,var(--accent-soft) 0%,var(--bg2) 100%);
+      border:1px solid var(--border);border-radius:14px;padding:22px 20px;
+      margin-top:24px;text-align:center;
+    }
+    .contact a{display:inline-block;margin-top:4px;font-weight:700}
+
+    @media(max-width:520px){
+      body{padding:16px 14px 50px}
+      h1{font-size:23px}
+      h2{font-size:18px}
+      .shot{max-width:240px}
+      .shot-row .shot{max-width:100%}
+    }
   </style>
 </head>
 <body>
@@ -58,303 +196,711 @@
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div lang="en">
-    <h1>Service Guide</h1>
-    <p class="subtitle">Everything you need to know about Gumi Glowup</p>
-
-    <div class="section">
-      <h2>1. What is Gumi Glowup?</h2>
-      <p>Gumi Glowup is an AI-powered skincare companion app that helps you understand your skin, build a personalised skincare routine, and track your skin's improvement over time. Simply take a selfie, and our AI analyses your skin to provide science-backed insights and recommendations.</p>
+    <div class="hero">
+      <span class="badge">SERVICE GUIDE</span>
+      <h1>Welcome to Gumi Glowup</h1>
+      <p>Your AI skincare companion — analyse, recommend, routine, repeat.</p>
     </div>
 
-    <div class="section">
-      <h2>2. Key Features</h2>
-
-      <h3>AI Skin Analysis</h3>
-      <ul>
-        <li>Take a selfie and receive an instant AI-powered skin analysis.</li>
-        <li>Get your estimated skin age based on five key metrics: Hydration, Elasticity, Pores, Pigmentation, and Wrinkles.</li>
-        <li>Receive detailed strengths and areas for improvement.</li>
-        <li>Retake monthly to track your skin's progress.</li>
-      </ul>
-
-      <h3>Personalised Product Recommendations</h3>
-      <ul>
-        <li>After your skin analysis, AI selects skincare products matched to your specific skin needs.</li>
-        <li>Products are categorised by type: Cleanser, Toner, Serum, Cream, SPF, and more.</li>
-        <li>Each recommendation includes the reason it was chosen for you.</li>
-      </ul>
-
-      <h3>Smart Routine Builder</h3>
-      <ul>
-        <li>AI creates optimised AM and PM skincare routines based on your products.</li>
-        <li>Step-by-step instructions for each product with application tips.</li>
-        <li>Set routine reminders to build consistent skincare habits.</li>
-        <li>Track your daily streak to stay motivated.</li>
-      </ul>
-
-      <h3>Skin Progress Tracking</h3>
-      <ul>
-        <li>View your skin age and score trends over time.</li>
-        <li>Compare before/after analysis results.</li>
-        <li>AI-generated insights on what's working and what to adjust.</li>
-        <li>Category-level breakdown to see exactly where you're improving.</li>
-      </ul>
-
-      <h3>Knowledge Articles</h3>
-      <ul>
-        <li>Curated skincare education content covering ingredients, routines, trouble care, and more.</li>
-        <li>Stay updated with the latest skincare trends and new product information.</li>
-      </ul>
-
-      <h3>Daily Fortune</h3>
-      <ul>
-        <li>Fun daily fortune readings personalised to you.</li>
-        <li>Skincare, beauty, and wellness tips included.</li>
-        <li>Check once per day for your daily dose of inspiration.</li>
-      </ul>
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#en-1">What is Gumi Glowup?</a></li>
+        <li><a href="#en-2">Why it works: data-driven personalisation</a></li>
+        <li><a href="#en-3">First launch &amp; sign-up</a></li>
+        <li><a href="#en-4">Home dashboard</a></li>
+        <li><a href="#en-5">Skin scan &amp; AI analysis</a></li>
+        <li><a href="#en-6">Reports &amp; history</a></li>
+        <li><a href="#en-7">AI Picks: product recommendations</a></li>
+        <li><a href="#en-8">Routine builder</a></li>
+        <li><a href="#en-9">Knowledge articles</a></li>
+        <li><a href="#en-10">Daily fortune</a></li>
+        <li><a href="#en-11">Settings &amp; account</a></li>
+        <li><a href="#en-12">Subscription plans</a></li>
+        <li><a href="#en-13">Photo tips, FAQ &amp; contact</a></li>
+      </ol>
     </div>
 
-    <div class="section">
-      <h2>3. Getting Started</h2>
-      <div class="step"><div class="step-badge">Step 1</div><div><div class="step-title">Create Account</div><div class="step-desc">Sign up with email or continue with Google/Apple.</div></div></div>
-      <div class="step"><div class="step-badge">Step 2</div><div><div class="step-title">Set Up Profile</div><div class="step-desc">Tell us your name, birthday, region, skin type, and skin concerns.</div></div></div>
-      <div class="step"><div class="step-badge">Step 3</div><div><div class="step-title">Take Your First Glowup</div><div class="step-desc">Take a selfie in good lighting for your first skin analysis.</div></div></div>
-      <div class="step"><div class="step-badge">Step 4</div><div><div class="step-title">Get Product Picks</div><div class="step-desc">Review AI-selected products matched to your skin.</div></div></div>
-      <div class="step"><div class="step-badge">Step 5</div><div><div class="step-title">Build Your Routine</div><div class="step-desc">Set up your daily AM/PM skincare routine.</div></div></div>
-      <div class="step"><div class="step-badge">Step 6</div><div><div class="step-title">Track &amp; Improve</div><div class="step-desc">Follow your routine daily and retake the analysis monthly.</div></div></div>
+    <!-- 1 -->
+    <div class="section" id="en-1">
+      <h2><span class="num">01</span>What is Gumi Glowup?</h2>
+      <p>Gumi Glowup is an AI-powered skincare companion. Take a selfie, and our AI scores your skin across five core dimensions, recommends safe and well-matched products, and builds a daily routine that fits your real skin condition.</p>
+      <p>It's not a one-shot diagnosis. The more you scan, complete routines, and follow recommendations, the more accurately the app learns your skin and tailors what comes next.</p>
     </div>
 
-    <div class="section">
-      <h2>4. Subscription Plans</h2>
-      <h3>Free</h3>
-      <ul>
-        <li>Basic skin analysis</li>
-        <li>Limited product recommendations</li>
-        <li>Basic routine features</li>
-      </ul>
-      <h3>Premium — $9.99/month</h3>
-      <ul>
-        <li>Unlimited AI skin analyses</li>
-        <li>Full product recommendations with detailed insights</li>
-        <li>Advanced routine builder with AI feedback</li>
-        <li>Complete skin progress reports and AI insights</li>
-        <li>Priority support</li>
-      </ul>
-      <p>Subscriptions are managed through the Apple App Store or Google Play Store. You can cancel anytime from your store account settings.</p>
-    </div>
+    <!-- 2 -->
+    <div class="section" id="en-2">
+      <h2><span class="num">02</span>Why it works: data-driven personalisation</h2>
+      <p>Most skincare apps stop at "here's a product list." Gumi Glowup is built around a continuous learning loop:</p>
 
-    <div class="section">
-      <h2>5. Photo Tips for Best Results</h2>
+      <div class="callout">
+        <div class="callout-title">The Glowup Loop</div>
+        <p><strong>1. Scan</strong> — AI captures your skin's current state (5 metrics + skin age).</p>
+        <p><strong>2. Recommend</strong> — Products are picked based on your skin profile, concerns, allergies, and analysis history.</p>
+        <p><strong>3. Routine</strong> — A personalised AM/PM routine is generated from those products.</p>
+        <p><strong>4. Track</strong> — Daily check-ins and monthly rescans build a longitudinal record.</p>
+        <p><strong>5. Re-recommend</strong> — Future recommendations use everything you've done so far. The longer you use the app, the smarter it gets.</p>
+      </div>
+
+      <h3>Why this matters</h3>
       <ul>
-        <li><strong>Lighting:</strong> Use bright, even, natural lighting. Avoid harsh shadows or backlighting.</li>
-        <li><strong>Position:</strong> Face the camera directly, keeping your face centred.</li>
-        <li><strong>Cleanliness:</strong> Remove makeup if possible for the most accurate analysis.</li>
-        <li><strong>Stability:</strong> Hold your device steady for a clear photo.</li>
-        <li><strong>Frequency:</strong> For best progress tracking, take a new analysis once per month.</li>
+        <li><strong>Your skin changes</strong> with seasons, hormones, stress, and the products you use. A static recommendation goes stale fast.</li>
+        <li><strong>Effectiveness is measurable.</strong> By comparing scans before and after a routine, we can tell you which products actually moved the needle for <em>your</em> skin — not generic reviews.</li>
+        <li><strong>Habits beat heroics.</strong> Skincare results come from consistent daily care. Streaks, reminders, and AM/PM check-ins are designed to make that easy.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>6. Your Data &amp; Privacy</h2>
+    <!-- 3 -->
+    <div class="section" id="en-3">
+      <h2><span class="num">03</span>First launch &amp; sign-up</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/1.%EC%B5%9C%EC%B4%88%20%EC%8B%A4%ED%96%89%EC%8B%9C%20%EC%84%A4%EB%AA%85%ED%99%94%EB%A9%B4.png" alt="First-launch onboarding tutorial">
+        <p class="caption">Welcome tutorial: a quick tour of what Gumi Glowup does.</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/2%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%99%94%EB%A9%B4.png" alt="Login screen">
+        <img class="shot" loading="lazy" src="assets/3ai%20%EC%84%9C%EB%B2%84%20%EB%8F%99%EC%9D%98%ED%99%94%EB%A9%B4.png" alt="AI consent screen">
+      </div>
+      <p class="caption">Sign in with Apple or Google, then review and accept the AI processing terms before your first scan.</p>
+
+      <h3>What you'll set up</h3>
       <ul>
-        <li>Your photos are stored securely and used only for skin analysis.</li>
-        <li>Your data is never sold to third parties or used for AI training.</li>
-        <li>You can delete all your data at any time from Settings.</li>
-        <li>Read our full <a href="privacy-policy.html">Privacy Policy</a> for more details.</li>
+        <li><strong>Profile basics</strong> — name, birth year, gender, region.</li>
+        <li><strong>Skin types</strong> — pick up to 3 (dry, oily, combination, sensitive, acne-prone, redness, etc.).</li>
+        <li><strong>Skin concerns</strong> — describe in your own words what bothers you most.</li>
+        <li><strong>Allergens</strong> — flag ingredients you must avoid. The recommender filters these out automatically.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Why we ask</div>
+        <p>Every field directly shapes what the AI recommends. The more accurate your profile, the safer and more useful your picks. You can update any of this anytime from <strong>Settings → Edit profile</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="en-4">
+      <h2><span class="num">04</span>Home dashboard</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C.png" alt="Home dashboard">
+        <img class="shot" loading="lazy" src="assets/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C%20%EB%A9%94%EB%89%B4.png" alt="Slide menu">
+      </div>
+      <p class="caption">Dashboard summarises your latest skin state. The slide menu opens every feature.</p>
+
+      <p>The home screen is your daily anchor. You'll see at a glance:</p>
+      <ul>
+        <li><strong>Latest skin score &amp; skin age</strong> — with a delta vs. your previous scan.</li>
+        <li><strong>Continue Glowup banner</strong> — if you started a flow (scan → products → routine) but didn't finish, this picks it back up.</li>
+        <li><strong>Today's routine progress</strong> — AM and PM checkboxes for at-a-glance status.</li>
+        <li><strong>Daily fortune card</strong> — a small daily moment.</li>
+        <li><strong>Subscription banner</strong> — trial days remaining, if applicable.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>7. Notifications</h2>
-      <p>Gumi Glowup can send helpful reminders to support your skincare journey:</p>
+    <!-- 5 -->
+    <div class="section" id="en-5">
+      <h2><span class="num">05</span>Skin scan &amp; AI analysis</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%8A%A4%EC%BA%94%20%EB%B6%84%EC%84%9D.png" alt="Skin scan analysis">
+        <p class="caption">A single selfie produces a five-dimension skin scorecard.</p>
+      </div>
+
+      <h3>What the AI measures</h3>
       <ul>
-        <li><strong>Routine Reminders:</strong> Morning and evening notifications to follow your routine.</li>
-        <li><strong>Monthly Rescan:</strong> A monthly reminder to take a new skin analysis.</li>
-        <li><strong>Fortune:</strong> Daily fortune notification.</li>
+        <li><strong>Hydration</strong> — surface moisture and dryness signals.</li>
+        <li><strong>Elasticity</strong> — skin firmness cues.</li>
+        <li><strong>Pores</strong> — visible pore density and size.</li>
+        <li><strong>Pigmentation</strong> — uneven tone, dark spots, melasma cues.</li>
+        <li><strong>Wrinkles</strong> — fine lines and texture.</li>
       </ul>
-      <p>All notifications are optional and can be managed from Settings &gt; Notification Settings.</p>
+      <p>You'll also get an <strong>estimated skin age</strong>, an overall score (0–100), and lists of strengths and areas to improve.</p>
+
+      <div class="callout">
+        <div class="callout-title">How accurate is it?</div>
+        <p>The AI normalises for lighting, exposure, and angle, but a clear, evenly-lit selfie still produces dramatically better results. See section 13 for photo tips.</p>
+      </div>
+
+      <h3>How often should I scan?</h3>
+      <p>Once a month is the sweet spot. Skin changes are gradual, and monthly cadence keeps trend lines meaningful. The app sends a gentle monthly rescan reminder.</p>
     </div>
 
-    <div class="section">
-      <h2>8. Account Management</h2>
+    <!-- 6 -->
+    <div class="section" id="en-6">
+      <h2><span class="num">06</span>Reports &amp; history</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%A6%AC%ED%8F%AC%ED%8A%B81.png" alt="Skin report">
+        <img class="shot" loading="lazy" src="assets/%EB%B6%84%EC%84%9D%20%EC%9D%B4%EB%A0%A5.png" alt="Analysis history">
+      </div>
+      <p class="caption">Reports show change over time. History lets you swipe through every past scan.</p>
+
+      <p>Every scan you take is saved. The report view turns those scans into useful insight:</p>
       <ul>
-        <li><strong>Edit Profile:</strong> Update your name, skin type, and other information anytime from Settings.</li>
-        <li><strong>Change Language:</strong> Switch between supported languages from Settings.</li>
-        <li><strong>Dark Mode:</strong> Toggle dark mode for comfortable viewing.</li>
-        <li><strong>Log Out:</strong> Sign out from Settings. Your data is preserved.</li>
-        <li><strong>Delete Account:</strong> Permanently delete your account and all data from Settings &gt; Account &gt; Delete Account. This action cannot be undone.</li>
+        <li><strong>Score trend chart</strong> — your overall trajectory across all scans.</li>
+        <li><strong>Per-metric direction</strong> — which categories are improving or regressing.</li>
+        <li><strong>Skin age delta</strong> — how much "younger" or "older" your skin looks vs. your real age.</li>
+        <li><strong>Product effects</strong> — AI-inferred assessment of which products in your routine helped which metric, by comparing before/after scans.</li>
+        <li><strong>Routine impact</strong> — whether your daily AM/PM consistency is correlating with measurable change.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">This is the payoff</div>
+        <p>The longer you use Gumi Glowup, the richer your report becomes. After three or four scans you'll start seeing patterns no review website can give you — because they're patterns of <em>your own</em> skin.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="en-7">
+      <h2><span class="num">07</span>AI Picks: product recommendations</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai%20picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/%EC%B6%94%EC%B2%9C%20%EC%A0%9C%ED%92%88.png" alt="Recommended products list">
+      </div>
+      <p class="caption">After analysis, AI Picks curates products specifically for your skin state.</p>
+
+      <h3>How recommendations work</h3>
+      <ul>
+        <li>Each product is selected based on your <strong>analysis results</strong>, your <strong>skin profile</strong> (type, concerns, allergens), and your <strong>past history</strong>.</li>
+        <li>Picks are organised by category: <strong>Cleanser, Toner, Serum, Cream, SPF, Other</strong>.</li>
+        <li>Every card shows <strong>why this product was chosen for you</strong> — not a generic blurb, but reasoning tied to your scan.</li>
+        <li>Tap any product for the full detail sheet: brand, key ingredients, full ingredient list (when available), price, and a link to learn more or buy.</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">How we choose what to show you</div>
+        <p>We invested heavily in product safety. Our recommender:</p>
+        <ul>
+          <li>Filters out anything containing your <strong>declared allergens</strong>.</li>
+          <li>Cross-checks against known <strong>recall and warning lists</strong>.</li>
+          <li>Pulls full ingredient data from public databases (Open Beauty Facts) where available.</li>
+          <li>Prefers well-documented, mainstream skincare products over obscure or unverifiable ones.</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">Please still read the label</div>
+        <p>No automated system can guarantee a product is safe for <strong>your</strong> unique skin. Our filters reduce risk significantly, but they are not a substitute for your own judgement.</p>
+        <ul>
+          <li><strong>Always read the ingredient list</strong> before purchasing or applying — formulations change, batches differ, and labelling can be incomplete.</li>
+          <li><strong>Patch-test new products</strong> on a small area for 24 hours before full use.</li>
+          <li><strong>Stop immediately</strong> if you notice irritation, redness, itching, or any unusual reaction, and consult a dermatologist if symptoms persist.</li>
+          <li>If you have a diagnosed skin condition, are pregnant, or are using prescription topicals, consult your doctor before adding new products.</li>
+        </ul>
+      </div>
+
+      <h3>Don't like a pick? Re-recommend.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%A0%9C%ED%92%88%20%EC%B6%94%EC%B2%9C%20%EB%8B%A4%EC%8B%9C%ED%95%98%EA%B8%B0.png" alt="Re-recommend products">
+        <p class="caption">Filter by brand, swap individual items, or generate a fresh set.</p>
+      </div>
+      <p>You can re-run the recommender three ways: filter to specific brands, replace only the items you don't like, or get a completely new list. Your selections feed back into future picks.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="en-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4%20%EC%B6%94%EC%B2%9C.png" alt="Routine recommendation">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4.png" alt="Daily routine">
+      </div>
+      <p class="caption">AI generates an AM/PM routine from your picked products, ordered correctly.</p>
+
+      <p>Owning the right products is half the battle. Using them in the right order, at the right time, with the right technique is the other half — and that's what Routine handles.</p>
+
+      <h3>What you get</h3>
+      <ul>
+        <li><strong>AM and PM step lists</strong> — products ordered correctly (cleanse → tone → treat → moisturise → SPF).</li>
+        <li><strong>Why each step matters</strong> — tied to your specific skin concerns.</li>
+        <li><strong>How to apply</strong> — amount, technique, wait times.</li>
+        <li><strong>Frequency notes</strong> — daily, alternate days, weekly (e.g., exfoliants, masks).</li>
+        <li><strong>Lifestyle tips</strong> — sleep, hydration, sun habits relevant to your concerns.</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4_%EC%83%81%ED%92%88%EC%84%A4%EB%AA%85.png" alt="Routine product detail">
+        <p class="caption">Tap a step to see the product's role, application tips, and frequency.</p>
+      </div>
+
+      <h3>Reminders &amp; streaks</h3>
+      <ul>
+        <li>Set AM and PM notification times that match your real life.</li>
+        <li>Tick off each step as you go — your daily completion drives a streak counter.</li>
+        <li>Streaks are not for show: consistent application is what produces measurable change in your next scan.</li>
+      </ul>
+
+      <h3>Routine not working? Re-recommend.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4%20%EB%8B%A4%EC%8B%9C%20%EC%B6%94%EC%B2%9C.png" alt="Re-recommend routine">
+        <p class="caption">Generate a new routine if your needs change or a step doesn't fit.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="en-9">
+      <h2><span class="num">09</span>Knowledge articles</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%95%8C%ED%8B%B0%ED%81%B4%EC%8A%A4.png" alt="Knowledge articles">
+        <p class="caption">Curated skincare reads — ingredients, trends, community insights.</p>
+      </div>
+      <p>A curated feed of skincare content: ingredient explainers, new product launches, trending routines, and community discussion. Tap any card to read the full article.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="en-10">
+      <h2><span class="num">10</span>Daily fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%98%A4%EB%8A%98%EC%9D%98%20%EC%9A%B4%EC%84%B8.png" alt="Daily fortune">
+        <p class="caption">A small daily moment with a personalised skincare tip.</p>
+      </div>
+      <p>One personalised fortune per day, blending a fun reading with a small actionable skincare or wellness tip tied to your profile.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="en-11">
+      <h2><span class="num">11</span>Settings &amp; account</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%84%A4%EC%A0%95.png" alt="Settings">
+        <p class="caption">Manage profile, notifications, language, theme, and account from one place.</p>
+      </div>
+      <ul>
+        <li><strong>Edit profile</strong> — update skin type, concerns, allergies any time.</li>
+        <li><strong>Subscription</strong> — view status, manage via App Store / Google Play.</li>
+        <li><strong>Notifications</strong> — toggle routine reminders, monthly rescan prompts, fortune alerts.</li>
+        <li><strong>Language</strong> — switch between supported locales.</li>
+        <li><strong>Theme</strong> — light, dark, or system.</li>
+        <li><strong>Log out / Delete account</strong> — sign out keeps your data; delete permanently removes everything.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>9. Troubleshooting</h2>
-      <div class="faq-q">Q. My analysis failed</div>
-      <div class="faq-a">A. Ensure good lighting, face the camera directly, and hold still. Try removing makeup for a clearer photo.</div>
-      <div class="faq-q">Q. Products aren't loading</div>
-      <div class="faq-a">A. Check your internet connection and try again. Pull down to refresh.</div>
-      <div class="faq-q">Q. Notifications aren't working</div>
-      <div class="faq-a">A. Check that notifications are enabled in your device settings and in the App's notification settings.</div>
-      <div class="faq-q">Q. App is slow or crashing</div>
-      <div class="faq-a">A. Make sure you're running the latest version. Try closing and reopening the App.</div>
+    <!-- 12 -->
+    <div class="section" id="en-12">
+      <h2><span class="num">12</span>Subscription plans</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EA%B5%AC%EB%8F%85.png" alt="Subscription plans">
+        <p class="caption">Subscribe via App Store or Google Play. Cancel anytime.</p>
+      </div>
+
+      <div class="plan">
+        <h3>Free</h3>
+        <ul>
+          <li>Limited monthly skin analyses</li>
+          <li>Basic product recommendations</li>
+          <li>Basic routine features</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>Premium</h3>
+        <p class="price">From local price <small>/ month or year</small></p>
+        <ul>
+          <li><strong>Unlimited</strong> AI skin analyses</li>
+          <li>Full product recommendations with detailed reasoning</li>
+          <li>Advanced routine builder with AI feedback</li>
+          <li>Complete progress reports: trends, product effects, routine impact</li>
+          <li>Daily fortune</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">Pricing is shown in your local currency on the subscription screen and can change by region. Subscriptions auto-renew unless cancelled at least 24 hours before the period ends. Manage and cancel anytime from your App Store or Google Play account.</p>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="en-13">
+      <h2><span class="num">13</span>Photo tips, FAQ &amp; contact</h2>
+
+      <h3>Get the best scan</h3>
+      <ul>
+        <li><strong>Lighting</strong> — bright, even, natural light. Avoid harsh shadows or backlight.</li>
+        <li><strong>Position</strong> — face the camera straight, fill the frame, no tilt.</li>
+        <li><strong>Cleanliness</strong> — remove makeup for the truest reading.</li>
+        <li><strong>Stability</strong> — hold steady, no motion blur.</li>
+        <li><strong>Cadence</strong> — once a month so trend lines stay meaningful.</li>
+      </ul>
+
+      <h3>Privacy in one paragraph</h3>
+      <p>Your photos are stored securely and used only to power your analyses. We do not sell your data. We do not use your data to train third-party AI models. You can delete everything from <strong>Settings → Delete account</strong>. Full details: <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">Q. My analysis failed.</div>
+      <div class="faq-a">Better lighting and a steady hold usually fix it. Remove makeup and face the camera directly. If it keeps failing, try restarting the app.</div>
+      <div class="faq-q">Q. The recommended product isn't sold in my region.</div>
+      <div class="faq-a">Use the re-recommend feature to filter by brand or generate a fresh list focused on regionally available products.</div>
+      <div class="faq-q">Q. I had a reaction to a recommended product.</div>
+      <div class="faq-a">Stop using it immediately. Add the offending ingredient to your allergens list in Settings so it's filtered from future recommendations. Consult a dermatologist if symptoms persist.</div>
+      <div class="faq-q">Q. How long until I see a difference in my scans?</div>
+      <div class="faq-a">Skin turns over roughly every 28 days. Most users start seeing measurable shifts after 1–2 monthly scans of consistent routine use.</div>
+      <div class="faq-q">Q. Notifications aren't working.</div>
+      <div class="faq-a">Check both your device's system notification settings and the in-app Settings → Notifications.</div>
+      <div class="faq-q">Q. Can I cancel my subscription?</div>
+      <div class="faq-a">Yes, anytime via your App Store or Google Play account settings. You'll keep premium access until the current period ends.</div>
     </div>
 
     <div class="contact">
-      <h2>10. Contact &amp; Support</h2>
-      <p>We're here to help! If you have questions, feedback, or issues:</p>
+      <h2 style="margin-top:0">Contact &amp; Support</h2>
+      <p>Questions, bugs, or feedback — we read every message.</p>
       <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
       <p><strong>Community:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup Facebook Group</a></p>
-      <p style="font-size:12px;margin-top:8px;">We aim to respond to all inquiries within 48 hours.</p>
+      <p style="font-size:12px;margin-top:8px">We aim to respond to all inquiries within 48 hours.</p>
     </div>
   </div>
 
   <!-- ═══════════════ KOREAN ═══════════════ -->
   <div lang="ko">
-    <h1>서비스 가이드</h1>
-    <p class="subtitle">Gumi Glowup에 대해 알아야 할 모든 것</p>
-
-    <div class="section">
-      <h2>1. Gumi Glowup이란?</h2>
-      <p>Gumi Glowup은 AI 기반 스킨케어 도우미 앱으로, 피부를 이해하고 맞춤형 스킨케어 루틴을 세우며 시간에 따른 피부 개선을 추적할 수 있도록 도와줍니다. 셀카를 찍기만 하면 AI가 피부를 분석하여 과학적 근거에 기반한 인사이트와 추천을 제공합니다.</p>
+    <div class="hero">
+      <span class="badge">서비스 가이드</span>
+      <h1>구미 글로우업에 오신 걸 환영해요</h1>
+      <p>AI 스킨케어 동반자 — 분석하고, 추천받고, 루틴을 쌓고, 다시 분석합니다.</p>
     </div>
 
-    <div class="section">
-      <h2>2. 주요 기능</h2>
-
-      <h3>AI 피부 분석</h3>
-      <ul>
-        <li>셀카를 찍으면 즉시 AI 기반 피부 분석을 받을 수 있습니다.</li>
-        <li>수분, 탄력, 모공, 색소침착, 주름 5가지 핵심 지표를 기반으로 추정 피부 나이를 확인합니다.</li>
-        <li>피부의 강점과 개선이 필요한 부분에 대한 상세한 분석을 제공합니다.</li>
-        <li>매월 재촬영하여 피부 변화를 추적할 수 있습니다.</li>
-      </ul>
-
-      <h3>맞춤형 제품 추천</h3>
-      <ul>
-        <li>피부 분석 후, AI가 피부에 맞는 스킨케어 제품을 선별합니다.</li>
-        <li>클렌저, 토너, 세럼, 크림, SPF 등 유형별로 분류됩니다.</li>
-        <li>각 추천에는 선택 이유가 포함됩니다.</li>
-      </ul>
-
-      <h3>스마트 루틴 빌더</h3>
-      <ul>
-        <li>AI가 선택한 제품을 기반으로 최적화된 아침/저녁 스킨케어 루틴을 생성합니다.</li>
-        <li>각 제품의 사용법과 팁을 단계별로 안내합니다.</li>
-        <li>루틴 알림을 설정하여 일관된 스킨케어 습관을 만들 수 있습니다.</li>
-        <li>매일 스트릭을 추적하여 동기 부여를 유지합니다.</li>
-      </ul>
-
-      <h3>피부 변화 추적</h3>
-      <ul>
-        <li>시간에 따른 피부 나이와 점수 변화를 확인합니다.</li>
-        <li>이전/이후 분석 결과를 비교할 수 있습니다.</li>
-        <li>효과가 있는 것과 조정이 필요한 것에 대한 AI 인사이트를 제공합니다.</li>
-        <li>카테고리별 분석으로 정확히 어디가 개선되고 있는지 확인합니다.</li>
-      </ul>
-
-      <h3>지식 아티클</h3>
-      <ul>
-        <li>성분, 루틴, 트러블 케어 등 스킨케어 교육 콘텐츠를 큐레이션합니다.</li>
-        <li>최신 스킨케어 트렌드와 신제품 정보를 확인할 수 있습니다.</li>
-      </ul>
-
-      <h3>오늘의 운세</h3>
-      <ul>
-        <li>개인 맞춤형 일일 운세 리딩을 즐길 수 있습니다.</li>
-        <li>스킨케어, 뷰티, 웰니스 팁이 포함됩니다.</li>
-        <li>하루에 한 번 확인하여 일일 영감을 얻으세요.</li>
-      </ul>
+    <div class="toc">
+      <h3>목차</h3>
+      <ol>
+        <li><a href="#ko-1">Gumi Glowup이란?</a></li>
+        <li><a href="#ko-2">왜 효과가 있을까: 데이터 기반 맞춤화</a></li>
+        <li><a href="#ko-3">최초 실행 &amp; 가입</a></li>
+        <li><a href="#ko-4">홈 대시보드</a></li>
+        <li><a href="#ko-5">피부 스캔 &amp; AI 분석</a></li>
+        <li><a href="#ko-6">리포트 &amp; 분석 이력</a></li>
+        <li><a href="#ko-7">AI Picks: 제품 추천</a></li>
+        <li><a href="#ko-8">루틴 빌더</a></li>
+        <li><a href="#ko-9">아티클</a></li>
+        <li><a href="#ko-10">오늘의 운세</a></li>
+        <li><a href="#ko-11">설정 &amp; 계정</a></li>
+        <li><a href="#ko-12">구독 플랜</a></li>
+        <li><a href="#ko-13">촬영 팁, FAQ &amp; 문의</a></li>
+      </ol>
     </div>
 
-    <div class="section">
-      <h2>3. 시작하기</h2>
-      <div class="step"><div class="step-badge">1단계</div><div><div class="step-title">계정 생성</div><div class="step-desc">이메일로 가입하거나 Google/Apple로 계속합니다.</div></div></div>
-      <div class="step"><div class="step-badge">2단계</div><div><div class="step-title">프로필 설정</div><div class="step-desc">이름, 생년월일, 지역, 피부 타입, 피부 고민을 알려주세요.</div></div></div>
-      <div class="step"><div class="step-badge">3단계</div><div><div class="step-title">첫 Glowup 시작</div><div class="step-desc">좋은 조명에서 셀카를 찍어 첫 피부 분석을 받으세요.</div></div></div>
-      <div class="step"><div class="step-badge">4단계</div><div><div class="step-title">추천 제품 확인</div><div class="step-desc">피부에 맞게 AI가 선별한 제품을 확인하세요.</div></div></div>
-      <div class="step"><div class="step-badge">5단계</div><div><div class="step-title">루틴 구성</div><div class="step-desc">일일 아침/저녁 스킨케어 루틴을 설정하세요.</div></div></div>
-      <div class="step"><div class="step-badge">6단계</div><div><div class="step-title">추적 및 개선</div><div class="step-desc">매일 루틴을 따르고 매월 분석을 다시 받으세요.</div></div></div>
+    <!-- 1 -->
+    <div class="section" id="ko-1">
+      <h2><span class="num">01</span>Gumi Glowup이란?</h2>
+      <p>Gumi Glowup은 AI 기반 스킨케어 동반자 앱입니다. 셀카 한 장으로 AI가 피부를 5가지 핵심 지표로 평가하고, 안전하고 잘 맞는 제품을 추천해 주며, 실제 피부 상태에 맞춘 데일리 루틴을 만들어 줍니다.</p>
+      <p>일회성 진단이 아닙니다. 스캔하고, 루틴을 따르고, 추천을 적용할수록 앱은 당신의 피부를 더 정확히 학습하고, 다음 추천을 더 잘 맞춥니다.</p>
     </div>
 
-    <div class="section">
-      <h2>4. 구독 플랜</h2>
-      <h3>무료</h3>
-      <ul>
-        <li>기본 피부 분석</li>
-        <li>제한된 제품 추천</li>
-        <li>기본 루틴 기능</li>
-      </ul>
-      <h3>프리미엄 — 월 $9.99</h3>
-      <ul>
-        <li>무제한 AI 피부 분석</li>
-        <li>상세 인사이트 포함 전체 제품 추천</li>
-        <li>AI 피드백 포함 고급 루틴 빌더</li>
-        <li>완전한 피부 변화 리포트 및 AI 인사이트</li>
-        <li>우선 지원</li>
-      </ul>
-      <p>구독은 Apple App Store 또는 Google Play Store를 통해 관리됩니다. 스토어 계정 설정에서 언제든지 취소할 수 있습니다.</p>
-    </div>
+    <!-- 2 -->
+    <div class="section" id="ko-2">
+      <h2><span class="num">02</span>왜 효과가 있을까: 데이터 기반 맞춤화</h2>
+      <p>대부분의 스킨케어 앱은 "여기 제품 목록입니다"에서 멈춥니다. Gumi Glowup은 그 다음을 위해 설계되었습니다 — <strong>지속적으로 학습하는 루프</strong>입니다.</p>
 
-    <div class="section">
-      <h2>5. 최상의 결과를 위한 촬영 팁</h2>
+      <div class="callout">
+        <div class="callout-title">글로우업 루프</div>
+        <p><strong>1. 스캔</strong> — AI가 현재 피부 상태를 측정합니다 (5가지 지표 + 피부 나이).</p>
+        <p><strong>2. 추천</strong> — 피부 프로필, 고민, 알레르기, 분석 이력을 종합해 제품을 골라줍니다.</p>
+        <p><strong>3. 루틴</strong> — 추천 제품으로 아침/저녁 루틴이 자동 구성됩니다.</p>
+        <p><strong>4. 추적</strong> — 데일리 체크인과 월간 재스캔으로 변화 기록이 쌓입니다.</p>
+        <p><strong>5. 재추천</strong> — 누적된 데이터를 바탕으로 다음 추천이 더 정교해집니다. <strong>오래 쓸수록 똑똑해지는 앱</strong>입니다.</p>
+      </div>
+
+      <h3>왜 이게 중요할까요</h3>
       <ul>
-        <li><strong>조명:</strong> 밝고 균일한 자연광을 사용하세요. 강한 그림자나 역광을 피하세요.</li>
-        <li><strong>위치:</strong> 카메라를 정면으로 바라보고 얼굴을 중앙에 맞추세요.</li>
-        <li><strong>청결:</strong> 가능하면 메이크업을 지워서 더 정확한 분석을 받으세요.</li>
-        <li><strong>안정:</strong> 선명한 사진을 위해 기기를 흔들리지 않게 고정하세요.</li>
-        <li><strong>주기:</strong> 최적의 변화 추적을 위해 한 달에 한 번 새 분석을 받으세요.</li>
+        <li><strong>피부는 계속 변합니다</strong> — 계절, 호르몬, 스트레스, 사용 중인 제품에 따라. 한 번 추천받은 정적인 목록은 금방 낡습니다.</li>
+        <li><strong>효과를 측정할 수 있습니다.</strong> 루틴 전후의 스캔을 비교하면 어떤 제품이 <em>당신의</em> 피부에 실제로 효과가 있었는지 알 수 있습니다 — 인터넷 후기가 아니라 본인 데이터로요.</li>
+        <li><strong>꾸준함이 답입니다.</strong> 결과는 매일의 작은 케어에서 나옵니다. 스트릭, 알림, 아침/저녁 체크인은 그 꾸준함을 쉽게 만들기 위해 존재합니다.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>6. 데이터 및 개인정보</h2>
+    <!-- 3 -->
+    <div class="section" id="ko-3">
+      <h2><span class="num">03</span>최초 실행 &amp; 가입</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/1.%EC%B5%9C%EC%B4%88%20%EC%8B%A4%ED%96%89%EC%8B%9C%20%EC%84%A4%EB%AA%85%ED%99%94%EB%A9%B4.png" alt="최초 실행 시 설명 화면">
+        <p class="caption">웰컴 튜토리얼 — Gumi Glowup이 무엇을 하는지 한눈에 보여줍니다.</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/2%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%99%94%EB%A9%B4.png" alt="로그인 화면">
+        <img class="shot" loading="lazy" src="assets/3ai%20%EC%84%9C%EB%B2%84%20%EB%8F%99%EC%9D%98%ED%99%94%EB%A9%B4.png" alt="AI 처리 동의 화면">
+      </div>
+      <p class="caption">애플 또는 구글로 로그인하고, 첫 스캔 전에 AI 처리 약관을 검토·동의합니다.</p>
+
+      <h3>설정하는 항목</h3>
       <ul>
-        <li>사진은 안전하게 저장되며 피부 분석 목적으로만 사용됩니다.</li>
-        <li>데이터는 제3자에게 판매되거나 AI 학습에 사용되지 않습니다.</li>
-        <li>설정에서 언제든지 모든 데이터를 삭제할 수 있습니다.</li>
-        <li>자세한 내용은 <a href="privacy-policy.html">개인정보처리방침</a>을 확인하세요.</li>
+        <li><strong>기본 프로필</strong> — 이름, 출생연도, 성별, 지역.</li>
+        <li><strong>피부 타입</strong> — 최대 3개 선택 (건성, 지성, 복합성, 민감성, 트러블, 홍조 등).</li>
+        <li><strong>피부 고민</strong> — 본인이 가장 신경 쓰이는 부분을 자유롭게 적어 주세요.</li>
+        <li><strong>알레르기 성분</strong> — 피해야 하는 성분을 표시합니다. 추천 시 자동으로 제외됩니다.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">왜 묻는 걸까요</div>
+        <p>모든 항목이 AI 추천에 직접 영향을 줍니다. 프로필이 정확할수록 더 안전하고 유용한 추천을 받을 수 있어요. 언제든 <strong>설정 → 프로필 편집</strong>에서 수정할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="ko-4">
+      <h2><span class="num">04</span>홈 대시보드</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C.png" alt="홈 대시보드">
+        <img class="shot" loading="lazy" src="assets/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C%20%EB%A9%94%EB%89%B4.png" alt="슬라이드 메뉴">
+      </div>
+      <p class="caption">대시보드는 최신 피부 상태를 요약해서 보여줍니다. 슬라이드 메뉴에서 모든 기능에 접근할 수 있어요.</p>
+
+      <p>홈 화면이 매일의 시작점입니다. 한눈에 확인할 수 있는 것들:</p>
+      <ul>
+        <li><strong>최신 피부 점수와 피부 나이</strong> — 직전 스캔과의 차이도 함께 표시됩니다.</li>
+        <li><strong>"글로우업 이어가기" 배너</strong> — 스캔 → 제품 → 루틴 흐름을 중간에 멈췄다면 이어서 진행할 수 있어요.</li>
+        <li><strong>오늘의 루틴 진행도</strong> — 아침/저녁 체크박스로 한눈에 확인.</li>
+        <li><strong>오늘의 운세 카드</strong> — 매일의 작은 즐거움.</li>
+        <li><strong>구독 배너</strong> — 무료 체험 기간이 남아있다면 표시됩니다.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>7. 알림</h2>
-      <p>Gumi Glowup은 스킨케어 여정을 지원하기 위해 유용한 알림을 보낼 수 있습니다:</p>
+    <!-- 5 -->
+    <div class="section" id="ko-5">
+      <h2><span class="num">05</span>피부 스캔 &amp; AI 분석</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%8A%A4%EC%BA%94%20%EB%B6%84%EC%84%9D.png" alt="피부 스캔 분석">
+        <p class="caption">셀카 한 장으로 5가지 지표 기반의 피부 점수표를 받습니다.</p>
+      </div>
+
+      <h3>AI가 측정하는 항목</h3>
       <ul>
-        <li><strong>루틴 알림:</strong> 루틴을 수행할 수 있도록 아침/저녁 알림을 보냅니다.</li>
-        <li><strong>월간 리스캔:</strong> 새 피부 분석을 찍을 시간을 알려주는 월간 알림입니다.</li>
-        <li><strong>운세:</strong> 일일 운세 알림입니다.</li>
+        <li><strong>수분</strong> — 표면 수분과 건조 신호.</li>
+        <li><strong>탄력</strong> — 피부의 탄탄함.</li>
+        <li><strong>모공</strong> — 보이는 모공 밀도와 크기.</li>
+        <li><strong>색소침착</strong> — 톤 불균형, 잡티, 기미 신호.</li>
+        <li><strong>주름</strong> — 잔주름과 결.</li>
       </ul>
-      <p>모든 알림은 선택 사항이며 설정 &gt; 알림 설정에서 관리할 수 있습니다.</p>
+      <p>여기에 <strong>추정 피부 나이</strong>, 종합 점수(0–100), 피부의 강점과 개선이 필요한 영역까지 함께 받습니다.</p>
+
+      <div class="callout">
+        <div class="callout-title">정확도는 어느 정도인가요?</div>
+        <p>AI는 조명, 노출, 각도를 보정하지만, 선명하고 균일한 조명에서 찍은 셀카가 훨씬 더 좋은 결과를 만들어냅니다. 촬영 팁은 13번 섹션을 참고하세요.</p>
+      </div>
+
+      <h3>얼마나 자주 스캔해야 하나요?</h3>
+      <p>한 달에 한 번이 가장 좋습니다. 피부는 천천히 변하고, 월간 주기로 찍어야 변화 추세선이 의미 있게 그려집니다. 앱이 부드럽게 월간 재스캔 알림을 보내드려요.</p>
     </div>
 
-    <div class="section">
-      <h2>8. 계정 관리</h2>
+    <!-- 6 -->
+    <div class="section" id="ko-6">
+      <h2><span class="num">06</span>리포트 &amp; 분석 이력</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%A6%AC%ED%8F%AC%ED%8A%B81.png" alt="피부 리포트">
+        <img class="shot" loading="lazy" src="assets/%EB%B6%84%EC%84%9D%20%EC%9D%B4%EB%A0%A5.png" alt="분석 이력">
+      </div>
+      <p class="caption">리포트는 시간에 따른 변화를 보여줍니다. 분석 이력에서 모든 과거 스캔을 넘겨 볼 수 있어요.</p>
+
+      <p>모든 스캔이 저장됩니다. 리포트 화면은 그 데이터를 의미 있는 인사이트로 바꿔 줍니다:</p>
       <ul>
-        <li><strong>프로필 편집:</strong> 설정에서 이름, 피부 타입 등의 정보를 언제든지 수정할 수 있습니다.</li>
-        <li><strong>언어 변경:</strong> 설정에서 지원되는 언어로 전환할 수 있습니다.</li>
-        <li><strong>다크 모드:</strong> 편안한 시청을 위해 다크 모드를 전환할 수 있습니다.</li>
-        <li><strong>로그아웃:</strong> 설정에서 로그아웃합니다. 데이터는 보존됩니다.</li>
-        <li><strong>계정 삭제:</strong> 설정 &gt; 계정 &gt; 계정 삭제에서 계정과 모든 데이터를 영구 삭제합니다. 이 작업은 되돌릴 수 없습니다.</li>
+        <li><strong>점수 추세 차트</strong> — 모든 스캔을 통한 종합 추이.</li>
+        <li><strong>지표별 방향</strong> — 어떤 카테고리가 좋아지고 어떤 카테고리가 나빠지고 있는지.</li>
+        <li><strong>피부 나이 차이</strong> — 실제 나이 대비 피부가 얼마나 "어려" 보이는지.</li>
+        <li><strong>제품 효과 분석</strong> — 전후 스캔을 비교해 어떤 제품이 어떤 지표에 도움이 되었는지 AI가 추정합니다.</li>
+        <li><strong>루틴 영향도</strong> — 아침/저녁 루틴 꾸준함이 측정 가능한 변화로 이어지고 있는지.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">바로 이게 핵심 가치예요</div>
+        <p>오래 쓸수록 리포트가 더 풍부해집니다. 3–4번의 스캔이 쌓이면 어떤 후기 사이트도 알려줄 수 없는 패턴이 보이기 시작해요 — <em>본인 피부의 패턴</em>이니까요.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="ko-7">
+      <h2><span class="num">07</span>AI Picks: 제품 추천</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai%20picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/%EC%B6%94%EC%B2%9C%20%EC%A0%9C%ED%92%88.png" alt="추천 제품 목록">
+      </div>
+      <p class="caption">분석이 끝나면 AI Picks가 당신의 피부 상태에 맞춘 제품을 큐레이션합니다.</p>
+
+      <h3>추천이 어떻게 만들어지나요</h3>
+      <ul>
+        <li>각 제품은 당신의 <strong>분석 결과</strong>, <strong>피부 프로필</strong>(타입, 고민, 알레르기), <strong>지난 이력</strong>을 종합해 선정됩니다.</li>
+        <li>카테고리별로 정리됩니다: <strong>클렌저, 토너, 세럼, 크림, 자외선차단제, 기타</strong>.</li>
+        <li>모든 카드에 <strong>이 제품이 왜 당신에게 추천됐는지</strong> 표시됩니다 — 일반론이 아니라 본인 스캔 결과와 연결된 이유입니다.</li>
+        <li>제품을 탭하면 상세 시트가 열립니다: 브랜드, 핵심 성분, 전체 성분(가용한 경우), 가격, 자세히 보기/구매 링크.</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">안전한 제품을 추천하기 위해 들인 노력</div>
+        <p>제품 안전성에 많이 공을 들였습니다. 추천 엔진은:</p>
+        <ul>
+          <li>당신이 등록한 <strong>알레르기 성분</strong>이 포함된 제품을 자동으로 걸러냅니다.</li>
+          <li>알려진 <strong>리콜·경고 목록</strong>과 교차 검증합니다.</li>
+          <li>가능한 경우 <strong>공개 성분 데이터베이스</strong>(Open Beauty Facts)에서 전체 성분 정보를 가져옵니다.</li>
+          <li>출처가 불분명한 제품보다 잘 알려진 주요 스킨케어 제품을 우선합니다.</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">그래도 성분표는 꼭 확인하세요</div>
+        <p>어떤 자동화 시스템도 <strong>당신의</strong> 고유한 피부에 그 제품이 절대적으로 안전하다고 보장할 수는 없습니다. 저희 필터가 위험을 크게 줄여 주지만, 본인 판단을 대체하지는 못합니다.</p>
+        <ul>
+          <li><strong>구매 전·사용 전 반드시 성분표를 직접 읽어 보세요.</strong> 포뮬러가 바뀌거나, 배치가 다르거나, 표기가 불완전할 수 있습니다.</li>
+          <li><strong>새 제품은 패치 테스트</strong>를 먼저 해 보세요. 작은 부위에 24시간 발라보고 반응을 확인합니다.</li>
+          <li>발진, 따가움, 가려움, 홍조 등 이상 반응이 있으면 <strong>즉시 사용을 중단</strong>하고 증상이 지속되면 피부과 전문의와 상담하세요.</li>
+          <li>피부 질환 진단을 받았거나, 임신 중이거나, 처방 외용제를 사용 중이라면 새 제품 추가 전 의사와 상담하세요.</li>
+        </ul>
+      </div>
+
+      <h3>마음에 안 들면 다시 추천받기</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%A0%9C%ED%92%88%20%EC%B6%94%EC%B2%9C%20%EB%8B%A4%EC%8B%9C%ED%95%98%EA%B8%B0.png" alt="제품 다시 추천받기">
+        <p class="caption">브랜드로 필터링하거나, 일부 제품만 교체하거나, 완전히 새로 받을 수 있어요.</p>
+      </div>
+      <p>세 가지 방식으로 다시 추천받을 수 있습니다 — 특정 브랜드만, 마음에 안 드는 제품만 교체, 또는 완전히 새로운 목록. 당신의 선택이 다음 추천에 다시 반영됩니다.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="ko-8">
+      <h2><span class="num">08</span>루틴 빌더</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4%20%EC%B6%94%EC%B2%9C.png" alt="루틴 추천">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4.png" alt="데일리 루틴">
+      </div>
+      <p class="caption">선택한 제품으로 AI가 올바른 순서의 아침/저녁 루틴을 자동 생성합니다.</p>
+
+      <p>좋은 제품을 가진 건 절반의 성공일 뿐입니다. <strong>올바른 순서, 올바른 시간, 올바른 사용법</strong>이 나머지 절반인데, 이걸 루틴 기능이 책임집니다.</p>
+
+      <h3>받는 것들</h3>
+      <ul>
+        <li><strong>아침/저녁 단계 목록</strong> — 클렌징 → 토너 → 케어 → 보습 → 자외선차단 순으로 정리.</li>
+        <li><strong>각 단계가 왜 필요한지</strong> — 본인 피부 고민과 연결된 설명.</li>
+        <li><strong>사용법</strong> — 적정량, 바르는 방법, 흡수 대기 시간.</li>
+        <li><strong>빈도 안내</strong> — 매일/격일/주 N회 (예: 각질 제거, 마스크).</li>
+        <li><strong>라이프스타일 팁</strong> — 수면, 수분 섭취, 자외선 습관 등 고민과 관련된 조언.</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4_%EC%83%81%ED%92%88%EC%84%A4%EB%AA%85.png" alt="루틴 제품 상세">
+        <p class="caption">단계를 탭하면 그 제품의 역할, 사용 팁, 빈도가 자세히 나옵니다.</p>
+      </div>
+
+      <h3>알림 &amp; 스트릭</h3>
+      <ul>
+        <li>본인 생활 패턴에 맞춰 아침/저녁 알림 시간을 설정하세요.</li>
+        <li>각 단계를 완료하면서 체크해 나가면 스트릭이 쌓입니다.</li>
+        <li>스트릭은 보여주기용이 아닙니다 — 꾸준한 사용이 다음 스캔에서 측정 가능한 변화를 만듭니다.</li>
+      </ul>
+
+      <h3>루틴이 안 맞으면 다시 추천받기</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EB%A3%A8%ED%8B%B4%20%EB%8B%A4%EC%8B%9C%20%EC%B6%94%EC%B2%9C.png" alt="루틴 다시 추천">
+        <p class="caption">상황이 바뀌거나 단계가 잘 맞지 않으면 새 루틴을 받을 수 있어요.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="ko-9">
+      <h2><span class="num">09</span>아티클</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%95%8C%ED%8B%B0%ED%81%B4%EC%8A%A4.png" alt="스킨케어 아티클">
+        <p class="caption">큐레이션된 스킨케어 읽을거리 — 성분, 트렌드, 커뮤니티 인사이트.</p>
+      </div>
+      <p>큐레이션된 스킨케어 콘텐츠 피드입니다 — 성분 해설, 신제품 출시, 트렌드 루틴, 커뮤니티 토론. 카드를 탭하면 원문을 읽을 수 있습니다.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="ko-10">
+      <h2><span class="num">10</span>오늘의 운세</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%98%A4%EB%8A%98%EC%9D%98%20%EC%9A%B4%EC%84%B8.png" alt="오늘의 운세">
+        <p class="caption">매일의 작은 즐거움 + 당신 프로필에 맞춘 스킨케어 팁.</p>
+      </div>
+      <p>하루 한 번, 당신을 위한 운세 + 프로필에 맞춘 작은 스킨케어·웰니스 실천 팁을 함께 받습니다.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="ko-11">
+      <h2><span class="num">11</span>설정 &amp; 계정</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EC%84%A4%EC%A0%95.png" alt="설정 화면">
+        <p class="caption">프로필, 알림, 언어, 테마, 계정을 한 곳에서 관리하세요.</p>
+      </div>
+      <ul>
+        <li><strong>프로필 편집</strong> — 피부 타입, 고민, 알레르기를 언제든 업데이트.</li>
+        <li><strong>구독</strong> — 상태 확인, App Store / Google Play를 통한 관리.</li>
+        <li><strong>알림</strong> — 루틴 알림, 월간 재스캔 알림, 운세 알림 토글.</li>
+        <li><strong>언어</strong> — 지원 언어로 전환.</li>
+        <li><strong>테마</strong> — 라이트, 다크, 시스템.</li>
+        <li><strong>로그아웃 / 계정 삭제</strong> — 로그아웃은 데이터를 보존합니다. 삭제는 모든 데이터를 영구 제거합니다.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>9. 문제 해결</h2>
-      <div class="faq-q">Q. 분석이 실패했어요</div>
-      <div class="faq-a">A. 좋은 조명을 확보하고, 카메라를 정면으로 바라보며, 흔들리지 않게 고정해 주세요. 메이크업을 지워보세요.</div>
-      <div class="faq-q">Q. 제품이 로딩되지 않아요</div>
-      <div class="faq-a">A. 인터넷 연결을 확인하고 다시 시도해 주세요. 아래로 당겨서 새로고침하세요.</div>
-      <div class="faq-q">Q. 알림이 작동하지 않아요</div>
-      <div class="faq-a">A. 기기 설정과 앱 내 알림 설정에서 알림이 활성화되어 있는지 확인하세요.</div>
-      <div class="faq-q">Q. 앱이 느리거나 충돌해요</div>
-      <div class="faq-a">A. 최신 버전을 사용 중인지 확인하세요. 앱을 닫았다가 다시 열어보세요.</div>
+    <!-- 12 -->
+    <div class="section" id="ko-12">
+      <h2><span class="num">12</span>구독 플랜</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/%EA%B5%AC%EB%8F%85.png" alt="구독 플랜">
+        <p class="caption">App Store 또는 Google Play로 구독하세요. 언제든 해지 가능합니다.</p>
+      </div>
+
+      <div class="plan">
+        <h3>무료</h3>
+        <ul>
+          <li>월간 제한된 피부 분석 횟수</li>
+          <li>기본 제품 추천</li>
+          <li>기본 루틴 기능</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>프리미엄</h3>
+        <p class="price">현지 가격 기준 <small>/ 월 또는 연</small></p>
+        <ul>
+          <li><strong>무제한</strong> AI 피부 분석</li>
+          <li>상세 추천 사유 포함 전체 제품 추천</li>
+          <li>AI 피드백 포함 고급 루틴 빌더</li>
+          <li>완전한 변화 리포트: 추세, 제품 효과, 루틴 영향도</li>
+          <li>오늘의 운세</li>
+          <li>우선 지원</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">가격은 구독 화면에서 현지 통화로 표시되며 지역에 따라 다를 수 있습니다. 구독은 이용 기간 종료 24시간 전까지 해지하지 않으면 자동 갱신됩니다. App Store 또는 Google Play 계정 설정에서 언제든지 관리·해지할 수 있습니다.</p>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="ko-13">
+      <h2><span class="num">13</span>촬영 팁, FAQ &amp; 문의</h2>
+
+      <h3>최상의 스캔을 위한 팁</h3>
+      <ul>
+        <li><strong>조명</strong> — 밝고 균일한 자연광. 강한 그림자나 역광은 피하세요.</li>
+        <li><strong>위치</strong> — 카메라 정면, 얼굴이 프레임에 가득, 기울이지 않기.</li>
+        <li><strong>청결</strong> — 가장 정확한 측정을 위해 메이크업을 지워주세요.</li>
+        <li><strong>안정</strong> — 흔들리지 않게 고정.</li>
+        <li><strong>주기</strong> — 한 달에 한 번이 변화 추세를 의미 있게 만듭니다.</li>
+      </ul>
+
+      <h3>한 문단 개인정보 안내</h3>
+      <p>사진은 안전하게 저장되며 오로지 당신의 분석을 위해서만 사용됩니다. 데이터를 판매하지 않습니다. 제3자 AI 모델 학습에 사용하지 않습니다. <strong>설정 → 계정 삭제</strong>에서 모든 데이터를 삭제할 수 있습니다. 자세한 내용: <a href="privacy-policy.html">개인정보처리방침</a>.</p>
+
+      <h3>자주 묻는 질문</h3>
+      <div class="faq-q">Q. 분석이 실패했어요.</div>
+      <div class="faq-a">조명을 더 밝게 하고 흔들림 없이 잡으면 대부분 해결됩니다. 메이크업을 지우고 카메라를 정면으로 바라봐 주세요. 계속 실패하면 앱을 재시작해 보세요.</div>
+      <div class="faq-q">Q. 추천된 제품이 우리 지역에서 안 팔려요.</div>
+      <div class="faq-a">다시 추천 기능에서 브랜드로 필터링하거나, 새로 추천받아 보세요.</div>
+      <div class="faq-q">Q. 추천 제품에 트러블이 났어요.</div>
+      <div class="faq-a">즉시 사용을 중단하세요. 설정에서 해당 성분을 알레르기 목록에 추가하면 다음 추천에서 제외됩니다. 증상이 지속되면 피부과 전문의와 상담하세요.</div>
+      <div class="faq-q">Q. 스캔에 변화가 보이려면 얼마나 걸리나요?</div>
+      <div class="faq-a">피부는 약 28일 주기로 턴오버합니다. 대부분의 사용자는 꾸준한 루틴 사용 후 1–2회의 월간 스캔이 쌓이면 측정 가능한 변화를 보기 시작합니다.</div>
+      <div class="faq-q">Q. 알림이 작동하지 않아요.</div>
+      <div class="faq-a">기기의 시스템 알림 설정과 앱 내 설정 → 알림을 모두 확인해 주세요.</div>
+      <div class="faq-q">Q. 구독을 해지할 수 있나요?</div>
+      <div class="faq-a">네, App Store 또는 Google Play 계정 설정에서 언제든지 가능합니다. 현재 결제 기간이 끝날 때까지 프리미엄 기능을 계속 사용할 수 있습니다.</div>
     </div>
 
     <div class="contact">
-      <h2>10. 문의 및 지원</h2>
-      <p>도움이 필요하시면! 질문, 피드백 또는 문제가 있으시면:</p>
+      <h2 style="margin-top:0">문의 &amp; 지원</h2>
+      <p>질문, 버그, 피드백 — 보내주시는 모든 메시지를 읽고 있습니다.</p>
       <p><strong>이메일:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
       <p><strong>커뮤니티:</strong> <a href="https://www.facebook.com/groups/gumiglowup">Gumi Glowup 페이스북 그룹</a></p>
-      <p style="font-size:12px;margin-top:8px;">모든 문의에 48시간 이내 답변을 목표로 합니다.</p>
+      <p style="font-size:12px;margin-top:8px">모든 문의에 48시간 이내 답변을 목표로 합니다.</p>
     </div>
   </div>
 
