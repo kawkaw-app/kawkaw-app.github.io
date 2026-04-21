@@ -1171,8 +1171,16 @@
         <li><strong>Eye Icon:</strong> Toggle visibility - hide/show an entry in the utang selection when adding expenses. Greyed out = hidden.</li>
         <li><strong>Bell Icon:</strong> Enable notifications for this utang entry.</li>
         <li><strong>Edit Icon (pencil):</strong> Edit the name and category.</li>
-        <li><strong>Delete Icon (trash):</strong> Delete the entry.</li>
+        <li><strong>Delete Icon (trash):</strong> Delete the entry. Only available when the utang is fully paid off; if there's still an active balance, deletion is blocked.</li>
         <li><strong>"+ Add Utang":</strong> Add a new person or store.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Clear history of completed <span class="badge" style="background:#FEE2E2;color:#B91C1C">new</span></h4>
+      <p>When one or more utangs are fully paid or fully collected, a red <strong>"Clear history of completed"</strong> banner appears at the top of My Utang List with a count of completed entries.</p>
+      <ul>
+        <li>Tap the banner to open a checklist of completed utangs. All items are selected by default — uncheck any you want to keep.</li>
+        <li>Tap <strong>Clear (n)</strong> to confirm. <strong>Income and expense records stay untouched</strong> — only the borrowed/lent amounts and the hulugan / collected history linked to those utangs are removed, so the entries go back to a clean "zero balance" state.</li>
+        <li>This action cannot be undone, but the person/store entry itself remains in your list and can be reused.</li>
       </ul>
     </div>
     <div lang="tl">
@@ -1182,13 +1190,34 @@
       <ul>
         <li><strong>Eye Icon:</strong> Toggle visibility.</li>
         <li><strong>Bell Icon:</strong> I-enable ang notifications.</li>
-        <li><strong>Edit / Delete Icons:</strong> I-edit o i-delete ang entry.</li>
+        <li><strong>Edit / Delete Icons:</strong> I-edit o i-delete ang entry. Ang Delete ay pwede lang kung fully paid na ang utang.</li>
         <li><strong>"+ Add Utang":</strong> Magdagdag ng bagong tao o tindahan.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Linisin ang history ng tapos na <span class="badge" style="background:#FEE2E2;color:#B91C1C">bago</span></h4>
+      <p>Kung may utang na fully paid o fully collected, may lalabas na pulang banner sa itaas ng My Utang List na may bilang ng tapos na entries.</p>
+      <ul>
+        <li>I-tap ang banner para buksan ang checklist. Naka-select lahat by default — alisin ang pili sa gusto mong panatilihin.</li>
+        <li>I-tap ang <strong>Linisin (n)</strong> para kumpirmahin. <strong>Hindi gagalawin ang income at expense records</strong> — aalisin lang ang borrowed/lent amounts at ang hulugan / collected history, kaya babalik ang entry sa "zero balance".</li>
+        <li>Hindi na ito mababawi, pero mananatili ang person/store entry mismo at magagamit ulit.</li>
       </ul>
     </div>
     <div lang="ceb">
       <h4>My Utang List</h4>
       <p>I-access sa <strong>Utang tab > Manage</strong> o <strong>Settings > My Utang List</strong>.</p>
+      <p>Dumalaha ang mga tawo o tindahan nga imong gipangutang.</p>
+      <ul>
+        <li><strong>Eye / Bell / Edit / Delete Icons:</strong> Toggle visibility, alarm, edit, o pagwagtang. Ang Delete mahimo lang kung fully paid na ang utang.</li>
+        <li><strong>"+ Add Utang":</strong> Pagdugang og bag-ong tawo o tindahan.</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Hinloi ang history sa nahuman <span class="badge" style="background:#FEE2E2;color:#B91C1C">bag-o</span></h4>
+      <p>Kung aduna nay utang nga fully paid o fully collected, motungha ang pula nga banner sa ibabaw sa My Utang List nga adunay gidaghanon sa nahuman nga entries.</p>
+      <ul>
+        <li>I-tap ang banner aron ablihan ang checklist. Naka-select tanan by default — kuhaa ang pili sa gusto nimong ipabilin.</li>
+        <li>I-tap ang <strong>Hinloan (n)</strong> aron kumpirmahon. <strong>Dili hilabtan ang income ug expense records</strong> — papason lang ang borrowed/lent amounts ug ang hulugan / collected history, mao nga mobalik ang entry sa "zero balance".</li>
+        <li>Dili na kini mabawi, apan magpabilin ang person/store entry ug magamit pag-usab.</li>
+      </ul>
     </div>
   </div>
 
@@ -2084,20 +2113,33 @@
       <h4 style="margin-top:16px">OTP (One-Time Password) <span class="badge badge-online">online</span></h4>
       <p>A secure verification code needed for the data restore process.</p>
 
+      <h4 style="margin-top:16px">Clear Records by Month <span class="badge" style="background:#FEE2E2;color:#B91C1C">new</span></h4>
+      <p>Delete transaction records for specific months only, instead of wiping everything.</p>
+      <ul>
+        <li>Tap <strong>Clear Records by Month</strong> to open the data management screen. Your records are grouped by year, then by month, with a count of records in each bucket.</li>
+        <li>Tap a year to select/deselect all of its months at once, or tap individual months. The bottom bar shows the running total of selected months and records.</li>
+        <li>Tap <strong>Delete Selected</strong> and confirm. Transactions in the selected month ranges are permanently deleted. This cannot be undone.</li>
+        <li>Use this when you want to keep recent data but clean up older months (for example, at the end of a year or after closing a budget period).</li>
+      </ul>
+
       <h4 style="margin-top:16px">Reset App</h4>
-      <p><strong style="color:red">Danger Zone!</strong> Permanently reset the app and delete ALL data on this device. This cannot be undone.</p>
+      <p><strong style="color:red">Danger Zone!</strong> Permanently reset the app and delete ALL data on this device. To confirm, type <strong>DELETE</strong> exactly and enter your 6-digit PIN (if set). This cannot be undone.</p>
 
       <h4 style="margin-top:16px">Change PIN</h4>
       <p>Update your 6-digit lock PIN.</p>
     </div>
     <div lang="tl">
       <h4>Safe & Secure Section</h4>
-      <p>Kasama ang Backup, Restore, OTP, Reset App, at Change PIN.</p>
+      <p>Kasama ang Backup, Restore, OTP, <strong>Burahin kada buwan</strong>, Reset App, at Change PIN.</p>
+      <p><strong>Burahin kada buwan:</strong> Pumili ng taon at buwan para burahin ang mga rekord nito lang. Hindi na mababawi ang nabura.</p>
+      <p><strong>Reset App:</strong> I-type ang <strong>DELETE</strong> at ilagay ang 6-digit PIN (kung meron) para kumpirmahin.</p>
       <p><strong>Mahalaga:</strong> Ang backup files ay awtomatikong nadi-delete pagkalipas ng 30 araw!</p>
     </div>
     <div lang="ceb">
       <h4>Safe & Secure Section</h4>
-      <p>Kasama ang Backup, Restore, OTP, Reset App, ug Change PIN.</p>
+      <p>Kasama ang Backup, Restore, OTP, <strong>Papasa matag bulan</strong>, Reset App, ug Change PIN.</p>
+      <p><strong>Papasa matag bulan:</strong> Pilia ang tuig ug bulan aron papason ang mga rekord niini lang. Dili na mabawi ang napapas.</p>
+      <p><strong>Reset App:</strong> I-type ang <strong>DELETE</strong> ug ibutang ang 6-digit PIN (kung naa) aron kumpirmahon.</p>
       <p><strong>Importante:</strong> Ang backup files awtomatiko nga na-delete human sa 30 ka adlaw!</p>
     </div>
   </div>
