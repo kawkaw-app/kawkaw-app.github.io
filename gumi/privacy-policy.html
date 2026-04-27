@@ -88,6 +88,7 @@
     <tr><td>Facebook identity (if linked)</td><td>Account linking for extended features — stores Facebook user ID, name, and email in our authentication system</td><td>Until you disconnect Facebook or delete your account</td></tr>
     <tr><td>Consent records (if Facebook linked)</td><td>Legal audit trail recording your agreement to the Terms of Service and Privacy Policy — stores the document version and timestamp of your agreement</td><td>Retained permanently as a legal record. Cannot be modified or deleted, in compliance with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
     <tr><td>Paluwagan group records (if you use the Paluwagan feature)</td><td>To operate rotating savings groups between you and other members — stores group name, cycle, turn order, scrambled phone numbers (hashed, never plain text), payment records, screenshots uploaded by members as proof of payment, connection info, device details, and the signature you provide when signing a group agreement (typed name or drawn image) together with its cryptographic hash</td><td>Retained while the group is active and after completion as a legal/audit record. Immutable audit-log entries and agreement signatures cannot be modified or deleted individually, in line with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
+    <tr><td>Phone identity event audits (if you change your phone or remove your phone verification)</td><td>To prevent fraud and resolve disputes within Paluwagan groups when a member changes SIM/device or removes phone verification — stores the hashed phone number, the last 4 digits of the previous phone, the affected group IDs, device details, and IP address. We do <strong>not</strong> store the full plain-text phone number in this audit.</td><td>Retained as an immutable audit record for up to 5 years from the event date for fraud prevention purposes. Cannot be modified or individually deleted, in line with Philippine data privacy regulations. Removed upon account deletion.</td></tr>
 </table>
 <p><strong>Important:</strong> Other than the items listed above, no user data is stored on our servers. All your financial data remains on your device.</p>
 
@@ -198,6 +199,7 @@
     <tr><td>Facebook Connect</td><td>Facebook user ID, name, email, profile picture URL</td></tr>
     <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, document type (Terms of Service / Privacy Policy), agreed version, timestamp</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements and anonymous user ID (via RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, last 4 digits of previous phone, affected group IDs, device info, IP address — recorded only when you transfer your account to a new device or remove your phone verification</td></tr>
 </table>
 
 <h2>9. Your Rights Under the Data Privacy Act of 2012</h2>
@@ -286,6 +288,7 @@
     <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtatago ng Facebook user ID, pangalan, at email sa aming authentication system</td><td>Hanggang i-disconnect mo ang Facebook o i-delete ang iyong account</td></tr>
     <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal na audit trail na nagre-record ng iyong pagsang-ayon sa Terms of Service at Privacy Policy — nag-iimbak ng bersyon ng dokumento at timestamp ng iyong pagsang-ayon</td><td>Permanenteng pinapanatili bilang legal na record. Hindi maaaring baguhin o tanggalin, alinsunod sa mga regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
     <tr><td>Mga Paluwagan group record (kung ginagamit mo ang Paluwagan feature)</td><td>Para magpatakbo ng rotating savings group sa pagitan mo at ng ibang miyembro — nag-iimbak ng pangalan ng grupo, cycle, turn order, scrambled phone numbers (hashed, hindi kailanman plain text), payment records, mga screenshot na ina-upload ng miyembro bilang patunay ng bayad, connection info, device details, at ang pirmang ibinibigay mo sa pagpirma ng group agreement (nakasulat na pangalan o iginuhit na imahe) kasama ang cryptographic hash nito</td><td>Pinapanatili habang aktibo ang grupo at pagkatapos ng pagkakumpleto bilang legal/audit na record. Ang immutable audit-log entries at agreement signature ay hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kapag pinalitan mo ang phone o inalis ang phone verification)</td><td>Para iwasan ang fraud at lutasin ang mga dispute sa Paluwagan groups kapag pumalit ng SIM/device o nag-alis ng phone verification ang isang miyembro — nag-iimbak ng hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device details, at IP address. <strong>Hindi</strong> kami nag-iimbak ng buong plain-text phone number sa audit na ito.</td><td>Pinapanatili bilang immutable audit record hanggang 5 taon mula sa petsa ng kaganapan para sa fraud prevention. Hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa Philippine data privacy regulations. Tatanggalin kapag na-delete ang account.</td></tr>
 </table>
 <p><strong>Mahalaga:</strong> Bukod sa mga nakalista sa itaas, walang datos ng user ang naka-store sa aming mga server. Lahat ng iyong financial data ay nananatili sa iyong device.</p>
 
@@ -395,6 +398,7 @@
     <tr><td>Facebook Connect</td><td>Facebook user ID, pangalan, email, URL ng profile picture</td></tr>
     <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, uri ng dokumento (Terms of Service / Privacy Policy), pinag-sang-ayunang bersyon, timestamp</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements at anonymous user ID (sa pamamagitan ng RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device info, IP address — naitatala lamang kapag inilipat mo ang account sa bagong device o inalis mo ang phone verification</td></tr>
 </table>
 
 <h2>9. Ang Iyong Mga Karapatan sa Ilalim ng Data Privacy Act of 2012</h2>
@@ -483,6 +487,7 @@
     <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtipig sa Facebook user ID, ngalan, ug email sa among authentication system</td><td>Hangtud i-disconnect nimo ang Facebook o i-delete ang imong account</td></tr>
     <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal nga audit trail nga nag-record sa imong pag-uyon sa Terms of Service ug Privacy Policy — nagtipig sa bersyon sa dokumento ug timestamp sa imong pag-uyon</td><td>Permanente nga gipatunhay isip legal nga record. Dili mahimong usbon o wagtangon, sumala sa mga regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
     <tr><td>Mga Paluwagan group record (kung gigamit nimo ang Paluwagan feature)</td><td>Aron pag-operate sa rotating savings groups tali nimo ug sa ubang miyembro — nagtipig sa ngalan sa grupo, cycle, turn order, scrambled phone numbers (hashed, dili gayud plain text), payment records, mga screenshot nga gi-upload sa miyembro isip pruweba sa bayad, connection info, device details, ug ang pirma nga imong gihatag sa pagpirma sa group agreement (gisulat nga ngalan o giguhit nga hulagway) uban sa cryptographic hash niini</td><td>Gipatunhay samtang aktibo ang grupo ug human mahuman isip legal/audit nga record. Ang immutable audit-log entries ug agreement signature dili mahimong usbon o wagtangon isa-isa, sumala sa regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kung mag-ilis ka og phone o mag-tangtang sa phone verification)</td><td>Aron malikayan ang fraud ug masulbad ang mga dispute sa Paluwagan groups kung ang miyembro mag-ilis og SIM/device o mag-tangtang sa phone verification — nagtipig sa hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device details, ug IP address. <strong>Wala</strong> kami nagtipig sa kompletong plain-text phone number niini nga audit.</td><td>Gipatunhay isip immutable audit record hangtud 5 ka tuig gikan sa petsa sa kaganapan para sa fraud prevention. Dili mahimong usbon o wagtangon isa-isa, sumala sa Philippine data privacy regulations. Wagtangon kung ma-delete ang account.</td></tr>
 </table>
 <p><strong>Importante:</strong> Gawas sa mga gilista sa ibabaw, walay datos sa user ang naka-store sa among mga server. Tanan nimong financial data nagpabilin sa imong device.</p>
 
@@ -592,6 +597,7 @@
     <tr><td>Facebook Connect</td><td>Facebook user ID, ngalan, email, URL sa profile picture</td></tr>
     <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, klase sa dokumento (Terms of Service / Privacy Policy), giuyonan nga bersyon, timestamp</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements ug anonymous user ID (pinaagi sa RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device info, IP address — gi-record lamang kung gibalhin nimo ang account sa bag-ong device o gi-tangtang nimo ang phone verification</td></tr>
 </table>
 
 <h2>9. Ang Imong Mga Katungod Ubos sa Data Privacy Act of 2012</h2>
