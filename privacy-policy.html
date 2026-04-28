@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Gumi Save - Privacy Policy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fafafa;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 1.8em; margin-bottom: 8px; color: #1a1a2e; }
+        h2 { font-size: 1.3em; margin-top: 28px; margin-bottom: 10px; color: #2d3436; border-bottom: 2px solid #cfedd7; padding-bottom: 4px; }
+        h3 { font-size: 1.1em; margin-top: 18px; margin-bottom: 6px; color: #2d3436; }
+        p, li { margin-bottom: 8px; font-size: 0.95em; }
+        ul { padding-left: 24px; }
+        .effective-date { color: #636e72; font-size: 0.9em; margin-bottom: 24px; }
+        .lang-selector {
+            display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;
+        }
+        .lang-btn {
+            padding: 8px 16px; border: 2px solid #cfedd7; border-radius: 20px;
+            background: white; cursor: pointer; font-size: 0.9em; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-btn.active { background: #cfedd7; color: #1a1a2e; }
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+        .contact-box {
+            background: #f0faf3; border: 1px solid #cfedd7; border-radius: 8px;
+            padding: 16px; margin-top: 12px;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 0.9em; }
+        th { background: #f0faf3; }
+        strong { color: #2d3436; }
+        a { color: #4A9EFF; }
+    </style>
+</head>
+<body>
+
+<h1>Gumi Save - Privacy Policy</h1>
+
+<div class="lang-selector">
+    <button class="lang-btn active" onclick="switchLang('en')">English</button>
+    <button class="lang-btn" onclick="switchLang('tl')">Tagalog</button>
+    <button class="lang-btn" onclick="switchLang('ceb')">Cebuano</button>
+</div>
+
+<!-- ======================== ENGLISH ======================== -->
+<div id="lang-en" class="lang-section active">
+
+<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: May 1, 2026</p>
+
+<p>Welcome to <strong>Gumi Save</strong> ("the App"), a personal finance management application developed and operated by <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("we," "us," or "our"). We are committed to protecting your privacy and personal information in accordance with the <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> of the Philippines and its Implementing Rules and Regulations.</p>
+
+<p>This Privacy Policy explains what information we collect, how we use it, and your rights regarding your personal data.</p>
+
+<h2>1. Information We Collect</h2>
+
+<h3>1.1 Information Stored Only on Your Device (Local Storage)</h3>
+<p>The majority of your data is stored <strong>exclusively on your device</strong> and is never transmitted to our servers unless you explicitly initiate a backup or use an online feature. This includes:</p>
+<ul>
+    <li>Budget envelopes, transactions, income, and expense records</li>
+    <li>Savings goals (Dreams) and progress</li>
+    <li>Debt tracking records (Utang/Hulogan) and payment schedules</li>
+    <li>Utility bill calculations and history</li>
+    <li>Quick expense templates</li>
+    <li>App settings (language, theme, budget period)</li>
+    <li>App lock PIN (stored as encrypted hash)</li>
+</ul>
+
+<h3>1.2 Information Stored on Our Servers</h3>
+<p>We store <strong>minimal information</strong> on our servers (hosted via Supabase):</p>
+<table>
+    <tr><th>Data</th><th>Purpose</th><th>Retention</th></tr>
+    <tr><td>AI Coach last report</td><td>To display your most recent financial coaching result</td><td>Until overwritten by new report or account deletion</td></tr>
+    <tr><td>Daily Fortune last result</td><td>To cache your most recent daily fortune</td><td>Until overwritten or account deletion</td></tr>
+    <tr><td>Backup file (gzip)</td><td>To allow data transfer when changing devices</td><td>Automatically deleted within 1-3 months</td></tr>
+    <tr><td>User ID and email (if registered)</td><td>Authentication and account identification</td><td>Until account deletion</td></tr>
+    <tr><td>Facebook identity (if linked)</td><td>Account linking for extended features — stores Facebook user ID, name, and email in our authentication system</td><td>Until you disconnect Facebook or delete your account</td></tr>
+    <tr><td>Consent records (if Facebook linked)</td><td>Legal audit trail recording your agreement to the Terms of Service and Privacy Policy — stores the document version and timestamp of your agreement</td><td>Retained permanently as a legal record. Cannot be modified or deleted, in compliance with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
+    <tr><td>Paluwagan group records (if you use the Paluwagan feature)</td><td>To operate rotating savings groups between you and other members — stores group name, cycle, turn order, scrambled phone numbers (hashed, never plain text), payment records, screenshots uploaded by members as proof of payment, connection info, device details, the signature you provide when signing a group agreement (typed name or drawn image) together with its cryptographic hash, your individual confirmations on each consent item of the agreement (recorded as boolean flags and bound to the agreement's cryptographic record for groups finalized on or after May 1, 2026), and the language locale (English/Tagalog/Cebuano) you viewed the agreement in at signing time</td><td>Retained while the group is active and for at least 10 years from group closure as a legal/audit record. This period is aligned with the ten (10)-year prescriptive period for actions upon a written contract under Article 1144 of the Civil Code of the Philippines (referenced in Clause 13 of the group agreement). Immutable audit-log entries and agreement signatures cannot be modified or deleted individually, in line with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
+    <tr><td>Phone identity event audits (if you change your phone or remove your phone verification)</td><td>To prevent fraud and resolve disputes within Paluwagan groups when a member changes SIM/device or removes phone verification — stores the hashed phone number, the last 4 digits of the previous phone, the affected group IDs, device details, and IP address. We do <strong>not</strong> store the full plain-text phone number in this audit.</td><td>Retained as an immutable audit record for up to 10 years from the event date for fraud prevention and dispute resolution purposes, aligned with the ten (10)-year prescriptive period for actions upon a written contract under Article 1144 of the Civil Code of the Philippines. Cannot be modified or individually deleted, in line with Philippine data privacy regulations. Removed upon account deletion.</td></tr>
+</table>
+<p><strong>Important:</strong> Other than the items listed above, no user data is stored on our servers. All your financial data remains on your device.</p>
+
+<h3>1.3 Information Collected When Using Online Features</h3>
+<p>Certain features require an internet connection and temporarily process your data. These features are clearly marked with an "online" badge in the App:</p>
+<ul>
+    <li><strong>Receipt Scanning:</strong> Your receipt photo is sent to Google Cloud Vision API for text extraction, then to Google Gemini AI for expense categorization. Images are processed in real-time and are not stored on third-party servers.</li>
+    <li><strong>AI Coach:</strong> Your transaction summary and monthly financial data are sent to Google Gemini AI to generate financial coaching advice. Only aggregated summary data is sent, not individual transaction details.</li>
+    <li><strong>Palm Reading (Palad Guide):</strong> Your palm photo is sent to Google Gemini AI for entertainment-only palm reading. Images are processed in real-time and not stored.</li>
+    <li><strong>Daily Fortune (Daily Swerte):</strong> Your profile information (birthday, gender, zodiac sign, birth hour, region) is sent to generate your daily fortune.</li>
+    <li><strong>Paluwagan Payment Receipts:</strong> When you tap "Analyze screenshot" on the Paluwagan payment screen, the receipt screenshot you uploaded is sent to Google Gemini AI to suggest the payment amount, reference number, and platform (e.g., GCash/Maya). The image is processed in real-time on Google's servers solely for this purpose and is not stored by Google. The original screenshot remains stored in our servers for the group's audit record (see Section 1.2). Your separate explicit consent is requested the first time you use any AI feature, and you may decline; declining only disables the auto-suggest and you can still enter the values manually.</li>
+    <li><strong>Facebook Connect:</strong> If you choose to link your Facebook account, we request access to your <strong>public profile</strong> and <strong>email address</strong> (via the <code>public_profile</code> and <code>email</code> OAuth scopes). We receive your Facebook user ID, name, email, and profile picture URL. This data is used for account linking and upcoming extended features (such as viewing your Facebook friends who also use the App, and verifying your identity for in-app events and promotions), and is stored in our authentication system (Supabase Auth). Facebook linking is <strong>not</strong> required to use the App and does <strong>not</strong> function as an app login method. We do <strong>not</strong> post on your Facebook or access your posts, photos, or other Facebook data beyond the basic profile information listed above.</li>
+</ul>
+
+<h3>1.4 Information We Do NOT Collect</h3>
+<ul>
+    <li>We do <strong>not</strong> use any analytics or tracking tools</li>
+    <li>We do <strong>not</strong> collect device identifiers for advertising</li>
+    <li>We do <strong>not</strong> sell, rent, or share your data with third parties for marketing</li>
+    <li>We do <strong>not</strong> display advertisements</li>
+    <li>We do <strong>not</strong> track your location</li>
+</ul>
+
+<h2>2. Legal Basis for Processing</h2>
+<p>We process your personal data based on the following legal grounds under the Data Privacy Act of 2012:</p>
+<ul>
+    <li><strong>Consent:</strong> For online features (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), we process your data only when you explicitly initiate these features. Each online feature is clearly marked, and your use constitutes your consent. For <strong>Facebook Connect</strong>, we obtain your explicit, informed, and freely given consent through a dedicated agreement popup where you must individually check and agree to both the Terms of Service and Privacy Policy before proceeding. You may view each document in full before agreeing. Your consent is versioned and recorded with a timestamp as an immutable audit trail.</li>
+    <li><strong>Contract Performance:</strong> To provide the App's core services, manage your account, and process in-app purchases.</li>
+    <li><strong>Legitimate Interest:</strong> To maintain the security and proper functioning of the App, and to improve our services.</li>
+</ul>
+<p>You may withdraw your consent at any time by discontinuing use of the relevant online features or by contacting us.</p>
+
+<h2>3. Device Permissions</h2>
+<p>The App may request the following permissions, each for a specific purpose:</p>
+<table>
+    <tr><th>Permission</th><th>Purpose</th><th>Required?</th></tr>
+    <tr><td>Camera</td><td>Scanning receipts and palm reading feature</td><td>Only when using these features</td></tr>
+    <tr><td>Photo Library</td><td>Saving dream goal cards to your gallery</td><td>Only when saving images</td></tr>
+    <tr><td>Biometric (Face ID / Fingerprint)</td><td>Unlocking the app securely</td><td>Optional, user-enabled</td></tr>
+    <tr><td>Notifications</td><td>Payment reminders and daily fortune alerts</td><td>Optional, user-enabled</td></tr>
+</table>
+<p>You may deny or revoke any permission at any time through your device settings. The App will continue to function with reduced features.</p>
+
+<h2>4. How We Use Your Information</h2>
+<p>We use your information solely for the following purposes:</p>
+<ul>
+    <li>To provide and maintain the App's core financial management features</li>
+    <li>To generate AI-powered financial coaching and receipt analysis</li>
+    <li>To provide entertainment features (fortune telling, palm reading)</li>
+    <li>To enable data backup and device transfer</li>
+    <li>To process in-app purchases (via Apple App Store / Google Play Store)</li>
+    <li>To authenticate your account (if you choose to register)</li>
+</ul>
+
+<h2>5. Third-Party Services</h2>
+<p>We use the following third-party services to operate the App:</p>
+<table>
+    <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
+    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Receipt images (processed in real-time, not stored)</td></tr>
+    <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, images (including Paluwagan payment screenshots), profile info</td></tr>
+    <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
+    <tr><td>Apple App Store / Google Play</td><td>App distribution and in-app purchases</td><td>As per their respective privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Optional account linking for extended features</td><td>Facebook user ID, name, email, profile picture URL (used for account linking and extended features)</td></tr>
+</table>
+<p>Each third-party service operates under its own privacy policy. We encourage you to review them.</p>
+
+<h2>6. Data Security</h2>
+<p>We implement the following security measures to protect your data:</p>
+<ul>
+    <li>Sensitive data (credentials, PIN, profile) is encrypted using your device's secure storage (Keychain on iOS, Keystore on Android)</li>
+    <li>Screen capture prevention is enabled to protect your financial data</li>
+    <li>All network communications use HTTPS encryption</li>
+    <li>Server-side data is protected by Row Level Security (RLS) policies — only you can access your own data</li>
+    <li>Backup files are compressed (gzip) and stored securely with access-controlled signed URLs</li>
+    <li>App lock with PIN and optional biometric authentication</li>
+</ul>
+
+<h2>7. Data Breach Notification</h2>
+<p>In the event of a personal data breach that is likely to affect your rights and freedoms, we will:</p>
+<ul>
+    <li>Notify the <strong>National Privacy Commission (NPC)</strong> within <strong>72 hours</strong> of becoming aware of the breach, as required by the Data Privacy Act of 2012 and NPC Circular 2016-03</li>
+    <li>Notify affected users within a reasonable period through email (if registered) or through an in-app announcement</li>
+    <li>Provide details about the nature of the breach, the data involved, and the measures taken to address it</li>
+</ul>
+
+<h2>8. Data Retention and Deletion</h2>
+<ul>
+    <li><strong>Local data:</strong> Remains on your device until you delete the App or clear app data</li>
+    <li><strong>Backup files:</strong> Automatically deleted from our servers within 1 to 3 months</li>
+    <li><strong>Server-stored data:</strong> AI Coach reports and Daily Fortune results are retained until overwritten or until you request deletion</li>
+    <li><strong>Facebook data:</strong> If you linked your Facebook account, you may disconnect it at any time from the App's Settings screen. Upon disconnection, all Facebook-related data (Facebook user ID, name, email, profile picture URL) is <strong>immediately and permanently deleted</strong> from our authentication system. Your financial data and app records are not affected by Facebook disconnection.</li>
+    <li><strong>Facebook-initiated removal:</strong> If you remove Gumi Save from your Facebook account settings, we receive a deauthorization callback from Facebook and automatically delete all your Facebook identity data from our servers.</li>
+    <li><strong>Selective deletion (local):</strong> From <em>Settings &gt; Safe &amp; Secure &gt; Clear Records by Month</em>, you may permanently delete transaction records for specific month ranges while keeping the rest of your data. From <em>My Utang List &gt; Clear history of completed</em>, you may clear the borrowed/lent amounts and hulugan/collected history of fully paid or fully collected utangs. These actions affect local data only and cannot be undone.</li>
+    <li><strong>Complete data wipe:</strong> You may perform a complete data wipe from the App's Settings screen (Reset App), which automatically disconnects Facebook (if linked), signs out your session, and erases all local data including financial records, settings, and scheduled notifications.</li>
+    <li><strong>Account deletion:</strong> You may request complete deletion of your account and all associated server-side data by submitting the <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Once we receive your request, we will permanently delete all of your data from our servers and notify you by email when the process is complete. We will process your request within 30 days.</li>
+</ul>
+
+<h3>8.1 What Data May Be Collected</h3>
+<p>Depending on which features you use, the following types of data may be stored on our servers. None of this data is collected automatically — it is only sent when you actively use the corresponding feature:</p>
+<table>
+    <tr><th>Feature Used</th><th>Data Collected</th></tr>
+    <tr><td>AI Coach</td><td>Transaction summaries, envelope budgets, savings goals, debt records, monthly financial overview</td></tr>
+    <tr><td>Daily Swerte</td><td>Name (optional), birthday, gender, zodiac sign, birth hour (optional), region (optional)</td></tr>
+    <tr><td>Receipt Scanning</td><td>Receipt photo (processed in real-time, not stored)</td></tr>
+    <tr><td>Palad Guide</td><td>Palm photo (processed in real-time, not stored)</td></tr>
+    <tr><td>Cloud Backup</td><td>Compressed backup file containing all local app data</td></tr>
+    <tr><td>Facebook Connect</td><td>Facebook user ID, name, email, profile picture URL</td></tr>
+    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, document type (Terms of Service / Privacy Policy), agreed version, timestamp</td></tr>
+    <tr><td>In-App Purchase</td><td>Purchase entitlements and anonymous user ID (via RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, last 4 digits of previous phone, affected group IDs, device info, IP address — recorded only when you transfer your account to a new device or remove your phone verification</td></tr>
+</table>
+
+<h2>9. Your Rights Under the Data Privacy Act of 2012</h2>
+<p>As a data subject under Philippine law, you have the following rights:</p>
+<ul>
+    <li><strong>Right to be Informed:</strong> You have the right to know how your personal data is being collected, used, and processed.</li>
+    <li><strong>Right to Access:</strong> You may request access to your personal data that we hold on our servers.</li>
+    <li><strong>Right to Correction:</strong> You may request correction of any inaccurate or incomplete personal data.</li>
+    <li><strong>Right to Erasure or Blocking:</strong> You may request the deletion or blocking of your personal data from our servers.</li>
+    <li><strong>Right to Object:</strong> You may object to the processing of your personal data.</li>
+    <li><strong>Right to Data Portability:</strong> You may request a copy of your data in a commonly used electronic format. The App's backup feature already provides this functionality.</li>
+    <li><strong>Right to File a Complaint:</strong> You may file a complaint with the <strong>National Privacy Commission (NPC)</strong> if you believe your data privacy rights have been violated.</li>
+</ul>
+
+<h2>10. Children's and Minors' Privacy</h2>
+<p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+<p>For users aged 13 to 17 years old, the use of the App requires the consent of a parent or legal guardian, in accordance with the Data Privacy Act of 2012 and its Implementing Rules and Regulations. By allowing a minor to use the App, the parent or guardian agrees to these terms on the minor's behalf and assumes responsibility for the minor's use of the App.</p>
+<p>If you believe a child has provided us with personal data without appropriate parental consent, please contact us so we can take appropriate action.</p>
+
+<h2>11. International Data Transfer</h2>
+<p>Your data may be processed on servers located outside the Philippines (Supabase and Google infrastructure). By using online features, you consent to this transfer. We ensure that appropriate safeguards are in place in compliance with the Data Privacy Act of 2012 and NPC Circular 2016-02, including:</p>
+<ul>
+    <li>Use of reputable third-party providers with their own data protection policies and security certifications</li>
+    <li>All data transfers are encrypted via HTTPS/TLS</li>
+    <li>Only the minimum necessary data is transmitted for each feature</li>
+    <li>Real-time processed data (receipt images, palm photos) is not stored on third-party servers</li>
+</ul>
+
+<h2>12. Changes to This Privacy Policy</h2>
+<p>We may update this Privacy Policy from time to time. We will notify you of any material changes through the App or by updating the "Last Updated" date. Your continued use of the App after changes constitutes your acceptance of the updated policy.</p>
+
+<h2>13. Data Protection Officer</h2>
+<p>In compliance with the Data Privacy Act of 2012 and NPC Circular 2016-01, we have designated a Data Protection Officer (DPO) to oversee our data protection practices. For any data privacy concerns, you may contact our DPO:</p>
+<div class="contact-box">
+    <p><strong>Data Protection Officer</strong></p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+</div>
+
+<h2>14. Contact Us</h2>
+<div class="contact-box">
+    <p>If you have questions, concerns, or wish to exercise your data privacy rights, please contact us:</p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
+    <br>
+    <p>For complaints regarding data privacy, you may also contact:</p>
+    <p><strong>National Privacy Commission (NPC)</strong></p>
+    <p>Website: <a href="https://www.privacy.gov.ph">https://www.privacy.gov.ph</a></p>
+    <p>Phone: (02) 8234-2228</p>
+</div>
+
+</div>
+
+<!-- ======================== TAGALOG ======================== -->
+<div id="lang-tl" class="lang-section">
+
+<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Mayo 1, 2026</p>
+
+<p>Maligayang pagdating sa <strong>Gumi Save</strong> ("ang App"), isang application para sa pamamahala ng personal na pananalapi na binuo at pinapatakbo ng <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "namin," o "aming"). Kami ay nakatuon sa pagprotekta ng iyong privacy at personal na impormasyon alinsunod sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> ng Pilipinas at ang mga Implementing Rules and Regulations nito.</p>
+
+<p>Ipinapaliwanag ng Privacy Policy na ito kung anong impormasyon ang aming kinokolekta, kung paano namin ito ginagamit, at ang iyong mga karapatan tungkol sa iyong personal na datos.</p>
+
+<h2>1. Impormasyong Kinokolekta Namin</h2>
+
+<h3>1.1 Impormasyong Naka-store Lang sa Iyong Device (Local Storage)</h3>
+<p>Karamihan ng iyong datos ay naka-store <strong>eksklusibo sa iyong device</strong> at hindi kailanman ipinapadala sa aming mga server maliban kung ikaw mismo ang mag-i-initiate ng backup o gagamit ng online feature. Kabilang dito ang:</p>
+<ul>
+    <li>Mga budget envelope, transaksyon, kita, at talaan ng gastos</li>
+    <li>Mga savings goal (Dreams) at progreso</li>
+    <li>Mga talaan ng utang (Utang/Hulogan) at schedule ng bayad</li>
+    <li>Mga kalkulasyon ng utility bill at kasaysayan</li>
+    <li>Mga quick expense template</li>
+    <li>Mga setting ng app (wika, tema, budget period)</li>
+    <li>App lock PIN (naka-store bilang encrypted hash)</li>
+</ul>
+
+<h3>1.2 Impormasyong Naka-store sa Aming Mga Server</h3>
+<p>Nag-iimbak kami ng <strong>minimal na impormasyon</strong> sa aming mga server (hosted via Supabase):</p>
+<table>
+    <tr><th>Datos</th><th>Layunin</th><th>Pagpapanatili</th></tr>
+    <tr><td>Huling ulat ng AI Coach</td><td>Para ipakita ang iyong pinakabagong financial coaching result</td><td>Hanggang mapalitan ng bagong ulat o deletion ng account</td></tr>
+    <tr><td>Huling resulta ng Daily Fortune</td><td>Para i-cache ang iyong pinakabagong daily fortune</td><td>Hanggang mapalitan o deletion ng account</td></tr>
+    <tr><td>Backup file (gzip)</td><td>Para payagan ang paglipat ng datos kapag nagpalit ng device</td><td>Awtomatikong dini-delete sa loob ng 1-3 buwan</td></tr>
+    <tr><td>User ID at email (kung nakarehistro)</td><td>Authentication at pagkilala ng account</td><td>Hanggang sa deletion ng account</td></tr>
+    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtatago ng Facebook user ID, pangalan, at email sa aming authentication system</td><td>Hanggang i-disconnect mo ang Facebook o i-delete ang iyong account</td></tr>
+    <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal na audit trail na nagre-record ng iyong pagsang-ayon sa Terms of Service at Privacy Policy — nag-iimbak ng bersyon ng dokumento at timestamp ng iyong pagsang-ayon</td><td>Permanenteng pinapanatili bilang legal na record. Hindi maaaring baguhin o tanggalin, alinsunod sa mga regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
+    <tr><td>Mga Paluwagan group record (kung ginagamit mo ang Paluwagan feature)</td><td>Para magpatakbo ng rotating savings group sa pagitan mo at ng ibang miyembro — nag-iimbak ng pangalan ng grupo, cycle, turn order, scrambled phone numbers (hashed, hindi kailanman plain text), payment records, mga screenshot na ina-upload ng miyembro bilang patunay ng bayad, connection info, device details, ang pirmang ibinibigay mo sa pagpirma ng group agreement (nakasulat na pangalan o iginuhit na imahe) kasama ang cryptographic hash nito, ang iyong indibidwal na pagsang-ayon sa bawat consent item ng kasunduan (naka-record bilang boolean flags at nakatali sa cryptographic record ng kasunduan para sa mga grupong na-finalize sa o pagkatapos ng May 1, 2026), at ang wika (English/Tagalog/Cebuano) na ginamit mo sa pagtingin ng kasunduan sa oras ng pagpirma</td><td>Pinapanatili habang aktibo ang grupo at sa loob ng hindi bababa sa 10 taon mula sa pagsasara ng grupo bilang legal/audit na record. Ang panahong ito ay naaayon sa sampung (10) taong prescriptive period para sa aksyon batay sa nakasulat na kontrata sa ilalim ng Article 1144 ng Civil Code ng Pilipinas (tinutukoy sa Clause 13 ng group agreement). Ang immutable audit-log entries at agreement signature ay hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kapag pinalitan mo ang phone o inalis ang phone verification)</td><td>Para iwasan ang fraud at lutasin ang mga dispute sa Paluwagan groups kapag pumalit ng SIM/device o nag-alis ng phone verification ang isang miyembro — nag-iimbak ng hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device details, at IP address. <strong>Hindi</strong> kami nag-iimbak ng buong plain-text phone number sa audit na ito.</td><td>Pinapanatili bilang immutable audit record hanggang 10 taon mula sa petsa ng kaganapan para sa fraud prevention at paglutas ng dispute, naaayon sa sampung (10) taong prescriptive period para sa aksyon batay sa nakasulat na kontrata sa ilalim ng Article 1144 ng Civil Code ng Pilipinas. Hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa Philippine data privacy regulations. Tatanggalin kapag na-delete ang account.</td></tr>
+</table>
+<p><strong>Mahalaga:</strong> Bukod sa mga nakalista sa itaas, walang datos ng user ang naka-store sa aming mga server. Lahat ng iyong financial data ay nananatili sa iyong device.</p>
+
+<h3>1.3 Impormasyong Kinokolekta Kapag Gumagamit ng Online Features</h3>
+<p>Ang ilang feature ay nangangailangan ng koneksyon sa internet at pansamantalang pinoproseso ang iyong datos. Ang mga feature na ito ay malinaw na may markang "online" badge sa App:</p>
+<ul>
+    <li><strong>Receipt Scanning:</strong> Ang iyong receipt photo ay ipinapadala sa Google Cloud Vision API para sa text extraction, pagkatapos sa Google Gemini AI para sa expense categorization. Ang mga imahe ay pinoproseso sa real-time at hindi sino-store sa third-party servers.</li>
+    <li><strong>AI Coach:</strong> Ang iyong buod ng transaksyon at monthly financial data ay ipinapadala sa Google Gemini AI para mag-generate ng financial coaching advice. Aggregated summary data lang ang ipinapadala, hindi ang bawat detalye ng transaksyon.</li>
+    <li><strong>Palm Reading (Palad Guide):</strong> Ang iyong palm photo ay ipinapadala sa Google Gemini AI para sa entertainment-only na palm reading. Ang mga imahe ay pinoproseso sa real-time at hindi sino-store.</li>
+    <li><strong>Paluwagan Payment Receipts:</strong> Kapag tinap mo ang "Analyze screenshot" sa Paluwagan payment screen, ang screenshot ng resibong na-upload mo ay ipapadala sa Google Gemini AI para magsuggest ng amount, reference number, at platform (hal., GCash/Maya). Ang imahe ay pinoproseso sa real-time sa server ng Google para lamang sa layuning ito at hindi sino-store ng Google. Ang orihinal na screenshot ay nananatili sa aming server bilang bahagi ng audit record ng grupo (tingnan ang Seksyon 1.2). Hihingiin ang iyong hiwalay na pahintulot sa unang pagkakataong gagamit ka ng anumang AI feature, at maaari kang tumanggi; ang pagtanggi ay disable lang ang auto-suggest at maaari ka pa ring magbigay ng halaga nang manu-mano.</li>
+    <li><strong>Daily Fortune (Daily Swerte):</strong> Ang iyong profile information (birthday, kasarian, zodiac sign, oras ng kapanganakan, rehiyon) ay ipinapadala para i-generate ang iyong daily fortune.</li>
+    <li><strong>Facebook Connect:</strong> Kung pipiliin mong i-link ang iyong Facebook account, humihiling kami ng access sa iyong <strong>public profile</strong> at <strong>email address</strong> (sa pamamagitan ng <code>public_profile</code> at <code>email</code> OAuth scopes). Natatanggap namin ang iyong Facebook user ID, pangalan, email, at URL ng profile picture. Ang datos na ito ay ginagamit para sa account linking at mga paparating na extended features (tulad ng pagtingin sa iyong mga Facebook friends na gumagamit din ng App, at pag-verify ng iyong identity para sa mga in-app events at promotions), at naka-store sa aming authentication system (Supabase Auth). Ang pag-link ng Facebook ay <strong>hindi</strong> kinakailangan para magamit ang App at <strong>hindi</strong> ito gumagana bilang paraan ng pag-login sa app. <strong>Hindi</strong> kami magpo-post sa iyong Facebook o mag-a-access ng iyong mga post, litrato, o anumang ibang datos sa Facebook bukod sa mga basic profile information na nakalista sa itaas.</li>
+</ul>
+
+<h3>1.4 Impormasyong HINDI Namin Kinokolekta</h3>
+<ul>
+    <li><strong>Hindi</strong> kami gumagamit ng anumang analytics o tracking tools</li>
+    <li><strong>Hindi</strong> kami kumokolekta ng device identifiers para sa advertising</li>
+    <li><strong>Hindi</strong> namin ibinebenta, inuupahan, o ibinabahagi ang iyong datos sa third parties para sa marketing</li>
+    <li><strong>Hindi</strong> kami nagpapakita ng mga advertisement</li>
+    <li><strong>Hindi</strong> namin tina-track ang iyong lokasyon</li>
+</ul>
+
+<h2>2. Legal na Batayan para sa Pagproseso</h2>
+<p>Pinoproseso namin ang iyong personal na datos batay sa mga sumusunod na legal na batayan sa ilalim ng Data Privacy Act of 2012:</p>
+<ul>
+    <li><strong>Pahintulot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), pinoproseso namin ang iyong datos kapag ikaw mismo ang nag-initiate ng mga feature na ito. Bawat online feature ay malinaw na may marka, at ang iyong paggamit ay bumubuo ng iyong pahintulot. Para sa <strong>Facebook Connect</strong>, kinukuha namin ang iyong hayag, may kaalaman, at malayang ibinigay na pahintulot sa pamamagitan ng isang dedikadong agreement popup kung saan kailangan mong isa-isang i-check at sang-ayunan ang parehong Terms of Service at Privacy Policy bago magpatuloy. Maaari mong basahin ang buong dokumento bago sumang-ayon. Ang iyong pahintulot ay may bersyon at nire-record kasama ang timestamp bilang hindi mababagong audit trail.</li>
+    <li><strong>Pagtupad ng Kontrata:</strong> Para ibigay ang mga pangunahing serbisyo ng App, pamahalaan ang iyong account, at iproseso ang in-app purchases.</li>
+    <li><strong>Lehitimong Interes:</strong> Para panatilihin ang seguridad at maayos na pagfunksyon ng App, at para mapabuti ang aming mga serbisyo.</li>
+</ul>
+<p>Maaari mong bawiin ang iyong pahintulot anumang oras sa pamamagitan ng paghinto sa paggamit ng mga kaugnay na online feature o sa pamamagitan ng pakikipag-ugnayan sa amin.</p>
+
+<h2>3. Mga Pahintulot sa Device</h2>
+<p>Ang App ay maaaring humiling ng mga sumusunod na pahintulot, bawat isa para sa isang tiyak na layunin:</p>
+<table>
+    <tr><th>Pahintulot</th><th>Layunin</th><th>Kinakailangan?</th></tr>
+    <tr><td>Camera</td><td>Pag-scan ng mga resibo at palm reading feature</td><td>Kapag ginagamit lang ang mga feature na ito</td></tr>
+    <tr><td>Photo Library</td><td>Pag-save ng dream goal cards sa iyong gallery</td><td>Kapag nagse-save lang ng mga imahe</td></tr>
+    <tr><td>Biometric (Face ID / Fingerprint)</td><td>Secure na pag-unlock ng app</td><td>Opsyonal, ine-enable ng user</td></tr>
+    <tr><td>Notifications</td><td>Mga paalala sa bayad at daily fortune alerts</td><td>Opsyonal, ine-enable ng user</td></tr>
+</table>
+<p>Maaari mong tanggihan o bawiin ang anumang pahintulot sa anumang oras sa pamamagitan ng iyong device settings. Ang App ay patuloy na gagana na may mga limitadong feature.</p>
+
+<h2>4. Paano Namin Ginagamit ang Iyong Impormasyon</h2>
+<p>Ginagamit namin ang iyong impormasyon para lamang sa mga sumusunod na layunin:</p>
+<ul>
+    <li>Para ibigay at panatilihin ang mga pangunahing financial management feature ng App</li>
+    <li>Para mag-generate ng AI-powered financial coaching at receipt analysis</li>
+    <li>Para magbigay ng mga entertainment feature (fortune telling, palm reading)</li>
+    <li>Para payagan ang data backup at paglipat ng device</li>
+    <li>Para iproseso ang in-app purchases (sa pamamagitan ng Apple App Store / Google Play Store)</li>
+    <li>Para i-authenticate ang iyong account (kung pipiliin mong magparehistro)</li>
+</ul>
+
+<h2>5. Mga Third-Party Service</h2>
+<p>Gumagamit kami ng mga sumusunod na third-party service para sa operasyon ng App:</p>
+<table>
+    <tr><th>Serbisyo</th><th>Layunin</th><th>Datos na Ibinabahagi</th></tr>
+    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe ng resibo (pinoproseso sa real-time, hindi sino-store)</td></tr>
+    <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info</td></tr>
+    <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
+    <tr><td>Apple App Store / Google Play</td><td>App distribution at in-app purchases</td><td>Ayon sa kani-kanilang privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal na account linking para sa mga extended features</td><td>Facebook user ID, pangalan, email, URL ng profile picture (ginagamit para sa account linking at extended features)</td></tr>
+</table>
+
+<h2>6. Seguridad ng Datos</h2>
+<p>Nagpapatupad kami ng mga sumusunod na hakbang sa seguridad para protektahan ang iyong datos:</p>
+<ul>
+    <li>Ang sensitibong datos (credentials, PIN, profile) ay naka-encrypt gamit ang secure storage ng iyong device (Keychain sa iOS, Keystore sa Android)</li>
+    <li>Ang screen capture prevention ay naka-enable para protektahan ang iyong financial data</li>
+    <li>Lahat ng network communication ay gumagamit ng HTTPS encryption</li>
+    <li>Ang server-side data ay protektado ng Row Level Security (RLS) policies — ikaw lang ang makaka-access ng iyong sariling datos</li>
+    <li>Ang backup files ay naka-compress (gzip) at secure na naka-store na may access-controlled signed URLs</li>
+    <li>App lock na may PIN at opsyonal na biometric authentication</li>
+</ul>
+
+<h2>7. Abiso sa Paglabag sa Datos (Data Breach Notification)</h2>
+<p>Sa pagkakaroon ng paglabag sa personal na datos na maaaring makaapekto sa iyong mga karapatan at kalayaan, kami ay:</p>
+<ul>
+    <li>Mag-aabiso sa <strong>National Privacy Commission (NPC)</strong> sa loob ng <strong>72 oras</strong> mula sa aming pagkaalam ng paglabag, ayon sa Data Privacy Act of 2012 at NPC Circular 2016-03</li>
+    <li>Mag-aabiso sa mga apektadong user sa isang makatwirang panahon sa pamamagitan ng email (kung nakarehistro) o sa pamamagitan ng in-app announcement</li>
+    <li>Magbibigay ng mga detalye tungkol sa uri ng paglabag, ang datos na nasangkot, at ang mga hakbang na ginawa para matugunan ito</li>
+</ul>
+
+<h2>8. Pagpapanatili at Pagtanggal ng Datos</h2>
+<ul>
+    <li><strong>Lokal na datos:</strong> Nananatili sa iyong device hanggang tanggalin mo ang App o i-clear ang app data</li>
+    <li><strong>Backup files:</strong> Awtomatikong dini-delete mula sa aming mga server sa loob ng 1 hanggang 3 buwan</li>
+    <li><strong>Server-stored data:</strong> Ang AI Coach reports at Daily Fortune results ay pinapanatili hanggang mapalitan o hanggang humiling ka ng deletion</li>
+    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang iyong Facebook account, maaari mo itong i-disconnect anumang oras mula sa Settings screen ng App. Kapag na-disconnect, lahat ng datos na may kaugnayan sa Facebook (Facebook user ID, pangalan, email, URL ng profile picture) ay <strong>agad at permanenteng tatanggalin</strong> mula sa aming authentication system. Ang iyong financial data at mga talaan sa app ay hindi maaapektuhan ng Facebook disconnection.</li>
+    <li><strong>Pagtanggal na sinimulan ng Facebook:</strong> Kung tatanggalin mo ang Gumi Save mula sa iyong Facebook account settings, makakatanggap kami ng deauthorization callback mula sa Facebook at awtomatikong tatanggalin ang lahat ng iyong Facebook identity data mula sa aming mga server.</li>
+    <li><strong>Piling pagtanggal (lokal):</strong> Mula sa <em>Settings &gt; Safe &amp; Secure &gt; Burahin kada buwan</em>, maaari mong permanenteng burahin ang mga talaan ng transaksyon para sa mga piling buwan habang pinapanatili ang iba pang datos. Mula sa <em>My Utang List &gt; Linisin ang history ng tapos na</em>, maaari mong alisin ang borrowed/lent amounts at hulugan/collected history ng mga fully paid o fully collected na utang. Apektado lamang ang lokal na datos at hindi na mababawi.</li>
+    <li><strong>Kumpletong pagtanggal ng datos:</strong> Maaari kang magsagawa ng kumpletong data wipe mula sa Settings screen ng App (Reset App), na awtomatikong nagdi-disconnect ng Facebook (kung naka-link), nagsa-sign out ng iyong session, at nag-aalis ng lahat ng lokal na datos kabilang ang mga financial record, settings, at mga naka-schedule na notification.</li>
+    <li><strong>Pagtatanggal ng account:</strong> Maaari kang humiling ng kumpletong pagtanggal ng iyong account at lahat ng kaugnay na server-side data sa pamamagitan ng pagsagot sa <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Kapag natanggap namin ang iyong kahilingan, permanente naming tatanggalin ang lahat ng iyong datos mula sa aming mga server at aabisuhan ka sa pamamagitan ng email kapag kumpleto na ang proseso. Ipoproseso namin ang iyong kahilingan sa loob ng 30 araw.</li>
+</ul>
+
+<h3>8.1 Anong Datos ang Maaaring Makolekta</h3>
+<p>Depende sa mga feature na ginagamit mo, ang mga sumusunod na uri ng datos ay maaaring ma-store sa aming mga server. Wala sa mga datos na ito ang awtomatikong kinokolekta — ipinapadala lamang ito kapag aktibong ginamit mo ang kaukulang feature:</p>
+<table>
+    <tr><th>Feature na Ginamit</th><th>Datos na Kinokolekta</th></tr>
+    <tr><td>AI Coach</td><td>Buod ng mga transaksyon, budget ng envelope, savings goals, mga talaan ng utang, monthly financial overview</td></tr>
+    <tr><td>Daily Swerte</td><td>Pangalan (opsyonal), birthday, kasarian, zodiac sign, oras ng kapanganakan (opsyonal), rehiyon (opsyonal)</td></tr>
+    <tr><td>Receipt Scanning</td><td>Larawan ng resibo (pinoproseso sa real-time, hindi sino-store)</td></tr>
+    <tr><td>Palad Guide</td><td>Larawan ng palad (pinoproseso sa real-time, hindi sino-store)</td></tr>
+    <tr><td>Cloud Backup</td><td>Naka-compress na backup file na naglalaman ng lahat ng lokal na datos sa app</td></tr>
+    <tr><td>Facebook Connect</td><td>Facebook user ID, pangalan, email, URL ng profile picture</td></tr>
+    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, uri ng dokumento (Terms of Service / Privacy Policy), pinag-sang-ayunang bersyon, timestamp</td></tr>
+    <tr><td>In-App Purchase</td><td>Purchase entitlements at anonymous user ID (sa pamamagitan ng RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device info, IP address — naitatala lamang kapag inilipat mo ang account sa bagong device o inalis mo ang phone verification</td></tr>
+</table>
+
+<h2>9. Ang Iyong Mga Karapatan sa Ilalim ng Data Privacy Act of 2012</h2>
+<p>Bilang data subject sa ilalim ng batas ng Pilipinas, mayroon kang mga sumusunod na karapatan:</p>
+<ul>
+    <li><strong>Karapatan na Malaman:</strong> May karapatan kang malaman kung paano kinokolekta, ginagamit, at pinoproseso ang iyong personal na datos.</li>
+    <li><strong>Karapatan sa Pag-access:</strong> Maaari kang humiling ng access sa iyong personal na datos na nasa aming mga server.</li>
+    <li><strong>Karapatan sa Pagwawasto:</strong> Maaari kang humiling ng pagwawasto ng anumang hindi tumpak o hindi kumpletong personal na datos.</li>
+    <li><strong>Karapatan sa Pagtanggal o Pagharang:</strong> Maaari kang humiling ng pagtanggal o pagharang ng iyong personal na datos mula sa aming mga server.</li>
+    <li><strong>Karapatan na Tumutol:</strong> Maaari kang tumutol sa pagproseso ng iyong personal na datos.</li>
+    <li><strong>Karapatan sa Data Portability:</strong> Maaari kang humiling ng kopya ng iyong datos sa isang karaniwang electronic format. Ang backup feature ng App ay nagbibigay na ng functionality na ito.</li>
+    <li><strong>Karapatan na Mag-file ng Reklamo:</strong> Maaari kang mag-file ng reklamo sa <strong>National Privacy Commission (NPC)</strong> kung naniniwala kang nilabag ang iyong mga karapatan sa data privacy.</li>
+</ul>
+
+<h2>10. Privacy ng mga Bata at Menor de Edad</h2>
+<p>Ang App ay hindi inilaan para sa mga batang wala pang 13 taong gulang. Hindi kami sinasadyang kumokolekta ng personal na impormasyon mula sa mga batang wala pang 13.</p>
+<p>Para sa mga user na may edad 13 hanggang 17 taong gulang, ang paggamit ng App ay nangangailangan ng pahintulot ng magulang o legal na tagapag-alaga, alinsunod sa Data Privacy Act of 2012 at ang mga Implementing Rules and Regulations nito. Sa pagpayag na gamitin ng menor de edad ang App, sumasang-ayon ang magulang o tagapag-alaga sa mga tuntuning ito sa ngalan ng menor de edad at inaako ang responsibilidad para sa paggamit ng menor de edad sa App.</p>
+<p>Kung naniniwala kang ang isang bata ay nagbigay sa amin ng personal na datos nang walang naaangkop na pahintulot ng magulang, mangyaring makipag-ugnayan sa amin upang makagawa kami ng naaangkop na aksyon.</p>
+
+<h2>11. Internasyonal na Paglipat ng Datos</h2>
+<p>Ang iyong datos ay maaaring iproseso sa mga server na matatagpuan sa labas ng Pilipinas (Supabase at Google infrastructure). Sa paggamit ng online features, pumapayag ka sa paglipat na ito. Tinitiyak namin na ang naaangkop na mga pananggalang ay nakalagay alinsunod sa Data Privacy Act of 2012 at NPC Circular 2016-02, kabilang ang:</p>
+<ul>
+    <li>Paggamit ng mga mapagkakatiwalaang third-party provider na may sariling mga patakaran sa proteksyon ng datos at mga sertipikasyon sa seguridad</li>
+    <li>Lahat ng paglipat ng datos ay naka-encrypt sa pamamagitan ng HTTPS/TLS</li>
+    <li>Ang minimum na kinakailangang datos lamang ang ipinapadala para sa bawat feature</li>
+    <li>Ang real-time na pinoprosesong datos (mga imahe ng resibo, palm photos) ay hindi sino-store sa mga third-party server</li>
+</ul>
+
+<h2>12. Mga Pagbabago sa Privacy Policy na Ito</h2>
+<p>Maaari naming i-update ang Privacy Policy na ito paminsan-minsan. Aabisuhan ka namin tungkol sa anumang mahahalagang pagbabago sa pamamagitan ng App o sa pag-update ng petsa ng "Huling Na-update." Ang iyong patuloy na paggamit ng App pagkatapos ng mga pagbabago ay nangangahulugan ng iyong pagtanggap sa na-update na patakaran.</p>
+
+<h2>13. Data Protection Officer</h2>
+<p>Alinsunod sa Data Privacy Act of 2012 at NPC Circular 2016-01, nagtalaga kami ng Data Protection Officer (DPO) upang pangasiwaan ang aming mga kasanayan sa proteksyon ng datos. Para sa anumang alalahanin sa data privacy, maaari kang makipag-ugnayan sa aming DPO:</p>
+<div class="contact-box">
+    <p><strong>Data Protection Officer</strong></p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+</div>
+
+<h2>14. Makipag-ugnayan sa Amin</h2>
+<div class="contact-box">
+    <p>Kung mayroon kang mga katanungan, alalahanin, o nais gamitin ang iyong mga karapatan sa data privacy, mangyaring makipag-ugnayan sa amin:</p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
+    <br>
+    <p>Para sa mga reklamo tungkol sa data privacy, maaari ka ring makipag-ugnayan sa:</p>
+    <p><strong>National Privacy Commission (NPC)</strong></p>
+    <p>Website: <a href="https://www.privacy.gov.ph">https://www.privacy.gov.ph</a></p>
+    <p>Telepono: (02) 8234-2228</p>
+</div>
+
+</div>
+
+<!-- ======================== CEBUANO ======================== -->
+<div id="lang-ceb" class="lang-section">
+
+<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Mayo 1, 2026</p>
+
+<p>Maayong pag-abot sa <strong>Gumi Save</strong> ("ang App"), usa ka application para sa pagdumala sa personal nga pananalapi nga gihimo ug gipadagan sa <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "among," o "namo"). Kami nakatutok sa pagpanalipod sa imong privacy ug personal nga impormasyon sumala sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> sa Pilipinas ug ang mga Implementing Rules and Regulations niini.</p>
+
+<p>Gipasabot niining Privacy Policy kung unsang impormasyon ang among gikolekta, kung giunsa namo kini gamiton, ug ang imong mga katungod bahin sa imong personal nga datos.</p>
+
+<h2>1. Impormasyon nga Among Gikolekta</h2>
+
+<h3>1.1 Impormasyon nga Naka-store Ra sa Imong Device (Local Storage)</h3>
+<p>Kadaghanan sa imong datos naka-store <strong>eksklusibo sa imong device</strong> ug dili gayud ipadala sa among mga server gawas kung ikaw mismo ang mag-initiate og backup o mogamit og online feature. Naglakip kini sa:</p>
+<ul>
+    <li>Mga budget envelope, transaksyon, kita, ug talaan sa gastos</li>
+    <li>Mga savings goal (Dreams) ug progreso</li>
+    <li>Mga talaan sa utang (Utang/Hulogan) ug schedule sa bayad</li>
+    <li>Mga kalkulasyon sa utility bill ug kasaysayan</li>
+    <li>Mga quick expense template</li>
+    <li>Mga setting sa app (pinulongan, tema, budget period)</li>
+    <li>App lock PIN (naka-store isip encrypted hash)</li>
+</ul>
+
+<h3>1.2 Impormasyon nga Naka-store sa Among Mga Server</h3>
+<p>Nag-tipig kami og <strong>minimal nga impormasyon</strong> sa among mga server (hosted pinaagi sa Supabase):</p>
+<table>
+    <tr><th>Datos</th><th>Katuyoan</th><th>Pagpatunhay</th></tr>
+    <tr><td>Katapusang ulat sa AI Coach</td><td>Para ipakita ang imong pinakabag-o nga financial coaching result</td><td>Hangtud mapulihan og bag-ong ulat o deletion sa account</td></tr>
+    <tr><td>Katapusang resulta sa Daily Fortune</td><td>Para i-cache ang imong pinakabag-o nga daily fortune</td><td>Hangtud mapulihan o deletion sa account</td></tr>
+    <tr><td>Backup file (gzip)</td><td>Para tugotan ang pagbalhin sa datos kung mag-ilis og device</td><td>Awtomatiko nga gina-delete sulod sa 1-3 ka bulan</td></tr>
+    <tr><td>User ID ug email (kung nakarehistro)</td><td>Authentication ug pag-ila sa account</td><td>Hangtud sa deletion sa account</td></tr>
+    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtipig sa Facebook user ID, ngalan, ug email sa among authentication system</td><td>Hangtud i-disconnect nimo ang Facebook o i-delete ang imong account</td></tr>
+    <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal nga audit trail nga nag-record sa imong pag-uyon sa Terms of Service ug Privacy Policy — nagtipig sa bersyon sa dokumento ug timestamp sa imong pag-uyon</td><td>Permanente nga gipatunhay isip legal nga record. Dili mahimong usbon o wagtangon, sumala sa mga regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
+    <tr><td>Mga Paluwagan group record (kung gigamit nimo ang Paluwagan feature)</td><td>Aron pag-operate sa rotating savings groups tali nimo ug sa ubang miyembro — nagtipig sa ngalan sa grupo, cycle, turn order, scrambled phone numbers (hashed, dili gayud plain text), payment records, mga screenshot nga gi-upload sa miyembro isip pruweba sa bayad, connection info, device details, ang pirma nga imong gihatag sa pagpirma sa group agreement (gisulat nga ngalan o giguhit nga hulagway) uban sa cryptographic hash niini, ang imong indibidwal nga mga pag-uyon sa matag consent item sa kasabutan (gi-record isip boolean flags ug gihigot sa cryptographic record sa kasabutan para sa mga grupo nga gi-finalize sa o pagkahuman sa May 1, 2026), ug ang pinulongan (English/Tagalog/Cebuano) nga imong gigamit sa pagtan-aw sa kasabutan sa panahon sa pagpirma</td><td>Gipatunhay samtang aktibo ang grupo ug sulod sa labing menos 10 ka tuig human masirad-an ang grupo isip legal/audit nga record. Kining panahona naa sa linya sa napulo (10) ka tuig nga prescriptive period alang sa aksyon base sa nakasulat nga kontrata ubos sa Article 1144 sa Civil Code sa Pilipinas (gihisgutan sa Clause 13 sa group agreement). Ang immutable audit-log entries ug agreement signature dili mahimong usbon o wagtangon isa-isa, sumala sa regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kung mag-ilis ka og phone o mag-tangtang sa phone verification)</td><td>Aron malikayan ang fraud ug masulbad ang mga dispute sa Paluwagan groups kung ang miyembro mag-ilis og SIM/device o mag-tangtang sa phone verification — nagtipig sa hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device details, ug IP address. <strong>Wala</strong> kami nagtipig sa kompletong plain-text phone number niini nga audit.</td><td>Gipatunhay isip immutable audit record hangtud 10 ka tuig gikan sa petsa sa kaganapan para sa fraud prevention ug paglutas sa dispute, nahiusa sa napulo (10) ka tuig nga prescriptive period alang sa aksyon base sa nakasulat nga kontrata ubos sa Article 1144 sa Civil Code sa Pilipinas. Dili mahimong usbon o wagtangon isa-isa, sumala sa Philippine data privacy regulations. Wagtangon kung ma-delete ang account.</td></tr>
+</table>
+<p><strong>Importante:</strong> Gawas sa mga gilista sa ibabaw, walay datos sa user ang naka-store sa among mga server. Tanan nimong financial data nagpabilin sa imong device.</p>
+
+<h3>1.3 Impormasyon nga Gikolekta sa Paggamit og Online Features</h3>
+<p>Ang pipila ka feature nanginahanglan og koneksyon sa internet ug temporaryo nga nagproseso sa imong datos. Kining mga feature tin-aw nga may marka nga "online" badge sa App:</p>
+<ul>
+    <li><strong>Receipt Scanning:</strong> Ang imong receipt photo ipadala sa Google Cloud Vision API para sa text extraction, dayon sa Google Gemini AI para sa expense categorization. Ang mga imahe giproseso sa real-time ug dili gisave sa third-party servers.</li>
+    <li><strong>AI Coach:</strong> Ang imong buod sa transaksyon ug monthly financial data ipadala sa Google Gemini AI para mag-generate og financial coaching advice. Aggregated summary data ra ang gipadala, dili ang matag detalye sa transaksyon.</li>
+    <li><strong>Palm Reading (Palad Guide):</strong> Ang imong palm photo ipadala sa Google Gemini AI para sa entertainment-only nga palm reading. Ang mga imahe giproseso sa real-time ug dili gisave.</li>
+    <li><strong>Paluwagan Payment Receipts:</strong> Kung imong i-tap ang "Analyze screenshot" sa Paluwagan payment screen, ang screenshot sa resibo nga imong gi-upload ipadala sa Google Gemini AI aron mosugyot sa amount, reference number, ug platform (e.g., GCash/Maya). Ang hulagway giproseso sa real-time sa server sa Google alang lamang sa katuyoan nga kini ug dili gi-save sa Google. Ang orihinal nga screenshot magpabilin sa among server isip bahin sa audit record sa grupo (tan-awa ang Seksyon 1.2). Pangayoon ang imong bulag nga pagtugot sa unang higayon nga mogamit ka og bisan unsang AI feature, ug pwede ka modumili; ang pagdumili maka-disable lang sa auto-suggest ug pwede ka pa nga manuhid sa mga kantidad sa imong kaugalingon.</li>
+    <li><strong>Daily Fortune (Daily Swerte):</strong> Ang imong profile information (birthday, kasarian, zodiac sign, oras sa pagkatawo, rehiyon) ipadala para ma-generate ang imong daily fortune.</li>
+    <li><strong>Facebook Connect:</strong> Kung mopili ka nga i-link ang imong Facebook account, mangayo kami og access sa imong <strong>public profile</strong> ug <strong>email address</strong> (pinaagi sa <code>public_profile</code> ug <code>email</code> OAuth scopes). Makadawat kami sa imong Facebook user ID, ngalan, email, ug URL sa profile picture. Kining datos gigamit para sa account linking ug mga umaabot nga extended features (sama sa pagtan-aw sa imong mga Facebook friends nga naggamit usab sa App, ug pag-verify sa imong identity para sa mga in-app events ug promotions), ug naka-store sa among authentication system (Supabase Auth). Ang pag-link sa Facebook <strong>dili</strong> gikinahanglan para magamit ang App ug <strong>dili</strong> kini mogana isip paagi sa pag-login sa app. <strong>Dili</strong> kami mag-post sa imong Facebook o mag-access sa imong mga post, litrato, o bisan unsang ubang datos sa Facebook gawas sa mga basic profile information nga gilista sa ibabaw.</li>
+</ul>
+
+<h3>1.4 Impormasyon nga DILI Namo Gikolekta</h3>
+<ul>
+    <li><strong>Dili</strong> kami mogamit og bisan unsang analytics o tracking tools</li>
+    <li><strong>Dili</strong> kami mokolekta og device identifiers para sa advertising</li>
+    <li><strong>Dili</strong> namo ibaligya, ipaarkila, o ipaambit ang imong datos sa third parties para sa marketing</li>
+    <li><strong>Dili</strong> kami mopakita og mga advertisement</li>
+    <li><strong>Dili</strong> namo gi-track ang imong lokasyon</li>
+</ul>
+
+<h2>2. Legal nga Basihan para sa Pagproseso</h2>
+<p>Giproseso namo ang imong personal nga datos base sa mosunod nga legal nga basihan ubos sa Data Privacy Act of 2012:</p>
+<ul>
+    <li><strong>Pagtugot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), giproseso namo ang imong datos kung ikaw mismo ang mag-initiate niining mga feature. Matag online feature tin-aw nga may marka, ug ang imong paggamit naglangkob sa imong pagtugot. Para sa <strong>Facebook Connect</strong>, gikuha namo ang imong hayag, may kahibalo, ug gawasnon nga gihatag nga pagtugot pinaagi sa usa ka dedikado nga agreement popup diin kinahanglan nimong usa-usahon nga i-check ug uyonan ang parehong Terms of Service ug Privacy Policy sa dili pa mopadayon. Mahimo nimong basahon ang tibuok dokumento sa dili pa mouyon. Ang imong pagtugot may bersyon ug gi-record uban ang timestamp isip dili mausab nga audit trail.</li>
+    <li><strong>Pagtuman sa Kontrata:</strong> Para ihatag ang mga pangunahing serbisyo sa App, dumalahon ang imong account, ug iproseso ang in-app purchases.</li>
+    <li><strong>Lehitimo nga Interes:</strong> Para ipadayon ang seguridad ug maayo nga pagfunksyon sa App, ug para mapauswag ang among mga serbisyo.</li>
+</ul>
+<p>Mahimo nimong bawion ang imong pagtugot bisan unsang oras pinaagi sa paghunong sa paggamit sa mga kalabutan nga online feature o pinaagi sa pagkontakta namo.</p>
+
+<h2>3. Mga Pagtugot sa Device</h2>
+<p>Ang App mahimong mangayo sa mosunod nga mga pagtugot, matag usa para sa piho nga katuyoan:</p>
+<table>
+    <tr><th>Pagtugot</th><th>Katuyoan</th><th>Gikinahanglan?</th></tr>
+    <tr><td>Camera</td><td>Pag-scan sa mga resibo ug palm reading feature</td><td>Kung gamiton ra kining mga feature</td></tr>
+    <tr><td>Photo Library</td><td>Pag-save sa dream goal cards sa imong gallery</td><td>Kung mag-save ra og mga imahe</td></tr>
+    <tr><td>Biometric (Face ID / Fingerprint)</td><td>Luwas nga pag-unlock sa app</td><td>Opsyonal, gi-enable sa user</td></tr>
+    <tr><td>Notifications</td><td>Mga pahinumdum sa bayad ug daily fortune alerts</td><td>Opsyonal, gi-enable sa user</td></tr>
+</table>
+<p>Mahimo nimong balibaran o bawion ang bisan unsang pagtugot sa bisan unsang oras pinaagi sa imong device settings. Ang App magpadayon sa pagfunksyon nga adunay limitado nga mga feature.</p>
+
+<h2>4. Giunsa Namo Paggamit ang Imong Impormasyon</h2>
+<p>Gigamit namo ang imong impormasyon alang ra sa mosunod nga mga katuyoan:</p>
+<ul>
+    <li>Para ihatag ug ipadayon ang mga pangunahing financial management feature sa App</li>
+    <li>Para mag-generate og AI-powered financial coaching ug receipt analysis</li>
+    <li>Para maghatag og mga entertainment feature (fortune telling, palm reading)</li>
+    <li>Para tugotan ang data backup ug pagbalhin sa device</li>
+    <li>Para iproseso ang in-app purchases (pinaagi sa Apple App Store / Google Play Store)</li>
+    <li>Para i-authenticate ang imong account (kung mopili ka nga magparehistro)</li>
+</ul>
+
+<h2>5. Mga Third-Party Service</h2>
+<p>Naggamit kami sa mosunod nga third-party service para sa operasyon sa App:</p>
+<table>
+    <tr><th>Serbisyo</th><th>Katuyoan</th><th>Datos nga Gipaambit</th></tr>
+    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe sa resibo (giproseso sa real-time, dili gisave)</td></tr>
+    <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info</td></tr>
+    <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
+    <tr><td>Apple App Store / Google Play</td><td>App distribution ug in-app purchases</td><td>Sumala sa ilang tagsa-tagsa ka privacy policies</td></tr>
+    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal nga account linking para sa mga extended features</td><td>Facebook user ID, ngalan, email, URL sa profile picture (gigamit para sa account linking ug extended features)</td></tr>
+</table>
+
+<h2>6. Seguridad sa Datos</h2>
+<p>Nagpatuman kami sa mosunod nga mga lakang sa seguridad para panalipdan ang imong datos:</p>
+<ul>
+    <li>Ang sensitibo nga datos (credentials, PIN, profile) gi-encrypt gamit ang secure storage sa imong device (Keychain sa iOS, Keystore sa Android)</li>
+    <li>Ang screen capture prevention gi-enable para panalipdan ang imong financial data</li>
+    <li>Tanan nga network communication naggamit og HTTPS encryption</li>
+    <li>Ang server-side data gipanalipdan sa Row Level Security (RLS) policies — ikaw ra ang maka-access sa imong kaugalingon nga datos</li>
+    <li>Ang backup files gi-compress (gzip) ug luwas nga gisave nga adunay access-controlled signed URLs</li>
+    <li>App lock nga adunay PIN ug opsyonal nga biometric authentication</li>
+</ul>
+
+<h2>7. Abiso sa Paglapas sa Datos (Data Breach Notification)</h2>
+<p>Kung adunay paglapas sa personal nga datos nga lagmit makaapekto sa imong mga katungod ug kagawasan, kami:</p>
+<ul>
+    <li>Mag-abiso sa <strong>National Privacy Commission (NPC)</strong> sulod sa <strong>72 ka oras</strong> gikan sa among pagkahibalo sa paglapas, sumala sa Data Privacy Act of 2012 ug NPC Circular 2016-03</li>
+    <li>Mag-abiso sa mga apektado nga user sulod sa makatarunganon nga panahon pinaagi sa email (kung nakarehistro) o pinaagi sa in-app announcement</li>
+    <li>Maghatag og mga detalye bahin sa kinaiya sa paglapas, ang datos nga nalambigit, ug ang mga lakang nga gihimo aron masulbad kini</li>
+</ul>
+
+<h2>8. Pagpatunhay ug Pagwagtang sa Datos</h2>
+<ul>
+    <li><strong>Lokal nga datos:</strong> Nagpabilin sa imong device hangtud walaon nimo ang App o i-clear ang app data</li>
+    <li><strong>Backup files:</strong> Awtomatiko nga gina-delete gikan sa among mga server sulod sa 1 hangtud 3 ka bulan</li>
+    <li><strong>Server-stored data:</strong> Ang AI Coach reports ug Daily Fortune results gipatunhay hangtud mapulihan o hangtud mangayo ka og deletion</li>
+    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang imong Facebook account, mahimo nimo kining i-disconnect bisan unsang oras gikan sa Settings screen sa App. Kung ma-disconnect, tanan nga datos nga may kalabutan sa Facebook (Facebook user ID, ngalan, email, URL sa profile picture) <strong>dayon ug permanente nga wagtangon</strong> gikan sa among authentication system. Ang imong financial data ug mga talaan sa app dili maapektuhan sa Facebook disconnection.</li>
+    <li><strong>Pagwagtang nga gisugdan sa Facebook:</strong> Kung imong tangtangon ang Gumi Save gikan sa imong Facebook account settings, makadawat kami og deauthorization callback gikan sa Facebook ug awtomatiko nga wagtangon ang tanan nimong Facebook identity data gikan sa among mga server.</li>
+    <li><strong>Piling pagwagtang (lokal):</strong> Gikan sa <em>Settings &gt; Safe &amp; Secure &gt; Papasa matag bulan</em>, mahimo nimong permanente nga papason ang mga talaan sa transaksyon sa pinili nga mga bulan samtang gipabilin ang ubang datos. Gikan sa <em>My Utang List &gt; Hinloi ang history sa nahuman</em>, mahimo nimong kuhaon ang borrowed/lent amounts ug hulugan/collected history sa mga fully paid o fully collected nga utang. Ang lokal nga datos ra ang apektado ug dili na mabawi.</li>
+    <li><strong>Kumpleto nga pagwagtang sa datos:</strong> Mahimo kang maghimo og kumpleto nga data wipe gikan sa Settings screen sa App (Reset App), nga awtomatiko nga mag-disconnect sa Facebook (kung naka-link), mag-sign out sa imong session, ug magwagtang sa tanan nga lokal nga datos lakip ang mga financial record, settings, ug mga na-schedule nga notification.</li>
+    <li><strong>Pagwagtang sa account:</strong> Mahimo kang mangayo og kumpleto nga pagwagtang sa imong account ug tanan nga kalabutan nga server-side data pinaagi sa pagtubag sa <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Kung madawat namo ang imong hangyo, permanente namong wagtangon ang tanan nimong datos gikan sa among mga server ug ipahibalo ka namo pinaagi sa email kung kompleto na ang proseso. Iproseso namo ang imong hangyo sulod sa 30 ka adlaw.</li>
+</ul>
+
+<h3>8.1 Unsa nga Datos ang Mahimong Makolekta</h3>
+<p>Depende sa mga feature nga imong gigamit, ang mosunod nga mga klase sa datos mahimong ma-store sa among mga server. Wala niining datos ang awtomatiko nga gikolekta — gipadala lamang kini kung aktibo nimong gigamit ang katugbang nga feature:</p>
+<table>
+    <tr><th>Feature nga Gigamit</th><th>Datos nga Gikolekta</th></tr>
+    <tr><td>AI Coach</td><td>Buod sa mga transaksyon, budget sa envelope, savings goals, mga talaan sa utang, monthly financial overview</td></tr>
+    <tr><td>Daily Swerte</td><td>Ngalan (opsyonal), birthday, kasarian, zodiac sign, oras sa pagkatawo (opsyonal), rehiyon (opsyonal)</td></tr>
+    <tr><td>Receipt Scanning</td><td>Litrato sa resibo (giproseso sa real-time, dili gisave)</td></tr>
+    <tr><td>Palad Guide</td><td>Litrato sa palad (giproseso sa real-time, dili gisave)</td></tr>
+    <tr><td>Cloud Backup</td><td>Gi-compress nga backup file nga adunay sulod nga tanan nga lokal nga datos sa app</td></tr>
+    <tr><td>Facebook Connect</td><td>Facebook user ID, ngalan, email, URL sa profile picture</td></tr>
+    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, klase sa dokumento (Terms of Service / Privacy Policy), giuyonan nga bersyon, timestamp</td></tr>
+    <tr><td>In-App Purchase</td><td>Purchase entitlements ug anonymous user ID (pinaagi sa RevenueCat)</td></tr>
+    <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device info, IP address — gi-record lamang kung gibalhin nimo ang account sa bag-ong device o gi-tangtang nimo ang phone verification</td></tr>
+</table>
+
+<h2>9. Ang Imong Mga Katungod Ubos sa Data Privacy Act of 2012</h2>
+<p>Isip data subject ubos sa balaod sa Pilipinas, aduna kay mosunod nga mga katungod:</p>
+<ul>
+    <li><strong>Katungod nga Mahibal-an:</strong> Aduna kay katungod nga mahibal-an kung giunsa pagkolekta, paggamit, ug pagproseso ang imong personal nga datos.</li>
+    <li><strong>Katungod sa Pag-access:</strong> Mahimo kang mangayo og access sa imong personal nga datos nga naa sa among mga server.</li>
+    <li><strong>Katungod sa Pagkorihir:</strong> Mahimo kang mangayo og pagkorihir sa bisan unsang dili tukma o dili kompleto nga personal nga datos.</li>
+    <li><strong>Katungod sa Pagwagtang o Pagbabag:</strong> Mahimo kang mangayo og pagwagtang o pagbabag sa imong personal nga datos gikan sa among mga server.</li>
+    <li><strong>Katungod sa Pagsupak:</strong> Mahimo kang mosupak sa pagproseso sa imong personal nga datos.</li>
+    <li><strong>Katungod sa Data Portability:</strong> Mahimo kang mangayo og kopya sa imong datos sa kasagaran nga electronic format. Ang backup feature sa App naghatag na niining functionality.</li>
+    <li><strong>Katungod sa Pag-file og Reklamo:</strong> Mahimo kang mag-file og reklamo sa <strong>National Privacy Commission (NPC)</strong> kung nagtuo ka nga ang imong mga katungod sa data privacy nalapas.</li>
+</ul>
+
+<h2>10. Privacy sa mga Bata ug mga Menor de Edad</h2>
+<p>Ang App dili gituyo para sa mga bata nga ubos 13 anyos ang edad. Dili kami tinuyo nga nagkolekta og personal nga impormasyon gikan sa mga bata nga ubos 13.</p>
+<p>Para sa mga user nga adunay edad 13 hangtud 17 anyos, ang paggamit sa App nanginahanglan sa pagtugot sa ginikanan o legal nga tigbantay, sumala sa Data Privacy Act of 2012 ug ang mga Implementing Rules and Regulations niini. Sa pagtugot nga mogamit ang menor de edad sa App, miuyon ang ginikanan o tigbantay niining mga tuntunin sa ngalan sa menor de edad ug nagdawat sa responsibilidad para sa paggamit sa menor de edad sa App.</p>
+<p>Kung nagtuo ka nga ang usa ka bata naghatag namo og personal nga datos nga walay angay nga pagtugot sa ginikanan, palihug kontaka kami aron makahimo kami og angay nga aksyon.</p>
+
+<h2>11. Internasyonal nga Pagbalhin sa Datos</h2>
+<p>Ang imong datos mahimong iproseso sa mga server nga nahimutang sa gawas sa Pilipinas (Supabase ug Google infrastructure). Sa paggamit og online features, miuyon ka niining pagbalhin. Gisiguro namo nga ang angay nga mga panalipod nakabutang sumala sa Data Privacy Act of 2012 ug NPC Circular 2016-02, naglakip sa:</p>
+<ul>
+    <li>Paggamit og kasaligan nga third-party providers nga adunay kaugalingon nga mga patakaran sa proteksyon sa datos ug mga sertipikasyon sa seguridad</li>
+    <li>Tanan nga pagbalhin sa datos gi-encrypt pinaagi sa HTTPS/TLS</li>
+    <li>Ang minimum ra nga gikinahanglan nga datos ang gipadala para sa matag feature</li>
+    <li>Ang real-time nga giproseso nga datos (mga imahe sa resibo, palm photos) dili gisave sa mga third-party server</li>
+</ul>
+
+<h2>12. Mga Pagbag-o sa Maong Privacy Policy</h2>
+<p>Mahimo namong i-update kining Privacy Policy matag karon ug unya. Ipahibalo namo kanimo ang bisan unsang importante nga pagbag-o pinaagi sa App o sa pag-update sa petsa sa "Kataposang Na-update." Ang imong padayon nga paggamit sa App human sa mga pagbag-o nagpasabot sa imong pagdawat sa na-update nga polisiya.</p>
+
+<h2>13. Data Protection Officer</h2>
+<p>Sumala sa Data Privacy Act of 2012 ug NPC Circular 2016-01, nagpiho kami og Data Protection Officer (DPO) aron magdumala sa among mga kasanayan sa proteksyon sa datos. Para sa bisan unsang kabalaka sa data privacy, mahimo kang mokontakta sa among DPO:</p>
+<div class="contact-box">
+    <p><strong>Data Protection Officer</strong></p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+</div>
+
+<h2>14. Kontaka Kami</h2>
+<div class="contact-box">
+    <p>Kung aduna kay mga pangutana, kabalaka, o gusto nimong gamiton ang imong mga katungod sa data privacy, palihug kontaka kami:</p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
+    <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
+    <br>
+    <p>Para sa mga reklamo bahin sa data privacy, mahimo ka usab mokontakta sa:</p>
+    <p><strong>National Privacy Commission (NPC)</strong></p>
+    <p>Website: <a href="https://www.privacy.gov.ph">https://www.privacy.gov.ph</a></p>
+    <p>Telepono: (02) 8234-2228</p>
+</div>
+
+</div>
+
+<script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
