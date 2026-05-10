@@ -57,9 +57,9 @@
 <!-- ======================== ENGLISH ======================== -->
 <div id="lang-en" class="lang-section active">
 
-<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: April 14, 2026</p>
+<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: May 10, 2026</p>
 
-<p>Welcome to <strong>Gumi Save</strong> ("the App"), a personal finance management application developed and operated by <strong>KawKaw.dev</strong> ("we," "us," or "our"). We are committed to protecting your privacy and personal information in accordance with the <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> of the Philippines and its Implementing Rules and Regulations.</p>
+<p>Welcome to <strong>Gumi Save</strong> ("the App"), a personal finance management application developed and operated by <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("we," "us," or "our"). We are committed to protecting your privacy and personal information in accordance with the <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> of the Philippines and its Implementing Rules and Regulations.</p>
 
 <p>This Privacy Policy explains what information we collect, how we use it, and your rights regarding your personal data.</p>
 
@@ -81,14 +81,13 @@
 <p>We store <strong>minimal information</strong> on our servers (hosted via Supabase):</p>
 <table>
     <tr><th>Data</th><th>Purpose</th><th>Retention</th></tr>
+    <tr><td>Anonymous user ID</td><td>Authentication and account identification — every install starts as an anonymous account so you can use the App without entering any personal data</td><td>Until account deletion</td></tr>
+    <tr><td>Phone number and SHA-256 phone hash (only if you verify your phone)</td><td>SMS one-time passcode (OTP) authentication, transferring your account to a new device, and privacy-preserving lookups inside Paluwagan groups. The phone number is stored in our authentication system (Supabase Auth). The hash uses a server-side pepper so the phone number cannot be reversed from the hash alone.</td><td>Until you remove your phone verification or delete your account</td></tr>
     <tr><td>AI Coach last report</td><td>To display your most recent financial coaching result</td><td>Until overwritten by new report or account deletion</td></tr>
     <tr><td>Daily Fortune last result</td><td>To cache your most recent daily fortune</td><td>Until overwritten or account deletion</td></tr>
-    <tr><td>Backup file (gzip)</td><td>To allow data transfer when changing devices</td><td>Automatically deleted within 1-3 months</td></tr>
-    <tr><td>User ID and email (if registered)</td><td>Authentication and account identification</td><td>Until account deletion</td></tr>
-    <tr><td>Facebook identity (if linked)</td><td>Account linking for extended features — stores Facebook user ID, name, and email in our authentication system</td><td>Until you disconnect Facebook or delete your account</td></tr>
-    <tr><td>Consent records (if Facebook linked)</td><td>Legal audit trail recording your agreement to the Terms of Service and Privacy Policy — stores the document version and timestamp of your agreement</td><td>Retained permanently as a legal record. Cannot be modified or deleted, in compliance with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
-    <tr><td>Paluwagan group records (if you use the Paluwagan feature)</td><td>To operate rotating savings groups between you and other members — stores group name, cycle, turn order, scrambled phone numbers (hashed, never plain text), payment records, screenshots uploaded by members as proof of payment, connection info, device details, and the signature you provide when signing a group agreement (typed name or drawn image) together with its cryptographic hash</td><td>Retained while the group is active and after completion as a legal/audit record. Immutable audit-log entries and agreement signatures cannot be modified or deleted individually, in line with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
-    <tr><td>Phone identity event audits (if you change your phone or remove your phone verification)</td><td>To prevent fraud and resolve disputes within Paluwagan groups when a member changes SIM/device or removes phone verification — stores the hashed phone number, the last 4 digits of the previous phone, the affected group IDs, device details, and IP address. We do <strong>not</strong> store the full plain-text phone number in this audit.</td><td>Retained as an immutable audit record for up to 5 years from the event date for fraud prevention purposes. Cannot be modified or individually deleted, in line with Philippine data privacy regulations. Removed upon account deletion.</td></tr>
+    <tr><td>Encrypted backup file (.bin)</td><td>To allow data transfer when changing devices. The file is encrypted on your device with a key derived from your passphrase before upload — we cannot decrypt it. See Section 6 for the encryption details.</td><td>Automatically deleted 30 days after upload</td></tr>
+    <tr><td>Paluwagan group records (if you use the Paluwagan feature)</td><td>To operate rotating savings groups between you and other members — stores group name, cycle, turn order, scrambled phone numbers (hashed, never plain text), payment records, screenshots uploaded by members as proof of payment, connection info, device details, the signature you provide when signing a group agreement (typed name or drawn image) together with its cryptographic hash, your individual confirmations on each consent item of the agreement (recorded as boolean flags and bound to the agreement's cryptographic record for groups finalized on or after May 1, 2026), and the language locale (English/Tagalog/Cebuano) you viewed the agreement in at signing time</td><td>Retained while the group is active and for at least 10 years from group closure as a legal/audit record. This period is aligned with the ten (10)-year prescriptive period for actions upon a written contract under Article 1144 of the Civil Code of the Philippines (referenced in Clause 13 of the group agreement). Immutable audit-log entries and agreement signatures cannot be modified or deleted individually, in line with Philippine data privacy regulations. Deleted only upon account deletion.</td></tr>
+    <tr><td>Phone identity event audits (if you change your phone or remove your phone verification)</td><td>To prevent fraud and resolve disputes within Paluwagan groups when a member changes SIM/device or removes phone verification — stores the hashed phone number, the last 4 digits of the previous phone, the affected group IDs, device details, and IP address. We do <strong>not</strong> store the full plain-text phone number in this audit.</td><td>Retained as an immutable audit record for up to 10 years from the event date for fraud prevention and dispute resolution purposes, aligned with the ten (10)-year prescriptive period for actions upon a written contract under Article 1144 of the Civil Code of the Philippines. Cannot be modified or individually deleted, in line with Philippine data privacy regulations. Removed upon account deletion.</td></tr>
 </table>
 <p><strong>Important:</strong> Other than the items listed above, no user data is stored on our servers. All your financial data remains on your device.</p>
 
@@ -100,7 +99,7 @@
     <li><strong>Palm Reading (Palad Guide):</strong> Your palm photo is sent to Google Gemini AI for entertainment-only palm reading. Images are processed in real-time and not stored.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Your profile information (birthday, gender, zodiac sign, birth hour, region) is sent to generate your daily fortune.</li>
     <li><strong>Paluwagan Payment Receipts:</strong> When you tap "Analyze screenshot" on the Paluwagan payment screen, the receipt screenshot you uploaded is sent to Google Gemini AI to suggest the payment amount, reference number, and platform (e.g., GCash/Maya). The image is processed in real-time on Google's servers solely for this purpose and is not stored by Google. The original screenshot remains stored in our servers for the group's audit record (see Section 1.2). Your separate explicit consent is requested the first time you use any AI feature, and you may decline; declining only disables the auto-suggest and you can still enter the values manually.</li>
-    <li><strong>Facebook Connect:</strong> If you choose to link your Facebook account, we request access to your <strong>public profile</strong> and <strong>email address</strong> (via the <code>public_profile</code> and <code>email</code> OAuth scopes). We receive your Facebook user ID, name, email, and profile picture URL. This data is used for account linking and upcoming extended features (such as viewing your Facebook friends who also use the App, and verifying your identity for in-app events and promotions), and is stored in our authentication system (Supabase Auth). Facebook linking is <strong>not</strong> required to use the App and does <strong>not</strong> function as an app login method. We do <strong>not</strong> post on your Facebook or access your posts, photos, or other Facebook data beyond the basic profile information listed above.</li>
+    <li><strong>Phone Verification (SMS OTP):</strong> Phone verification is required to use the Paluwagan feature, and is also used to transfer your account to a new device. When you start the verification flow, your phone number is sent to Supabase Auth, which delivers a one-time passcode to your device through an SMS messaging provider integrated with Supabase Auth. After successful verification, your phone number is stored in our authentication system, and a SHA-256 hash of your phone number (combined with a server-side pepper) is used inside Paluwagan groups so that other members can confirm your participation without seeing your raw number.</li>
 </ul>
 
 <h3>1.4 Information We Do NOT Collect</h3>
@@ -112,10 +111,21 @@
     <li>We do <strong>not</strong> track your location</li>
 </ul>
 
+<h3>1.5 Cross-Group Defaulter History (Paluwagan only)</h3>
+<p>If you participate in the Paluwagan feature and you are confirmed as a defaulter by your group's vote, the App may, upon another Paluwagan group leader attempting to invite you to a different group, present that leader with a summary consisting of:</p>
+<ul>
+    <li>the count of your confirmed defaults across groups,</li>
+    <li>the count of post-default repayments (records marked as <em>defaulter_paid</em>), and</li>
+    <li>the most recent confirmation date.</li>
+</ul>
+<p>The summary is keyed by your scrambled (SHA-256-hashed) phone number and never includes the group name, member names, monetary amounts, or any other identifying detail. This disclosure is internal to the App between users acting in the role of group leaders and is <strong>not</strong> shared with any third party.</p>
+<p>Your <strong>explicit, informed consent</strong> for this cross-group disclosure is obtained at the time you sign each Paluwagan group's agreement (consent item 7). The disclosure consent is a <strong>precondition</strong> to participating in any Paluwagan group: members who do not give this consent cannot join Paluwagan groups. Once given, the consent remains in effect for the entire duration of every Paluwagan group you participate in. You may withdraw the consent only when you have no active Paluwagan memberships, and any defaulter records confirmed before withdrawal will remain shared in line with the consent given at the time of the confirmation. Withdrawal stops future cross-group disclosures but does not retroactively invalidate processing that already occurred.</p>
+<p>Withholding consent does not exempt you from a defaulter vote within an existing group; it only restricts cross-group disclosure. Defaulter records are processed by us as a personal information controller under <strong>Section 12(a) and (f) of the Data Privacy Act of 2012</strong> (consent, and the legitimate interest of other group leaders in protecting against repeat default), and your rights as a data subject under Section 16 of the Act remain available, subject to the contractual and legitimate interest constraints described above.</p>
+
 <h2>2. Legal Basis for Processing</h2>
 <p>We process your personal data based on the following legal grounds under the Data Privacy Act of 2012:</p>
 <ul>
-    <li><strong>Consent:</strong> For online features (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), we process your data only when you explicitly initiate these features. Each online feature is clearly marked, and your use constitutes your consent. For <strong>Facebook Connect</strong>, we obtain your explicit, informed, and freely given consent through a dedicated agreement popup where you must individually check and agree to both the Terms of Service and Privacy Policy before proceeding. You may view each document in full before agreeing. Your consent is versioned and recorded with a timestamp as an immutable audit trail.</li>
+    <li><strong>Consent:</strong> For online features (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), we process your data only when you explicitly initiate these features. Each online feature is clearly marked, and your use constitutes your consent. For <strong>phone verification</strong> (used to access Paluwagan and to transfer your account to a new device), we obtain your consent at the time you start the SMS OTP flow. For <strong>Paluwagan group participation</strong>, we obtain your explicit, informed consent through a per-group agreement that you sign before the group activates; each consent item — including the cross-group defaulter disclosure consent described in Section 1.5 — is recorded together with the agreement's cryptographic hash and a timestamp as an immutable audit trail.</li>
     <li><strong>Contract Performance:</strong> To provide the App's core services, manage your account, and process in-app purchases.</li>
     <li><strong>Legitimate Interest:</strong> To maintain the security and proper functioning of the App, and to improve our services.</li>
 </ul>
@@ -147,23 +157,23 @@
 <p>We use the following third-party services to operate the App:</p>
 <table>
     <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
-    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous and SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (if verified), encrypted backup files, AI feature data</td></tr>
+    <tr><td>SMS messaging provider (integrated with Supabase Auth)</td><td>Delivery of one-time passcodes via SMS for phone verification and device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Receipt images (processed in real-time, not stored)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, images (including Paluwagan payment screenshots), profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution and in-app purchases</td><td>As per their respective privacy policies</td></tr>
-    <tr><td>Meta Platforms (Facebook Connect)</td><td>Optional account linking for extended features</td><td>Facebook user ID, name, email, profile picture URL (used for account linking and extended features)</td></tr>
 </table>
 <p>Each third-party service operates under its own privacy policy. We encourage you to review them.</p>
 
 <h2>6. Data Security</h2>
 <p>We implement the following security measures to protect your data:</p>
 <ul>
-    <li>Sensitive data (credentials, PIN, profile) is encrypted using your device's secure storage (Keychain on iOS, Keystore on Android)</li>
+    <li>Sensitive data (auth tokens, profile) is stored inside your device's secure storage (Keychain on iOS, Keystore on Android). Your app lock PIN is stored only as a one-way SHA-256 hash — the PIN itself is never written to disk or sent to our servers.</li>
     <li>Screen capture prevention is enabled to protect your financial data</li>
     <li>All network communications use HTTPS encryption</li>
     <li>Server-side data is protected by Row Level Security (RLS) policies — only you can access your own data</li>
-    <li>Backup files are compressed (gzip) and stored securely with access-controlled signed URLs</li>
+    <li><strong>End-to-end encrypted backups:</strong> Backup files are compressed and then encrypted on your device using AES-256-GCM with a key derived from your passphrase (PBKDF2-HMAC-SHA256, 200,000 iterations) before they are uploaded. The passphrase and the derived key never leave your device, and we have no technical ability to decrypt your backup. <strong>If you lose your passphrase, your backup cannot be recovered</strong> — there is no recovery key and no server-side escrow. Encrypted backups are stored with access-controlled signed URLs and automatically deleted from our servers 30 days after upload.</li>
     <li>App lock with PIN and optional biometric authentication</li>
 </ul>
 
@@ -178,12 +188,11 @@
 <h2>8. Data Retention and Deletion</h2>
 <ul>
     <li><strong>Local data:</strong> Remains on your device until you delete the App or clear app data</li>
-    <li><strong>Backup files:</strong> Automatically deleted from our servers within 1 to 3 months</li>
+    <li><strong>Backup files:</strong> Automatically deleted from our servers 30 days after upload</li>
     <li><strong>Server-stored data:</strong> AI Coach reports and Daily Fortune results are retained until overwritten or until you request deletion</li>
-    <li><strong>Facebook data:</strong> If you linked your Facebook account, you may disconnect it at any time from the App's Settings screen. Upon disconnection, all Facebook-related data (Facebook user ID, name, email, profile picture URL) is <strong>immediately and permanently deleted</strong> from our authentication system. Your financial data and app records are not affected by Facebook disconnection.</li>
-    <li><strong>Facebook-initiated removal:</strong> If you remove Gumi Save from your Facebook account settings, we receive a deauthorization callback from Facebook and automatically delete all your Facebook identity data from our servers.</li>
+    <li><strong>Phone verification removal:</strong> You may remove your phone verification at any time from the App's Settings screen, after re-confirming the current phone number with a fresh SMS OTP. After removal, your phone number is cleared from our authentication system. The phone identity event audit (see Section 1.2) is retained for fraud prevention. While your phone verification is removed, you cannot use Paluwagan until you complete a new phone verification.</li>
     <li><strong>Selective deletion (local):</strong> From <em>Settings &gt; Safe &amp; Secure &gt; Clear Records by Month</em>, you may permanently delete transaction records for specific month ranges while keeping the rest of your data. From <em>My Utang List &gt; Clear history of completed</em>, you may clear the borrowed/lent amounts and hulugan/collected history of fully paid or fully collected utangs. These actions affect local data only and cannot be undone.</li>
-    <li><strong>Complete data wipe:</strong> You may perform a complete data wipe from the App's Settings screen (Reset App), which automatically disconnects Facebook (if linked), signs out your session, and erases all local data including financial records, settings, and scheduled notifications.</li>
+    <li><strong>Complete data wipe:</strong> You may perform a complete data wipe from the App's Settings screen (Reset App), which signs out your session and erases all local data including financial records, settings, and scheduled notifications.</li>
     <li><strong>Account deletion:</strong> You may request complete deletion of your account and all associated server-side data by submitting the <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Once we receive your request, we will permanently delete all of your data from our servers and notify you by email when the process is complete. We will process your request within 30 days.</li>
 </ul>
 
@@ -195,9 +204,8 @@
     <tr><td>Daily Swerte</td><td>Name (optional), birthday, gender, zodiac sign, birth hour (optional), region (optional)</td></tr>
     <tr><td>Receipt Scanning</td><td>Receipt photo (processed in real-time, not stored)</td></tr>
     <tr><td>Palad Guide</td><td>Palm photo (processed in real-time, not stored)</td></tr>
-    <tr><td>Cloud Backup</td><td>Compressed backup file containing all local app data</td></tr>
-    <tr><td>Facebook Connect</td><td>Facebook user ID, name, email, profile picture URL</td></tr>
-    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, document type (Terms of Service / Privacy Policy), agreed version, timestamp</td></tr>
+    <tr><td>Cloud Backup</td><td>End-to-end encrypted backup file (.bin) containing all local app data — encrypted on your device with a key derived from your passphrase before upload (we cannot decrypt it)</td></tr>
+    <tr><td>Phone Verification</td><td>Phone number (E.164) stored in Supabase Auth, SHA-256 phone hash with server-side pepper used inside Paluwagan groups, one-time passcode delivered via SMS</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements and anonymous user ID (via RevenueCat)</td></tr>
     <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, last 4 digits of previous phone, affected group IDs, device info, IP address — recorded only when you transfer your account to a new device or remove your phone verification</td></tr>
 </table>
@@ -235,14 +243,15 @@
 <p>In compliance with the Data Privacy Act of 2012 and NPC Circular 2016-01, we have designated a Data Protection Officer (DPO) to oversee our data protection practices. For any data privacy concerns, you may contact our DPO:</p>
 <div class="contact-box">
     <p><strong>Data Protection Officer</strong></p>
-    <p>KawKaw.dev</p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
 </div>
 
 <h2>14. Contact Us</h2>
 <div class="contact-box">
     <p>If you have questions, concerns, or wish to exercise your data privacy rights, please contact us:</p>
-    <p><strong>KawKaw.dev</strong></p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
     <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
     <br>
@@ -257,9 +266,9 @@
 <!-- ======================== TAGALOG ======================== -->
 <div id="lang-tl" class="lang-section">
 
-<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Abril 14, 2026</p>
+<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Mayo 10, 2026</p>
 
-<p>Maligayang pagdating sa <strong>Gumi Save</strong> ("ang App"), isang application para sa pamamahala ng personal na pananalapi na binuo at pinapatakbo ng <strong>KawKaw.dev</strong> ("kami," "namin," o "aming"). Kami ay nakatuon sa pagprotekta ng iyong privacy at personal na impormasyon alinsunod sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> ng Pilipinas at ang mga Implementing Rules and Regulations nito.</p>
+<p>Maligayang pagdating sa <strong>Gumi Save</strong> ("ang App"), isang application para sa pamamahala ng personal na pananalapi na binuo at pinapatakbo ng <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "namin," o "aming"). Kami ay nakatuon sa pagprotekta ng iyong privacy at personal na impormasyon alinsunod sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> ng Pilipinas at ang mga Implementing Rules and Regulations nito.</p>
 
 <p>Ipinapaliwanag ng Privacy Policy na ito kung anong impormasyon ang aming kinokolekta, kung paano namin ito ginagamit, at ang iyong mga karapatan tungkol sa iyong personal na datos.</p>
 
@@ -281,14 +290,13 @@
 <p>Nag-iimbak kami ng <strong>minimal na impormasyon</strong> sa aming mga server (hosted via Supabase):</p>
 <table>
     <tr><th>Datos</th><th>Layunin</th><th>Pagpapanatili</th></tr>
+    <tr><td>Anonymous user ID</td><td>Authentication at pagkilala ng account — bawat install ay nagsisimula bilang isang anonymous na account upang magamit mo ang App nang hindi naglalagay ng anumang personal na datos</td><td>Hanggang sa deletion ng account</td></tr>
+    <tr><td>Phone number at SHA-256 phone hash (kapag lang nag-verify ka ng iyong phone)</td><td>SMS one-time passcode (OTP) authentication, paglipat ng iyong account sa bagong device, at privacy-preserving lookup sa loob ng Paluwagan groups. Ang phone number ay naka-store sa aming authentication system (Supabase Auth). Ang hash ay gumagamit ng server-side pepper kaya hindi ma-reverse ang phone number mula sa hash lamang.</td><td>Hanggang alisin mo ang iyong phone verification o tanggalin ang iyong account</td></tr>
     <tr><td>Huling ulat ng AI Coach</td><td>Para ipakita ang iyong pinakabagong financial coaching result</td><td>Hanggang mapalitan ng bagong ulat o deletion ng account</td></tr>
     <tr><td>Huling resulta ng Daily Fortune</td><td>Para i-cache ang iyong pinakabagong daily fortune</td><td>Hanggang mapalitan o deletion ng account</td></tr>
-    <tr><td>Backup file (gzip)</td><td>Para payagan ang paglipat ng datos kapag nagpalit ng device</td><td>Awtomatikong dini-delete sa loob ng 1-3 buwan</td></tr>
-    <tr><td>User ID at email (kung nakarehistro)</td><td>Authentication at pagkilala ng account</td><td>Hanggang sa deletion ng account</td></tr>
-    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtatago ng Facebook user ID, pangalan, at email sa aming authentication system</td><td>Hanggang i-disconnect mo ang Facebook o i-delete ang iyong account</td></tr>
-    <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal na audit trail na nagre-record ng iyong pagsang-ayon sa Terms of Service at Privacy Policy — nag-iimbak ng bersyon ng dokumento at timestamp ng iyong pagsang-ayon</td><td>Permanenteng pinapanatili bilang legal na record. Hindi maaaring baguhin o tanggalin, alinsunod sa mga regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
-    <tr><td>Mga Paluwagan group record (kung ginagamit mo ang Paluwagan feature)</td><td>Para magpatakbo ng rotating savings group sa pagitan mo at ng ibang miyembro — nag-iimbak ng pangalan ng grupo, cycle, turn order, scrambled phone numbers (hashed, hindi kailanman plain text), payment records, mga screenshot na ina-upload ng miyembro bilang patunay ng bayad, connection info, device details, at ang pirmang ibinibigay mo sa pagpirma ng group agreement (nakasulat na pangalan o iginuhit na imahe) kasama ang cryptographic hash nito</td><td>Pinapanatili habang aktibo ang grupo at pagkatapos ng pagkakumpleto bilang legal/audit na record. Ang immutable audit-log entries at agreement signature ay hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
-    <tr><td>Phone identity event audits (kapag pinalitan mo ang phone o inalis ang phone verification)</td><td>Para iwasan ang fraud at lutasin ang mga dispute sa Paluwagan groups kapag pumalit ng SIM/device o nag-alis ng phone verification ang isang miyembro — nag-iimbak ng hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device details, at IP address. <strong>Hindi</strong> kami nag-iimbak ng buong plain-text phone number sa audit na ito.</td><td>Pinapanatili bilang immutable audit record hanggang 5 taon mula sa petsa ng kaganapan para sa fraud prevention. Hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa Philippine data privacy regulations. Tatanggalin kapag na-delete ang account.</td></tr>
+    <tr><td>Encrypted backup file (.bin)</td><td>Para payagan ang paglipat ng datos kapag nagpalit ng device. Ang file ay naka-encrypt sa iyong device gamit ang key na nakuha mula sa iyong passphrase bago i-upload — hindi namin ito ma-decrypt. Tingnan ang Seksyon 6 para sa detalye ng encryption.</td><td>Awtomatikong dini-delete 30 araw matapos ang upload</td></tr>
+    <tr><td>Mga Paluwagan group record (kung ginagamit mo ang Paluwagan feature)</td><td>Para magpatakbo ng rotating savings group sa pagitan mo at ng ibang miyembro — nag-iimbak ng pangalan ng grupo, cycle, turn order, scrambled phone numbers (hashed, hindi kailanman plain text), payment records, mga screenshot na ina-upload ng miyembro bilang patunay ng bayad, connection info, device details, ang pirmang ibinibigay mo sa pagpirma ng group agreement (nakasulat na pangalan o iginuhit na imahe) kasama ang cryptographic hash nito, ang iyong indibidwal na pagsang-ayon sa bawat consent item ng kasunduan (naka-record bilang boolean flags at nakatali sa cryptographic record ng kasunduan para sa mga grupong na-finalize sa o pagkatapos ng May 1, 2026), at ang wika (English/Tagalog/Cebuano) na ginamit mo sa pagtingin ng kasunduan sa oras ng pagpirma</td><td>Pinapanatili habang aktibo ang grupo at sa loob ng hindi bababa sa 10 taon mula sa pagsasara ng grupo bilang legal/audit na record. Ang panahong ito ay naaayon sa sampung (10) taong prescriptive period para sa aksyon batay sa nakasulat na kontrata sa ilalim ng Article 1144 ng Civil Code ng Pilipinas (tinutukoy sa Clause 13 ng group agreement). Ang immutable audit-log entries at agreement signature ay hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa regulasyon ng Philippine data privacy. Tatanggalin lamang kapag na-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kapag pinalitan mo ang phone o inalis ang phone verification)</td><td>Para iwasan ang fraud at lutasin ang mga dispute sa Paluwagan groups kapag pumalit ng SIM/device o nag-alis ng phone verification ang isang miyembro — nag-iimbak ng hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device details, at IP address. <strong>Hindi</strong> kami nag-iimbak ng buong plain-text phone number sa audit na ito.</td><td>Pinapanatili bilang immutable audit record hanggang 10 taon mula sa petsa ng kaganapan para sa fraud prevention at paglutas ng dispute, naaayon sa sampung (10) taong prescriptive period para sa aksyon batay sa nakasulat na kontrata sa ilalim ng Article 1144 ng Civil Code ng Pilipinas. Hindi maaaring baguhin o tanggalin isa-isa, alinsunod sa Philippine data privacy regulations. Tatanggalin kapag na-delete ang account.</td></tr>
 </table>
 <p><strong>Mahalaga:</strong> Bukod sa mga nakalista sa itaas, walang datos ng user ang naka-store sa aming mga server. Lahat ng iyong financial data ay nananatili sa iyong device.</p>
 
@@ -300,7 +308,7 @@
     <li><strong>Palm Reading (Palad Guide):</strong> Ang iyong palm photo ay ipinapadala sa Google Gemini AI para sa entertainment-only na palm reading. Ang mga imahe ay pinoproseso sa real-time at hindi sino-store.</li>
     <li><strong>Paluwagan Payment Receipts:</strong> Kapag tinap mo ang "Analyze screenshot" sa Paluwagan payment screen, ang screenshot ng resibong na-upload mo ay ipapadala sa Google Gemini AI para magsuggest ng amount, reference number, at platform (hal., GCash/Maya). Ang imahe ay pinoproseso sa real-time sa server ng Google para lamang sa layuning ito at hindi sino-store ng Google. Ang orihinal na screenshot ay nananatili sa aming server bilang bahagi ng audit record ng grupo (tingnan ang Seksyon 1.2). Hihingiin ang iyong hiwalay na pahintulot sa unang pagkakataong gagamit ka ng anumang AI feature, at maaari kang tumanggi; ang pagtanggi ay disable lang ang auto-suggest at maaari ka pa ring magbigay ng halaga nang manu-mano.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Ang iyong profile information (birthday, kasarian, zodiac sign, oras ng kapanganakan, rehiyon) ay ipinapadala para i-generate ang iyong daily fortune.</li>
-    <li><strong>Facebook Connect:</strong> Kung pipiliin mong i-link ang iyong Facebook account, humihiling kami ng access sa iyong <strong>public profile</strong> at <strong>email address</strong> (sa pamamagitan ng <code>public_profile</code> at <code>email</code> OAuth scopes). Natatanggap namin ang iyong Facebook user ID, pangalan, email, at URL ng profile picture. Ang datos na ito ay ginagamit para sa account linking at mga paparating na extended features (tulad ng pagtingin sa iyong mga Facebook friends na gumagamit din ng App, at pag-verify ng iyong identity para sa mga in-app events at promotions), at naka-store sa aming authentication system (Supabase Auth). Ang pag-link ng Facebook ay <strong>hindi</strong> kinakailangan para magamit ang App at <strong>hindi</strong> ito gumagana bilang paraan ng pag-login sa app. <strong>Hindi</strong> kami magpo-post sa iyong Facebook o mag-a-access ng iyong mga post, litrato, o anumang ibang datos sa Facebook bukod sa mga basic profile information na nakalista sa itaas.</li>
+    <li><strong>Phone Verification (SMS OTP):</strong> Ang phone verification ay kinakailangan para magamit ang Paluwagan feature, at ginagamit din para ilipat ang iyong account sa bagong device. Kapag sinimulan mo ang verification flow, ang iyong phone number ay ipinapadala sa Supabase Auth, na naghahatid ng one-time passcode sa iyong device sa pamamagitan ng SMS messaging provider na integrated sa Supabase Auth. Pagkatapos ng matagumpay na verification, ang iyong phone number ay naka-store sa aming authentication system, at ang SHA-256 hash ng iyong phone number (kasama ang server-side pepper) ay ginagamit sa loob ng Paluwagan groups upang makumpirma ng ibang miyembro ang iyong pakikilahok nang hindi nakikita ang iyong raw na numero.</li>
 </ul>
 
 <h3>1.4 Impormasyong HINDI Namin Kinokolekta</h3>
@@ -312,10 +320,21 @@
     <li><strong>Hindi</strong> namin tina-track ang iyong lokasyon</li>
 </ul>
 
+<h3>1.5 Cross-Group Defaulter History (Paluwagan lamang)</h3>
+<p>Kung sumasali ka sa Paluwagan feature at ikaw ay nakumpirmang defaulter sa pamamagitan ng botohan ng grupo, maaaring ipakita ng App sa leader ng ibang Paluwagan group na nagsusubok kang imbitahan ang isang summary na binubuo ng:</p>
+<ul>
+    <li>bilang ng iyong kumpirmadong default records sa kabuuang grupo,</li>
+    <li>bilang ng nabayaran pagkatapos ng default (mga record na may marka na <em>defaulter_paid</em>), at</li>
+    <li>ang pinakahuling petsa ng kumpirmasyon.</li>
+</ul>
+<p>Ang summary ay nakabase sa scrambled (SHA-256-hashed) na phone number mo at hindi kailanman naglalaman ng pangalan ng grupo, pangalan ng miyembro, halaga ng pera, o anumang ibang nakakapagpakilalang detalye. Ang disclosure na ito ay panloob sa App sa pagitan ng mga user na gumaganap bilang group leader at <strong>hindi</strong> ibinabahagi sa anumang third party.</p>
+<p>Ang iyong <strong>hayag at may-kaalamang pahintulot</strong> para sa cross-group disclosure na ito ay kinukuha sa oras ng pagpirma ng kasunduan ng bawat Paluwagan group (consent item 7). Ang disclosure consent ay <strong>precondition</strong> sa pagsali sa anumang Paluwagan group: hindi makakasali sa Paluwagan ang miyembrong hindi nagbibigay ng pahintulot na ito. Sa sandaling naibigay, mananatili itong epektibo sa buong tagal ng bawat Paluwagan group na sasalihan mo. Maaari mo lamang bawiin ang pahintulot kapag wala ka nang aktibong Paluwagan membership, at mananatiling ibinabahagi ang anumang defaulter records na kumpirmado bago ang pagbawi alinsunod sa pahintulot na ibinigay sa oras ng kumpirmasyon. Ang pagbawi ay humihinto sa hinaharap na cross-group disclosure pero hindi nag-i-invalidate sa mga pagprosesong nangyari na.</p>
+<p>Ang hindi pagbibigay ng pahintulot ay hindi nag-eexempt sa iyo mula sa defaulter vote sa loob ng isang ekzistente nga grupo; pinipigilan lamang nito ang cross-group disclosure. Ang mga defaulter records ay pinoproseso namin bilang personal information controller sa ilalim ng <strong>Section 12(a) at (f) ng Data Privacy Act of 2012</strong> (pahintulot, at lehitimong interes ng ibang group leaders sa pagprotekta laban sa paulit-ulit na default), at ang iyong mga karapatan bilang data subject sa ilalim ng Section 16 ng Act ay nananatili, sumasailalim sa kontraktwal at lehitimong interes na mga limitasyong inilarawan sa itaas.</p>
+
 <h2>2. Legal na Batayan para sa Pagproseso</h2>
 <p>Pinoproseso namin ang iyong personal na datos batay sa mga sumusunod na legal na batayan sa ilalim ng Data Privacy Act of 2012:</p>
 <ul>
-    <li><strong>Pahintulot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), pinoproseso namin ang iyong datos kapag ikaw mismo ang nag-initiate ng mga feature na ito. Bawat online feature ay malinaw na may marka, at ang iyong paggamit ay bumubuo ng iyong pahintulot. Para sa <strong>Facebook Connect</strong>, kinukuha namin ang iyong hayag, may kaalaman, at malayang ibinigay na pahintulot sa pamamagitan ng isang dedikadong agreement popup kung saan kailangan mong isa-isang i-check at sang-ayunan ang parehong Terms of Service at Privacy Policy bago magpatuloy. Maaari mong basahin ang buong dokumento bago sumang-ayon. Ang iyong pahintulot ay may bersyon at nire-record kasama ang timestamp bilang hindi mababagong audit trail.</li>
+    <li><strong>Pahintulot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), pinoproseso namin ang iyong datos kapag ikaw mismo ang nag-initiate ng mga feature na ito. Bawat online feature ay malinaw na may marka, at ang iyong paggamit ay bumubuo ng iyong pahintulot. Para sa <strong>phone verification</strong> (ginagamit para makapasok sa Paluwagan at para ilipat ang iyong account sa bagong device), kinukuha namin ang iyong pahintulot sa oras na sinimulan mo ang SMS OTP flow. Para sa <strong>pakikilahok sa Paluwagan group</strong>, kinukuha namin ang iyong hayag at may-kaalamang pahintulot sa pamamagitan ng per-group agreement na pinipirmahan mo bago mag-activate ang grupo; bawat consent item — kabilang ang cross-group defaulter disclosure consent na inilalarawan sa Seksyon 1.5 — ay nire-record kasama ng cryptographic hash ng kasunduan at timestamp bilang hindi mababagong audit trail.</li>
     <li><strong>Pagtupad ng Kontrata:</strong> Para ibigay ang mga pangunahing serbisyo ng App, pamahalaan ang iyong account, at iproseso ang in-app purchases.</li>
     <li><strong>Lehitimong Interes:</strong> Para panatilihin ang seguridad at maayos na pagfunksyon ng App, at para mapabuti ang aming mga serbisyo.</li>
 </ul>
@@ -347,22 +366,22 @@
 <p>Gumagamit kami ng mga sumusunod na third-party service para sa operasyon ng App:</p>
 <table>
     <tr><th>Serbisyo</th><th>Layunin</th><th>Datos na Ibinabahagi</th></tr>
-    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous at SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data</td></tr>
+    <tr><td>SMS messaging provider (integrated sa Supabase Auth)</td><td>Paghahatid ng one-time passcodes sa pamamagitan ng SMS para sa phone verification at device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe ng resibo (pinoproseso sa real-time, hindi sino-store)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution at in-app purchases</td><td>Ayon sa kani-kanilang privacy policies</td></tr>
-    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal na account linking para sa mga extended features</td><td>Facebook user ID, pangalan, email, URL ng profile picture (ginagamit para sa account linking at extended features)</td></tr>
 </table>
 
 <h2>6. Seguridad ng Datos</h2>
 <p>Nagpapatupad kami ng mga sumusunod na hakbang sa seguridad para protektahan ang iyong datos:</p>
 <ul>
-    <li>Ang sensitibong datos (credentials, PIN, profile) ay naka-encrypt gamit ang secure storage ng iyong device (Keychain sa iOS, Keystore sa Android)</li>
+    <li>Ang sensitibong datos (auth tokens, profile) ay naka-store sa loob ng secure storage ng iyong device (Keychain sa iOS, Keystore sa Android). Ang iyong app lock PIN ay naka-store lamang bilang one-way SHA-256 hash — ang PIN mismo ay hindi kailanman naitatala sa disk o naipapadala sa aming mga server.</li>
     <li>Ang screen capture prevention ay naka-enable para protektahan ang iyong financial data</li>
     <li>Lahat ng network communication ay gumagamit ng HTTPS encryption</li>
     <li>Ang server-side data ay protektado ng Row Level Security (RLS) policies — ikaw lang ang makaka-access ng iyong sariling datos</li>
-    <li>Ang backup files ay naka-compress (gzip) at secure na naka-store na may access-controlled signed URLs</li>
+    <li><strong>End-to-end encrypted backups:</strong> Ang backup files ay nakacompress at pagkatapos ay naka-encrypt sa iyong device gamit ang AES-256-GCM kasama ang key na nakuha mula sa iyong passphrase (PBKDF2-HMAC-SHA256, 200,000 iterations) bago i-upload. Ang passphrase at ang nakuhang key ay hindi kailanman umaalis sa iyong device, at wala kaming technical na kakayahan na ma-decrypt ang iyong backup. <strong>Kung makalimutan mo ang iyong passphrase, hindi na ma-recover ang iyong backup</strong> — walang recovery key at walang server-side escrow. Ang encrypted backups ay naka-store na may access-controlled signed URLs at awtomatikong dini-delete mula sa aming mga server 30 araw matapos ang upload.</li>
     <li>App lock na may PIN at opsyonal na biometric authentication</li>
 </ul>
 
@@ -377,12 +396,11 @@
 <h2>8. Pagpapanatili at Pagtanggal ng Datos</h2>
 <ul>
     <li><strong>Lokal na datos:</strong> Nananatili sa iyong device hanggang tanggalin mo ang App o i-clear ang app data</li>
-    <li><strong>Backup files:</strong> Awtomatikong dini-delete mula sa aming mga server sa loob ng 1 hanggang 3 buwan</li>
+    <li><strong>Backup files:</strong> Awtomatikong dini-delete mula sa aming mga server 30 araw matapos ang upload</li>
     <li><strong>Server-stored data:</strong> Ang AI Coach reports at Daily Fortune results ay pinapanatili hanggang mapalitan o hanggang humiling ka ng deletion</li>
-    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang iyong Facebook account, maaari mo itong i-disconnect anumang oras mula sa Settings screen ng App. Kapag na-disconnect, lahat ng datos na may kaugnayan sa Facebook (Facebook user ID, pangalan, email, URL ng profile picture) ay <strong>agad at permanenteng tatanggalin</strong> mula sa aming authentication system. Ang iyong financial data at mga talaan sa app ay hindi maaapektuhan ng Facebook disconnection.</li>
-    <li><strong>Pagtanggal na sinimulan ng Facebook:</strong> Kung tatanggalin mo ang Gumi Save mula sa iyong Facebook account settings, makakatanggap kami ng deauthorization callback mula sa Facebook at awtomatikong tatanggalin ang lahat ng iyong Facebook identity data mula sa aming mga server.</li>
+    <li><strong>Pag-alis ng phone verification:</strong> Maaari mong alisin ang iyong phone verification anumang oras mula sa Settings screen ng App, pagkatapos kumpirmahin muli ang kasalukuyang phone number gamit ang bagong SMS OTP. Pagkatapos alisin, ang iyong phone number ay tatanggalin mula sa aming authentication system. Ang phone identity event audit (tingnan ang Seksyon 1.2) ay pinapanatili para sa fraud prevention. Habang inalis ang iyong phone verification, hindi mo magagamit ang Paluwagan hangga't hindi ka kumpleto sa bagong phone verification.</li>
     <li><strong>Piling pagtanggal (lokal):</strong> Mula sa <em>Settings &gt; Safe &amp; Secure &gt; Burahin kada buwan</em>, maaari mong permanenteng burahin ang mga talaan ng transaksyon para sa mga piling buwan habang pinapanatili ang iba pang datos. Mula sa <em>My Utang List &gt; Linisin ang history ng tapos na</em>, maaari mong alisin ang borrowed/lent amounts at hulugan/collected history ng mga fully paid o fully collected na utang. Apektado lamang ang lokal na datos at hindi na mababawi.</li>
-    <li><strong>Kumpletong pagtanggal ng datos:</strong> Maaari kang magsagawa ng kumpletong data wipe mula sa Settings screen ng App (Reset App), na awtomatikong nagdi-disconnect ng Facebook (kung naka-link), nagsa-sign out ng iyong session, at nag-aalis ng lahat ng lokal na datos kabilang ang mga financial record, settings, at mga naka-schedule na notification.</li>
+    <li><strong>Kumpletong pagtanggal ng datos:</strong> Maaari kang magsagawa ng kumpletong data wipe mula sa Settings screen ng App (Reset App), na nagsa-sign out ng iyong session at nag-aalis ng lahat ng lokal na datos kabilang ang mga financial record, settings, at mga naka-schedule na notification.</li>
     <li><strong>Pagtatanggal ng account:</strong> Maaari kang humiling ng kumpletong pagtanggal ng iyong account at lahat ng kaugnay na server-side data sa pamamagitan ng pagsagot sa <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Kapag natanggap namin ang iyong kahilingan, permanente naming tatanggalin ang lahat ng iyong datos mula sa aming mga server at aabisuhan ka sa pamamagitan ng email kapag kumpleto na ang proseso. Ipoproseso namin ang iyong kahilingan sa loob ng 30 araw.</li>
 </ul>
 
@@ -394,9 +412,8 @@
     <tr><td>Daily Swerte</td><td>Pangalan (opsyonal), birthday, kasarian, zodiac sign, oras ng kapanganakan (opsyonal), rehiyon (opsyonal)</td></tr>
     <tr><td>Receipt Scanning</td><td>Larawan ng resibo (pinoproseso sa real-time, hindi sino-store)</td></tr>
     <tr><td>Palad Guide</td><td>Larawan ng palad (pinoproseso sa real-time, hindi sino-store)</td></tr>
-    <tr><td>Cloud Backup</td><td>Naka-compress na backup file na naglalaman ng lahat ng lokal na datos sa app</td></tr>
-    <tr><td>Facebook Connect</td><td>Facebook user ID, pangalan, email, URL ng profile picture</td></tr>
-    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, uri ng dokumento (Terms of Service / Privacy Policy), pinag-sang-ayunang bersyon, timestamp</td></tr>
+    <tr><td>Cloud Backup</td><td>End-to-end encrypted backup file (.bin) na naglalaman ng lahat ng lokal na datos sa app — naka-encrypt sa iyong device gamit ang key na nakuha mula sa iyong passphrase bago i-upload (hindi namin ito ma-decrypt)</td></tr>
+    <tr><td>Phone Verification</td><td>Phone number (E.164) na naka-store sa Supabase Auth, SHA-256 phone hash na may server-side pepper na ginagamit sa loob ng Paluwagan groups, one-time passcode na inihatid sa pamamagitan ng SMS</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements at anonymous user ID (sa pamamagitan ng RevenueCat)</td></tr>
     <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, huling 4 na digit ng nakaraang phone, mga apektadong group ID, device info, IP address — naitatala lamang kapag inilipat mo ang account sa bagong device o inalis mo ang phone verification</td></tr>
 </table>
@@ -434,14 +451,15 @@
 <p>Alinsunod sa Data Privacy Act of 2012 at NPC Circular 2016-01, nagtalaga kami ng Data Protection Officer (DPO) upang pangasiwaan ang aming mga kasanayan sa proteksyon ng datos. Para sa anumang alalahanin sa data privacy, maaari kang makipag-ugnayan sa aming DPO:</p>
 <div class="contact-box">
     <p><strong>Data Protection Officer</strong></p>
-    <p>KawKaw.dev</p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
 </div>
 
 <h2>14. Makipag-ugnayan sa Amin</h2>
 <div class="contact-box">
     <p>Kung mayroon kang mga katanungan, alalahanin, o nais gamitin ang iyong mga karapatan sa data privacy, mangyaring makipag-ugnayan sa amin:</p>
-    <p><strong>KawKaw.dev</strong></p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
     <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
     <br>
@@ -456,9 +474,9 @@
 <!-- ======================== CEBUANO ======================== -->
 <div id="lang-ceb" class="lang-section">
 
-<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Abril 14, 2026</p>
+<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Mayo 10, 2026</p>
 
-<p>Maayong pag-abot sa <strong>Gumi Save</strong> ("ang App"), usa ka application para sa pagdumala sa personal nga pananalapi nga gihimo ug gipadagan sa <strong>KawKaw.dev</strong> ("kami," "among," o "namo"). Kami nakatutok sa pagpanalipod sa imong privacy ug personal nga impormasyon sumala sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> sa Pilipinas ug ang mga Implementing Rules and Regulations niini.</p>
+<p>Maayong pag-abot sa <strong>Gumi Save</strong> ("ang App"), usa ka application para sa pagdumala sa personal nga pananalapi nga gihimo ug gipadagan sa <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "among," o "namo"). Kami nakatutok sa pagpanalipod sa imong privacy ug personal nga impormasyon sumala sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> sa Pilipinas ug ang mga Implementing Rules and Regulations niini.</p>
 
 <p>Gipasabot niining Privacy Policy kung unsang impormasyon ang among gikolekta, kung giunsa namo kini gamiton, ug ang imong mga katungod bahin sa imong personal nga datos.</p>
 
@@ -480,14 +498,13 @@
 <p>Nag-tipig kami og <strong>minimal nga impormasyon</strong> sa among mga server (hosted pinaagi sa Supabase):</p>
 <table>
     <tr><th>Datos</th><th>Katuyoan</th><th>Pagpatunhay</th></tr>
+    <tr><td>Anonymous user ID</td><td>Authentication ug pag-ila sa account — matag install nagsugod isip anonymous nga account aron magamit nimo ang App nga walay isulod nga personal nga datos</td><td>Hangtud sa deletion sa account</td></tr>
+    <tr><td>Phone number ug SHA-256 phone hash (kung mag-verify ka sa imong phone)</td><td>SMS one-time passcode (OTP) authentication, pagbalhin sa imong account ngadto sa bag-ong device, ug privacy-preserving nga pag-pangita sa sulod sa Paluwagan groups. Ang phone number naka-store sa among authentication system (Supabase Auth). Ang hash naggamit og server-side pepper aron dili ma-reverse ang phone number gikan sa hash lang.</td><td>Hangtud tangtangon nimo ang imong phone verification o i-delete ang imong account</td></tr>
     <tr><td>Katapusang ulat sa AI Coach</td><td>Para ipakita ang imong pinakabag-o nga financial coaching result</td><td>Hangtud mapulihan og bag-ong ulat o deletion sa account</td></tr>
     <tr><td>Katapusang resulta sa Daily Fortune</td><td>Para i-cache ang imong pinakabag-o nga daily fortune</td><td>Hangtud mapulihan o deletion sa account</td></tr>
-    <tr><td>Backup file (gzip)</td><td>Para tugotan ang pagbalhin sa datos kung mag-ilis og device</td><td>Awtomatiko nga gina-delete sulod sa 1-3 ka bulan</td></tr>
-    <tr><td>User ID ug email (kung nakarehistro)</td><td>Authentication ug pag-ila sa account</td><td>Hangtud sa deletion sa account</td></tr>
-    <tr><td>Facebook identity (kung naka-link)</td><td>Account linking para sa mga extended features — nagtipig sa Facebook user ID, ngalan, ug email sa among authentication system</td><td>Hangtud i-disconnect nimo ang Facebook o i-delete ang imong account</td></tr>
-    <tr><td>Mga consent record (kung naka-link ang Facebook)</td><td>Legal nga audit trail nga nag-record sa imong pag-uyon sa Terms of Service ug Privacy Policy — nagtipig sa bersyon sa dokumento ug timestamp sa imong pag-uyon</td><td>Permanente nga gipatunhay isip legal nga record. Dili mahimong usbon o wagtangon, sumala sa mga regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
-    <tr><td>Mga Paluwagan group record (kung gigamit nimo ang Paluwagan feature)</td><td>Aron pag-operate sa rotating savings groups tali nimo ug sa ubang miyembro — nagtipig sa ngalan sa grupo, cycle, turn order, scrambled phone numbers (hashed, dili gayud plain text), payment records, mga screenshot nga gi-upload sa miyembro isip pruweba sa bayad, connection info, device details, ug ang pirma nga imong gihatag sa pagpirma sa group agreement (gisulat nga ngalan o giguhit nga hulagway) uban sa cryptographic hash niini</td><td>Gipatunhay samtang aktibo ang grupo ug human mahuman isip legal/audit nga record. Ang immutable audit-log entries ug agreement signature dili mahimong usbon o wagtangon isa-isa, sumala sa regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
-    <tr><td>Phone identity event audits (kung mag-ilis ka og phone o mag-tangtang sa phone verification)</td><td>Aron malikayan ang fraud ug masulbad ang mga dispute sa Paluwagan groups kung ang miyembro mag-ilis og SIM/device o mag-tangtang sa phone verification — nagtipig sa hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device details, ug IP address. <strong>Wala</strong> kami nagtipig sa kompletong plain-text phone number niini nga audit.</td><td>Gipatunhay isip immutable audit record hangtud 5 ka tuig gikan sa petsa sa kaganapan para sa fraud prevention. Dili mahimong usbon o wagtangon isa-isa, sumala sa Philippine data privacy regulations. Wagtangon kung ma-delete ang account.</td></tr>
+    <tr><td>Encrypted backup file (.bin)</td><td>Para tugotan ang pagbalhin sa datos kung mag-ilis og device. Ang file gi-encrypt sa imong device gamit ang key nga nakuha gikan sa imong passphrase sa wala pa i-upload — dili namo kini ma-decrypt. Tan-awa ang Seksyon 6 para sa detalye sa encryption.</td><td>Awtomatiko nga gina-delete 30 ka adlaw human sa upload</td></tr>
+    <tr><td>Mga Paluwagan group record (kung gigamit nimo ang Paluwagan feature)</td><td>Aron pag-operate sa rotating savings groups tali nimo ug sa ubang miyembro — nagtipig sa ngalan sa grupo, cycle, turn order, scrambled phone numbers (hashed, dili gayud plain text), payment records, mga screenshot nga gi-upload sa miyembro isip pruweba sa bayad, connection info, device details, ang pirma nga imong gihatag sa pagpirma sa group agreement (gisulat nga ngalan o giguhit nga hulagway) uban sa cryptographic hash niini, ang imong indibidwal nga mga pag-uyon sa matag consent item sa kasabutan (gi-record isip boolean flags ug gihigot sa cryptographic record sa kasabutan para sa mga grupo nga gi-finalize sa o pagkahuman sa May 1, 2026), ug ang pinulongan (English/Tagalog/Cebuano) nga imong gigamit sa pagtan-aw sa kasabutan sa panahon sa pagpirma</td><td>Gipatunhay samtang aktibo ang grupo ug sulod sa labing menos 10 ka tuig human masirad-an ang grupo isip legal/audit nga record. Kining panahona naa sa linya sa napulo (10) ka tuig nga prescriptive period alang sa aksyon base sa nakasulat nga kontrata ubos sa Article 1144 sa Civil Code sa Pilipinas (gihisgutan sa Clause 13 sa group agreement). Ang immutable audit-log entries ug agreement signature dili mahimong usbon o wagtangon isa-isa, sumala sa regulasyon sa Philippine data privacy. Wagtangon lamang kung ma-delete ang account.</td></tr>
+    <tr><td>Phone identity event audits (kung mag-ilis ka og phone o mag-tangtang sa phone verification)</td><td>Aron malikayan ang fraud ug masulbad ang mga dispute sa Paluwagan groups kung ang miyembro mag-ilis og SIM/device o mag-tangtang sa phone verification — nagtipig sa hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device details, ug IP address. <strong>Wala</strong> kami nagtipig sa kompletong plain-text phone number niini nga audit.</td><td>Gipatunhay isip immutable audit record hangtud 10 ka tuig gikan sa petsa sa kaganapan para sa fraud prevention ug paglutas sa dispute, nahiusa sa napulo (10) ka tuig nga prescriptive period alang sa aksyon base sa nakasulat nga kontrata ubos sa Article 1144 sa Civil Code sa Pilipinas. Dili mahimong usbon o wagtangon isa-isa, sumala sa Philippine data privacy regulations. Wagtangon kung ma-delete ang account.</td></tr>
 </table>
 <p><strong>Importante:</strong> Gawas sa mga gilista sa ibabaw, walay datos sa user ang naka-store sa among mga server. Tanan nimong financial data nagpabilin sa imong device.</p>
 
@@ -499,7 +516,7 @@
     <li><strong>Palm Reading (Palad Guide):</strong> Ang imong palm photo ipadala sa Google Gemini AI para sa entertainment-only nga palm reading. Ang mga imahe giproseso sa real-time ug dili gisave.</li>
     <li><strong>Paluwagan Payment Receipts:</strong> Kung imong i-tap ang "Analyze screenshot" sa Paluwagan payment screen, ang screenshot sa resibo nga imong gi-upload ipadala sa Google Gemini AI aron mosugyot sa amount, reference number, ug platform (e.g., GCash/Maya). Ang hulagway giproseso sa real-time sa server sa Google alang lamang sa katuyoan nga kini ug dili gi-save sa Google. Ang orihinal nga screenshot magpabilin sa among server isip bahin sa audit record sa grupo (tan-awa ang Seksyon 1.2). Pangayoon ang imong bulag nga pagtugot sa unang higayon nga mogamit ka og bisan unsang AI feature, ug pwede ka modumili; ang pagdumili maka-disable lang sa auto-suggest ug pwede ka pa nga manuhid sa mga kantidad sa imong kaugalingon.</li>
     <li><strong>Daily Fortune (Daily Swerte):</strong> Ang imong profile information (birthday, kasarian, zodiac sign, oras sa pagkatawo, rehiyon) ipadala para ma-generate ang imong daily fortune.</li>
-    <li><strong>Facebook Connect:</strong> Kung mopili ka nga i-link ang imong Facebook account, mangayo kami og access sa imong <strong>public profile</strong> ug <strong>email address</strong> (pinaagi sa <code>public_profile</code> ug <code>email</code> OAuth scopes). Makadawat kami sa imong Facebook user ID, ngalan, email, ug URL sa profile picture. Kining datos gigamit para sa account linking ug mga umaabot nga extended features (sama sa pagtan-aw sa imong mga Facebook friends nga naggamit usab sa App, ug pag-verify sa imong identity para sa mga in-app events ug promotions), ug naka-store sa among authentication system (Supabase Auth). Ang pag-link sa Facebook <strong>dili</strong> gikinahanglan para magamit ang App ug <strong>dili</strong> kini mogana isip paagi sa pag-login sa app. <strong>Dili</strong> kami mag-post sa imong Facebook o mag-access sa imong mga post, litrato, o bisan unsang ubang datos sa Facebook gawas sa mga basic profile information nga gilista sa ibabaw.</li>
+    <li><strong>Phone Verification (SMS OTP):</strong> Ang phone verification gikinahanglan para magamit ang Paluwagan feature, ug gigamit usab para ibalhin ang imong account ngadto sa bag-ong device. Kung mosugod ka sa verification flow, ang imong phone number ipadala sa Supabase Auth, nga maghatud og one-time passcode sa imong device pinaagi sa SMS messaging provider nga integrated sa Supabase Auth. Pagkahuman sa malampuson nga verification, ang imong phone number naka-store sa among authentication system, ug ang SHA-256 hash sa imong phone number (uban sa server-side pepper) gigamit sa sulod sa Paluwagan groups aron makumpirma sa ubang miyembro ang imong pag-apil nga walay nakita ang imong raw nga numero.</li>
 </ul>
 
 <h3>1.4 Impormasyon nga DILI Namo Gikolekta</h3>
@@ -511,10 +528,21 @@
     <li><strong>Dili</strong> namo gi-track ang imong lokasyon</li>
 </ul>
 
+<h3>1.5 Cross-Group Defaulter History (Paluwagan ra)</h3>
+<p>Kung mosalmot ka sa Paluwagan feature ug ikaw gikumpirmang defaulter pinaagi sa botohan sa imong grupo, mahimong ipakita sa App sa leader sa laing Paluwagan group nga mosulay og imbitar kanimo ang summary nga naglangkob sa:</p>
+<ul>
+    <li>gidaghanon sa imong kumpirmadong default records sa tibuok grupo,</li>
+    <li>gidaghanon sa nabayaran human sa default (mga record nga may marka nga <em>defaulter_paid</em>), ug</li>
+    <li>ang pinakabag-o nga petsa sa kumpirmasyon.</li>
+</ul>
+<p>Ang summary nakabase sa scrambled (SHA-256-hashed) nga phone number nimo ug walay sulod nga ngalan sa grupo, ngalan sa miyembro, kantidad sa kwarta, o bisan unsang ubang nakapakilala nga detalye. Kining disclosure sulod sa App taliwala sa mga user nga naggampanay isip group leader ug <strong>dili</strong> ipaambit sa bisan unsang third party.</p>
+<p>Ang imong <strong>hayag ug may-kahibalo nga pagtugot</strong> alang niini nga cross-group disclosure gikuha sa panahon sa pag-pirma sa kasabutan sa matag Paluwagan group (consent item 7). Ang disclosure consent <strong>precondition</strong> sa pag-apil sa bisan unsang Paluwagan group: dili makaapil sa Paluwagan ang miyembro nga walay gihatag nga pagtugot. Sa diha nga gihatag na, magpabilin kining epektibo sa tibuok panahon sa matag Paluwagan group nga sudlon nimo. Mahimo ra nimo bawion ang pagtugot kung wala kay aktibong Paluwagan membership, ug magpabilin nga ipaambit ang bisan unsang defaulter records nga gikumpirmar sa wala pa ang pagbawi sumala sa pagtugot nga gihatag sa panahon sa kumpirmasyon. Ang pagbawi mohunong sa umaabot nga cross-group disclosure apan dili magpawalay-bili sa pagprosesong nahitabo na.</p>
+<p>Ang dili paghatag og pagtugot wala mag-exempt kanimo gikan sa defaulter vote sulod sa usa ka anaa nga grupo; gipugngan ra niini ang cross-group disclosure. Ang mga defaulter records gi-proseso namo isip personal information controller ubos sa <strong>Section 12(a) ug (f) sa Data Privacy Act of 2012</strong> (pagtugot, ug ang lehitimong interes sa ubang group leaders sa pagpanalipod batok sa balik-balik nga default), ug ang imong mga katungod isip data subject ubos sa Section 16 sa Act magpabilin nga magamit, sakop sa kontraktuwal ug lehitimong interes nga mga pagpugong nga gihulagway sa ibabaw.</p>
+
 <h2>2. Legal nga Basihan para sa Pagproseso</h2>
 <p>Giproseso namo ang imong personal nga datos base sa mosunod nga legal nga basihan ubos sa Data Privacy Act of 2012:</p>
 <ul>
-    <li><strong>Pagtugot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte), giproseso namo ang imong datos kung ikaw mismo ang mag-initiate niining mga feature. Matag online feature tin-aw nga may marka, ug ang imong paggamit naglangkob sa imong pagtugot. Para sa <strong>Facebook Connect</strong>, gikuha namo ang imong hayag, may kahibalo, ug gawasnon nga gihatag nga pagtugot pinaagi sa usa ka dedikado nga agreement popup diin kinahanglan nimong usa-usahon nga i-check ug uyonan ang parehong Terms of Service ug Privacy Policy sa dili pa mopadayon. Mahimo nimong basahon ang tibuok dokumento sa dili pa mouyon. Ang imong pagtugot may bersyon ug gi-record uban ang timestamp isip dili mausab nga audit trail.</li>
+    <li><strong>Pagtugot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), giproseso namo ang imong datos kung ikaw mismo ang mag-initiate niining mga feature. Matag online feature tin-aw nga may marka, ug ang imong paggamit naglangkob sa imong pagtugot. Para sa <strong>phone verification</strong> (gigamit aron makasulod sa Paluwagan ug aron mabalhin ang imong account ngadto sa bag-ong device), gikuha namo ang imong pagtugot sa panahon nga mosugod ka sa SMS OTP flow. Para sa <strong>pag-apil sa Paluwagan group</strong>, gikuha namo ang imong hayag ug may-kahibalo nga pagtugot pinaagi sa per-group agreement nga imong gipirmahan sa wala pa mag-activate ang grupo; matag consent item — lakip na ang cross-group defaulter disclosure consent nga gihulagway sa Seksyon 1.5 — gi-record uban sa cryptographic hash sa kasabutan ug timestamp isip dili mausab nga audit trail.</li>
     <li><strong>Pagtuman sa Kontrata:</strong> Para ihatag ang mga pangunahing serbisyo sa App, dumalahon ang imong account, ug iproseso ang in-app purchases.</li>
     <li><strong>Lehitimo nga Interes:</strong> Para ipadayon ang seguridad ug maayo nga pagfunksyon sa App, ug para mapauswag ang among mga serbisyo.</li>
 </ul>
@@ -546,22 +574,22 @@
 <p>Naggamit kami sa mosunod nga third-party service para sa operasyon sa App:</p>
 <table>
     <tr><th>Serbisyo</th><th>Katuyoan</th><th>Datos nga Gipaambit</th></tr>
-    <tr><td>Supabase</td><td>Authentication, backup storage, server functions</td><td>User ID, email, backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous ug SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data</td></tr>
+    <tr><td>SMS messaging provider (integrated sa Supabase Auth)</td><td>Pag-hatud sa one-time passcodes pinaagi sa SMS para sa phone verification ug device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe sa resibo (giproseso sa real-time, dili gisave)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info</td></tr>
     <tr><td>RevenueCat</td><td>In-app purchase management</td><td>Purchase entitlements, anonymous user ID</td></tr>
     <tr><td>Apple App Store / Google Play</td><td>App distribution ug in-app purchases</td><td>Sumala sa ilang tagsa-tagsa ka privacy policies</td></tr>
-    <tr><td>Meta Platforms (Facebook Connect)</td><td>Opsyonal nga account linking para sa mga extended features</td><td>Facebook user ID, ngalan, email, URL sa profile picture (gigamit para sa account linking ug extended features)</td></tr>
 </table>
 
 <h2>6. Seguridad sa Datos</h2>
 <p>Nagpatuman kami sa mosunod nga mga lakang sa seguridad para panalipdan ang imong datos:</p>
 <ul>
-    <li>Ang sensitibo nga datos (credentials, PIN, profile) gi-encrypt gamit ang secure storage sa imong device (Keychain sa iOS, Keystore sa Android)</li>
+    <li>Ang sensitibo nga datos (auth tokens, profile) gi-store sa sulod sa secure storage sa imong device (Keychain sa iOS, Keystore sa Android). Ang imong app lock PIN gi-store lamang isip one-way SHA-256 hash — ang PIN mismo wala gayud gi-write sa disk o gipadala sa among mga server.</li>
     <li>Ang screen capture prevention gi-enable para panalipdan ang imong financial data</li>
     <li>Tanan nga network communication naggamit og HTTPS encryption</li>
     <li>Ang server-side data gipanalipdan sa Row Level Security (RLS) policies — ikaw ra ang maka-access sa imong kaugalingon nga datos</li>
-    <li>Ang backup files gi-compress (gzip) ug luwas nga gisave nga adunay access-controlled signed URLs</li>
+    <li><strong>End-to-end encrypted backups:</strong> Ang backup files gi-compress ug dayon gi-encrypt sa imong device gamit ang AES-256-GCM uban sa key nga nakuha gikan sa imong passphrase (PBKDF2-HMAC-SHA256, 200,000 iterations) sa wala pa kini i-upload. Ang passphrase ug ang nakuha nga key wala gayud mobiya sa imong device, ug wala kami technical nga abilidad nga ma-decrypt ang imong backup. <strong>Kung makalimot ka sa imong passphrase, dili na ma-recover ang imong backup</strong> — walay recovery key ug walay server-side escrow. Ang encrypted backups gi-store nga adunay access-controlled signed URLs ug awtomatiko nga gina-delete gikan sa among mga server 30 ka adlaw human sa upload.</li>
     <li>App lock nga adunay PIN ug opsyonal nga biometric authentication</li>
 </ul>
 
@@ -576,12 +604,11 @@
 <h2>8. Pagpatunhay ug Pagwagtang sa Datos</h2>
 <ul>
     <li><strong>Lokal nga datos:</strong> Nagpabilin sa imong device hangtud walaon nimo ang App o i-clear ang app data</li>
-    <li><strong>Backup files:</strong> Awtomatiko nga gina-delete gikan sa among mga server sulod sa 1 hangtud 3 ka bulan</li>
+    <li><strong>Backup files:</strong> Awtomatiko nga gina-delete gikan sa among mga server 30 ka adlaw human sa upload</li>
     <li><strong>Server-stored data:</strong> Ang AI Coach reports ug Daily Fortune results gipatunhay hangtud mapulihan o hangtud mangayo ka og deletion</li>
-    <li><strong>Datos sa Facebook:</strong> Kung naka-link ang imong Facebook account, mahimo nimo kining i-disconnect bisan unsang oras gikan sa Settings screen sa App. Kung ma-disconnect, tanan nga datos nga may kalabutan sa Facebook (Facebook user ID, ngalan, email, URL sa profile picture) <strong>dayon ug permanente nga wagtangon</strong> gikan sa among authentication system. Ang imong financial data ug mga talaan sa app dili maapektuhan sa Facebook disconnection.</li>
-    <li><strong>Pagwagtang nga gisugdan sa Facebook:</strong> Kung imong tangtangon ang Gumi Save gikan sa imong Facebook account settings, makadawat kami og deauthorization callback gikan sa Facebook ug awtomatiko nga wagtangon ang tanan nimong Facebook identity data gikan sa among mga server.</li>
+    <li><strong>Pagtangtang sa phone verification:</strong> Mahimo nimong tangtangon ang imong phone verification bisan unsang oras gikan sa Settings screen sa App, human nimo makumpirma pag-usab ang imong kasamtangang phone number gamit ang bag-ong SMS OTP. Pagkahuman sa pagtangtang, ang imong phone number wagtangon gikan sa among authentication system. Ang phone identity event audit (tan-awa ang Seksyon 1.2) gipatunhay para sa fraud prevention. Samtang natangtang ang imong phone verification, dili nimo magamit ang Paluwagan hangtud nga makompleto nimo ang bag-ong phone verification.</li>
     <li><strong>Piling pagwagtang (lokal):</strong> Gikan sa <em>Settings &gt; Safe &amp; Secure &gt; Papasa matag bulan</em>, mahimo nimong permanente nga papason ang mga talaan sa transaksyon sa pinili nga mga bulan samtang gipabilin ang ubang datos. Gikan sa <em>My Utang List &gt; Hinloi ang history sa nahuman</em>, mahimo nimong kuhaon ang borrowed/lent amounts ug hulugan/collected history sa mga fully paid o fully collected nga utang. Ang lokal nga datos ra ang apektado ug dili na mabawi.</li>
-    <li><strong>Kumpleto nga pagwagtang sa datos:</strong> Mahimo kang maghimo og kumpleto nga data wipe gikan sa Settings screen sa App (Reset App), nga awtomatiko nga mag-disconnect sa Facebook (kung naka-link), mag-sign out sa imong session, ug magwagtang sa tanan nga lokal nga datos lakip ang mga financial record, settings, ug mga na-schedule nga notification.</li>
+    <li><strong>Kumpleto nga pagwagtang sa datos:</strong> Mahimo kang maghimo og kumpleto nga data wipe gikan sa Settings screen sa App (Reset App), nga mag-sign out sa imong session ug magwagtang sa tanan nga lokal nga datos lakip ang mga financial record, settings, ug mga na-schedule nga notification.</li>
     <li><strong>Pagwagtang sa account:</strong> Mahimo kang mangayo og kumpleto nga pagwagtang sa imong account ug tanan nga kalabutan nga server-side data pinaagi sa pagtubag sa <a href="https://forms.gle/6hkxncSTTBWcfSXF8"><strong>Account Deletion Request Form</strong></a>. Kung madawat namo ang imong hangyo, permanente namong wagtangon ang tanan nimong datos gikan sa among mga server ug ipahibalo ka namo pinaagi sa email kung kompleto na ang proseso. Iproseso namo ang imong hangyo sulod sa 30 ka adlaw.</li>
 </ul>
 
@@ -593,9 +620,8 @@
     <tr><td>Daily Swerte</td><td>Ngalan (opsyonal), birthday, kasarian, zodiac sign, oras sa pagkatawo (opsyonal), rehiyon (opsyonal)</td></tr>
     <tr><td>Receipt Scanning</td><td>Litrato sa resibo (giproseso sa real-time, dili gisave)</td></tr>
     <tr><td>Palad Guide</td><td>Litrato sa palad (giproseso sa real-time, dili gisave)</td></tr>
-    <tr><td>Cloud Backup</td><td>Gi-compress nga backup file nga adunay sulod nga tanan nga lokal nga datos sa app</td></tr>
-    <tr><td>Facebook Connect</td><td>Facebook user ID, ngalan, email, URL sa profile picture</td></tr>
-    <tr><td>Facebook Connect (Consent)</td><td>Consent record: user ID, klase sa dokumento (Terms of Service / Privacy Policy), giuyonan nga bersyon, timestamp</td></tr>
+    <tr><td>Cloud Backup</td><td>End-to-end encrypted backup file (.bin) nga adunay sulod nga tanan nga lokal nga datos sa app — gi-encrypt sa imong device gamit ang key nga nakuha gikan sa imong passphrase sa wala pa i-upload (dili namo kini ma-decrypt)</td></tr>
+    <tr><td>Phone Verification</td><td>Phone number (E.164) nga gi-store sa Supabase Auth, SHA-256 phone hash nga adunay server-side pepper nga gigamit sa sulod sa Paluwagan groups, one-time passcode nga gihatud pinaagi sa SMS</td></tr>
     <tr><td>In-App Purchase</td><td>Purchase entitlements ug anonymous user ID (pinaagi sa RevenueCat)</td></tr>
     <tr><td>Paluwagan Phone Identity Events</td><td>Hashed phone number, kataposang 4 ka digit sa miaging phone, mga apektadong group ID, device info, IP address — gi-record lamang kung gibalhin nimo ang account sa bag-ong device o gi-tangtang nimo ang phone verification</td></tr>
 </table>
@@ -633,14 +659,15 @@
 <p>Sumala sa Data Privacy Act of 2012 ug NPC Circular 2016-01, nagpiho kami og Data Protection Officer (DPO) aron magdumala sa among mga kasanayan sa proteksyon sa datos. Para sa bisan unsang kabalaka sa data privacy, mahimo kang mokontakta sa among DPO:</p>
 <div class="contact-box">
     <p><strong>Data Protection Officer</strong></p>
-    <p>KawKaw.dev</p>
+    <p>bitcore (trading as KawKaw.dev)</p>
+    <p>Business Registration No. 774-32-01396, Republic of Korea</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
 </div>
 
 <h2>14. Kontaka Kami</h2>
 <div class="contact-box">
     <p>Kung aduna kay mga pangutana, kabalaka, o gusto nimong gamiton ang imong mga katungod sa data privacy, palihug kontaka kami:</p>
-    <p><strong>KawKaw.dev</strong></p>
+    <p><strong>KawKaw.dev</strong> (trade name of bitcore, BRN 774-32-01396, Republic of Korea)</p>
     <p>Email: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
     <p>Website: <a href="https://kawkaw.dev">https://kawkaw.dev</a></p>
     <br>
