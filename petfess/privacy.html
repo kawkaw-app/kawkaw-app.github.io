@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>petfess 개인정보처리방침 · Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #FFFBF3;
+      --fg: #1F1A14;
+      --muted: #6B6359;
+      --border: #E8DEC8;
+      --accent: #C97A2B;
+      --code-bg: #F4ECD9;
+      --chip-bg: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A140C;
+        --fg: #F6EFE0;
+        --muted: #B6AC9C;
+        --border: #3A2F20;
+        --accent: #E8A85A;
+        --code-bg: #2A2014;
+        --chip-bg: #241B10;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--fg); }
+    body {
+      margin: 0;
+      padding: 24px 18px 64px;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    h2 { font-size: 17px; margin: 28px 0 10px; padding-top: 18px; border-top: 1px solid var(--border); }
+    h3 { font-size: 15px; margin: 18px 0 6px; }
+    p, li { margin: 6px 0; }
+    ul, ol { padding-left: 22px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+    .callout {
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13.5px; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: var(--code-bg); font-weight: 600; }
+    a { color: var(--accent); }
+    .footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    [id^="transfer"] { scroll-margin-top: 16px; }
+
+    /* Language switcher */
+    .lang-switch {
+      display: inline-flex;
+      gap: 0;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-bottom: 16px;
+    }
+    .lang-switch button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    /* Show only the active language */
+    html[data-lang="ko"] [lang="en"] { display: none; }
+    html[data-lang="en"] [lang="ko"] { display: none; }
+  </style>
+</head>
+<body>
+  <nav class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- Korean version                                                -->
+  <!-- ============================================================ -->
+  <section lang="ko">
+    <h1>petfess 개인정보처리방침</h1>
+    <p class="meta">시행일: 2026년 5월 26일 · 버전 1.0</p>
+
+    <div class="callout">
+      비트코어(bitCore, 이하 "회사")는 모바일 애플리케이션 "petfess"의 이용자 개인정보를 「개인정보 보호법」을 비롯한 관련 법령에 따라 안전하게 처리하기 위하여 본 개인정보처리방침을 수립·공개합니다.
+    </div>
+
+    <h2>1. 처리하는 개인정보 항목</h2>
+    <table>
+      <thead>
+        <tr><th>구분</th><th>항목</th><th>수집 시점</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>회원가입 (필수)</td>
+          <td>이메일, 비밀번호(해시), 이름 또는 닉네임</td>
+          <td>이메일 회원가입 시</td>
+        </tr>
+        <tr>
+          <td>회원가입 (선택, 소셜 로그인)</td>
+          <td>Apple/Google/Kakao 식별자, 이메일, 이름</td>
+          <td>소셜 로그인 시</td>
+        </tr>
+        <tr>
+          <td>펫 정보</td>
+          <td>펫 이름, 종, 품종, 나이/생일, 성별, 성격, 한 줄 설명, 프로필 사진</td>
+          <td>펫 등록 시</td>
+        </tr>
+        <tr>
+          <td>비밀 일기 입력</td>
+          <td>펫의 영상·음성(녹화 또는 갤러리 선택), 촬영 일시</td>
+          <td>일기 생성 시도 시</td>
+        </tr>
+        <tr>
+          <td>비밀 일기 출력</td>
+          <td>AI가 생성한 일기 텍스트, 감정 분석 결과, 시각·청각 단서, 펫 페르소나</td>
+          <td>일기 생성 후 자동 저장</td>
+        </tr>
+        <tr>
+          <td>결제 정보</td>
+          <td>스토어 구독 식별자, 거래 영수증, 체험·구독 기간 (※ 카드 번호 등 결제수단 정보는 Apple/Google이 처리하며 회사는 보관하지 않음)</td>
+          <td>구독 결제 시</td>
+        </tr>
+        <tr>
+          <td>자동 수집 정보</td>
+          <td>기기 식별자(설치 ID), OS 버전, 앱 버전, 언어/지역 설정, 오류 로그</td>
+          <td>앱 실행 시</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. 개인정보의 처리 목적</h2>
+    <ul>
+      <li>회원 식별, 본인 인증, 회원 관리</li>
+      <li>비밀 일기 생성·열람·공유 등 핵심 서비스 제공</li>
+      <li>유료 구독 결제 처리 및 환불 대응</li>
+      <li>서비스 이용 중 발생한 오류·문의 대응</li>
+      <li>법령 준수 및 분쟁 발생 시 입증</li>
+    </ul>
+    <p>회사는 수집한 개인정보를 위 목적 외의 용도로 이용하지 않으며, 다른 목적으로 이용하고자 할 때에는 별도의 동의를 받습니다.</p>
+
+    <h2>3. 개인정보의 보유 및 이용 기간</h2>
+    <ul>
+      <li>회원 정보, 펫 정보, 비밀 일기 결과: <strong>회원 탈퇴 시까지</strong> (탈퇴 시 즉시 영구 삭제)</li>
+      <li>업로드된 원본 영상·음성: <strong>AI 분석 완료 직후 즉시 영구 삭제</strong> (백업·로그·캐시 어디에도 보관하지 않음)</li>
+      <li>결제 관련 기록: 「전자상거래 등에서의 소비자보호에 관한 법률」에 따라 5년</li>
+      <li>오류·접속 로그: 「통신비밀보호법」에 따라 3개월</li>
+    </ul>
+
+    <h2>4. 개인정보의 제3자 제공</h2>
+    <p>회사는 이용자의 개인정보를 외부에 제공하지 않습니다. 다만 다음과 같이 처리 위탁이 이루어지며, 위탁사는 회사의 지시에 따라서만 개인정보를 처리합니다.</p>
+
+    <h2>5. 개인정보 처리 위탁</h2>
+    <table>
+      <thead>
+        <tr><th>수탁사</th><th>위탁 업무</th><th>처리 항목</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase Inc. (미국)</td>
+          <td>인증, 데이터베이스, 파일 스토리지, 서버리스 함수 운영</td>
+          <td>계정 정보, 펫 정보, 비밀 일기, 업로드 영상(분석 직후 삭제)</td>
+        </tr>
+        <tr>
+          <td>Google LLC (미국)</td>
+          <td>AI 영상·음성 분석 (Gemini API)</td>
+          <td>펫 영상·음성 (분석 직후 즉시 삭제)</td>
+        </tr>
+        <tr>
+          <td>Apple Inc. / Google LLC</td>
+          <td>인앱 결제 및 구독 관리, 푸시 알림 발송</td>
+          <td>스토어 구독 식별자, 기기 푸시 토큰</td>
+        </tr>
+        <tr>
+          <td>RevenueCat, Inc. (미국)</td>
+          <td>구독 상태 확인 및 동기화</td>
+          <td>스토어 구독 식별자, 구독 상태</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="transfer-ko">6. 개인정보의 국외 이전</h2>
+    <p>회사는 AI 분석 및 인프라 제공을 위해 다음과 같이 이용자의 개인정보를 국외로 이전합니다.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>이전받는 자</th>
+          <th>이전 국가</th>
+          <th>이전 일시 및 방법</th>
+          <th>이전 항목</th>
+          <th>이전 목적</th>
+          <th>보유·이용 기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google LLC<br/>(privacy-help@google.com)</td>
+          <td>미국</td>
+          <td>일기 생성 시점에 HTTPS로 전송</td>
+          <td>펫 영상·음성</td>
+          <td>Gemini API를 통한 영상·음성 분석</td>
+          <td>분석 완료 직후 즉시 삭제</td>
+        </tr>
+        <tr>
+          <td>Supabase Inc.<br/>(privacy@supabase.io)</td>
+          <td>미국</td>
+          <td>앱 사용 중 상시, HTTPS로 전송</td>
+          <td>계정, 펫 정보, 비밀 일기, 업로드 영상</td>
+          <td>인증·DB·스토리지·서버리스 함수 운영</td>
+          <td>회원 탈퇴 시 즉시 삭제</td>
+        </tr>
+        <tr>
+          <td>RevenueCat, Inc.<br/>(support@revenuecat.com)</td>
+          <td>미국</td>
+          <td>결제·구독 변경 시 HTTPS로 전송</td>
+          <td>스토어 구독 식별자, 구독 상태</td>
+          <td>구독 상태 확인·동기화</td>
+          <td>구독 종료 후 위탁사 정책에 따름</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>이용자는 위 국외 이전에 동의하지 않을 권리가 있으며, 동의하지 않는 경우 비밀 일기 생성 등 서비스 핵심 기능을 이용할 수 없습니다.</p>
+
+    <h2>7. 정보주체의 권리·의무 및 행사 방법</h2>
+    <p>이용자는 언제든지 다음 권리를 행사할 수 있습니다.</p>
+    <ul>
+      <li>개인정보 열람·정정·삭제 요청</li>
+      <li>처리 정지 요청</li>
+      <li>동의 철회 (회원 탈퇴를 통해 즉시 행사 가능)</li>
+    </ul>
+    <p>권리 행사는 앱 내 "설정 > 펫 정보 편집 / 언어 설정 / 계정 삭제" 메뉴를 통해 직접 처리하거나, 아래 개인정보 보호책임자 연락처로 요청할 수 있습니다.</p>
+
+    <h2>8. 개인정보의 파기 절차 및 방법</h2>
+    <ul>
+      <li><strong>파기 절차:</strong> 회원 탈퇴 또는 보유 기간 만료 시, 회사는 별도의 절차 없이 해당 정보를 즉시 파기합니다.</li>
+      <li><strong>파기 방법:</strong> 전자적 파일 형태의 정보는 복구·재생할 수 없는 기술적 방법으로 영구 삭제합니다. 업로드된 영상 파일은 분석 직후 스토리지에서 즉시 삭제됩니다.</li>
+      <li>관계 법령에 따라 보존이 필요한 정보(결제 기록 등)는 법령이 정한 최소 기간 동안만 별도 보관 후 파기합니다.</li>
+    </ul>
+
+    <h2>9. 개인정보의 안전성 확보 조치</h2>
+    <ul>
+      <li>전송 구간 암호화 (HTTPS/TLS)</li>
+      <li>저장 데이터 암호화 (스토리지 제공자의 저장 시 암호화 사용)</li>
+      <li>인증 토큰의 안전한 저장 (iOS Keychain / Android Keystore)</li>
+      <li>접근 권한 최소화 및 관리자 접근 로그 기록</li>
+      <li>회원 데이터는 행 단위 접근 제어(RLS)로 본인 계정 외 접근 차단</li>
+    </ul>
+
+    <h2>10. AI 분석에 관한 추가 고지</h2>
+    <ul>
+      <li>회사는 펫 영상·음성·생성된 일기를 회사 자체의 AI 모델 학습 데이터로 사용하지 않습니다.</li>
+      <li>분석에 사용되는 Google Gemini API의 데이터 처리 정책은 Google이 별도로 공시하며, 회사는 이용자의 원본 영상을 분석 직후 즉시 삭제하여 잔존을 최소화합니다.</li>
+      <li>회사는 시스템 프롬프트 차원에서 AI에게 사람의 신원·외모를 식별·묘사하지 않도록 차단합니다.</li>
+      <li>AI 분석 결과는 펫 행동에 대한 추정 결과로, 의료적·수의학적 진단으로 해석해서는 안 됩니다.</li>
+    </ul>
+
+    <h2>11. 만 14세 미만 아동의 개인정보</h2>
+    <p>회사는 만 14세 미만 아동의 회원가입을 받지 않으며, 만 14세 미만임이 확인된 경우 즉시 계정 및 관련 정보를 삭제합니다.</p>
+
+    <h2>12. 자동 수집 장치의 설치·운영 및 거부</h2>
+    <p>본 서비스는 모바일 애플리케이션이므로 웹 쿠키를 사용하지 않습니다. 다만 서비스 운영을 위해 기기 식별자, OS·앱 버전 등 최소한의 자동 수집 정보를 처리하며, 이는 기기 설정에서 거부할 수 있습니다.</p>
+
+    <h2>13. 개인정보 보호책임자</h2>
+    <ul>
+      <li>책임자: sungwoo jeong</li>
+      <li>연락처: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+    </ul>
+
+    <h2>14. 권익 침해에 대한 구제 방법</h2>
+    <p>이용자는 개인정보 침해로 인한 피해 구제를 위해 아래 기관에 분쟁 해결, 상담 등을 신청할 수 있습니다.</p>
+    <ul>
+      <li>개인정보분쟁조정위원회: <a href="https://www.kopico.go.kr">www.kopico.go.kr</a> (국번 없이 1833-6972)</li>
+      <li>개인정보침해신고센터 (KISA): <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a> (국번 없이 118)</li>
+      <li>대검찰청 사이버수사과: <a href="https://www.spo.go.kr">www.spo.go.kr</a> (국번 없이 1301)</li>
+      <li>경찰청 사이버수사국: <a href="https://ecrm.police.go.kr">ecrm.police.go.kr</a> (국번 없이 182)</li>
+    </ul>
+
+    <h2>15. 개인정보처리방침의 변경</h2>
+    <p>본 방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우 시행 7일 전부터 앱 내 또는 본 페이지를 통해 사전 공지합니다.</p>
+
+    <div class="footer">
+      <p><strong>사업자 정보</strong></p>
+      <ul>
+        <li>상호: 비트코어 (bitCore)</li>
+        <li>대표자: sungwoo jeong</li>
+        <li>사업자등록번호: 7743201396</li>
+        <li>문의: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- English version                                               -->
+  <!-- ============================================================ -->
+  <section lang="en">
+    <h1>petfess Privacy Policy</h1>
+    <p class="meta">Effective date: May 26, 2026 · Version 1.0</p>
+
+    <div class="callout">
+      bitCore (the "Company") publishes this Privacy Policy to handle the personal information of users of the mobile application "petfess" in accordance with the Korean Personal Information Protection Act (PIPA) and other applicable laws. The Korean version is the legally controlling version; this English translation is provided for convenience.
+    </div>
+
+    <h2>1. Personal Information We Process</h2>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Items</th><th>Collected at</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Account (required)</td>
+          <td>Email, hashed password, name or nickname</td>
+          <td>Email signup</td>
+        </tr>
+        <tr>
+          <td>Account (social login)</td>
+          <td>Apple/Google/Kakao identifier, email, name</td>
+          <td>Social login</td>
+        </tr>
+        <tr>
+          <td>Pet info</td>
+          <td>Pet name, species, breed, age/birthday, gender, personality, one-line description, profile photo</td>
+          <td>Pet registration</td>
+        </tr>
+        <tr>
+          <td>Diary input</td>
+          <td>Pet video/audio (recorded or selected from gallery), capture timestamp</td>
+          <td>Diary generation attempt</td>
+        </tr>
+        <tr>
+          <td>Diary output</td>
+          <td>AI-generated text, emotion analysis, visual/audio cues, pet persona</td>
+          <td>Stored automatically after generation</td>
+        </tr>
+        <tr>
+          <td>Payment</td>
+          <td>Store subscription identifier, transaction receipt, trial/subscription period (card details are handled by Apple/Google and not stored by the Company)</td>
+          <td>Subscription purchase</td>
+        </tr>
+        <tr>
+          <td>Auto-collected</td>
+          <td>Device identifier (install ID), OS version, app version, language/region setting, error logs</td>
+          <td>App launch</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Purpose of Processing</h2>
+    <ul>
+      <li>Member identification, authentication, and account management;</li>
+      <li>Providing core service features such as diary generation, viewing, and sharing;</li>
+      <li>Processing paid subscriptions and handling refund requests;</li>
+      <li>Responding to errors and inquiries during use of the Service;</li>
+      <li>Compliance with applicable law and evidentiary needs in case of disputes.</li>
+    </ul>
+    <p>The Company does not use collected personal information for any purpose other than those listed above. Any new purpose requires separate consent.</p>
+
+    <h2>3. Retention and Use Period</h2>
+    <ul>
+      <li>Account, pet info, diary results: <strong>until account deletion</strong> (deleted immediately upon termination);</li>
+      <li>Uploaded original video/audio: <strong>permanently deleted immediately after AI analysis completes</strong> (not retained in backups, logs, or caches);</li>
+      <li>Payment-related records: 5 years (per the Act on the Consumer Protection in Electronic Commerce);</li>
+      <li>Error and access logs: 3 months (per the Protection of Communications Secrets Act).</li>
+    </ul>
+
+    <h2>4. Provision to Third Parties</h2>
+    <p>The Company does not provide users' personal information to external parties. However, processing is delegated to the processors listed below, who handle personal information only under the Company's instructions.</p>
+
+    <h2>5. Processing Delegation (Processors)</h2>
+    <table>
+      <thead>
+        <tr><th>Processor</th><th>Delegated work</th><th>Items processed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase Inc. (USA)</td>
+          <td>Authentication, database, file storage, serverless functions</td>
+          <td>Account info, pet info, diary, uploaded video (deleted right after analysis)</td>
+        </tr>
+        <tr>
+          <td>Google LLC (USA)</td>
+          <td>AI video/audio analysis (Gemini API)</td>
+          <td>Pet video/audio (deleted immediately after analysis)</td>
+        </tr>
+        <tr>
+          <td>Apple Inc. / Google LLC</td>
+          <td>In-app purchase, subscription management, push notification delivery</td>
+          <td>Store subscription identifier, device push token</td>
+        </tr>
+        <tr>
+          <td>RevenueCat, Inc. (USA)</td>
+          <td>Subscription status verification and sync</td>
+          <td>Store subscription identifier, subscription status</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="transfer-en">6. International Transfer of Personal Information</h2>
+    <p>The Company transfers personal information internationally as follows in order to provide AI analysis and infrastructure.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Recipient</th>
+          <th>Country</th>
+          <th>Timing &amp; method</th>
+          <th>Items</th>
+          <th>Purpose</th>
+          <th>Retention</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google LLC<br/>(privacy-help@google.com)</td>
+          <td>USA</td>
+          <td>HTTPS at diary generation</td>
+          <td>Pet video/audio</td>
+          <td>Video/audio analysis via Gemini API</td>
+          <td>Deleted immediately after analysis</td>
+        </tr>
+        <tr>
+          <td>Supabase Inc.<br/>(privacy@supabase.io)</td>
+          <td>USA</td>
+          <td>HTTPS continuously during app use</td>
+          <td>Account, pet info, diary, uploaded video</td>
+          <td>Auth, DB, storage, serverless functions</td>
+          <td>Deleted upon account termination</td>
+        </tr>
+        <tr>
+          <td>RevenueCat, Inc.<br/>(support@revenuecat.com)</td>
+          <td>USA</td>
+          <td>HTTPS on payment/subscription change</td>
+          <td>Store subscription identifier, subscription status</td>
+          <td>Subscription status verification and sync</td>
+          <td>Per processor policy after subscription ends</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Users have the right to refuse the international transfers above. If you refuse, core features such as diary generation will not be available.</p>
+
+    <h2>7. User Rights and How to Exercise Them</h2>
+    <p>Users may exercise the following rights at any time:</p>
+    <ul>
+      <li>Request access, correction, or deletion of personal information;</li>
+      <li>Request suspension of processing;</li>
+      <li>Withdraw consent (immediately exercisable by deleting the account).</li>
+    </ul>
+    <p>Rights can be exercised directly in the app via "Settings &gt; Edit pet info / Language / Delete account," or by contacting the Privacy Officer below.</p>
+
+    <h2>8. Destruction Procedure and Method</h2>
+    <ul>
+      <li><strong>Procedure:</strong> upon account deletion or expiry of the retention period, the relevant information is destroyed immediately without separate procedure.</li>
+      <li><strong>Method:</strong> electronic records are permanently destroyed using technical methods that prevent recovery. Uploaded video files are removed from storage immediately after analysis.</li>
+      <li>Information required to be retained by law (e.g., payment records) is stored separately for the minimum statutory period and then destroyed.</li>
+    </ul>
+
+    <h2>9. Security Measures</h2>
+    <ul>
+      <li>Encryption in transit (HTTPS/TLS);</li>
+      <li>Encryption at rest (using the storage provider's at-rest encryption);</li>
+      <li>Secure storage of auth tokens (iOS Keychain / Android Keystore);</li>
+      <li>Least-privilege access and admin access logging;</li>
+      <li>Row-level access control (RLS) so members cannot access another member's data.</li>
+    </ul>
+
+    <h2>10. Additional Disclosures Regarding AI Analysis</h2>
+    <ul>
+      <li>The Company does not use pet video/audio or generated diaries as training data for any AI model of the Company.</li>
+      <li>The data-handling policy of the Google Gemini API used for analysis is published separately by Google. The Company deletes the user's original video immediately after analysis to minimize retention.</li>
+      <li>The Company instructs the AI, at the system-prompt level, not to identify or describe any person who may appear in the video.</li>
+      <li>AI analysis results are inferences about pet behavior and must not be interpreted as veterinary or medical diagnoses.</li>
+    </ul>
+
+    <h2>11. Personal Information of Children Under 14</h2>
+    <p>The Company does not accept account registration from children under 14. If a registrant is found to be under 14, the account and related information are deleted immediately.</p>
+
+    <h2>12. Automatic Collection Devices and Opt-Out</h2>
+    <p>The Service is a mobile application and does not use web cookies. The Company processes minimal auto-collected information (device identifier, OS/app version, etc.) for service operation. This can be refused via your device settings.</p>
+
+    <h2>13. Privacy Officer</h2>
+    <ul>
+      <li>Officer: sungwoo jeong</li>
+      <li>Contact: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+    </ul>
+
+    <h2>14. Remedies for Rights Violations</h2>
+    <p>For relief regarding personal information rights violations, users may contact the following Korean authorities:</p>
+    <ul>
+      <li>Personal Information Dispute Mediation Committee: <a href="https://www.kopico.go.kr">www.kopico.go.kr</a> (1833-6972)</li>
+      <li>Privacy Infringement Reporting Center (KISA): <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a> (118)</li>
+      <li>Supreme Prosecutors' Office, Cyber Investigation Division: <a href="https://www.spo.go.kr">www.spo.go.kr</a> (1301)</li>
+      <li>National Police Agency, Cyber Bureau: <a href="https://ecrm.police.go.kr">ecrm.police.go.kr</a> (182)</li>
+    </ul>
+
+    <h2>15. Changes to This Privacy Policy</h2>
+    <p>This policy applies from its effective date. Any additions, deletions, or corrections will be announced in-app or on this page at least 7 days before they take effect.</p>
+
+    <div class="footer">
+      <p><strong>Business information</strong></p>
+      <ul>
+        <li>Trade name: bitCore (비트코어)</li>
+        <li>Representative: sungwoo jeong</li>
+        <li>Business registration number: 7743201396</li>
+        <li>Contact: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('.lang-switch button[data-set-lang]');
+
+      function pickInitialLang() {
+        var url = new URL(window.location.href);
+        var fromQuery = url.searchParams.get('lang');
+        if (fromQuery === 'ko' || fromQuery === 'en') return fromQuery;
+        try {
+          var stored = window.localStorage.getItem('petfess.legal.lang');
+          if (stored === 'ko' || stored === 'en') return stored;
+        } catch (_) {}
+        var nav = (navigator.language || 'ko').toLowerCase();
+        return nav.indexOf('ko') === 0 ? 'ko' : 'en';
+      }
+
+      function applyLang(lang) {
+        root.setAttribute('data-lang', lang);
+        root.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+        });
+        try { window.localStorage.setItem('petfess.legal.lang', lang); } catch (_) {}
+        var url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.history.replaceState(null, '', url.toString());
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          applyLang(b.getAttribute('data-set-lang'));
+        });
+      });
+
+      applyLang(pickInitialLang());
+    })();
+  </script>
+</body>
+</html>

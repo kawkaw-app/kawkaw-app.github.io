@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>petfess 이용약관 · Terms of Service</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #FFFBF3;
+      --fg: #1F1A14;
+      --muted: #6B6359;
+      --border: #E8DEC8;
+      --accent: #C97A2B;
+      --code-bg: #F4ECD9;
+      --chip-bg: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A140C;
+        --fg: #F6EFE0;
+        --muted: #B6AC9C;
+        --border: #3A2F20;
+        --accent: #E8A85A;
+        --code-bg: #2A2014;
+        --chip-bg: #241B10;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--fg); }
+    body {
+      margin: 0;
+      padding: 24px 18px 64px;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    h2 { font-size: 17px; margin: 28px 0 10px; padding-top: 18px; border-top: 1px solid var(--border); }
+    h3 { font-size: 15px; margin: 18px 0 6px; }
+    p, li { margin: 6px 0; }
+    ul, ol { padding-left: 22px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+    .callout {
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: var(--code-bg); font-weight: 600; }
+    a { color: var(--accent); }
+    .footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+    /* Language switcher */
+    .lang-switch {
+      display: inline-flex;
+      gap: 0;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-bottom: 16px;
+    }
+    .lang-switch button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    /* Show only the active language */
+    html[data-lang="ko"] [lang="en"] { display: none; }
+    html[data-lang="en"] [lang="ko"] { display: none; }
+  </style>
+</head>
+<body>
+  <nav class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- Korean version                                                -->
+  <!-- ============================================================ -->
+  <section lang="ko">
+    <h1>petfess 이용약관</h1>
+    <p class="meta">시행일: 2026년 5월 26일 · 버전 1.0</p>
+
+    <div class="callout">
+      본 약관은 비트코어(bitCore, 이하 "회사")가 제공하는 모바일 애플리케이션 "petfess"(이하 "서비스")의 이용 조건을 규정합니다. 서비스를 이용하기 위해서는 본 약관에 동의해야 합니다.
+    </div>
+
+    <h2>제1조 (목적)</h2>
+    <p>본 약관은 회사가 제공하는 서비스의 이용과 관련하여 회사와 회원 사이의 권리, 의무 및 책임사항, 기타 필요한 사항을 정함을 목적으로 합니다.</p>
+
+    <h2>제2조 (정의)</h2>
+    <ol>
+      <li>"서비스"란 회사가 제공하는 모바일 애플리케이션 petfess 및 이에 부수하는 모든 기능을 의미합니다.</li>
+      <li>"회원"이란 본 약관에 동의하고 회사가 정한 절차에 따라 가입하여 서비스를 이용하는 자를 말합니다.</li>
+      <li>"펫 콘텐츠"란 회원이 서비스에 업로드한 펫의 영상, 음성, 사진, 이름·종·나이 등 입력 정보를 통칭합니다.</li>
+      <li>"비밀 일기"란 펫 콘텐츠를 기반으로 AI가 자동 생성한 텍스트·감정 분석 결과 등의 출력물을 말합니다.</li>
+      <li>"AI 분석 위탁사"란 펫 콘텐츠 분석을 위해 회사가 처리를 위탁하는 외부 서비스 제공자(현재: Google LLC의 Gemini API)를 말합니다.</li>
+    </ol>
+
+    <h2>제3조 (약관의 효력 및 변경)</h2>
+    <ol>
+      <li>본 약관은 서비스 화면에 게시하거나 앱 내 동의 화면을 통해 회원에게 공지함으로써 효력이 발생합니다.</li>
+      <li>회사는 관련 법령을 위배하지 않는 범위에서 본 약관을 개정할 수 있으며, 개정 시 적용일자 및 사유를 명시하여 최소 시행일 7일 전(회원에게 불리한 변경의 경우 30일 전)부터 공지합니다.</li>
+      <li>회원은 변경된 약관에 동의하지 않을 권리가 있으며, 동의하지 않는 경우 서비스 이용을 중단하고 탈퇴할 수 있습니다.</li>
+    </ol>
+
+    <h2>제4조 (회원가입 및 계정)</h2>
+    <ol>
+      <li>회원가입은 이용자가 본 약관과 개인정보처리방침에 동의하고, 회사가 정한 가입 양식(이메일/소셜 로그인 등)에 따라 정보를 제공함으로써 성립합니다.</li>
+      <li>회원은 만 14세 이상이어야 하며, 만 14세 미만의 가입은 허용되지 않습니다.</li>
+      <li>회원은 가입 시 정확한 정보를 제공해야 하며, 변경 사항이 있을 경우 신속히 갱신해야 합니다.</li>
+      <li>회원은 본인의 계정을 제3자가 이용하도록 해서는 안 되며, 계정 정보 관리 책임은 회원에게 있습니다.</li>
+    </ol>
+
+    <h2>제5조 (서비스의 제공)</h2>
+    <ol>
+      <li>회사는 다음과 같은 기능을 제공합니다.
+        <ul>
+          <li>펫의 영상·음성 업로드 및 AI 기반 "비밀 일기" 자동 생성</li>
+          <li>생성된 일기 카드의 열람·저장·공유</li>
+          <li>펫 페르소나 누적 생성 및 열람</li>
+          <li>유료 구독 기반 추가 기능(체험 기간 포함)</li>
+        </ul>
+      </li>
+      <li>회사는 서비스의 안정적 제공을 위해 노력하나, 시스템 점검·장애·천재지변 등 부득이한 사유로 서비스가 일시적으로 중단될 수 있습니다.</li>
+      <li>회사는 운영상 또는 기술상의 필요에 따라 서비스의 전부 또는 일부를 변경하거나 중단할 수 있으며, 중요한 변경은 회원에게 사전 공지합니다.</li>
+    </ol>
+
+    <h2>제6조 (펫 콘텐츠 및 AI 분석)</h2>
+    <ol>
+      <li>회원은 회사에 펫 콘텐츠의 AI 분석을 위탁하며, 분석을 위해 펫 콘텐츠가 회사의 서버 및 AI 분석 위탁사(Google LLC, 미국)로 전송되는 것에 동의합니다.</li>
+      <li>회사는 분석이 완료된 직후 원본 영상 파일을 서버에서 영구 삭제합니다. 분석 결과(텍스트, 감정 데이터 등)는 회원의 계정에 저장됩니다.</li>
+      <li>회사는 펫 콘텐츠 및 비밀 일기를 회사의 AI 모델 학습에 사용하지 않습니다.</li>
+      <li>AI 분석 결과는 펫의 행동 추정에 기반한 창작물이며, 의료적·수의학적 진단이 아닙니다. 펫의 건강 이상이 의심되는 경우 수의사와 상담하시기 바랍니다.</li>
+      <li>회원이 제공한 영상에 사람이 포함되어 있는 경우, 회사는 AI에게 사람의 신원·외모를 식별·묘사하지 않도록 시스템 프롬프트 차원에서 차단합니다. 다만 회원은 본인이 아닌 제3자의 영상을 그 동의 없이 업로드해서는 안 됩니다.</li>
+    </ol>
+
+    <h2>제7조 (지식재산권)</h2>
+    <ol>
+      <li>펫 콘텐츠(영상·음성·사진)에 대한 권리는 회원에게 있습니다.</li>
+      <li>회사가 생성한 비밀 일기(AI 출력물)는 회원이 자유롭게 열람·저장·개인적 공유할 수 있습니다. 다만 상업적 이용·재판매·대량 배포는 금지됩니다.</li>
+      <li>서비스의 UI·디자인·코드 등 회사가 창작한 모든 요소에 대한 지식재산권은 회사에 귀속됩니다.</li>
+    </ol>
+
+    <h2>제8조 (유료 서비스 및 환불)</h2>
+    <ol>
+      <li>일부 기능은 유료 구독을 통해 제공되며, 구독 결제는 Apple App Store 또는 Google Play 결제 시스템을 통해 이루어집니다.</li>
+      <li>구독은 자동 갱신되며, 회원은 각 스토어의 계정 설정에서 언제든 갱신을 해지할 수 있습니다.</li>
+      <li>환불 정책은 각 스토어의 환불 정책을 우선 적용합니다. 회사에 직접 환불을 요청하기 어려운 경우, 회원은 해당 스토어의 환불 절차를 따라야 합니다.</li>
+      <li>무료 체험은 1회에 한해 제공되며, 체험 종료 후 자동으로 유료 결제가 시작될 수 있습니다.</li>
+    </ol>
+
+    <h2>제9조 (회원의 의무 및 금지 행위)</h2>
+    <p>회원은 다음 행위를 해서는 안 됩니다.</p>
+    <ul>
+      <li>타인의 영상·사진을 그 동의 없이 업로드하는 행위</li>
+      <li>폭력·학대·성적 콘텐츠 등 부적절한 영상을 업로드하는 행위</li>
+      <li>서비스의 정상적인 운영을 방해하거나 비정상적인 방법으로 이용하는 행위</li>
+      <li>리버스 엔지니어링, 크롤링, 자동화 도구 등을 통해 서비스에 접근하는 행위</li>
+      <li>관련 법령 또는 본 약관을 위반하는 모든 행위</li>
+    </ul>
+
+    <h2>제10조 (계약 해지 및 이용 제한)</h2>
+    <ol>
+      <li>회원은 언제든지 앱 내 "설정 > 계정 삭제"를 통해 탈퇴할 수 있으며, 탈퇴 시 회원의 펫 정보, 비밀 일기 카드, 펫 페르소나 등 회원이 생성한 모든 데이터는 즉시 영구 삭제됩니다.</li>
+      <li>회사는 회원이 본 약관 또는 관련 법령을 위반한 경우 사전 통지 후 또는 중대한 위반의 경우 즉시 서비스 이용을 제한하거나 계정을 해지할 수 있습니다.</li>
+    </ol>
+
+    <h2>제11조 (면책 및 책임 제한)</h2>
+    <ol>
+      <li>회사는 천재지변, 통신 장애, 위탁사 장애 등 회사의 합리적 통제를 벗어난 사유로 서비스를 제공할 수 없는 경우 책임을 지지 않습니다.</li>
+      <li>회원이 펫 콘텐츠를 통해 얻은 비밀 일기 결과는 AI에 의한 추정 결과이며, 회사는 그 정확성·완전성을 보증하지 않습니다.</li>
+      <li>회원 본인이 회사에 제공한 정보의 부정확으로 인한 손해에 대해 회사는 책임을 지지 않습니다.</li>
+    </ol>
+
+    <h2>제12조 (개인정보 보호)</h2>
+    <p>회사는 관련 법령에 따라 회원의 개인정보를 보호하기 위해 노력하며, 처리에 관한 상세 사항은 별도로 게시되는 "개인정보처리방침"에서 정합니다.</p>
+
+    <h2>제13조 (분쟁 해결 및 준거법)</h2>
+    <ol>
+      <li>본 약관 및 서비스와 관련된 분쟁의 준거법은 대한민국 법률로 합니다.</li>
+      <li>서비스 이용과 관련하여 회사와 회원 간에 발생한 분쟁에 대해서는 민사소송법상의 관할 법원을 합의 관할 법원으로 합니다.</li>
+    </ol>
+
+    <h2>부칙</h2>
+    <p>본 약관은 2026년 5월 26일부터 시행됩니다.</p>
+
+    <div class="footer">
+      <p><strong>사업자 정보</strong></p>
+      <ul>
+        <li>상호: 비트코어 (bitCore)</li>
+        <li>대표자: sungwoo jeong</li>
+        <li>사업자등록번호: 7743201396</li>
+        <li>문의: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- English version                                               -->
+  <!-- ============================================================ -->
+  <section lang="en">
+    <h1>petfess Terms of Service</h1>
+    <p class="meta">Effective date: May 26, 2026 · Version 1.0</p>
+
+    <div class="callout">
+      These Terms govern your use of the mobile application "petfess" (the "Service") provided by bitCore (the "Company"). You must agree to these Terms to use the Service. The Korean version is the legally controlling version; this English translation is provided for convenience.
+    </div>
+
+    <h2>Article 1 (Purpose)</h2>
+    <p>These Terms set out the rights, obligations, and responsibilities of the Company and the user (the "Member") with respect to the Service, and other matters as necessary.</p>
+
+    <h2>Article 2 (Definitions)</h2>
+    <ol>
+      <li>"Service" means the petfess mobile application and all features provided by the Company in connection with it.</li>
+      <li>"Member" means a person who has agreed to these Terms and registered for the Service under the procedures set by the Company.</li>
+      <li>"Pet Content" means video, audio, photos, and identifying inputs (name, species, age, etc.) uploaded to the Service by a Member.</li>
+      <li>"Secret Diary" means the automatically generated text, emotion analysis, and related outputs produced by AI based on the Pet Content.</li>
+      <li>"AI Processor" means a third-party service used by the Company to analyze Pet Content (currently: the Gemini API operated by Google LLC).</li>
+    </ol>
+
+    <h2>Article 3 (Effect and Amendment of Terms)</h2>
+    <ol>
+      <li>These Terms take effect when posted in the Service or shown to a Member through the in-app consent screen.</li>
+      <li>The Company may amend these Terms within the limits permitted by applicable law. Material amendments will be notified at least 7 days in advance (30 days in advance for changes unfavorable to the Member).</li>
+      <li>A Member who does not agree to amended Terms may stop using the Service and delete their account.</li>
+    </ol>
+
+    <h2>Article 4 (Account Registration)</h2>
+    <ol>
+      <li>Registration is completed when a user agrees to these Terms and the Privacy Policy and provides the information requested by the Company (email or social login).</li>
+      <li>Members must be at least 14 years old. Registration by anyone under 14 is not permitted.</li>
+      <li>Members must provide accurate information at registration and update it promptly when it changes.</li>
+      <li>Members are responsible for safeguarding their account credentials and must not allow third parties to use their account.</li>
+    </ol>
+
+    <h2>Article 5 (Provision of the Service)</h2>
+    <ol>
+      <li>The Company provides the following features:
+        <ul>
+          <li>Upload of pet video/audio and automatic generation of a "Secret Diary" by AI;</li>
+          <li>Viewing, saving, and sharing the generated diary cards;</li>
+          <li>Cumulative pet persona generation and viewing;</li>
+          <li>Additional features available through paid subscription (including trial period).</li>
+        </ul>
+      </li>
+      <li>The Company will make commercially reasonable efforts to provide the Service reliably but may suspend it temporarily for maintenance, force majeure, or third-party outages.</li>
+      <li>The Company may modify or discontinue all or part of the Service for operational or technical reasons; material changes will be notified to Members in advance.</li>
+    </ol>
+
+    <h2>Article 6 (Pet Content and AI Analysis)</h2>
+    <ol>
+      <li>The Member entrusts the Company with the AI analysis of Pet Content and consents to the temporary transfer of Pet Content to the Company's servers and to the AI Processor (Google LLC, United States) for that purpose.</li>
+      <li>The Company permanently deletes the original video file from its servers immediately after the analysis is completed. Only the analysis result (text, emotion data, etc.) is stored in the Member's account.</li>
+      <li>The Company does not use Pet Content or generated Secret Diaries to train any AI model of the Company.</li>
+      <li>The AI analysis result is a creative output inferred from pet behavior and is not a veterinary or medical diagnosis. Please consult a veterinarian if you suspect any health issue.</li>
+      <li>If a person appears in the uploaded video, the Company instructs the AI, at the system-prompt level, not to identify or describe that person. Members must not upload video of third parties without their consent.</li>
+    </ol>
+
+    <h2>Article 7 (Intellectual Property)</h2>
+    <ol>
+      <li>Rights in Pet Content (video, audio, photos) belong to the Member who uploaded it.</li>
+      <li>The AI-generated Secret Diary may be freely viewed, saved, and shared personally by the Member. Commercial use, resale, and mass distribution are prohibited.</li>
+      <li>All rights in the Service's UI, design, code, and other Company-created elements belong to the Company.</li>
+    </ol>
+
+    <h2>Article 8 (Paid Service and Refunds)</h2>
+    <ol>
+      <li>Some features are provided through paid subscription, billed via Apple App Store or Google Play.</li>
+      <li>Subscriptions auto-renew. Members may cancel auto-renewal at any time through their store account settings.</li>
+      <li>Refund policy follows the applicable store's refund rules. If a refund cannot be requested directly from the Company, the Member must use the store's refund procedure.</li>
+      <li>The free trial is offered once per user, and a paid subscription may begin automatically after the trial ends.</li>
+    </ol>
+
+    <h2>Article 9 (Member Obligations and Prohibited Conduct)</h2>
+    <p>The Member must not engage in the following:</p>
+    <ul>
+      <li>Uploading another person's video or photo without that person's consent;</li>
+      <li>Uploading violent, abusive, sexual, or otherwise inappropriate content;</li>
+      <li>Interfering with the normal operation of the Service or accessing it through abnormal means;</li>
+      <li>Reverse engineering, crawling, or using automated tools to access the Service;</li>
+      <li>Any other conduct that violates applicable law or these Terms.</li>
+    </ul>
+
+    <h2>Article 10 (Termination and Restriction of Use)</h2>
+    <ol>
+      <li>A Member may terminate their account at any time via "Settings &gt; Delete Account" in the app. Upon termination, all data created by the Member — pet records, diary cards, pet personas — is immediately and permanently deleted.</li>
+      <li>The Company may, after prior notice (or immediately in the case of serious violations), restrict the Service or terminate the account of a Member who violates these Terms or applicable law.</li>
+    </ol>
+
+    <h2>Article 11 (Disclaimer and Limitation of Liability)</h2>
+    <ol>
+      <li>The Company is not liable for failure to provide the Service due to causes beyond its reasonable control, including force majeure, communications failure, or outages at processors.</li>
+      <li>The Secret Diary is an AI-generated estimate; the Company does not warrant its accuracy or completeness.</li>
+      <li>The Company is not liable for damages caused by inaccurate information provided by the Member.</li>
+    </ol>
+
+    <h2>Article 12 (Privacy)</h2>
+    <p>The Company protects personal information in accordance with applicable law. Details are set out in the separately posted Privacy Policy.</p>
+
+    <h2>Article 13 (Governing Law and Jurisdiction)</h2>
+    <ol>
+      <li>These Terms and the Service are governed by the laws of the Republic of Korea.</li>
+      <li>Any dispute between the Company and a Member arising out of the Service will be subject to the court having jurisdiction under the Korean Civil Procedure Act.</li>
+    </ol>
+
+    <h2>Supplementary Provisions</h2>
+    <p>These Terms take effect on May 26, 2026.</p>
+
+    <div class="footer">
+      <p><strong>Business information</strong></p>
+      <ul>
+        <li>Trade name: bitCore (비트코어)</li>
+        <li>Representative: sungwoo jeong</li>
+        <li>Business registration number: 7743201396</li>
+        <li>Contact: <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('.lang-switch button[data-set-lang]');
+
+      function pickInitialLang() {
+        var url = new URL(window.location.href);
+        var fromQuery = url.searchParams.get('lang');
+        if (fromQuery === 'ko' || fromQuery === 'en') return fromQuery;
+        try {
+          var stored = window.localStorage.getItem('petfess.legal.lang');
+          if (stored === 'ko' || stored === 'en') return stored;
+        } catch (_) {}
+        var nav = (navigator.language || 'ko').toLowerCase();
+        return nav.indexOf('ko') === 0 ? 'ko' : 'en';
+      }
+
+      function applyLang(lang) {
+        root.setAttribute('data-lang', lang);
+        root.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+        });
+        try { window.localStorage.setItem('petfess.legal.lang', lang); } catch (_) {}
+        // Reflect in URL without adding history entries.
+        var url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.history.replaceState(null, '', url.toString());
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          applyLang(b.getAttribute('data-set-lang'));
+        });
+      });
+
+      applyLang(pickInitialLang());
+    })();
+  </script>
+</body>
+</html>
