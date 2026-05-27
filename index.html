@@ -44,7 +44,7 @@
 
   <p class="hero-sub">
     We're KawKaw — a small team building apps that listen, respect your privacy, and actually help.
-    Two apps today, more on the way.
+    Three apps today, more on the way.
   </p>
 
   <div class="hero-cta">
@@ -114,7 +114,7 @@
     <div class="letter-date">From the KawKaw team 🌸</div>
     <div class="letter-body">We started <em>KawKaw</em> because we saw real people — families, solo earners, students, anyone trying to take better care of themselves — underserved by apps designed in rooms they'd never enter.
 
-So we build differently. Small, focused apps for specific audiences. <em>GUMI SAVE</em> for Filipino households learning to budget. <em>GUMI GLOWUP</em> for anyone, anywhere, building a skincare routine they can stick with. More apps will follow — each one made for someone real.
+So we build differently. Small, focused apps for specific audiences. <em>GUMI SAVE</em> for Filipino households learning to budget. <em>GUMI GLOWUP</em> for anyone, anywhere, building a skincare routine they can stick with. <em>PETfess</em> turns short pet clips into a secret diary written from your pet's point of view. More apps will follow — each one made for someone real.
 
 Here's what we promise across every app we ship:
 
@@ -229,12 +229,31 @@ Thank you for giving us a chance.</div>
       ],
       href: '/gumi-glowup/',
       statusLabel: 'Available now'
+    },
+    {
+      id: 'petfess',
+      name: 'PETfess',
+      emoji: '🐾',
+      iconImg: 'image/petfess.webp',
+      tagline: "AI Pet Diary",
+      regions: ['🇰🇷 Korea', '🌍 Global'],
+      aiPowered: true,
+      platforms: ['🍎 iOS', '🤖 Android'],
+      summary: "Your pet's secret diary, finally translated. Record a 10-second clip — AI writes a first-person diary card from your pet's point of view.",
+      highlights: [
+        { icon: '🎥', text: '10-second video → AI secret diary' },
+        { icon: '📖', text: 'First-person diary cards from your pet' },
+        { icon: '💌', text: 'Shareable cards for socials' },
+        { icon: '🐾', text: 'A pet persona that grows over time' }
+      ],
+      statusLabel: 'Available now'
     }
   ];
 
   const ROADMAP = [
     { state: 'done',   icon: '✅', tag: 'Launched',     title: 'GUMI SAVE — AI Budget Coach',           desc: 'Live in the Philippines on iOS & Android. AI coach, receipt scanning, envelope budgeting, utang tracker.' },
     { state: 'done',   icon: '✅', tag: 'Launched',     title: 'GUMI GLOWUP — AI Skincare Coach',       desc: 'Live worldwide on iOS & Android. AI skin analysis, personalized routines, product recommendations.' },
+    { state: 'done',   icon: '✅', tag: 'Launched',     title: 'PETfess — AI Pet Diary',                desc: "Live worldwide on iOS & Android. Record a short pet clip and AI writes a secret diary card from your pet's point of view." },
     { state: 'soon',   icon: '💭', tag: 'Coming Soon',  title: 'More apps in the KawKaw family',        desc: 'Each built for a specific audience, with the same care.' },
     { state: 'future', icon: '🌏', tag: 'Big Dream',    title: 'Going further, together',               desc: "We'll grow where you need us — guided by your feedback." }
   ];
@@ -257,9 +276,9 @@ Thank you for giving us a chance.</div>
         <ul class="app-features">
           ${svc.highlights.map(h => `<li><span class="feat-icon">${h.icon}</span> ${h.text}</li>`).join('')}
         </ul>
-        <div class="app-cta-row">
+        ${svc.href ? `<div class="app-cta-row">
           <a class="app-learn-more" href="${svc.href}">Learn more →</a>
-        </div>
+        </div>` : ''}
       </div>
     `).join('');
   }
