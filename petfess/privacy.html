@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <title>petfess 개인정보처리방침 · Privacy Policy</title>
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: light;
       --bg: #FFFBF3;
       --fg: #1F1A14;
       --muted: #6B6359;
@@ -15,17 +15,6 @@
       --accent: #C97A2B;
       --code-bg: #F4ECD9;
       --chip-bg: #FFFFFF;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1A140C;
-        --fg: #F6EFE0;
-        --muted: #B6AC9C;
-        --border: #3A2F20;
-        --accent: #E8A85A;
-        --code-bg: #2A2014;
-        --chip-bg: #241B10;
-      }
     }
     * { box-sizing: border-box; }
     html, body { background: var(--bg); color: var(--fg); }
@@ -122,7 +111,7 @@
         </tr>
         <tr>
           <td>회원가입 (선택, 소셜 로그인)</td>
-          <td>Apple/Google/Kakao 식별자, 이메일, 이름</td>
+          <td>Apple/Google/Kakao 식별자, 이메일(Apple Sign In의 "이메일 숨기기" 사용 시 Apple 비공개 릴레이 주소 포함 가능), 이름</td>
           <td>소셜 로그인 시</td>
         </tr>
         <tr>
@@ -137,8 +126,13 @@
         </tr>
         <tr>
           <td>비밀 일기 출력</td>
-          <td>AI가 생성한 일기 텍스트, 감정 분석 결과, 시각·청각 단서, 펫 페르소나</td>
+          <td>AI가 생성한 일기 텍스트, 감정 분석 결과, 시각·청각 단서, 일기 카드 시각 자산용 추출 정지 프레임 이미지</td>
           <td>일기 생성 후 자동 저장</td>
+        </tr>
+        <tr>
+          <td>펫 페르소나 (서버 측 누적)</td>
+          <td>AI가 누적 분석을 통해 생성한 펫 성격·말투 메타데이터(JSON)</td>
+          <td>일기 생성 시 갱신</td>
         </tr>
         <tr>
           <td>결제 정보</td>
@@ -162,11 +156,13 @@
       <li>법령 준수 및 분쟁 발생 시 입증</li>
     </ul>
     <p>회사는 수집한 개인정보를 위 목적 외의 용도로 이용하지 않으며, 다른 목적으로 이용하고자 할 때에는 별도의 동의를 받습니다.</p>
+    <p><strong>마케팅·광고:</strong> 회사는 회원의 이메일을 비롯한 개인정보를 마케팅·광고·프로모션 목적으로 사용하지 않습니다.</p>
+    <p><strong>외부 앱 공유:</strong> 회원이 일기 카드 이미지를 외부 앱(소셜 네트워크, 메신저 등)으로 직접 공유하는 경우 해당 이미지가 외부 앱으로 전달되며, 그 이후의 처리는 해당 외부 앱의 정책을 따릅니다.</p>
 
     <h2>3. 개인정보의 보유 및 이용 기간</h2>
     <ul>
-      <li>회원 정보, 펫 정보, 비밀 일기 결과: <strong>회원 탈퇴 시까지</strong> (탈퇴 시 즉시 영구 삭제)</li>
-      <li>업로드된 원본 영상·음성: <strong>AI 분석 완료 직후 즉시 영구 삭제</strong> (백업·로그·캐시 어디에도 보관하지 않음)</li>
+      <li>회원 정보, 펫 정보, 비밀 일기 결과, 펫 페르소나, 일기 카드 시각 자산용 추출 프레임 이미지: <strong>회원 탈퇴 시까지</strong> (탈퇴 시 즉시 영구 삭제)</li>
+      <li>업로드된 원본 영상·음성: <strong>AI 분석 완료 직후 즉시 영구 삭제</strong> (백업·로그·캐시 어디에도 보관하지 않으며, 영상에서 자동 추출된 정지 프레임만 일기 카드 표시 목적으로 별도 보관)</li>
       <li>결제 관련 기록: 「전자상거래 등에서의 소비자보호에 관한 법률」에 따라 5년</li>
       <li>오류·접속 로그: 「통신비밀보호법」에 따라 3개월</li>
     </ul>
@@ -192,8 +188,8 @@
         </tr>
         <tr>
           <td>Apple Inc. / Google LLC</td>
-          <td>인앱 결제 및 구독 관리, 푸시 알림 발송</td>
-          <td>스토어 구독 식별자, 기기 푸시 토큰</td>
+          <td>인앱 결제 및 구독 관리</td>
+          <td>스토어 구독 식별자, 결제 영수증</td>
         </tr>
         <tr>
           <td>RevenueCat, Inc. (미국)</td>
@@ -252,7 +248,7 @@
       <li>처리 정지 요청</li>
       <li>동의 철회 (회원 탈퇴를 통해 즉시 행사 가능)</li>
     </ul>
-    <p>권리 행사는 앱 내 "설정 > 펫 정보 편집 / 언어 설정 / 계정 삭제" 메뉴를 통해 직접 처리하거나, 아래 개인정보 보호책임자 연락처로 요청할 수 있습니다.</p>
+    <p>권리 행사는 앱 내 "설정 &gt; 펫 정보 편집 / 언어 설정 / 계정 삭제" 메뉴, <a href="https://kawkaw.dev/account-deletion/">https://kawkaw.dev/account-deletion/</a> 페이지(계정 삭제 요청 전용), 또는 아래 개인정보 보호책임자 연락처를 통해 행사할 수 있습니다.</p>
 
     <h2>8. 개인정보의 파기 절차 및 방법</h2>
     <ul>
@@ -268,18 +264,20 @@
       <li>인증 토큰의 안전한 저장 (iOS Keychain / Android Keystore)</li>
       <li>접근 권한 최소화 및 관리자 접근 로그 기록</li>
       <li>회원 데이터는 행 단위 접근 제어(RLS)로 본인 계정 외 접근 차단</li>
+      <li>개인정보 유출 사고 발생 시 「개인정보 보호법」 제39조의4 및 EU GDPR 제33–34조에 따라 정보주체 및 감독기관에 통지</li>
     </ul>
 
     <h2>10. AI 분석에 관한 추가 고지</h2>
     <ul>
       <li>회사는 펫 영상·음성·생성된 일기를 회사 자체의 AI 모델 학습 데이터로 사용하지 않습니다.</li>
-      <li>분석에 사용되는 Google Gemini API의 데이터 처리 정책은 Google이 별도로 공시하며, 회사는 이용자의 원본 영상을 분석 직후 즉시 삭제하여 잔존을 최소화합니다.</li>
+      <li>회사는 분석을 위해 Google의 <strong>유료 Gemini API</strong>(현재 모델: <code>gemini-2.5-flash-lite</code>)를 사용합니다. 유료 Gemini API의 데이터 처리 정책상 입력된 영상은 Google의 생성 모델 학습에 사용되지 않으며, 자세한 정책은 Google이 별도로 공시합니다. 회사는 추가로 원본 영상을 분석 직후 즉시 삭제하여 잔존을 최소화합니다.</li>
       <li>회사는 시스템 프롬프트 차원에서 AI에게 사람의 신원·외모를 식별·묘사하지 않도록 차단합니다.</li>
       <li>AI 분석 결과는 펫 행동에 대한 추정 결과로, 의료적·수의학적 진단으로 해석해서는 안 됩니다.</li>
+      <li><strong>추적 금지:</strong> 회사는 다른 앱이나 웹사이트에서 회원을 추적하지 않으며, 광고·분석 목적의 추적 SDK(Firebase Analytics, Sentry, Mixpanel, Amplitude 등)를 일체 사용하지 않습니다.</li>
     </ul>
 
     <h2>11. 만 14세 미만 아동의 개인정보</h2>
-    <p>회사는 만 14세 미만 아동의 회원가입을 받지 않으며, 만 14세 미만임이 확인된 경우 즉시 계정 및 관련 정보를 삭제합니다.</p>
+    <p>만 14세 미만 아동은 법정대리인의 동의를 받은 경우에 한하여 가입·이용할 수 있습니다. 법정대리인의 동의 없이 가입한 사실이 확인된 경우, 회사는 해당 계정 및 관련 정보를 지체 없이 삭제합니다. 미국 거주자에 대해서는 COPPA(Children's Online Privacy Protection Act)에 따라 만 13세 미만 아동에 대해 동일한 절차가 적용됩니다.</p>
 
     <h2>12. 자동 수집 장치의 설치·운영 및 거부</h2>
     <p>본 서비스는 모바일 애플리케이션이므로 웹 쿠키를 사용하지 않습니다. 다만 서비스 운영을 위해 기기 식별자, OS·앱 버전 등 최소한의 자동 수집 정보를 처리하며, 이는 기기 설정에서 거부할 수 있습니다.</p>
@@ -301,6 +299,14 @@
 
     <h2>15. 개인정보처리방침의 변경</h2>
     <p>본 방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우 시행 7일 전부터 앱 내 또는 본 페이지를 통해 사전 공지합니다.</p>
+
+    <h2>16. 해외 거주 이용자에 대한 고지 (GDPR · CCPA · COPPA)</h2>
+    <ul>
+      <li><strong>EU/EEA/UK 거주자 (GDPR):</strong> 회사는 (i) 회원과의 서비스 제공 계약 이행, (ii) 정보주체의 동의, (iii) 서비스 운영·보안을 위한 정당한 이익을 처리 근거(GDPR 제6조)로 합니다. EU 거주자는 열람·정정·삭제·처리 제한·이의 제기·이동권을 행사할 수 있으며, 자국 감독기관에 진정할 권리가 있습니다. 회사는 별도의 EU 대리인을 선임하지 않았으므로, EU 거주자의 문의는 <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a> 으로 보내주시기 바랍니다.</li>
+      <li><strong>국외 이전 안전조치:</strong> Google LLC, Supabase Inc., RevenueCat, Inc.로의 EU/EEA/UK 개인정보 이전 시 EU 표준계약조항(SCCs) 등 적정한 보호 조치를 적용합니다.</li>
+      <li><strong>미국 캘리포니아 거주자 (CCPA/CPRA):</strong> 회사는 회원의 개인정보를 판매하지 않으며, 맞춤형 광고 목적의 공유도 수행하지 않습니다. 캘리포니아 거주자는 CCPA에 따른 열람·삭제·정정·차별 금지 권리를 가지며, <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a> 또는 <a href="https://kawkaw.dev/account-deletion/">https://kawkaw.dev/account-deletion/</a> 를 통해 행사할 수 있습니다.</li>
+      <li><strong>미국 13세 미만 아동 (COPPA):</strong> 본 방침 제11조가 적용됩니다.</li>
+    </ul>
 
     <div class="footer">
       <p><strong>사업자 정보</strong></p>
@@ -337,7 +343,7 @@
         </tr>
         <tr>
           <td>Account (social login)</td>
-          <td>Apple/Google/Kakao identifier, email, name</td>
+          <td>Apple/Google/Kakao identifier, email (may be an Apple private-relay address if you used "Hide My Email"), name</td>
           <td>Social login</td>
         </tr>
         <tr>
@@ -352,8 +358,13 @@
         </tr>
         <tr>
           <td>Diary output</td>
-          <td>AI-generated text, emotion analysis, visual/audio cues, pet persona</td>
+          <td>AI-generated text, emotion analysis, visual/audio cues, extracted still frames used as the diary card's visual asset</td>
           <td>Stored automatically after generation</td>
+        </tr>
+        <tr>
+          <td>Pet persona (server-side, cumulative)</td>
+          <td>AI-derived persona/voice metadata (JSON) built up across diary generations</td>
+          <td>Updated on each diary generation</td>
         </tr>
         <tr>
           <td>Payment</td>
@@ -377,11 +388,13 @@
       <li>Compliance with applicable law and evidentiary needs in case of disputes.</li>
     </ul>
     <p>The Company does not use collected personal information for any purpose other than those listed above. Any new purpose requires separate consent.</p>
+    <p><strong>Marketing:</strong> The Company does not use your email or any other personal information for marketing, advertising, or promotional purposes.</p>
+    <p><strong>Sharing to third-party apps:</strong> If you choose to share a diary card image to an external app (e.g., social networks, messengers), the image is delivered to that app and any subsequent processing is governed by the third-party app's own policies.</p>
 
     <h2>3. Retention and Use Period</h2>
     <ul>
-      <li>Account, pet info, diary results: <strong>until account deletion</strong> (deleted immediately upon termination);</li>
-      <li>Uploaded original video/audio: <strong>permanently deleted immediately after AI analysis completes</strong> (not retained in backups, logs, or caches);</li>
+      <li>Account, pet info, diary results, pet persona, and the still frames extracted for use as the diary card's visual asset: <strong>until account deletion</strong> (deleted immediately upon termination);</li>
+      <li>Uploaded original video/audio: <strong>permanently deleted immediately after AI analysis completes</strong> (not retained in backups, logs, or caches; only the still frames automatically extracted from the video are retained separately to render the diary card);</li>
       <li>Payment-related records: 5 years (per the Act on the Consumer Protection in Electronic Commerce);</li>
       <li>Error and access logs: 3 months (per the Protection of Communications Secrets Act).</li>
     </ul>
@@ -407,8 +420,8 @@
         </tr>
         <tr>
           <td>Apple Inc. / Google LLC</td>
-          <td>In-app purchase, subscription management, push notification delivery</td>
-          <td>Store subscription identifier, device push token</td>
+          <td>In-app purchase and subscription management</td>
+          <td>Store subscription identifier, transaction receipt</td>
         </tr>
         <tr>
           <td>RevenueCat, Inc. (USA)</td>
@@ -467,7 +480,7 @@
       <li>Request suspension of processing;</li>
       <li>Withdraw consent (immediately exercisable by deleting the account).</li>
     </ul>
-    <p>Rights can be exercised directly in the app via "Settings &gt; Edit pet info / Language / Delete account," or by contacting the Privacy Officer below.</p>
+    <p>Rights can be exercised directly in the app via "Settings &gt; Edit pet info / Language / Delete account," by submitting an account-deletion request at <a href="https://kawkaw.dev/account-deletion/">https://kawkaw.dev/account-deletion/</a>, or by contacting the Privacy Officer below.</p>
 
     <h2>8. Destruction Procedure and Method</h2>
     <ul>
@@ -482,19 +495,21 @@
       <li>Encryption at rest (using the storage provider's at-rest encryption);</li>
       <li>Secure storage of auth tokens (iOS Keychain / Android Keystore);</li>
       <li>Least-privilege access and admin access logging;</li>
-      <li>Row-level access control (RLS) so members cannot access another member's data.</li>
+      <li>Row-level access control (RLS) so members cannot access another member's data;</li>
+      <li>In the event of a personal-information breach, the Company will notify affected data subjects and the relevant supervisory authority in accordance with applicable law (PIPA Art. 39-4 in Korea, GDPR Art. 33–34 in the EEA/UK).</li>
     </ul>
 
     <h2>10. Additional Disclosures Regarding AI Analysis</h2>
     <ul>
       <li>The Company does not use pet video/audio or generated diaries as training data for any AI model of the Company.</li>
-      <li>The data-handling policy of the Google Gemini API used for analysis is published separately by Google. The Company deletes the user's original video immediately after analysis to minimize retention.</li>
+      <li>The Company uses Google's <strong>paid Gemini API</strong> (current model: <code>gemini-2.5-flash-lite</code>) for analysis. Under the paid Gemini API's data-handling terms, the inputs you submit are not used to train Google's generative models; Google publishes its full policy separately. The Company additionally deletes the original video immediately after analysis to minimize retention.</li>
       <li>The Company instructs the AI, at the system-prompt level, not to identify or describe any person who may appear in the video.</li>
       <li>AI analysis results are inferences about pet behavior and must not be interpreted as veterinary or medical diagnoses.</li>
+      <li><strong>No tracking:</strong> The Company does not track you across other apps or websites and does not embed any advertising or analytics tracking SDKs (e.g., Firebase Analytics, Sentry, Mixpanel, Amplitude).</li>
     </ul>
 
-    <h2>11. Personal Information of Children Under 14</h2>
-    <p>The Company does not accept account registration from children under 14. If a registrant is found to be under 14, the account and related information are deleted immediately.</p>
+    <h2>11. Personal Information of Children</h2>
+    <p>A child under the age of 14 may register and use the Service only with the consent of a parent or legal guardian. If the Company learns that a child has registered without such consent, the account and related information will be deleted without undue delay. For users in the United States, the same procedure applies to children under 13 in accordance with the Children's Online Privacy Protection Act (COPPA).</p>
 
     <h2>12. Automatic Collection Devices and Opt-Out</h2>
     <p>The Service is a mobile application and does not use web cookies. The Company processes minimal auto-collected information (device identifier, OS/app version, etc.) for service operation. This can be refused via your device settings.</p>
@@ -516,6 +531,14 @@
 
     <h2>15. Changes to This Privacy Policy</h2>
     <p>This policy applies from its effective date. Any additions, deletions, or corrections will be announced in-app or on this page at least 7 days before they take effect.</p>
+
+    <h2>16. Notice for Users Outside Korea (GDPR · CCPA · COPPA)</h2>
+    <ul>
+      <li><strong>EEA / UK residents (GDPR):</strong> The Company's legal bases under GDPR Art. 6 are (i) performance of the service contract with you, (ii) your consent, and (iii) the Company's legitimate interests in operating and securing the Service. You have the right to access, rectify, erase, restrict, object to, and port your personal data, and to lodge a complaint with your local supervisory authority. The Company has not appointed a separate EU representative; EEA/UK residents may direct requests to <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a>.</li>
+      <li><strong>Safeguards for international transfers:</strong> Transfers of EEA/UK personal data to Google LLC, Supabase Inc., and RevenueCat, Inc. are carried out under appropriate safeguards including the EU Standard Contractual Clauses (SCCs).</li>
+      <li><strong>California residents (CCPA/CPRA):</strong> The Company does not sell your personal information and does not share it for cross-context behavioral advertising. California residents may exercise their CCPA rights (to know, delete, correct, opt out, and non-discrimination) by contacting <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a> or submitting a request at <a href="https://kawkaw.dev/account-deletion/">https://kawkaw.dev/account-deletion/</a>.</li>
+      <li><strong>Children under 13 in the United States (COPPA):</strong> Section 11 of this policy applies.</li>
+    </ul>
 
     <div class="footer">
       <p><strong>Business information</strong></p>
