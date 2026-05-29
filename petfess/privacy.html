@@ -121,7 +121,7 @@
         </tr>
         <tr>
           <td>비밀 일기 입력</td>
-          <td>펫의 영상·음성(녹화 또는 갤러리 선택), 촬영 일시</td>
+          <td>펫의 영상·음성(녹화 또는 갤러리 선택)</td>
           <td>일기 생성 시도 시</td>
         </tr>
         <tr>
@@ -139,13 +139,9 @@
           <td>스토어 구독 식별자, 거래 영수증, 체험·구독 기간 (※ 카드 번호 등 결제수단 정보는 Apple/Google이 처리하며 회사는 보관하지 않음)</td>
           <td>구독 결제 시</td>
         </tr>
-        <tr>
-          <td>자동 수집 정보</td>
-          <td>기기 식별자(설치 ID), OS 버전, 앱 버전, 언어/지역 설정, 오류 로그</td>
-          <td>앱 실행 시</td>
-        </tr>
       </tbody>
     </table>
+    <p class="meta">※ 회사는 회원의 주소, 전화번호, 생년월일, 위치 정보, 광고 식별자(IDFA/AAID), IP 주소, 앱 사용 패턴(분석 이벤트), OS 버전, 앱 버전, 오류 로그를 자체적으로 수집하지 않습니다. 회사는 일체의 분석·광고·크래시 리포팅 SDK를 탑재하지 않습니다. 다만 위탁사(Supabase, RevenueCat 등)가 서비스 운영을 위해 자체적으로 처리하는 익명 클라이언트 식별자가 있을 수 있으며, 이는 제5조에 명시된 위탁 처리의 범위에서만 사용됩니다.</p>
 
     <h2>2. 개인정보의 처리 목적</h2>
     <ul>
@@ -164,7 +160,6 @@
       <li>회원 정보, 펫 정보, 비밀 일기 결과, 펫 페르소나, 일기 카드 시각 자산용 추출 프레임 이미지: <strong>회원 탈퇴 시까지</strong> (탈퇴 시 즉시 영구 삭제)</li>
       <li>업로드된 원본 영상·음성: <strong>AI 분석 완료 직후 즉시 영구 삭제</strong> (백업·로그·캐시 어디에도 보관하지 않으며, 영상에서 자동 추출된 정지 프레임만 일기 카드 표시 목적으로 별도 보관)</li>
       <li>결제 관련 기록: 「전자상거래 등에서의 소비자보호에 관한 법률」에 따라 5년</li>
-      <li>오류·접속 로그: 「통신비밀보호법」에 따라 3개월</li>
     </ul>
 
     <h2>4. 개인정보의 제3자 제공</h2>
@@ -310,7 +305,7 @@
     </ul>
 
     <h2>12. 자동 수집 장치의 설치·운영 및 거부</h2>
-    <p>본 서비스는 모바일 애플리케이션이므로 웹 쿠키를 사용하지 않습니다. 다만 서비스 운영을 위해 기기 식별자, OS·앱 버전 등 최소한의 자동 수집 정보를 처리하며, 이는 기기 설정에서 거부할 수 있습니다.</p>
+    <p>본 서비스는 모바일 애플리케이션이므로 웹 쿠키를 사용하지 않습니다. 회사는 광고 식별자(IDFA/AAID), IP 주소, 앱 사용 패턴 등 일체의 자체 자동 수집 정보를 처리하지 않으며, 분석·광고·크래시 리포팅 SDK를 탑재하지 않습니다. 다만 위탁사(Supabase, RevenueCat 등)가 서비스 운영을 위해 자체적으로 처리하는 익명 클라이언트 식별자가 있을 수 있으며, 이는 제5조에 명시된 위탁 처리의 범위에서만 사용됩니다.</p>
 
     <h2>13. 개인정보 보호책임자</h2>
     <ul>
@@ -346,9 +341,8 @@
         <tr><th>카테고리 (Cal. Civ. Code §1798.140(v))</th><th>구체적 항목</th><th>수집 출처</th><th>공유 대상</th></tr>
       </thead>
       <tbody>
-        <tr><td>(A) Identifiers</td><td>이메일, 이름, 사용자 ID, 디바이스 ID</td><td>직접 수집, 디바이스, 소셜 로그인 제공자</td><td>Supabase, RevenueCat</td></tr>
+        <tr><td>(A) Identifiers</td><td>이메일, 이름, 사용자 ID</td><td>직접 수집, 소셜 로그인 제공자</td><td>Supabase, RevenueCat</td></tr>
         <tr><td>(D) Commercial Information</td><td>구독 영수증, 구독 상태</td><td>Apple/Google, RevenueCat</td><td>RevenueCat</td></tr>
-        <tr><td>(F) Internet/Network Activity</td><td>앱 사용 패턴, 오류 로그</td><td>디바이스</td><td>Supabase</td></tr>
         <tr><td>(H) Sensory Data</td><td>펫 영상·음성·사진</td><td>직접 업로드</td><td>Supabase, Google(분석 후 즉시 삭제)</td></tr>
         <tr><td>(K) Inferences</td><td>펫 페르소나 메타데이터</td><td>AI 분석 결과</td><td>Supabase</td></tr>
       </tbody>
@@ -435,7 +429,7 @@
         </tr>
         <tr>
           <td>Diary input</td>
-          <td>Pet video/audio (recorded or selected from gallery), capture timestamp</td>
+          <td>Pet video/audio (recorded or selected from gallery)</td>
           <td>Diary generation attempt</td>
         </tr>
         <tr>
@@ -453,13 +447,9 @@
           <td>Store subscription identifier, transaction receipt, trial/subscription period (card details are handled by Apple/Google and not stored by the Company)</td>
           <td>Subscription purchase</td>
         </tr>
-        <tr>
-          <td>Auto-collected</td>
-          <td>Device identifier (install ID), OS version, app version, language/region setting, error logs</td>
-          <td>App launch</td>
-        </tr>
       </tbody>
     </table>
+    <p class="meta">Note: The Company does not itself collect a Member's postal address, phone number, date of birth, location data, advertising identifier (IDFA/AAID), IP address, app-usage analytics events, OS version, app version, or error logs. The Company does not embed any analytics, advertising, or crash-reporting SDK. Anonymous client identifiers may be processed independently by our processors (Supabase, RevenueCat, etc.) to operate the Service; such processing falls within the scope of the delegations listed in Section 5.</p>
 
     <h2>2. Purpose of Processing</h2>
     <ul>
@@ -477,8 +467,7 @@
     <ul>
       <li>Account, pet info, diary results, pet persona, and the still frames extracted for use as the diary card's visual asset: <strong>until account deletion</strong> (deleted immediately upon termination);</li>
       <li>Uploaded original video/audio: <strong>permanently deleted immediately after AI analysis completes</strong> (not retained in backups, logs, or caches; only the still frames automatically extracted from the video are retained separately to render the diary card);</li>
-      <li>Payment-related records: 5 years (per the Korean Act on the Consumer Protection in Electronic Commerce);</li>
-      <li>Error and access logs: 3 months (per the Korean Protection of Communications Secrets Act).</li>
+      <li>Payment-related records: 5 years (per the Korean Act on the Consumer Protection in Electronic Commerce).</li>
     </ul>
 
     <h2>4. Provision to Third Parties</h2>
@@ -624,7 +613,7 @@
     </ul>
 
     <h2>12. Automatic Collection Devices and Opt-Out</h2>
-    <p>The Service is a mobile application and does not use web cookies. The Company processes minimal auto-collected information (device identifier, OS/app version, etc.) for service operation. This can be refused via your device settings.</p>
+    <p>The Service is a mobile application and does not use web cookies. The Company does not itself process advertising identifiers (IDFA/AAID), IP address, app-usage patterns, or any other auto-collected information, and embeds no analytics, advertising, or crash-reporting SDK. Anonymous client identifiers may be processed independently by our processors (Supabase, RevenueCat, etc.) to operate the Service, within the scope of the delegations listed in Section 5.</p>
 
     <h2>13. Privacy Officer</h2>
     <ul>
@@ -660,9 +649,8 @@
         <tr><th>Category (Cal. Civ. Code §1798.140(v))</th><th>Specific items</th><th>Sources</th><th>Disclosed to</th></tr>
       </thead>
       <tbody>
-        <tr><td>(A) Identifiers</td><td>Email, name, user ID, device ID</td><td>Direct collection, device, social login providers</td><td>Supabase, RevenueCat</td></tr>
+        <tr><td>(A) Identifiers</td><td>Email, name, user ID</td><td>Direct collection, social login providers</td><td>Supabase, RevenueCat</td></tr>
         <tr><td>(D) Commercial Information</td><td>Subscription receipts, subscription status</td><td>Apple/Google, RevenueCat</td><td>RevenueCat</td></tr>
-        <tr><td>(F) Internet/Network Activity</td><td>App usage patterns, error logs</td><td>Device</td><td>Supabase</td></tr>
         <tr><td>(H) Sensory Data</td><td>Pet video, audio, photos</td><td>Direct upload</td><td>Supabase, Google (deleted after analysis)</td></tr>
         <tr><td>(K) Inferences</td><td>Pet persona metadata</td><td>AI analysis output</td><td>Supabase</td></tr>
       </tbody>
