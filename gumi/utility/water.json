@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-04-10",
+  "lastUpdated": "2026-06-05",
   "recommendedUpdateIntervalDays": 90,
   "_paramGuide": {
     "model.seasonalFactors": "RF수도모델 전용. 건기/우기에 따른 수도 사용 패턴 보정. 유일한 계절 보정 경로 (온도 입력 없음). 범위 0.90~1.20 권장.",
@@ -9,9 +9,9 @@
   "notes": [
     {
       "type": "info",
-      "en": "Manila Water and Maynilad rates reflect Q2 2026 FCDA adjustments (effective April). MCWD final 10% tranche applied April 1, 2026. DCWD 12.5% increase effective March 2026 billing. COWD, MIWD, PAWD, and LUWD rates are based on January 2025 data — verification recommended.",
-      "tl": "Ang mga rate ng Manila Water at Maynilad ay nagsasalamin ng Q2 2026 FCDA adjustments (simula Abril). Huling 10% tranche ng MCWD inilapat noong Abril 1, 2026. 12.5% pagtaas ng DCWD simula sa billing ng Marso 2026. Ang mga rate ng COWD, MIWD, PAWD, at LUWD ay batay sa datos noong Enero 2025 — inirerekomenda ang pagberipika.",
-      "ceb": "Ang mga rate sa Manila Water ug Maynilad nagsalamin sa Q2 2026 FCDA adjustments (sugod Abril). Katapusang 10% tranche sa MCWD giaplikar niadtong Abril 1, 2026. 12.5% pagsaka sa DCWD sugod sa billing sa Marso 2026. Ang mga rate sa COWD, MIWD, PAWD, ug LUWD gibase sa datos sa Enero 2025 — girekomendar ang pagberipika."
+      "en": "Manila Water Q2+Q3 2026 FCDA +P0.39/m³ (unchanged — Q3 confirmed May 28). Maynilad Q3 2026 FCDA −P0.25/m³ effective July 1 (MWSS approved May 28; Q2 was −P0.13). MCWD final 10% tranche applied April 1, 2026. DCWD 12.5% increase effective March 2026. COWD, MIWD, PAWD, LUWD rates based on January 2025 data — verification recommended.",
+      "tl": "Manila Water Q2+Q3 2026 FCDA +P0.39/m³ (walang pagbabago — Q3 kumpirmado Mayo 28). Maynilad Q3 2026 FCDA −P0.25/m³ epektibo Hulyo 1 (naaprubahan ng MWSS Mayo 28; Q2 ay −P0.13). Huling 10% tranche ng MCWD inilapat Abril 1, 2026. 12.5% pagtaas ng DCWD simula Marso 2026. Ang mga rate ng COWD, MIWD, PAWD, LUWD ay batay sa datos ng Enero 2025.",
+      "ceb": "Manila Water Q2+Q3 2026 FCDA +P0.39/m³ (wala'y kausaban — Q3 nakumpirma Mayo 28). Maynilad Q3 2026 FCDA −P0.25/m³ epektibo Hulyo 1 (giaprobahan sa MWSS Mayo 28; Q2 mao ang −P0.13). Katapusang 10% tranche sa MCWD giaplikar Abril 1, 2026. 12.5% pagsaka sa DCWD sugod Marso 2026. Ang mga rate sa COWD, MIWD, PAWD, LUWD gibase sa datos sa Enero 2025."
     }
   ],
   "model": {
@@ -20,26 +20,26 @@
     "seasonalFactors": {
       "January": 0.95,
       "February": 0.95,
-      "March": 1.10,
+      "March": 1.1,
       "April": 1.15,
       "May": 1.12,
-      "June": 1.00,
+      "June": 1.0,
       "July": 0.95,
       "August": 0.95,
       "September": 0.95,
       "October": 0.95,
       "November": 0.98,
-      "December": 1.00
+      "December": 1.0
     },
     "lrSeasonalFactors": {
       "January": 0.95,
       "February": 0.97,
-      "March": 1.10,
+      "March": 1.1,
       "April": 1.15,
-      "May": 1.10,
+      "May": 1.1,
       "June": 0.98,
       "July": 0.92,
-      "August": 0.90,
+      "August": 0.9,
       "September": 0.92,
       "October": 0.93,
       "November": 0.97,
@@ -59,17 +59,35 @@
       "vatRate": 0.12,
       "fcda": 0.39,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 14.61 },
-        { "upTo": 20,   "ratePerCubicMeter": 23.27 },
-        { "upTo": 30,   "ratePerCubicMeter": 34.48 },
-        { "upTo": 40,   "ratePerCubicMeter": 43.89 },
-        { "upTo": 50,   "ratePerCubicMeter": 50.93 },
-        { "upTo": null, "ratePerCubicMeter": 54.18 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 14.61
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 23.27
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 34.48
+        },
+        {
+          "upTo": 40,
+          "ratePerCubicMeter": 43.89
+        },
+        {
+          "upTo": 50,
+          "ratePerCubicMeter": 50.93
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 54.18
+        }
       ],
       "notes": [
         {
           "type": "rate",
-          "en": "4th Rate Rebasing applied January 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% of average basic rate P50.70) applied April — up P0.04 from Q1's +P0.35. FCDA is a flat per-m³ surcharge. Environmental charge raised from 25% to 30% (reflecting Manila Water sewerage coverage target). Sewerage charge is 50% of basic water charge. 4Ps beneficiary households and low-income users under 20m³ qualify for Enhanced Lifeline Program (FCDA exemption and discounts).",
+          "en": "4th Rate Rebasing applied January 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% of average basic rate P50.70) applied April — up P0.04 from Q1's +P0.35. FCDA is a flat per-m³ surcharge. Environmental charge raised from 25% to 30% (reflecting Manila Water sewerage coverage target). Sewerage charge is 50% of basic water charge. 4Ps beneficiary households and low-income users under 20m³ qualify for Enhanced Lifeline Program (FCDA exemption and discounts). Q3 2026 FCDA confirmed at same P0.39/m³ (MWSS approved May 28 — peso impact was less than P0.01/m³ threshold for adjustment).",
           "tl": "4th Rate Rebasing inilapat noong Enero 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% ng average basic rate na P50.70) inilapat sa Abril — tumaas ng P0.04 mula sa Q1 na +P0.35. Ang FCDA ay flat na surcharge bawat m³. Environmental charge tumaas mula 25% tungong 30% (salamin ng Manila Water sewerage coverage target). Ang sewerage charge ay 50% ng basic water charge. Ang mga beneficiary ng 4Ps at mababang kita na gumagamit ng 20m³ pababa ay kwalipikado sa Enhanced Lifeline Program (FCDA exemption at diskwento).",
           "ceb": "4th Rate Rebasing giaplikar sa Enero 2026 (+6.96% rate recalculation + CPI 0.68%). Q2 2026 FCDA +P0.39/m³ (0.76% sa average basic rate nga P50.70) giaplikar sa Abril — misaka ug P0.04 gikan sa Q1 nga +P0.35. Ang FCDA usa ka flat surcharge matag m³. Environmental charge misaka gikan 25% ngadto 30% (salamin sa Manila Water sewerage coverage target). Ang sewerage charge 50% sa basic water charge. Ang mga beneficiary sa 4Ps ug low-income users ubos sa 20m³ kwalipikado sa Enhanced Lifeline Program (FCDA exemption ug diskwento)."
         }
@@ -86,24 +104,42 @@
       "sewerageRate": 0.5,
       "environmentalCharge": 0.25,
       "vatRate": 0.12,
-      "fcda": -0.13,
+      "fcda": -0.25,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 15.47 },
-        { "upTo": 20,   "ratePerCubicMeter": 24.79 },
-        { "upTo": 30,   "ratePerCubicMeter": 36.35 },
-        { "upTo": 40,   "ratePerCubicMeter": 49.85 },
-        { "upTo": 50,   "ratePerCubicMeter": 58.81 },
-        { "upTo": null, "ratePerCubicMeter": 64.61 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 15.47
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 24.79
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 36.35
+        },
+        {
+          "upTo": 40,
+          "ratePerCubicMeter": 49.85
+        },
+        {
+          "upTo": 50,
+          "ratePerCubicMeter": 58.81
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 64.61
+        }
       ],
       "notes": [
         {
           "type": "rate",
-          "en": "4th Rate Rebasing applied January 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund nature — negative value). Q1 FCDA was -P0.22, so refund narrowed → effective increase of P0.09/m³. Impact: 10m³ household +P0.90/month, 20m³ +P1.80/month, 30m³ +P2.70/month. 4Ps beneficiary households and low-income users under 20m³ qualify for Enhanced Lifeline Program (FCDA exemption).",
-          "tl": "4th Rate Rebasing inilapat noong Enero 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund — negatibong halaga). Ang Q1 FCDA ay -P0.22, kaya lumiliit ang refund → epektibong pagtaas ng P0.09/m³. Epekto: 10m³ na sambahayan +P0.90/buwan, 20m³ +P1.80/buwan, 30m³ +P2.70/buwan. Ang mga beneficiary ng 4Ps at mababang kita na gumagamit ng 20m³ pababa ay kwalipikado sa Enhanced Lifeline Program (FCDA exemption).",
-          "ceb": "4th Rate Rebasing giaplikar sa Enero 2026 (+2.81%). Q2 2026 FCDA -P0.13/m³ (refund — negatibo nga kantidad). Ang Q1 FCDA -P0.22, mao nga migamay ang refund → epektibong pagsaka ug P0.09/m³. Epekto: 10m³ nga panimalay +P0.90/bulan, 20m³ +P1.80/bulan, 30m³ +P2.70/bulan. Ang mga beneficiary sa 4Ps ug low-income users ubos sa 20m³ kwalipikado sa Enhanced Lifeline Program (FCDA exemption)."
+          "en": "4th Rate Rebasing applied January 2026 (+2.81%). Q2 2026 FCDA was −P0.13/m³ (April–June). Q3 2026 FCDA −P0.25/m³ effective July 1, 2026 (MWSS approved May 28). Reduction driven by peso strengthening against Japanese yen (nearly 50% of Maynilad foreign loans are yen-denominated). Additional relief vs Q2: −P0.12/m³ → bills decrease by ~P1.20/month for 10m³ households. Low-income Lifeline customers (≤10m³ or ≤20m³ 4Ps) are exempt from FCDA. fcda field is a flat per-m³ surcharge applied separately from tier rates by the calculator.",
+          "tl": "4th Rate Rebasing inilapat noong Enero 2026 (+2.81%). Q3 2026 FCDA −P0.25/m³ epektibo Hulyo 1, 2026 (naaprubahan ng MWSS noong Mayo 28). Kumpara sa Q2 (−P0.13): dagdag na bawas na P0.12/m³. Ang mga Low-income Lifeline customers (≤10m³ o ≤20m³ 4Ps) ay exempt sa FCDA.",
+          "ceb": "4th Rate Rebasing giaplikar sa Enero 2026 (+2.81%). Q3 2026 FCDA −P0.25/m³ epektibo Hulyo 1, 2026 (giaprobahan sa MWSS niadtong Mayo 28). Kumpara sa Q2 (−P0.13): dugang nga pagkunhod nga P0.12/m³. Ang Low-income Lifeline customers (≤10m³ o ≤20m³ 4Ps) exempt sa FCDA."
         }
       ],
-      "lastUpdated": "2026-04"
+      "lastUpdated": "2026-07"
     },
     {
       "id": "metro_cebu_water",
@@ -116,10 +152,22 @@
       "environmentalCharge": 0.0,
       "vatRate": 0.0,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 0 },
-        { "upTo": 20,   "ratePerCubicMeter": 28.64 },
-        { "upTo": 30,   "ratePerCubicMeter": 33.71 },
-        { "upTo": null, "ratePerCubicMeter": 82.52 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 0
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 28.64
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 33.71
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 82.52
+        }
       ],
       "notes": [
         {
@@ -148,10 +196,22 @@
       "environmentalCharge": 0.05,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 12.41 },
-        { "upTo": 20,   "ratePerCubicMeter": 20.88 },
-        { "upTo": 30,   "ratePerCubicMeter": 30.63 },
-        { "upTo": null, "ratePerCubicMeter": 41.51 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 12.41
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 20.88
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 30.63
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 41.51
+        }
       ],
       "notes": [
         {
@@ -174,9 +234,18 @@
       "environmentalCharge": 0.05,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 10.2 },
-        { "upTo": 20,   "ratePerCubicMeter": 17.1 },
-        { "upTo": null, "ratePerCubicMeter": 27.5 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 10.2
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 17.1
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 27.5
+        }
       ],
       "notes": [
         {
@@ -199,9 +268,18 @@
       "environmentalCharge": 0.04,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 9.5 },
-        { "upTo": 20,   "ratePerCubicMeter": 15.8 },
-        { "upTo": null, "ratePerCubicMeter": 25.3 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 9.5
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 15.8
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 25.3
+        }
       ],
       "notes": [
         {
@@ -224,10 +302,22 @@
       "environmentalCharge": 0.04,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 9.0 },
-        { "upTo": 20,   "ratePerCubicMeter": 14.5 },
-        { "upTo": 30,   "ratePerCubicMeter": 22.0 },
-        { "upTo": null, "ratePerCubicMeter": 29.5 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 9.0
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 14.5
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 22.0
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 29.5
+        }
       ],
       "notes": [
         {
@@ -250,10 +340,22 @@
       "environmentalCharge": 0.06,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 10,   "ratePerCubicMeter": 11.0 },
-        { "upTo": 20,   "ratePerCubicMeter": 18.5 },
-        { "upTo": 30,   "ratePerCubicMeter": 28.0 },
-        { "upTo": null, "ratePerCubicMeter": 38.0 }
+        {
+          "upTo": 10,
+          "ratePerCubicMeter": 11.0
+        },
+        {
+          "upTo": 20,
+          "ratePerCubicMeter": 18.5
+        },
+        {
+          "upTo": 30,
+          "ratePerCubicMeter": 28.0
+        },
+        {
+          "upTo": null,
+          "ratePerCubicMeter": 38.0
+        }
       ],
       "notes": [
         {

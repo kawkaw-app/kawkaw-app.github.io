@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-04-13",
+  "lastUpdated": "2026-06-05",
   "recommendedUpdateIntervalDays": 30,
   "_paramGuide": {
     "monthlyWeights": "RF전기모델 전용. 온도 외 잔여 행동 패턴 보정 (재택률, 방학, 연말 등). 온도에 의한 소비 변화는 appliance 모델이 별도 처리하므로 여기선 제외할 것. 범위 0.95~1.10 권장.",
@@ -28,23 +28,23 @@
   "notes": [
     {
       "type": "info",
-      "en": "Meralco April 2026 rate officially confirmed at 14.3496/kWh (announced April 10). Davao Light March–April rate 10.63/kWh confirmed. VECO and CEBECO confirmed at February 2026 levels — March/April not yet announced. Middle East conflict driving fuel prices higher; Meralco warns May rates will likely increase further. ERC new lifeline threshold (50kWh = 100% discount) effective April 2026.",
-      "tl": "Ang mga rate ng Meralco at Davao Light ay batay sa opisyal na anunsyo noong Marso 2026. Ang VECO at CEBECO ay opisyal na nakumpirma noong Pebrero 2026. Nailapat ang ERC Resolution No. 2 (2026): pambansang lifeline subsidy na P0.01/kWh (simula sa billing ng Marso 2026). Inaasahang magkakaroon ng dagdag na pagtaas ng rate sa lahat ng rehiyon dahil sa pagtaas ng presyo ng langis sa Middle East mula Abril.",
-      "ceb": "Ang mga rate sa Meralco ug Davao Light gibase sa opisyal nga pagpahibalo sa Marso 2026. Ang VECO ug CEBECO opisyal nga nakumpirma sa Pebrero 2026. Giaplikar ang ERC Resolution No. 2 (2026): tibuok nasud nga lifeline subsidy nga P0.01/kWh (sugod sa billing sa Marso 2026). Gilauman nga motaas pa ang rate sa tanang rehiyon tungod sa pagsaka sa presyo sa lana sa Middle East gikan sa Abril."
+      "en": "Meralco May 2026 rate officially confirmed at 14.3345/kWh (announced May 13). VECO May 2026 confirmed at 12.88/kWh. Davao Light May 2026 confirmed at 10.35/kWh (billing May 12–June 10). CEBECO confirmed at February 2026 level (13.37/kWh) — March/April/May not officially published. ERC suspended GEA-All collection (P0.0371/kWh) for May–June 2026 across all DUs. June rates to be announced around June 10–12.",
+      "tl": "Opisyal na nakumpirma ang Meralco rate para Mayo 2026 sa 14.3345/kWh (inianunsyo Mayo 13). VECO Mayo 2026 kumpirmado sa 12.88/kWh. Davao Light Mayo 2026 kumpirmado sa 10.35/kWh. CEBECO nananatili sa antas ng Pebrero 2026 (13.37/kWh). Sinuspinde ng ERC ang GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026.",
+      "ceb": "Opisyal nga nakumpirma ang Meralco rate para Mayo 2026 sa 14.3345/kWh (gipahibalo Mayo 13). VECO Mayo 2026 nakumpirma sa 12.88/kWh. Davao Light Mayo 2026 nakumpirma sa 10.35/kWh. CEBECO nagpabilin sa lebel sa Pebrero 2026 (13.37/kWh). Gi-suspend sa ERC ang GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026."
     }
   ],
   "monthlyWeights": {
-    "January": 1.00,
-    "February": 1.00,
+    "January": 1.0,
+    "February": 1.0,
     "March": 1.04,
     "April": 1.07,
     "May": 1.06,
-    "June": 1.00,
+    "June": 1.0,
     "July": 0.98,
     "August": 0.98,
     "September": 0.98,
     "October": 0.98,
-    "November": 1.00,
+    "November": 1.0,
     "December": 1.05
   },
   "model": {
@@ -89,24 +89,30 @@
       "rateMode": "totalRate",
       "basicCharge": 44.95,
       "distributionCharge": 1.2214,
-      "transmissionCharge": 1.4567,
+      "transmissionCharge": 1.4074,
       "systemLossRate": 0.5834,
-      "subsidyCharge": 0.0100,
+      "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 200, "ratePerKwh": 8.3864 },
-        { "upTo": null, "ratePerKwh": 8.3864 }
+        {
+          "upTo": 200,
+          "ratePerKwh": 8.7942
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 8.7942
+        }
       ],
-      "totalRateKwh": 14.3496,
+      "totalRateKwh": 14.3345,
       "notes": [
         {
           "type": "rate",
-          "en": "Based on official April 2026 announcement (April 10). Total rate 14.3496/kWh (+0.5335 from March's 13.8161). Generation charge 8.3864/kWh (+0.5257, driven by peso depreciation to P60.748/USD — largest monthly drop since June 2022, affecting 99% of First Gas and 44% of PSA costs). Transmission charge 1.4567/kWh (−0.0656, lower NGCP ancillary service charges). Distribution charge frozen since August 2022. Fuel price impact from Middle East conflict NOT yet reflected in April rates — Meralco VP warned May rates will likely rise further. New ERC lifeline discount: 50kWh or less = 100% off; 51–70kWh = 35% off; 71–100kWh = 20% off (effective April).",
-          "tl": "Batay sa opisyal na anunsyo noong Abril 10, 2026. Kabuuang rate na 14.3496/kWh (+0.5335 mula sa 13.8161 noong Marso). Generation charge 8.3864/kWh (+0.5257, dahil sa pagbaba ng peso sa P60.748/USD — pinakamalaking pagbaba sa isang buwan mula Hunyo 2022, nakaapekto sa 99% ng gastos ng First Gas at 44% ng PSA). Transmission charge 1.4567/kWh (−0.0656, mas mababang NGCP ancillary service charges). Distribution charge hindi nagbago mula Agosto 2022. Ang epekto ng pagtaas ng presyo ng gasolina dahil sa krisis sa Middle East ay HINDI pa naisasalamin sa rate ng Abril — Babala ng Meralco VP na malamang na tataas pa ang rate ng Mayo. Bagong ERC lifeline discount: 50kWh pababa = 100% diskwento; 51–70kWh = 35%; 71–100kWh = 20% (simula Abril).",
-          "ceb": "Gibase sa opisyal nga pagpahibalo niadtong Abril 10, 2026. Total rate 14.3496/kWh (+0.5335 gikan sa 13.8161 sa Marso). Generation charge 8.3864/kWh (+0.5257, tungod sa paghulog sa peso sa P60.748/USD — pinakadako nga paghulog sulod sa usa ka bulan sukad Hunyo 2022, nakaapekto sa 99% sa gastos sa First Gas ug 44% sa PSA). Transmission charge 1.4567/kWh (−0.0656, mas ubos nga NGCP ancillary service charges). Distribution charge wala nausab sukad Agosto 2022. Ang epekto sa pagsaka sa presyo sa gasolina tungod sa krisis sa Middle East WALA pa masalamin sa rate sa Abril — Gipasidaan sa Meralco VP nga posible mosaka pa ang rate sa Mayo. Bag-ong ERC lifeline discount: 50kWh o ubos = 100% diskwento; 51–70kWh = 35%; 71–100kWh = 20% (sugod Abril)."
+          "en": "Based on official May 2026 announcement (May 13). Total rate 14.3345/kWh (−0.0151 from April's 14.3496). Generation charge 8.7942/kWh (+0.4078, driven by WESM line rental surge +P7.7239/kWh and peso depreciation affecting 99% of First Gas/Prime CoreGen costs). ERC allowed PSA line rental caps, with suppliers absorbing a substantial portion, pulling PSA charges down by P0.1793/kWh to partially offset. Transmission charge 1.4074/kWh (−0.0493). ERC suspended GEA-All collection (P0.0371/kWh) for May–June 2026. AWAT refund doubled to P0.4278/kWh (from P0.2024) — ERC directed full P14.2B refund in 12 months instead of 2 years. VAT exemption for indigenous natural gas (RA 12120) partially applied. Distribution charge frozen since August 2022.",
+          "tl": "Batay sa opisyal na anunsyo noong Mayo 13, 2026. Kabuuang rate na 14.3345/kWh (−0.0151 mula sa 14.3496 noong Abril). Generation charge 8.7942/kWh (+0.4078). Transmission charge 1.4074/kWh (−0.0493). Sinuspinde ng ERC ang koleksyon ng GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026. AWAT refund dinoblo sa P0.4278/kWh. Distribution charge hindi nagbago mula Agosto 2022.",
+          "ceb": "Gibase sa opisyal nga pagpahibalo niadtong Mayo 13, 2026. Total rate 14.3345/kWh (−0.0151 gikan sa 14.3496 sa Abril). Generation charge 8.7942/kWh (+0.4078). Transmission charge 1.4074/kWh (−0.0493). Gi-suspend sa ERC ang koleksyon sa GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026. AWAT refund gidoble sa P0.4278/kWh. Distribution charge wala nausab sukad Agosto 2022."
         }
       ],
-      "lastUpdated": "2026-04"
+      "lastUpdated": "2026-05"
     },
     {
       "id": "veco",
@@ -115,26 +121,32 @@
       "island": "Visayas",
       "currency": "PHP",
       "rateMode": "totalRate",
-      "basicCharge": 39.50,
-      "distributionCharge": 1.1580,
-      "transmissionCharge": 1.10,
-      "systemLossRate": 0.5240,
-      "subsidyCharge": 0.0100,
+      "basicCharge": 39.5,
+      "distributionCharge": 1.158,
+      "transmissionCharge": 1.1,
+      "systemLossRate": 0.524,
+      "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 7.32 },
-        { "upTo": null, "ratePerKwh": 7.74 }
+        {
+          "upTo": 100,
+          "ratePerKwh": 7.37
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 7.79
+        }
       ],
-      "totalRateKwh": 12.79,
+      "totalRateKwh": 12.88,
       "notes": [
         {
           "type": "rate",
-          "en": "February 2026 total rate of 12.79/kWh officially confirmed (CERA announcement, +0.35). March rate not yet confirmed — VECO announced on March 12 that it is monitoring the Middle East situation; rate estimated to remain at previous month's level. Summer season (April–June) WESM demand surge may cause additional increases. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation and transmission charges are reverse-calculated estimates.",
-          "tl": "Opisyal na nakumpirma ang kabuuang rate na 12.79/kWh noong Pebrero 2026 (anunsyo ng CERA, +0.35). Hindi pa nakumpirma ang rate sa Marso — inanunsyo ng VECO noong Marso 12 na minomonitor nila ang sitwasyon sa Middle East; tinatayang nananatili sa antas ng nakaraang buwan. Posibleng tumaas pa dahil sa pagtaas ng demand sa WESM sa tag-init (Abril–Hunyo). Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation at transmission charges ay mga tinatayang halaga.",
-          "ceb": "Opisyal nga nakumpirma ang total rate nga 12.79/kWh sa Pebrero 2026 (CERA announcement, +0.35). Wala pa makumpirma ang rate sa Marso — gipahibalo sa VECO niadtong Marso 12 nga nag-monitor sila sa sitwasyon sa Middle East; gitantya nga magpabilin sa lebel sa miaging bulan. Posible mosaka pa tungod sa pagsaka sa demand sa WESM sa ting-init (Abril–Hunyo). Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation ug transmission charges mga gitantya nga kantidad."
+          "en": "May 2026 total rate 12.88/kWh officially confirmed (+0.31 from April's 12.57). Rate history: Feb 12.79 → Mar 12.36 → Apr 12.57 → May 12.88. Increase attributed to higher generation costs from global fuel prices and NGCP Red/Yellow Alerts in the Visayas Grid (thin reserves, elevated demand). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation tiers are proportionally scaled estimates.",
+          "tl": "Opisyal na nakumpirma ang rate na 12.88/kWh para Mayo 2026 (+0.31 mula sa 12.57 noong Abril). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation tiers ay proportionally scaled estimates.",
+          "ceb": "Opisyal nga nakumpirma ang rate nga 12.88/kWh para Mayo 2026 (+0.31 gikan sa 12.57 sa Abril). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation tiers proportionally scaled estimates."
         }
       ],
-      "lastUpdated": "2026-02"
+      "lastUpdated": "2026-05"
     },
     {
       "id": "cebeco",
@@ -143,16 +155,25 @@
       "island": "Visayas",
       "currency": "PHP",
       "rateMode": "totalRate",
-      "basicCharge": 35.00,
-      "distributionCharge": 1.3200,
+      "basicCharge": 35.0,
+      "distributionCharge": 1.32,
       "transmissionCharge": 1.17,
-      "systemLossRate": 0.6200,
-      "subsidyCharge": 0.0100,
+      "systemLossRate": 0.62,
+      "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 50, "ratePerKwh": 7.26 },
-        { "upTo": 100, "ratePerKwh": 7.57 },
-        { "upTo": null, "ratePerKwh": 8.02 }
+        {
+          "upTo": 50,
+          "ratePerKwh": 7.26
+        },
+        {
+          "upTo": 100,
+          "ratePerKwh": 7.57
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 8.02
+        }
       ],
       "totalRateKwh": 13.37,
       "notes": [
@@ -172,26 +193,32 @@
       "island": "Mindanao",
       "currency": "PHP",
       "rateMode": "totalRate",
-      "basicCharge": 38.20,
-      "distributionCharge": 1.0980,
+      "basicCharge": 38.2,
+      "distributionCharge": 1.098,
       "transmissionCharge": 0.95,
-      "systemLossRate": 0.4920,
-      "subsidyCharge": 0.0100,
+      "systemLossRate": 0.492,
+      "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 5.68 },
-        { "upTo": null, "ratePerKwh": 6.00 }
+        {
+          "upTo": 100,
+          "ratePerKwh": 5.68
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 6.0
+        }
       ],
-      "totalRateKwh": 10.63,
+      "totalRateKwh": 10.35,
       "notes": [
         {
           "type": "rate",
-          "en": "Based on official March 2026 announcement (billing period March 12 – April 11). Total rate 10.63/kWh (+0.33 from February's 10.30, due to WESM price increase). Rates spiked in January (11.72), dropped in February (10.30), then slightly rebounded in March. ERC Resolution No. 2 applied: lifeline subsidy P0.01/kWh. Power sources: NPC-PSALM hydro 50%, Therma South coal 20–30%, remainder from WESM. Warning of additional increases in April if Middle East crisis continues. Generation charge is a reverse-calculated estimate.",
-          "tl": "Batay sa opisyal na anunsyo noong Marso 2026 (billing period Marso 12 – Abril 11). Kabuuang rate na 10.63/kWh (+0.33 mula sa 10.30 noong Pebrero, dahil sa pagtaas ng presyo sa WESM). Tumaas ang rate noong Enero (11.72), bumaba noong Pebrero (10.30), pagkatapos bahagyang tumaas sa Marso. Nailapat ang ERC Resolution No. 2: lifeline subsidy na P0.01/kWh. Pinagmumulan ng kuryente: NPC-PSALM hydro 50%, Therma South coal 20–30%, natira mula sa WESM. Babala na posibleng tumaas pa sa Abril kung magpapatuloy ang krisis sa Middle East. Ang generation charge ay tinatayang halaga.",
-          "ceb": "Gibase sa opisyal nga pagpahibalo sa Marso 2026 (billing period Marso 12 – Abril 11). Total rate 10.63/kWh (+0.33 gikan sa 10.30 sa Pebrero, tungod sa pagsaka sa presyo sa WESM). Misaka ang rate sa Enero (11.72), mikunhod sa Pebrero (10.30), dayon gamay nga misaka sa Marso. Giaplikar ang ERC Resolution No. 2: lifeline subsidy nga P0.01/kWh. Tinubdan sa kuryente: NPC-PSALM hydro 50%, Therma South coal 20–30%, nahibilin gikan sa WESM. Pasidaan nga posible mosaka pa sa Abril kung magpadayon ang krisis sa Middle East. Ang generation charge gitantya nga kantidad."
+          "en": "Based on official May 2026 announcement (billing May 12–June 10). Total rate 10.35/kWh (−0.18 from April's 10.53). Rate history: Jan 11.72 → Feb 10.30 → Mar 10.63 → Apr 10.53 → May 10.35. Decrease driven by lower NGCP transmission charges and ERC suspension of GEA-All (P0.0371/kWh) for May–June 2026. Generation charge stable (NPC-PSALM hydro 50%, Therma South coal 20–30%). ERC Resolution No. 2 applied: lifeline subsidy P0.01/kWh. Generation tiers are reverse-calculated estimates (unchanged — decrease absorbed by otherPerKwh via totalRate formula).",
+          "tl": "Batay sa opisyal na anunsyo para Mayo 2026 (billing Mayo 12–Hunyo 10). Kabuuang rate na 10.35/kWh (−0.18 mula sa 10.53 noong Abril). Kasaysayan: Ene 11.72 → Peb 10.30 → Mar 10.63 → Abr 10.53 → Mayo 10.35. Pagbaba dahil sa mas mababang NGCP transmission charges at pagsuspinde ng ERC sa GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026. Nailapat ang ERC Resolution No. 2: lifeline subsidy na P0.01/kWh.",
+          "ceb": "Gibase sa opisyal nga pagpahibalo para Mayo 2026 (billing Mayo 12–Hunyo 10). Total rate 10.35/kWh (−0.18 gikan sa 10.53 sa Abril). Kasaysayan: Ene 11.72 → Peb 10.30 → Mar 10.63 → Abr 10.53 → Mayo 10.35. Pagkunhod tungod sa ubos nga NGCP transmission charges ug gi-suspend sa ERC ang GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026. Giaplikar ang ERC Resolution No. 2: lifeline subsidy nga P0.01/kWh."
         }
       ],
-      "lastUpdated": "2026-03"
+      "lastUpdated": "2026-05"
     },
     {
       "id": "cotabato_light",
@@ -200,15 +227,18 @@
       "island": "Mindanao",
       "currency": "PHP",
       "rateMode": "itemized",
-      "basicCharge": 33.50,
-      "distributionCharge": 1.2500,
+      "basicCharge": 33.5,
+      "distributionCharge": 1.25,
       "transmissionCharge": 1.09,
-      "systemLossRate": 0.5800,
-      "subsidyCharge": 0.0100,
-      "otherChargesPerKwh": 1.10,
+      "systemLossRate": 0.58,
+      "subsidyCharge": 0.01,
+      "otherChargesPerKwh": 1.1,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": null, "ratePerKwh": 5.32 }
+        {
+          "upTo": null,
+          "ratePerKwh": 5.32
+        }
       ],
       "notes": [
         {
@@ -227,16 +257,22 @@
       "island": "Visayas",
       "currency": "PHP",
       "rateMode": "itemized",
-      "basicCharge": 37.00,
-      "distributionCharge": 1.1800,
+      "basicCharge": 37.0,
+      "distributionCharge": 1.18,
       "transmissionCharge": 1.08,
-      "systemLossRate": 0.5100,
-      "subsidyCharge": 0.0100,
-      "otherChargesPerKwh": 1.10,
+      "systemLossRate": 0.51,
+      "subsidyCharge": 0.01,
+      "otherChargesPerKwh": 1.1,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 7.31 },
-        { "upTo": null, "ratePerKwh": 7.73 }
+        {
+          "upTo": 100,
+          "ratePerKwh": 7.31
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 7.73
+        }
       ],
       "notes": [
         {
@@ -255,16 +291,22 @@
       "island": "Visayas",
       "currency": "PHP",
       "rateMode": "itemized",
-      "basicCharge": 32.00,
-      "distributionCharge": 1.3500,
+      "basicCharge": 32.0,
+      "distributionCharge": 1.35,
       "transmissionCharge": 1.19,
-      "systemLossRate": 0.6500,
-      "subsidyCharge": 0.0100,
-      "otherChargesPerKwh": 1.10,
+      "systemLossRate": 0.65,
+      "subsidyCharge": 0.01,
+      "otherChargesPerKwh": 1.1,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 50, "ratePerKwh": 7.02 },
-        { "upTo": null, "ratePerKwh": 7.57 }
+        {
+          "upTo": 50,
+          "ratePerKwh": 7.02
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 7.57
+        }
       ],
       "notes": [
         {
@@ -283,16 +325,22 @@
       "island": "Luzon",
       "currency": "PHP",
       "rateMode": "itemized",
-      "basicCharge": 36.50,
-      "distributionCharge": 1.2800,
+      "basicCharge": 36.5,
+      "distributionCharge": 1.28,
       "transmissionCharge": 1.35,
-      "systemLossRate": 0.5600,
-      "subsidyCharge": 0.0100,
-      "otherChargesPerKwh": 1.10,
+      "systemLossRate": 0.56,
+      "subsidyCharge": 0.01,
+      "otherChargesPerKwh": 1.1,
       "vatRate": 0.12,
       "tiers": [
-        { "upTo": 100, "ratePerKwh": 6.74 },
-        { "upTo": null, "ratePerKwh": 7.23 }
+        {
+          "upTo": 100,
+          "ratePerKwh": 6.74
+        },
+        {
+          "upTo": null,
+          "ratePerKwh": 7.23
+        }
       ],
       "notes": [
         {
