@@ -82,9 +82,14 @@
       width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
       border-top:5px solid var(--txt2);pointer-events:none;
     }
-    body>[lang="ko"]{display:none}
-    .ko>body>[lang="ko"],.ko>[lang="ko"]{display:block}
-    .ko>body>[lang="en"],.ko>[lang="en"]{display:none}
+    body>[lang]{display:none}
+    body>[lang="en"]{display:block}
+    .ko>[lang="en"]{display:none}.ko>[lang="ko"]{display:block}
+    .ja>[lang="en"]{display:none}.ja>[lang="ja"]{display:block}
+    .zh-tw>[lang="en"]{display:none}.zh-tw>[lang="zh-TW"]{display:block}
+    .es>[lang="en"]{display:none}.es>[lang="es"]{display:block}
+    .vi>[lang="en"]{display:none}.vi>[lang="vi"]{display:block}
+    .th>[lang="en"]{display:none}.th>[lang="th"]{display:block}
 
     /* Steps */
     .step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
@@ -165,6 +170,11 @@
       padding:3px 10px;border-radius:999px;letter-spacing:0.5px;
     }
     .ko .plan.premium::before{content:'추천'}
+    .ja .plan.premium::before{content:'おすすめ'}
+    .zh-tw .plan.premium::before{content:'推薦'}
+    .es .plan.premium::before{content:'Recomendado'}
+    .vi .plan.premium::before{content:'Đề xuất'}
+    .th .plan.premium::before{content:'แนะนำ'}
     .plan h3{margin-top:0}
     .plan .price{font-size:20px;font-weight:800;color:var(--txt);margin:6px 0 12px}
     .plan .price small{font-size:13px;color:var(--txt2);font-weight:500}
@@ -191,6 +201,11 @@
     <select id="lang-select" onchange="setLang(this.value)">
       <option value="en">English</option>
       <option value="ko">한국어</option>
+      <option value="ja">日本語</option>
+      <option value="zh-TW">繁體中文</option>
+      <option value="es">Español</option>
+      <option value="vi">Tiếng Việt</option>
+      <option value="th">ไทย</option>
     </select>
   </div>
 
@@ -213,11 +228,12 @@
         <li><a href="#en-6">Reports &amp; history</a></li>
         <li><a href="#en-7">AI Picks: product recommendations</a></li>
         <li><a href="#en-8">Routine builder</a></li>
-        <li><a href="#en-9">Knowledge articles</a></li>
-        <li><a href="#en-10">Daily fortune</a></li>
-        <li><a href="#en-11">Settings &amp; account</a></li>
-        <li><a href="#en-12">Subscription plans</a></li>
-        <li><a href="#en-13">Photo tips, FAQ &amp; contact</a></li>
+        <li><a href="#en-9">Product diary</a></li>
+        <li><a href="#en-10">Knowledge articles</a></li>
+        <li><a href="#en-11">Daily fortune</a></li>
+        <li><a href="#en-12">Settings &amp; account</a></li>
+        <li><a href="#en-13">Subscription plans</a></li>
+        <li><a href="#en-14">Photo tips, FAQ &amp; contact</a></li>
       </ol>
     </div>
 
@@ -379,6 +395,7 @@
         <ul>
           <li>Filters out anything containing your <strong>declared allergens</strong>.</li>
           <li>Screens against our internal list of potentially harmful ingredients.</li>
+          <li>Cross-references the <strong>Korean Ministry of Food and Drug Safety (MFDS)</strong> functional cosmetics database for Korean-origin products and the public <strong>Open Beauty Facts</strong> database for the rest, so active ingredients are verified rather than assumed.</li>
           <li>Prefers well-documented, mainstream skincare products over obscure or unverifiable ones.</li>
         </ul>
       </div>
@@ -397,9 +414,9 @@
       <h3>Don't like a pick? Re-recommend.</h3>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="Re-recommend products">
-        <p class="caption">Filter by brand, swap individual items, or generate a fresh set.</p>
+        <p class="caption">Filter by brand, swap individual items, generate a fresh set, or ask for K-beauty only.</p>
       </div>
-      <p>You can re-run the recommender three ways: filter to specific brands, replace only the items you don't like, or get a completely new list. Your selections feed back into future picks.</p>
+      <p>You can re-run the recommender in several ways: filter to specific brands, replace only the items you don't like, get a completely new list, or ask for a <strong>K-beauty</strong> set focused on Korean-origin brands. Your selections feed back into future picks.</p>
     </div>
 
     <!-- 8 -->
@@ -446,17 +463,30 @@
 
     <!-- 9 -->
     <div class="section" id="en-9">
-      <h2><span class="num">09</span>Knowledge articles</h2>
-      <div class="shot-wrap">
-        <img class="shot" loading="lazy" src="assets/articles.png" alt="Knowledge articles">
-        <p class="caption">Curated skincare reads — ingredients, trends, community insights.</p>
-      </div>
-      <p>A curated feed of skincare content: ingredient explainers, new product launches, trending routines, and community discussion. Tap any card to read the full article.</p>
+      <h2><span class="num">09</span>Product diary</h2>
+      <p>Recommendations get you started; the product diary turns them into a record. Log the products you start using, mark them as finished, and the app keeps a calendar of what you actually applied to your skin.</p>
+      <ul>
+        <li><strong>In use vs. used up</strong> — two tabs, filterable by category.</li>
+        <li><strong>Start &amp; finish dates</strong> — the diary auto-computes how many days each product lasted.</li>
+        <li><strong>Volume &amp; notes</strong> — capture the bottle size and anything worth remembering (texture, reaction, repurchase intent).</li>
+        <li><strong>Stats</strong> — see total products tried, average use duration, and category breakdowns at a glance.</li>
+      </ul>
+      <p>Pair the diary with your monthly scans and the report view becomes much sharper — you can tell which products were on your face during which trend lines.</p>
     </div>
 
     <!-- 10 -->
     <div class="section" id="en-10">
-      <h2><span class="num">10</span>Daily fortune</h2>
+      <h2><span class="num">10</span>Knowledge articles</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="Knowledge articles">
+        <p class="caption">Curated skincare reads — ingredients, trends, community insights.</p>
+      </div>
+      <p>A curated feed of skincare content with switchable sources: editorial skincare, new product launches, and community discussion. Tap any card to read the full article.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="en-11">
+      <h2><span class="num">11</span>Daily fortune</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily fortune">
         <p class="caption">A small daily moment with a personalised skincare tip.</p>
@@ -464,26 +494,26 @@
       <p>Generated from your name, birthday, gender, and zodiac sign, each daily reading bundles a summary with skincare, beauty, and wellness guidance plus a lucky item, colour, and shape. One reading per day, and the fortune feature is part of the premium subscription.</p>
     </div>
 
-    <!-- 11 -->
-    <div class="section" id="en-11">
-      <h2><span class="num">11</span>Settings &amp; account</h2>
+    <!-- 12 -->
+    <div class="section" id="en-12">
+      <h2><span class="num">12</span>Settings &amp; account</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/settings.png" alt="Settings">
         <p class="caption">Manage profile, notifications, language, theme, and account from one place.</p>
       </div>
       <ul>
-        <li><strong>Edit profile</strong> — update skin type, concerns, allergies any time.</li>
+        <li><strong>Edit profile</strong> — update skin type, concerns, allergies, preferred brands any time.</li>
         <li><strong>Subscription</strong> — view status, manage via App Store / Google Play.</li>
         <li><strong>Notifications</strong> — toggle routine reminders, monthly rescan prompts, fortune alerts.</li>
-        <li><strong>Language</strong> — switch between supported locales.</li>
+        <li><strong>Language</strong> — switch between English, Korean, Japanese, Traditional Chinese, Spanish, Vietnamese, and Thai.</li>
         <li><strong>Theme</strong> — light, dark, or system.</li>
         <li><strong>Log out / Delete account</strong> — sign out keeps your data; delete permanently removes everything.</li>
       </ul>
     </div>
 
-    <!-- 12 -->
-    <div class="section" id="en-12">
-      <h2><span class="num">12</span>Subscription plans</h2>
+    <!-- 13 -->
+    <div class="section" id="en-13">
+      <h2><span class="num">13</span>Subscription plans</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/subscription.png" alt="Subscription plans">
         <p class="caption">Subscribe via App Store or Google Play. Cancel anytime.</p>
@@ -492,8 +522,9 @@
       <div class="plan">
         <h3>Free</h3>
         <ul>
-          <li>Browse your profile, history, knowledge feed, and settings</li>
-          <li>AI-powered features (analysis, picks, routine, reports, fortune) require an active trial or premium subscription</li>
+          <li>Browse your profile, history, knowledge feed, product diary, and settings</li>
+          <li><strong>First AI skin scan free</strong> — your very first scan is on us, no subscription required</li>
+          <li>Further scans, product recommendations beyond the first run, routines, reports, and the daily fortune require an active premium subscription</li>
         </ul>
       </div>
 
@@ -502,19 +533,19 @@
         <p class="price">From local price <small>/ monthly or annual</small></p>
         <ul>
           <li><strong>AI skin analysis</strong> — full scorecard, skin age, and improvement areas</li>
-          <li><strong>AI Picks</strong> — personalised product recommendations with reasoning</li>
+          <li><strong>AI Picks</strong> — personalised product recommendations with reasoning, including K-beauty re-recommendation</li>
           <li><strong>Routine builder</strong> — AM/PM routines, regenerations, and product detail</li>
           <li><strong>Reports &amp; trends</strong> — progress over time, product effects, and routine impact</li>
           <li><strong>Daily fortune</strong> — personalised skincare fortune, one per day</li>
-          <li>New users start with a 30-day trial that unlocks all premium features</li>
+          <li>Monthly and annual options are offered; the annual plan typically carries a discount badge on the subscription screen</li>
         </ul>
       </div>
       <p style="font-size:13px;margin-top:8px">Pricing is shown in your local currency on the subscription screen (fetched live from the App Store or Google Play) and can change by region. Subscriptions auto-renew unless cancelled at least 24 hours before the period ends. Manage and cancel anytime from your App Store or Google Play account. Fair-use rate limits apply to AI calls.</p>
     </div>
 
-    <!-- 13 -->
-    <div class="section" id="en-13">
-      <h2><span class="num">13</span>Photo tips, FAQ &amp; contact</h2>
+    <!-- 14 -->
+    <div class="section" id="en-14">
+      <h2><span class="num">14</span>Photo tips, FAQ &amp; contact</h2>
 
       <h3>Get the best scan</h3>
       <ul>
@@ -541,6 +572,10 @@
       <div class="faq-a">Check both your device's system notification settings and the in-app Settings → Notifications.</div>
       <div class="faq-q">Q. Can I cancel my subscription?</div>
       <div class="faq-a">Yes, anytime via your App Store or Google Play account settings. You'll keep premium access until the current period ends.</div>
+      <div class="faq-q">Q. I hit a "too many requests" notice.</div>
+      <div class="faq-a">AI endpoints have a per-minute fair-use limit (applies to everyone, free or premium). The app shows a dedicated notice when you reach it — wait a moment and try again.</div>
+      <div class="faq-q">Q. Which languages does the app support?</div>
+      <div class="faq-a">English, Korean, Japanese, Traditional Chinese, Spanish, Vietnamese, and Thai. The app auto-detects your device language on first launch and you can switch anytime in Settings.</div>
     </div>
 
     <div class="contact">
@@ -570,11 +605,12 @@
         <li><a href="#ko-6">리포트 &amp; 분석 이력</a></li>
         <li><a href="#ko-7">AI Picks: 제품 추천</a></li>
         <li><a href="#ko-8">루틴 빌더</a></li>
-        <li><a href="#ko-9">아티클</a></li>
-        <li><a href="#ko-10">오늘의 운세</a></li>
-        <li><a href="#ko-11">설정 &amp; 계정</a></li>
-        <li><a href="#ko-12">구독 플랜</a></li>
-        <li><a href="#ko-13">촬영 팁, FAQ &amp; 문의</a></li>
+        <li><a href="#ko-9">제품 다이어리</a></li>
+        <li><a href="#ko-10">아티클</a></li>
+        <li><a href="#ko-11">오늘의 운세</a></li>
+        <li><a href="#ko-12">설정 &amp; 계정</a></li>
+        <li><a href="#ko-13">구독 플랜</a></li>
+        <li><a href="#ko-14">촬영 팁, FAQ &amp; 문의</a></li>
       </ol>
     </div>
 
@@ -736,6 +772,7 @@
         <ul>
           <li>당신이 등록한 <strong>알레르기 성분</strong>이 포함된 제품을 자동으로 걸러냅니다.</li>
           <li>내부 <strong>유해 성분 목록</strong>에 걸리는 제품을 사전에 제외합니다.</li>
+          <li>한국 원산 제품은 <strong>식품의약품안전처(식약처) 기능성 화장품 DB</strong>로, 그 외 제품은 공개 <strong>Open Beauty Facts</strong> DB로 활성 성분을 교차 검증합니다 — 추측이 아니라 확인된 정보를 사용합니다.</li>
           <li>출처가 불분명한 제품보다 잘 알려진 주요 스킨케어 제품을 우선합니다.</li>
         </ul>
       </div>
@@ -754,9 +791,9 @@
       <h3>마음에 안 들면 다시 추천받기</h3>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="제품 다시 추천받기">
-        <p class="caption">브랜드로 필터링하거나, 일부 제품만 교체하거나, 완전히 새로 받을 수 있어요.</p>
+        <p class="caption">브랜드로 필터링, 일부 제품만 교체, 완전히 새로 받기, 또는 K-뷰티 위주로 받기.</p>
       </div>
-      <p>세 가지 방식으로 다시 추천받을 수 있습니다 — 특정 브랜드만, 마음에 안 드는 제품만 교체, 또는 완전히 새로운 목록. 당신의 선택이 다음 추천에 다시 반영됩니다.</p>
+      <p>여러 방식으로 다시 추천받을 수 있습니다 — 특정 브랜드만, 마음에 안 드는 제품만 교체, 완전히 새로운 목록, 또는 <strong>K-뷰티</strong>(한국 브랜드) 위주로 재추천. 당신의 선택이 다음 추천에 다시 반영됩니다.</p>
     </div>
 
     <!-- 8 -->
@@ -803,17 +840,30 @@
 
     <!-- 9 -->
     <div class="section" id="ko-9">
-      <h2><span class="num">09</span>아티클</h2>
-      <div class="shot-wrap">
-        <img class="shot" loading="lazy" src="assets/articles.png" alt="스킨케어 아티클">
-        <p class="caption">큐레이션된 스킨케어 읽을거리 — 성분, 트렌드, 커뮤니티 인사이트.</p>
-      </div>
-      <p>큐레이션된 스킨케어 콘텐츠 피드입니다 — 성분 해설, 신제품 출시, 트렌드 루틴, 커뮤니티 토론. 카드를 탭하면 원문을 읽을 수 있습니다.</p>
+      <h2><span class="num">09</span>제품 다이어리</h2>
+      <p>추천이 출발점이라면, 제품 다이어리는 그 기록을 남기는 곳입니다. 사용 시작 시점과 다 쓴 시점을 기록해 두면, 어떤 제품이 언제 내 피부에 올라가 있었는지 캘린더처럼 정리됩니다.</p>
+      <ul>
+        <li><strong>사용 중 / 사용 완료</strong> — 두 탭, 카테고리별 필터링 지원.</li>
+        <li><strong>시작/종료일</strong> — 사용 기간이 자동 계산됩니다.</li>
+        <li><strong>용량 &amp; 메모</strong> — 용량과 자유 메모(제형, 반응, 재구매 의향 등) 기록.</li>
+        <li><strong>통계</strong> — 총 시도 제품 수, 평균 사용 기간, 카테고리별 분포를 한눈에.</li>
+      </ul>
+      <p>월간 스캔과 함께 활용하면 리포트의 정확도가 훨씬 올라갑니다 — 추세선 시점마다 어떤 제품이 얼굴에 있었는지 정확히 알 수 있으니까요.</p>
     </div>
 
     <!-- 10 -->
     <div class="section" id="ko-10">
-      <h2><span class="num">10</span>오늘의 운세</h2>
+      <h2><span class="num">10</span>아티클</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="스킨케어 아티클">
+        <p class="caption">큐레이션된 스킨케어 읽을거리 — 성분, 트렌드, 커뮤니티 인사이트.</p>
+      </div>
+      <p>피드 소스를 전환할 수 있는 큐레이션 스킨케어 콘텐츠입니다 — 에디토리얼 스킨케어, 신제품 출시, 커뮤니티 토론. 카드를 탭하면 원문을 읽을 수 있습니다.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="ko-11">
+      <h2><span class="num">11</span>오늘의 운세</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="오늘의 운세">
         <p class="caption">매일의 작은 즐거움 + 당신 프로필에 맞춘 스킨케어 팁.</p>
@@ -821,26 +871,26 @@
       <p>이름, 생년월일, 성별, 별자리를 바탕으로 오늘의 종합 운세와 함께 스킨케어·뷰티·웰니스 조언, 행운의 아이템·컬러·모양이 하루 한 번 제공됩니다. 오늘의 운세는 프리미엄 구독의 일부로 제공됩니다.</p>
     </div>
 
-    <!-- 11 -->
-    <div class="section" id="ko-11">
-      <h2><span class="num">11</span>설정 &amp; 계정</h2>
+    <!-- 12 -->
+    <div class="section" id="ko-12">
+      <h2><span class="num">12</span>설정 &amp; 계정</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/settings.png" alt="설정 화면">
         <p class="caption">프로필, 알림, 언어, 테마, 계정을 한 곳에서 관리하세요.</p>
       </div>
       <ul>
-        <li><strong>프로필 편집</strong> — 피부 타입, 고민, 알레르기를 언제든 업데이트.</li>
+        <li><strong>프로필 편집</strong> — 피부 타입, 고민, 알레르기, 선호 브랜드를 언제든 업데이트.</li>
         <li><strong>구독</strong> — 상태 확인, App Store / Google Play를 통한 관리.</li>
         <li><strong>알림</strong> — 루틴 알림, 월간 재스캔 알림, 운세 알림 토글.</li>
-        <li><strong>언어</strong> — 지원 언어로 전환.</li>
+        <li><strong>언어</strong> — 영어, 한국어, 일본어, 번체 중국어, 스페인어, 베트남어, 태국어 중에서 전환.</li>
         <li><strong>테마</strong> — 라이트, 다크, 시스템.</li>
         <li><strong>로그아웃 / 계정 삭제</strong> — 로그아웃은 데이터를 보존합니다. 삭제는 모든 데이터를 영구 제거합니다.</li>
       </ul>
     </div>
 
-    <!-- 12 -->
-    <div class="section" id="ko-12">
-      <h2><span class="num">12</span>구독 플랜</h2>
+    <!-- 13 -->
+    <div class="section" id="ko-13">
+      <h2><span class="num">13</span>구독 플랜</h2>
       <div class="shot-wrap">
         <img class="shot" loading="lazy" src="assets/subscription.png" alt="구독 플랜">
         <p class="caption">App Store 또는 Google Play로 구독하세요. 언제든 해지 가능합니다.</p>
@@ -849,8 +899,9 @@
       <div class="plan">
         <h3>무료</h3>
         <ul>
-          <li>프로필, 분석 이력, 아티클 피드, 설정 열람</li>
-          <li>AI 기반 기능(피부 분석, 제품 추천, 루틴, 리포트, 운세)은 무료 체험 또는 프리미엄 구독 중에만 이용할 수 있어요</li>
+          <li>프로필, 분석 이력, 아티클 피드, 제품 다이어리, 설정 열람</li>
+          <li><strong>첫 AI 피부 스캔 1회 무료</strong> — 구독 없이 첫 스캔을 무료로 진행할 수 있습니다</li>
+          <li>이후의 추가 스캔, 첫 회 이후의 제품 추천, 루틴 생성, 리포트, 오늘의 운세는 활성화된 프리미엄 구독이 필요합니다</li>
         </ul>
       </div>
 
@@ -859,19 +910,19 @@
         <p class="price">현지 가격 기준 <small>/ 월간 또는 연간</small></p>
         <ul>
           <li><strong>AI 피부 분석</strong> — 5가지 지표, 피부 나이, 개선 포인트 제공</li>
-          <li><strong>AI Picks</strong> — 사유 포함 맞춤 제품 추천</li>
+          <li><strong>AI Picks</strong> — 사유 포함 맞춤 제품 추천, K-뷰티 재추천 옵션 포함</li>
           <li><strong>루틴 빌더</strong> — AM/PM 루틴 생성·재추천, 제품 상세 안내</li>
           <li><strong>리포트 &amp; 추세</strong> — 변화 추이, 제품 효과, 루틴 영향도</li>
           <li><strong>오늘의 운세</strong> — 하루 한 번 맞춤 운세</li>
-          <li>첫 가입 시 <strong>30일 무료 체험</strong>으로 모든 프리미엄 기능을 경험할 수 있습니다</li>
+          <li>월간 및 연간 옵션이 제공되며, 구독 화면에서 연간 플랜에는 일반적으로 할인 뱃지가 표시됩니다</li>
         </ul>
       </div>
       <p style="font-size:13px;margin-top:8px">가격은 구독 화면에서 App Store / Google Play로부터 실시간으로 받아 현지 통화로 표시되며 지역에 따라 다를 수 있습니다. 구독은 이용 기간 종료 24시간 전까지 해지하지 않으면 자동 갱신됩니다. App Store 또는 Google Play 계정 설정에서 언제든지 관리·해지할 수 있습니다. AI 호출에는 공정 이용을 위한 호출 빈도 제한이 적용됩니다.</p>
     </div>
 
-    <!-- 13 -->
-    <div class="section" id="ko-13">
-      <h2><span class="num">13</span>촬영 팁, FAQ &amp; 문의</h2>
+    <!-- 14 -->
+    <div class="section" id="ko-14">
+      <h2><span class="num">14</span>촬영 팁, FAQ &amp; 문의</h2>
 
       <h3>최상의 스캔을 위한 팁</h3>
       <ul>
@@ -898,6 +949,10 @@
       <div class="faq-a">기기의 시스템 알림 설정과 앱 내 설정 → 알림을 모두 확인해 주세요.</div>
       <div class="faq-q">Q. 구독을 해지할 수 있나요?</div>
       <div class="faq-a">네, App Store 또는 Google Play 계정 설정에서 언제든지 가능합니다. 현재 결제 기간이 끝날 때까지 프리미엄 기능을 계속 사용할 수 있습니다.</div>
+      <div class="faq-q">Q. "요청이 너무 많습니다" 안내가 떴어요.</div>
+      <div class="faq-a">AI 엔드포인트에는 분당 공정 이용 한도가 적용됩니다(무료/프리미엄 공통). 한도에 도달하면 별도의 안내 팝업이 표시되니, 잠시 후 다시 시도해 주세요.</div>
+      <div class="faq-q">Q. 어떤 언어를 지원하나요?</div>
+      <div class="faq-a">영어, 한국어, 일본어, 번체 중국어, 스페인어, 베트남어, 태국어를 지원합니다. 첫 실행 시 기기 언어를 자동 감지하며, 언제든 설정에서 전환할 수 있습니다.</div>
     </div>
 
     <div class="contact">
@@ -908,12 +963,1897 @@
     </div>
   </div>
 
+  <!-- ═══════════════ JAPANESE ═══════════════ -->
+  <div lang="ja">
+    <div class="hero">
+      <span class="badge">サービスガイド</span>
+      <h1>Gumi Glowup へようこそ</h1>
+      <p>AI スキンケアの相棒 — 分析して、おすすめして、ルーティン化、そしてまた分析。</p>
+    </div>
+
+    <div class="toc">
+      <h3>目次</h3>
+      <ol>
+        <li><a href="#ja-1">Gumi Glowup とは?</a></li>
+        <li><a href="#ja-2">仕組み: データに基づくパーソナライズ</a></li>
+        <li><a href="#ja-3">初回起動 &amp; サインアップ</a></li>
+        <li><a href="#ja-4">ホームダッシュボード</a></li>
+        <li><a href="#ja-5">肌スキャン &amp; AI 分析</a></li>
+        <li><a href="#ja-6">レポート &amp; 履歴</a></li>
+        <li><a href="#ja-7">AI Picks: 商品レコメンド</a></li>
+        <li><a href="#ja-8">Routine builder</a></li>
+        <li><a href="#ja-9">Product Diary</a></li>
+        <li><a href="#ja-10">スキンケア記事</a></li>
+        <li><a href="#ja-11">Daily Fortune</a></li>
+        <li><a href="#ja-12">設定 &amp; アカウント</a></li>
+        <li><a href="#ja-13">サブスクリプションプラン</a></li>
+        <li><a href="#ja-14">撮影のコツ・FAQ・お問い合わせ</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="ja-1">
+      <h2><span class="num">01</span>Gumi Glowup とは?</h2>
+      <p>Gumi Glowup は AI を活用したスキンケアの相棒アプリです。セルフィーを 1 枚撮るだけで、AI が 5 つのコア指標で肌を採点し、安全で相性の良いアイテムをおすすめし、実際の肌コンディションに合ったデイリールーティンを組み立てます。</p>
+      <p>一度きりの分析ではありません。スキャン・ルーティンの実施・おすすめのフォローを重ねるほど、アプリはあなたの肌をより正確に学習し、次の提案を最適化していきます。</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="ja-2">
+      <h2><span class="num">02</span>仕組み: データに基づくパーソナライズ</h2>
+      <p>多くのスキンケアアプリは「おすすめ商品リスト」を出して終わりです。Gumi Glowup は、その先を見据えた継続的な学習ループを中心に設計されています。</p>
+
+      <div class="callout">
+        <div class="callout-title">Glowup Loop</div>
+        <p><strong>1. スキャン</strong> — AI が現在の肌状態を測定します (5 指標 + 肌年齢)。</p>
+        <p><strong>2. おすすめ</strong> — 肌プロフィール、お悩み、アレルギー、分析履歴をもとにアイテムを選びます。</p>
+        <p><strong>3. ルーティン</strong> — 選ばれたアイテムから朝/夜のパーソナルルーティンを自動生成します。</p>
+        <p><strong>4. 記録</strong> — 毎日のチェックインと月 1 回の再スキャンで、時系列の記録が積み上がります。</p>
+        <p><strong>5. 再提案</strong> — これまでのデータを活かして、次回以降のおすすめがさらに賢くなります。使い続けるほど精度が上がります。</p>
+      </div>
+
+      <h3>なぜ大切なのか</h3>
+      <ul>
+        <li><strong>肌は変化し続けます</strong> — 季節、ホルモン、ストレス、使っているコスメに応じて。一度きりの静的なおすすめはすぐに古びてしまいます。</li>
+        <li><strong>効果は測れます。</strong> ルーティン前後のスキャンを比べることで、<em>あなたの</em>肌にどのアイテムが効いたかがわかります — 一般的なレビューではなく、自分のデータで判断できます。</li>
+        <li><strong>勝負は習慣です。</strong> スキンケアの結果は毎日の積み重ねから生まれます。連続記録、リマインダー、朝/夜のチェックインは、その継続を支えるための機能です。</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="ja-3">
+      <h2><span class="num">03</span>初回起動 &amp; サインアップ</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/01-onboarding-tutorial.png" alt="初回起動時のオンボーディングチュートリアル">
+        <p class="caption">ウェルカムチュートリアル — Gumi Glowup でできることを一気に紹介します。</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/02-login.png" alt="ログイン画面">
+        <img class="shot" loading="lazy" src="assets/03-ai-consent.png" alt="AI 利用同意画面">
+      </div>
+      <p class="caption">Apple または Google でサインインし、初回スキャンの前に AI 処理の規約に同意します。</p>
+
+      <h3>設定する項目</h3>
+      <ul>
+        <li><strong>名前</strong> — 必須。</li>
+        <li><strong>肌タイプ</strong> — 必須。1〜3 個まで選択 (乾燥肌、脂性肌、混合肌、敏感肌、ニキビ肌、赤みなど)。</li>
+        <li><strong>誕生日</strong> — 任意 (推奨)。Daily Fortune に使う星座の判定にも使われます。</li>
+        <li><strong>性別</strong> — 任意。</li>
+        <li><strong>地域 / 国</strong> — 任意。地域に合わせたおすすめに活用します。</li>
+        <li><strong>気になる点</strong> — 任意。一番気になることを自由に記述してください (200 文字まで)。</li>
+        <li><strong>アレルギー / 敏感成分</strong> — 任意。避けたい成分を登録すると、おすすめから自動的に除外されます。</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">なぜ聞くのか</div>
+        <p>すべての項目が AI のおすすめに直接影響します。プロフィールが正確であるほど、安全で役立つピックが届きます。<strong>設定 → プロフィール編集</strong>からいつでも更新できます。</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="ja-4">
+      <h2><span class="num">04</span>ホームダッシュボード</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/dashboard.png" alt="ホームダッシュボード">
+        <img class="shot" loading="lazy" src="assets/slide-menu.png" alt="スライドメニュー">
+      </div>
+      <p class="caption">ダッシュボードで最新の肌コンディションを一望、スライドメニューからすべての機能にアクセス。</p>
+
+      <p>ホーム画面が毎日のスタート地点です。ひと目で確認できるもの:</p>
+      <ul>
+        <li><strong>最新の肌スコアと肌年齢</strong> — 前回のスキャンとの差分も一緒に表示。</li>
+        <li><strong>「Glowup を続ける」バナー</strong> — スキャン → 商品 → ルーティンの途中で止まっていれば、その続きから再開できます。</li>
+        <li><strong>今日のルーティン進捗</strong> — 朝/夜のチェックボックスで現状を即把握。</li>
+        <li><strong>Daily Fortune カード</strong> — 一日の小さな楽しみ。</li>
+        <li><strong>サブスクリプションバナー</strong> — 無料体験期間が残っていれば表示されます。</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="ja-5">
+      <h2><span class="num">05</span>肌スキャン &amp; AI 分析</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/scan-analysis.png" alt="肌スキャン分析">
+        <p class="caption">セルフィー 1 枚で 5 指標のスコアカードが完成。</p>
+      </div>
+
+      <h3>AI が測定する項目</h3>
+      <ul>
+        <li><strong>水分</strong> — 表面の水分量と乾燥のサイン。</li>
+        <li><strong>ハリ・弾力</strong> — 肌のハリ感の指標。</li>
+        <li><strong>毛穴</strong> — 目立つ毛穴の数と大きさ。</li>
+        <li><strong>色素沈着</strong> — 肌トーンのムラ、シミ、肝斑のサイン。</li>
+        <li><strong>シワ</strong> — 小じわとキメ。</li>
+      </ul>
+      <p>あわせて <strong>推定肌年齢</strong>、総合スコア (0〜100)、強みと改善ポイントのリストも届きます。</p>
+
+      <div class="callout">
+        <div class="callout-title">どれくらい正確?</div>
+        <p>AI は照明・露出・角度を補正しますが、明るく均一な光のセルフィーの方が圧倒的に良い結果になります。撮影のコツはセクション 14 をご覧ください。</p>
+      </div>
+
+      <h3>どのくらいの頻度でスキャンすればいい?</h3>
+      <p>月 1 回がちょうど良いペースです。肌の変化はゆっくり進むので、月次のサイクルで撮ると変化のトレンドが意味を持ちます。アプリから優しく月次の再スキャンリマインダーが届きます。</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="ja-6">
+      <h2><span class="num">06</span>レポート &amp; 履歴</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/report.png" alt="肌レポート">
+        <img class="shot" loading="lazy" src="assets/analysis-history.png" alt="分析履歴">
+      </div>
+      <p class="caption">レポートは時系列の変化を可視化。履歴では過去のすべてのスキャンを横スワイプで見比べられます。</p>
+
+      <p>スキャンはすべて保存されます。レポート画面はその記録を使える洞察に変えてくれます:</p>
+      <ul>
+        <li><strong>スコアの推移チャート</strong> — すべてのスキャンを通した総合推移。</li>
+        <li><strong>指標別の方向</strong> — どのカテゴリが伸び、どれが落ちているか。</li>
+        <li><strong>肌年齢の差分</strong> — 実年齢と比べてどれだけ「若く」または「老けて」見えるか。</li>
+        <li><strong>商品の効果</strong> — ルーティン内のどのアイテムがどの指標に効いたか、前後スキャンの比較から AI が推定します。</li>
+        <li><strong>ルーティンの効き目</strong> — 日々の朝/夜の継続が、測定可能な変化につながっているかどうか。</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">ここがアプリの真価です</div>
+        <p>Gumi Glowup を使い続けるほどレポートは豊かになります。3〜4 回のスキャンが積み上がる頃には、レビューサイトでは見つからないパターンが見えてきます — <em>あなた自身の肌</em>のパターンだからです。</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="ja-7">
+      <h2><span class="num">07</span>AI Picks: 商品レコメンド</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai-picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/recommended-products.png" alt="おすすめ商品リスト">
+      </div>
+      <p class="caption">分析が終わると、AI Picks があなたの肌コンディションに合わせて商品をキュレーションします。</p>
+
+      <h3>おすすめの仕組み</h3>
+      <ul>
+        <li>各商品は、あなたの<strong>分析結果</strong>、<strong>肌プロフィール</strong> (タイプ、お悩み、アレルギー)、<strong>これまでの履歴</strong>に基づいて選定されます。</li>
+        <li>カテゴリ別に整理されます — 基本は <strong>クレンザー、化粧水、美容液、クリーム、日焼け止め</strong>、必要に応じてエッセンス、アンプル、アイクリーム、ピーリング、マスク、ミスト、オイル、レチノールなどのカテゴリも含まれます。</li>
+        <li>すべてのカードに <strong>なぜこの商品があなたに選ばれたか</strong> が表示されます — 一般的な説明ではなく、あなたのスキャン結果と紐付いた理由です。</li>
+        <li>商品をタップすると詳細シートが開きます: ブランド、主要成分、全成分リスト (取得可能な場合)、価格、詳細を見るリンクや購入リンク。</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">安全な商品を届けるための工夫</div>
+        <p>商品の安全性を真剣に考えています。レコメンダーは:</p>
+        <ul>
+          <li>あなたが登録した<strong>アレルギー成分</strong>を含む商品を自動で除外します。</li>
+          <li>独自の有害成分リストに該当する商品を事前にスクリーニングします。</li>
+          <li>韓国産のアイテムは<strong>韓国食品医薬品安全処（MFDS）</strong>の機能性化粧品データベース、それ以外は公開 DB の <strong>Open Beauty Facts</strong> と突き合わせて、活性成分を「推測」ではなく検証します。</li>
+          <li>出所不明なものより、十分に情報のあるメジャーなスキンケアアイテムを優先します。</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">それでも成分表は必ず確認を</div>
+        <p>どんな自動システムも、<strong>あなたの</strong>個別の肌にとって絶対に安全と保証することはできません。当社のフィルターはリスクを大きく下げますが、ご自身の判断の代わりにはなりません。</p>
+        <ul>
+          <li><strong>購入・使用前に必ず成分表を確認してください。</strong> 処方が変わったり、ロットで違ったり、表示が不完全な場合があります。</li>
+          <li>新しい商品は、まず<strong>パッチテスト</strong>を。小さな範囲に 24 時間つけて反応を見てから本格使用してください。</li>
+          <li>赤み、かゆみ、ヒリつき、ブツブツなど異常を感じたら<strong>すぐに使用を中止</strong>し、症状が続く場合は皮膚科を受診してください。</li>
+          <li>皮膚疾患の診断を受けている方、妊娠中の方、処方薬の外用薬を使っている方は、新しい商品を加える前に医師にご相談ください。</li>
+        </ul>
+      </div>
+
+      <h3>気に入らなければ再提案を</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="商品を再提案">
+        <p class="caption">ブランドで絞り込み、個別アイテムの差し替え、まるごと新規生成、または K-ビューティー縛り。</p>
+      </div>
+      <p>再提案にはいくつかの方法があります — 特定ブランドだけに絞る、気に入らないものだけ差し替える、まるごと新しいリストを受け取る、または <strong>K-ビューティー</strong> (韓国ブランド中心) のセットを依頼する。あなたの選択は次のおすすめにもフィードバックされます。</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="ja-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/routine-recommend.png" alt="ルーティンの提案">
+        <img class="shot" loading="lazy" src="assets/routine.png" alt="デイリールーティン">
+      </div>
+      <p class="caption">選んだ商品から、AI が正しい順番の朝/夜ルーティンを生成します。</p>
+
+      <p>良い商品を持つことは半分の勝利にすぎません。<strong>正しい順番・正しいタイミング・正しい使い方</strong>がもう半分で、そこを担うのが Routine builder です。</p>
+
+      <h3>受け取れるもの</h3>
+      <ul>
+        <li><strong>朝と夜のステップリスト</strong> — クレンジング → 化粧水 → 集中ケア → 保湿 → 日焼け止めの順に整理。</li>
+        <li><strong>各ステップが必要な理由</strong> — あなたのお悩みに紐付いた説明。</li>
+        <li><strong>使い方</strong> — 量、塗り方、なじませる待ち時間。</li>
+        <li><strong>頻度の案内</strong> — 毎日、隔日、週 N 回 (ピーリングやマスクなど)。</li>
+        <li><strong>ライフスタイルのヒント</strong> — 睡眠、水分、紫外線対策などお悩みに関連するアドバイス。</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-product-detail.png" alt="ルーティンの商品詳細">
+        <p class="caption">ステップをタップすると、その商品の役割・使い方のコツ・頻度がわかります。</p>
+      </div>
+
+      <h3>リマインダー &amp; デイリートラッキング</h3>
+      <ul>
+        <li>あなたの生活リズムに合わせて朝/夜の通知時間を設定 (初期値 07:00 / 21:00)。</li>
+        <li>ピーリングやマスクなど、頻度の少ないステップ用の週間ケアリマインダーも追加可能。</li>
+        <li>ステップを終えるごとにチェック — その日の達成状況がカレンダーに記録され、継続度がひと目で見えます。</li>
+        <li>次回のスキャンで測定可能な変化を生むのは、結局のところ継続です。</li>
+      </ul>
+
+      <h3>ルーティンが合わなければ再生成</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-regenerate.png" alt="ルーティンの再生成">
+        <p class="caption">「もっとシンプルに」「もっと丁寧に」「とにかく違うかんじで」から方向を選んで再生成。</p>
+      </div>
+      <p>再生成のときに <strong>もっとシンプルに</strong>、<strong>もっと丁寧に</strong>、<strong>とにかく違うかんじで</strong> から方向を指定できます。前のルーティンで合わなかった部分が反映された新しいルーティンが生成されます。</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="ja-9">
+      <h2><span class="num">09</span>Product Diary</h2>
+      <p>おすすめがスタート地点だとすれば、Product Diary はその記録を残す場所です。使い始めた商品を記録し、使い切ったらチェック。実際に肌にのせたアイテムのカレンダーが自動的に作られます。</p>
+      <ul>
+        <li><strong>使用中 / 使い切り</strong> — 2 つのタブ、カテゴリ別フィルター対応。</li>
+        <li><strong>開始日と終了日</strong> — それぞれのアイテムがどれくらい持ったか自動で計算。</li>
+        <li><strong>容量 &amp; メモ</strong> — 容量と、覚えておきたいこと (テクスチャー、反応、リピート意向など) を記録。</li>
+        <li><strong>統計</strong> — 試した商品の総数、平均使用日数、カテゴリ別の内訳がひと目で。</li>
+      </ul>
+      <p>月次のスキャンと組み合わせると、レポートの解像度が一気に上がります — それぞれの推移の時点でどの商品が顔にのっていたかがはっきりわかるからです。</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="ja-10">
+      <h2><span class="num">10</span>スキンケア記事</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="スキンケア記事">
+        <p class="caption">キュレーションされたスキンケアの読み物 — 成分、トレンド、コミュニティの声。</p>
+      </div>
+      <p>フィードのソースを切り替えられるキュレーションコンテンツ — エディトリアル系スキンケア、新商品の発売情報、コミュニティの話題。カードをタップで全文を読めます。</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="ja-11">
+      <h2><span class="num">11</span>Daily Fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily Fortune">
+        <p class="caption">毎日のちょっとした楽しみ + あなた専用のスキンケアのヒント。</p>
+      </div>
+      <p>名前、誕生日、性別、星座をもとに、その日の総合運に加え、スキンケア・ビューティー・ウェルネスのアドバイス、ラッキーアイテム・カラー・形が 1 日 1 回届きます。Daily Fortune はプレミアムサブスクリプションの一部としてご利用いただけます。</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="ja-12">
+      <h2><span class="num">12</span>設定 &amp; アカウント</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/settings.png" alt="設定画面">
+        <p class="caption">プロフィール、通知、言語、テーマ、アカウントを一か所で管理。</p>
+      </div>
+      <ul>
+        <li><strong>プロフィール編集</strong> — 肌タイプ、お悩み、アレルギー、好きなブランドをいつでも更新。</li>
+        <li><strong>サブスクリプション</strong> — ステータス確認、App Store / Google Play での管理。</li>
+        <li><strong>通知</strong> — ルーティンのリマインダー、月次再スキャンの案内、Daily Fortune の通知を切り替え。</li>
+        <li><strong>言語</strong> — 英語、韓国語、日本語、繁体字中国語、スペイン語、ベトナム語、タイ語の中から選択。</li>
+        <li><strong>テーマ</strong> — ライト、ダーク、システム。</li>
+        <li><strong>ログアウト / アカウント削除</strong> — ログアウトはデータを保持。削除はすべてを完全に消去します。</li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="ja-13">
+      <h2><span class="num">13</span>サブスクリプションプラン</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/subscription.png" alt="サブスクリプションプラン">
+        <p class="caption">App Store または Google Play で登録。いつでも解約できます。</p>
+      </div>
+
+      <div class="plan">
+        <h3>無料</h3>
+        <ul>
+          <li>プロフィール、履歴、記事フィード、Product Diary、設定の閲覧</li>
+          <li><strong>初回 AI 肌スキャンは無料</strong> — 初めての 1 回はサブスクリプションなしでお試しいただけます</li>
+          <li>2 回目以降のスキャン、初回以降の商品レコメンド、ルーティン、レポート、Daily Fortune は有効なプレミアムサブスクリプションが必要です</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>プレミアム</h3>
+        <p class="price">現地価格 <small>/ 月額または年額</small></p>
+        <ul>
+          <li><strong>AI 肌分析</strong> — 5 指標のスコアカード、肌年齢、改善ポイント</li>
+          <li><strong>AI Picks</strong> — 理由つきのパーソナル商品レコメンド (K-ビューティー再提案を含む)</li>
+          <li><strong>Routine builder</strong> — 朝/夜のルーティン生成・再生成、商品詳細</li>
+          <li><strong>レポート &amp; 推移</strong> — 時系列の変化、商品の効果、ルーティンの効き目</li>
+          <li><strong>Daily Fortune</strong> — 1 日 1 回のパーソナル運勢</li>
+          <li>月額・年額プランをご用意。年額プランにはサブスクリプション画面で割引バッジが表示されることが一般的です</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">価格はサブスクリプション画面で App Store / Google Play からリアルタイムに取得され、現地通貨で表示されます。地域によって異なる場合があります。期間終了の少なくとも 24 時間前に解約しない限り、サブスクリプションは自動更新されます。管理・解約は App Store または Google Play のアカウント設定からいつでも可能です。AI 呼び出しにはフェアユースのレート制限が適用されます。</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="ja-14">
+      <h2><span class="num">14</span>撮影のコツ、FAQ &amp; お問い合わせ</h2>
+
+      <h3>最高のスキャンを撮るために</h3>
+      <ul>
+        <li><strong>照明</strong> — 明るく均一な自然光。強い影や逆光は避けてください。</li>
+        <li><strong>位置</strong> — カメラ正面、フレームいっぱい、傾けない。</li>
+        <li><strong>清潔さ</strong> — 最も正確な測定のためにメイクは落としてください。</li>
+        <li><strong>安定性</strong> — ぶれないようにしっかり固定。</li>
+        <li><strong>頻度</strong> — 月 1 回のペースで撮ると変化のトレンドが意味を持ちます。</li>
+      </ul>
+
+      <h3>1 段落でわかるプライバシー</h3>
+      <p>写真は安全に保管され、あなたの分析のためだけに使われます。データを販売することはありません。第三者の AI モデルの学習にも使いません。<strong>設定 → アカウント削除</strong>からすべてを削除できます。詳細: <a href="privacy-policy.html">プライバシーポリシー</a>。</p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">Q. 分析が失敗しました。</div>
+      <div class="faq-a">明るさを上げて、ぶれずに撮ると大体は解決します。メイクを落としてカメラを正面に向けてください。それでも失敗する場合はアプリを再起動してみてください。</div>
+      <div class="faq-q">Q. おすすめされた商品が自分の地域で売っていません。</div>
+      <div class="faq-a">再提案機能でブランドで絞り込んだり、新しいリストを生成してみてください。</div>
+      <div class="faq-q">Q. おすすめされた商品で肌荒れしました。</div>
+      <div class="faq-a">すぐに使用を中止してください。設定でその成分をアレルギー / 敏感成分に追加すれば、今後のおすすめから除外されます。症状が続く場合は皮膚科を受診してください。</div>
+      <div class="faq-q">Q. スキャンで違いが見えるまでどのくらいかかりますか?</div>
+      <div class="faq-a">肌のターンオーバーは約 28 日です。多くの方は、ルーティンを継続して 1〜2 回の月次スキャンが終わる頃から、測定可能な変化を見始めます。</div>
+      <div class="faq-q">Q. 通知が来ません。</div>
+      <div class="faq-a">端末のシステム通知設定と、アプリ内の設定 → 通知の両方をご確認ください。</div>
+      <div class="faq-q">Q. サブスクリプションは解約できますか?</div>
+      <div class="faq-a">はい、App Store または Google Play のアカウント設定からいつでも可能です。現在の決済期間が終わるまでプレミアム機能を引き続きご利用いただけます。</div>
+      <div class="faq-q">Q. 「リクエストが多すぎます」と表示されました。</div>
+      <div class="faq-a">AI エンドポイントには 1 分あたりのフェアユース上限があります (無料/プレミアム共通)。上限に達すると専用のお知らせポップアップが表示されますので、少し待ってから再度お試しください。</div>
+      <div class="faq-q">Q. どの言語に対応していますか?</div>
+      <div class="faq-a">英語、韓国語、日本語、繁体字中国語、スペイン語、ベトナム語、タイ語に対応しています。初回起動時に端末の言語を自動検出し、設定からいつでも変更できます。</div>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">お問い合わせ &amp; サポート</h2>
+      <p>質問・不具合・ご意見 — いただいたメッセージはすべて拝読しています。</p>
+      <p><strong>メール:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p style="font-size:12px;margin-top:8px">すべてのお問い合わせに 48 時間以内のご返信を目指しています。</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TRADITIONAL CHINESE ═══════════════ -->
+  <div lang="zh-TW">
+    <div class="hero">
+      <span class="badge">服務指南</span>
+      <h1>歡迎來到 Gumi Glowup</h1>
+      <p>你的 AI 保養夥伴 — 分析、推薦、建立保養程序,然後再分析。</p>
+    </div>
+
+    <div class="toc">
+      <h3>目錄</h3>
+      <ol>
+        <li><a href="#zh-tw-1">什麼是 Gumi Glowup?</a></li>
+        <li><a href="#zh-tw-2">為什麼有效:資料驅動的個人化</a></li>
+        <li><a href="#zh-tw-3">首次啟動 &amp; 註冊</a></li>
+        <li><a href="#zh-tw-4">主畫面儀表板</a></li>
+        <li><a href="#zh-tw-5">肌膚掃描 &amp; AI 分析</a></li>
+        <li><a href="#zh-tw-6">報告 &amp; 歷史紀錄</a></li>
+        <li><a href="#zh-tw-7">AI Picks:產品推薦</a></li>
+        <li><a href="#zh-tw-8">Routine builder</a></li>
+        <li><a href="#zh-tw-9">Product Diary</a></li>
+        <li><a href="#zh-tw-10">保養知識文章</a></li>
+        <li><a href="#zh-tw-11">Daily Fortune</a></li>
+        <li><a href="#zh-tw-12">設定 &amp; 帳號</a></li>
+        <li><a href="#zh-tw-13">訂閱方案</a></li>
+        <li><a href="#zh-tw-14">拍攝技巧、FAQ &amp; 聯絡我們</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="zh-tw-1">
+      <h2><span class="num">01</span>什麼是 Gumi Glowup?</h2>
+      <p>Gumi Glowup 是一款由 AI 驅動的保養夥伴 App。只要拍一張自拍,AI 就會以五大核心指標為你的肌膚評分,推薦安全又合適的產品,並依照你真實的膚況打造每日保養程序。</p>
+      <p>這不是一次性的分析。你越是掃描、執行保養程序、跟著推薦使用,App 就越能精準學習你的肌膚,把下一輪的提案做得更好。</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="zh-tw-2">
+      <h2><span class="num">02</span>為什麼有效:資料驅動的個人化</h2>
+      <p>大部分的保養 App 給你「這份產品清單」就結束了。Gumi Glowup 是以一個持續學習的循環為核心設計的:</p>
+
+      <div class="callout">
+        <div class="callout-title">Glowup Loop</div>
+        <p><strong>1. 掃描</strong> — AI 捕捉目前的膚況 (5 項指標 + 肌膚年齡)。</p>
+        <p><strong>2. 推薦</strong> — 依照你的肌膚輪廓、困擾、過敏與分析歷史挑選產品。</p>
+        <p><strong>3. 保養程序</strong> — 從挑出的產品自動生成個人化的早晚保養程序。</p>
+        <p><strong>4. 追蹤</strong> — 每日打卡與每月再次掃描,逐步累積長期紀錄。</p>
+        <p><strong>5. 重新推薦</strong> — 之後的推薦會用上你做過的所有事。用得越久,App 越聰明。</p>
+      </div>
+
+      <h3>為什麼這件事很重要</h3>
+      <ul>
+        <li><strong>肌膚會持續變化</strong> — 隨著季節、賀爾蒙、壓力與你正在用的產品而變。靜態的一次性推薦很快就過時。</li>
+        <li><strong>效果可以被量化。</strong> 比較保養程序前後的掃描,就能知道哪些產品真正對<em>你的</em>肌膚有效 — 而不是看別人的評價。</li>
+        <li><strong>習慣勝過奇蹟。</strong> 保養成果來自日復一日的細心照顧。連續紀錄、提醒、早晚打卡都是為了讓你更容易堅持下去。</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="zh-tw-3">
+      <h2><span class="num">03</span>首次啟動 &amp; 註冊</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/01-onboarding-tutorial.png" alt="首次啟動時的引導教學畫面">
+        <p class="caption">歡迎教學 — 快速帶你認識 Gumi Glowup 能做什麼。</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/02-login.png" alt="登入畫面">
+        <img class="shot" loading="lazy" src="assets/03-ai-consent.png" alt="AI 使用同意畫面">
+      </div>
+      <p class="caption">使用 Apple 或 Google 登入,並在第一次掃描前確認並同意 AI 處理條款。</p>
+
+      <h3>需要設定的內容</h3>
+      <ul>
+        <li><strong>名字</strong> — 必填。</li>
+        <li><strong>肌膚類型</strong> — 必填。可選 1〜3 項 (乾性、油性、混合性、敏感性、易長痘、泛紅等)。</li>
+        <li><strong>生日</strong> — 選填,但建議填寫。也會用來推算 Daily Fortune 所需的星座。</li>
+        <li><strong>性別</strong> — 選填。</li>
+        <li><strong>地區 / 國家</strong> — 選填。有助於提供更符合當地的推薦。</li>
+        <li><strong>肌膚困擾</strong> — 選填。請用自己的話描述最在意的部分 (上限 200 字)。</li>
+        <li><strong>過敏 / 敏感成分</strong> — 選填。標記你必須避免的成分,推薦系統會自動過濾。</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">為什麼要問這些</div>
+        <p>每一項都會直接影響 AI 的推薦。資料越精準,推薦就越安全、越實用。隨時可以從<strong>設定 → 編輯個人資料</strong>更新。</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="zh-tw-4">
+      <h2><span class="num">04</span>主畫面儀表板</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/dashboard.png" alt="主畫面儀表板">
+        <img class="shot" loading="lazy" src="assets/slide-menu.png" alt="側邊選單">
+      </div>
+      <p class="caption">儀表板會整理最新的肌膚狀態,側邊選單可開啟所有功能。</p>
+
+      <p>主畫面是你每天的起點,可以一眼看到:</p>
+      <ul>
+        <li><strong>最新的肌膚分數與肌膚年齡</strong> — 同時顯示與上次掃描的差距。</li>
+        <li><strong>「繼續 Glowup」橫幅</strong> — 如果掃描 → 產品 → 保養程序的流程中斷,可以從這裡接著走。</li>
+        <li><strong>今日保養程序進度</strong> — 早晚勾選框,狀態一目了然。</li>
+        <li><strong>Daily Fortune 卡片</strong> — 每天一點小小的儀式感。</li>
+        <li><strong>訂閱橫幅</strong> — 還在試用期時會顯示剩餘天數。</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="zh-tw-5">
+      <h2><span class="num">05</span>肌膚掃描 &amp; AI 分析</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/scan-analysis.png" alt="肌膚掃描分析">
+        <p class="caption">一張自拍就能產出五項指標的肌膚評分表。</p>
+      </div>
+
+      <h3>AI 測量的項目</h3>
+      <ul>
+        <li><strong>保濕</strong> — 表面水分與乾燥訊號。</li>
+        <li><strong>彈力</strong> — 肌膚的緊緻程度。</li>
+        <li><strong>毛孔</strong> — 可見毛孔的密度與大小。</li>
+        <li><strong>色素沉澱</strong> — 膚色不均、暗沉、肝斑訊號。</li>
+        <li><strong>皺紋</strong> — 細紋與紋理。</li>
+      </ul>
+      <p>你還會拿到<strong>推估肌膚年齡</strong>、總體分數 (0〜100),以及肌膚優點與待改善之處的清單。</p>
+
+      <div class="callout">
+        <div class="callout-title">準確度如何?</div>
+        <p>AI 會根據光線、曝光與角度做校正,但明亮、光線均勻的自拍仍然會帶來明顯更好的結果。拍攝建議請見第 14 節。</p>
+      </div>
+
+      <h3>多久該掃描一次?</h3>
+      <p>每個月一次是最理想的節奏。肌膚變化是漸進的,月度週期才能讓趨勢線有意義。App 會輕輕地提醒你每月再掃描。</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="zh-tw-6">
+      <h2><span class="num">06</span>報告 &amp; 歷史紀錄</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/report.png" alt="肌膚報告">
+        <img class="shot" loading="lazy" src="assets/analysis-history.png" alt="分析歷史">
+      </div>
+      <p class="caption">報告會呈現變化趨勢。歷史紀錄讓你滑動瀏覽每一次過往掃描。</p>
+
+      <p>每一次的掃描都會被保留下來。報告畫面把這些紀錄轉化成有用的洞察:</p>
+      <ul>
+        <li><strong>分數趨勢圖</strong> — 所有掃描的綜合走勢。</li>
+        <li><strong>各指標方向</strong> — 哪些項目在進步、哪些在退步。</li>
+        <li><strong>肌膚年齡差距</strong> — 你的肌膚比實際年齡看起來「年輕」還是「老」。</li>
+        <li><strong>產品效果</strong> — 透過比對前後掃描,由 AI 推測保養程序中哪些產品對哪個指標有幫助。</li>
+        <li><strong>保養程序成效</strong> — 你每日早晚的堅持,是否真的帶來可量化的改變。</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">這就是核心價值</div>
+        <p>使用 Gumi Glowup 越久,報告就越豐富。累積三到四次掃描後,你會開始看到任何評測網站都給不了的圖像 — 因為那是<em>你自己肌膚</em>的圖像。</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="zh-tw-7">
+      <h2><span class="num">07</span>AI Picks:產品推薦</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai-picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/recommended-products.png" alt="推薦產品清單">
+      </div>
+      <p class="caption">分析結束後,AI Picks 會依照你的膚況為你精選產品。</p>
+
+      <h3>推薦如何運作</h3>
+      <ul>
+        <li>每項產品都會根據你的<strong>分析結果</strong>、<strong>肌膚輪廓</strong> (類型、困擾、過敏成分)以及<strong>歷史紀錄</strong>來挑選。</li>
+        <li>會依分類整理 — 基本上是<strong>潔顏、化妝水、精華、乳霜、防曬</strong>,需要時也包含精華水、安瓶、眼霜、去角質、面膜、噴霧、油類、A 醇等更細的分類。</li>
+        <li>每張卡片都會告訴你<strong>為什麼選這項產品給你</strong> — 不是制式說明,而是和你掃描結果連結的理由。</li>
+        <li>點開產品可看到完整資訊:品牌、主要成分、可取得時的完整成分表、價格,以及進一步了解或購買的連結。</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">我們如何挑出要推薦給你的產品</div>
+        <p>我們很重視產品安全。推薦引擎會:</p>
+        <ul>
+          <li>自動過濾掉含有你<strong>已登記過敏成分</strong>的產品。</li>
+          <li>對照內部的潛在有害成分清單先做篩選。</li>
+          <li>對於韓國產品,比對<strong>韓國食品醫藥品安全處(MFDS)</strong>機能性化妝品資料庫;其餘產品則比對公開的 <strong>Open Beauty Facts</strong> 資料庫,讓有效成分是「被驗證」而非「被假設」。</li>
+          <li>優先推薦資料完整、主流的保養產品,而不是來源不明的品項。</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">即便如此,請務必看一下成分表</div>
+        <p>沒有任何自動化系統能保證一款產品對<strong>你</strong>獨一無二的肌膚絕對安全。我們的過濾大幅降低風險,但無法取代你自己的判斷。</p>
+        <ul>
+          <li><strong>購買或使用前,請務必先看成分表。</strong> 配方會更新、批次會不同、標示也可能不完整。</li>
+          <li>新產品先做<strong>過敏測試</strong>,在小範圍試 24 小時後再全臉使用。</li>
+          <li>若出現刺激、泛紅、搔癢或任何異常反應,請<strong>立即停用</strong>,症狀持續請諮詢皮膚科醫師。</li>
+          <li>若有皮膚疾病、懷孕中或正在使用處方外用藥,加入新產品前請先諮詢醫師。</li>
+        </ul>
+      </div>
+
+      <h3>不喜歡這次的推薦?可以重新推薦。</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="重新推薦產品">
+        <p class="caption">依品牌過濾、單獨替換、全部重新生成,或只看 K-Beauty (韓國美妝)。</p>
+      </div>
+      <p>你可以用多種方式重新推薦:篩選特定品牌、只替換不喜歡的品項、完全重新生成清單,或請 App 提供以韓國品牌為主的 <strong>K-Beauty (韓國美妝)</strong> 套組。你的選擇也會回饋到下次的推薦。</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="zh-tw-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/routine-recommend.png" alt="保養程序推薦">
+        <img class="shot" loading="lazy" src="assets/routine.png" alt="每日保養程序">
+      </div>
+      <p class="caption">AI 會根據你挑的產品,自動排出正確順序的早晚保養程序。</p>
+
+      <p>擁有對的產品只是成功的一半。用對順序、用對時間、用對手法才是另外一半 — 這就是 Routine builder 負責的事。</p>
+
+      <h3>你會得到</h3>
+      <ul>
+        <li><strong>早晚步驟清單</strong> — 潔顏 → 化妝水 → 加強保養 → 保濕 → 防曬,順序正確。</li>
+        <li><strong>每個步驟的理由</strong> — 與你個別的肌膚困擾連動。</li>
+        <li><strong>使用方式</strong> — 用量、塗抹手法、等待吸收的時間。</li>
+        <li><strong>頻率提醒</strong> — 每天、隔天、每週數次 (例如去角質、面膜)。</li>
+        <li><strong>生活建議</strong> — 睡眠、補水、防曬等與你困擾相關的小提示。</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-product-detail.png" alt="保養程序產品細節">
+        <p class="caption">點一下步驟,就能看到那項產品的角色、使用技巧與頻率。</p>
+      </div>
+
+      <h3>提醒 &amp; 每日追蹤</h3>
+      <ul>
+        <li>把早晚提醒時間設成符合自己生活的時段 (預設 07:00 / 21:00)。</li>
+        <li>也可以為去角質、面膜等較長週期的步驟,額外設定每週提醒。</li>
+        <li>每完成一個步驟就打勾 — 完成狀況會記錄到日曆上,一眼就看到自己的堅持。</li>
+        <li>讓下次掃描出現可量測改變的,終究還是日復一日的執行。</li>
+      </ul>
+
+      <h3>保養程序不合適?可以重新生成</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-regenerate.png" alt="重新生成保養程序">
+        <p class="caption">在「更簡單」、「更完整」或「換個方向」中選擇,讓 AI 重新提案。</p>
+      </div>
+      <p>重新生成時,你可以選擇方向 — <strong>更簡單</strong>、<strong>更完整</strong>,或者<strong>換個方向</strong>。系統會根據上一份保養程序不合適的地方,做出新的版本。</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="zh-tw-9">
+      <h2><span class="num">09</span>Product Diary</h2>
+      <p>如果推薦是起點,Product Diary 就是把這段過程紀錄下來的地方。把開始使用的產品登記進來,用完時打勾,App 會幫你建立一份「實際擦在臉上的產品」日曆。</p>
+      <ul>
+        <li><strong>使用中 / 已用完</strong> — 兩個分頁,可依分類過濾。</li>
+        <li><strong>開始與結束日期</strong> — 系統會自動算出每項產品撐了多少天。</li>
+        <li><strong>容量 &amp; 備註</strong> — 紀錄容量,以及任何值得記下的事 (質地、反應、是否會回購)。</li>
+        <li><strong>統計</strong> — 一眼看出嘗試過的產品總數、平均使用天數,以及分類分布。</li>
+      </ul>
+      <p>把它和每月掃描搭配使用,報告會精準許多 — 每段趨勢線發生的時候,你都能清楚對得上臉上是哪幾項產品。</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="zh-tw-10">
+      <h2><span class="num">10</span>保養知識文章</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="保養知識文章">
+        <p class="caption">精選的保養讀物 — 成分、潮流與社群討論。</p>
+      </div>
+      <p>可切換來源的精選保養內容:編輯型保養文章、新品上市、社群討論。點一張卡就能看全文。</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="zh-tw-11">
+      <h2><span class="num">11</span>Daily Fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily Fortune">
+        <p class="caption">每天一點小小的儀式感,加上專屬於你的肌膚小提示。</p>
+      </div>
+      <p>系統會根據你的名字、生日、性別與星座,每天提供一次綜合運勢,搭配保養、美妝與健康建議,還有幸運物、幸運色與幸運形狀。每天一次,Daily Fortune 屬於付費會員方案。</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="zh-tw-12">
+      <h2><span class="num">12</span>設定 &amp; 帳號</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/settings.png" alt="設定畫面">
+        <p class="caption">個人資料、通知、語言、主題與帳號,集中在一個地方管理。</p>
+      </div>
+      <ul>
+        <li><strong>編輯個人資料</strong> — 隨時更新肌膚類型、困擾、過敏成分與喜愛品牌。</li>
+        <li><strong>訂閱</strong> — 查看狀態,並透過 App Store / Google Play 管理。</li>
+        <li><strong>通知</strong> — 可切換保養程序提醒、每月再掃描提示、Daily Fortune 通知。</li>
+        <li><strong>語言</strong> — 在英文、韓文、日文、繁體中文、西班牙文、越南文、泰文之間切換。</li>
+        <li><strong>主題</strong> — 淺色、深色或跟隨系統。</li>
+        <li><strong>登出 / 刪除帳號</strong> — 登出會保留資料;刪除則永久移除所有資料。</li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="zh-tw-13">
+      <h2><span class="num">13</span>訂閱方案</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/subscription.png" alt="訂閱方案">
+        <p class="caption">透過 App Store 或 Google Play 訂閱,隨時可取消。</p>
+      </div>
+
+      <div class="plan">
+        <h3>免費</h3>
+        <ul>
+          <li>瀏覽個人資料、歷史紀錄、知識文章、Product Diary 與設定</li>
+          <li><strong>首次 AI 肌膚掃描免費</strong> — 第一次掃描不需要訂閱,免費送給你</li>
+          <li>之後的掃描、第一次以後的產品推薦、保養程序、報告以及 Daily Fortune,都需要有效的付費會員訂閱</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>付費會員</h3>
+        <p class="price">依當地價格 <small>/ 月費或年費</small></p>
+        <ul>
+          <li><strong>AI 肌膚分析</strong> — 完整評分表、肌膚年齡與可改善之處</li>
+          <li><strong>AI Picks</strong> — 附理由的個人化產品推薦,含 K-Beauty (韓國美妝) 再推薦</li>
+          <li><strong>Routine builder</strong> — 早晚保養程序生成、重新生成,以及產品細節</li>
+          <li><strong>報告 &amp; 趨勢</strong> — 長期變化、產品效果與保養程序成效</li>
+          <li><strong>Daily Fortune</strong> — 每天一次的個人化運勢</li>
+          <li>提供月費與年費方案,訂閱畫面上的年費方案通常會標示折扣徽章</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">價格會在訂閱畫面以當地貨幣顯示 (由 App Store 或 Google Play 即時取得),並可能依地區不同。除非在到期前至少 24 小時取消,否則訂閱將自動續訂。你可以隨時透過 App Store 或 Google Play 帳號設定管理與取消。AI 呼叫適用公平使用的速率限制。</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="zh-tw-14">
+      <h2><span class="num">14</span>拍攝技巧、FAQ &amp; 聯絡我們</h2>
+
+      <h3>拍出最好的掃描</h3>
+      <ul>
+        <li><strong>光線</strong> — 明亮、均勻、自然光,避免強烈陰影或逆光。</li>
+        <li><strong>位置</strong> — 正面對著鏡頭、臉填滿畫面、不要傾斜。</li>
+        <li><strong>清潔</strong> — 為了最準的數據,請先卸妝。</li>
+        <li><strong>穩定</strong> — 拿穩相機,不要晃動。</li>
+        <li><strong>頻率</strong> — 每月一次,趨勢線才會有意義。</li>
+      </ul>
+
+      <h3>一段話搞懂隱私</h3>
+      <p>你的照片會被安全保存,只用來進行你的分析。我們不會販售你的資料。我們不會用你的資料訓練第三方 AI 模型。可以從<strong>設定 → 刪除帳號</strong>刪除所有內容。完整內容: <a href="privacy-policy.html">隱私權政策</a>。</p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">Q. 我的分析失敗了。</div>
+      <div class="faq-a">多半透過更亮的光線與穩定的手就能解決。請先卸妝、正面對著鏡頭。如果仍然失敗,請試著重新啟動 App。</div>
+      <div class="faq-q">Q. 推薦的產品在我的地區買不到。</div>
+      <div class="faq-a">請使用重新推薦的功能,依品牌過濾或產生新的清單,聚焦在你買得到的產品。</div>
+      <div class="faq-q">Q. 我對推薦的產品起反應了。</div>
+      <div class="faq-a">請立即停止使用,並到設定把該成分加入過敏 / 敏感成分清單,之後的推薦就會自動排除。症狀持續請諮詢皮膚科醫師。</div>
+      <div class="faq-q">Q. 多久才看得到掃描的變化?</div>
+      <div class="faq-a">肌膚代謝週期約 28 天。大多數使用者持續執行保養程序、累積 1〜2 次每月掃描後,就會開始看到可量化的變化。</div>
+      <div class="faq-q">Q. 通知收不到。</div>
+      <div class="faq-a">請同時檢查裝置的系統通知設定,以及 App 內的設定 → 通知。</div>
+      <div class="faq-q">Q. 我可以取消訂閱嗎?</div>
+      <div class="faq-a">可以,隨時可透過 App Store 或 Google Play 帳號設定取消。在當期週期結束前,你仍能繼續使用付費會員功能。</div>
+      <div class="faq-q">Q. 我看到「請求次數過多」的提示。</div>
+      <div class="faq-a">AI 端點適用每分鐘公平使用上限 (免費與付費會員皆同)。達到上限時 App 會顯示專屬提示,稍等片刻再試一次即可。</div>
+      <div class="faq-q">Q. App 支援哪些語言?</div>
+      <div class="faq-a">英文、韓文、日文、繁體中文、西班牙文、越南文與泰文。App 首次啟動時會自動偵測裝置語言,你也可以隨時在設定中切換。</div>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">聯絡 &amp; 支援</h2>
+      <p>問題、Bug 或回饋 — 我們會看每一封訊息。</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p style="font-size:12px;margin-top:8px">所有來信我們都會盡量在 48 小時內回覆。</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SPANISH ═══════════════ -->
+  <div lang="es">
+    <div class="hero">
+      <span class="badge">GUÍA DE SERVICIO</span>
+      <h1>Bienvenido/a a Gumi Glowup</h1>
+      <p>Tu compañero de skincare con IA — analiza, recomienda, crea rutinas y vuelve a empezar.</p>
+    </div>
+
+    <div class="toc">
+      <h3>Contenido</h3>
+      <ol>
+        <li><a href="#es-1">¿Qué es Gumi Glowup?</a></li>
+        <li><a href="#es-2">Por qué funciona: personalización basada en datos</a></li>
+        <li><a href="#es-3">Primer inicio y registro</a></li>
+        <li><a href="#es-4">Panel de inicio</a></li>
+        <li><a href="#es-5">Escaneo de piel y análisis IA</a></li>
+        <li><a href="#es-6">Informes e historial</a></li>
+        <li><a href="#es-7">AI Picks: recomendaciones de productos</a></li>
+        <li><a href="#es-8">Routine builder</a></li>
+        <li><a href="#es-9">Product Diary</a></li>
+        <li><a href="#es-10">Artículos de conocimiento</a></li>
+        <li><a href="#es-11">Daily Fortune</a></li>
+        <li><a href="#es-12">Ajustes y cuenta</a></li>
+        <li><a href="#es-13">Planes de suscripción</a></li>
+        <li><a href="#es-14">Consejos de foto, FAQ y contacto</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="es-1">
+      <h2><span class="num">01</span>¿Qué es Gumi Glowup?</h2>
+      <p>Gumi Glowup es un compañero de skincare potenciado por IA. Haz un selfie y nuestra IA puntúa tu piel en cinco dimensiones clave, te recomienda productos seguros y compatibles, y arma una rutina diaria que encaja con tu piel real.</p>
+      <p>No es un análisis de una sola vez. Cuanto más escaneas, completas rutinas y sigues las recomendaciones, mejor aprende la app tu piel y mejor afina lo que viene después.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="es-2">
+      <h2><span class="num">02</span>Por qué funciona: personalización basada en datos</h2>
+      <p>La mayoría de las apps de skincare se quedan en «aquí tienes una lista de productos». Gumi Glowup está construida en torno a un ciclo de aprendizaje continuo:</p>
+
+      <div class="callout">
+        <div class="callout-title">El Glowup Loop</div>
+        <p><strong>1. Escanear</strong> — la IA capta el estado actual de tu piel (5 métricas + edad de la piel).</p>
+        <p><strong>2. Recomendar</strong> — los productos se eligen según tu perfil de piel, preocupaciones, alergias e historial de análisis.</p>
+        <p><strong>3. Rutina</strong> — se genera una rutina AM/PM personalizada a partir de esos productos.</p>
+        <p><strong>4. Seguir</strong> — los check-ins diarios y los reescaneos mensuales arman un registro a largo plazo.</p>
+        <p><strong>5. Volver a recomendar</strong> — las recomendaciones siguientes usan todo lo que has hecho hasta ahora. Cuanto más usas la app, más inteligente se vuelve.</p>
+      </div>
+
+      <h3>Por qué importa</h3>
+      <ul>
+        <li><strong>Tu piel cambia</strong> con las estaciones, las hormonas, el estrés y los productos que usas. Una recomendación estática queda obsoleta rápido.</li>
+        <li><strong>La eficacia se puede medir.</strong> Comparando escaneos antes y después de una rutina, podemos decirte qué productos realmente movieron la aguja para <em>tu</em> piel — no reseñas genéricas.</li>
+        <li><strong>Los hábitos ganan a los milagros.</strong> Los resultados en skincare vienen del cuidado diario constante. Las rachas, los recordatorios y los check-ins AM/PM están pensados para hacer eso fácil.</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="es-3">
+      <h2><span class="num">03</span>Primer inicio y registro</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/01-onboarding-tutorial.png" alt="Tutorial de bienvenida en el primer inicio">
+        <p class="caption">Tutorial de bienvenida: un recorrido rápido por lo que hace Gumi Glowup.</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/02-login.png" alt="Pantalla de inicio de sesión">
+        <img class="shot" loading="lazy" src="assets/03-ai-consent.png" alt="Pantalla de consentimiento de IA">
+      </div>
+      <p class="caption">Inicia sesión con Apple o Google y, antes de tu primer escaneo, revisa y acepta los términos de procesamiento de IA.</p>
+
+      <h3>Lo que vas a configurar</h3>
+      <ul>
+        <li><strong>Nombre</strong> — obligatorio.</li>
+        <li><strong>Tipos de piel</strong> — obligatorio. Elige 1 a 3 (seca, grasa, mixta, sensible, con tendencia al acné, con rojeces, etc.).</li>
+        <li><strong>Cumpleaños</strong> — opcional, pero recomendado. También se usa para deducir tu signo zodiacal para Daily Fortune.</li>
+        <li><strong>Género</strong> — opcional.</li>
+        <li><strong>Región / país</strong> — opcional. Ayuda a regionalizar las recomendaciones.</li>
+        <li><strong>Preocupaciones de piel</strong> — opcional. Describe con tus propias palabras lo que más te preocupa (hasta 200 caracteres).</li>
+        <li><strong>Alergias / sensibilidades</strong> — opcional. Marca los ingredientes que debes evitar: el recomendador los filtra de forma automática.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Por qué te lo preguntamos</div>
+        <p>Cada campo influye directamente en lo que la IA recomienda. Cuanto más preciso sea tu perfil, más seguras y útiles serán las elecciones. Puedes actualizar todo cuando quieras desde <strong>Ajustes → Editar perfil</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="es-4">
+      <h2><span class="num">04</span>Panel de inicio</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/dashboard.png" alt="Panel de inicio">
+        <img class="shot" loading="lazy" src="assets/slide-menu.png" alt="Menú lateral">
+      </div>
+      <p class="caption">El panel resume el estado más reciente de tu piel. El menú lateral abre todas las funciones.</p>
+
+      <p>La pantalla de inicio es tu punto de partida diario. De un vistazo verás:</p>
+      <ul>
+        <li><strong>Última puntuación y edad de la piel</strong> — con la diferencia respecto al escaneo anterior.</li>
+        <li><strong>Banner «Continúa tu Glowup»</strong> — si empezaste un flujo (escaneo → productos → rutina) y no lo terminaste, se retoma desde aquí.</li>
+        <li><strong>Progreso de la rutina de hoy</strong> — checks de AM y PM para ver el estado en un instante.</li>
+        <li><strong>Tarjeta de Daily Fortune</strong> — un pequeño momento del día.</li>
+        <li><strong>Banner de suscripción</strong> — días restantes de prueba, si corresponde.</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="es-5">
+      <h2><span class="num">05</span>Escaneo de piel y análisis IA</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/scan-analysis.png" alt="Análisis del escaneo de piel">
+        <p class="caption">Un solo selfie produce un panel de puntuación de cinco dimensiones.</p>
+      </div>
+
+      <h3>Lo que mide la IA</h3>
+      <ul>
+        <li><strong>Hidratación</strong> — humedad superficial y señales de sequedad.</li>
+        <li><strong>Elasticidad</strong> — señales de firmeza de la piel.</li>
+        <li><strong>Poros</strong> — densidad y tamaño de poros visibles.</li>
+        <li><strong>Pigmentación</strong> — tono desigual, manchas, señales de melasma.</li>
+        <li><strong>Arrugas</strong> — líneas finas y textura.</li>
+      </ul>
+      <p>También recibes una <strong>edad de la piel estimada</strong>, una puntuación general (0–100) y listas de fortalezas y áreas a mejorar.</p>
+
+      <div class="callout">
+        <div class="callout-title">¿Qué tan precisa es?</div>
+        <p>La IA compensa la iluminación, la exposición y el ángulo, pero un selfie nítido con luz uniforme da resultados mucho mejores. Mira la sección 14 para consejos de foto.</p>
+      </div>
+
+      <h3>¿Con qué frecuencia debo escanear?</h3>
+      <p>Una vez al mes es el punto justo. Los cambios de la piel son graduales, y una cadencia mensual mantiene las líneas de tendencia con sentido. La app te envía un recordatorio mensual amable para volver a escanear.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="es-6">
+      <h2><span class="num">06</span>Informes e historial</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/report.png" alt="Informe de piel">
+        <img class="shot" loading="lazy" src="assets/analysis-history.png" alt="Historial de análisis">
+      </div>
+      <p class="caption">Los informes muestran el cambio en el tiempo. El historial te permite repasar cada escaneo pasado.</p>
+
+      <p>Todos los escaneos quedan guardados. La vista de informe convierte esos escaneos en una mirada útil:</p>
+      <ul>
+        <li><strong>Gráfico de tendencia de puntuación</strong> — tu trayectoria global en todos los escaneos.</li>
+        <li><strong>Dirección por métrica</strong> — qué categorías están mejorando o retrocediendo.</li>
+        <li><strong>Diferencia de edad de la piel</strong> — cuánto «más joven» o «más mayor» se ve tu piel respecto a tu edad real.</li>
+        <li><strong>Efectos de los productos</strong> — estimación por IA de qué productos de tu rutina ayudaron a qué métrica, comparando antes y después.</li>
+        <li><strong>Impacto de la rutina</strong> — si tu constancia diaria AM/PM está correlacionando con un cambio medible.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Esto es la recompensa</div>
+        <p>Cuanto más uses Gumi Glowup, más rico será tu informe. Tras tres o cuatro escaneos empezarás a ver patrones que ninguna web de reseñas puede darte — porque son patrones de <em>tu propia</em> piel.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="es-7">
+      <h2><span class="num">07</span>AI Picks: recomendaciones de productos</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai-picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/recommended-products.png" alt="Lista de productos recomendados">
+      </div>
+      <p class="caption">Tras el análisis, AI Picks selecciona productos específicos para el estado de tu piel.</p>
+
+      <h3>Cómo funcionan las recomendaciones</h3>
+      <ul>
+        <li>Cada producto se elige según tus <strong>resultados de análisis</strong>, tu <strong>perfil de piel</strong> (tipo, preocupaciones, alergias) y tu <strong>historial</strong>.</li>
+        <li>Se organizan por categoría — normalmente <strong>limpiador, tónico, sérum, crema, SPF</strong>, más categorías específicas cuando corresponde (esencia, ampolla, contorno de ojos, exfoliante, mascarilla, bruma, aceite, retinol, etc.).</li>
+        <li>Cada tarjeta muestra <strong>por qué se eligió ese producto para ti</strong> — no un texto genérico, sino una razón ligada a tu escaneo.</li>
+        <li>Toca cualquier producto para ver la ficha completa: marca, ingredientes clave, lista completa de ingredientes (cuando esté disponible), precio y un enlace para saber más o comprar.</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">Cómo decidimos qué mostrarte</div>
+        <p>Nos tomamos en serio la seguridad del producto. Nuestro recomendador:</p>
+        <ul>
+          <li>Filtra cualquier producto con tus <strong>alergias declaradas</strong>.</li>
+          <li>Cruza con nuestra lista interna de ingredientes potencialmente dañinos.</li>
+          <li>Verifica los ingredientes activos contrastando la base de cosméticos funcionales del <strong>Korean Ministry of Food and Drug Safety (MFDS)</strong> para productos de origen coreano y la base pública <strong>Open Beauty Facts</strong> para el resto, para que estén comprobados y no supuestos.</li>
+          <li>Prefiere productos de skincare bien documentados y conocidos antes que opciones oscuras o no verificables.</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">Aun así, lee siempre la etiqueta</div>
+        <p>Ningún sistema automatizado puede garantizar que un producto sea seguro para <strong>tu</strong> piel única. Nuestros filtros reducen mucho el riesgo, pero no sustituyen tu propio criterio.</p>
+        <ul>
+          <li><strong>Lee siempre la lista de ingredientes</strong> antes de comprar o aplicar — las fórmulas cambian, los lotes difieren y el etiquetado puede ser incompleto.</li>
+          <li><strong>Haz un test de parche</strong> en una zona pequeña durante 24 horas antes de usar el producto en toda la cara.</li>
+          <li><strong>Suspende su uso de inmediato</strong> si notas irritación, rojeces, picor o cualquier reacción inusual, y consulta a un dermatólogo si los síntomas persisten.</li>
+          <li>Si tienes una afección dermatológica diagnosticada, estás embarazada o usas tratamientos tópicos con receta, consulta a tu médico antes de añadir productos nuevos.</li>
+        </ul>
+      </div>
+
+      <h3>¿No te gusta una elección? Vuelve a pedir recomendaciones.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="Volver a recomendar productos">
+        <p class="caption">Filtra por marca, intercambia productos sueltos, genera una lista nueva o pide solo K-beauty (cosmética coreana).</p>
+      </div>
+      <p>Puedes volver a generar la recomendación de varias formas: filtrar por marcas específicas, sustituir solo los productos que no te gustan, recibir una lista totalmente nueva o pedir un set <strong>K-beauty (cosmética coreana)</strong> centrado en marcas de origen coreano. Tus elecciones alimentan las recomendaciones futuras.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="es-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/routine-recommend.png" alt="Recomendación de rutina">
+        <img class="shot" loading="lazy" src="assets/routine.png" alt="Rutina diaria">
+      </div>
+      <p class="caption">La IA genera una rutina AM/PM a partir de tus productos, en el orden correcto.</p>
+
+      <p>Tener los productos correctos es la mitad de la batalla. Usarlos en el orden correcto, en el momento correcto y con la técnica correcta es la otra mitad — y de eso se encarga Routine builder.</p>
+
+      <h3>Lo que obtienes</h3>
+      <ul>
+        <li><strong>Listas de pasos AM y PM</strong> — productos en el orden correcto (limpiar → tonificar → tratar → hidratar → SPF).</li>
+        <li><strong>Por qué importa cada paso</strong> — ligado a tus preocupaciones concretas.</li>
+        <li><strong>Cómo aplicar</strong> — cantidad, técnica, tiempo de espera.</li>
+        <li><strong>Notas de frecuencia</strong> — diario, días alternos, semanal (p. ej., exfoliantes, mascarillas).</li>
+        <li><strong>Consejos de estilo de vida</strong> — sueño, hidratación, hábitos solares relacionados con tus preocupaciones.</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-product-detail.png" alt="Detalle de producto en la rutina">
+        <p class="caption">Toca un paso para ver el papel del producto, consejos de aplicación y frecuencia.</p>
+      </div>
+
+      <h3>Recordatorios y seguimiento diario</h3>
+      <ul>
+        <li>Configura horarios de notificación AM y PM que encajen con tu vida real (por defecto: 07:00 / 21:00).</li>
+        <li>Recordatorios semanales opcionales para pasos de cadencia lenta como exfoliantes o mascarillas.</li>
+        <li>Marca cada paso a medida que avanzas — la finalización se registra por día en tu calendario para ver la constancia de un vistazo.</li>
+        <li>La aplicación constante es lo que produce un cambio medible en tu siguiente escaneo.</li>
+      </ul>
+
+      <h3>¿La rutina no te funciona? Regenérala.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-regenerate.png" alt="Regenerar rutina">
+        <p class="caption">Pide una rutina más simple, más completa o simplemente diferente.</p>
+      </div>
+      <p>Al regenerar, puedes orientar a la IA con una preferencia — <strong>más simple</strong>, <strong>más completa</strong> o <strong>simplemente diferente</strong> — para que la nueva rutina recoja lo que no funcionó en la anterior.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="es-9">
+      <h2><span class="num">09</span>Product Diary</h2>
+      <p>Las recomendaciones te ponen en marcha; Product Diary convierte ese camino en un registro. Anota los productos que empiezas a usar, márcalos como terminados, y la app mantiene un calendario de lo que de verdad has aplicado en tu piel.</p>
+      <ul>
+        <li><strong>En uso vs. acabados</strong> — dos pestañas, filtrables por categoría.</li>
+        <li><strong>Fechas de inicio y fin</strong> — el diario calcula automáticamente cuántos días duró cada producto.</li>
+        <li><strong>Volumen y notas</strong> — guarda el tamaño del envase y cualquier cosa que valga la pena recordar (textura, reacción, intención de recompra).</li>
+        <li><strong>Estadísticas</strong> — ve el total de productos probados, duración media de uso y desglose por categoría de un vistazo.</li>
+      </ul>
+      <p>Combina el diario con tus escaneos mensuales y la vista de informe se vuelve mucho más nítida — puedes saber qué productos tenías en la cara durante cada tramo de tendencia.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="es-10">
+      <h2><span class="num">10</span>Artículos de conocimiento</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="Artículos de conocimiento">
+        <p class="caption">Lecturas de skincare seleccionadas — ingredientes, tendencias e ideas de la comunidad.</p>
+      </div>
+      <p>Un feed seleccionado de contenido de skincare con fuentes intercambiables: skincare editorial, lanzamientos de productos y debate de la comunidad. Toca cualquier tarjeta para leer el artículo completo.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="es-11">
+      <h2><span class="num">11</span>Daily Fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily Fortune">
+        <p class="caption">Un pequeño momento diario con un consejo de skincare personalizado.</p>
+      </div>
+      <p>Generado a partir de tu nombre, cumpleaños, género y signo zodiacal, cada lectura diaria combina un resumen con orientación de skincare, belleza y bienestar, además de un objeto, color y forma de la suerte. Una lectura por día, y Daily Fortune forma parte de la suscripción Premium.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="es-12">
+      <h2><span class="num">12</span>Ajustes y cuenta</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/settings.png" alt="Ajustes">
+        <p class="caption">Gestiona perfil, notificaciones, idioma, tema y cuenta desde un solo lugar.</p>
+      </div>
+      <ul>
+        <li><strong>Editar perfil</strong> — actualiza tipo de piel, preocupaciones, alergias y marcas preferidas cuando quieras.</li>
+        <li><strong>Suscripción</strong> — consulta el estado y gestiónala desde App Store / Google Play.</li>
+        <li><strong>Notificaciones</strong> — activa o desactiva recordatorios de rutina, avisos mensuales de reescaneo y alertas de fortuna.</li>
+        <li><strong>Idioma</strong> — cambia entre inglés, coreano, japonés, chino tradicional, español, vietnamita y tailandés.</li>
+        <li><strong>Tema</strong> — claro, oscuro o sistema.</li>
+        <li><strong>Cerrar sesión / Eliminar cuenta</strong> — cerrar sesión conserva tus datos; eliminar lo borra todo de forma permanente.</li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="es-13">
+      <h2><span class="num">13</span>Planes de suscripción</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/subscription.png" alt="Planes de suscripción">
+        <p class="caption">Suscríbete vía App Store o Google Play. Cancela cuando quieras.</p>
+      </div>
+
+      <div class="plan">
+        <h3>Gratis</h3>
+        <ul>
+          <li>Consulta tu perfil, historial, feed de conocimiento, Product Diary y ajustes</li>
+          <li><strong>Primer escaneo de piel con IA gratis</strong> — el primer escaneo va por nuestra cuenta, sin suscripción</li>
+          <li>Los escaneos posteriores, las recomendaciones de productos más allá del primer set, las rutinas, los informes y Daily Fortune requieren una suscripción Premium activa</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>Premium</h3>
+        <p class="price">Desde el precio local <small>/ mensual o anual</small></p>
+        <ul>
+          <li><strong>Análisis de piel con IA</strong> — panel completo, edad de la piel y áreas de mejora</li>
+          <li><strong>AI Picks</strong> — recomendaciones de productos personalizadas con razones, incluida la re-recomendación K-beauty</li>
+          <li><strong>Routine builder</strong> — rutinas AM/PM, regeneraciones y detalle de producto</li>
+          <li><strong>Informes y tendencias</strong> — progreso en el tiempo, efectos de los productos e impacto de la rutina</li>
+          <li><strong>Daily Fortune</strong> — fortuna de skincare personalizada, una por día</li>
+          <li>Se ofrecen opciones mensual y anual; el plan anual suele llevar una insignia de descuento en la pantalla de suscripción</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">El precio se muestra en tu moneda local en la pantalla de suscripción (se obtiene en vivo de App Store o Google Play) y puede variar por región. Las suscripciones se renuevan automáticamente si no se cancelan al menos 24 horas antes de que termine el periodo. Gestiona y cancela cuando quieras desde tu cuenta de App Store o Google Play. Se aplican límites de uso justo a las llamadas de IA.</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="es-14">
+      <h2><span class="num">14</span>Consejos de foto, FAQ y contacto</h2>
+
+      <h3>Sacar el mejor escaneo</h3>
+      <ul>
+        <li><strong>Iluminación</strong> — luz natural, brillante y uniforme. Evita sombras duras o contraluz.</li>
+        <li><strong>Posición</strong> — mira de frente a la cámara, llena el encuadre, sin inclinación.</li>
+        <li><strong>Limpieza</strong> — quítate el maquillaje para obtener la lectura más fiel.</li>
+        <li><strong>Estabilidad</strong> — mantén el pulso firme, sin movimiento.</li>
+        <li><strong>Cadencia</strong> — una vez al mes para que las líneas de tendencia tengan sentido.</li>
+      </ul>
+
+      <h3>Privacidad en un párrafo</h3>
+      <p>Tus fotos se guardan de forma segura y se usan únicamente para alimentar tus análisis. No vendemos tus datos. No los usamos para entrenar modelos de IA de terceros. Puedes borrarlo todo desde <strong>Ajustes → Eliminar cuenta</strong>. Detalles completos: <a href="privacy-policy.html">Política de Privacidad</a>.</p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">P. Mi análisis falló.</div>
+      <div class="faq-a">Mejor iluminación y mantener el pulso firme suele arreglarlo. Quítate el maquillaje y mira de frente a la cámara. Si sigue fallando, prueba a reiniciar la app.</div>
+      <div class="faq-q">P. El producto recomendado no se vende en mi región.</div>
+      <div class="faq-a">Usa la función de re-recomendación para filtrar por marca o generar una lista nueva centrada en productos disponibles en tu zona.</div>
+      <div class="faq-q">P. Tuve una reacción a un producto recomendado.</div>
+      <div class="faq-a">Deja de usarlo de inmediato. Añade el ingrediente que lo causó a tu lista de alergias en Ajustes para que se filtre en las próximas recomendaciones. Consulta a un dermatólogo si los síntomas persisten.</div>
+      <div class="faq-q">P. ¿Cuánto tiempo hasta ver diferencia en mis escaneos?</div>
+      <div class="faq-a">La piel se renueva cada 28 días aproximadamente. La mayoría de personas empieza a ver cambios medibles tras 1 a 2 escaneos mensuales de uso constante de la rutina.</div>
+      <div class="faq-q">P. Las notificaciones no funcionan.</div>
+      <div class="faq-a">Revisa tanto los ajustes de notificación del sistema en tu dispositivo como Ajustes → Notificaciones dentro de la app.</div>
+      <div class="faq-q">P. ¿Puedo cancelar mi suscripción?</div>
+      <div class="faq-a">Sí, cuando quieras desde los ajustes de tu cuenta de App Store o Google Play. Mantendrás el acceso Premium hasta que termine el periodo actual.</div>
+      <div class="faq-q">P. Me apareció un aviso de «demasiadas solicitudes».</div>
+      <div class="faq-a">Los endpoints de IA tienen un límite de uso justo por minuto (se aplica a todo el mundo, gratis o Premium). La app muestra un aviso específico cuando lo alcanzas — espera un momento y vuelve a intentarlo.</div>
+      <div class="faq-q">P. ¿Qué idiomas admite la app?</div>
+      <div class="faq-a">Inglés, coreano, japonés, chino tradicional, español, vietnamita y tailandés. La app detecta automáticamente el idioma de tu dispositivo en el primer inicio y puedes cambiarlo cuando quieras en Ajustes.</div>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">Contacto y soporte</h2>
+      <p>Preguntas, bugs o feedback — leemos cada mensaje.</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p style="font-size:12px;margin-top:8px">Intentamos responder a toda consulta en menos de 48 horas.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ VIETNAMESE ═══════════════ -->
+  <div lang="vi">
+    <div class="hero">
+      <span class="badge">HƯỚNG DẪN DỊCH VỤ</span>
+      <h1>Chào mừng bạn đến với Gumi Glowup</h1>
+      <p>Người bạn chăm sóc da bằng AI của bạn — phân tích, gợi ý, lên routine, rồi lặp lại.</p>
+    </div>
+
+    <div class="toc">
+      <h3>Mục lục</h3>
+      <ol>
+        <li><a href="#vi-1">Gumi Glowup là gì?</a></li>
+        <li><a href="#vi-2">Vì sao hoạt động: cá nhân hoá dựa trên dữ liệu</a></li>
+        <li><a href="#vi-3">Lần mở đầu tiên &amp; đăng ký</a></li>
+        <li><a href="#vi-4">Bảng điều khiển trang chủ</a></li>
+        <li><a href="#vi-5">Quét da &amp; phân tích AI</a></li>
+        <li><a href="#vi-6">Báo cáo &amp; lịch sử</a></li>
+        <li><a href="#vi-7">AI Picks: gợi ý sản phẩm</a></li>
+        <li><a href="#vi-8">Routine builder</a></li>
+        <li><a href="#vi-9">Product Diary</a></li>
+        <li><a href="#vi-10">Bài viết kiến thức</a></li>
+        <li><a href="#vi-11">Daily Fortune</a></li>
+        <li><a href="#vi-12">Cài đặt &amp; tài khoản</a></li>
+        <li><a href="#vi-13">Gói đăng ký</a></li>
+        <li><a href="#vi-14">Mẹo chụp ảnh, FAQ &amp; liên hệ</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="vi-1">
+      <h2><span class="num">01</span>Gumi Glowup là gì?</h2>
+      <p>Gumi Glowup là một người bạn chăm sóc da chạy bằng AI. Chụp một tấm selfie, AI sẽ chấm da bạn ở năm khía cạnh cốt lõi, gợi ý các sản phẩm an toàn và phù hợp, rồi xây một routine hằng ngày khớp với tình trạng da thật.</p>
+      <p>Đây không phải một lần phân tích là xong. Bạn càng quét, càng hoàn thành routine và làm theo gợi ý, ứng dụng càng học chính xác về da bạn và tinh chỉnh những đề xuất tiếp theo.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="vi-2">
+      <h2><span class="num">02</span>Vì sao hoạt động: cá nhân hoá dựa trên dữ liệu</h2>
+      <p>Phần lớn ứng dụng chăm sóc da dừng lại ở việc «đây là danh sách sản phẩm». Gumi Glowup được xây quanh một vòng lặp học liên tục:</p>
+
+      <div class="callout">
+        <div class="callout-title">Glowup Loop</div>
+        <p><strong>1. Quét</strong> — AI nắm bắt tình trạng da hiện tại của bạn (5 chỉ số + tuổi da).</p>
+        <p><strong>2. Gợi ý</strong> — Sản phẩm được chọn dựa trên hồ sơ da, vấn đề, dị ứng và lịch sử phân tích.</p>
+        <p><strong>3. Routine</strong> — Một routine sáng/tối cá nhân hoá được tạo từ những sản phẩm đó.</p>
+        <p><strong>4. Theo dõi</strong> — Check-in mỗi ngày và quét lại hàng tháng giúp xây dựng một bản ghi dài hạn.</p>
+        <p><strong>5. Gợi ý lại</strong> — Các đề xuất tiếp theo dùng mọi thứ bạn đã làm. Càng dùng lâu, ứng dụng càng thông minh.</p>
+      </div>
+
+      <h3>Vì sao điều đó quan trọng</h3>
+      <ul>
+        <li><strong>Da bạn liên tục thay đổi</strong> theo mùa, nội tiết, stress và những sản phẩm bạn đang dùng. Một gợi ý tĩnh sẽ nhanh chóng lỗi thời.</li>
+        <li><strong>Hiệu quả có thể đo được.</strong> So sánh các lần quét trước và sau một routine, chúng tôi có thể chỉ ra sản phẩm nào thật sự tạo khác biệt cho da <em>của bạn</em> — không phải review chung chung.</li>
+        <li><strong>Thói quen thắng phép màu.</strong> Kết quả chăm sóc da đến từ sự kiên trì hằng ngày. Streak, lời nhắc và check-in sáng/tối được thiết kế để việc đó trở nên dễ duy trì.</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="vi-3">
+      <h2><span class="num">03</span>Lần mở đầu tiên &amp; đăng ký</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/01-onboarding-tutorial.png" alt="Hướng dẫn onboarding khi mở app lần đầu">
+        <p class="caption">Hướng dẫn chào mừng: tour nhanh về những gì Gumi Glowup làm.</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/02-login.png" alt="Màn hình đăng nhập">
+        <img class="shot" loading="lazy" src="assets/03-ai-consent.png" alt="Màn hình đồng ý xử lý AI">
+      </div>
+      <p class="caption">Đăng nhập bằng Apple hoặc Google, rồi đọc và đồng ý điều khoản xử lý AI trước lần quét đầu tiên.</p>
+
+      <h3>Bạn sẽ thiết lập</h3>
+      <ul>
+        <li><strong>Tên</strong> — bắt buộc.</li>
+        <li><strong>Loại da</strong> — bắt buộc. Chọn 1–3 (da khô, da dầu, da hỗn hợp, da nhạy cảm, da mụn, da ửng đỏ, v.v.).</li>
+        <li><strong>Sinh nhật</strong> — tuỳ chọn nhưng được khuyến nghị. Cũng dùng để suy ra cung hoàng đạo cho Daily Fortune.</li>
+        <li><strong>Giới tính</strong> — tuỳ chọn.</li>
+        <li><strong>Khu vực / quốc gia</strong> — tuỳ chọn. Giúp gợi ý phù hợp theo vùng.</li>
+        <li><strong>Vấn đề về da</strong> — tuỳ chọn. Mô tả bằng lời của bạn điều khiến bạn lo nhất (tối đa 200 ký tự).</li>
+        <li><strong>Dị ứng / nhạy cảm</strong> — tuỳ chọn. Đánh dấu thành phần cần tránh — bộ gợi ý sẽ tự lọc khỏi danh sách.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Vì sao chúng tôi hỏi</div>
+        <p>Mỗi mục đều ảnh hưởng trực tiếp tới gợi ý của AI. Hồ sơ càng chính xác, lựa chọn càng an toàn và hữu ích. Bạn có thể cập nhật bất cứ lúc nào tại <strong>Cài đặt → Chỉnh sửa hồ sơ</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="vi-4">
+      <h2><span class="num">04</span>Bảng điều khiển trang chủ</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/dashboard.png" alt="Bảng điều khiển trang chủ">
+        <img class="shot" loading="lazy" src="assets/slide-menu.png" alt="Menu trượt">
+      </div>
+      <p class="caption">Bảng điều khiển tóm tắt tình trạng da mới nhất. Menu trượt mở mọi tính năng.</p>
+
+      <p>Màn hình chính là điểm neo mỗi ngày. Trong nháy mắt bạn sẽ thấy:</p>
+      <ul>
+        <li><strong>Điểm da và tuổi da mới nhất</strong> — kèm chênh lệch so với lần quét trước.</li>
+        <li><strong>Banner «Tiếp tục Glowup»</strong> — nếu bạn đã bắt đầu một quy trình (quét → sản phẩm → routine) nhưng chưa xong, banner này sẽ giúp bạn nối tiếp.</li>
+        <li><strong>Tiến độ routine hôm nay</strong> — checkbox sáng và tối để xem trạng thái nhanh.</li>
+        <li><strong>Thẻ Daily Fortune</strong> — một khoảnh khắc nhỏ mỗi ngày.</li>
+        <li><strong>Banner đăng ký</strong> — số ngày dùng thử còn lại, nếu có.</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="vi-5">
+      <h2><span class="num">05</span>Quét da &amp; phân tích AI</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/scan-analysis.png" alt="Phân tích quét da">
+        <p class="caption">Một tấm selfie tạo ra bảng điểm da gồm năm chiều.</p>
+      </div>
+
+      <h3>AI đo những gì</h3>
+      <ul>
+        <li><strong>Cấp ẩm</strong> — độ ẩm bề mặt và dấu hiệu khô.</li>
+        <li><strong>Độ đàn hồi</strong> — dấu hiệu săn chắc của da.</li>
+        <li><strong>Lỗ chân lông</strong> — mật độ và kích thước lỗ chân lông thấy rõ.</li>
+        <li><strong>Sắc tố</strong> — tông da không đều, đốm nâu, dấu hiệu nám.</li>
+        <li><strong>Nếp nhăn</strong> — đường nhăn nhỏ và bề mặt da.</li>
+      </ul>
+      <p>Bạn cũng nhận được <strong>tuổi da ước tính</strong>, điểm tổng (0–100) và danh sách điểm mạnh cùng điểm cần cải thiện.</p>
+
+      <div class="callout">
+        <div class="callout-title">Độ chính xác thế nào?</div>
+        <p>AI hiệu chỉnh ánh sáng, phơi sáng và góc nhìn, nhưng một tấm selfie nét, ánh sáng đều vẫn cho kết quả tốt hơn rất nhiều. Xem mục 14 để biết mẹo chụp.</p>
+      </div>
+
+      <h3>Bao lâu nên quét một lần?</h3>
+      <p>Một lần mỗi tháng là điểm vàng. Da thay đổi từ từ, và nhịp hàng tháng giúp đường xu hướng có ý nghĩa. Ứng dụng sẽ gửi lời nhắc quét lại nhẹ nhàng mỗi tháng.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="vi-6">
+      <h2><span class="num">06</span>Báo cáo &amp; lịch sử</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/report.png" alt="Báo cáo da">
+        <img class="shot" loading="lazy" src="assets/analysis-history.png" alt="Lịch sử phân tích">
+      </div>
+      <p class="caption">Báo cáo cho thấy sự thay đổi theo thời gian. Lịch sử cho phép bạn vuốt qua mọi lần quét trước đó.</p>
+
+      <p>Mỗi lần quét đều được lưu lại. Màn hình báo cáo biến những lần quét đó thành insight hữu ích:</p>
+      <ul>
+        <li><strong>Biểu đồ xu hướng điểm</strong> — quỹ đạo tổng thể qua mọi lần quét.</li>
+        <li><strong>Hướng đi của từng chỉ số</strong> — danh mục nào đang cải thiện, danh mục nào đang đi xuống.</li>
+        <li><strong>Chênh lệch tuổi da</strong> — da bạn trông «trẻ hơn» hay «già hơn» so với tuổi thật bao nhiêu.</li>
+        <li><strong>Hiệu quả sản phẩm</strong> — AI suy đoán sản phẩm nào trong routine giúp cải thiện chỉ số nào, dựa trên so sánh trước/sau.</li>
+        <li><strong>Tác động của routine</strong> — sự đều đặn sáng/tối của bạn có đang tương quan với thay đổi đo được không.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Đây mới là phần thưởng</div>
+        <p>Càng dùng Gumi Glowup lâu, báo cáo càng giàu thông tin. Sau ba bốn lần quét, bạn sẽ bắt đầu thấy những mô hình mà không một trang review nào có thể cho bạn — vì đó là mô hình của <em>chính làn da bạn</em>.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="vi-7">
+      <h2><span class="num">07</span>AI Picks: gợi ý sản phẩm</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai-picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/recommended-products.png" alt="Danh sách sản phẩm được gợi ý">
+      </div>
+      <p class="caption">Sau phân tích, AI Picks tuyển chọn sản phẩm riêng cho tình trạng da của bạn.</p>
+
+      <h3>Cách gợi ý hoạt động</h3>
+      <ul>
+        <li>Mỗi sản phẩm được chọn dựa trên <strong>kết quả phân tích</strong>, <strong>hồ sơ da</strong> (loại da, vấn đề, dị ứng) và <strong>lịch sử</strong> của bạn.</li>
+        <li>Được tổ chức theo danh mục — thông thường <strong>sữa rửa mặt, toner, serum, kem dưỡng, chống nắng</strong>, kèm các danh mục cụ thể hơn khi cần (essence, ampoule, kem mắt, tẩy tế bào chết, mặt nạ, mist, dầu dưỡng, retinol, v.v.).</li>
+        <li>Mỗi thẻ hiển thị <strong>lý do sản phẩm này được chọn cho bạn</strong> — không phải mô tả chung, mà là lập luận gắn với kết quả quét của bạn.</li>
+        <li>Chạm vào sản phẩm để xem thông tin chi tiết: thương hiệu, thành phần chính, danh sách thành phần đầy đủ (khi có), giá và liên kết để tìm hiểu thêm hoặc mua.</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">Cách chúng tôi chọn để cho bạn xem</div>
+        <p>Chúng tôi rất coi trọng độ an toàn của sản phẩm. Bộ gợi ý sẽ:</p>
+        <ul>
+          <li>Lọc bỏ bất kỳ sản phẩm nào chứa <strong>thành phần bạn đã khai dị ứng</strong>.</li>
+          <li>Đối chiếu với danh sách nội bộ các thành phần có thể gây hại.</li>
+          <li>Đối chiếu chéo với cơ sở dữ liệu mỹ phẩm chức năng của <strong>Korean Ministry of Food and Drug Safety (MFDS)</strong> cho sản phẩm gốc Hàn, và cơ sở dữ liệu công khai <strong>Open Beauty Facts</strong> cho phần còn lại, để các hoạt chất được xác minh thay vì suy đoán.</li>
+          <li>Ưu tiên các sản phẩm chăm sóc da phổ biến và có nhiều thông tin hơn là những món lạ, khó kiểm chứng.</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">Dù vậy, hãy luôn đọc nhãn</div>
+        <p>Không hệ thống tự động nào có thể đảm bảo một sản phẩm an toàn cho làn da <strong>của riêng bạn</strong>. Bộ lọc của chúng tôi giảm rủi ro đáng kể, nhưng không thay thế được đánh giá của chính bạn.</p>
+        <ul>
+          <li><strong>Luôn đọc danh sách thành phần</strong> trước khi mua hoặc sử dụng — công thức có thể thay đổi, các lô khác nhau và nhãn đôi khi không đầy đủ.</li>
+          <li><strong>Thử patch test sản phẩm mới</strong> trên một vùng nhỏ trong 24 giờ trước khi dùng toàn mặt.</li>
+          <li><strong>Ngừng sử dụng ngay</strong> nếu thấy kích ứng, ửng đỏ, ngứa hay bất kỳ phản ứng bất thường nào, và đi khám bác sĩ da liễu nếu triệu chứng kéo dài.</li>
+          <li>Nếu bạn có bệnh lý da đã được chẩn đoán, đang mang thai hoặc đang dùng thuốc bôi kê đơn, hãy hỏi ý kiến bác sĩ trước khi thêm sản phẩm mới.</li>
+        </ul>
+      </div>
+
+      <h3>Không thích lựa chọn này? Gợi ý lại.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="Gợi ý sản phẩm lại">
+        <p class="caption">Lọc theo thương hiệu, đổi từng sản phẩm, tạo danh sách mới, hoặc yêu cầu K-beauty (mỹ phẩm Hàn Quốc).</p>
+      </div>
+      <p>Bạn có thể chạy lại bộ gợi ý theo nhiều cách: lọc theo thương hiệu cụ thể, chỉ thay những món bạn không thích, lấy hẳn một danh sách mới, hoặc yêu cầu một bộ <strong>K-beauty (mỹ phẩm Hàn Quốc)</strong> tập trung vào thương hiệu gốc Hàn. Lựa chọn của bạn sẽ phản hồi vào các đề xuất sau.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="vi-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/routine-recommend.png" alt="Gợi ý routine">
+        <img class="shot" loading="lazy" src="assets/routine.png" alt="Routine hằng ngày">
+      </div>
+      <p class="caption">AI tạo routine sáng/tối từ những sản phẩm bạn đã chọn, sắp đúng thứ tự.</p>
+
+      <p>Sở hữu đúng sản phẩm chỉ là một nửa trận chiến. Dùng đúng thứ tự, đúng thời điểm, đúng cách là nửa còn lại — và đó là việc của Routine builder.</p>
+
+      <h3>Bạn sẽ nhận được</h3>
+      <ul>
+        <li><strong>Danh sách bước sáng và tối</strong> — sản phẩm được sắp đúng thứ tự (rửa → toner → đặc trị → dưỡng ẩm → chống nắng).</li>
+        <li><strong>Vì sao mỗi bước quan trọng</strong> — gắn với vấn đề da cụ thể của bạn.</li>
+        <li><strong>Cách thoa</strong> — liều lượng, kỹ thuật, thời gian chờ.</li>
+        <li><strong>Ghi chú tần suất</strong> — hằng ngày, cách ngày, hằng tuần (vd. tẩy da chết, mặt nạ).</li>
+        <li><strong>Lời khuyên lối sống</strong> — giấc ngủ, uống nước, thói quen chống nắng liên quan đến vấn đề của bạn.</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-product-detail.png" alt="Chi tiết sản phẩm trong routine">
+        <p class="caption">Chạm vào một bước để xem vai trò của sản phẩm, mẹo sử dụng và tần suất.</p>
+      </div>
+
+      <h3>Lời nhắc &amp; theo dõi hằng ngày</h3>
+      <ul>
+        <li>Đặt giờ thông báo sáng và tối khớp với cuộc sống thật (mặc định: 07:00 / 21:00).</li>
+        <li>Lời nhắc hằng tuần tuỳ chọn cho các bước ít thường xuyên như tẩy da chết hay mặt nạ.</li>
+        <li>Tick từng bước khi bạn làm — sự hoàn thành được ghi theo ngày trên lịch để bạn thấy sự đều đặn trong nháy mắt.</li>
+        <li>Áp dụng đều đặn chính là thứ tạo ra thay đổi đo được trong lần quét tiếp theo.</li>
+      </ul>
+
+      <h3>Routine không hợp? Tạo lại.</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-regenerate.png" alt="Tạo lại routine">
+        <p class="caption">Yêu cầu một routine đơn giản hơn, kỹ lưỡng hơn, hoặc chỉ cần khác đi.</p>
+      </div>
+      <p>Khi tạo lại, bạn có thể điều hướng AI bằng một tuỳ chọn — <strong>đơn giản hơn</strong>, <strong>kỹ lưỡng hơn</strong>, hoặc <strong>chỉ cần khác đi</strong> — để routine mới phản ánh điều chưa hợp ở lần trước.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="vi-9">
+      <h2><span class="num">09</span>Product Diary</h2>
+      <p>Gợi ý đưa bạn xuất phát; Product Diary biến chúng thành một bản ghi. Ghi lại những sản phẩm bạn bắt đầu dùng, đánh dấu khi dùng hết, và ứng dụng sẽ giữ một cuốn lịch những gì bạn thực sự thoa lên da.</p>
+      <ul>
+        <li><strong>Đang dùng vs. đã hết</strong> — hai tab, có thể lọc theo danh mục.</li>
+        <li><strong>Ngày bắt đầu &amp; kết thúc</strong> — diary tự tính số ngày mỗi sản phẩm trụ được.</li>
+        <li><strong>Dung tích &amp; ghi chú</strong> — lưu kích cỡ chai và bất cứ điều gì đáng nhớ (kết cấu, phản ứng, ý định mua lại).</li>
+        <li><strong>Thống kê</strong> — xem tổng số sản phẩm đã thử, thời gian dùng trung bình và phân bổ theo danh mục trong nháy mắt.</li>
+      </ul>
+      <p>Kết hợp diary với các lần quét hàng tháng và màn hình báo cáo sẽ trở nên sắc nét hơn hẳn — bạn có thể biết sản phẩm nào đang trên mặt mình ở từng đoạn xu hướng.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="vi-10">
+      <h2><span class="num">10</span>Bài viết kiến thức</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="Bài viết kiến thức">
+        <p class="caption">Các bài đọc skincare được tuyển chọn — thành phần, xu hướng, góc nhìn cộng đồng.</p>
+      </div>
+      <p>Một feed nội dung skincare được tuyển chọn với các nguồn có thể chuyển đổi: bài editorial về skincare, tin ra mắt sản phẩm mới và thảo luận cộng đồng. Chạm vào một thẻ để đọc toàn bài.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="vi-11">
+      <h2><span class="num">11</span>Daily Fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily Fortune">
+        <p class="caption">Một khoảnh khắc nhỏ mỗi ngày kèm mẹo chăm da cá nhân hoá.</p>
+      </div>
+      <p>Được tạo từ tên, sinh nhật, giới tính và cung hoàng đạo, mỗi bài đọc hằng ngày gộp một tóm tắt cùng lời khuyên về skincare, làm đẹp và wellness, kèm một vật phẩm, màu sắc và hình dạng may mắn. Một lần mỗi ngày, và Daily Fortune nằm trong gói Premium.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="vi-12">
+      <h2><span class="num">12</span>Cài đặt &amp; tài khoản</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/settings.png" alt="Cài đặt">
+        <p class="caption">Quản lý hồ sơ, thông báo, ngôn ngữ, theme và tài khoản ở một chỗ.</p>
+      </div>
+      <ul>
+        <li><strong>Chỉnh sửa hồ sơ</strong> — cập nhật loại da, vấn đề, dị ứng và thương hiệu yêu thích bất cứ lúc nào.</li>
+        <li><strong>Đăng ký</strong> — xem trạng thái, quản lý qua App Store / Google Play.</li>
+        <li><strong>Thông báo</strong> — bật/tắt lời nhắc routine, nhắc quét lại hàng tháng, và Daily Fortune.</li>
+        <li><strong>Ngôn ngữ</strong> — chuyển giữa tiếng Anh, Hàn, Nhật, Trung phồn thể, Tây Ban Nha, Việt và Thái.</li>
+        <li><strong>Theme</strong> — sáng, tối hoặc theo hệ thống.</li>
+        <li><strong>Đăng xuất / Xoá tài khoản</strong> — đăng xuất vẫn giữ dữ liệu; xoá sẽ gỡ tất cả vĩnh viễn.</li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="vi-13">
+      <h2><span class="num">13</span>Gói đăng ký</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/subscription.png" alt="Gói đăng ký">
+        <p class="caption">Đăng ký qua App Store hoặc Google Play. Huỷ bất cứ lúc nào.</p>
+      </div>
+
+      <div class="plan">
+        <h3>Miễn phí</h3>
+        <ul>
+          <li>Xem hồ sơ, lịch sử, feed kiến thức, Product Diary và cài đặt</li>
+          <li><strong>Lần quét da AI đầu tiên miễn phí</strong> — lần quét đầu tiên hoàn toàn miễn phí, không cần đăng ký</li>
+          <li>Các lần quét tiếp theo, gợi ý sản phẩm sau lần đầu, routine, báo cáo và Daily Fortune cần gói Premium đang hoạt động</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>Premium</h3>
+        <p class="price">Từ giá địa phương <small>/ theo tháng hoặc theo năm</small></p>
+        <ul>
+          <li><strong>Phân tích da AI</strong> — bảng điểm đầy đủ, tuổi da và điểm cần cải thiện</li>
+          <li><strong>AI Picks</strong> — gợi ý sản phẩm cá nhân hoá kèm lý do, bao gồm gợi ý lại theo K-beauty</li>
+          <li><strong>Routine builder</strong> — routine sáng/tối, tạo lại và chi tiết sản phẩm</li>
+          <li><strong>Báo cáo &amp; xu hướng</strong> — tiến triển theo thời gian, hiệu quả sản phẩm và tác động của routine</li>
+          <li><strong>Daily Fortune</strong> — vận may chăm da cá nhân hoá, một lần mỗi ngày</li>
+          <li>Có cả gói tháng và gói năm; gói năm thường được gắn huy hiệu giảm giá trên màn hình đăng ký</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">Giá được hiển thị bằng tiền tệ địa phương trên màn hình đăng ký (lấy trực tiếp từ App Store hoặc Google Play) và có thể thay đổi theo khu vực. Gói đăng ký tự gia hạn nếu bạn không huỷ ít nhất 24 giờ trước khi kỳ kết thúc. Bạn có thể quản lý và huỷ bất cứ lúc nào từ tài khoản App Store hoặc Google Play. Áp dụng giới hạn dùng hợp lý cho các lời gọi AI.</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="vi-14">
+      <h2><span class="num">14</span>Mẹo chụp ảnh, FAQ &amp; liên hệ</h2>
+
+      <h3>Có lần quét tốt nhất</h3>
+      <ul>
+        <li><strong>Ánh sáng</strong> — ánh sáng tự nhiên, sáng và đều. Tránh bóng đổ mạnh hoặc ngược sáng.</li>
+        <li><strong>Vị trí</strong> — đối diện camera, lấp đầy khung hình, không nghiêng.</li>
+        <li><strong>Sạch sẽ</strong> — tẩy trang để có kết quả trung thực nhất.</li>
+        <li><strong>Ổn định</strong> — giữ chắc tay, không nhoè.</li>
+        <li><strong>Tần suất</strong> — mỗi tháng một lần để đường xu hướng có ý nghĩa.</li>
+      </ul>
+
+      <h3>Quyền riêng tư trong một đoạn</h3>
+      <p>Ảnh của bạn được lưu trữ an toàn và chỉ dùng để phục vụ các phân tích của bạn. Chúng tôi không bán dữ liệu. Chúng tôi không dùng dữ liệu của bạn để huấn luyện mô hình AI của bên thứ ba. Bạn có thể xoá toàn bộ tại <strong>Cài đặt → Xoá tài khoản</strong>. Chi tiết đầy đủ: <a href="privacy-policy.html">Chính sách quyền riêng tư</a>.</p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">Q. Phân tích của tôi thất bại.</div>
+      <div class="faq-a">Ánh sáng tốt hơn và giữ tay chắc thường xử lý được. Hãy tẩy trang và nhìn thẳng vào camera. Nếu vẫn lỗi, thử khởi động lại app.</div>
+      <div class="faq-q">Q. Sản phẩm được gợi ý không bán ở khu vực của tôi.</div>
+      <div class="faq-a">Hãy dùng tính năng gợi ý lại để lọc theo thương hiệu hoặc tạo một danh sách mới tập trung vào sản phẩm có sẵn ở khu vực.</div>
+      <div class="faq-q">Q. Tôi bị phản ứng với một sản phẩm được gợi ý.</div>
+      <div class="faq-a">Hãy ngừng dùng ngay. Thêm thành phần gây phản ứng vào danh sách dị ứng trong Cài đặt để các gợi ý sau lọc bỏ. Đi khám bác sĩ da liễu nếu triệu chứng kéo dài.</div>
+      <div class="faq-q">Q. Bao lâu thì thấy khác biệt trong các lần quét?</div>
+      <div class="faq-a">Da thay mới sau khoảng 28 ngày. Phần lớn người dùng bắt đầu thấy thay đổi đo được sau 1–2 lần quét hàng tháng với routine đều đặn.</div>
+      <div class="faq-q">Q. Thông báo không hoạt động.</div>
+      <div class="faq-a">Hãy kiểm tra cả cài đặt thông báo hệ thống của thiết bị lẫn Cài đặt → Thông báo trong ứng dụng.</div>
+      <div class="faq-q">Q. Tôi có thể huỷ đăng ký không?</div>
+      <div class="faq-a">Có, bất cứ lúc nào qua cài đặt tài khoản App Store hoặc Google Play. Bạn vẫn giữ quyền truy cập Premium đến hết kỳ hiện tại.</div>
+      <div class="faq-q">Q. Tôi gặp thông báo «quá nhiều yêu cầu».</div>
+      <div class="faq-a">Các endpoint AI có giới hạn dùng hợp lý theo phút (áp dụng cho mọi người, kể cả miễn phí hay Premium). Ứng dụng sẽ hiển thị một thông báo riêng khi bạn chạm giới hạn — chờ một lát rồi thử lại.</div>
+      <div class="faq-q">Q. App hỗ trợ những ngôn ngữ nào?</div>
+      <div class="faq-a">Tiếng Anh, Hàn, Nhật, Trung phồn thể, Tây Ban Nha, Việt và Thái. App tự phát hiện ngôn ngữ thiết bị ở lần mở đầu, và bạn có thể đổi bất cứ lúc nào trong Cài đặt.</div>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">Liên hệ &amp; hỗ trợ</h2>
+      <p>Câu hỏi, lỗi hay phản hồi — chúng tôi đọc từng tin nhắn.</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p style="font-size:12px;margin-top:8px">Chúng tôi cố gắng phản hồi mọi yêu cầu trong vòng 48 giờ.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ THAI ═══════════════ -->
+  <div lang="th">
+    <div class="hero">
+      <span class="badge">คู่มือบริการ</span>
+      <h1>ยินดีต้อนรับสู่ Gumi Glowup</h1>
+      <p>เพื่อนคู่ใจดูแลผิวด้วย AI — วิเคราะห์ แนะนำ จัดรูทีน แล้วก็เริ่มใหม่</p>
+    </div>
+
+    <div class="toc">
+      <h3>สารบัญ</h3>
+      <ol>
+        <li><a href="#th-1">Gumi Glowup คืออะไร?</a></li>
+        <li><a href="#th-2">ทำไมถึงได้ผล: การปรับให้เหมาะกับคุณด้วยข้อมูล</a></li>
+        <li><a href="#th-3">เปิดใช้ครั้งแรก &amp; สมัครสมาชิก</a></li>
+        <li><a href="#th-4">แดชบอร์ดหน้าหลัก</a></li>
+        <li><a href="#th-5">สแกนผิว &amp; วิเคราะห์ด้วย AI</a></li>
+        <li><a href="#th-6">รายงาน &amp; ประวัติ</a></li>
+        <li><a href="#th-7">AI Picks: แนะนำสินค้า</a></li>
+        <li><a href="#th-8">Routine builder</a></li>
+        <li><a href="#th-9">Product Diary</a></li>
+        <li><a href="#th-10">บทความความรู้</a></li>
+        <li><a href="#th-11">Daily Fortune</a></li>
+        <li><a href="#th-12">ตั้งค่า &amp; บัญชี</a></li>
+        <li><a href="#th-13">แพ็กเกจสมาชิก</a></li>
+        <li><a href="#th-14">เคล็ดลับถ่ายภาพ, FAQ &amp; ติดต่อ</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="th-1">
+      <h2><span class="num">01</span>Gumi Glowup คืออะไร?</h2>
+      <p>Gumi Glowup คือเพื่อนคู่ใจดูแลผิวที่ขับเคลื่อนด้วย AI ถ่ายเซลฟี่หนึ่งภาพ AI จะให้คะแนนผิวของคุณใน 5 มิติหลัก แนะนำผลิตภัณฑ์ที่ปลอดภัยและเหมาะกับคุณ พร้อมจัดรูทีนประจำวันให้สอดคล้องกับสภาพผิวจริง</p>
+      <p>ไม่ใช่การวิเคราะห์ครั้งเดียวจบ ยิ่งคุณสแกน ทำรูทีน และทำตามคำแนะนำมากเท่าไหร่ แอปก็จะยิ่งเรียนรู้ผิวของคุณได้แม่นยำขึ้น และปรับสิ่งที่จะแนะนำต่อให้ตรงใจขึ้นเรื่อย ๆ</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="th-2">
+      <h2><span class="num">02</span>ทำไมถึงได้ผล: การปรับให้เหมาะกับคุณด้วยข้อมูล</h2>
+      <p>แอปดูแลผิวส่วนใหญ่หยุดที่ «นี่คือลิสต์สินค้า» Gumi Glowup ถูกออกแบบรอบ ๆ วงจรเรียนรู้อย่างต่อเนื่อง:</p>
+
+      <div class="callout">
+        <div class="callout-title">Glowup Loop</div>
+        <p><strong>1. สแกน</strong> — AI จับสภาพผิวปัจจุบันของคุณ (5 ตัวชี้วัด + อายุผิว)</p>
+        <p><strong>2. แนะนำ</strong> — เลือกผลิตภัณฑ์จากโปรไฟล์ผิว ปัญหา การแพ้ และประวัติการวิเคราะห์</p>
+        <p><strong>3. รูทีน</strong> — สร้างรูทีน AM/PM เฉพาะตัวจากผลิตภัณฑ์เหล่านั้น</p>
+        <p><strong>4. ติดตาม</strong> — เช็คอินรายวันและสแกนซ้ำรายเดือนช่วยสร้างบันทึกระยะยาว</p>
+        <p><strong>5. แนะนำซ้ำ</strong> — คำแนะนำครั้งต่อไปใช้ทุกอย่างที่คุณทำมาแล้ว ยิ่งใช้นานยิ่งฉลาดขึ้น</p>
+      </div>
+
+      <h3>ทำไมเรื่องนี้สำคัญ</h3>
+      <ul>
+        <li><strong>ผิวของคุณเปลี่ยนแปลงตลอด</strong> — ตามฤดูกาล ฮอร์โมน ความเครียด และผลิตภัณฑ์ที่ใช้ คำแนะนำแบบหยุดนิ่งเก่าได้ไว</li>
+        <li><strong>ประสิทธิภาพวัดได้</strong> ด้วยการเทียบสแกนก่อน-หลังรูทีน เราบอกได้ว่าผลิตภัณฑ์ไหนได้ผลกับผิว <em>ของคุณ</em> จริง ๆ — ไม่ใช่รีวิวทั่วไป</li>
+        <li><strong>นิสัยชนะปาฏิหาริย์</strong> ผลลัพธ์ในการดูแลผิวมาจากการดูแลเล็ก ๆ ทุกวัน สตรีค การเตือน และเช็คอิน AM/PM ถูกออกแบบมาเพื่อทำให้สิ่งนั้นง่ายขึ้น</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="th-3">
+      <h2><span class="num">03</span>เปิดใช้ครั้งแรก &amp; สมัครสมาชิก</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/01-onboarding-tutorial.png" alt="หน้าทำความรู้จักตอนเปิดใช้ครั้งแรก">
+        <p class="caption">ทัวร์ต้อนรับ — แนะนำเร็ว ๆ ว่า Gumi Glowup ทำอะไรได้บ้าง</p>
+      </div>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/02-login.png" alt="หน้าเข้าสู่ระบบ">
+        <img class="shot" loading="lazy" src="assets/03-ai-consent.png" alt="หน้ายินยอมการประมวลผลด้วย AI">
+      </div>
+      <p class="caption">เข้าสู่ระบบด้วย Apple หรือ Google จากนั้นอ่านและยอมรับเงื่อนไขการประมวลผล AI ก่อนสแกนครั้งแรก</p>
+
+      <h3>สิ่งที่จะตั้งค่า</h3>
+      <ul>
+        <li><strong>ชื่อ</strong> — ต้องระบุ</li>
+        <li><strong>ประเภทผิว</strong> — ต้องระบุ เลือกได้ 1–3 ข้อ (ผิวแห้ง, ผิวมัน, ผิวผสม, ผิวแพ้ง่าย, ผิวเป็นสิว, ผิวแดงง่าย ฯลฯ)</li>
+        <li><strong>วันเกิด</strong> — ไม่บังคับแต่แนะนำให้ใส่ ใช้คำนวณราศีสำหรับ Daily Fortune ด้วย</li>
+        <li><strong>เพศ</strong> — ไม่บังคับ</li>
+        <li><strong>ภูมิภาค / ประเทศ</strong> — ไม่บังคับ ช่วยให้คำแนะนำสอดคล้องกับท้องถิ่น</li>
+        <li><strong>ปัญหาผิว</strong> — ไม่บังคับ อธิบายด้วยคำของตัวเองว่าอะไรกวนใจที่สุด (สูงสุด 200 ตัวอักษร)</li>
+        <li><strong>อาการแพ้ / ความไวต่อสาร</strong> — ไม่บังคับ ระบุส่วนผสมที่ต้องเลี่ยง — ระบบจะกรองออกอัตโนมัติ</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">ทำไมเราถาม</div>
+        <p>ทุกข้อมีผลโดยตรงต่อสิ่งที่ AI แนะนำ โปรไฟล์ยิ่งแม่น คำแนะนำยิ่งปลอดภัยและใช้ได้จริง คุณอัปเดตได้ตลอดที่ <strong>ตั้งค่า → แก้ไขโปรไฟล์</strong></p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="th-4">
+      <h2><span class="num">04</span>แดชบอร์ดหน้าหลัก</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/dashboard.png" alt="แดชบอร์ดหน้าหลัก">
+        <img class="shot" loading="lazy" src="assets/slide-menu.png" alt="เมนูสไลด์">
+      </div>
+      <p class="caption">แดชบอร์ดสรุปสภาพผิวล่าสุด เมนูสไลด์เปิดทุกฟีเจอร์</p>
+
+      <p>หน้าหลักคือจุดยึดของแต่ละวัน ดูได้ในพริบตา:</p>
+      <ul>
+        <li><strong>คะแนนผิวและอายุผิวล่าสุด</strong> — พร้อมส่วนต่างเทียบกับสแกนก่อนหน้า</li>
+        <li><strong>แบนเนอร์ «ไปต่อ Glowup»</strong> — ถ้าเริ่มขั้นตอน (สแกน → สินค้า → รูทีน) ค้างไว้ ใช้แบนเนอร์นี้ทำต่อได้</li>
+        <li><strong>ความคืบหน้ารูทีนวันนี้</strong> — checkbox AM และ PM เห็นสถานะได้ทันที</li>
+        <li><strong>การ์ด Daily Fortune</strong> — โมเมนต์เล็ก ๆ ของแต่ละวัน</li>
+        <li><strong>แบนเนอร์สมาชิก</strong> — โชว์จำนวนวันทดลองที่เหลือ ถ้ามี</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="th-5">
+      <h2><span class="num">05</span>สแกนผิว &amp; วิเคราะห์ด้วย AI</h2>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/scan-analysis.png" alt="วิเคราะห์การสแกนผิว">
+        <p class="caption">เซลฟี่หนึ่งภาพให้สกอร์การ์ดผิวห้ามิติ</p>
+      </div>
+
+      <h3>AI วัดอะไรบ้าง</h3>
+      <ul>
+        <li><strong>ความชุ่มชื้น</strong> — ความชื้นที่ผิวและสัญญาณผิวแห้ง</li>
+        <li><strong>ความยืดหยุ่น</strong> — สัญญาณความกระชับของผิว</li>
+        <li><strong>รูขุมขน</strong> — ความหนาแน่นและขนาดของรูขุมขนที่เห็นได้</li>
+        <li><strong>จุดด่างดำ</strong> — สีผิวไม่เรียบเสมอ จุด ฝ้า</li>
+        <li><strong>ริ้วรอย</strong> — รอยเล็ก ๆ และพื้นผิว</li>
+      </ul>
+      <p>คุณจะได้รับ <strong>อายุผิวโดยประมาณ</strong>, คะแนนรวม (0–100) และรายการจุดแข็งกับจุดที่ควรปรับปรุง</p>
+
+      <div class="callout">
+        <div class="callout-title">แม่นยำแค่ไหน?</div>
+        <p>AI ชดเชยเรื่องแสง การเปิดรับแสง และมุมให้แล้ว แต่เซลฟี่ที่คมและแสงสม่ำเสมอจะให้ผลลัพธ์ที่ดีกว่ามาก ดูเคล็ดลับการถ่ายในข้อ 14</p>
+      </div>
+
+      <h3>ควรสแกนบ่อยแค่ไหน?</h3>
+      <p>เดือนละครั้งคือจังหวะที่กำลังดี ผิวเปลี่ยนแปลงช้า ๆ และจังหวะรายเดือนทำให้เส้นแนวโน้มมีความหมาย แอปจะส่งคำเตือนสแกนซ้ำรายเดือนเบา ๆ ให้</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="th-6">
+      <h2><span class="num">06</span>รายงาน &amp; ประวัติ</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/report.png" alt="รายงานผิว">
+        <img class="shot" loading="lazy" src="assets/analysis-history.png" alt="ประวัติการวิเคราะห์">
+      </div>
+      <p class="caption">รายงานแสดงการเปลี่ยนแปลงตามเวลา ส่วนประวัติให้ปัดดูทุกสแกนที่ผ่านมา</p>
+
+      <p>ทุกการสแกนจะถูกเก็บไว้ หน้ารายงานเปลี่ยนข้อมูลเหล่านั้นเป็นข้อมูลเชิงลึกที่ใช้งานได้:</p>
+      <ul>
+        <li><strong>กราฟแนวโน้มคะแนน</strong> — เส้นทางรวมตลอดทุกสแกน</li>
+        <li><strong>ทิศทางของแต่ละตัวชี้วัด</strong> — หมวดไหนกำลังดีขึ้น หมวดไหนกำลังถดถอย</li>
+        <li><strong>ส่วนต่างอายุผิว</strong> — ผิวคุณดู «เด็กลง» หรือ «แก่ขึ้น» กว่าจริงเท่าไหร่</li>
+        <li><strong>ผลของผลิตภัณฑ์</strong> — AI ประเมินว่าผลิตภัณฑ์ใดในรูทีนช่วยตัวชี้วัดใด โดยเทียบสแกนก่อน-หลัง</li>
+        <li><strong>ผลกระทบของรูทีน</strong> — ความสม่ำเสมอ AM/PM กำลังสัมพันธ์กับการเปลี่ยนแปลงที่วัดได้ไหม</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">นี่แหละสิ่งที่คุ้มค่า</div>
+        <p>ยิ่งใช้ Gumi Glowup นาน รายงานยิ่งสมบูรณ์ขึ้น หลัง 3–4 สแกน คุณจะเริ่มเห็นแพทเทิร์นที่เว็บรีวิวให้ไม่ได้ — เพราะเป็นแพทเทิร์นของ <em>ผิวคุณเอง</em></p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="th-7">
+      <h2><span class="num">07</span>AI Picks: แนะนำสินค้า</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/ai-picks.png" alt="AI Picks">
+        <img class="shot" loading="lazy" src="assets/recommended-products.png" alt="รายการสินค้าแนะนำ">
+      </div>
+      <p class="caption">หลังวิเคราะห์ AI Picks คัดสินค้าให้เหมาะกับสภาพผิวคุณโดยเฉพาะ</p>
+
+      <h3>คำแนะนำทำงานอย่างไร</h3>
+      <ul>
+        <li>แต่ละสินค้าถูกเลือกจาก <strong>ผลการวิเคราะห์</strong>, <strong>โปรไฟล์ผิว</strong> (ประเภท ปัญหา การแพ้) และ <strong>ประวัติที่ผ่านมา</strong> ของคุณ</li>
+        <li>จัดตามหมวดหมู่ — โดยทั่วไป <strong>คลีนเซอร์, โทนเนอร์, เซรั่ม, ครีม, SPF</strong> รวมถึงหมวดที่เจาะจงกว่าตามความเหมาะสม (เอสเซนซ์, แอมพูล, ครีมตา, สครับ, มาสก์, มิสต์, ออยล์, เรตินอล ฯลฯ)</li>
+        <li>ทุกการ์ดบอก <strong>เหตุผลที่สินค้านี้ถูกเลือกให้คุณ</strong> — ไม่ใช่คำอธิบายทั่วไป แต่เป็นเหตุผลที่ผูกกับผลสแกนของคุณ</li>
+        <li>แตะที่สินค้าเพื่อดูชีตรายละเอียดเต็ม: แบรนด์ ส่วนผสมหลัก รายการส่วนผสมทั้งหมด (เมื่อมี) ราคา และลิงก์เพื่อดูเพิ่มหรือซื้อ</li>
+      </ul>
+
+      <div class="ok">
+        <div class="ok-title">เราเลือกสิ่งที่จะแสดงให้คุณอย่างไร</div>
+        <p>เราจริงจังกับความปลอดภัยของสินค้า ระบบแนะนำของเรา:</p>
+        <ul>
+          <li>กรองสินค้าที่มี <strong>ส่วนผสมที่คุณระบุว่าแพ้</strong> ออกไป</li>
+          <li>เทียบกับลิสต์ส่วนผสมที่อาจเป็นอันตรายของเราเอง</li>
+          <li>ตรวจสอบข้ามกับฐานข้อมูลเครื่องสำอางควบคุมพิเศษของ <strong>Korean Ministry of Food and Drug Safety (MFDS)</strong> สำหรับสินค้าต้นกำเนิดเกาหลี และฐานข้อมูลสาธารณะ <strong>Open Beauty Facts</strong> สำหรับสินค้าที่เหลือ เพื่อให้สารออกฤทธิ์ถูกตรวจสอบ ไม่ใช่แค่สันนิษฐาน</li>
+          <li>เลือกผลิตภัณฑ์ดูแลผิวกระแสหลักที่มีข้อมูลครบถ้วน มากกว่าสินค้าที่ไม่ชัดเจนหรือยืนยันไม่ได้</li>
+        </ul>
+      </div>
+
+      <div class="warn">
+        <div class="warn-title">แต่ก็โปรดอ่านฉลากด้วยตัวเองเสมอ</div>
+        <p>ไม่มีระบบอัตโนมัติใดรับประกันได้ว่าผลิตภัณฑ์จะปลอดภัยต่อผิวเฉพาะของ <strong>คุณ</strong> ตัวกรองของเราลดความเสี่ยงได้มาก แต่ไม่อาจแทนการตัดสินใจของคุณเอง</p>
+        <ul>
+          <li><strong>อ่านรายการส่วนผสมก่อนเสมอ</strong> ก่อนซื้อหรือใช้ — สูตรอาจเปลี่ยน ล็อตอาจต่างกัน และฉลากอาจไม่ครบ</li>
+          <li><strong>แพทช์เทสต์สินค้าใหม่</strong> ในบริเวณเล็ก ๆ นาน 24 ชั่วโมงก่อนใช้เต็มหน้า</li>
+          <li><strong>หยุดใช้ทันที</strong> หากเกิดการระคายเคือง รอยแดง คัน หรืออาการผิดปกติใด ๆ และพบแพทย์ผิวหนังหากอาการไม่ดีขึ้น</li>
+          <li>หากมีโรคผิวหนังที่ได้รับการวินิจฉัย กำลังตั้งครรภ์ หรือใช้ยาทาตามใบสั่งแพทย์ โปรดปรึกษาแพทย์ก่อนเพิ่มผลิตภัณฑ์ใหม่</li>
+        </ul>
+      </div>
+
+      <h3>ไม่ถูกใจ? แนะนำใหม่ได้</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/products-regenerate.png" alt="แนะนำสินค้าใหม่">
+        <p class="caption">กรองตามแบรนด์ สลับเฉพาะบางชิ้น สร้างชุดใหม่ทั้งหมด หรือขอ K-beauty (เครื่องสำอางเกาหลี) เท่านั้น</p>
+      </div>
+      <p>คุณรันระบบแนะนำใหม่ได้หลายแบบ: กรองเฉพาะแบรนด์ที่ต้องการ เปลี่ยนเฉพาะชิ้นที่ไม่ชอบ ขอลิสต์ใหม่ทั้งหมด หรือขอชุด <strong>K-beauty (เครื่องสำอางเกาหลี)</strong> ที่เน้นแบรนด์ต้นกำเนิดเกาหลี ตัวเลือกของคุณจะป้อนกลับเข้าระบบแนะนำในครั้งต่อ ๆ ไป</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="th-8">
+      <h2><span class="num">08</span>Routine builder</h2>
+
+      <div class="shot-row">
+        <img class="shot" loading="lazy" src="assets/routine-recommend.png" alt="คำแนะนำรูทีน">
+        <img class="shot" loading="lazy" src="assets/routine.png" alt="รูทีนประจำวัน">
+      </div>
+      <p class="caption">AI สร้างรูทีน AM/PM จากผลิตภัณฑ์ที่คุณเลือก โดยเรียงลำดับให้ถูกต้อง</p>
+
+      <p>การมีผลิตภัณฑ์ที่ใช่เป็นแค่ครึ่งหนึ่งของสมรภูมิ การใช้ในลำดับที่ถูก เวลาที่ถูก และเทคนิคที่ถูกคืออีกครึ่งที่เหลือ — และนั่นคือหน้าที่ของ Routine builder</p>
+
+      <h3>สิ่งที่คุณจะได้รับ</h3>
+      <ul>
+        <li><strong>ลิสต์ขั้นตอน AM และ PM</strong> — เรียงลำดับถูกต้อง (ล้างหน้า → โทนเนอร์ → บำรุงเฉพาะจุด → เติมความชุ่มชื้น → SPF)</li>
+        <li><strong>เหตุผลของแต่ละขั้นตอน</strong> — ผูกกับปัญหาผิวเฉพาะของคุณ</li>
+        <li><strong>วิธีใช้</strong> — ปริมาณ เทคนิค เวลารอซึม</li>
+        <li><strong>หมายเหตุความถี่</strong> — รายวัน วันเว้นวัน รายสัปดาห์ (เช่น สครับ, มาสก์)</li>
+        <li><strong>เคล็ดลับไลฟ์สไตล์</strong> — การนอน การดื่มน้ำ พฤติกรรมเลี่ยงแดดที่เกี่ยวกับปัญหาของคุณ</li>
+      </ul>
+
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-product-detail.png" alt="รายละเอียดสินค้าในรูทีน">
+        <p class="caption">แตะที่ขั้นตอนเพื่อดูบทบาทของสินค้า เคล็ดลับการใช้ และความถี่</p>
+      </div>
+
+      <h3>การเตือน &amp; ติดตามรายวัน</h3>
+      <ul>
+        <li>ตั้งเวลาเตือน AM และ PM ให้ตรงกับชีวิตจริง (ค่าเริ่มต้น: 07:00 / 21:00)</li>
+        <li>การเตือนรายสัปดาห์เสริมสำหรับขั้นตอนที่ทำไม่บ่อย เช่น สครับ หรือมาสก์</li>
+        <li>ติ๊กแต่ละขั้นตอนเมื่อทำ — การทำสำเร็จจะถูกบันทึกเป็นรายวันในปฏิทินเพื่อให้เห็นความสม่ำเสมอในแวบเดียว</li>
+        <li>การทำอย่างสม่ำเสมอคือสิ่งที่ทำให้เกิดการเปลี่ยนแปลงที่วัดได้ในสแกนครั้งต่อไป</li>
+      </ul>
+
+      <h3>รูทีนไม่เข้ากัน? สร้างใหม่ได้</h3>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/routine-regenerate.png" alt="สร้างรูทีนใหม่">
+        <p class="caption">ขอรูทีนที่ง่ายขึ้น ละเอียดขึ้น หรือเปลี่ยนแนวก็ได้</p>
+      </div>
+      <p>เมื่อสร้างใหม่ คุณกำกับ AI ด้วยความต้องการได้ — <strong>ง่ายขึ้น</strong>, <strong>ละเอียดขึ้น</strong>, หรือ <strong>แค่อยากให้ต่างไป</strong> — เพื่อให้รูทีนใหม่สะท้อนสิ่งที่ไม่เข้ากันจากครั้งก่อน</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="th-9">
+      <h2><span class="num">09</span>Product Diary</h2>
+      <p>คำแนะนำพาคุณเริ่มต้น Product Diary เปลี่ยนเส้นทางนั้นเป็นบันทึก ลงผลิตภัณฑ์ที่เริ่มใช้ ทำเครื่องหมายเมื่อใช้หมด แล้วแอปจะเก็บปฏิทินของสิ่งที่คุณทาบนผิวจริง ๆ</p>
+      <ul>
+        <li><strong>กำลังใช้ vs. ใช้หมดแล้ว</strong> — สองแท็บ กรองตามหมวดหมู่ได้</li>
+        <li><strong>วันที่เริ่มและจบ</strong> — ไดอารี่คำนวณอัตโนมัติว่าผลิตภัณฑ์แต่ละชิ้นใช้ได้กี่วัน</li>
+        <li><strong>ปริมาณ &amp; โน้ต</strong> — บันทึกขนาดบรรจุภัณฑ์และอะไรก็ได้ที่ควรจำ (เนื้อสัมผัส อาการ ตั้งใจซื้อซ้ำ)</li>
+        <li><strong>สถิติ</strong> — เห็นจำนวนสินค้าที่ลองมาแล้ว ระยะใช้งานเฉลี่ย และการแบ่งตามหมวดในแวบเดียว</li>
+      </ul>
+      <p>ใช้ไดอารี่ควบคู่กับการสแกนรายเดือน แล้วหน้ารายงานจะคมขึ้นมาก — เพราะคุณรู้ว่าผลิตภัณฑ์ใดอยู่บนหน้าคุณในแต่ละช่วงของกราฟ</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="th-10">
+      <h2><span class="num">10</span>บทความความรู้</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/articles.png" alt="บทความความรู้">
+        <p class="caption">บทความดูแลผิวคัดสรร — ส่วนผสม เทรนด์ และมุมมองจากคอมมูนิตี้</p>
+      </div>
+      <p>ฟีดเนื้อหาดูแลผิวคัดสรรที่สลับแหล่งได้: บทความสายเอดิทอเรียล สินค้าใหม่ และพูดคุยในคอมมูนิตี้ แตะการ์ดเพื่ออ่านบทความเต็ม</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="th-11">
+      <h2><span class="num">11</span>Daily Fortune</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/daily-fortune.png" alt="Daily Fortune">
+        <p class="caption">โมเมนต์เล็ก ๆ ของแต่ละวัน พร้อมเคล็ดลับดูแลผิวเฉพาะคุณ</p>
+      </div>
+      <p>สร้างจากชื่อ วันเกิด เพศ และราศีของคุณ การอ่านดวงประจำวันแต่ละครั้งรวมคำสรุปพร้อมคำแนะนำเรื่องผิว ความสวย และเวลเนส รวมถึงไอเทม สี และรูปทรงนำโชค หนึ่งครั้งต่อวัน และ Daily Fortune อยู่ในแพ็กเกจ Premium</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="th-12">
+      <h2><span class="num">12</span>ตั้งค่า &amp; บัญชี</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/settings.png" alt="ตั้งค่า">
+        <p class="caption">จัดการโปรไฟล์ การแจ้งเตือน ภาษา ธีม และบัญชีในที่เดียว</p>
+      </div>
+      <ul>
+        <li><strong>แก้ไขโปรไฟล์</strong> — อัปเดตประเภทผิว ปัญหา การแพ้ และแบรนด์ที่ชอบได้ตลอด</li>
+        <li><strong>การสมัครสมาชิก</strong> — ดูสถานะและจัดการผ่าน App Store / Google Play</li>
+        <li><strong>การแจ้งเตือน</strong> — เปิด-ปิดการเตือนรูทีน การเตือนสแกนซ้ำรายเดือน และการเตือน Daily Fortune</li>
+        <li><strong>ภาษา</strong> — สลับระหว่างอังกฤษ เกาหลี ญี่ปุ่น จีนตัวเต็ม สเปน เวียดนาม และไทย</li>
+        <li><strong>ธีม</strong> — สว่าง มืด หรือตามระบบ</li>
+        <li><strong>ออกจากระบบ / ลบบัญชี</strong> — ออกจากระบบเก็บข้อมูลไว้ การลบจะนำทุกอย่างออกอย่างถาวร</li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="th-13">
+      <h2><span class="num">13</span>แพ็กเกจสมาชิก</h2>
+      <div class="shot-wrap">
+        <img class="shot" loading="lazy" src="assets/subscription.png" alt="แพ็กเกจสมาชิก">
+        <p class="caption">สมัครผ่าน App Store หรือ Google Play ยกเลิกเมื่อไหร่ก็ได้</p>
+      </div>
+
+      <div class="plan">
+        <h3>ฟรี</h3>
+        <ul>
+          <li>ดูโปรไฟล์ ประวัติ ฟีดความรู้ Product Diary และตั้งค่า</li>
+          <li><strong>สแกนผิวด้วย AI ครั้งแรกฟรี</strong> — ครั้งแรกของคุณเลี้ยงเอง ไม่ต้องสมัครสมาชิก</li>
+          <li>การสแกนถัดไป คำแนะนำสินค้าหลังครั้งแรก รูทีน รายงาน และ Daily Fortune ต้องใช้แพ็กเกจ Premium ที่ใช้งานอยู่</li>
+        </ul>
+      </div>
+
+      <div class="plan premium">
+        <h3>พรีเมียม</h3>
+        <p class="price">ตามราคาท้องถิ่น <small>/ รายเดือนหรือรายปี</small></p>
+        <ul>
+          <li><strong>วิเคราะห์ผิวด้วย AI</strong> — สกอร์การ์ดเต็ม อายุผิว และจุดที่ควรปรับปรุง</li>
+          <li><strong>AI Picks</strong> — คำแนะนำสินค้าเฉพาะตัวพร้อมเหตุผล รวมถึงการแนะนำ K-beauty อีกครั้ง</li>
+          <li><strong>Routine builder</strong> — รูทีน AM/PM, สร้างใหม่ได้ และรายละเอียดสินค้า</li>
+          <li><strong>รายงาน &amp; แนวโน้ม</strong> — ความเปลี่ยนแปลงตามเวลา ผลของสินค้า และผลกระทบของรูทีน</li>
+          <li><strong>Daily Fortune</strong> — ดวงดูแลผิวเฉพาะคุณ วันละหนึ่งครั้ง</li>
+          <li>มีให้เลือกทั้งรายเดือนและรายปี โดยปกติแพ็กเกจรายปีจะมีตราส่วนลดบนหน้าสมัครสมาชิก</li>
+        </ul>
+      </div>
+      <p style="font-size:13px;margin-top:8px">ราคาแสดงเป็นสกุลเงินท้องถิ่นบนหน้าสมัครสมาชิก (ดึงสด ๆ จาก App Store หรือ Google Play) และอาจต่างกันตามภูมิภาค การสมัครจะต่ออายุอัตโนมัติ เว้นแต่จะยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นรอบ จัดการและยกเลิกได้ตลอดจากบัญชี App Store หรือ Google Play ของคุณ การเรียก AI มีโควตาการใช้งานอย่างเป็นธรรมต่อหน่วยเวลา</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="th-14">
+      <h2><span class="num">14</span>เคล็ดลับถ่ายภาพ, FAQ &amp; ติดต่อ</h2>
+
+      <h3>เพื่อสแกนที่ดีที่สุด</h3>
+      <ul>
+        <li><strong>แสง</strong> — แสงธรรมชาติที่สว่างและสม่ำเสมอ หลีกเลี่ยงเงาแรงหรือย้อนแสง</li>
+        <li><strong>ตำแหน่ง</strong> — หันหน้าตรงเข้ากล้อง เต็มเฟรม ไม่เอียง</li>
+        <li><strong>ความสะอาด</strong> — ล้างเครื่องสำอางก่อนเพื่อผลที่ตรงที่สุด</li>
+        <li><strong>ความนิ่ง</strong> — ถือกล้องนิ่ง ไม่ขยับ</li>
+        <li><strong>ความถี่</strong> — เดือนละครั้งเพื่อให้เส้นแนวโน้มมีความหมาย</li>
+      </ul>
+
+      <h3>ความเป็นส่วนตัวในหนึ่งย่อหน้า</h3>
+      <p>ภาพของคุณถูกเก็บอย่างปลอดภัยและใช้เพื่อขับเคลื่อนการวิเคราะห์ของคุณเท่านั้น เราไม่ขายข้อมูล เราไม่ใช้ข้อมูลของคุณเพื่อฝึกโมเดล AI ของบุคคลที่สาม คุณสามารถลบทุกอย่างได้ที่ <strong>ตั้งค่า → ลบบัญชี</strong> รายละเอียดเต็ม: <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></p>
+
+      <h3>FAQ</h3>
+      <div class="faq-q">Q. การวิเคราะห์ล้มเหลว</div>
+      <div class="faq-a">แสงที่ดีกว่าและถือนิ่ง ๆ มักจะแก้ได้ ล้างเครื่องสำอางและหันหน้าตรงเข้ากล้อง หากยังล้มเหลว ลองรีสตาร์ตแอป</div>
+      <div class="faq-q">Q. สินค้าที่แนะนำไม่มีขายในภูมิภาคของฉัน</div>
+      <div class="faq-a">ใช้ฟีเจอร์แนะนำใหม่เพื่อกรองตามแบรนด์หรือสร้างลิสต์ใหม่ที่เน้นสินค้าที่มีในภูมิภาค</div>
+      <div class="faq-q">Q. ฉันแพ้สินค้าที่ถูกแนะนำ</div>
+      <div class="faq-a">หยุดใช้ทันที เพิ่มส่วนผสมที่เป็นต้นเหตุลงในรายการแพ้ที่ตั้งค่า เพื่อให้ระบบกรองออกในการแนะนำครั้งต่อไป พบแพทย์ผิวหนังหากอาการไม่ดีขึ้น</div>
+      <div class="faq-q">Q. อีกนานแค่ไหนถึงจะเห็นความเปลี่ยนแปลงในการสแกน?</div>
+      <div class="faq-a">ผิวผลัดเซลล์ประมาณทุก 28 วัน ผู้ใช้ส่วนใหญ่เริ่มเห็นการเปลี่ยนแปลงที่วัดได้หลังสแกนรายเดือน 1–2 ครั้งของการทำรูทีนสม่ำเสมอ</div>
+      <div class="faq-q">Q. การแจ้งเตือนไม่ทำงาน</div>
+      <div class="faq-a">โปรดตรวจสอบทั้งการตั้งค่าแจ้งเตือนของระบบบนอุปกรณ์ และในแอปที่ ตั้งค่า → การแจ้งเตือน</div>
+      <div class="faq-q">Q. ยกเลิกการสมัครสมาชิกได้ไหม?</div>
+      <div class="faq-a">ได้เลย ตลอดเวลา ผ่านการตั้งค่าบัญชี App Store หรือ Google Play คุณยังคงใช้สิทธิ์ Premium ได้จนสิ้นรอบปัจจุบัน</div>
+      <div class="faq-q">Q. ฉันเจอข้อความ «คำขอเยอะเกินไป»</div>
+      <div class="faq-a">เอ็นด์พอยต์ AI มีโควตาการใช้งานอย่างเป็นธรรมต่อหนึ่งนาที (ใช้กับทุกคน ทั้งฟรีและ Premium) แอปจะแสดงคำแจ้งเฉพาะเมื่อถึงโควตา — รอสักครู่แล้วลองอีกครั้ง</div>
+      <div class="faq-q">Q. แอปรองรับภาษาอะไรบ้าง?</div>
+      <div class="faq-a">อังกฤษ เกาหลี ญี่ปุ่น จีนตัวเต็ม สเปน เวียดนาม และไทย แอปจะตรวจจับภาษาของอุปกรณ์ในการเปิดครั้งแรกโดยอัตโนมัติ และคุณสามารถเปลี่ยนได้ตลอดในการตั้งค่า</div>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">ติดต่อ &amp; ฝ่ายซัพพอร์ต</h2>
+      <p>คำถาม บั๊ก หรือฟีดแบ็ก — เราอ่านทุกข้อความ</p>
+      <p><strong>อีเมล:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+      <p style="font-size:12px;margin-top:8px">เราตั้งใจตอบทุกข้อความภายใน 48 ชั่วโมง</p>
+    </div>
+  </div>
+
   <script>
-    var SUPPORTED_LANGS = ['en', 'ko'];
+    var SUPPORTED_LANGS = ['en', 'ko', 'ja', 'zh-TW', 'es', 'vi', 'th'];
 
     function setLang(lang) {
       if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
-      document.body.className = lang === 'en' ? '' : lang;
+      document.body.className = lang === 'en' ? '' : lang.toLowerCase();
       document.getElementById('lang-select').value = lang;
       document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
@@ -924,10 +2864,15 @@
       var lang = p.get('lang');
       if (!lang) {
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var matched = SUPPORTED_LANGS.find(function(l) {
-          return browserLang === l || browserLang.startsWith(l + '-');
-        });
-        lang = matched || 'en';
+        if (browserLang === 'zh' || browserLang.startsWith('zh-')) {
+          lang = 'zh-TW';
+        } else {
+          var matched = SUPPORTED_LANGS.find(function(l) {
+            var lower = l.toLowerCase();
+            return browserLang === lower || browserLang.startsWith(lower + '-');
+          });
+          lang = matched || 'en';
+        }
       }
       setLang(lang);
     })();

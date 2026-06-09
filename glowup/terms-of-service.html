@@ -40,9 +40,14 @@
       width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
       border-top:5px solid var(--txt2);pointer-events:none;
     }
-    body>[lang="ko"]{display:none}
-    .ko>body>[lang="ko"],.ko>[lang="ko"]{display:block}
-    .ko>body>[lang="en"],.ko>[lang="en"]{display:none}
+    body>[lang]{display:none}
+    body>[lang="en"]{display:block}
+    .ko>[lang="en"]{display:none}.ko>[lang="ko"]{display:block}
+    .ja>[lang="en"]{display:none}.ja>[lang="ja"]{display:block}
+    .zh-tw>[lang="en"]{display:none}.zh-tw>[lang="zh-TW"]{display:block}
+    .es>[lang="en"]{display:none}.es>[lang="es"]{display:block}
+    .vi>[lang="en"]{display:none}.vi>[lang="vi"]{display:block}
+    .th>[lang="en"]{display:none}.th>[lang="th"]{display:block}
   </style>
 </head>
 <body>
@@ -50,13 +55,18 @@
     <select id="lang-select" onchange="setLang(this.value)">
       <option value="en">English</option>
       <option value="ko">한국어</option>
+      <option value="ja">日本語</option>
+      <option value="zh-TW">繁體中文</option>
+      <option value="es">Español</option>
+      <option value="vi">Tiếng Việt</option>
+      <option value="th">ไทย</option>
     </select>
   </div>
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div lang="en">
     <h1>Terms of Service</h1>
-    <p class="date">Effective Date: April 17, 2025 | Last Updated: April 21, 2026</p>
+    <p class="date">Effective Date: April 17, 2025 | Last Updated: June 9, 2026</p>
     <p>Welcome to Gumi Glowup. These Terms of Service ("Terms") govern your use of the Gumi Glowup mobile application ("App") operated by KawKaw ("Company," "we," "us," or "our"). By downloading, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
 
     <div class="section">
@@ -81,11 +91,13 @@
       <p>Gumi Glowup is an AI-powered skincare companion that provides:</p>
       <ul>
         <li><strong>AI Skin Analysis:</strong> Selfie-based skin condition analysis using artificial intelligence. Analysis is limited strictly to dermatological skin condition metrics (hydration, elasticity, pores, pigmentation, wrinkles) and does not perform racial, ethnic, or demographic classification of any kind.</li>
-        <li><strong>Product Recommendations:</strong> Personalised skincare product suggestions based on your skin analysis.</li>
+        <li><strong>Product Recommendations:</strong> Personalised skincare product suggestions based on your skin analysis, with the option to re-recommend a curated K-beauty (Korean-origin) set when desired.</li>
         <li><strong>Routine Management:</strong> AM/PM skincare routine creation, tracking, and reminders.</li>
-        <li><strong>Skin Tracking:</strong> Historical tracking of skin condition changes over time.</li>
-        <li><strong>Knowledge Articles:</strong> Skincare education content.</li>
-        <li><strong>Daily Fortune:</strong> Entertainment-based fortune readings.</li>
+        <li><strong>Skin Tracking &amp; Reports:</strong> Historical tracking of skin condition changes, trend charts, and per-product impact insights.</li>
+        <li><strong>Product Diary:</strong> Logging the products you are using and have finished, including usage statistics.</li>
+        <li><strong>Knowledge Articles:</strong> Skincare education content and curated community feeds.</li>
+        <li><strong>Daily Fortune:</strong> Entertainment-based daily fortune readings with personalised skincare tips, available once per day.</li>
+        <li><strong>Share Cards:</strong> Optional image cards summarising your analyses or fortunes that you can share manually outside the App.</li>
       </ul>
       <div class="highlight"><p><strong>Disclaimer:</strong> The App provides informational and entertainment content only. Skin analysis results and product recommendations are AI-generated estimates and do not constitute medical advice. Always consult a dermatologist or healthcare professional for medical skin conditions.</p></div>
     </div>
@@ -93,13 +105,13 @@
     <div class="section">
       <h2>4. Subscription and Payments</h2>
       <h3>4.1 Free and Premium Plans</h3>
-      <p>The App offers both free and premium subscription tiers. AI-powered features (skin analysis, product recommendations, routine recommendations, reports, and the daily fortune) require an active trial or premium subscription. Premium features are clearly marked within the App.</p>
-      <h3>4.2 Free Trial</h3>
-      <p>New users may be offered a 30-day free trial that unlocks premium features. Unless you cancel before the trial ends, your subscription will automatically convert to a paid subscription at the price disclosed on the subscription screen.</p>
+      <p>The App offers both free and premium subscription tiers. AI-powered features — including skin analysis, product recommendations, routine recommendations, reports, and the daily fortune — generally require an active premium subscription. Premium features are clearly marked within the App.</p>
+      <h3>4.2 First Skin Scan Free</h3>
+      <p>New users may perform their first AI skin scan without a paid subscription. Subsequent skin scans, product recommendations beyond the first run, routine generation, reports, and the daily fortune require an active premium subscription. The exact scope of free access may evolve and is governed by the App's in-product gating at the time of use.</p>
       <h3>4.3 Payment Processing</h3>
       <ul>
         <li>Payments are processed through the Apple App Store or Google Play Store.</li>
-        <li>Subscription pricing is fetched in real time from the App Store / Google Play and displayed in your local currency.</li>
+        <li>Subscription pricing is fetched in real time from the App Store / Google Play and displayed in your local currency. Monthly and annual options are typically offered; the annual plan is auto-renewed every 12 months and the monthly plan every month.</li>
         <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</li>
         <li>You can manage and cancel subscriptions through your App Store or Google Play account settings.</li>
       </ul>
@@ -108,7 +120,7 @@
       <h3>4.5 Price Changes</h3>
       <p>We may change subscription prices with reasonable advance notice. Price changes will not affect your current billing period.</p>
       <h3>4.6 Fair-Use Rate Limits</h3>
-      <p>To keep the service reliable for everyone, reasonable rate limits apply to AI-powered endpoints (for example, skin analysis, product recommendations, routine recommendations, and the daily fortune). These limits apply to both free and premium users and are independent of subscription status.</p>
+      <p>To keep the service reliable for everyone, per-minute rate limits apply to AI-powered endpoints (for example, skin analysis, product recommendations, routine recommendations, reports, and the daily fortune). These limits apply to both free and premium users and are independent of subscription status. When a limit is reached, the App shows a dedicated notice and asks you to retry shortly.</p>
     </div>
 
     <div class="section">
@@ -223,7 +235,7 @@
   <!-- ═══════════════ KOREAN ═══════════════ -->
   <div lang="ko">
     <h1>이용약관</h1>
-    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 4월 21일</p>
+    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 6월 9일</p>
     <p>Gumi Glowup에 오신 것을 환영합니다. 본 이용약관("약관")은 KawKaw(이하 "회사", "당사")가 운영하는 Gumi Glowup 모바일 애플리케이션(이하 "앱")의 이용에 관한 사항을 규정합니다. 앱을 다운로드, 접근 또는 사용함으로써 귀하는 본 약관에 동의하게 됩니다. 동의하지 않으시면 앱을 사용하지 마시기 바랍니다.</p>
 
     <div class="section">
@@ -248,11 +260,13 @@
       <p>Gumi Glowup은 AI 기반 스킨케어 도우미로 다음 기능을 제공합니다:</p>
       <ul>
         <li><strong>AI 피부 분석:</strong> 인공지능을 활용한 셀카 기반 피부 상태 분석. 분석은 피부과학적 피부 상태 지표(수분, 탄력, 모공, 색소침착, 주름)에 엄격히 한정되며, 인종, 민족 또는 인구통계학적 분류를 일체 수행하지 않습니다.</li>
-        <li><strong>제품 추천:</strong> 피부 분석 결과를 기반으로 한 맞춤형 스킨케어 제품 제안.</li>
+        <li><strong>제품 추천:</strong> 피부 분석 결과를 기반으로 한 맞춤형 스킨케어 제품 제안. 원하실 경우 K-뷰티(한국 원산) 제품 위주로 다시 추천받을 수 있습니다.</li>
         <li><strong>루틴 관리:</strong> AM/PM 스킨케어 루틴 생성, 추적 및 알림.</li>
-        <li><strong>피부 추적:</strong> 시간에 따른 피부 상태 변화 이력 추적.</li>
-        <li><strong>지식 아티클:</strong> 스킨케어 교육 콘텐츠.</li>
-        <li><strong>오늘의 운세:</strong> 엔터테인먼트 기반 운세 리딩.</li>
+        <li><strong>피부 추적 &amp; 리포트:</strong> 시간에 따른 피부 상태 변화 이력 추적, 추세 차트, 제품별 영향 분석.</li>
+        <li><strong>제품 다이어리:</strong> 사용 중·사용 완료 제품을 기록하고 사용 통계를 확인합니다.</li>
+        <li><strong>아티클:</strong> 스킨케어 교육 콘텐츠 및 큐레이션된 커뮤니티 피드.</li>
+        <li><strong>오늘의 운세:</strong> 하루 1회 제공되는 엔터테인먼트 기반 운세 리딩과 맞춤 스킨케어 팁.</li>
+        <li><strong>공유 카드:</strong> 분석 결과나 운세를 정리해 앱 외부로 직접 공유할 수 있는 이미지 카드.</li>
       </ul>
       <div class="highlight"><p><strong>면책 사항:</strong> 앱은 정보 제공 및 엔터테인먼트 목적의 콘텐츠만을 제공합니다. 피부 분석 결과와 제품 추천은 AI가 생성한 추정치이며 의학적 조언이 아닙니다. 의학적 피부 질환에 대해서는 반드시 피부과 전문의 또는 의료 전문가와 상담하시기 바랍니다.</p></div>
     </div>
@@ -260,13 +274,13 @@
     <div class="section">
       <h2>4. 구독 및 결제</h2>
       <h3>4.1 무료 및 프리미엄 플랜</h3>
-      <p>앱은 무료 및 프리미엄 구독 등급을 제공합니다. AI 기반 기능(피부 분석, 제품 추천, 루틴 추천, 리포트, 오늘의 운세)은 무료 체험 또는 활성화된 프리미엄 구독 상태에서만 이용할 수 있습니다. 프리미엄 기능은 앱 내에서 명확하게 표시됩니다.</p>
-      <h3>4.2 무료 체험</h3>
-      <p>신규 이용자에게는 프리미엄 기능을 이용할 수 있는 30일 무료 체험이 제공될 수 있습니다. 체험 종료 전에 해지하지 않으면, 구독은 구독 화면에 표시된 금액으로 유료 구독으로 자동 전환됩니다.</p>
+      <p>앱은 무료 및 프리미엄 구독 등급을 제공합니다. AI 기반 기능 — 피부 분석, 제품 추천, 루틴 추천, 리포트, 오늘의 운세 — 는 원칙적으로 활성화된 프리미엄 구독 상태에서 이용할 수 있습니다. 프리미엄 기능은 앱 내에서 명확하게 표시됩니다.</p>
+      <h3>4.2 첫 피부 스캔 무료</h3>
+      <p>신규 이용자는 첫 AI 피부 스캔을 유료 구독 없이 1회 진행할 수 있습니다. 이후의 추가 스캔, 첫 회 이후의 제품 추천, 루틴 생성, 리포트, 오늘의 운세는 활성화된 프리미엄 구독이 필요합니다. 무료 제공 범위는 정책에 따라 변경될 수 있으며, 이용 시점의 앱 내 게이트가 실제 적용 기준입니다.</p>
       <h3>4.3 결제 처리</h3>
       <ul>
         <li>결제는 Apple App Store 또는 Google Play Store를 통해 처리됩니다.</li>
-        <li>구독 가격은 App Store / Google Play에서 실시간으로 받아와 현지 통화로 표시됩니다.</li>
+        <li>구독 가격은 App Store / Google Play에서 실시간으로 받아와 현지 통화로 표시됩니다. 일반적으로 월간 및 연간 옵션이 제공되며, 연간 플랜은 12개월마다, 월간 플랜은 매월 자동 갱신됩니다.</li>
         <li>구독은 현재 결제 기간 종료 최소 24시간 전에 취소하지 않으면 자동으로 갱신됩니다.</li>
         <li>App Store 또는 Google Play 계정 설정에서 구독을 관리하고 취소할 수 있습니다.</li>
       </ul>
@@ -275,7 +289,7 @@
       <h3>4.5 가격 변경</h3>
       <p>합리적인 사전 통지를 통해 구독 가격을 변경할 수 있습니다. 가격 변경은 현재 결제 기간에는 영향을 미치지 않습니다.</p>
       <h3>4.6 공정 이용을 위한 호출 빈도 제한</h3>
-      <p>안정적인 서비스 제공을 위해 AI 기반 엔드포인트(피부 분석, 제품 추천, 루틴 추천, 오늘의 운세 등)에는 합리적인 호출 빈도 제한이 적용됩니다. 이 제한은 무료 및 프리미엄 이용자 모두에게 적용되며, 구독 상태와는 별개로 작동합니다.</p>
+      <p>안정적인 서비스 제공을 위해 AI 기반 엔드포인트(피부 분석, 제품 추천, 루틴 추천, 리포트, 오늘의 운세 등)에는 분당 호출 빈도 제한이 적용됩니다. 이 제한은 무료 및 프리미엄 이용자 모두에게 적용되며, 구독 상태와는 별개로 작동합니다. 한도에 도달하면 앱이 별도의 안내를 표시하고 잠시 후 다시 시도하도록 안내합니다.</p>
     </div>
 
     <div class="section">
@@ -387,12 +401,857 @@
     </div>
   </div>
 
+  <!-- ═══════════════ JAPANESE ═══════════════ -->
+  <div lang="ja">
+    <h1>利用規約</h1>
+    <p class="date">施行日:2025年4月17日 | 最終更新:2026年6月9日</p>
+    <p>Gumi Glowupへようこそ。本利用規約(以下「本規約」)は、KawKaw(以下「当社」)が運営するGumi Glowupモバイルアプリケーション(以下「本アプリ」)のご利用について定めるものです。本アプリをダウンロード、アクセス、または利用することにより、お客様は本規約に同意したものとみなされます。同意いただけない場合は、本アプリをご利用にならないでください。</p>
+
+    <div class="section">
+      <h2>1. 利用資格</h2>
+      <p>本アプリをご利用いただくには、満16歳以上(またはお客様の管轄区域で要求される最低年齢以上)である必要があります。本アプリを利用することにより、お客様はこの年齢要件を満たしていることを表明し保証するものとします。お客様の管轄区域における法的成年に達していない場合、親または法定後見人の同意を得る必要があります。</p>
+      <p><strong>地域制限:</strong> 本アプリは、欧州経済領域(EEA)、欧州連合(EU)、または英国(UK)の居住者に提供、販売、または対象としたものではありません。本アプリは、これらの地域ではダウンロードできません。EEA、EU、またはUKにお住まいの方は、本アプリをご利用にならないでください。当社は、これらの地域の居住者の個人データを意図的に収集または処理することはなく、EU/UK GDPRのArticle 27に基づく代理人を指定していません。</p>
+    </div>
+
+    <div class="section">
+      <h2>2. アカウント登録</h2>
+      <ul>
+        <li>メール/パスワード、またはサポートされているソーシャルログインプロバイダー(Google、Apple)を使用してアカウントを作成できます。</li>
+        <li>アカウント認証情報の機密性を維持する責任はお客様にあります。</li>
+        <li>登録時には、正確で最新かつ完全な情報を提供することに同意するものとします。</li>
+        <li>お客様のアカウントで発生するすべての活動に対する責任はお客様にあります。</li>
+        <li>アカウントの不正使用に気付いた場合は、直ちに当社に通知する必要があります。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. サービスの説明</h2>
+      <p>Gumi Glowupは、以下の機能を提供するAI搭載のスキンケアコンパニオンです:</p>
+      <ul>
+        <li><strong>AI肌分析:</strong> 人工知能を用いたセルフィーベースの肌状態分析。分析は、皮膚科学的な肌状態指標(水分、弾力、毛穴、色素沈着、しわ)に厳密に限定され、人種、民族、または人口統計学的分類は一切行いません。</li>
+        <li><strong>商品レコメンド:</strong> 肌分析結果に基づいたパーソナライズされたスキンケア商品提案。ご希望に応じて、K-ビューティー(韓国産)セットを厳選して再レコメンドするオプションもあります。</li>
+        <li><strong>ルーティン管理:</strong> 朝・夜のスキンケアルーティンの作成、追跡、リマインダー。</li>
+        <li><strong>肌のトラッキング &amp; レポート:</strong> 肌状態の変化履歴、トレンドチャート、商品ごとの影響インサイト。</li>
+        <li><strong>商品ダイアリー:</strong> 使用中および使い終わった商品の記録、使用統計の確認。</li>
+        <li><strong>ナレッジアーティクル:</strong> スキンケア教育コンテンツと厳選されたコミュニティフィード。</li>
+        <li><strong>デイリー運勢:</strong> 1日1回利用可能な、エンターテインメントを目的とした運勢リーディングとパーソナライズされたスキンケアのヒント。</li>
+        <li><strong>シェアカード:</strong> 分析結果や運勢をまとめ、アプリ外で手動でシェアできるオプションの画像カード。</li>
+      </ul>
+      <div class="highlight"><p><strong>免責事項:</strong> 本アプリは、情報提供およびエンターテインメントを目的としたコンテンツのみを提供します。肌分析結果と商品レコメンドはAIが生成した推定値であり、医学的助言を構成するものではありません。医学的な肌の症状については、必ず皮膚科医または医療専門家にご相談ください。</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. サブスクリプションと支払い</h2>
+      <h3>4.1 無料プランとプレミアムプラン</h3>
+      <p>本アプリは、無料およびプレミアムサブスクリプションの両方を提供します。AI搭載機能(肌分析、商品レコメンド、ルーティンレコメンド、レポート、デイリー運勢を含む)は、原則として有効なプレミアムサブスクリプションが必要です。プレミアム機能は、アプリ内で明確に表示されます。</p>
+      <h3>4.2 初回肌スキャン無料</h3>
+      <p>新規ユーザーは、有料サブスクリプションなしで初回のAI肌スキャンを行うことができます。それ以降の肌スキャン、初回以降の商品レコメンド、ルーティン生成、レポート、デイリー運勢には、有効なプレミアムサブスクリプションが必要です。無料アクセスの正確な範囲は変更される可能性があり、利用時点でのアプリ内ゲーティングによって決定されます。</p>
+      <h3>4.3 支払い処理</h3>
+      <ul>
+        <li>支払いは、Apple App StoreまたはGoogle Play Storeを通じて処理されます。</li>
+        <li>サブスクリプション価格は、App Store / Google Playからリアルタイムで取得され、現地通貨で表示されます。通常、月額および年額のオプションが提供され、年額プランは12か月ごとに、月額プランは毎月自動更新されます。</li>
+        <li>現在の請求期間終了の少なくとも24時間前にキャンセルしない限り、サブスクリプションは自動的に更新されます。</li>
+        <li>サブスクリプションは、App StoreまたはGoogle Playアカウントの設定から管理および解約できます。</li>
+      </ul>
+      <h3>4.4 返金ポリシー</h3>
+      <p>返金は、Apple App StoreまたはGoogle Play Storeのポリシーに従って処理されます。当社は返金を直接処理しません。</p>
+      <h3>4.5 価格変更</h3>
+      <p>合理的な事前通知をもって、サブスクリプション価格を変更する場合があります。価格変更は、現在の請求期間には影響しません。</p>
+      <h3>4.6 公正利用のためのレート制限</h3>
+      <p>すべてのユーザーにとってサービスを安定的に維持するため、AI搭載エンドポイント(例:肌分析、商品レコメンド、ルーティンレコメンド、レポート、デイリー運勢)には1分あたりのレート制限が適用されます。これらの制限は、無料・プレミアムユーザーの両方に適用され、サブスクリプションの状態とは独立しています。制限に達した場合、本アプリは専用のお知らせを表示し、しばらく経ってから再試行するようご案内します。</p>
+    </div>
+
+    <div class="section">
+      <h2>5. ユーザーコンテンツ</h2>
+      <h3>5.1 お客様のコンテンツ</h3>
+      <ul>
+        <li>お客様が本アプリに提出するすべての写真およびコンテンツの所有権は、お客様に帰属します。</li>
+        <li>コンテンツを提出することにより、お客様は当社に対し、本アプリのサービスをお客様に提供する目的に限り、お客様のコンテンツを処理、分析、保存するための限定的かつ非独占的なライセンスを付与するものとします。</li>
+        <li>お客様は、コンテンツを提出する権利を有し、それが第三者の権利を侵害しないことを表明するものとします。</li>
+      </ul>
+      <h3>5.2 写真の使用</h3>
+      <ul>
+        <li>セルフィー写真は、AI肌分析のみに使用され、安全に保管されます。</li>
+        <li>写真は、お客様の明示的な同意なしに、他のユーザーと共有されたり、マーケティングに使用されたり、公開されたりすることはありません。</li>
+        <li>お客様は、本アプリ内からいつでも写真を削除できます。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 禁止行為</h2>
+      <p>お客様は、以下の行為を行わないことに同意するものとします:</p>
+      <ul>
+        <li>違法な目的または本規約に違反して本アプリを利用すること。</li>
+        <li>虚偽、誤解を招く、または不正確な情報を提出すること。</li>
+        <li>不快、有害、または他者の権利を侵害するコンテンツをアップロードすること。</li>
+        <li>本アプリのリバースエンジニアリング、逆コンパイル、または逆アセンブルを試みること。</li>
+        <li>本アプリのインフラストラクチャまたはセキュリティを妨害または混乱させること。</li>
+        <li>自動化されたシステム(ボット、スクレイパー)を使用して本アプリにアクセスすること。</li>
+        <li>本アプリのコンテンツまたはサービスを再販売、再配布、または商業的に利用すること。</li>
+        <li>他人または団体になりすますこと。</li>
+        <li>アクセス制限または利用制限を回避すること。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. 知的財産権</h2>
+      <ul>
+        <li>本アプリ(そのデザイン、コード、機能、コンテンツ、ロゴ、商標を含む)はKawKawが所有し、知的財産権法によって保護されています。</li>
+        <li>お客様には、個人的かつ非商業的な目的で本アプリを利用するための限定的、非独占的、譲渡不可、取消可能なライセンスが付与されます。</li>
+        <li>お客様に提供されるAI生成コンテンツ(分析結果、レコメンド、ルーティン)は、個人的な目的で使用できますが、商業的に再配布することはできません。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. 免責事項</h2>
+      <ul>
+        <li>本アプリは、明示的または黙示的を問わず、いかなる保証もなく「現状有姿」かつ「利用可能な状態」で提供されます。</li>
+        <li>当社は、本アプリが中断なく、エラーなく、または安全に動作することを保証しません。</li>
+        <li><strong>AI肌分析は推定値であり、医学的診断ではありません。</strong> 結果は異なる場合があり、専門の皮膚科医による助言の代わりにはなりません。</li>
+        <li>商品レコメンドはAI分析に基づく提案であり、結果を保証するものではありません。</li>
+        <li>運勢リーディングはエンターテインメントを目的としています。</li>
+        <li><strong>AI分析は、個々の肌状態指標のみを評価します。人種、民族、肌の色の分類、その他いかなる人口統計学的特性に基づく分類、カテゴリ分け、または判定を行うことはありません。</strong> 結果に何らかの相関が見られたとしても、それは意図的なものではなく、本サービスの設計や意図を反映するものではありません。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. 責任の制限</h2>
+      <p>適用法令で認められる最大限の範囲において、KawKawおよびその役員、取締役、従業員、代理人は、以下に起因する利益、データ、または信用の損失を含むがこれらに限定されない、間接的、付随的、特別、結果的、または懲罰的損害について責任を負わないものとします:</p>
+      <ul>
+        <li>お客様による本アプリの利用または利用不能。</li>
+        <li>本アプリのコンテンツまたはAI分析の誤りまたは不正確さ。</li>
+        <li>お客様のアカウントまたはデータへの不正アクセス。</li>
+        <li>本アプリを通じてアクセスされる第三者のコンテンツまたはサービス。</li>
+      </ul>
+      <p>本規約またはお客様による本アプリの利用に起因する請求に対する当社の総責任は、請求前の12か月間にお客様が当社に支払った金額を超えないものとします。</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 補償</h2>
+      <p>お客様は、本アプリの利用、本規約の違反、または第三者の権利の侵害に起因する一切の請求、損害、損失、または費用(合理的な弁護士費用を含む)について、KawKawおよびその関連会社を補償し、防御し、損害を与えないことに同意するものとします。</p>
+    </div>
+
+    <div class="section">
+      <h2>11. 解約</h2>
+      <ul>
+        <li>お客様は、本アプリの設定からアカウントを削除することにより、いつでもアカウントを解約できます。</li>
+        <li>当社は、お客様が本規約に違反した場合、事前通知の有無にかかわらず、お客様のアカウントを停止または解約することができます。</li>
+        <li>解約時、本アプリを利用する権利は直ちに消滅します。</li>
+        <li>アカウントの削除は永久的なものです。アカウントに関連するすべてのデータは、30日以内に削除されます。</li>
+        <li>その性質上、解約後も存続すべき条項(免責事項、責任の制限、補償)は存続します。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. 規約の変更</h2>
+      <p>当社は、本規約をいつでも変更する権利を留保します。重要な変更については、本アプリまたはメールを通じてお知らせします。変更が有効になった後もお客様が本アプリを継続して利用することは、変更後の規約への同意を構成します。変更後の規約に同意いただけない場合、お客様は本アプリの利用を中止する必要があります。</p>
+    </div>
+
+    <div class="section">
+      <h2>13. 準拠法および紛争解決</h2>
+      <p>本規約は、抵触法の原則にかかわらず、大韓民国の法律に準拠し、これに従って解釈されるものとします。本規約から、または本規約に関連して生じる紛争は、まず誠実な交渉によって解決するものとします。交渉が不調に終わった場合、紛争は大韓民国の管轄裁判所に付託されるものとします。</p>
+    </div>
+
+    <div class="section">
+      <h2>14. 一般条項</h2>
+      <ul>
+        <li><strong>完全合意:</strong> 本規約は、プライバシーポリシーおよびサービスガイドとともに、本アプリに関するお客様とKawKawの間の完全な合意を構成します。</li>
+        <li><strong>分離可能性:</strong> 本規約のいずれかの条項が無効または執行不能と判断された場合、残りの条項は引き続き完全に効力を有します。</li>
+        <li><strong>権利不放棄:</strong> 当社が本規約のいずれかの条項を執行しないことは、当該条項の放棄を構成するものではありません。</li>
+        <li><strong>譲渡:</strong> お客様は本規約に基づく権利を譲渡することはできません。当社は、制限なく権利を譲渡することができます。</li>
+        <li><strong>不可抗力:</strong> 当社は、合理的な制御を超える事情によって生じる不履行または遅延について責任を負いません。</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. お問い合わせ</h2>
+      <p>本規約に関するご質問は、以下までお問い合わせください:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TRADITIONAL CHINESE ═══════════════ -->
+  <div lang="zh-TW">
+    <h1>服務條款</h1>
+    <p class="date">生效日期:2025年4月17日 | 最後更新:2026年6月9日</p>
+    <p>歡迎使用 Gumi Glowup。本服務條款(以下簡稱「條款」)規範您對由 KawKaw(以下簡稱「公司」、「我們」)營運的 Gumi Glowup 行動應用程式(以下簡稱「本應用程式」)的使用。下載、存取或使用本應用程式即表示您同意受本條款約束。若您不同意,請勿使用本應用程式。</p>
+
+    <div class="section">
+      <h2>1. 使用資格</h2>
+      <p>您必須年滿 16 歲(或您所屬管轄區域要求的最低年齡)才能使用本應用程式。使用本應用程式即表示您聲明並保證您符合此年齡要求。若您未達您所屬管轄區域的法定成年年齡,須取得父母或法定監護人的同意方可使用本應用程式。</p>
+      <p><strong>地區限制:</strong> 本應用程式不提供、不行銷,亦非針對 European Economic Area (EEA)、European Union (EU) 或 United Kingdom (UK) 之居民。本應用程式無法於上述地區下載。若您居住於 EEA、EU 或 UK,請勿使用本應用程式。我們不會刻意收集或處理上述地區居民之個人資料,亦未依據 EU/UK GDPR 之 Article 27 指派代表人。</p>
+    </div>
+
+    <div class="section">
+      <h2>2. 帳號註冊</h2>
+      <ul>
+        <li>您可以使用電子郵件/密碼或支援的社群登入服務(Google、Apple)建立帳號。</li>
+        <li>您有責任維持帳號憑證的機密性。</li>
+        <li>您同意在註冊時提供正確、即時且完整的資訊。</li>
+        <li>您須對帳號內發生的所有活動負責。</li>
+        <li>若發現帳號遭未經授權使用,必須立即通知我們。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. 服務說明</h2>
+      <p>Gumi Glowup 是一款 AI 驅動的肌膚保養夥伴,提供以下功能:</p>
+      <ul>
+        <li><strong>AI 肌膚分析:</strong> 透過人工智慧進行自拍照肌膚狀態分析。分析嚴格僅限於皮膚科學上的肌膚狀態指標(水分、彈性、毛孔、色素沉澱、皺紋),且不會進行任何種族、民族或人口統計分類。</li>
+        <li><strong>商品推薦:</strong> 根據您的肌膚分析提供個人化保養品建議,亦可在需要時改以精選 K-Beauty (韓國美妝) 商品重新推薦。</li>
+        <li><strong>保養程序管理:</strong> 早晚保養程序的建立、追蹤與提醒。</li>
+        <li><strong>肌膚追蹤與報告:</strong> 肌膚狀態變化的歷史追蹤、趨勢圖表,以及各項商品的效果分析。</li>
+        <li><strong>商品日記:</strong> 記錄您正在使用與已用完的商品,並提供使用統計。</li>
+        <li><strong>知識文章:</strong> 肌膚保養教育內容與精選社群動態。</li>
+        <li><strong>每日運勢:</strong> 每日一次提供以娛樂為目的的運勢解讀及個人化保養小提示。</li>
+        <li><strong>分享卡片:</strong> 可將分析結果或運勢整理成圖卡,於本應用程式外手動分享。</li>
+      </ul>
+      <div class="highlight"><p><strong>免責聲明:</strong> 本應用程式僅提供資訊及娛樂內容。肌膚分析結果及商品推薦皆為 AI 生成的估算值,不構成醫療建議。如有醫療性肌膚問題,請務必諮詢皮膚科醫師或專業醫療人員。</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. 訂閱與付款</h2>
+      <h3>4.1 免費與付費方案</h3>
+      <p>本應用程式同時提供免費與付費訂閱方案。AI 驅動的功能 — 包含肌膚分析、商品推薦、保養程序推薦、報告與每日運勢 — 一般需要有效的付費訂閱。付費功能會在應用程式內清楚標示。</p>
+      <h3>4.2 首次肌膚掃描免費</h3>
+      <p>新使用者可在未付費訂閱的情況下進行首次 AI 肌膚掃描。後續的肌膚掃描、首次之外的商品推薦、保養程序生成、報告與每日運勢,皆需有效的付費訂閱。免費使用範圍可能會調整,實際以使用時應用程式內的權限規則為準。</p>
+      <h3>4.3 付款處理</h3>
+      <ul>
+        <li>付款透過 Apple App Store 或 Google Play Store 處理。</li>
+        <li>訂閱價格會即時自 App Store / Google Play 取得並以您的當地貨幣顯示。通常提供月繳與年繳方案,年繳方案每 12 個月自動續訂、月繳方案每月自動續訂。</li>
+        <li>除非於目前計費週期結束至少 24 小時前取消,否則訂閱將自動續訂。</li>
+        <li>您可以在 App Store 或 Google Play 的帳號設定中管理或取消訂閱。</li>
+      </ul>
+      <h3>4.4 退款政策</h3>
+      <p>退款依照 Apple App Store 或 Google Play Store 的政策辦理。我們不直接處理退款。</p>
+      <h3>4.5 價格變動</h3>
+      <p>我們可能會以合理的事前通知變更訂閱價格。價格變動不會影響您目前的計費週期。</p>
+      <h3>4.6 公平使用速率限制</h3>
+      <p>為確保所有使用者都能穩定使用服務,AI 驅動的端點(例如肌膚分析、商品推薦、保養程序推薦、報告及每日運勢)會套用每分鐘的速率限制。此限制同時適用於免費與付費使用者,且與訂閱狀態無關。達到上限時,應用程式會顯示專屬通知並請您稍候再試。</p>
+    </div>
+
+    <div class="section">
+      <h2>5. 使用者內容</h2>
+      <h3>5.1 您的內容</h3>
+      <ul>
+        <li>您保有對提交至本應用程式之所有照片及內容的所有權。</li>
+        <li>提交內容即代表您授予我們有限、非獨占之授權,僅以為您提供本應用程式服務之目的處理、分析並儲存您的內容。</li>
+        <li>您聲明您有權提交該內容,且該內容未侵害任何第三方權利。</li>
+      </ul>
+      <h3>5.2 照片使用</h3>
+      <ul>
+        <li>自拍照僅用於 AI 肌膚分析,並安全儲存。</li>
+        <li>未經您明確同意,照片絕不會與其他使用者分享、用於行銷或公開發布。</li>
+        <li>您可隨時於本應用程式內刪除您的照片。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 禁止行為</h2>
+      <p>您同意不從事下列行為:</p>
+      <ul>
+        <li>以任何違法目的或違反本條款的方式使用本應用程式。</li>
+        <li>提交虛假、誤導或不正確的資訊。</li>
+        <li>上傳冒犯、有害或侵害他人權利的內容。</li>
+        <li>嘗試對本應用程式進行還原工程、反編譯或反組譯。</li>
+        <li>干擾或破壞本應用程式的基礎設施或安全機制。</li>
+        <li>使用自動化系統(機器人、爬蟲)存取本應用程式。</li>
+        <li>轉售、再散布或商業利用本應用程式之內容或服務。</li>
+        <li>冒充他人或其他實體。</li>
+        <li>規避任何存取限制或使用上限。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. 智慧財產權</h2>
+      <ul>
+        <li>本應用程式(包含其設計、程式碼、功能、內容、商標與標誌)為 KawKaw 所有,並受智慧財產權法律保護。</li>
+        <li>我們授予您有限、非獨占、不可轉讓、可撤銷的授權,以個人非商業目的使用本應用程式。</li>
+        <li>提供給您的 AI 生成內容(分析結果、推薦、保養程序)可作個人用途使用,但不得作商業性再散布。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. 免責聲明</h2>
+      <ul>
+        <li>本應用程式以「現狀」與「現有可用」狀態提供,不附帶任何明示或默示之保證。</li>
+        <li>我們不保證本應用程式將不中斷、無錯誤或安全。</li>
+        <li><strong>AI 肌膚分析僅為估算值,並非醫療診斷。</strong>結果可能因人而異,亦不應取代專業皮膚科建議。</li>
+        <li>商品推薦為基於 AI 分析之建議,不保證任何效果。</li>
+        <li>運勢解讀僅供娛樂用途。</li>
+        <li><strong>AI 分析僅評估個別肌膚狀態指標。我們不會基於種族、民族、膚色分類或任何其他人口統計特徵進行分類、歸類或判斷。</strong>結果中若有任何相關性出現,皆屬非預期,並不反映本服務之設計或意圖。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. 責任限制</h2>
+      <p>在適用法律允許之最大範圍內,KawKaw 及其主管、董事、員工與代理人對於下列原因所引起之任何間接、附帶、特別、衍生或懲罰性損害(包含但不限於利潤、資料或商譽之損失)概不負責:</p>
+      <ul>
+        <li>您使用或無法使用本應用程式。</li>
+        <li>本應用程式內容或 AI 分析中之任何錯誤或不準確。</li>
+        <li>未經授權存取您的帳號或資料。</li>
+        <li>透過本應用程式存取之任何第三方內容或服務。</li>
+      </ul>
+      <p>對於因本條款或您使用本應用程式所生之任何請求,我們的總責任不超過您於該請求發生前 12 個月內向我們支付之金額。</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 賠償</h2>
+      <p>您同意就因您使用本應用程式、違反本條款,或侵害任何第三方權利所引起之任何索賠、損害、損失或費用(包含合理之律師費用),賠償並保護 KawKaw 及其關係企業不受損害。</p>
+    </div>
+
+    <div class="section">
+      <h2>11. 終止</h2>
+      <ul>
+        <li>您可透過本應用程式的「設定」刪除帳號以隨時終止您的帳號。</li>
+        <li>若您違反本條款,我們得於事前通知或不通知之情況下暫停或終止您的帳號。</li>
+        <li>終止後,您使用本應用程式的權利立即消滅。</li>
+        <li>帳號刪除為永久性。與您帳號相關之所有資料將於 30 天內移除。</li>
+        <li>依其性質應於終止後存續之條款(免責聲明、責任限制、賠償)將繼續有效。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. 條款修改</h2>
+      <p>我們保留隨時修改本條款之權利。重大變更將透過本應用程式或電子郵件通知您。變更生效後您仍繼續使用本應用程式,即視為接受修改後之條款。若您不同意修改後之條款,須停止使用本應用程式。</p>
+    </div>
+
+    <div class="section">
+      <h2>13. 準據法與爭議解決</h2>
+      <p>本條款應依大韓民國法律解釋與適用,不考量其法律衝突原則。因本條款而生或與本條款相關之爭議,應先透過誠信協商解決。協商不成時,該爭議應提交大韓民國有管轄權之法院解決。</p>
+    </div>
+
+    <div class="section">
+      <h2>14. 一般條款</h2>
+      <ul>
+        <li><strong>完整合約:</strong> 本條款、隱私權政策及服務指南共同構成您與 KawKaw 就本應用程式之完整合意。</li>
+        <li><strong>可分離性:</strong> 若本條款任一條款被認定為無效或無法執行,其餘條款仍保有完整效力。</li>
+        <li><strong>權利不拋棄:</strong> 我們未行使本條款之任何條款,不構成對該條款之拋棄。</li>
+        <li><strong>轉讓:</strong> 您不得轉讓本條款下之權利。我們得無限制轉讓我們之權利。</li>
+        <li><strong>不可抗力:</strong> 對於超出我們合理控制範圍之情況所造成之任何不履行或延遲,我們概不負責。</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. 聯絡我們</h2>
+      <p>如對本條款有任何疑問,請聯絡我們:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SPANISH ═══════════════ -->
+  <div lang="es">
+    <h1>Términos del Servicio</h1>
+    <p class="date">Fecha de entrada en vigor: 17 de abril de 2025 | Última actualización: 9 de junio de 2026</p>
+    <p>Bienvenido a Gumi Glowup. Estos Términos del Servicio ("Términos") regulan el uso de la aplicación móvil Gumi Glowup ("App") operada por KawKaw ("la Empresa", "nosotros" o "nuestro"). Al descargar, acceder o utilizar la App, usted acepta quedar vinculado por estos Términos. Si no está de acuerdo, le rogamos que no utilice la App.</p>
+
+    <div class="section">
+      <h2>1. Elegibilidad</h2>
+      <p>Debe tener al menos 16 años de edad (o la edad mínima requerida en su jurisdicción) para utilizar la App. Al utilizar la App, usted declara y garantiza que cumple con este requisito de edad. Si es menor de la mayoría de edad legal en su jurisdicción, deberá contar con el consentimiento de su padre, madre o tutor legal para utilizar la App.</p>
+      <p><strong>Restricción geográfica:</strong> La App no se ofrece, no se promociona ni está destinada a residentes del European Economic Area (EEA), la European Union (EU) ni el United Kingdom (UK). La App no está disponible para descarga en estas regiones. Si reside en el EEA, la EU o el UK, le rogamos que no utilice la App. No recopilamos ni procesamos a sabiendas datos personales de residentes de estas regiones y no designamos un representante en virtud del Article 27 del GDPR de la EU/UK.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Registro de cuenta</h2>
+      <ul>
+        <li>Puede crear una cuenta utilizando correo electrónico/contraseña o los proveedores de inicio de sesión social admitidos (Google, Apple).</li>
+        <li>Usted es responsable de mantener la confidencialidad de las credenciales de su cuenta.</li>
+        <li>Acepta proporcionar información precisa, actualizada y completa durante el registro.</li>
+        <li>Usted es responsable de todas las actividades que ocurran bajo su cuenta.</li>
+        <li>Debe notificarnos de inmediato cualquier uso no autorizado de su cuenta.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Descripción del servicio</h2>
+      <p>Gumi Glowup es un compañero de cuidado de la piel impulsado por IA que ofrece:</p>
+      <ul>
+        <li><strong>Análisis de piel con IA:</strong> Análisis del estado de la piel mediante inteligencia artificial a partir de selfies. El análisis se limita estrictamente a métricas dermatológicas del estado de la piel (hidratación, elasticidad, poros, pigmentación, arrugas) y no realiza ninguna clasificación racial, étnica ni demográfica de ningún tipo.</li>
+        <li><strong>Recomendaciones de productos:</strong> Sugerencias personalizadas de productos de cuidado de la piel basadas en su análisis de piel, con la opción de re-recomendar un conjunto seleccionado de K-beauty (cosmética coreana) cuando lo desee.</li>
+        <li><strong>Gestión de rutinas:</strong> Creación, seguimiento y recordatorios de rutinas de cuidado de la piel para mañana/noche.</li>
+        <li><strong>Seguimiento de la piel e informes:</strong> Seguimiento histórico de los cambios en el estado de la piel, gráficos de tendencias y análisis del impacto por producto.</li>
+        <li><strong>Diario de productos:</strong> Registro de los productos que está utilizando y que ha terminado, incluidas estadísticas de uso.</li>
+        <li><strong>Artículos de conocimiento:</strong> Contenido educativo sobre el cuidado de la piel y feeds de comunidad seleccionados.</li>
+        <li><strong>Fortuna diaria:</strong> Lecturas de fortuna diarias con fines de entretenimiento junto con consejos personalizados de cuidado de la piel, disponibles una vez al día.</li>
+        <li><strong>Tarjetas para compartir:</strong> Tarjetas de imagen opcionales que resumen sus análisis o fortunas y que puede compartir manualmente fuera de la App.</li>
+      </ul>
+      <div class="highlight"><p><strong>Aviso legal:</strong> La App proporciona únicamente contenido informativo y de entretenimiento. Los resultados del análisis de piel y las recomendaciones de productos son estimaciones generadas por IA y no constituyen consejo médico. Consulte siempre a un dermatólogo o profesional de la salud para condiciones médicas de la piel.</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. Suscripción y pagos</h2>
+      <h3>4.1 Planes gratuito y premium</h3>
+      <p>La App ofrece niveles de suscripción tanto gratuitos como premium. Las funciones impulsadas por IA — incluyendo el análisis de piel, las recomendaciones de productos, las recomendaciones de rutinas, los informes y la fortuna diaria — generalmente requieren una suscripción premium activa. Las funciones premium están claramente marcadas dentro de la App.</p>
+      <h3>4.2 Primer escaneo de piel gratis</h3>
+      <p>Los nuevos usuarios pueden realizar su primer escaneo de piel con IA sin una suscripción de pago. Los escaneos de piel posteriores, las recomendaciones de productos más allá de la primera ejecución, la generación de rutinas, los informes y la fortuna diaria requieren una suscripción premium activa. El alcance exacto del acceso gratuito puede evolucionar y se rige por las restricciones internas de la App en el momento de su uso.</p>
+      <h3>4.3 Procesamiento de pagos</h3>
+      <ul>
+        <li>Los pagos se procesan a través de la Apple App Store o la Google Play Store.</li>
+        <li>El precio de la suscripción se obtiene en tiempo real desde la App Store / Google Play y se muestra en su moneda local. Normalmente se ofrecen opciones mensuales y anuales; el plan anual se renueva automáticamente cada 12 meses y el plan mensual cada mes.</li>
+        <li>Las suscripciones se renuevan automáticamente a menos que se cancelen al menos 24 horas antes del final del período de facturación actual.</li>
+        <li>Puede gestionar y cancelar las suscripciones a través de la configuración de su cuenta en la App Store o Google Play.</li>
+      </ul>
+      <h3>4.4 Política de reembolso</h3>
+      <p>Los reembolsos se gestionan según las políticas de la Apple App Store o la Google Play Store. No procesamos reembolsos directamente.</p>
+      <h3>4.5 Cambios de precio</h3>
+      <p>Podemos cambiar los precios de la suscripción con un aviso previo razonable. Los cambios de precio no afectarán a su período de facturación actual.</p>
+      <h3>4.6 Límites de uso justo</h3>
+      <p>Para mantener el servicio estable para todos, se aplican límites de uso por minuto a los endpoints impulsados por IA (por ejemplo, análisis de piel, recomendaciones de productos, recomendaciones de rutinas, informes y fortuna diaria). Estos límites se aplican tanto a usuarios gratuitos como premium y son independientes del estado de la suscripción. Cuando se alcanza un límite, la App muestra un aviso específico y le pide que vuelva a intentarlo en breve.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Contenido del usuario</h2>
+      <h3>5.1 Su contenido</h3>
+      <ul>
+        <li>Usted conserva la propiedad de todas las fotos y contenidos que envíe a la App.</li>
+        <li>Al enviar contenido, nos concede una licencia limitada y no exclusiva para procesar, analizar y almacenar su contenido únicamente con el fin de proporcionarle los servicios de la App.</li>
+        <li>Usted declara que tiene derecho a enviar el contenido y que no viola los derechos de terceros.</li>
+      </ul>
+      <h3>5.2 Uso de fotos</h3>
+      <ul>
+        <li>Las fotos de selfie se utilizan exclusivamente para el análisis de piel con IA y se almacenan de forma segura.</li>
+        <li>Las fotos nunca se comparten con otros usuarios, se utilizan con fines de marketing ni se publican sin su consentimiento explícito.</li>
+        <li>Puede eliminar sus fotos en cualquier momento desde la App.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Conducta prohibida</h2>
+      <p>Usted acepta no:</p>
+      <ul>
+        <li>Utilizar la App con fines ilícitos o en violación de estos Términos.</li>
+        <li>Enviar información falsa, engañosa o inexacta.</li>
+        <li>Subir contenido que sea ofensivo, dañino o que infrinja los derechos de otros.</li>
+        <li>Intentar realizar ingeniería inversa, descompilar o desensamblar la App.</li>
+        <li>Interferir o perturbar la infraestructura o seguridad de la App.</li>
+        <li>Utilizar sistemas automatizados (bots, scrapers) para acceder a la App.</li>
+        <li>Revender, redistribuir o explotar comercialmente el contenido o los servicios de la App.</li>
+        <li>Suplantar a otra persona o entidad.</li>
+        <li>Eludir cualquier restricción de acceso o límites de uso.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Propiedad intelectual</h2>
+      <ul>
+        <li>La App, incluyendo su diseño, código, funciones, contenido, logotipos y marcas comerciales, es propiedad de KawKaw y está protegida por las leyes de propiedad intelectual.</li>
+        <li>Se le concede una licencia limitada, no exclusiva, intransferible y revocable para utilizar la App con fines personales y no comerciales.</li>
+        <li>El contenido generado por IA (resultados de análisis, recomendaciones, rutinas) que se le proporciona puede utilizarse con fines personales, pero no puede redistribuirse comercialmente.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Exenciones de responsabilidad</h2>
+      <ul>
+        <li>La App se proporciona "TAL CUAL" y "SEGÚN DISPONIBILIDAD", sin garantías de ningún tipo, ya sean expresas o implícitas.</li>
+        <li>No garantizamos que la App esté libre de interrupciones, errores o sea segura.</li>
+        <li><strong>El análisis de piel con IA es una estimación y no un diagnóstico médico.</strong> Los resultados pueden variar y no deben sustituir el asesoramiento dermatológico profesional.</li>
+        <li>Las recomendaciones de productos son sugerencias basadas en el análisis de IA y no garantizan resultados.</li>
+        <li>Las lecturas de fortuna son solo con fines de entretenimiento.</li>
+        <li><strong>El análisis de IA evalúa únicamente métricas individuales del estado de la piel. No clasifica, categoriza ni realiza ninguna determinación basada en raza, etnia, clasificación de color de piel ni ninguna otra característica demográfica.</strong> Cualquier correlación percibida en los resultados es involuntaria y no refleja el diseño ni la intención del servicio.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Limitación de responsabilidad</h2>
+      <p>En la medida máxima permitida por la ley aplicable, KawKaw y sus directivos, directores, empleados y agentes no serán responsables de ningún daño indirecto, incidental, especial, consecuente o punitivo, incluyendo, entre otros, la pérdida de beneficios, datos o reputación, derivados de:</p>
+      <ul>
+        <li>Su uso o incapacidad para usar la App.</li>
+        <li>Cualquier error o imprecisión en el contenido de la App o en el análisis de IA.</li>
+        <li>Acceso no autorizado a su cuenta o datos.</li>
+        <li>Cualquier contenido o servicio de terceros al que se acceda a través de la App.</li>
+      </ul>
+      <p>Nuestra responsabilidad total por cualquier reclamación derivada de estos Términos o de su uso de la App no excederá la cantidad que nos haya pagado en los 12 meses anteriores a la reclamación.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Indemnización</h2>
+      <p>Usted acepta indemnizar, defender y mantener indemne a KawKaw y sus filiales de cualquier reclamación, daño, pérdida o gasto (incluyendo honorarios legales razonables) derivados de su uso de la App, su violación de estos Términos o su violación de los derechos de terceros.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Terminación</h2>
+      <ul>
+        <li>Puede terminar su cuenta en cualquier momento eliminándola a través de la configuración de la App.</li>
+        <li>Podemos suspender o terminar su cuenta si infringe estos Términos, con o sin previo aviso.</li>
+        <li>Tras la terminación, su derecho a utilizar la App cesará inmediatamente.</li>
+        <li>La eliminación de la cuenta es permanente. Todos los datos asociados a su cuenta se eliminarán en un plazo de 30 días.</li>
+        <li>Las secciones que por su naturaleza deben sobrevivir a la terminación (Exenciones de responsabilidad, Limitación de responsabilidad, Indemnización) seguirán vigentes.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. Modificaciones a los Términos</h2>
+      <p>Nos reservamos el derecho de modificar estos Términos en cualquier momento. Le notificaremos los cambios importantes a través de la App o por correo electrónico. Su uso continuado de la App después de que los cambios entren en vigor constituye la aceptación de los Términos modificados. Si no está de acuerdo con los Términos modificados, debe dejar de utilizar la App.</p>
+    </div>
+
+    <div class="section">
+      <h2>13. Ley aplicable y resolución de disputas</h2>
+      <p>Estos Términos se regirán e interpretarán de acuerdo con las leyes de la República de Corea, sin tener en cuenta sus disposiciones sobre conflicto de leyes. Cualquier disputa derivada de estos Términos o relacionada con ellos se resolverá primero mediante negociación de buena fe. Si la negociación fracasa, la disputa se someterá a los tribunales competentes de la República de Corea.</p>
+    </div>
+
+    <div class="section">
+      <h2>14. Disposiciones generales</h2>
+      <ul>
+        <li><strong>Acuerdo completo:</strong> Estos Términos, junto con la Política de Privacidad y la Guía del Servicio, constituyen el acuerdo completo entre usted y KawKaw con respecto a la App.</li>
+        <li><strong>Divisibilidad:</strong> Si alguna disposición de estos Términos se considera inválida o inaplicable, las disposiciones restantes seguirán en pleno vigor.</li>
+        <li><strong>Renuncia:</strong> Nuestro incumplimiento en hacer cumplir cualquier disposición de estos Términos no constituirá una renuncia a dicha disposición.</li>
+        <li><strong>Cesión:</strong> Usted no puede ceder sus derechos en virtud de estos Términos. Nosotros podemos ceder nuestros derechos sin restricción.</li>
+        <li><strong>Fuerza mayor:</strong> No seremos responsables de ningún fallo o retraso causado por circunstancias fuera de nuestro control razonable.</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. Contáctanos</h2>
+      <p>Si tiene preguntas sobre estos Términos, contáctenos:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ VIETNAMESE ═══════════════ -->
+  <div lang="vi">
+    <h1>Điều khoản Dịch vụ</h1>
+    <p class="date">Ngày có hiệu lực: 17 tháng 4, 2025 | Cập nhật lần cuối: 9 tháng 6, 2026</p>
+    <p>Chào mừng bạn đến với Gumi Glowup. Điều khoản Dịch vụ này ("Điều khoản") quy định việc bạn sử dụng ứng dụng di động Gumi Glowup ("Ứng dụng") do KawKaw ("Công ty", "chúng tôi") vận hành. Bằng việc tải xuống, truy cập hoặc sử dụng Ứng dụng, bạn đồng ý chịu sự ràng buộc của các Điều khoản này. Nếu bạn không đồng ý, vui lòng không sử dụng Ứng dụng.</p>
+
+    <div class="section">
+      <h2>1. Điều kiện sử dụng</h2>
+      <p>Bạn phải từ 16 tuổi trở lên (hoặc độ tuổi tối thiểu được yêu cầu trong khu vực pháp lý của bạn) để sử dụng Ứng dụng. Bằng việc sử dụng Ứng dụng, bạn tuyên bố và bảo đảm rằng bạn đáp ứng yêu cầu về độ tuổi này. Nếu bạn chưa đủ tuổi thành niên theo pháp luật ở khu vực pháp lý của mình, bạn phải có sự đồng ý của cha mẹ hoặc người giám hộ hợp pháp để sử dụng Ứng dụng.</p>
+      <p><strong>Hạn chế địa lý:</strong> Ứng dụng không được cung cấp, không được tiếp thị và không nhắm đến cư dân của European Economic Area (EEA), European Union (EU) hoặc United Kingdom (UK). Ứng dụng không khả dụng để tải xuống tại các khu vực này. Nếu bạn cư trú tại EEA, EU hoặc UK, vui lòng không sử dụng Ứng dụng. Chúng tôi không cố ý thu thập hoặc xử lý dữ liệu cá nhân của cư dân các khu vực này và không chỉ định người đại diện theo Article 27 của GDPR EU/UK.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Đăng ký tài khoản</h2>
+      <ul>
+        <li>Bạn có thể tạo tài khoản bằng email/mật khẩu hoặc các nhà cung cấp đăng nhập xã hội được hỗ trợ (Google, Apple).</li>
+        <li>Bạn chịu trách nhiệm giữ bí mật thông tin đăng nhập tài khoản của mình.</li>
+        <li>Bạn đồng ý cung cấp thông tin chính xác, cập nhật và đầy đủ khi đăng ký.</li>
+        <li>Bạn chịu trách nhiệm về mọi hoạt động xảy ra trên tài khoản của mình.</li>
+        <li>Bạn phải thông báo ngay cho chúng tôi về bất kỳ hành vi sử dụng trái phép nào đối với tài khoản của bạn.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Mô tả dịch vụ</h2>
+      <p>Gumi Glowup là người bạn đồng hành chăm sóc da bằng AI, cung cấp:</p>
+      <ul>
+        <li><strong>Phân tích da bằng AI:</strong> Phân tích tình trạng da dựa trên ảnh selfie bằng trí tuệ nhân tạo. Việc phân tích được giới hạn nghiêm ngặt ở các chỉ số tình trạng da về da liễu (độ ẩm, độ đàn hồi, lỗ chân lông, sắc tố, nếp nhăn) và không thực hiện bất kỳ phân loại nào về chủng tộc, dân tộc hoặc nhân khẩu học.</li>
+        <li><strong>Gợi ý sản phẩm:</strong> Đề xuất sản phẩm chăm sóc da được cá nhân hoá dựa trên kết quả phân tích da của bạn, với tuỳ chọn nhận lại gợi ý từ bộ K-beauty (mỹ phẩm Hàn Quốc) được tuyển chọn khi bạn muốn.</li>
+        <li><strong>Quản lý routine:</strong> Tạo, theo dõi và nhắc nhở routine chăm sóc da sáng/tối.</li>
+        <li><strong>Theo dõi da &amp; báo cáo:</strong> Theo dõi lịch sử thay đổi tình trạng da, biểu đồ xu hướng và phân tích tác động theo từng sản phẩm.</li>
+        <li><strong>Nhật ký sản phẩm:</strong> Ghi lại các sản phẩm bạn đang dùng và đã dùng hết, bao gồm thống kê sử dụng.</li>
+        <li><strong>Bài viết kiến thức:</strong> Nội dung giáo dục về chăm sóc da và các nguồn tin cộng đồng được tuyển chọn.</li>
+        <li><strong>Vận may hằng ngày:</strong> Lời giải vận may hằng ngày mang tính giải trí kèm các mẹo chăm sóc da được cá nhân hoá, có sẵn một lần mỗi ngày.</li>
+        <li><strong>Thẻ chia sẻ:</strong> Thẻ hình ảnh tuỳ chọn tóm tắt kết quả phân tích hoặc vận may của bạn, có thể chia sẻ thủ công bên ngoài Ứng dụng.</li>
+      </ul>
+      <div class="highlight"><p><strong>Tuyên bố từ chối trách nhiệm:</strong> Ứng dụng chỉ cung cấp nội dung mang tính thông tin và giải trí. Kết quả phân tích da và gợi ý sản phẩm là ước tính do AI tạo ra và không cấu thành lời khuyên y tế. Hãy luôn tham khảo bác sĩ da liễu hoặc chuyên gia y tế cho các vấn đề da liễu thuộc y khoa.</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. Đăng ký và thanh toán</h2>
+      <h3>4.1 Gói miễn phí và premium</h3>
+      <p>Ứng dụng cung cấp cả gói đăng ký miễn phí và premium. Các tính năng dùng AI — bao gồm phân tích da, gợi ý sản phẩm, gợi ý routine, báo cáo và vận may hằng ngày — nhìn chung yêu cầu gói premium đang hoạt động. Các tính năng premium được đánh dấu rõ trong Ứng dụng.</p>
+      <h3>4.2 Lần quét da đầu tiên miễn phí</h3>
+      <p>Người dùng mới có thể thực hiện lần quét da bằng AI đầu tiên mà không cần đăng ký trả phí. Các lần quét da tiếp theo, gợi ý sản phẩm sau lần đầu tiên, tạo routine, báo cáo và vận may hằng ngày yêu cầu gói premium đang hoạt động. Phạm vi truy cập miễn phí cụ thể có thể thay đổi và được quy định bởi cơ chế giới hạn trong Ứng dụng tại thời điểm sử dụng.</p>
+      <h3>4.3 Xử lý thanh toán</h3>
+      <ul>
+        <li>Các khoản thanh toán được xử lý thông qua Apple App Store hoặc Google Play Store.</li>
+        <li>Giá đăng ký được lấy theo thời gian thực từ App Store / Google Play và hiển thị theo đơn vị tiền tệ địa phương của bạn. Thông thường có tuỳ chọn theo tháng và theo năm; gói theo năm tự động gia hạn mỗi 12 tháng và gói theo tháng gia hạn hằng tháng.</li>
+        <li>Đăng ký sẽ tự động gia hạn trừ khi bị huỷ ít nhất 24 giờ trước khi kết thúc kỳ thanh toán hiện tại.</li>
+        <li>Bạn có thể quản lý và huỷ đăng ký thông qua phần cài đặt tài khoản App Store hoặc Google Play của mình.</li>
+      </ul>
+      <h3>4.4 Chính sách hoàn tiền</h3>
+      <p>Việc hoàn tiền được xử lý theo chính sách của Apple App Store hoặc Google Play Store. Chúng tôi không trực tiếp xử lý các khoản hoàn tiền.</p>
+      <h3>4.5 Thay đổi giá</h3>
+      <p>Chúng tôi có thể thay đổi giá đăng ký với thông báo trước hợp lý. Việc thay đổi giá sẽ không ảnh hưởng đến kỳ thanh toán hiện tại của bạn.</p>
+      <h3>4.6 Giới hạn tần suất sử dụng công bằng</h3>
+      <p>Để duy trì dịch vụ ổn định cho mọi người, giới hạn tần suất theo phút được áp dụng cho các điểm cuối dùng AI (ví dụ: phân tích da, gợi ý sản phẩm, gợi ý routine, báo cáo và vận may hằng ngày). Các giới hạn này áp dụng cho cả người dùng miễn phí và premium, và độc lập với trạng thái đăng ký. Khi đạt đến giới hạn, Ứng dụng sẽ hiển thị thông báo chuyên biệt và yêu cầu bạn thử lại sau giây lát.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Nội dung của người dùng</h2>
+      <h3>5.1 Nội dung của bạn</h3>
+      <ul>
+        <li>Bạn giữ quyền sở hữu đối với tất cả ảnh và nội dung mà bạn gửi vào Ứng dụng.</li>
+        <li>Bằng việc gửi nội dung, bạn cấp cho chúng tôi quyền sử dụng giới hạn, không độc quyền để xử lý, phân tích và lưu trữ nội dung của bạn chỉ nhằm mục đích cung cấp dịch vụ Ứng dụng cho bạn.</li>
+        <li>Bạn tuyên bố rằng bạn có quyền gửi nội dung và nội dung đó không vi phạm quyền của bất kỳ bên thứ ba nào.</li>
+      </ul>
+      <h3>5.2 Sử dụng ảnh</h3>
+      <ul>
+        <li>Ảnh selfie chỉ được sử dụng cho mục đích phân tích da bằng AI và được lưu trữ an toàn.</li>
+        <li>Ảnh không bao giờ được chia sẻ với người dùng khác, sử dụng cho mục đích tiếp thị hoặc công khai mà không có sự đồng ý rõ ràng của bạn.</li>
+        <li>Bạn có thể xoá ảnh của mình bất cứ lúc nào từ trong Ứng dụng.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Hành vi bị cấm</h2>
+      <p>Bạn đồng ý không:</p>
+      <ul>
+        <li>Sử dụng Ứng dụng cho bất kỳ mục đích bất hợp pháp nào hoặc vi phạm các Điều khoản này.</li>
+        <li>Gửi thông tin sai lệch, gây hiểu lầm hoặc không chính xác.</li>
+        <li>Tải lên nội dung mang tính xúc phạm, có hại hoặc xâm phạm quyền của người khác.</li>
+        <li>Cố gắng dịch ngược, dịch hợp ngữ hoặc tháo rời Ứng dụng.</li>
+        <li>Can thiệp hoặc làm gián đoạn cơ sở hạ tầng hoặc bảo mật của Ứng dụng.</li>
+        <li>Sử dụng các hệ thống tự động (bot, scraper) để truy cập Ứng dụng.</li>
+        <li>Bán lại, phân phối lại hoặc khai thác thương mại nội dung hoặc dịch vụ của Ứng dụng.</li>
+        <li>Mạo danh người khác hoặc tổ chức khác.</li>
+        <li>Phá vỡ bất kỳ hạn chế truy cập hoặc giới hạn sử dụng nào.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Sở hữu trí tuệ</h2>
+      <ul>
+        <li>Ứng dụng, bao gồm thiết kế, mã, tính năng, nội dung, logo và thương hiệu, thuộc sở hữu của KawKaw và được bảo vệ bởi luật sở hữu trí tuệ.</li>
+        <li>Bạn được cấp quyền sử dụng giới hạn, không độc quyền, không thể chuyển nhượng, có thể thu hồi để sử dụng Ứng dụng cho mục đích cá nhân, phi thương mại.</li>
+        <li>Nội dung do AI tạo ra (kết quả phân tích, gợi ý, routine) cung cấp cho bạn có thể được sử dụng cho mục đích cá nhân nhưng không được phân phối lại với mục đích thương mại.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Tuyên bố từ chối trách nhiệm</h2>
+      <ul>
+        <li>Ứng dụng được cung cấp "NGUYÊN TRẠNG" và "THEO MỨC ĐỘ SẴN CÓ" mà không có bất kỳ bảo đảm nào, dù rõ ràng hay ngầm định.</li>
+        <li>Chúng tôi không bảo đảm rằng Ứng dụng sẽ không bị gián đoạn, không có lỗi hoặc an toàn.</li>
+        <li><strong>Phân tích da bằng AI là một ước tính và không phải là chẩn đoán y khoa.</strong> Kết quả có thể khác nhau và không nên thay thế lời khuyên chuyên môn từ bác sĩ da liễu.</li>
+        <li>Gợi ý sản phẩm là các đề xuất dựa trên phân tích AI và không bảo đảm kết quả.</li>
+        <li>Lời giải vận may chỉ nhằm mục đích giải trí.</li>
+        <li><strong>Phân tích AI chỉ đánh giá các chỉ số tình trạng da của từng cá nhân. Phân tích không phân loại, không xếp loại hoặc đưa ra bất kỳ quyết định nào dựa trên chủng tộc, dân tộc, phân loại màu da hay bất kỳ đặc điểm nhân khẩu học nào khác.</strong> Bất kỳ mối tương quan nào nhận thấy trong kết quả đều không phải là chủ ý và không phản ánh thiết kế hay mục đích của dịch vụ.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Giới hạn trách nhiệm</h2>
+      <p>Trong phạm vi tối đa được pháp luật cho phép, KawKaw và các cán bộ, giám đốc, nhân viên và đại lý của mình sẽ không chịu trách nhiệm về bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hệ quả hoặc trừng phạt nào, bao gồm nhưng không giới hạn ở mất lợi nhuận, dữ liệu hoặc uy tín, phát sinh từ:</p>
+      <ul>
+        <li>Việc bạn sử dụng hoặc không thể sử dụng Ứng dụng.</li>
+        <li>Bất kỳ lỗi hoặc sự thiếu chính xác nào trong nội dung Ứng dụng hoặc phân tích AI.</li>
+        <li>Việc truy cập trái phép vào tài khoản hoặc dữ liệu của bạn.</li>
+        <li>Bất kỳ nội dung hoặc dịch vụ của bên thứ ba nào được truy cập thông qua Ứng dụng.</li>
+      </ul>
+      <p>Tổng trách nhiệm của chúng tôi đối với bất kỳ khiếu nại nào phát sinh từ các Điều khoản này hoặc việc bạn sử dụng Ứng dụng sẽ không vượt quá số tiền bạn đã thanh toán cho chúng tôi trong 12 tháng trước khi xảy ra khiếu nại.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Bồi thường</h2>
+      <p>Bạn đồng ý bồi thường, bảo vệ và giữ cho KawKaw và các bên liên kết của mình không bị tổn hại trước bất kỳ khiếu nại, thiệt hại, tổn thất hoặc chi phí nào (bao gồm phí pháp lý hợp lý) phát sinh từ việc bạn sử dụng Ứng dụng, việc bạn vi phạm các Điều khoản này hoặc việc bạn xâm phạm quyền của bất kỳ bên thứ ba nào.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Chấm dứt</h2>
+      <ul>
+        <li>Bạn có thể chấm dứt tài khoản của mình bất cứ lúc nào bằng cách xoá tài khoản thông qua Cài đặt của Ứng dụng.</li>
+        <li>Chúng tôi có thể tạm ngừng hoặc chấm dứt tài khoản của bạn nếu bạn vi phạm các Điều khoản này, có hoặc không có thông báo trước.</li>
+        <li>Khi chấm dứt, quyền sử dụng Ứng dụng của bạn sẽ chấm dứt ngay lập tức.</li>
+        <li>Việc xoá tài khoản là vĩnh viễn. Tất cả dữ liệu liên quan đến tài khoản của bạn sẽ được xoá trong vòng 30 ngày.</li>
+        <li>Các điều khoản theo bản chất của chúng cần tiếp tục có hiệu lực sau khi chấm dứt (Tuyên bố từ chối trách nhiệm, Giới hạn trách nhiệm, Bồi thường) sẽ tiếp tục có hiệu lực.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. Sửa đổi Điều khoản</h2>
+      <p>Chúng tôi bảo lưu quyền sửa đổi các Điều khoản này bất cứ lúc nào. Chúng tôi sẽ thông báo cho bạn về những thay đổi quan trọng thông qua Ứng dụng hoặc qua email. Việc bạn tiếp tục sử dụng Ứng dụng sau khi các thay đổi có hiệu lực được xem là chấp nhận các Điều khoản đã sửa đổi. Nếu bạn không đồng ý với các Điều khoản đã sửa đổi, bạn phải ngừng sử dụng Ứng dụng.</p>
+    </div>
+
+    <div class="section">
+      <h2>13. Luật điều chỉnh và giải quyết tranh chấp</h2>
+      <p>Các Điều khoản này sẽ được điều chỉnh và giải thích theo luật pháp của Hàn Quốc, không xét đến các quy định về xung đột pháp luật. Mọi tranh chấp phát sinh từ hoặc liên quan đến các Điều khoản này trước tiên sẽ được giải quyết thông qua thương lượng thiện chí. Nếu thương lượng không thành, tranh chấp sẽ được đưa ra toà án có thẩm quyền của Hàn Quốc.</p>
+    </div>
+
+    <div class="section">
+      <h2>14. Điều khoản chung</h2>
+      <ul>
+        <li><strong>Toàn bộ thoả thuận:</strong> Các Điều khoản này, cùng với Chính sách Bảo mật và Hướng dẫn Dịch vụ, cấu thành toàn bộ thoả thuận giữa bạn và KawKaw về Ứng dụng.</li>
+        <li><strong>Tính độc lập:</strong> Nếu bất kỳ điều khoản nào trong các Điều khoản này bị xem là không hợp lệ hoặc không thể thi hành, các điều khoản còn lại sẽ tiếp tục có hiệu lực đầy đủ.</li>
+        <li><strong>Không từ bỏ:</strong> Việc chúng tôi không thi hành bất kỳ điều khoản nào trong các Điều khoản này sẽ không cấu thành việc từ bỏ điều khoản đó.</li>
+        <li><strong>Chuyển nhượng:</strong> Bạn không được chuyển nhượng các quyền của mình theo các Điều khoản này. Chúng tôi có thể chuyển nhượng các quyền của mình mà không bị hạn chế.</li>
+        <li><strong>Bất khả kháng:</strong> Chúng tôi sẽ không chịu trách nhiệm về bất kỳ thất bại hoặc chậm trễ nào do các tình huống nằm ngoài tầm kiểm soát hợp lý của chúng tôi.</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. Liên hệ</h2>
+      <p>Nếu bạn có câu hỏi về các Điều khoản này, vui lòng liên hệ với chúng tôi:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ THAI ═══════════════ -->
+  <div lang="th">
+    <h1>ข้อกำหนดการให้บริการ</h1>
+    <p class="date">วันที่มีผลบังคับใช้: 17 เมษายน 2025 | อัปเดตล่าสุด: 9 มิถุนายน 2026</p>
+    <p>ยินดีต้อนรับสู่ Gumi Glowup ข้อกำหนดการให้บริการนี้ ("ข้อกำหนด") กำกับดูแลการใช้แอปพลิเคชันมือถือ Gumi Glowup ("แอป") ซึ่งดำเนินการโดย KawKaw ("บริษัท", "เรา") โดยการดาวน์โหลด เข้าถึง หรือใช้แอปนี้ ถือว่าคุณยอมรับและยินยอมผูกพันตามข้อกำหนดเหล่านี้ หากคุณไม่ยอมรับ กรุณาอย่าใช้แอป</p>
+
+    <div class="section">
+      <h2>1. คุณสมบัติของผู้ใช้</h2>
+      <p>คุณต้องมีอายุอย่างน้อย 16 ปี (หรืออายุขั้นต่ำที่กฎหมายในเขตอำนาจของคุณกำหนด) เพื่อใช้แอป โดยการใช้แอป คุณรับรองและรับประกันว่าคุณมีคุณสมบัติตามอายุที่กำหนด หากคุณยังไม่บรรลุนิติภาวะตามกฎหมายในเขตอำนาจของคุณ คุณต้องได้รับความยินยอมจากบิดามารดาหรือผู้ปกครองตามกฎหมายเพื่อใช้แอป</p>
+      <p><strong>ข้อจำกัดทางภูมิศาสตร์:</strong> แอปนี้ไม่ได้ให้บริการ ไม่ได้ทำการตลาด และไม่ได้มุ่งเน้นไปยังผู้พักอาศัยใน European Economic Area (EEA), European Union (EU) หรือ United Kingdom (UK) แอปนี้ไม่สามารถดาวน์โหลดได้ในภูมิภาคดังกล่าว หากคุณพำนักอยู่ใน EEA, EU หรือ UK กรุณาอย่าใช้แอป เราไม่ได้เก็บหรือประมวลผลข้อมูลส่วนบุคคลของผู้พักอาศัยในภูมิภาคเหล่านี้โดยจงใจ และไม่ได้แต่งตั้งผู้แทนภายใต้ Article 27 ของ GDPR ของ EU/UK</p>
+    </div>
+
+    <div class="section">
+      <h2>2. การลงทะเบียนบัญชี</h2>
+      <ul>
+        <li>คุณสามารถสร้างบัญชีโดยใช้อีเมล/รหัสผ่าน หรือผู้ให้บริการล็อกอินผ่านโซเชียลที่รองรับ (Google, Apple)</li>
+        <li>คุณมีหน้าที่รับผิดชอบในการรักษาความลับของข้อมูลรับรองบัญชีของคุณ</li>
+        <li>คุณตกลงที่จะให้ข้อมูลที่ถูกต้อง เป็นปัจจุบัน และครบถ้วนในระหว่างการลงทะเบียน</li>
+        <li>คุณมีหน้าที่รับผิดชอบต่อกิจกรรมทั้งหมดที่เกิดขึ้นภายใต้บัญชีของคุณ</li>
+        <li>คุณต้องแจ้งให้เราทราบทันทีหากมีการใช้บัญชีของคุณโดยไม่ได้รับอนุญาต</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. คำอธิบายบริการ</h2>
+      <p>Gumi Glowup คือผู้ช่วยดูแลผิวที่ขับเคลื่อนด้วย AI ซึ่งให้บริการดังนี้:</p>
+      <ul>
+        <li><strong>การวิเคราะห์ผิวด้วย AI:</strong> การวิเคราะห์สภาพผิวจากภาพเซลฟี่โดยใช้ปัญญาประดิษฐ์ การวิเคราะห์จำกัดอยู่เฉพาะตัวชี้วัดสภาพผิวทางด้านผิวหนัง (ความชุ่มชื้น ความยืดหยุ่น รูขุมขน รอยคล้ำ ริ้วรอย) และไม่มีการจำแนกตามเชื้อชาติ ชาติพันธุ์ หรือลักษณะทางประชากรใด ๆ ทั้งสิ้น</li>
+        <li><strong>คำแนะนำผลิตภัณฑ์:</strong> คำแนะนำผลิตภัณฑ์ดูแลผิวที่เฉพาะบุคคลจากผลการวิเคราะห์ผิวของคุณ พร้อมตัวเลือกขอคำแนะนำใหม่จากชุด K-beauty (เครื่องสำอางเกาหลี) ที่คัดสรรเมื่อต้องการ</li>
+        <li><strong>การจัดการรูทีน:</strong> การสร้าง การติดตาม และการแจ้งเตือนรูทีนดูแลผิวเช้า/เย็น</li>
+        <li><strong>การติดตามผิว &amp; รายงาน:</strong> การติดตามการเปลี่ยนแปลงสภาพผิวตามช่วงเวลา กราฟแนวโน้ม และข้อมูลผลกระทบของแต่ละผลิตภัณฑ์</li>
+        <li><strong>ไดอารี่ผลิตภัณฑ์:</strong> บันทึกผลิตภัณฑ์ที่คุณกำลังใช้และใช้หมดแล้ว พร้อมสถิติการใช้งาน</li>
+        <li><strong>บทความความรู้:</strong> เนื้อหาให้ความรู้เกี่ยวกับการดูแลผิวและฟีดชุมชนที่คัดสรรมาแล้ว</li>
+        <li><strong>ดวงประจำวัน:</strong> การดูดวงเชิงความบันเทิงรายวันพร้อมเคล็ดลับการดูแลผิวเฉพาะบุคคล วันละหนึ่งครั้ง</li>
+        <li><strong>การ์ดสำหรับแชร์:</strong> การ์ดภาพแบบทางเลือกที่สรุปผลการวิเคราะห์หรือดวงของคุณ ซึ่งคุณสามารถแชร์ด้วยตนเองภายนอกแอปได้</li>
+      </ul>
+      <div class="highlight"><p><strong>คำชี้แจง:</strong> แอปนี้ให้บริการเนื้อหาเพื่อให้ข้อมูลและความบันเทิงเท่านั้น ผลการวิเคราะห์ผิวและคำแนะนำผลิตภัณฑ์เป็นค่าประมาณการที่ AI สร้างขึ้นและไม่ถือเป็นคำแนะนำทางการแพทย์ กรุณาปรึกษาแพทย์ผิวหนังหรือผู้เชี่ยวชาญทางการแพทย์เสมอสำหรับปัญหาผิวที่ต้องการการรักษา</p></div>
+    </div>
+
+    <div class="section">
+      <h2>4. การสมัครสมาชิกและการชำระเงิน</h2>
+      <h3>4.1 แผนฟรีและพรีเมียม</h3>
+      <p>แอปนี้มีทั้งแพ็กเกจสมัครสมาชิกฟรีและพรีเมียม ฟีเจอร์ที่ขับเคลื่อนด้วย AI ได้แก่ การวิเคราะห์ผิว คำแนะนำผลิตภัณฑ์ คำแนะนำรูทีน รายงาน และดวงประจำวัน โดยทั่วไปต้องใช้การสมัครสมาชิกพรีเมียมที่ใช้งานอยู่ ฟีเจอร์พรีเมียมจะถูกระบุอย่างชัดเจนภายในแอป</p>
+      <h3>4.2 การสแกนผิวครั้งแรกฟรี</h3>
+      <p>ผู้ใช้ใหม่สามารถทำการสแกนผิวด้วย AI ครั้งแรกได้โดยไม่ต้องสมัครสมาชิกแบบเสียค่าใช้จ่าย การสแกนผิวครั้งต่อ ๆ ไป คำแนะนำผลิตภัณฑ์หลังจากครั้งแรก การสร้างรูทีน รายงาน และดวงประจำวัน ต้องใช้การสมัครสมาชิกพรีเมียมที่ใช้งานอยู่ ขอบเขตการใช้งานฟรีที่แท้จริงอาจเปลี่ยนแปลงได้และเป็นไปตามกฎภายในแอปในขณะที่ใช้งาน</p>
+      <h3>4.3 การประมวลผลการชำระเงิน</h3>
+      <ul>
+        <li>การชำระเงินดำเนินการผ่าน Apple App Store หรือ Google Play Store</li>
+        <li>ราคาสมัครสมาชิกจะถูกดึงมาจาก App Store / Google Play แบบเรียลไทม์และแสดงในสกุลเงินท้องถิ่นของคุณ โดยทั่วไปจะมีตัวเลือกรายเดือนและรายปี แผนรายปีจะต่ออายุอัตโนมัติทุก 12 เดือน และแผนรายเดือนจะต่ออายุทุกเดือน</li>
+        <li>การสมัครสมาชิกจะต่ออายุโดยอัตโนมัติ เว้นแต่จะถูกยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบการเรียกเก็บเงินปัจจุบัน</li>
+        <li>คุณสามารถจัดการและยกเลิกการสมัครสมาชิกได้ผ่านการตั้งค่าบัญชี App Store หรือ Google Play ของคุณ</li>
+      </ul>
+      <h3>4.4 นโยบายการคืนเงิน</h3>
+      <p>การคืนเงินจะเป็นไปตามนโยบายของ Apple App Store หรือ Google Play Store เราไม่ได้ดำเนินการคืนเงินโดยตรง</p>
+      <h3>4.5 การเปลี่ยนแปลงราคา</h3>
+      <p>เราอาจเปลี่ยนแปลงราคาสมัครสมาชิกได้โดยแจ้งให้ทราบล่วงหน้าตามสมควร การเปลี่ยนแปลงราคาจะไม่มีผลกระทบต่อรอบการเรียกเก็บเงินปัจจุบันของคุณ</p>
+      <h3>4.6 ขีดจำกัดอัตราการใช้งานเพื่อความเป็นธรรม</h3>
+      <p>เพื่อรักษาเสถียรภาพของบริการสำหรับทุกคน จะมีการบังคับใช้ขีดจำกัดอัตราต่อนาทีกับเอนด์พอยต์ที่ขับเคลื่อนด้วย AI (เช่น การวิเคราะห์ผิว คำแนะนำผลิตภัณฑ์ คำแนะนำรูทีน รายงาน และดวงประจำวัน) ขีดจำกัดเหล่านี้มีผลกับผู้ใช้ทั้งแบบฟรีและพรีเมียม และเป็นอิสระจากสถานะการสมัครสมาชิก เมื่อถึงขีดจำกัด แอปจะแสดงข้อความแจ้งเฉพาะและขอให้คุณลองใหม่อีกครั้งในภายหลัง</p>
+    </div>
+
+    <div class="section">
+      <h2>5. เนื้อหาของผู้ใช้</h2>
+      <h3>5.1 เนื้อหาของคุณ</h3>
+      <ul>
+        <li>คุณยังคงเป็นเจ้าของรูปภาพและเนื้อหาทั้งหมดที่คุณส่งให้แอป</li>
+        <li>โดยการส่งเนื้อหา คุณให้สิทธิ์เราอย่างจำกัด ไม่ผูกขาด ในการประมวลผล วิเคราะห์ และจัดเก็บเนื้อหาของคุณ เพื่อวัตถุประสงค์ในการให้บริการแอปแก่คุณเท่านั้น</li>
+        <li>คุณรับรองว่าคุณมีสิทธิ์ในการส่งเนื้อหาดังกล่าว และเนื้อหาไม่ละเมิดสิทธิ์ของบุคคลที่สาม</li>
+      </ul>
+      <h3>5.2 การใช้ภาพถ่าย</h3>
+      <ul>
+        <li>ภาพเซลฟี่จะถูกใช้เพื่อการวิเคราะห์ผิวด้วย AI เท่านั้น และถูกจัดเก็บอย่างปลอดภัย</li>
+        <li>ภาพถ่ายจะไม่ถูกแชร์กับผู้ใช้รายอื่น ไม่ถูกใช้เพื่อการตลาด และจะไม่ถูกเผยแพร่โดยไม่ได้รับความยินยอมที่ชัดแจ้งจากคุณ</li>
+        <li>คุณสามารถลบภาพถ่ายของคุณได้ตลอดเวลาจากภายในแอป</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. การกระทำที่ต้องห้าม</h2>
+      <p>คุณตกลงที่จะไม่:</p>
+      <ul>
+        <li>ใช้แอปเพื่อวัตถุประสงค์ที่ผิดกฎหมายหรือฝ่าฝืนข้อกำหนดเหล่านี้</li>
+        <li>ส่งข้อมูลที่เป็นเท็จ ทำให้เข้าใจผิด หรือไม่ถูกต้อง</li>
+        <li>อัปโหลดเนื้อหาที่ไม่เหมาะสม เป็นอันตราย หรือละเมิดสิทธิ์ของผู้อื่น</li>
+        <li>พยายามทำวิศวกรรมย้อนกลับ ดีคอมไพล์ หรือถอดประกอบแอป</li>
+        <li>แทรกแซงหรือรบกวนโครงสร้างพื้นฐานหรือความปลอดภัยของแอป</li>
+        <li>ใช้ระบบอัตโนมัติ (บอท, สแครปเปอร์) เพื่อเข้าถึงแอป</li>
+        <li>ขายต่อ แจกจ่ายซ้ำ หรือใช้ประโยชน์เชิงพาณิชย์จากเนื้อหาหรือบริการของแอป</li>
+        <li>แอบอ้างเป็นบุคคลหรือนิติบุคคลอื่น</li>
+        <li>หลีกเลี่ยงข้อจำกัดการเข้าถึงหรือขีดจำกัดการใช้งานใด ๆ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. ทรัพย์สินทางปัญญา</h2>
+      <ul>
+        <li>แอป รวมถึงการออกแบบ โค้ด ฟีเจอร์ เนื้อหา โลโก้ และเครื่องหมายการค้า เป็นของ KawKaw และได้รับการคุ้มครองตามกฎหมายทรัพย์สินทางปัญญา</li>
+        <li>คุณได้รับสิทธิ์อย่างจำกัด ไม่ผูกขาด ไม่สามารถโอนได้ และเพิกถอนได้ในการใช้แอปเพื่อวัตถุประสงค์ส่วนบุคคลและไม่ใช่เชิงพาณิชย์</li>
+        <li>เนื้อหาที่ AI สร้างขึ้น (ผลการวิเคราะห์ คำแนะนำ รูทีน) ที่ให้แก่คุณสามารถใช้เพื่อวัตถุประสงค์ส่วนบุคคลได้ แต่ไม่สามารถแจกจ่ายซ้ำเชิงพาณิชย์ได้</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. คำชี้แจงข้อจำกัดความรับผิด</h2>
+      <ul>
+        <li>แอปนี้จัดให้บริการตาม "สภาพที่เป็นอยู่" และ "ตามที่มีอยู่" โดยไม่มีการรับประกันใด ๆ ไม่ว่าโดยชัดแจ้งหรือโดยปริยาย</li>
+        <li>เราไม่รับประกันว่าแอปจะใช้งานได้โดยไม่หยุดชะงัก ปราศจากข้อผิดพลาด หรือปลอดภัย</li>
+        <li><strong>การวิเคราะห์ผิวด้วย AI เป็นเพียงการประมาณการและไม่ใช่การวินิจฉัยทางการแพทย์</strong> ผลลัพธ์อาจแตกต่างกันไปและไม่ควรใช้แทนคำแนะนำของแพทย์ผิวหนังมืออาชีพ</li>
+        <li>คำแนะนำผลิตภัณฑ์เป็นข้อเสนอแนะจากการวิเคราะห์ AI และไม่รับประกันผลลัพธ์</li>
+        <li>การดูดวงมีวัตถุประสงค์เพื่อความบันเทิงเท่านั้น</li>
+        <li><strong>การวิเคราะห์ AI ประเมินเฉพาะตัวชี้วัดสภาพผิวของบุคคลเท่านั้น ไม่มีการจำแนก จัดประเภท หรือการตัดสินใด ๆ ตามเชื้อชาติ ชาติพันธุ์ การจำแนกสีผิว หรือลักษณะทางประชากรอื่น ๆ</strong> ความสัมพันธ์ใด ๆ ที่อาจเห็นในผลลัพธ์ไม่ได้เป็นความตั้งใจ และไม่ได้สะท้อนถึงการออกแบบหรือเจตนาของบริการนี้</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. การจำกัดความรับผิด</h2>
+      <p>ภายใต้ขอบเขตสูงสุดที่กฎหมายที่ใช้บังคับอนุญาต KawKaw และเจ้าหน้าที่ ผู้บริหาร พนักงาน และตัวแทนของบริษัทจะไม่รับผิดต่อความเสียหายทางอ้อม ความเสียหายโดยบังเอิญ ความเสียหายพิเศษ ความเสียหายเชิงผลสืบเนื่อง หรือความเสียหายเชิงลงโทษใด ๆ รวมถึงแต่ไม่จำกัดเพียงการสูญเสียกำไร ข้อมูล หรือชื่อเสียง ที่เกิดจาก:</p>
+      <ul>
+        <li>การใช้หรือไม่สามารถใช้แอปของคุณ</li>
+        <li>ข้อผิดพลาดหรือความไม่ถูกต้องใด ๆ ในเนื้อหาของแอปหรือการวิเคราะห์ AI</li>
+        <li>การเข้าถึงบัญชีหรือข้อมูลของคุณโดยไม่ได้รับอนุญาต</li>
+        <li>เนื้อหาหรือบริการของบุคคลที่สามใด ๆ ที่เข้าถึงผ่านแอป</li>
+      </ul>
+      <p>ความรับผิดทั้งหมดของเราต่อข้อเรียกร้องใด ๆ ที่เกิดจากข้อกำหนดเหล่านี้หรือการใช้แอปของคุณจะไม่เกินจำนวนเงินที่คุณได้ชำระให้กับเราในช่วง 12 เดือนก่อนเกิดการเรียกร้อง</p>
+    </div>
+
+    <div class="section">
+      <h2>10. การชดใช้ค่าเสียหาย</h2>
+      <p>คุณตกลงที่จะชดใช้ค่าเสียหาย ปกป้อง และทำให้ KawKaw และบริษัทในเครือไม่ได้รับความเสียหายจากการเรียกร้อง ความเสียหาย การสูญเสีย หรือค่าใช้จ่ายใด ๆ (รวมถึงค่าธรรมเนียมทางกฎหมายตามสมควร) ที่เกิดจากการใช้แอปของคุณ การละเมิดข้อกำหนดเหล่านี้ของคุณ หรือการละเมิดสิทธิ์ของบุคคลที่สามใด ๆ ของคุณ</p>
+    </div>
+
+    <div class="section">
+      <h2>11. การยกเลิก</h2>
+      <ul>
+        <li>คุณสามารถยกเลิกบัญชีของคุณได้ตลอดเวลาโดยการลบบัญชีผ่านการตั้งค่าของแอป</li>
+        <li>เราอาจระงับหรือยกเลิกบัญชีของคุณหากคุณฝ่าฝืนข้อกำหนดเหล่านี้ ไม่ว่าจะมีหรือไม่มีการแจ้งเตือนล่วงหน้า</li>
+        <li>เมื่อมีการยกเลิก สิทธิ์ในการใช้แอปของคุณจะสิ้นสุดทันที</li>
+        <li>การลบบัญชีเป็นการถาวร ข้อมูลทั้งหมดที่เกี่ยวข้องกับบัญชีของคุณจะถูกลบภายใน 30 วัน</li>
+        <li>ส่วนต่าง ๆ ที่โดยลักษณะแล้วควรคงอยู่ต่อไปหลังการยกเลิก (คำชี้แจงข้อจำกัดความรับผิด การจำกัดความรับผิด การชดใช้ค่าเสียหาย) จะยังคงมีผลต่อไป</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. การแก้ไขข้อกำหนด</h2>
+      <p>เราขอสงวนสิทธิ์ในการแก้ไขข้อกำหนดเหล่านี้ได้ตลอดเวลา เราจะแจ้งให้คุณทราบถึงการเปลี่ยนแปลงที่สำคัญผ่านแอปหรือทางอีเมล การที่คุณยังคงใช้แอปต่อไปหลังจากที่การเปลี่ยนแปลงมีผลบังคับใช้ ถือเป็นการยอมรับข้อกำหนดที่แก้ไขแล้ว หากคุณไม่ยอมรับข้อกำหนดที่แก้ไขแล้ว คุณต้องหยุดใช้แอป</p>
+    </div>
+
+    <div class="section">
+      <h2>13. กฎหมายที่ใช้บังคับและการระงับข้อพิพาท</h2>
+      <p>ข้อกำหนดเหล่านี้จะถูกควบคุมและตีความตามกฎหมายของสาธารณรัฐเกาหลี โดยไม่คำนึงถึงหลักการขัดกันของกฎหมาย ข้อพิพาทใด ๆ ที่เกิดจากหรือเกี่ยวข้องกับข้อกำหนดเหล่านี้จะต้องระงับโดยการเจรจาด้วยความสุจริตใจก่อน หากการเจรจาล้มเหลว ข้อพิพาทจะถูกส่งไปยังศาลที่มีเขตอำนาจของสาธารณรัฐเกาหลี</p>
+    </div>
+
+    <div class="section">
+      <h2>14. ข้อกำหนดทั่วไป</h2>
+      <ul>
+        <li><strong>ข้อตกลงทั้งหมด:</strong> ข้อกำหนดเหล่านี้ พร้อมด้วยนโยบายความเป็นส่วนตัวและคู่มือบริการ ถือเป็นข้อตกลงทั้งหมดระหว่างคุณกับ KawKaw เกี่ยวกับแอป</li>
+        <li><strong>การแยกส่วน:</strong> หากบทบัญญัติใด ๆ ของข้อกำหนดเหล่านี้ถูกพบว่าเป็นโมฆะหรือไม่สามารถบังคับใช้ได้ บทบัญญัติที่เหลือจะยังคงมีผลบังคับใช้อย่างเต็มที่</li>
+        <li><strong>การไม่สละสิทธิ์:</strong> การที่เราไม่บังคับใช้บทบัญญัติใด ๆ ของข้อกำหนดเหล่านี้จะไม่ถือเป็นการสละสิทธิ์ในบทบัญญัตินั้น</li>
+        <li><strong>การโอนสิทธิ์:</strong> คุณไม่อาจโอนสิทธิ์ของคุณภายใต้ข้อกำหนดเหล่านี้ เราอาจโอนสิทธิ์ของเราโดยไม่มีข้อจำกัด</li>
+        <li><strong>เหตุสุดวิสัย:</strong> เราจะไม่รับผิดต่อความล้มเหลวหรือความล่าช้าใด ๆ ที่เกิดจากสถานการณ์ที่อยู่นอกเหนือการควบคุมตามสมควรของเรา</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>15. ติดต่อเรา</h2>
+      <p>หากคุณมีคำถามเกี่ยวกับข้อกำหนดเหล่านี้ กรุณาติดต่อเรา:</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
   <script>
-    var SUPPORTED_LANGS = ['en', 'ko'];
+    var SUPPORTED_LANGS = ['en', 'ko', 'ja', 'zh-TW', 'es', 'vi', 'th'];
 
     function setLang(lang) {
       if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
-      document.body.className = lang === 'en' ? '' : lang;
+      document.body.className = lang === 'en' ? '' : lang.toLowerCase();
       document.getElementById('lang-select').value = lang;
       document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
@@ -403,10 +1262,15 @@
       var lang = p.get('lang');
       if (!lang) {
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var matched = SUPPORTED_LANGS.find(function(l) {
-          return browserLang === l || browserLang.startsWith(l + '-');
-        });
-        lang = matched || 'en';
+        if (browserLang === 'zh' || browserLang.startsWith('zh-')) {
+          lang = 'zh-TW';
+        } else {
+          var matched = SUPPORTED_LANGS.find(function(l) {
+            var lower = l.toLowerCase();
+            return browserLang === lower || browserLang.startsWith(lower + '-');
+          });
+          lang = matched || 'en';
+        }
       }
       setLang(lang);
     })();

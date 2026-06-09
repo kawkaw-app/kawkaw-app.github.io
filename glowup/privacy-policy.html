@@ -45,9 +45,14 @@
       width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
       border-top:5px solid var(--txt2);pointer-events:none;
     }
-    body>[lang="ko"]{display:none}
-    .ko>body>[lang="ko"],.ko>[lang="ko"]{display:block}
-    .ko>body>[lang="en"],.ko>[lang="en"]{display:none}
+    body>[lang]{display:none}
+    body>[lang="en"]{display:block}
+    .ko>[lang="en"]{display:none}.ko>[lang="ko"]{display:block}
+    .ja>[lang="en"]{display:none}.ja>[lang="ja"]{display:block}
+    .zh-tw>[lang="en"]{display:none}.zh-tw>[lang="zh-TW"]{display:block}
+    .es>[lang="en"]{display:none}.es>[lang="es"]{display:block}
+    .vi>[lang="en"]{display:none}.vi>[lang="vi"]{display:block}
+    .th>[lang="en"]{display:none}.th>[lang="th"]{display:block}
   </style>
 </head>
 <body>
@@ -55,13 +60,18 @@
     <select id="lang-select" onchange="setLang(this.value)">
       <option value="en">English</option>
       <option value="ko">한국어</option>
+      <option value="ja">日本語</option>
+      <option value="zh-TW">繁體中文</option>
+      <option value="es">Español</option>
+      <option value="vi">Tiếng Việt</option>
+      <option value="th">ไทย</option>
     </select>
   </div>
 
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div lang="en">
     <h1>Privacy Policy</h1>
-    <p class="date">Effective Date: April 17, 2025 | Last Updated: April 21, 2026</p>
+    <p class="date">Effective Date: April 17, 2025 | Last Updated: June 9, 2026</p>
     <p>KawKaw ("Company," "we," "us," or "our") operates the Gumi Glowup mobile application ("App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. By using the App, you consent to the practices described in this policy.</p>
 
     <div class="section">
@@ -72,6 +82,7 @@
         <li><strong>Profile Information:</strong> Birthday, gender (optional), country/region (optional), skin types (1–3), skin concerns (free text, optional), allergies (optional), preferred brands (optional), and zodiac sign (derived from your birthday, used for the daily fortune).</li>
         <li><strong>Photos:</strong> Selfie photos you take for AI skin analysis.</li>
         <li><strong>Routine &amp; Analysis Data:</strong> Skin analysis history, recommended products, AM/PM routine configurations, and daily routine completion records.</li>
+        <li><strong>Product Diary:</strong> Records you log about products you are using or finished (start/finish dates, notes, volume) and product stats derived from them.</li>
         <li><strong>Communications:</strong> Messages you send to our support team.</li>
       </ul>
       <h3>1.2 Information Collected Automatically</h3>
@@ -93,9 +104,9 @@
       <h2>2. How We Use Your Information</h2>
       <ul>
         <li><strong>Skin Analysis:</strong> Your selfie photos are processed by AI to assess skin condition (hydration, elasticity, pores, pigmentation, wrinkles) and estimate skin age. <strong>Analysis is limited strictly to dermatological skin condition metrics and does not evaluate, classify, or make any determination based on race, ethnicity, or skin colour.</strong></li>
-        <li><strong>Personalised Recommendations:</strong> We use your skin type, concerns, age, and analysis results to recommend skincare products and routines.</li>
-        <li><strong>Fortune Feature:</strong> Name, birthday, gender, and zodiac sign are used to generate daily fortune readings.</li>
-        <li><strong>App Functionality:</strong> To manage your account, track your skincare routine streaks, and deliver notifications.</li>
+        <li><strong>Personalised Recommendations:</strong> We use your skin type, concerns, age, and analysis results to recommend skincare products and routines. For Korean-origin products, our recommender additionally cross-references the Korean Ministry of Food and Drug Safety (MFDS) functional cosmetics database; for non-Korean products it uses the Open Beauty Facts (OBF) database. Both data sources contain product information only — no personal data is sent to MFDS or OBF.</li>
+        <li><strong>Fortune Feature:</strong> Name, birthday, gender, and zodiac sign are used to generate daily fortune readings (one reading per day).</li>
+        <li><strong>App Functionality:</strong> To manage your account, track your skincare routine streaks, log products in your diary, and deliver notifications.</li>
         <li><strong>Service Improvement:</strong> Aggregated, anonymised usage data helps us improve the App.</li>
         <li><strong>Communication:</strong> To respond to your support inquiries and send important service updates.</li>
       </ul>
@@ -146,13 +157,13 @@
           <tbody>
             <tr>
               <td>Supabase, Inc. (USA)</td>
-              <td>Authentication, database, file storage</td>
-              <td>All collected data (account, profile, photos, analysis results, routines)</td>
+              <td>Authentication, database, file storage, Edge Functions</td>
+              <td>All collected data (account, profile, photos, analysis results, routines, product diary)</td>
               <td>Until account deletion</td>
             </tr>
             <tr>
               <td>Google LLC (USA)</td>
-              <td>AI skin analysis &amp; recommendations (Gemini API)</td>
+              <td>AI skin analysis, product/routine recommendations, daily fortune, report generation (Gemini API)</td>
               <td>Photos, skin data, profile (email and account ID excluded)</td>
               <td>Processed in real time and discarded immediately (not stored on Google servers)</td>
             </tr>
@@ -172,6 +183,7 @@
         </table>
       </div>
       <p style="font-size:12px;margin-top:8px">Some processors are located outside your country of residence. See Section 9 (International Data Transfers) for the safeguards we apply. Korean residents: a separate consent for overseas transfer is collected at sign-up in accordance with PIPA Article 28-8.</p>
+      <p style="font-size:12px;margin-top:8px">We also query public product-information sources to enrich recommendation results. The Korean Ministry of Food and Drug Safety (MFDS) functional cosmetics database is queried by product name for Korean-origin products; the Open Beauty Facts (OBF) database is queried for non-Korean products. These queries contain product information only and never include your personal data.</p>
     </div>
 
     <div class="section">
@@ -255,7 +267,7 @@
   <!-- ═══════════════ KOREAN ═══════════════ -->
   <div lang="ko">
     <h1>개인정보처리방침</h1>
-    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 4월 21일</p>
+    <p class="date">시행일: 2025년 4월 17일 | 최종 수정: 2026년 6월 9일</p>
     <p>KawKaw(이하 "회사", "당사")는 Gumi Glowup 모바일 애플리케이션(이하 "앱")을 운영합니다. 본 개인정보처리방침은 귀하가 앱을 이용할 때 당사가 귀하의 정보를 어떻게 수집, 이용, 공개 및 보호하는지 설명합니다. 앱을 사용함으로써 귀하는 본 방침에 설명된 관행에 동의하게 됩니다.</p>
 
     <div class="section">
@@ -266,6 +278,7 @@
         <li><strong>프로필 정보:</strong> 생년월일, 성별(선택), 국가/지역(선택), 피부 타입(1~3개), 피부 고민(자유 입력, 선택), 알레르기 성분(선택), 선호 브랜드(선택), 별자리(생년월일에서 자동 도출, 오늘의 운세에 사용).</li>
         <li><strong>사진:</strong> AI 피부 분석을 위해 촬영하는 셀카 사진.</li>
         <li><strong>루틴 &amp; 분석 데이터:</strong> 피부 분석 이력, 추천된 제품, AM/PM 루틴 설정, 일일 루틴 수행 기록.</li>
+        <li><strong>제품 다이어리:</strong> 사용 중·사용 완료 제품에 대한 기록(시작/종료일, 메모, 용량) 및 그로부터 도출된 통계.</li>
         <li><strong>문의 내용:</strong> 고객 지원팀에 보내는 메시지.</li>
       </ul>
       <h3>1.2 자동으로 수집되는 정보</h3>
@@ -287,9 +300,9 @@
       <h2>2. 정보 이용 목적</h2>
       <ul>
         <li><strong>피부 분석:</strong> 셀카 사진을 AI로 처리하여 피부 상태(수분, 탄력, 모공, 색소침착, 주름)를 분석하고 피부 나이를 추정합니다. <strong>분석은 피부과학적 피부 상태 지표에 엄격히 한정되며, 인종, 민족 또는 피부색을 기반으로 평가, 분류 또는 판단하지 않습니다.</strong></li>
-        <li><strong>맞춤형 추천:</strong> 피부 타입, 고민, 나이, 분석 결과를 활용하여 스킨케어 제품과 루틴을 추천합니다.</li>
-        <li><strong>운세 기능:</strong> 이름, 생년월일, 성별, 별자리를 사용하여 일일 운세를 생성합니다.</li>
-        <li><strong>앱 기능 제공:</strong> 계정 관리, 스킨케어 루틴 스트릭 추적, 알림 전송.</li>
+        <li><strong>맞춤형 추천:</strong> 피부 타입, 고민, 나이, 분석 결과를 활용하여 스킨케어 제품과 루틴을 추천합니다. 한국 원산 제품의 경우 식품의약품안전처(식약처)의 기능성 화장품 공개 데이터베이스를 추가로 참조하고, 그 외 제품은 Open Beauty Facts(OBF) 데이터베이스를 참조합니다. 두 데이터 소스에는 제품 정보만 조회되며, 식약처·OBF로 귀하의 개인정보가 전송되는 일은 없습니다.</li>
+        <li><strong>운세 기능:</strong> 이름, 생년월일, 성별, 별자리를 사용하여 하루 1회 일일 운세를 생성합니다.</li>
+        <li><strong>앱 기능 제공:</strong> 계정 관리, 스킨케어 루틴 스트릭 추적, 제품 다이어리 기록, 알림 전송.</li>
         <li><strong>서비스 개선:</strong> 집계된 비식별 이용 데이터를 서비스 개선에 활용합니다.</li>
         <li><strong>소통:</strong> 고객 문의 답변 및 중요한 서비스 업데이트 안내.</li>
       </ul>
@@ -340,13 +353,13 @@
           <tbody>
             <tr>
               <td>Supabase, Inc. (미국)</td>
-              <td>회원 인증, 데이터베이스, 파일 저장</td>
-              <td>수집한 모든 정보 (계정, 프로필, 사진, 분석 결과, 루틴 등)</td>
+              <td>회원 인증, 데이터베이스, 파일 저장, Edge Functions</td>
+              <td>수집한 모든 정보 (계정, 프로필, 사진, 분석 결과, 루틴, 제품 다이어리 등)</td>
               <td>회원 탈퇴 시까지</td>
             </tr>
             <tr>
               <td>Google LLC (미국)</td>
-              <td>AI 피부 분석 및 추천 (Gemini API)</td>
+              <td>AI 피부 분석, 제품·루틴 추천, 오늘의 운세, 리포트 생성 (Gemini API)</td>
               <td>사진, 피부 데이터, 프로필 (이메일·계정 ID 제외)</td>
               <td>실시간 처리 후 즉시 폐기 (Google 서버 미저장)</td>
             </tr>
@@ -366,6 +379,7 @@
         </table>
       </div>
       <p style="font-size:12px;margin-top:8px">일부 수탁자는 귀하의 거주 국가 외부에 위치합니다. 국외 이전에 적용되는 안전조치는 9조(국제 데이터 이전)를 참고하시기 바랍니다. 한국 거주자의 경우, 개인정보보호법 제28조의8에 따라 회원가입 시 국외 이전에 대한 별도 동의를 받습니다.</p>
+      <p style="font-size:12px;margin-top:8px">추천 결과 보강을 위해 외부 공개 제품정보 소스를 추가로 조회합니다. 한국 원산 제품은 식품의약품안전처(MFDS) 기능성 화장품 보고품목 공개 DB에 제품명으로 질의하고, 그 외 제품은 Open Beauty Facts(OBF) DB에 질의합니다. 이 조회에는 제품 정보만 포함되며 귀하의 개인정보는 포함되지 않습니다.</p>
     </div>
 
     <div class="section">
@@ -446,12 +460,992 @@
     </div>
   </div>
 
+  <!-- ═══════════════ JAPANESE ═══════════════ -->
+  <div lang="ja">
+    <h1>プライバシーポリシー</h1>
+    <p class="date">施行日：2025年4月17日 | 最終更新：2026年6月9日</p>
+    <p>KawKaw（以下「当社」）は、Gumi Glowup モバイルアプリケーション（以下「本アプリ」）を運営しています。本プライバシーポリシーは、お客様が本アプリをご利用になる際に、当社がどのようにお客様の情報を収集・利用・開示・保護するかを説明するものです。本アプリをご利用いただくことで、お客様は本ポリシーに記載された取り扱いに同意したものとみなされます。</p>
+
+    <div class="section">
+      <h2>1. 当社が収集する情報</h2>
+      <h3>1.1 お客様から提供される情報</h3>
+      <ul>
+        <li><strong>アカウント情報：</strong>氏名、メールアドレス、メール登録の場合はパスワード。Apple・Google ログインは各プロバイダーが認証を処理するため、当社はソーシャルログインのパスワードを保存しません。</li>
+        <li><strong>プロフィール情報：</strong>生年月日、性別（任意）、国・地域（任意）、肌タイプ（1〜3個）、肌の悩み（自由入力・任意）、アレルギー（任意）、お気に入りブランド（任意）、星座（生年月日から自動算出、毎日の運勢に使用）。</li>
+        <li><strong>写真：</strong>AI 肌分析のために撮影するセルフィー写真。</li>
+        <li><strong>ルーティン＆分析データ：</strong>肌分析履歴、おすすめ製品、AM/PM ルーティン設定、毎日のルーティン実施記録。</li>
+        <li><strong>製品ダイアリー：</strong>使用中・使用済み製品に関する記録（開始日・終了日、メモ、内容量）、およびそれらから算出される製品統計。</li>
+        <li><strong>お問い合わせ：</strong>サポートチームに送信されるメッセージ。</li>
+      </ul>
+      <h3>1.2 自動的に収集される情報</h3>
+      <ul>
+        <li><strong>デバイス情報：</strong>デバイスモデル、OS バージョン、固有デバイス識別子。</li>
+        <li><strong>利用データ：</strong>アプリ機能の利用状況、操作パターン、セッション時間。</li>
+        <li><strong>プッシュ通知トークン：</strong>お客様が同意された通知を配信するため。</li>
+      </ul>
+      <h3>1.3 当社が収集しない情報</h3>
+      <ul>
+        <li>正確な位置情報は収集しません。</li>
+        <li>連絡先、カレンダー、他のアプリにはアクセスしません。</li>
+        <li>広告トラッカーを使用したり、広告主にデータを販売することはありません。</li>
+        <li><strong>写真、肌分析、その他のデータから、人種・民族的出自、宗教的信条、その他の特別カテゴリー個人データを収集・推論・導出することはありません。</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. 情報の利用目的</h2>
+      <ul>
+        <li><strong>肌分析：</strong>セルフィー写真を AI で処理し、肌状態（水分、弾力、毛穴、色素沈着、シワ）を評価し肌年齢を推定します。<strong>分析は皮膚科学的な肌状態の指標に厳密に限定されており、人種・民族・肌の色に基づく評価・分類・判断は一切行いません。</strong></li>
+        <li><strong>パーソナライズドおすすめ：</strong>肌タイプ、悩み、年齢、分析結果をもとにスキンケア製品とルーティンを推薦します。韓国原産製品については、韓国食品医薬品安全処（MFDS）の機能性化粧品データベースを追加で参照し、それ以外の製品については Open Beauty Facts（OBF）データベースを参照します。両データソースには製品情報のみを照会し、MFDS・OBF にお客様の個人情報が送信されることはありません。</li>
+        <li><strong>運勢機能：</strong>氏名、生年月日、性別、星座を用いて毎日の運勢（1日1回）を生成します。</li>
+        <li><strong>アプリ機能：</strong>アカウント管理、スキンケアルーティンのストリーク追跡、ダイアリーへの製品ログ、通知配信のため。</li>
+        <li><strong>サービス改善：</strong>集計・匿名化された利用データを本アプリの改善に活用します。</li>
+        <li><strong>コミュニケーション：</strong>サポートへのお問い合わせ対応、重要なサービス更新のお知らせのため。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. AI データ処理</h2>
+      <div class="highlight"><p>AI 処理時のお客様のプライバシー保護を最優先します。</p></div>
+      <ul>
+        <li>セルフィー写真と個人データ（年齢、肌タイプ、悩み、地域、分析履歴、製品・ルーティン履歴）は、リアルタイム分析のため AI サービスへ送信されます。</li>
+        <li><strong>メールアドレスとアカウント ID は AI サービスへ一切送信されません。</strong></li>
+        <li>データはリアルタイムで処理され、分析完了後は<strong>第三者の AI サーバーに保存されません</strong>。</li>
+        <li>お客様のデータは<strong>AI モデルの学習に一切使用されません</strong>。</li>
+        <li>AI サービス提供者が米国に所在するため、上記送信は個人データの国外移転に該当します。<strong>当社はサインアップ時に、この移転について別途、明示的な同意を取得します。</strong>同意を拒否することができますが、その場合 AI を活用した機能はご利用いただけません。</li>
+      </ul>
+      <h3>3.1 AI 分析の範囲と制限</h3>
+      <div class="highlight"><p>当社の AI は、肌の健康のみを分析するように設計・指示されています。</p></div>
+      <ul>
+        <li>AI 分析は、水分、弾力、毛穴の状態、色素沈着レベル、シワなど<strong>皮膚科学的な肌状態の指標に厳密に限定</strong>されます。</li>
+        <li>当社の AI は、ユーザーの写真やデータから、<strong>人種、民族、肌の色の分類、出身国、その他の人口統計学的特性を特定・分類・推論・言及することを明示的に禁止</strong>されています。</li>
+        <li>AI のプロンプトとシステム指示は、これらの制限を確実に施行するためのセーフガードを備えて設計されています。</li>
+        <li>AI が生成した結果は<strong>個人の肌状態のみを反映</strong>し、人種・民族・人口統計学的グループを参照したり比較したりすることはありません。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. データの共有と開示</h2>
+      <p>当社はお客様の個人情報を販売・貸与・取引しません。以下の場合に限り、情報を共有することがあります：</p>
+      <ul>
+        <li><strong>サービスプロバイダー（受託者）：</strong>本アプリの運営を支援する信頼できる第三者サービス。受託者の完全なリストは 4.1 項に開示します。これら受託者は契約上、お客様のデータを保護する義務を負います。</li>
+        <li><strong>法的要請：</strong>法律、規制、法的手続き、または政府の要請により必要な場合。</li>
+        <li><strong>安全保護：</strong>KawKaw、ユーザー、または公共の権利、財産、安全を保護するため。</li>
+        <li><strong>事業承継：</strong>合併、買収、資産譲渡に関連し、同等のプライバシー保護が確保される場合。</li>
+      </ul>
+
+      <h3>4.1 データ受託者（サブプロセッサー）</h3>
+      <p>当社は、以下のサブプロセッサーに個人データの処理を委託しています。各社はデータ処理契約に拘束され、当社の指示に従ってのみデータを処理します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>受託者</th>
+              <th>目的</th>
+              <th>処理データ</th>
+              <th>保管期間</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc.（米国）</td>
+              <td>認証、データベース、ファイルストレージ、Edge Functions</td>
+              <td>収集した全データ（アカウント、プロフィール、写真、分析結果、ルーティン、製品ダイアリー）</td>
+              <td>アカウント削除時まで</td>
+            </tr>
+            <tr>
+              <td>Google LLC（米国）</td>
+              <td>AI 肌分析、製品・ルーティン推薦、毎日の運勢、レポート生成（Gemini API）</td>
+              <td>写真、肌データ、プロフィール（メール・アカウント ID を除く）</td>
+              <td>リアルタイム処理後、即時破棄（Google サーバーに保存されません）</td>
+            </tr>
+            <tr>
+              <td>RevenueCat, Inc.（米国）</td>
+              <td>サブスクリプション・決済管理</td>
+              <td>トランザクション識別子、サブスクリプション状態</td>
+              <td>アカウント削除時まで</td>
+            </tr>
+            <tr>
+              <td>Apple Inc.（米国） / Google LLC（米国）</td>
+              <td>プッシュ通知の配信</td>
+              <td>プッシュ通知トークン、デバイス識別子</td>
+              <td>通知配信後ただちに削除</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;margin-top:8px">一部の受託者はお客様の居住国外に所在します。当社が適用する安全策については 9 項（国際データ移転）をご覧ください。韓国居住者：PIPA 第28条の8 に従い、サインアップ時に国外移転について別途同意を取得します。</p>
+      <p style="font-size:12px;margin-top:8px">当社は推薦結果を補強するため、外部の公開製品情報ソースを照会します。韓国原産製品については、韓国食品医薬品安全処（MFDS）の機能性化粧品データベースに製品名で照会し、それ以外の製品については Open Beauty Facts（OBF）データベースに照会します。これらの照会には製品情報のみが含まれ、お客様の個人データは一切含まれません。</p>
+    </div>
+
+    <div class="section">
+      <h2>5. データ保管期間</h2>
+      <ul>
+        <li>アカウントデータはアカウントが有効である限り保管されます。</li>
+        <li>肌分析の写真と結果は、お客様が削除されるか、アカウントを削除されるまで保管されます。</li>
+        <li>アカウントを削除された場合、すべての個人データは30日以内に当社のサーバーから永久に削除されます。</li>
+        <li>匿名化・集計されたデータは分析目的で保管されることがあります。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. データセキュリティ</h2>
+      <p>当社はお客様のデータを保護するため、業界標準のセキュリティ対策を実施しています：</p>
+      <ul>
+        <li>認証トークンは安全なデバイスストレージ（iOS は Keychain、Android は Keystore）に保存されます。</li>
+        <li>すべてのデータ送信は TLS/SSL で暗号化されます。</li>
+        <li>個人データへのアクセスは、必要な範囲に限り権限を付与された担当者に制限されます。</li>
+        <li>インフラに対して定期的なセキュリティレビューを実施しています。</li>
+      </ul>
+      <p>当社はお客様の情報を保護するために最善を尽くしますが、電子的な保存・送信の方法に100%の安全性はありません。絶対的なセキュリティを保証することはできません。</p>
+    </div>
+
+    <div class="section">
+      <h2>7. お客様の権利</h2>
+      <p>居住地域に応じて、以下の権利を有する場合があります：</p>
+      <ul>
+        <li><strong>アクセス：</strong>個人データの写しを請求できます。</li>
+        <li><strong>訂正：</strong>プロフィール設定から不正確なデータを更新・訂正できます。</li>
+        <li><strong>削除：</strong>「設定 &gt; アカウント &gt; アカウント削除」からアカウントおよびすべての関連データを削除できます。</li>
+        <li><strong>データポータビリティ：</strong>移動可能な形式でデータを請求できます。</li>
+        <li><strong>同意撤回：</strong>いつでもデータ処理への同意を撤回できます。</li>
+        <li><strong>受信拒否：</strong>設定からマーケティング通知をオプトアウトできます。</li>
+      </ul>
+      <h3>EU/EEA 居住者（GDPR）</h3>
+      <p>当社のデータ処理の法的根拠には、お客様の同意、お客様との契約の履行、本アプリの運営および改善における当社の正当な利益が含まれます。当社は GDPR 第9条で定義される特別カテゴリーのデータ（人種・民族的出自を含む）を処理しません。お客様は地元のデータ保護当局に苦情を申し立てることができます。</p>
+      <h3>カリフォルニア居住者（CCPA）</h3>
+      <p>お客様には、当社が収集する個人情報の内容を知る権利、削除を請求する権利、個人情報の販売をオプトアウトする権利があります。当社はお客様の個人情報を販売しません。</p>
+      <h3>韓国居住者（PIPA）</h3>
+      <p>個人情報保護法に基づき、お客様は個人データの閲覧、訂正、削除、処理停止を要求する権利を有します。当社は PIPA 第23条で定義されるセンシティブ情報（人種、民族、信条）を処理しません。</p>
+      <p><strong>国外移転（PIPA 第28条の8）：</strong>サインアップ時に、お客様の個人データの国外移転について別途、明示的な同意を取得します。アカウントを削除することで、いつでも本同意を撤回できます。撤回されると、AI を活用した機能はご利用いただけなくなります。国外受領者、移転項目、移転先国、保管期間は 4.1 項に開示されています。</p>
+      <p><strong>自動化された決定（PIPA 第37条の2）：</strong>AI が生成する肌分析および製品推薦は自動化された決定に該当します。下記のプライバシーオフィスにご連絡いただくことで、人による再審査、説明、または自動化された決定の拒否を請求できます。</p>
+      <p>アプリ設定または当社へのお問い合わせを通じて請求できます。</p>
+    </div>
+
+    <div class="section">
+      <h2>8. 子どものプライバシー</h2>
+      <p>本アプリは、16歳未満（またはお客様の管轄区域における適用最低年齢未満）の子どもを対象としていません。当社は16歳未満の子どもの個人情報を意図的に収集することはありません。16歳未満の子どもからデータを収集していたことが判明した場合は、速やかに削除します。お子様が当社に個人情報を提供されたとお考えの場合は、当社までご連絡ください。</p>
+    </div>
+
+    <div class="section">
+      <h2>9. 国際データ移転</h2>
+      <p>お客様の情報は、居住国以外の国に移転され処理されることがあります。関連する受託者、移転されるデータ、移転先国、保管期間は 4.1 項に開示されています。</p>
+      <p>当社は、適用法令を遵守しお客様のデータを保護するため、適切な安全策が講じられていることを確保します。韓国居住者の方は、PIPA 第28条の8 に基づく別途の同意手続きおよび権利について、7 項「韓国居住者」もあわせてご覧ください。</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 第三者リンクとサービス</h2>
+      <p>本アプリには、第三者のウェブサイトやサービス（例：製品購入リンク）へのリンクが含まれる場合があります。当社はこれら第三者のプライバシー慣行について責任を負いません。各社のプライバシーポリシーをご確認いただくことをお勧めします。</p>
+    </div>
+
+    <div class="section">
+      <h2>11. プッシュ通知</h2>
+      <p>お客様の許可のもと、当社はルーティンリマインダー、月次の再スキャンリマインダー、サービス更新のお知らせなどのプッシュ通知をお送りすることがあります。通知設定はアプリ内の設定またはデバイスの設定から管理できます。</p>
+    </div>
+
+    <div class="section">
+      <h2>12. 本ポリシーの変更</h2>
+      <p>当社は本プライバシーポリシーを随時更新することがあります。重要な変更があった場合は、本アプリまたはメールでお知らせします。変更後も本アプリのご利用を継続された場合、更新されたポリシーに同意されたものとみなされます。</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. お問い合わせ</h2>
+      <p>本プライバシーポリシーまたは当社のデータ取り扱いについてご質問・ご懸念がある場合は、以下までお問い合わせください：</p>
+      <p><strong>プライバシーオフィス：</strong>Gumi Glowup プライバシーチーム</p>
+      <p><strong>Email：</strong><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TRADITIONAL CHINESE ═══════════════ -->
+  <div lang="zh-TW">
+    <h1>隱私權政策</h1>
+    <p class="date">生效日：2025年4月17日 | 最後更新：2026年6月9日</p>
+    <p>KawKaw（以下稱「本公司」、「我們」）營運 Gumi Glowup 行動應用程式（以下稱「本應用程式」）。本隱私權政策說明您使用本應用程式時，我們如何收集、使用、揭露及保護您的資訊。使用本應用程式即表示您同意本政策所述之作法。</p>
+
+    <div class="section">
+      <h2>1. 我們收集的資訊</h2>
+      <h3>1.1 您所提供的資訊</h3>
+      <ul>
+        <li><strong>帳號資訊：</strong>姓名、電子郵件，以電子郵件註冊時另含密碼。Apple 與 Google 登入由各服務提供者處理，我們不會儲存社群登入的密碼。</li>
+        <li><strong>個人檔案資訊：</strong>生日、性別（選填）、國家/地區（選填）、肌膚類型（1〜3 種）、肌膚困擾（自由輸入，選填）、過敏成分（選填）、偏好品牌（選填）、星座（依生日自動推算，用於每日運勢）。</li>
+        <li><strong>照片：</strong>您為 AI 肌膚分析所拍攝的自拍照。</li>
+        <li><strong>保養程序與分析資料：</strong>肌膚分析紀錄、推薦產品、AM/PM 保養程序設定、每日保養程序完成紀錄。</li>
+        <li><strong>產品日誌：</strong>您針對使用中或已完成產品所記錄的內容（開始/結束日期、備註、容量）以及由此推導出的產品統計。</li>
+        <li><strong>聯絡訊息：</strong>您寄給客服團隊的訊息。</li>
+      </ul>
+      <h3>1.2 自動收集的資訊</h3>
+      <ul>
+        <li><strong>裝置資訊：</strong>裝置型號、作業系統版本、唯一裝置識別碼。</li>
+        <li><strong>使用資料：</strong>應用程式功能使用、互動模式、工作階段時長。</li>
+        <li><strong>推播通知權杖：</strong>用以傳送您同意接收的通知。</li>
+      </ul>
+      <h3>1.3 我們不收集的資訊</h3>
+      <ul>
+        <li>我們不收集精確地理位置資料。</li>
+        <li>我們不存取您的通訊錄、行事曆或其他應用程式。</li>
+        <li>我們不使用廣告追蹤工具，也不會將您的資料販售給廣告商。</li>
+        <li><strong>我們不會從您的照片、肌膚分析或任何其他資料中收集、推斷或衍生種族或族裔出身、宗教信仰，或其他特殊類別個人資料。</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. 我們如何使用您的資訊</h2>
+      <ul>
+        <li><strong>肌膚分析：</strong>您的自拍照會經 AI 處理以評估肌膚狀態（水分、彈力、毛孔、色素沉澱、皺紋）並推估肌膚年齡。<strong>分析嚴格限於皮膚醫學上的肌膚狀況指標，絕不基於種族、族裔或膚色進行評估、分類或判斷。</strong></li>
+        <li><strong>個人化推薦：</strong>我們依據您的肌膚類型、困擾、年齡與分析結果推薦保養品與保養程序。對於韓國產品，我們的推薦系統會額外查詢韓國食品醫藥品安全處（MFDS）功能性化妝品資料庫；對於非韓國產品，則查詢 Open Beauty Facts（OBF）資料庫。兩個資料來源僅包含產品資訊──我們不會將任何個人資料傳送至 MFDS 或 OBF。</li>
+        <li><strong>運勢功能：</strong>使用姓名、生日、性別與星座產生每日運勢（每日一次）。</li>
+        <li><strong>應用程式功能：</strong>管理您的帳號、追蹤保養程序連續紀錄、記錄產品日誌與傳送通知。</li>
+        <li><strong>服務改善：</strong>彙整、匿名化的使用資料協助我們改善本應用程式。</li>
+        <li><strong>溝通：</strong>回覆您的客服詢問並傳送重要服務通知。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. AI 資料處理</h2>
+      <div class="highlight"><p>AI 處理過程中的隱私保護是我們的首要任務。</p></div>
+      <ul>
+        <li>自拍照與個人資料（年齡、肌膚類型、困擾、地區、分析紀錄、產品/保養程序紀錄）會被傳送至 AI 服務以進行即時分析。</li>
+        <li><strong>您的電子郵件與帳號 ID 絕不會傳送至 AI 服務。</strong></li>
+        <li>資料以即時方式處理，分析完成後<strong>不會儲存於第三方 AI 伺服器</strong>。</li>
+        <li>您的資料<strong>絕不會被用於訓練 AI 模型</strong>。</li>
+        <li>由於 AI 服務提供者位於美國，此舉構成個人資料的跨境傳輸。<strong>我們會在註冊時針對此項傳輸取得另行、明示的同意。</strong>您有權拒絕；拒絕後將無法使用 AI 驅動的功能。</li>
+      </ul>
+      <h3>3.1 AI 分析範圍與限制</h3>
+      <div class="highlight"><p>我們的 AI 經設計與指示僅分析肌膚健康。</p></div>
+      <ul>
+        <li>AI 分析<strong>嚴格限於皮膚醫學上的肌膚狀況指標</strong>，例如水分、彈力、毛孔狀態、色素沉澱程度與皺紋。</li>
+        <li>我們的 AI 被<strong>明確禁止從使用者的照片或資料中辨識、分類、推斷或評論</strong>種族、族裔、膚色分類、原國籍，或任何其他人口統計特徵。</li>
+        <li>AI 提示與系統指示經過設計，內建保護機制以確保上述限制獲得執行。</li>
+        <li>AI 生成的結果<strong>僅反映個人肌膚狀況</strong>，不會引用或比較任何種族、族裔或人口統計群體。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. 資料分享與揭露</h2>
+      <p>我們不販售、出租或交易您的個人資訊。我們僅在下列情況下分享您的資訊：</p>
+      <ul>
+        <li><strong>服務提供者（資料處理者）：</strong>協助我們營運本應用程式的可信賴第三方服務。完整處理者清單揭露於第 4.1 節。這些服務提供者依合約有義務保護您的資料。</li>
+        <li><strong>法律要求：</strong>依法律、法規、法律程序或政府要求所必要時。</li>
+        <li><strong>安全保障：</strong>為保護 KawKaw、本應用程式使用者或公眾的權益、財產或安全。</li>
+        <li><strong>業務移轉：</strong>因合併、收購或資產出售之需要，於同等隱私保護條件下進行。</li>
+      </ul>
+
+      <h3>4.1 資料處理者（次處理者）</h3>
+      <p>我們將個人資料的處理委託給以下次處理者。每一方均受資料處理協議拘束，且僅依本公司書面指示處理資料。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>處理者</th>
+              <th>目的</th>
+              <th>處理之資料</th>
+              <th>保留期間</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc.（美國）</td>
+              <td>身分驗證、資料庫、檔案儲存、Edge Functions</td>
+              <td>所有已收集資料（帳號、個人檔案、照片、分析結果、保養程序、產品日誌）</td>
+              <td>直至帳號刪除</td>
+            </tr>
+            <tr>
+              <td>Google LLC（美國）</td>
+              <td>AI 肌膚分析、產品/保養程序推薦、每日運勢、報告生成（Gemini API）</td>
+              <td>照片、肌膚資料、個人檔案（不含電子郵件與帳號 ID）</td>
+              <td>即時處理後立即丟棄（不儲存於 Google 伺服器）</td>
+            </tr>
+            <tr>
+              <td>RevenueCat, Inc.（美國）</td>
+              <td>訂閱與付款管理</td>
+              <td>交易識別碼、訂閱狀態</td>
+              <td>直至帳號刪除</td>
+            </tr>
+            <tr>
+              <td>Apple Inc.（美國） / Google LLC（美國）</td>
+              <td>推播通知傳遞</td>
+              <td>推播通知權杖、裝置識別碼</td>
+              <td>通知送達後即刻移除</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;margin-top:8px">部分處理者位於您居住國家以外的地區。請參閱第 9 節（國際資料傳輸）以了解我們所採取的保護措施。韓國居民：依據 PIPA 第28條之8，註冊時將取得跨境傳輸的另行同意。</p>
+      <p style="font-size:12px;margin-top:8px">我們亦會查詢公開的產品資訊來源以強化推薦結果。對於韓國產品，會依產品名稱查詢韓國食品醫藥品安全處（MFDS）功能性化妝品資料庫；對於非韓國產品則查詢 Open Beauty Facts（OBF）資料庫。這些查詢僅包含產品資訊，絕不包含您的個人資料。</p>
+    </div>
+
+    <div class="section">
+      <h2>5. 資料保留</h2>
+      <ul>
+        <li>您的帳號資料於您的帳號有效期間保留。</li>
+        <li>肌膚分析照片與結果於您刪除它們或刪除帳號之前保留。</li>
+        <li>當您刪除帳號時，所有個人資料將於30天內自我們的伺服器永久移除。</li>
+        <li>匿名化、彙整的資料可能基於分析目的而保留。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 資料安全</h2>
+      <p>我們採用業界標準的安全措施保護您的資料：</p>
+      <ul>
+        <li>身分驗證權杖儲存於安全的裝置儲存空間（iOS 為 Keychain、Android 為 Keystore）。</li>
+        <li>所有資料傳輸均以 TLS/SSL 加密。</li>
+        <li>個人資料的存取僅限於有必要知悉之授權人員。</li>
+        <li>我們對基礎設施進行定期安全審查。</li>
+      </ul>
+      <p>儘管我們致力於保護您的資訊，但任何電子儲存或傳輸方法均無法 100% 安全。我們無法保證絕對的安全性。</p>
+    </div>
+
+    <div class="section">
+      <h2>7. 您的權利</h2>
+      <p>依您所在地區之不同，您可能享有以下權利：</p>
+      <ul>
+        <li><strong>存取：</strong>請求取得您個人資料的副本。</li>
+        <li><strong>更正：</strong>透過個人檔案設定更新或修正不正確的資料。</li>
+        <li><strong>刪除：</strong>從「設定 &gt; 帳號 &gt; 刪除帳號」刪除您的帳號及所有相關資料。</li>
+        <li><strong>資料可攜：</strong>以可攜格式請求取得您的資料。</li>
+        <li><strong>撤回同意：</strong>隨時撤回對資料處理的同意。</li>
+        <li><strong>選擇退出：</strong>於設定中選擇退出行銷通知。</li>
+      </ul>
+      <h3>歐盟/歐洲經濟區使用者（GDPR）</h3>
+      <p>我們處理您資料的法律基礎包括：您的同意、履行與您之間的合約，以及我們在營運與改善本應用程式上的合法利益。我們不處理 GDPR 第9條所定義的特殊類別資料（包含種族或族裔出身）。您得向您當地的資料保護機關提出申訴。</p>
+      <h3>加州居民（CCPA）</h3>
+      <p>您有權知悉我們所收集的個人資訊、請求刪除，並選擇退出個人資訊的販售。我們不販售您的個人資訊。</p>
+      <h3>韓國居民（PIPA）</h3>
+      <p>依個人資料保護法，您有權存取、更正、刪除其個人資料，並要求停止處理。我們不處理 PIPA 第23條所定義的敏感資訊（種族、族裔、信仰）。</p>
+      <p><strong>跨境傳輸（PIPA 第28條之8）：</strong>註冊時我們會就您個人資料的跨境傳輸取得另行、明示的同意。您可隨時透過刪除帳號撤回此項同意；一旦撤回，將無法使用 AI 驅動的功能。境外接收者清單、傳輸項目、國家及保留期間揭露於第 4.1 節。</p>
+      <p><strong>自動化決策（PIPA 第37條之2）：</strong>AI 生成的肌膚分析與產品推薦屬於自動化決策。您可透過下方電子郵件與我們的隱私辦公室聯絡，請求人工審查、要求說明或拒絕該自動化決策。</p>
+      <p>請求可透過應用程式設定提交或聯絡我們。</p>
+    </div>
+
+    <div class="section">
+      <h2>8. 兒童隱私</h2>
+      <p>本應用程式並非為 16 歲以下兒童（或您所在司法管轄區之適用最低年齡以下）所設計。我們不會在知情情況下收集 16 歲以下兒童的個人資訊。若我們發現曾收集 16 歲以下兒童的資料，將立即予以刪除。若您認為兒童曾向我們提供個人資訊，請與我們聯絡。</p>
+    </div>
+
+    <div class="section">
+      <h2>9. 國際資料傳輸</h2>
+      <p>您的資訊可能被傳輸至您居住國以外之國家並於該等國家處理。所涉及之處理者、傳輸之資料、目的地國家與保留期間揭露於第 4.1 節。</p>
+      <p>我們確保依適用法律採取適當的保護措施以保護您的資料。韓國居民並請參閱第 7 節「韓國居民」一節，了解 PIPA 第28條之8 所規定的另行同意機制與相關權利。</p>
+    </div>
+
+    <div class="section">
+      <h2>10. 第三方連結與服務</h2>
+      <p>本應用程式可能包含指向第三方網站或服務（例如：產品購買連結）之連結。我們不對該等第三方之隱私作法負責。建議您審閱其隱私政策。</p>
+    </div>
+
+    <div class="section">
+      <h2>11. 推播通知</h2>
+      <p>在您允許之情況下，我們可能傳送推播通知，用於保養程序提醒、每月重新掃描提醒及服務更新。您可於「設定」或裝置設定中管理通知偏好。</p>
+    </div>
+
+    <div class="section">
+      <h2>12. 本政策之變更</h2>
+      <p>我們可能不定期更新本隱私權政策。重大變更時，我們會透過本應用程式或電子郵件通知您。變更後您仍繼續使用本應用程式即視為接受更新後之政策。</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. 聯絡我們</h2>
+      <p>若您對本隱私權政策或我們的資料作法有任何疑問或顧慮，請與我們聯絡：</p>
+      <p><strong>隱私辦公室：</strong>Gumi Glowup 隱私團隊</p>
+      <p><strong>Email：</strong><a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SPANISH ═══════════════ -->
+  <div lang="es">
+    <h1>Política de Privacidad</h1>
+    <p class="date">Fecha de entrada en vigor: 17 de abril de 2025 | Última actualización: 9 de junio de 2026</p>
+    <p>KawKaw ("la Empresa", "nosotros" o "nuestro") opera la aplicación móvil Gumi Glowup (la "App"). Esta Política de Privacidad explica cómo recopilamos, utilizamos, divulgamos y protegemos su información cuando utiliza nuestra App. Al utilizar la App, usted consiente las prácticas descritas en esta política.</p>
+
+    <div class="section">
+      <h2>1. Información que recopilamos</h2>
+      <h3>1.1 Información que usted proporciona</h3>
+      <ul>
+        <li><strong>Información de la cuenta:</strong> nombre, dirección de correo electrónico y —para registros con correo— contraseña. El inicio de sesión con Apple y Google lo gestionan los proveedores respectivos; no almacenamos la contraseña de su inicio de sesión social.</li>
+        <li><strong>Información de perfil:</strong> fecha de nacimiento, género (opcional), país/región (opcional), tipos de piel (1–3), preocupaciones de la piel (texto libre, opcional), alergias (opcional), marcas preferidas (opcional) y signo zodiacal (derivado de su fecha de nacimiento, utilizado para la fortuna diaria).</li>
+        <li><strong>Fotos:</strong> selfies que toma para el análisis de piel con IA.</li>
+        <li><strong>Datos de rutina y análisis:</strong> historial de análisis de piel, productos recomendados, configuraciones de rutina AM/PM y registros de cumplimiento diario de la rutina.</li>
+        <li><strong>Diario de productos:</strong> registros que anota sobre productos que está usando o que ha terminado (fechas de inicio/fin, notas, volumen) y estadísticas de productos derivadas de ellos.</li>
+        <li><strong>Comunicaciones:</strong> mensajes que envía a nuestro equipo de soporte.</li>
+      </ul>
+      <h3>1.2 Información recopilada automáticamente</h3>
+      <ul>
+        <li><strong>Información del dispositivo:</strong> modelo del dispositivo, versión del sistema operativo, identificadores únicos del dispositivo.</li>
+        <li><strong>Datos de uso:</strong> uso de funciones de la App, patrones de interacción, duración de la sesión.</li>
+        <li><strong>Tokens de notificaciones push:</strong> para entregar las notificaciones que usted acepte recibir.</li>
+      </ul>
+      <h3>1.3 Información que NO recopilamos</h3>
+      <ul>
+        <li>No recopilamos datos de geolocalización precisa.</li>
+        <li>No accedemos a sus contactos, calendario u otras apps.</li>
+        <li>No utilizamos rastreadores publicitarios ni vendemos sus datos a anunciantes.</li>
+        <li><strong>No recopilamos, inferimos ni derivamos origen racial o étnico, creencias religiosas u otros datos personales de categoría especial a partir de sus fotos, análisis de piel ni de ningún otro dato.</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Cómo utilizamos su información</h2>
+      <ul>
+        <li><strong>Análisis de piel:</strong> sus selfies se procesan mediante IA para evaluar el estado de la piel (hidratación, elasticidad, poros, pigmentación, arrugas) y estimar la edad de la piel. <strong>El análisis se limita estrictamente a métricas dermatológicas del estado de la piel y no evalúa, clasifica ni emite ninguna determinación basada en raza, etnia o color de piel.</strong></li>
+        <li><strong>Recomendaciones personalizadas:</strong> utilizamos su tipo de piel, preocupaciones, edad y resultados de análisis para recomendarle productos de cuidado y rutinas. Para productos de origen coreano, nuestro recomendador consulta adicionalmente la base de datos de cosméticos funcionales de Korean Ministry of Food and Drug Safety (MFDS); para productos no coreanos utiliza la base de datos Open Beauty Facts (OBF). Ambas fuentes contienen únicamente información de producto: no se envía ningún dato personal a MFDS ni a OBF.</li>
+        <li><strong>Función de fortuna:</strong> el nombre, fecha de nacimiento, género y signo zodiacal se utilizan para generar la fortuna diaria (una lectura por día).</li>
+        <li><strong>Funcionalidad de la App:</strong> para gestionar su cuenta, hacer seguimiento de las rachas de su rutina de cuidado, registrar productos en su diario y entregar notificaciones.</li>
+        <li><strong>Mejora del servicio:</strong> los datos de uso agregados y anonimizados nos ayudan a mejorar la App.</li>
+        <li><strong>Comunicación:</strong> para responder a sus consultas de soporte y enviar actualizaciones importantes del servicio.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Procesamiento de datos por IA</h2>
+      <div class="highlight"><p>Su privacidad durante el procesamiento por IA es una prioridad principal.</p></div>
+      <ul>
+        <li>Las selfies y los datos personales (edad, tipo de piel, preocupaciones, región, historial de análisis, historial de productos/rutinas) se envían a los servicios de IA para su análisis en tiempo real.</li>
+        <li><strong>Su dirección de correo electrónico y su ID de cuenta nunca se envían a los servicios de IA.</strong></li>
+        <li>Los datos se procesan en tiempo real y <strong>no se almacenan en servidores de IA de terceros</strong> tras completarse el análisis.</li>
+        <li>Sus datos <strong>nunca se utilizan para entrenar modelos de IA</strong>.</li>
+        <li>Dado que el proveedor de IA se encuentra en EE. UU., esto constituye una transferencia internacional de datos personales. <strong>Recabamos un consentimiento explícito y separado para esta transferencia en el momento del registro.</strong> Puede rechazarlo; rehusarse implica que las funciones impulsadas por IA no estarán disponibles.</li>
+      </ul>
+      <h3>3.1 Alcance y restricciones del análisis por IA</h3>
+      <div class="highlight"><p>Nuestra IA está diseñada e instruida para analizar únicamente la salud de la piel.</p></div>
+      <ul>
+        <li>El análisis por IA está <strong>estrictamente limitado a métricas dermatológicas del estado de la piel</strong>, tales como hidratación, elasticidad, estado de los poros, niveles de pigmentación y arrugas.</li>
+        <li>Nuestra IA tiene <strong>expresamente prohibido identificar, clasificar, inferir o comentar</strong> raza, etnia, categorización del color de piel, origen nacional o cualquier otra característica demográfica a partir de fotos o datos del usuario.</li>
+        <li>Las indicaciones e instrucciones del sistema de IA están diseñadas con salvaguardas para asegurar el cumplimiento de estas restricciones.</li>
+        <li>Los resultados generados por la IA reflejan <strong>únicamente el estado individual de la piel</strong> y no hacen referencia ni comparación con ningún grupo racial, étnico o demográfico.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Compartición y divulgación de datos</h2>
+      <p>No vendemos, alquilamos ni comerciamos con su información personal. Podemos compartir su información únicamente en las siguientes circunstancias:</p>
+      <ul>
+        <li><strong>Proveedores de servicios (encargados del tratamiento):</strong> servicios de terceros de confianza que nos ayudan a operar la App. La lista completa de encargados se divulga en la Sección 4.1. Estos proveedores están contractualmente obligados a proteger sus datos.</li>
+        <li><strong>Requerimientos legales:</strong> cuando lo exija la ley, un reglamento, un proceso legal o una solicitud gubernamental.</li>
+        <li><strong>Seguridad:</strong> para proteger los derechos, la propiedad o la seguridad de KawKaw, de nuestros usuarios o del público.</li>
+        <li><strong>Transferencia de negocio:</strong> en relación con una fusión, adquisición o venta de activos, con protecciones de privacidad equivalentes.</li>
+      </ul>
+
+      <h3>4.1 Encargados del tratamiento (subencargados)</h3>
+      <p>Delegamos el tratamiento de los datos personales a los siguientes subencargados. Cada uno está sujeto a un acuerdo de tratamiento de datos y procesa los datos únicamente conforme a nuestras instrucciones documentadas.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Encargado</th>
+              <th>Finalidad</th>
+              <th>Datos tratados</th>
+              <th>Retención</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc. (EE. UU.)</td>
+              <td>Autenticación, base de datos, almacenamiento de archivos, Edge Functions</td>
+              <td>Todos los datos recopilados (cuenta, perfil, fotos, resultados de análisis, rutinas, diario de productos)</td>
+              <td>Hasta la eliminación de la cuenta</td>
+            </tr>
+            <tr>
+              <td>Google LLC (EE. UU.)</td>
+              <td>Análisis de piel con IA, recomendaciones de productos/rutinas, fortuna diaria, generación de informes (Gemini API)</td>
+              <td>Fotos, datos de piel, perfil (excluidos correo electrónico e ID de cuenta)</td>
+              <td>Procesado en tiempo real y descartado de inmediato (no se almacena en servidores de Google)</td>
+            </tr>
+            <tr>
+              <td>RevenueCat, Inc. (EE. UU.)</td>
+              <td>Gestión de suscripciones y pagos</td>
+              <td>Identificadores de transacción, estado de la suscripción</td>
+              <td>Hasta la eliminación de la cuenta</td>
+            </tr>
+            <tr>
+              <td>Apple Inc. (EE. UU.) / Google LLC (EE. UU.)</td>
+              <td>Entrega de notificaciones push</td>
+              <td>Token de notificación push, identificador de dispositivo</td>
+              <td>Eliminado una vez entregada la notificación</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;margin-top:8px">Algunos encargados se encuentran fuera de su país de residencia. Consulte la Sección 9 (Transferencias internacionales de datos) para conocer las salvaguardas que aplicamos. Residentes en Corea: se recaba un consentimiento separado para la transferencia internacional en el momento del registro de conformidad con el Artículo 28-8 de PIPA.</p>
+      <p style="font-size:12px;margin-top:8px">También consultamos fuentes públicas de información de producto para enriquecer los resultados de recomendación. Se consulta la base de datos de cosméticos funcionales de Korean Ministry of Food and Drug Safety (MFDS) por nombre de producto para los productos de origen coreano, y la base de datos Open Beauty Facts (OBF) para los productos no coreanos. Estas consultas contienen únicamente información de producto y nunca incluyen sus datos personales.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Conservación de datos</h2>
+      <ul>
+        <li>Los datos de su cuenta se conservan mientras su cuenta esté activa.</li>
+        <li>Las fotos y resultados de análisis de piel se conservan hasta que usted los elimine o elimine su cuenta.</li>
+        <li>Cuando elimina su cuenta, todos los datos personales se borran permanentemente de nuestros servidores en un plazo de 30 días.</li>
+        <li>Los datos anonimizados y agregados pueden conservarse con fines analíticos.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Seguridad de los datos</h2>
+      <p>Implementamos medidas de seguridad estándar del sector para proteger sus datos:</p>
+      <ul>
+        <li>Los tokens de autenticación se almacenan usando el almacenamiento seguro del dispositivo (Keychain en iOS, Keystore en Android).</li>
+        <li>Todas las transmisiones de datos se cifran mediante TLS/SSL.</li>
+        <li>El acceso a los datos personales está restringido al personal autorizado y bajo el principio de necesidad de conocer.</li>
+        <li>Realizamos revisiones de seguridad periódicas de nuestra infraestructura.</li>
+      </ul>
+      <p>Aunque nos esforzamos por proteger su información, ningún método de almacenamiento o transmisión electrónica es 100 % seguro. No podemos garantizar una seguridad absoluta.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Sus derechos</h2>
+      <p>Según su ubicación, usted puede tener los siguientes derechos:</p>
+      <ul>
+        <li><strong>Acceso:</strong> solicitar una copia de sus datos personales.</li>
+        <li><strong>Rectificación:</strong> actualizar o corregir datos inexactos a través de los ajustes de Perfil.</li>
+        <li><strong>Supresión:</strong> eliminar su cuenta y todos los datos asociados desde Ajustes &gt; Cuenta &gt; Eliminar cuenta.</li>
+        <li><strong>Portabilidad de datos:</strong> solicitar sus datos en un formato portable.</li>
+        <li><strong>Retirada del consentimiento:</strong> retirar en cualquier momento el consentimiento para el tratamiento de datos.</li>
+        <li><strong>Oposición:</strong> oponerse a las notificaciones de marketing desde Ajustes.</li>
+      </ul>
+      <h3>Para usuarios de la UE/EEE (GDPR)</h3>
+      <p>Nuestras bases jurídicas para tratar sus datos incluyen: su consentimiento, la ejecución del contrato con usted y nuestros intereses legítimos en operar y mejorar la App. No tratamos datos de categoría especial según se definen en el Artículo 9 del GDPR (incluido origen racial o étnico). Puede presentar una reclamación ante su autoridad local de protección de datos.</p>
+      <h3>Para residentes en California (CCPA)</h3>
+      <p>Tiene derecho a saber qué información personal recopilamos, solicitar su eliminación y oponerse a la venta de información personal. No vendemos su información personal.</p>
+      <h3>Para residentes en Corea (PIPA)</h3>
+      <p>De conformidad con la Personal Information Protection Act, usted tiene derecho a acceder, corregir, eliminar y suspender el tratamiento de sus datos personales. No tratamos información sensible (raza, etnia, creencias) según se define en el Artículo 23 de PIPA.</p>
+      <p><strong>Transferencia internacional (PIPA, Art. 28-8):</strong> se recaba un consentimiento separado y explícito para la transferencia internacional de sus datos personales en el momento del registro. Puede retirar este consentimiento en cualquier momento eliminando su cuenta; una vez retirado, las funciones impulsadas por IA no estarán disponibles. La lista de destinatarios en el extranjero, elementos transferidos, países y períodos de retención se divulga en la Sección 4.1.</p>
+      <p><strong>Decisiones automatizadas (PIPA, Art. 37-2):</strong> el análisis de piel y las recomendaciones de productos generadas por IA son decisiones automatizadas. Puede solicitar una revisión humana, una explicación o rechazar la decisión automatizada contactando con nuestra Oficina de Privacidad en el correo electrónico que figura más abajo.</p>
+      <p>Las solicitudes pueden realizarse a través de los ajustes de la App o contactando con nosotros.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Privacidad de los menores</h2>
+      <p>La App no está destinada a menores de 16 años (o la edad mínima aplicable en su jurisdicción). No recopilamos a sabiendas información personal de menores de 16 años. Si descubrimos que hemos recopilado datos de un menor de 16 años, los eliminaremos sin demora. Si cree que un menor nos ha proporcionado información personal, póngase en contacto con nosotros.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Transferencias internacionales de datos</h2>
+      <p>Su información puede ser transferida y tratada en países distintos a su país de residencia. Los encargados implicados, los datos transferidos, los países de destino y los períodos de retención se divulgan en la Sección 4.1.</p>
+      <p>Aseguramos las salvaguardas adecuadas para proteger sus datos cumpliendo con las leyes aplicables. Los residentes en Corea deberían consultar también la Sección 7 ("Para residentes en Corea") para conocer el mecanismo de consentimiento separado y los derechos conforme al Artículo 28-8 de PIPA.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Enlaces y servicios de terceros</h2>
+      <p>La App puede contener enlaces a sitios web o servicios de terceros (por ejemplo, enlaces de compra de productos). No somos responsables de las prácticas de privacidad de estos terceros. Le animamos a revisar sus políticas de privacidad.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Notificaciones push</h2>
+      <p>Con su permiso, podemos enviar notificaciones push para recordatorios de rutina, recordatorios mensuales de reescaneo y actualizaciones del servicio. Puede gestionar las preferencias de notificación en Ajustes o desde los ajustes de su dispositivo.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Cambios en esta política</h2>
+      <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Le notificaremos los cambios materiales a través de la App o por correo electrónico. El uso continuado de la App tras los cambios constituye la aceptación de la política actualizada.</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. Contáctenos</h2>
+      <p>Si tiene preguntas o inquietudes sobre esta Política de Privacidad o nuestras prácticas de datos, póngase en contacto con nosotros:</p>
+      <p><strong>Oficina de Privacidad:</strong> Equipo de Privacidad de Gumi Glowup</p>
+      <p><strong>Correo electrónico:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ VIETNAMESE ═══════════════ -->
+  <div lang="vi">
+    <h1>Chính sách Bảo mật</h1>
+    <p class="date">Ngày hiệu lực: 17 tháng 4, 2025 | Cập nhật lần cuối: 9 tháng 6, 2026</p>
+    <p>KawKaw ("Công ty", "chúng tôi") vận hành ứng dụng di động Gumi Glowup ("Ứng dụng"). Chính sách Bảo mật này giải thích cách chúng tôi thu thập, sử dụng, tiết lộ và bảo vệ thông tin của bạn khi bạn sử dụng Ứng dụng. Bằng việc sử dụng Ứng dụng, bạn đồng ý với các thực tiễn được mô tả trong chính sách này.</p>
+
+    <div class="section">
+      <h2>1. Thông tin chúng tôi thu thập</h2>
+      <h3>1.1 Thông tin bạn cung cấp</h3>
+      <ul>
+        <li><strong>Thông tin tài khoản:</strong> tên, địa chỉ email và — đối với đăng ký bằng email — mật khẩu. Đăng nhập Apple và Google do các nhà cung cấp tương ứng xử lý; chúng tôi không lưu trữ mật khẩu đăng nhập mạng xã hội của bạn.</li>
+        <li><strong>Thông tin hồ sơ:</strong> ngày sinh, giới tính (tuỳ chọn), quốc gia/khu vực (tuỳ chọn), loại da (1–3), vấn đề da (nhập tự do, tuỳ chọn), dị ứng (tuỳ chọn), thương hiệu yêu thích (tuỳ chọn) và cung hoàng đạo (suy ra từ ngày sinh, dùng cho vận may hằng ngày).</li>
+        <li><strong>Ảnh:</strong> ảnh selfie bạn chụp để phân tích da bằng AI.</li>
+        <li><strong>Dữ liệu routine &amp; phân tích:</strong> lịch sử phân tích da, sản phẩm được đề xuất, cấu hình routine sáng/tối và bản ghi hoàn thành routine hằng ngày.</li>
+        <li><strong>Nhật ký sản phẩm:</strong> các bản ghi bạn lưu về sản phẩm đang dùng hoặc đã dùng xong (ngày bắt đầu/kết thúc, ghi chú, dung tích) và thống kê sản phẩm suy ra từ đó.</li>
+        <li><strong>Liên lạc:</strong> tin nhắn bạn gửi cho đội hỗ trợ của chúng tôi.</li>
+      </ul>
+      <h3>1.2 Thông tin được thu thập tự động</h3>
+      <ul>
+        <li><strong>Thông tin thiết bị:</strong> kiểu thiết bị, phiên bản hệ điều hành, định danh thiết bị duy nhất.</li>
+        <li><strong>Dữ liệu sử dụng:</strong> mức sử dụng các tính năng, mẫu tương tác, thời lượng phiên.</li>
+        <li><strong>Token thông báo đẩy:</strong> để gửi các thông báo mà bạn đã đồng ý nhận.</li>
+      </ul>
+      <h3>1.3 Thông tin chúng tôi KHÔNG thu thập</h3>
+      <ul>
+        <li>Chúng tôi không thu thập dữ liệu vị trí địa lý chính xác.</li>
+        <li>Chúng tôi không truy cập danh bạ, lịch hoặc các ứng dụng khác của bạn.</li>
+        <li>Chúng tôi không sử dụng trình theo dõi quảng cáo hoặc bán dữ liệu của bạn cho nhà quảng cáo.</li>
+        <li><strong>Chúng tôi không thu thập, suy luận hoặc rút ra nguồn gốc chủng tộc hay sắc tộc, tín ngưỡng tôn giáo, hoặc bất kỳ dữ liệu cá nhân thuộc loại đặc biệt nào khác từ ảnh, kết quả phân tích da hoặc bất kỳ dữ liệu nào khác của bạn.</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Cách chúng tôi sử dụng thông tin của bạn</h2>
+      <ul>
+        <li><strong>Phân tích da:</strong> ảnh selfie của bạn được AI xử lý để đánh giá tình trạng da (độ ẩm, độ đàn hồi, lỗ chân lông, sắc tố, nếp nhăn) và ước tính tuổi da. <strong>Phân tích được giới hạn nghiêm ngặt trong các chỉ số tình trạng da về mặt da liễu và không đánh giá, phân loại hay đưa ra bất kỳ kết luận nào dựa trên chủng tộc, sắc tộc hay màu da.</strong></li>
+        <li><strong>Đề xuất cá nhân hoá:</strong> chúng tôi sử dụng loại da, vấn đề da, tuổi và kết quả phân tích của bạn để đề xuất sản phẩm chăm sóc da và routine. Đối với sản phẩm có nguồn gốc Hàn Quốc, hệ thống đề xuất của chúng tôi đối chiếu thêm cơ sở dữ liệu mỹ phẩm chức năng của Korean Ministry of Food and Drug Safety (MFDS); đối với sản phẩm không phải Hàn Quốc, hệ thống sử dụng cơ sở dữ liệu Open Beauty Facts (OBF). Cả hai nguồn dữ liệu chỉ chứa thông tin sản phẩm — không có dữ liệu cá nhân nào được gửi đến MFDS hoặc OBF.</li>
+        <li><strong>Tính năng vận may:</strong> tên, ngày sinh, giới tính và cung hoàng đạo được sử dụng để tạo lời đoán vận may hằng ngày (một lần mỗi ngày).</li>
+        <li><strong>Chức năng ứng dụng:</strong> để quản lý tài khoản, theo dõi chuỗi routine chăm sóc da, ghi nhật ký sản phẩm và gửi thông báo.</li>
+        <li><strong>Cải thiện dịch vụ:</strong> dữ liệu sử dụng được tổng hợp, ẩn danh giúp chúng tôi cải thiện Ứng dụng.</li>
+        <li><strong>Giao tiếp:</strong> để phản hồi các yêu cầu hỗ trợ của bạn và gửi cập nhật dịch vụ quan trọng.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Xử lý dữ liệu bởi AI</h2>
+      <div class="highlight"><p>Quyền riêng tư của bạn trong quá trình xử lý bằng AI là ưu tiên hàng đầu.</p></div>
+      <ul>
+        <li>Ảnh selfie và dữ liệu cá nhân (tuổi, loại da, vấn đề da, khu vực, lịch sử phân tích, lịch sử sản phẩm/routine) được gửi đến các dịch vụ AI để phân tích theo thời gian thực.</li>
+        <li><strong>Địa chỉ email và ID tài khoản của bạn không bao giờ được gửi đến các dịch vụ AI.</strong></li>
+        <li>Dữ liệu được xử lý theo thời gian thực và <strong>không được lưu trữ trên máy chủ AI của bên thứ ba</strong> sau khi phân tích hoàn tất.</li>
+        <li>Dữ liệu của bạn <strong>không bao giờ được dùng để huấn luyện mô hình AI</strong>.</li>
+        <li>Vì nhà cung cấp AI đặt tại Hoa Kỳ, việc gửi này cấu thành chuyển dữ liệu cá nhân ra nước ngoài. <strong>Chúng tôi thu thập một đồng ý riêng, rõ ràng cho việc chuyển dữ liệu này khi đăng ký.</strong> Bạn có thể từ chối; từ chối đồng nghĩa với việc các tính năng dùng AI sẽ không khả dụng.</li>
+      </ul>
+      <h3>3.1 Phạm vi và giới hạn phân tích AI</h3>
+      <div class="highlight"><p>AI của chúng tôi được thiết kế và chỉ dẫn để chỉ phân tích sức khoẻ làn da.</p></div>
+      <ul>
+        <li>Phân tích AI <strong>được giới hạn nghiêm ngặt trong các chỉ số tình trạng da về mặt da liễu</strong> như độ ẩm, độ đàn hồi, tình trạng lỗ chân lông, mức độ sắc tố và nếp nhăn.</li>
+        <li>AI của chúng tôi <strong>bị cấm rõ ràng việc nhận dạng, phân loại, suy luận hoặc bình luận về</strong> chủng tộc, sắc tộc, phân loại màu da, nguồn gốc quốc gia hay bất kỳ đặc điểm nhân khẩu học nào khác từ ảnh hay dữ liệu của người dùng.</li>
+        <li>Lời nhắc (prompt) và hướng dẫn hệ thống của AI được thiết kế với các biện pháp bảo vệ để đảm bảo các giới hạn này được tuân thủ.</li>
+        <li>Kết quả do AI tạo ra <strong>chỉ phản ánh tình trạng da của cá nhân</strong> và không tham chiếu hay so sánh với bất kỳ nhóm chủng tộc, sắc tộc hay nhân khẩu học nào.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Chia sẻ và tiết lộ dữ liệu</h2>
+      <p>Chúng tôi không bán, cho thuê hay trao đổi thông tin cá nhân của bạn. Chúng tôi chỉ có thể chia sẻ thông tin của bạn trong các trường hợp sau:</p>
+      <ul>
+        <li><strong>Nhà cung cấp dịch vụ (Bên xử lý dữ liệu):</strong> các dịch vụ bên thứ ba đáng tin cậy giúp chúng tôi vận hành Ứng dụng. Danh sách đầy đủ các bên xử lý được công bố tại Mục 4.1. Các nhà cung cấp này có nghĩa vụ theo hợp đồng phải bảo vệ dữ liệu của bạn.</li>
+        <li><strong>Yêu cầu pháp lý:</strong> khi luật, quy định, quy trình pháp lý hoặc yêu cầu của cơ quan nhà nước yêu cầu.</li>
+        <li><strong>An toàn:</strong> để bảo vệ quyền lợi, tài sản hoặc sự an toàn của KawKaw, người dùng của chúng tôi hoặc công chúng.</li>
+        <li><strong>Chuyển nhượng doanh nghiệp:</strong> trong trường hợp sáp nhập, mua lại hoặc bán tài sản, với mức bảo vệ quyền riêng tư tương đương.</li>
+      </ul>
+
+      <h3>4.1 Các bên xử lý dữ liệu (Bên xử lý phụ)</h3>
+      <p>Chúng tôi uỷ thác việc xử lý dữ liệu cá nhân cho các bên xử lý phụ sau. Mỗi bên đều bị ràng buộc bởi một hợp đồng xử lý dữ liệu và chỉ xử lý dữ liệu theo các hướng dẫn được ghi nhận của chúng tôi.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Bên xử lý</th>
+              <th>Mục đích</th>
+              <th>Dữ liệu xử lý</th>
+              <th>Thời gian lưu giữ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc. (Hoa Kỳ)</td>
+              <td>Xác thực, cơ sở dữ liệu, lưu trữ tệp, Edge Functions</td>
+              <td>Tất cả dữ liệu thu thập (tài khoản, hồ sơ, ảnh, kết quả phân tích, routine, nhật ký sản phẩm)</td>
+              <td>Cho đến khi xoá tài khoản</td>
+            </tr>
+            <tr>
+              <td>Google LLC (Hoa Kỳ)</td>
+              <td>Phân tích da bằng AI, đề xuất sản phẩm/routine, vận may hằng ngày, tạo báo cáo (Gemini API)</td>
+              <td>Ảnh, dữ liệu da, hồ sơ (loại trừ email và ID tài khoản)</td>
+              <td>Xử lý theo thời gian thực và xoá ngay lập tức (không lưu trên máy chủ của Google)</td>
+            </tr>
+            <tr>
+              <td>RevenueCat, Inc. (Hoa Kỳ)</td>
+              <td>Quản lý đăng ký và thanh toán</td>
+              <td>Mã định danh giao dịch, trạng thái đăng ký</td>
+              <td>Cho đến khi xoá tài khoản</td>
+            </tr>
+            <tr>
+              <td>Apple Inc. (Hoa Kỳ) / Google LLC (Hoa Kỳ)</td>
+              <td>Gửi thông báo đẩy</td>
+              <td>Token thông báo đẩy, định danh thiết bị</td>
+              <td>Xoá ngay khi thông báo được gửi</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;margin-top:8px">Một số bên xử lý đặt ngoài quốc gia bạn cư trú. Xem Mục 9 (Chuyển dữ liệu quốc tế) để biết các biện pháp bảo vệ chúng tôi áp dụng. Đối với cư dân Hàn Quốc: một đồng ý riêng cho việc chuyển ra nước ngoài được thu thập khi đăng ký theo Điều 28-8 PIPA.</p>
+      <p style="font-size:12px;margin-top:8px">Chúng tôi cũng truy vấn các nguồn thông tin sản phẩm công khai để bổ sung kết quả đề xuất. Cơ sở dữ liệu mỹ phẩm chức năng của Korean Ministry of Food and Drug Safety (MFDS) được truy vấn theo tên sản phẩm đối với sản phẩm nguồn gốc Hàn Quốc; cơ sở dữ liệu Open Beauty Facts (OBF) được truy vấn đối với sản phẩm không phải Hàn Quốc. Các truy vấn này chỉ chứa thông tin sản phẩm và không bao giờ chứa dữ liệu cá nhân của bạn.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Thời gian lưu giữ dữ liệu</h2>
+      <ul>
+        <li>Dữ liệu tài khoản của bạn được lưu trong suốt thời gian tài khoản còn hoạt động.</li>
+        <li>Ảnh và kết quả phân tích da được lưu cho đến khi bạn xoá chúng hoặc xoá tài khoản.</li>
+        <li>Khi bạn xoá tài khoản, mọi dữ liệu cá nhân sẽ được xoá vĩnh viễn khỏi máy chủ của chúng tôi trong vòng 30 ngày.</li>
+        <li>Dữ liệu đã ẩn danh, được tổng hợp có thể được lưu giữ vì mục đích phân tích.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. An ninh dữ liệu</h2>
+      <p>Chúng tôi áp dụng các biện pháp an ninh theo tiêu chuẩn ngành để bảo vệ dữ liệu của bạn:</p>
+      <ul>
+        <li>Token xác thực được lưu bằng kho lưu trữ bảo mật của thiết bị (Keychain trên iOS, Keystore trên Android).</li>
+        <li>Mọi truyền tải dữ liệu được mã hoá bằng TLS/SSL.</li>
+        <li>Quyền truy cập dữ liệu cá nhân chỉ giới hạn cho nhân sự được uỷ quyền theo nguyên tắc cần biết.</li>
+        <li>Chúng tôi tiến hành đánh giá an ninh định kỳ đối với hạ tầng của mình.</li>
+      </ul>
+      <p>Mặc dù chúng tôi nỗ lực bảo vệ thông tin của bạn, không có phương thức lưu trữ hay truyền tải điện tử nào an toàn 100%. Chúng tôi không thể đảm bảo an ninh tuyệt đối.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Quyền của bạn</h2>
+      <p>Tuỳ thuộc vào khu vực bạn sinh sống, bạn có thể có các quyền sau:</p>
+      <ul>
+        <li><strong>Truy cập:</strong> yêu cầu một bản sao dữ liệu cá nhân của bạn.</li>
+        <li><strong>Chỉnh sửa:</strong> cập nhật hoặc sửa dữ liệu không chính xác qua cài đặt Hồ sơ.</li>
+        <li><strong>Xoá:</strong> xoá tài khoản và mọi dữ liệu liên quan tại Cài đặt &gt; Tài khoản &gt; Xoá tài khoản.</li>
+        <li><strong>Khả chuyển dữ liệu:</strong> yêu cầu nhận dữ liệu của bạn ở định dạng khả chuyển.</li>
+        <li><strong>Rút lại đồng ý:</strong> rút lại đồng ý đối với việc xử lý dữ liệu bất cứ lúc nào.</li>
+        <li><strong>Từ chối nhận:</strong> từ chối thông báo tiếp thị từ Cài đặt.</li>
+      </ul>
+      <h3>Đối với người dùng EU/EEA (GDPR)</h3>
+      <p>Cơ sở pháp lý để chúng tôi xử lý dữ liệu của bạn bao gồm: sự đồng ý của bạn, việc thực hiện hợp đồng với bạn, và lợi ích hợp pháp của chúng tôi trong việc vận hành và cải tiến Ứng dụng. Chúng tôi không xử lý dữ liệu thuộc loại đặc biệt như được định nghĩa tại Điều 9 của GDPR (bao gồm nguồn gốc chủng tộc hoặc sắc tộc). Bạn có thể nộp khiếu nại lên cơ quan bảo vệ dữ liệu địa phương.</p>
+      <h3>Đối với cư dân California (CCPA)</h3>
+      <p>Bạn có quyền được biết chúng tôi thu thập thông tin cá nhân nào, yêu cầu xoá và từ chối việc bán thông tin cá nhân. Chúng tôi không bán thông tin cá nhân của bạn.</p>
+      <h3>Đối với cư dân Hàn Quốc (PIPA)</h3>
+      <p>Theo Personal Information Protection Act, bạn có quyền truy cập, chỉnh sửa, xoá và tạm ngưng việc xử lý dữ liệu cá nhân của bạn. Chúng tôi không xử lý thông tin nhạy cảm (chủng tộc, sắc tộc, tín ngưỡng) như được định nghĩa tại Điều 23 của PIPA.</p>
+      <p><strong>Chuyển dữ liệu ra nước ngoài (PIPA Điều 28-8):</strong> một đồng ý riêng, rõ ràng cho việc chuyển dữ liệu cá nhân của bạn ra nước ngoài được thu thập khi đăng ký. Bạn có thể rút lại đồng ý này bất cứ lúc nào bằng cách xoá tài khoản; sau khi rút lại, các tính năng dùng AI sẽ không khả dụng. Danh sách bên nhận ở nước ngoài, các mục được chuyển, quốc gia và thời gian lưu giữ được công bố tại Mục 4.1.</p>
+      <p><strong>Quyết định tự động (PIPA Điều 37-2):</strong> phân tích da và đề xuất sản phẩm do AI tạo ra là các quyết định tự động. Bạn có thể yêu cầu xem xét bởi con người, yêu cầu giải thích hoặc từ chối quyết định tự động bằng cách liên hệ Văn phòng Bảo mật của chúng tôi qua email bên dưới.</p>
+      <p>Các yêu cầu có thể thực hiện qua cài đặt Ứng dụng hoặc bằng cách liên hệ với chúng tôi.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Quyền riêng tư của trẻ em</h2>
+      <p>Ứng dụng không dành cho trẻ em dưới 16 tuổi (hoặc độ tuổi tối thiểu áp dụng theo pháp luật của bạn). Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em dưới 16 tuổi. Nếu phát hiện đã thu thập dữ liệu từ trẻ em dưới 16 tuổi, chúng tôi sẽ xoá ngay. Nếu bạn cho rằng một trẻ em đã cung cấp thông tin cá nhân cho chúng tôi, vui lòng liên hệ với chúng tôi.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Chuyển dữ liệu quốc tế</h2>
+      <p>Thông tin của bạn có thể được chuyển sang và xử lý tại các quốc gia khác ngoài quốc gia bạn cư trú. Các bên xử lý liên quan, dữ liệu được chuyển, quốc gia đến và thời gian lưu giữ được công bố tại Mục 4.1.</p>
+      <p>Chúng tôi đảm bảo có các biện pháp bảo vệ phù hợp cho dữ liệu của bạn theo luật áp dụng. Cư dân Hàn Quốc cũng nên xem Mục 7 ("Đối với cư dân Hàn Quốc") để biết cơ chế đồng ý riêng và các quyền theo Điều 28-8 PIPA.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Liên kết và dịch vụ của bên thứ ba</h2>
+      <p>Ứng dụng có thể chứa các liên kết đến trang web hoặc dịch vụ của bên thứ ba (ví dụ: liên kết mua sản phẩm). Chúng tôi không chịu trách nhiệm về các thực tiễn bảo mật của các bên thứ ba này. Chúng tôi khuyến khích bạn xem chính sách bảo mật của họ.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Thông báo đẩy</h2>
+      <p>Với sự cho phép của bạn, chúng tôi có thể gửi thông báo đẩy cho lời nhắc routine, lời nhắc quét lại hằng tháng và cập nhật dịch vụ. Bạn có thể quản lý tuỳ chọn thông báo trong Cài đặt hoặc qua cài đặt thiết bị.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Thay đổi chính sách này</h2>
+      <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Chúng tôi sẽ thông báo cho bạn về các thay đổi quan trọng qua Ứng dụng hoặc email. Việc bạn tiếp tục sử dụng Ứng dụng sau khi có thay đổi đồng nghĩa với việc chấp nhận chính sách đã cập nhật.</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. Liên hệ với chúng tôi</h2>
+      <p>Nếu bạn có câu hỏi hoặc thắc mắc về Chính sách Bảo mật này hoặc các thực tiễn xử lý dữ liệu của chúng tôi, vui lòng liên hệ với chúng tôi:</p>
+      <p><strong>Văn phòng Bảo mật:</strong> Đội Bảo mật Gumi Glowup</p>
+      <p><strong>Email:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ THAI ═══════════════ -->
+  <div lang="th">
+    <h1>นโยบายความเป็นส่วนตัว</h1>
+    <p class="date">วันที่มีผลบังคับใช้: 17 เมษายน 2025 | อัปเดตล่าสุด: 9 มิถุนายน 2026</p>
+    <p>KawKaw ("บริษัท", "เรา") เป็นผู้ดำเนินการแอปพลิเคชันมือถือ Gumi Glowup ("แอป") นโยบายความเป็นส่วนตัวฉบับนี้อธิบายวิธีที่เราเก็บรวบรวม ใช้ เปิดเผย และคุ้มครองข้อมูลของคุณเมื่อคุณใช้แอป การใช้แอปนี้ถือว่าคุณยินยอมตามแนวปฏิบัติที่ระบุไว้ในนโยบายฉบับนี้</p>
+
+    <div class="section">
+      <h2>1. ข้อมูลที่เราเก็บรวบรวม</h2>
+      <h3>1.1 ข้อมูลที่คุณให้กับเรา</h3>
+      <ul>
+        <li><strong>ข้อมูลบัญชี:</strong> ชื่อ ที่อยู่อีเมล และสำหรับการสมัครด้วยอีเมล รหัสผ่าน การเข้าสู่ระบบด้วย Apple และ Google ดำเนินการโดยผู้ให้บริการรายนั้น ๆ เราไม่จัดเก็บรหัสผ่านของการเข้าสู่ระบบด้วยโซเชียล</li>
+        <li><strong>ข้อมูลโปรไฟล์:</strong> วันเกิด, เพศ (ไม่บังคับ), ประเทศ/ภูมิภาค (ไม่บังคับ), ประเภทผิว (1–3 ประเภท), ปัญหาผิวที่กังวล (กรอกอิสระ, ไม่บังคับ), อาการแพ้ (ไม่บังคับ), แบรนด์ที่ชอบ (ไม่บังคับ) และราศี (คำนวณจากวันเกิด ใช้สำหรับดูดวงประจำวัน)</li>
+        <li><strong>รูปภาพ:</strong> ภาพเซลฟี่ที่คุณถ่ายเพื่อวิเคราะห์ผิวด้วย AI</li>
+        <li><strong>ข้อมูลรูทีนและการวิเคราะห์:</strong> ประวัติการวิเคราะห์ผิว ผลิตภัณฑ์ที่แนะนำ การตั้งค่ารูทีนเช้า/เย็น และบันทึกการทำรูทีนประจำวัน</li>
+        <li><strong>ไดอารี่ผลิตภัณฑ์:</strong> บันทึกเกี่ยวกับผลิตภัณฑ์ที่คุณกำลังใช้หรือใช้เสร็จแล้ว (วันที่เริ่ม/สิ้นสุด, บันทึกย่อ, ปริมาณ) และสถิติผลิตภัณฑ์ที่คำนวณจากบันทึกเหล่านั้น</li>
+        <li><strong>การติดต่อสื่อสาร:</strong> ข้อความที่คุณส่งถึงทีมสนับสนุนของเรา</li>
+      </ul>
+      <h3>1.2 ข้อมูลที่เก็บอัตโนมัติ</h3>
+      <ul>
+        <li><strong>ข้อมูลอุปกรณ์:</strong> รุ่นอุปกรณ์ เวอร์ชันระบบปฏิบัติการ ตัวระบุอุปกรณ์ที่ไม่ซ้ำกัน</li>
+        <li><strong>ข้อมูลการใช้งาน:</strong> การใช้ฟีเจอร์ในแอป รูปแบบการโต้ตอบ ระยะเวลาเซสชัน</li>
+        <li><strong>โทเค็นการแจ้งเตือนแบบพุช:</strong> เพื่อส่งการแจ้งเตือนที่คุณยินยอมรับ</li>
+      </ul>
+      <h3>1.3 ข้อมูลที่เราไม่เก็บรวบรวม</h3>
+      <ul>
+        <li>เราไม่เก็บข้อมูลตำแหน่งที่ตั้งทางภูมิศาสตร์ที่แม่นยำ</li>
+        <li>เราไม่เข้าถึงรายชื่อผู้ติดต่อ ปฏิทิน หรือแอปอื่น ๆ ของคุณ</li>
+        <li>เราไม่ใช้ตัวติดตามโฆษณาและไม่ขายข้อมูลของคุณให้กับผู้โฆษณา</li>
+        <li><strong>เราไม่เก็บรวบรวม อนุมาน หรือสกัดข้อมูลเชื้อชาติหรือชาติพันธุ์ ความเชื่อทางศาสนา หรือข้อมูลส่วนบุคคลประเภทพิเศษอื่นใดจากรูปภาพ การวิเคราะห์ผิว หรือข้อมูลอื่นใดของคุณ</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. วิธีที่เราใช้ข้อมูลของคุณ</h2>
+      <ul>
+        <li><strong>การวิเคราะห์ผิว:</strong> ภาพเซลฟี่ของคุณจะถูกประมวลผลด้วย AI เพื่อประเมินสภาพผิว (ความชุ่มชื้น ความยืดหยุ่น รูขุมขน รอยคล้ำ ริ้วรอย) และประมาณอายุผิว <strong>การวิเคราะห์จำกัดเฉพาะตัวชี้วัดสภาพผิวในเชิงผิวหนังวิทยาเท่านั้น และจะไม่ประเมิน จำแนก หรือตัดสินใด ๆ บนพื้นฐานของเชื้อชาติ ชาติพันธุ์ หรือสีผิว</strong></li>
+        <li><strong>คำแนะนำเฉพาะบุคคล:</strong> เราใช้ประเภทผิว ปัญหาผิว อายุ และผลการวิเคราะห์ของคุณเพื่อแนะนำผลิตภัณฑ์ดูแลผิวและรูทีน สำหรับผลิตภัณฑ์ต้นกำเนิดเกาหลี ระบบแนะนำของเราจะเทียบข้อมูลเพิ่มเติมกับฐานข้อมูลเครื่องสำอางเชิงหน้าที่ของ Korean Ministry of Food and Drug Safety (MFDS); สำหรับผลิตภัณฑ์ที่ไม่ใช่ของเกาหลีจะใช้ฐานข้อมูล Open Beauty Facts (OBF) แหล่งข้อมูลทั้งสองมีเฉพาะข้อมูลผลิตภัณฑ์ — ไม่มีข้อมูลส่วนบุคคลใดถูกส่งไปยัง MFDS หรือ OBF</li>
+        <li><strong>ฟีเจอร์ดูดวง:</strong> เราใช้ชื่อ วันเกิด เพศ และราศีในการสร้างคำทำนายดวงประจำวัน (วันละหนึ่งครั้ง)</li>
+        <li><strong>ฟังก์ชันการทำงานของแอป:</strong> เพื่อจัดการบัญชีของคุณ ติดตามการทำรูทีนต่อเนื่อง บันทึกผลิตภัณฑ์ในไดอารี่ และส่งการแจ้งเตือน</li>
+        <li><strong>การปรับปรุงบริการ:</strong> ข้อมูลการใช้งานที่ถูกรวบรวมและทำให้ไม่ระบุตัวตนช่วยให้เราปรับปรุงแอป</li>
+        <li><strong>การสื่อสาร:</strong> เพื่อตอบข้อสอบถามด้านสนับสนุนและส่งการอัปเดตบริการที่สำคัญ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. การประมวลผลข้อมูลโดย AI</h2>
+      <div class="highlight"><p>ความเป็นส่วนตัวของคุณระหว่างการประมวลผลด้วย AI เป็นสิ่งสำคัญสูงสุด</p></div>
+      <ul>
+        <li>ภาพเซลฟี่และข้อมูลส่วนบุคคล (อายุ ประเภทผิว ปัญหาผิว ภูมิภาค ประวัติการวิเคราะห์ ประวัติผลิตภัณฑ์/รูทีน) จะถูกส่งไปยังบริการ AI เพื่อวิเคราะห์ตามเวลาจริง</li>
+        <li><strong>อีเมลและรหัสบัญชีของคุณจะไม่ถูกส่งไปยังบริการ AI ใด ๆ</strong></li>
+        <li>ข้อมูลจะถูกประมวลผลตามเวลาจริงและ<strong>ไม่ถูกจัดเก็บบนเซิร์ฟเวอร์ AI ของบุคคลที่สาม</strong>เมื่อการวิเคราะห์เสร็จสิ้น</li>
+        <li>ข้อมูลของคุณ<strong>จะไม่ถูกใช้ในการฝึกโมเดล AI</strong></li>
+        <li>เนื่องจากผู้ให้บริการ AI ตั้งอยู่ในสหรัฐอเมริกา การส่งข้อมูลนี้จึงเป็นการโอนข้อมูลส่วนบุคคลข้ามพรมแดน <strong>เราจะขอความยินยอมแยกอย่างชัดเจนสำหรับการโอนนี้เมื่อสมัครใช้งาน</strong> คุณสามารถปฏิเสธได้ ซึ่งหากปฏิเสธจะไม่สามารถใช้ฟีเจอร์ที่ขับเคลื่อนด้วย AI ได้</li>
+      </ul>
+      <h3>3.1 ขอบเขตและข้อจำกัดของการวิเคราะห์ด้วย AI</h3>
+      <div class="highlight"><p>AI ของเราได้รับการออกแบบและกำหนดให้วิเคราะห์เฉพาะสุขภาพผิวเท่านั้น</p></div>
+      <ul>
+        <li>การวิเคราะห์ด้วย AI <strong>จำกัดเฉพาะตัวชี้วัดสภาพผิวในเชิงผิวหนังวิทยา</strong> เช่น ความชุ่มชื้น ความยืดหยุ่น สภาพรูขุมขน ระดับรอยคล้ำ และริ้วรอย</li>
+        <li>AI ของเรา<strong>ถูกห้ามอย่างชัดเจนในการระบุ จำแนก อนุมาน หรือแสดงความเห็นเกี่ยวกับ</strong>เชื้อชาติ ชาติพันธุ์ การจำแนกสีผิว ถิ่นกำเนิด หรือลักษณะประชากรอื่นใดจากรูปหรือข้อมูลของผู้ใช้</li>
+        <li>คำสั่ง (prompt) และคำแนะนำระบบของ AI ได้รับการออกแบบโดยมีมาตรการป้องกันเพื่อให้แน่ใจว่าข้อจำกัดเหล่านี้ถูกบังคับใช้</li>
+        <li>ผลลัพธ์ที่ AI สร้างขึ้น<strong>สะท้อนเฉพาะสภาพผิวของบุคคลนั้น ๆ เท่านั้น</strong> และไม่อ้างอิงหรือเปรียบเทียบกับกลุ่มเชื้อชาติ ชาติพันธุ์ หรือกลุ่มประชากรใด ๆ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. การแบ่งปันและการเปิดเผยข้อมูล</h2>
+      <p>เราไม่ขาย ให้เช่า หรือแลกเปลี่ยนข้อมูลส่วนบุคคลของคุณ เราอาจแบ่งปันข้อมูลของคุณเฉพาะในกรณีต่อไปนี้:</p>
+      <ul>
+        <li><strong>ผู้ให้บริการ (ผู้ประมวลผลข้อมูล):</strong> บริการบุคคลที่สามที่เชื่อถือได้ซึ่งช่วยเราดำเนินงานแอป รายชื่อผู้ประมวลผลทั้งหมดเปิดเผยในหัวข้อ 4.1 ผู้ให้บริการเหล่านี้มีภาระผูกพันตามสัญญาในการคุ้มครองข้อมูลของคุณ</li>
+        <li><strong>ข้อกำหนดทางกฎหมาย:</strong> เมื่อมีกฎหมาย ระเบียบ กระบวนการทางกฎหมาย หรือคำขอจากรัฐบาลกำหนด</li>
+        <li><strong>ความปลอดภัย:</strong> เพื่อปกป้องสิทธิ์ ทรัพย์สิน หรือความปลอดภัยของ KawKaw ผู้ใช้ของเรา หรือสาธารณชน</li>
+        <li><strong>การโอนกิจการ:</strong> ในกรณีการควบรวม การเข้าซื้อ หรือการขายทรัพย์สิน โดยมีการคุ้มครองความเป็นส่วนตัวเทียบเท่า</li>
+      </ul>
+
+      <h3>4.1 ผู้ประมวลผลข้อมูล (ผู้ประมวลผลย่อย)</h3>
+      <p>เรามอบหมายการประมวลผลข้อมูลส่วนบุคคลให้ผู้ประมวลผลย่อยดังต่อไปนี้ แต่ละรายผูกพันด้วยข้อตกลงประมวลผลข้อมูลและประมวลผลข้อมูลตามคำสั่งเป็นลายลักษณ์อักษรของเราเท่านั้น</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ผู้ประมวลผล</th>
+              <th>วัตถุประสงค์</th>
+              <th>ข้อมูลที่ประมวลผล</th>
+              <th>ระยะเวลาจัดเก็บ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc. (สหรัฐอเมริกา)</td>
+              <td>การยืนยันตัวตน ฐานข้อมูล การจัดเก็บไฟล์ Edge Functions</td>
+              <td>ข้อมูลทั้งหมดที่เก็บรวบรวม (บัญชี โปรไฟล์ รูปภาพ ผลการวิเคราะห์ รูทีน ไดอารี่ผลิตภัณฑ์)</td>
+              <td>จนกว่าจะลบบัญชี</td>
+            </tr>
+            <tr>
+              <td>Google LLC (สหรัฐอเมริกา)</td>
+              <td>การวิเคราะห์ผิวด้วย AI การแนะนำผลิตภัณฑ์/รูทีน ดูดวงประจำวัน การสร้างรายงาน (Gemini API)</td>
+              <td>รูปภาพ ข้อมูลผิว โปรไฟล์ (ไม่รวมอีเมลและรหัสบัญชี)</td>
+              <td>ประมวลผลตามเวลาจริงและทิ้งทันที (ไม่จัดเก็บบนเซิร์ฟเวอร์ของ Google)</td>
+            </tr>
+            <tr>
+              <td>RevenueCat, Inc. (สหรัฐอเมริกา)</td>
+              <td>การจัดการการสมัครสมาชิกและการชำระเงิน</td>
+              <td>รหัสธุรกรรม สถานะการสมัครสมาชิก</td>
+              <td>จนกว่าจะลบบัญชี</td>
+            </tr>
+            <tr>
+              <td>Apple Inc. (สหรัฐอเมริกา) / Google LLC (สหรัฐอเมริกา)</td>
+              <td>การส่งการแจ้งเตือนแบบพุช</td>
+              <td>โทเค็นการแจ้งเตือนแบบพุช ตัวระบุอุปกรณ์</td>
+              <td>ลบทิ้งทันทีที่ส่งการแจ้งเตือนสำเร็จ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;margin-top:8px">ผู้ประมวลผลบางรายตั้งอยู่นอกประเทศที่คุณพำนัก โปรดดูหัวข้อ 9 (การโอนข้อมูลระหว่างประเทศ) สำหรับมาตรการคุ้มครองที่เราใช้ ผู้พำนักในเกาหลี: เราจะขอความยินยอมแยกสำหรับการโอนข้ามพรมแดนเมื่อสมัครใช้งานตามมาตรา 28-8 ของ PIPA</p>
+      <p style="font-size:12px;margin-top:8px">เรายังสอบถามแหล่งข้อมูลผลิตภัณฑ์สาธารณะเพื่อเสริมผลการแนะนำ ฐานข้อมูลเครื่องสำอางเชิงหน้าที่ของ Korean Ministry of Food and Drug Safety (MFDS) ถูกสอบถามด้วยชื่อผลิตภัณฑ์สำหรับผลิตภัณฑ์ต้นกำเนิดเกาหลี และฐานข้อมูล Open Beauty Facts (OBF) ถูกสอบถามสำหรับผลิตภัณฑ์ที่ไม่ใช่ของเกาหลี การสอบถามเหล่านี้มีเฉพาะข้อมูลผลิตภัณฑ์ และไม่รวมข้อมูลส่วนบุคคลของคุณ</p>
+    </div>
+
+    <div class="section">
+      <h2>5. ระยะเวลาเก็บข้อมูล</h2>
+      <ul>
+        <li>ข้อมูลบัญชีของคุณจะถูกเก็บไว้ตราบเท่าที่บัญชียังใช้งานอยู่</li>
+        <li>ภาพและผลการวิเคราะห์ผิวจะถูกเก็บไว้จนกว่าคุณจะลบหรือลบบัญชี</li>
+        <li>เมื่อคุณลบบัญชี ข้อมูลส่วนบุคคลทั้งหมดจะถูกลบออกจากเซิร์ฟเวอร์ของเราอย่างถาวรภายใน 30 วัน</li>
+        <li>ข้อมูลที่ทำให้ไม่ระบุตัวตนและถูกรวบรวมอาจถูกเก็บไว้เพื่อวัตถุประสงค์ทางการวิเคราะห์</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. การรักษาความปลอดภัยของข้อมูล</h2>
+      <p>เราใช้มาตรการรักษาความปลอดภัยตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ:</p>
+      <ul>
+        <li>โทเค็นการยืนยันตัวตนถูกเก็บไว้ในที่จัดเก็บที่ปลอดภัยของอุปกรณ์ (Keychain บน iOS, Keystore บน Android)</li>
+        <li>การส่งข้อมูลทั้งหมดถูกเข้ารหัสด้วย TLS/SSL</li>
+        <li>การเข้าถึงข้อมูลส่วนบุคคลจำกัดเฉพาะบุคลากรที่ได้รับอนุญาตและจำเป็นต้องทราบเท่านั้น</li>
+        <li>เราดำเนินการตรวจสอบความปลอดภัยของโครงสร้างพื้นฐานเป็นประจำ</li>
+      </ul>
+      <p>แม้เราจะพยายามอย่างเต็มที่ในการปกป้องข้อมูลของคุณ แต่ไม่มีวิธีจัดเก็บหรือส่งผ่านทางอิเล็กทรอนิกส์ใดที่ปลอดภัย 100% เราไม่สามารถรับประกันความปลอดภัยอย่างสมบูรณ์</p>
+    </div>
+
+    <div class="section">
+      <h2>7. สิทธิของคุณ</h2>
+      <p>ขึ้นอยู่กับสถานที่ที่คุณพำนัก คุณอาจมีสิทธิดังต่อไปนี้:</p>
+      <ul>
+        <li><strong>การเข้าถึง:</strong> ขอสำเนาข้อมูลส่วนบุคคลของคุณ</li>
+        <li><strong>การแก้ไข:</strong> อัปเดตหรือแก้ไขข้อมูลที่ไม่ถูกต้องผ่านการตั้งค่าโปรไฟล์</li>
+        <li><strong>การลบ:</strong> ลบบัญชีและข้อมูลที่เกี่ยวข้องทั้งหมดจาก การตั้งค่า &gt; บัญชี &gt; ลบบัญชี</li>
+        <li><strong>การโอนย้ายข้อมูล:</strong> ขอรับข้อมูลของคุณในรูปแบบที่โอนย้ายได้</li>
+        <li><strong>การถอนความยินยอม:</strong> ถอนความยินยอมในการประมวลผลข้อมูลได้ตลอดเวลา</li>
+        <li><strong>การเลือกไม่รับ:</strong> เลือกไม่รับการแจ้งเตือนทางการตลาดในการตั้งค่า</li>
+      </ul>
+      <h3>สำหรับผู้ใช้ EU/EEA (GDPR)</h3>
+      <p>ฐานทางกฎหมายในการประมวลผลข้อมูลของคุณ ได้แก่ ความยินยอมของคุณ การปฏิบัติตามสัญญาที่ทำกับคุณ และผลประโยชน์ที่ชอบด้วยกฎหมายของเราในการดำเนินงานและปรับปรุงแอป เราไม่ประมวลผลข้อมูลประเภทพิเศษตามที่กำหนดในมาตรา 9 ของ GDPR (รวมถึงเชื้อชาติหรือชาติพันธุ์) คุณสามารถยื่นเรื่องร้องเรียนต่อหน่วยงานคุ้มครองข้อมูลในพื้นที่ของคุณ</p>
+      <h3>สำหรับผู้พำนักในแคลิฟอร์เนีย (CCPA)</h3>
+      <p>คุณมีสิทธิที่จะทราบว่าเราเก็บข้อมูลส่วนบุคคลใด ขอลบ และเลือกไม่ให้มีการขายข้อมูลส่วนบุคคล เราไม่ขายข้อมูลส่วนบุคคลของคุณ</p>
+      <h3>สำหรับผู้พำนักในเกาหลี (PIPA)</h3>
+      <p>ตาม Personal Information Protection Act คุณมีสิทธิเข้าถึง แก้ไข ลบ และระงับการประมวลผลข้อมูลส่วนบุคคลของคุณ เราไม่ประมวลผลข้อมูลละเอียดอ่อน (เชื้อชาติ ชาติพันธุ์ ความเชื่อ) ตามที่กำหนดในมาตรา 23 ของ PIPA</p>
+      <p><strong>การโอนข้ามพรมแดน (PIPA มาตรา 28-8):</strong> เราขอความยินยอมแยกอย่างชัดเจนสำหรับการโอนข้อมูลส่วนบุคคลของคุณข้ามพรมแดนเมื่อสมัครใช้งาน คุณสามารถถอนความยินยอมนี้ได้ตลอดเวลาโดยการลบบัญชี เมื่อถอนแล้ว ฟีเจอร์ที่ขับเคลื่อนด้วย AI จะไม่สามารถใช้งานได้ รายชื่อผู้รับในต่างประเทศ รายการที่ถูกโอน ประเทศ และระยะเวลาจัดเก็บถูกเปิดเผยในหัวข้อ 4.1</p>
+      <p><strong>การตัดสินใจอัตโนมัติ (PIPA มาตรา 37-2):</strong> การวิเคราะห์ผิวและการแนะนำผลิตภัณฑ์ที่สร้างโดย AI ถือเป็นการตัดสินใจอัตโนมัติ คุณสามารถขอการพิจารณาโดยมนุษย์ ขอคำอธิบาย หรือปฏิเสธการตัดสินใจอัตโนมัติได้โดยติดต่อสำนักงานความเป็นส่วนตัวของเราที่อีเมลด้านล่าง</p>
+      <p>คำขอสามารถยื่นได้ผ่านการตั้งค่าในแอปหรือโดยติดต่อเรา</p>
+    </div>
+
+    <div class="section">
+      <h2>8. ความเป็นส่วนตัวของเด็ก</h2>
+      <p>แอปนี้ไม่ได้มีไว้สำหรับเด็กอายุต่ำกว่า 16 ปี (หรืออายุขั้นต่ำที่บังคับใช้ในเขตอำนาจของคุณ) เราไม่จงใจเก็บรวบรวมข้อมูลส่วนบุคคลจากเด็กอายุต่ำกว่า 16 ปี หากเราพบว่าได้รวบรวมข้อมูลจากเด็กอายุต่ำกว่า 16 ปี เราจะลบโดยทันที หากคุณเชื่อว่าเด็กได้ให้ข้อมูลส่วนบุคคลแก่เรา โปรดติดต่อเรา</p>
+    </div>
+
+    <div class="section">
+      <h2>9. การโอนข้อมูลระหว่างประเทศ</h2>
+      <p>ข้อมูลของคุณอาจถูกโอนและประมวลผลในประเทศอื่นนอกเหนือจากประเทศที่คุณพำนัก ผู้ประมวลผลที่เกี่ยวข้อง ข้อมูลที่ถูกโอน ประเทศปลายทาง และระยะเวลาจัดเก็บถูกเปิดเผยในหัวข้อ 4.1</p>
+      <p>เราจัดให้มีมาตรการคุ้มครองที่เหมาะสมเพื่อปกป้องข้อมูลของคุณตามกฎหมายที่บังคับใช้ ผู้พำนักในเกาหลีโปรดดูหัวข้อ 7 ("สำหรับผู้พำนักในเกาหลี") เพิ่มเติมเพื่อทราบกลไกความยินยอมแยกและสิทธิตามมาตรา 28-8 ของ PIPA</p>
+    </div>
+
+    <div class="section">
+      <h2>10. ลิงก์และบริการของบุคคลที่สาม</h2>
+      <p>แอปอาจมีลิงก์ไปยังเว็บไซต์หรือบริการของบุคคลที่สาม (เช่น ลิงก์ซื้อผลิตภัณฑ์) เราไม่รับผิดชอบต่อแนวปฏิบัติด้านความเป็นส่วนตัวของบุคคลที่สามเหล่านี้ เราขอแนะนำให้คุณตรวจสอบนโยบายความเป็นส่วนตัวของพวกเขา</p>
+    </div>
+
+    <div class="section">
+      <h2>11. การแจ้งเตือนแบบพุช</h2>
+      <p>เมื่อได้รับอนุญาตจากคุณ เราอาจส่งการแจ้งเตือนแบบพุชสำหรับการเตือนรูทีน การเตือนสแกนซ้ำรายเดือน และการอัปเดตบริการ คุณสามารถจัดการการตั้งค่าการแจ้งเตือนได้ในการตั้งค่าหรือผ่านการตั้งค่าอุปกรณ์ของคุณ</p>
+    </div>
+
+    <div class="section">
+      <h2>12. การเปลี่ยนแปลงนโยบายนี้</h2>
+      <p>เราอาจอัปเดตนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว เราจะแจ้งให้คุณทราบถึงการเปลี่ยนแปลงที่มีนัยสำคัญผ่านทางแอปหรืออีเมล การที่คุณใช้แอปต่อไปหลังจากการเปลี่ยนแปลงถือเป็นการยอมรับนโยบายที่อัปเดตแล้ว</p>
+    </div>
+
+    <div class="contact">
+      <h2>13. ติดต่อเรา</h2>
+      <p>หากคุณมีคำถามหรือข้อกังวลเกี่ยวกับนโยบายความเป็นส่วนตัวฉบับนี้หรือแนวปฏิบัติด้านข้อมูลของเรา โปรดติดต่อเรา:</p>
+      <p><strong>สำนักงานความเป็นส่วนตัว:</strong> ทีมความเป็นส่วนตัว Gumi Glowup</p>
+      <p><strong>อีเมล:</strong> <a href="mailto:kawkaw.app@gmail.com">kawkaw.app@gmail.com</a></p>
+    </div>
+  </div>
+
   <script>
-    var SUPPORTED_LANGS = ['en', 'ko'];
+    var SUPPORTED_LANGS = ['en', 'ko', 'ja', 'zh-TW', 'es', 'vi', 'th'];
 
     function setLang(lang) {
       if (SUPPORTED_LANGS.indexOf(lang) === -1) lang = 'en';
-      document.body.className = lang === 'en' ? '' : lang;
+      document.body.className = lang === 'en' ? '' : lang.toLowerCase();
       document.getElementById('lang-select').value = lang;
       document.documentElement.lang = lang;
       history.replaceState(null, '', '?lang=' + lang);
@@ -462,10 +1456,15 @@
       var lang = p.get('lang');
       if (!lang) {
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var matched = SUPPORTED_LANGS.find(function(l) {
-          return browserLang === l || browserLang.startsWith(l + '-');
-        });
-        lang = matched || 'en';
+        if (browserLang === 'zh' || browserLang.startsWith('zh-')) {
+          lang = 'zh-TW';
+        } else {
+          var matched = SUPPORTED_LANGS.find(function(l) {
+            var lower = l.toLowerCase();
+            return browserLang === lower || browserLang.startsWith(lower + '-');
+          });
+          lang = matched || 'en';
+        }
       }
       setLang(lang);
     })();
