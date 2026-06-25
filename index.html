@@ -154,6 +154,10 @@ Thank you for giving us a chance.</div>
         <input type="text" id="fname" placeholder="How should we address you?" />
       </div>
       <div class="form-group">
+        <label for="femail">Your Email <span style="color:var(--text-light);font-weight:600;">(optional)</span></label>
+        <input type="email" id="femail" placeholder="So we can reply back to you 💌" />
+      </div>
+      <div class="form-group">
         <label for="fapp">Which App?</label>
         <select id="fapp"></select>
       </div>
@@ -309,10 +313,11 @@ Thank you for giving us a chance.</div>
   renderAppSelect();
 
   async function submitFeedback() {
-    const name = document.getElementById('fname').value.trim();
-    const app  = document.getElementById('fapp').value;
-    const type = document.getElementById('ftype').value;
-    const msg  = document.getElementById('fmsg').value.trim();
+    const name  = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const app   = document.getElementById('fapp').value;
+    const type  = document.getElementById('ftype').value;
+    const msg   = document.getElementById('fmsg').value.trim();
 
     if (!msg) {
       document.getElementById('fmsg').style.borderColor = '#e03131';
@@ -329,7 +334,7 @@ Thank you for giving us a chance.</div>
       await fetch('https://formspree.io/f/xgonaebn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, app: app || 'general', type, message: msg })
+        body: JSON.stringify({ name, email: email || undefined, app: app || 'general', type, message: msg })
       });
     } catch (e) {}
 
