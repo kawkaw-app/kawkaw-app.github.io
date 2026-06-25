@@ -263,6 +263,10 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
         <input type="text" id="fname" placeholder="Ate Maria, Kuya Juan..." />
       </div>
       <div class="form-group">
+        <label for="femail">Your Email <span style="color:var(--text-light);font-weight:600;">(optional)</span></label>
+        <input type="email" id="femail" placeholder="So we can reply back to you 💌" />
+      </div>
+      <div class="form-group">
         <label for="ftype">Type of Feedback</label>
         <select id="ftype">
           <option value="">Select type...</option>
@@ -310,9 +314,10 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
 
 <script>
   async function submitFeedback() {
-    const name = document.getElementById('fname').value.trim();
-    const type = document.getElementById('ftype').value;
-    const msg  = document.getElementById('fmsg').value.trim();
+    const name  = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const type  = document.getElementById('ftype').value;
+    const msg   = document.getElementById('fmsg').value.trim();
 
     if (!msg) {
       document.getElementById('fmsg').style.borderColor = '#e03131';
@@ -329,7 +334,7 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
       await fetch('https://formspree.io/f/xgonaebn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, app: 'gumi-save', type, message: msg })
+        body: JSON.stringify({ name, email: email || undefined, app: 'gumi-save', type, message: msg })
       });
     } catch (e) {}
 
