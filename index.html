@@ -325,18 +325,36 @@ Thank you for giving us a chance.</div>
       return;
     }
 
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('femail').style.borderColor = '#e03131';
+      document.getElementById('femail').focus();
+      return;
+    }
+
     const btn = document.getElementById('submit-btn');
+    const originalLabel = btn.textContent;
     btn.textContent = 'Sending... ⏳';
     btn.disabled = true;
     btn.style.opacity = '0.7';
 
     try {
-      await fetch('https://formspree.io/f/xgonaebn', {
+      const res = await fetch('https://formspree.io/f/xgonaebn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ name, email: email || undefined, app: app || 'general', type, message: msg })
       });
-    } catch (e) {}
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const reason = (data.errors && data.errors.map(er => er.message).join(', ')) || data.error || ('HTTP ' + res.status);
+        throw new Error(reason);
+      }
+    } catch (e) {
+      btn.textContent = originalLabel;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      alert('Sorry, your message could not be sent 😢\n(' + (e.message || 'network error') + ')\nPlease email us directly: kawkaw.app@gmail.com');
+      return;
+    }
 
     document.getElementById('form-fields').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
