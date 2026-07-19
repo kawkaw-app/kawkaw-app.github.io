@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GUMI SAVE — Your Cute & Friendly Budgeting Buddy 🐻</title>
+  <meta name="description" content="GUMI SAVE is a free, offline-first budgeting app made for the Philippines. Track income, expenses, utang and savings — plus opt-in online extras like an AI coach, Paluwagan groups, and a Shared Wallet." />
   <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../shared.css" />
@@ -30,6 +31,46 @@
       object-fit: cover; object-position: top;
       display: block;
     }
+
+    /* online / offline tag pills reuse shared .region-pill */
+    .tag-online { background: linear-gradient(135deg, #E4DAFF, #FFE0EC); border-color: #9D87DC; color: #4A3880; }
+    .tag-offline { background: #E3F6EC; border-color: #7EC8A4; color: #2A7A6A; }
+
+    /* categorized feature grid */
+    .cats { background: linear-gradient(180deg, #EFF8FF 0%, #F8F5FF 100%); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+      margin: 50px auto 0;
+    }
+    .cat-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px 26px;
+      box-shadow: var(--card-shadow);
+      border: 2.5px solid rgba(74,64,99,0.08);
+      transition: transform .2s, border-color .2s;
+    }
+    .cat-card:hover { transform: translateY(-5px); border-color: var(--lavender); }
+    .cat-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .cat-emoji { font-size: 2rem; line-height: 1; }
+    .cat-card h4 {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800; font-size: 1.2rem; color: var(--brown);
+    }
+    .cat-tag {
+      display: inline-block; margin-bottom: 14px;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: .04em;
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .cat-tag.on { background: linear-gradient(135deg, #E4DAFF, #FFE0EC); color: #6A4FA0; }
+    .cat-tag.off { background: #D9F2E5; color: #2A7A6A; }
+    .cat-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .cat-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.92rem; font-weight: 600; color: var(--text); line-height: 1.5; }
+    .cat-list li span { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .cat-note { margin-top: 14px; font-size: 0.8rem; color: var(--text-light); font-weight: 700; line-height: 1.5; }
 
     .gumi-links { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
     .gumi-links-title {
@@ -74,6 +115,7 @@
   <ul class="nav-links">
     <li><a href="/">← Home</a></li>
     <li><a href="#features">Features</a></li>
+    <li><a href="#inside">What's Inside</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#feedback">Feedback</a></li>
   </ul>
@@ -100,8 +142,8 @@
   </h1>
 
   <p class="hero-sub">
-    Track income, expenses, utang, and savings — with an <strong>AI coach</strong> that turns your spending into clear, gentle insights.<br/>
-    Friendly, not overwhelming. 🤖✨
+    Track income, expenses, utang, and savings — offline by default, no login needed.<br/>
+    Then turn on the extras you want: an <strong>AI coach</strong>, <strong>Paluwagan</strong> groups, and a <strong>Shared Wallet</strong> for the family. 🤖✨
   </p>
 
   <div class="hero-cta">
@@ -110,11 +152,11 @@
   </div>
 
   <div class="trust-strip">
+    <div class="trust-item">📵 Offline-first</div>
     <div class="trust-item">🤖 AI-powered</div>
     <div class="trust-item">🍎 iOS · 🤖 Android</div>
-    <div class="trust-item">✅ 100% Free Forever</div>
-    <div class="trust-item">📵 Works Offline</div>
-    <div class="trust-item">🔒 Your Data Stays Yours</div>
+    <div class="trust-item">🆓 Free forever</div>
+    <div class="trust-item">🔒 Encrypted backups</div>
   </div>
 </section>
 
@@ -122,7 +164,7 @@
   <div class="center">
     <span class="section-label">Features</span>
     <h2 class="section-title">Everything you need to manage your money 🎯</h2>
-    <p class="section-desc center">Help every Filipino family take control of their money — without stress, without cost, and without needing the internet.</p>
+    <p class="section-desc center">Help every Filipino family take control of their money — without stress and without cost. Your everyday budgeting works fully offline; the social and AI extras are optional and clearly marked <em>online</em> in the app.</p>
   </div>
 
   <div class="apps-grid" style="grid-template-columns: 1fr; max-width: 520px;">
@@ -132,25 +174,28 @@
       <div class="app-icon"><img src="../image/save.webp" alt="GUMI SAVE" /></div>
       <div class="app-tagline">AI Budget Coach</div>
       <h3>GUMI SAVE</h3>
+
+      <div class="app-regions">
+        <span class="region-pill tag-offline">📵 Works offline</span>
+        <span class="region-pill tag-online">🌐 Optional online extras</span>
+        <span class="region-pill">🆓 100% Free</span>
+      </div>
+
       <p class="app-desc">
         Your AI budgeting buddy. Track income, expenses, utang, and savings — with an AI coach
         that turns your spending into clear, gentle insights. Friendly, not overwhelming. 🤖✨
       </p>
       <ul class="app-features">
-        <li><span class="feat-icon">🤖</span> AI Coach — personalized spending insights &amp; tips</li>
-        <li><span class="feat-icon">🧾</span> AI receipt scanning — instant entry from a photo</li>
         <li><span class="feat-icon">💵</span> Track income, expenses, utang &amp; savings</li>
-        <li><span class="feat-icon">📦</span> Envelope budgeting system</li>
+        <li><span class="feat-icon">📦</span> Envelope budgeting &amp; one-tap Quick Expense</li>
         <li><span class="feat-icon">🤝</span> Utang (debt) tracker with Hulugan schedule</li>
         <li><span class="feat-icon">🐷</span> Dream Board — savings goals with progress</li>
-        <li><span class="feat-icon">⚡</span> Quick Expense — one-tap daily spending</li>
-        <li><span class="feat-icon">📅</span> Calendar view for all transactions</li>
-        <li><span class="feat-icon">💡</span> Utility Bill Calculator &amp; Estimator</li>
+        <li><span class="feat-icon">📅</span> Calendar view &amp; Utility Bill Calculator</li>
         <li><span class="feat-icon">🏠</span> Home Screen Widgets</li>
-        <li><span class="feat-icon">🍎</span> Available on iOS &amp; 🤖 Android</li>
-        <li><span class="feat-icon">📵</span> Works 100% offline, anytime</li>
+        <li><span class="feat-icon">🤖</span> AI Coach, receipt scanning &amp; AI chat <em>(online)</em></li>
+        <li><span class="feat-icon">👛</span> Paluwagan groups &amp; Shared Wallet <em>(online)</em></li>
       </ul>
-      <span class="app-badge">🆓 100% Free</span>
+      <span class="app-badge">🆓 100% Free · No ads</span>
 
       <div class="gumi-divider"></div>
 
@@ -178,18 +223,81 @@
   </div>
 </section>
 
+<section class="cats" id="inside">
+  <div class="center">
+    <span class="section-label">What's Inside</span>
+    <h2 class="section-title">Offline core, online when you want it 🧩</h2>
+    <p class="section-desc center">Your money data lives on your phone. Online features only send data when you tap them — and each one wears an <em>online</em> badge so there are no surprises.</p>
+  </div>
+
+  <div class="cat-grid">
+
+    <div class="cat-card">
+      <div class="cat-head"><span class="cat-emoji">💰</span><h4>Everyday Money</h4></div>
+      <span class="cat-tag off">📵 Works offline</span>
+      <ul class="cat-list">
+        <li><span>💵</span> Income, expenses &amp; one-tap Quick Expense</li>
+        <li><span>📦</span> Envelope budgeting per period</li>
+        <li><span>🤝</span> Utang tracker with Hulugan payment schedule</li>
+        <li><span>🐷</span> Dream Board savings goals</li>
+        <li><span>📅</span> Calendar view of every transaction</li>
+        <li><span>💡</span> Utility Bill Calculator &amp; Estimator</li>
+        <li><span>🏠</span> Home screen widgets</li>
+      </ul>
+      <p class="cat-note">No account, no internet needed. Works the moment you install.</p>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-head"><span class="cat-emoji">🤖</span><h4>AI Helpers</h4></div>
+      <span class="cat-tag on">🌐 Online · opt-in</span>
+      <ul class="cat-list">
+        <li><span>🧾</span> AI receipt scanning — instant entry from a photo</li>
+        <li><span>📊</span> AI Coach — gentle, personalized spending insights</li>
+        <li><span>💬</span> Kuwentuhan with AI — chat about your money</li>
+        <li><span>🔮</span> Daily Swerte &amp; Palad Guide — just for fun</li>
+      </ul>
+      <p class="cat-note">You choose when to use them. Nothing is sent until you tap an online feature.</p>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-head"><span class="cat-emoji">👛</span><h4>Save Together</h4></div>
+      <span class="cat-tag on">🌐 Online · phone-verified</span>
+      <ul class="cat-list">
+        <li><span>🔄</span> Paluwagan — run rotating savings with your barkada</li>
+        <li><span>🧑‍🤝‍🧑</span> Shared Wallet — one ledger for family &amp; OFW funds</li>
+        <li><span>➕</span> Track contributions &amp; expenses together</li>
+        <li><span>🔐</span> Phone-verified members, hashed numbers only</li>
+      </ul>
+      <p class="cat-note">Built for trust: a record-keeping tool between people you know — never a lender or fund-holder.</p>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-head"><span class="cat-emoji">🔒</span><h4>Private &amp; Secure</h4></div>
+      <span class="cat-tag off">🛡️ By design</span>
+      <ul class="cat-list">
+        <li><span>📱</span> Your money data stays on your device by default</li>
+        <li><span>🔑</span> End-to-end encrypted backups — even we can't read them</li>
+        <li><span>🚫</span> No ads, no trackers, no selling your data</li>
+        <li><span>🔓</span> App lock with PIN &amp; biometrics</li>
+      </ul>
+      <p class="cat-note">Made to comply with the Philippine Data Privacy Act of 2012.</p>
+    </div>
+
+  </div>
+</section>
+
 <section class="promise" id="promise">
   <div class="letter-card">
     <div class="letter-date">From our small team to you 🌸</div>
     <div class="letter-body">Dear Ate, Kuya, Manang, Mano, and everyone finding their way,
 
-We're not here to get rich quick. We're not here to collect your data. We're not here to disappear after a year.
+We're not here to get rich quick. We're not here to sell your data. We're not here to disappear after a year.
 
-We built <em>GUMI SAVE</em> because we saw real people — families, solo earners, students — struggling with bills they didn't see coming and budgets that slipped away without warning.
+We built <em>GUMI SAVE</em> because we saw real people — families, solo earners, OFWs, students — struggling with bills they didn't see coming and budgets that slipped away without warning.
 
 Simple. Honest. Free.
 
-Right now, this app is just a small helping hand — a companion for your everyday budgeting. But if you keep supporting us, sharing your ideas, and helping us grow, we have a bigger dream: to build real financial tools that make a difference — <em>micro-loans, micro-investments, point rewards</em>, and more. A system that truly empowers every Filipino, not just tracks their money.
+It started as a small helping hand for everyday budgeting. Today it can also help you save <em>together</em> — running a Paluwagan with your barkada, or keeping one Shared Wallet for the family fund. And if you keep supporting us, we have a bigger dream: real financial tools that make a difference — <em>micro-loans, micro-investments, point rewards</em>, and more.
 
 But here's what matters most to us: <em>we will keep listening to you.</em>
 
@@ -218,15 +326,23 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
       <div class="road-text">
         <span class="road-tag">Launched!</span>
         <h4>GUMI SAVE — Household Budget App</h4>
-        <p>Income, expenses, utang, savings, envelope budgeting & receipt scanning.</p>
+        <p>Income, expenses, utang, savings, envelope budgeting, AI Coach &amp; receipt scanning.</p>
       </div>
     </div>
-    <div class="road-item soon">
-      <div class="road-dot">💭</div>
+    <div class="road-item done">
+      <div class="road-dot">✅</div>
       <div class="road-text">
-        <span class="road-tag">Coming Soon</span>
-        <h4>Features for OFWs &amp; Business Owners</h4>
-        <p>Special tools designed for OFW families managing remittances, and small business owners tracking multiple income streams.</p>
+        <span class="road-tag">Launched!</span>
+        <h4>Paluwagan — Save with your barkada</h4>
+        <p>Run rotating savings groups with friends and family, right inside the app.</p>
+      </div>
+    </div>
+    <div class="road-item now">
+      <div class="road-dot">🚀</div>
+      <div class="road-text">
+        <span class="road-tag">Rolling Out</span>
+        <h4>Shared Wallet — for OFWs &amp; families</h4>
+        <p>One shared ledger for remittances and household funds — track who contributed and where it went, together.</p>
       </div>
     </div>
     <div class="road-item soon">
@@ -234,7 +350,7 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
       <div class="road-text">
         <span class="road-tag">Coming Soon</span>
         <h4>GCash &amp; Maya Integration</h4>
-        <p>Link your GCash and Maya accounts to automatically sync transactions — no more manual entry!</p>
+        <p>Link your GCash and Maya accounts to sync transactions — less manual entry!</p>
       </div>
     </div>
     <div class="road-item future">
@@ -325,18 +441,36 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
       return;
     }
 
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('femail').style.borderColor = '#e03131';
+      document.getElementById('femail').focus();
+      return;
+    }
+
     const btn = document.getElementById('submit-btn');
+    const originalLabel = btn.textContent;
     btn.textContent = 'Sending... ⏳';
     btn.disabled = true;
     btn.style.opacity = '0.7';
 
     try {
-      await fetch('https://formspree.io/f/xgonaebn', {
+      const res = await fetch('https://formspree.io/f/xgonaebn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ name, email: email || undefined, app: 'gumi-save', type, message: msg })
       });
-    } catch (e) {}
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const reason = (data.errors && data.errors.map(er => er.message).join(', ')) || data.error || ('HTTP ' + res.status);
+        throw new Error(reason);
+      }
+    } catch (e) {
+      btn.textContent = originalLabel;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      alert('Sorry, your message could not be sent 😢\n(' + (e.message || 'network error') + ')\nPlease email us directly: kawkaw.app@gmail.com');
+      return;
+    }
 
     document.getElementById('form-fields').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
@@ -362,7 +496,7 @@ We might be small today. But we'll be here tomorrow, and the day after that. Bui
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.app-card, .why-card, .road-item').forEach(el => {
+  document.querySelectorAll('.app-card, .cat-card, .why-card, .road-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity .5s ease, transform .5s ease';
