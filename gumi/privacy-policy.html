@@ -57,7 +57,7 @@
 <!-- ======================== ENGLISH ======================== -->
 <div id="lang-en" class="lang-section active">
 
-<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: July 19, 2026</p>
+<p class="effective-date">Effective Date: April 3, 2026 &nbsp;|&nbsp; Last Updated: August 13, 2026</p>
 
 <p>Welcome to <strong>Gumi Save</strong> ("the App"), a personal finance management application developed and operated by <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("we," "us," or "our"). We are committed to protecting your privacy and personal information in accordance with the <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> of the Philippines and its Implementing Rules and Regulations.</p>
 
@@ -127,12 +127,22 @@
 <p>Your <strong>explicit, informed consent</strong> for this cross-group disclosure is obtained at the time you sign each Paluwagan group's agreement (consent item 7). The disclosure consent is a <strong>precondition</strong> to participating in any Paluwagan group: members who do not give this consent cannot join Paluwagan groups. Once given, the consent remains in effect for the entire duration of every Paluwagan group you participate in. You may withdraw the consent only when you have no active Paluwagan memberships, and any defaulter records confirmed before withdrawal will remain shared in line with the consent given at the time of the confirmation. Withdrawal stops future cross-group disclosures but does not retroactively invalidate processing that already occurred.</p>
 <p>Withholding consent does not exempt you from a defaulter vote within an existing group; it only restricts cross-group disclosure. Defaulter records are processed by us as a personal information controller under <strong>Section 12(a) and (f) of the Data Privacy Act of 2012</strong> (consent, and the legitimate interest of other group leaders in protecting against repeat default), and your rights as a data subject under Section 16 of the Act remain available, subject to the contractual and legitimate interest constraints described above.</p>
 
+<h3>1.6 Automatic App Version Check</h3>
+<p>So that you know when a newer version of the App is available, the App checks the latest published version number <strong>at most once every 10 days</strong>, shortly after you open it. This is the <strong>only</strong> network request the App makes on its own — every other server communication happens only when you start a backup or use a feature marked with an "online" badge.</p>
+<ul>
+    <li><strong>What is sent:</strong> Nothing about you. The request is a read-only lookup of a public record that contains only version numbers. We do <strong>not</strong> send your account ID, device identifier, phone number, or any of your financial data, and the request carries no login credentials.</li>
+    <li><strong>What we receive:</strong> Only the version numbers held in that public record are returned to your device. As with any request made over the internet, our hosting provider (Supabase) receives and temporarily logs the originating IP address as part of normal server operation. This log entry is not linked to your account and is not used to identify you, to build a profile of you, or to measure your use of the App.</li>
+    <li><strong>When it does not run:</strong> If your device has no internet connection, the App does not attempt the request at all. If the request fails for any reason, the App simply continues to work normally — this check is never required for the App to function.</li>
+    <li><strong>Stored on your device only:</strong> The date of the last check and the version number of an update you chose to skip are saved on your device so that you are not asked repeatedly. This information is never sent to our servers.</li>
+</ul>
+<p>We carry out this check on the basis of our <strong>legitimate interest</strong> in making sure users are informed about security fixes and important updates. It is not used for analytics, advertising, or usage measurement of any kind.</p>
+
 <h2>2. Legal Basis for Processing</h2>
 <p>We process your personal data based on the following legal grounds under the Data Privacy Act of 2012:</p>
 <ul>
     <li><strong>Consent:</strong> For online features (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), we process your data only when you explicitly initiate these features. Each online feature is clearly marked, and your use constitutes your consent. For <strong>phone verification</strong> (used to access Paluwagan and to transfer your account to a new device), we obtain your consent at the time you start the SMS OTP flow. For <strong>Paluwagan group participation</strong>, we obtain your explicit, informed consent through a per-group agreement that you sign before the group activates; each consent item — including the cross-group defaulter disclosure consent described in Section 1.5 — is recorded together with the agreement's cryptographic hash and a timestamp as an immutable audit trail.</li>
     <li><strong>Contract Performance:</strong> To provide the App's core services, manage your account, and process in-app purchases.</li>
-    <li><strong>Legitimate Interest:</strong> To maintain the security and proper functioning of the App, and to improve our services.</li>
+    <li><strong>Legitimate Interest:</strong> To maintain the security and proper functioning of the App, and to improve our services. This also covers the automatic app version check described in Section 1.6, which informs you when an update containing security or stability fixes is available.</li>
 </ul>
 <p>You may withdraw your consent at any time by discontinuing use of the relevant online features or by contacting us.</p>
 
@@ -162,7 +172,7 @@
 <p>We use the following third-party services to operate the App:</p>
 <table>
     <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
-    <tr><td>Supabase</td><td>Authentication (anonymous and SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (if verified), encrypted backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous and SMS OTP), encrypted backup storage, server functions, app version check</td><td>Anonymous user ID, phone number (if verified), encrypted backup files, AI feature data. The app version check sends no user data (see Section 1.6).</td></tr>
     <tr><td>SMS messaging provider (integrated with Supabase Auth)</td><td>Delivery of one-time passcodes via SMS for phone verification and device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Receipt images (processed in real-time, not stored)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis, AI Chat conversational reply generation, AI Chat memory extraction, and AI Chat memory-search embeddings</td><td>Aggregated financial data, images (including Paluwagan payment screenshots), profile info, AI Chat messages (recent window only), AI Chat memory facts and their vector embeddings</td></tr>
@@ -275,7 +285,7 @@
 <!-- ======================== TAGALOG ======================== -->
 <div id="lang-tl" class="lang-section">
 
-<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Hulyo 19, 2026</p>
+<p class="effective-date">Petsa ng Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Huling Na-update: Agosto 13, 2026</p>
 
 <p>Maligayang pagdating sa <strong>Gumi Save</strong> ("ang App"), isang application para sa pamamahala ng personal na pananalapi na binuo at pinapatakbo ng <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "namin," o "aming"). Kami ay nakatuon sa pagprotekta ng iyong privacy at personal na impormasyon alinsunod sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> ng Pilipinas at ang mga Implementing Rules and Regulations nito.</p>
 
@@ -345,12 +355,22 @@
 <p>Ang iyong <strong>hayag at may-kaalamang pahintulot</strong> para sa cross-group disclosure na ito ay kinukuha sa oras ng pagpirma ng kasunduan ng bawat Paluwagan group (consent item 7). Ang disclosure consent ay <strong>precondition</strong> sa pagsali sa anumang Paluwagan group: hindi makakasali sa Paluwagan ang miyembrong hindi nagbibigay ng pahintulot na ito. Sa sandaling naibigay, mananatili itong epektibo sa buong tagal ng bawat Paluwagan group na sasalihan mo. Maaari mo lamang bawiin ang pahintulot kapag wala ka nang aktibong Paluwagan membership, at mananatiling ibinabahagi ang anumang defaulter records na kumpirmado bago ang pagbawi alinsunod sa pahintulot na ibinigay sa oras ng kumpirmasyon. Ang pagbawi ay humihinto sa hinaharap na cross-group disclosure pero hindi nag-i-invalidate sa mga pagprosesong nangyari na.</p>
 <p>Ang hindi pagbibigay ng pahintulot ay hindi nag-eexempt sa iyo mula sa defaulter vote sa loob ng isang ekzistente nga grupo; pinipigilan lamang nito ang cross-group disclosure. Ang mga defaulter records ay pinoproseso namin bilang personal information controller sa ilalim ng <strong>Section 12(a) at (f) ng Data Privacy Act of 2012</strong> (pahintulot, at lehitimong interes ng ibang group leaders sa pagprotekta laban sa paulit-ulit na default), at ang iyong mga karapatan bilang data subject sa ilalim ng Section 16 ng Act ay nananatili, sumasailalim sa kontraktwal at lehitimong interes na mga limitasyong inilarawan sa itaas.</p>
 
+<h3>1.6 Awtomatikong Pagsusuri ng Bersyon ng App</h3>
+<p>Para malaman mo kung may mas bagong bersyon na ng App, sinusuri ng App ang pinakabagong nailathalang version number nang <strong>hindi hihigit sa isang beses kada 10 araw</strong>, ilang sandali matapos mong buksan ito. Ito lamang ang <strong>tanging</strong> network request na kusang ginagawa ng App — lahat ng ibang komunikasyon sa server ay nangyayari lamang kapag nagsimula ka ng backup o gumamit ng feature na may markang "online" badge.</p>
+<ul>
+    <li><strong>Ano ang ipinapadala:</strong> Walang anuman tungkol sa iyo. Ang request ay read-only na pagbasa ng isang pampublikong record na naglalaman lamang ng mga version number. <strong>Hindi</strong> namin ipinapadala ang iyong account ID, device identifier, phone number, o anuman sa iyong financial data, at walang dalang login credentials ang request.</li>
+    <li><strong>Ano ang natatanggap namin:</strong> Ang mga version number lamang sa pampublikong record na iyon ang ibinabalik sa iyong device. Tulad ng anumang request sa internet, natatanggap at pansamantalang nila-log ng aming hosting provider (Supabase) ang pinagmulang IP address bilang bahagi ng normal na operasyon ng server. Ang log entry na ito ay hindi naka-ugnay sa iyong account at hindi ginagamit para kilalanin ka, gumawa ng profile mo, o sukatin ang paggamit mo ng App.</li>
+    <li><strong>Kailan hindi ito tumatakbo:</strong> Kung walang koneksyon sa internet ang iyong device, hindi man lang sinusubukan ng App ang request. Kung mabigo ang request sa anumang dahilan, patuloy lang gumagana nang normal ang App — hindi kailanman kailangan ang pagsusuring ito para gumana ang App.</li>
+    <li><strong>Naka-store lamang sa iyong device:</strong> Ang petsa ng huling pagsusuri at ang version number ng update na pinili mong laktawan ay sine-save sa iyong device para hindi ka paulit-ulit na tanungin. Ang impormasyong ito ay hindi kailanman ipinapadala sa aming mga server.</li>
+</ul>
+<p>Isinasagawa namin ang pagsusuring ito batay sa aming <strong>lehitimong interes</strong> na matiyak na nalalaman ng mga user ang tungkol sa mga security fix at mahahalagang update. Hindi ito ginagamit para sa analytics, advertising, o anumang uri ng pagsukat ng paggamit.</p>
+
 <h2>2. Legal na Batayan para sa Pagproseso</h2>
 <p>Pinoproseso namin ang iyong personal na datos batay sa mga sumusunod na legal na batayan sa ilalim ng Data Privacy Act of 2012:</p>
 <ul>
     <li><strong>Pahintulot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), pinoproseso namin ang iyong datos kapag ikaw mismo ang nag-initiate ng mga feature na ito. Bawat online feature ay malinaw na may marka, at ang iyong paggamit ay bumubuo ng iyong pahintulot. Para sa <strong>phone verification</strong> (ginagamit para makapasok sa Paluwagan at para ilipat ang iyong account sa bagong device), kinukuha namin ang iyong pahintulot sa oras na sinimulan mo ang SMS OTP flow. Para sa <strong>pakikilahok sa Paluwagan group</strong>, kinukuha namin ang iyong hayag at may-kaalamang pahintulot sa pamamagitan ng per-group agreement na pinipirmahan mo bago mag-activate ang grupo; bawat consent item — kabilang ang cross-group defaulter disclosure consent na inilalarawan sa Seksyon 1.5 — ay nire-record kasama ng cryptographic hash ng kasunduan at timestamp bilang hindi mababagong audit trail.</li>
     <li><strong>Pagtupad ng Kontrata:</strong> Para ibigay ang mga pangunahing serbisyo ng App, pamahalaan ang iyong account, at iproseso ang in-app purchases.</li>
-    <li><strong>Lehitimong Interes:</strong> Para panatilihin ang seguridad at maayos na pagfunksyon ng App, at para mapabuti ang aming mga serbisyo.</li>
+    <li><strong>Lehitimong Interes:</strong> Para panatilihin ang seguridad at maayos na pagfunksyon ng App, at para mapabuti ang aming mga serbisyo. Sakop din nito ang awtomatikong pagsusuri ng bersyon ng App na inilalarawan sa Seksyon 1.6, na nagpapaalam sa iyo kapag may available na update na naglalaman ng security o stability fixes.</li>
 </ul>
 <p>Maaari mong bawiin ang iyong pahintulot anumang oras sa pamamagitan ng paghinto sa paggamit ng mga kaugnay na online feature o sa pamamagitan ng pakikipag-ugnayan sa amin.</p>
 
@@ -380,7 +400,7 @@
 <p>Gumagamit kami ng mga sumusunod na third-party service para sa operasyon ng App:</p>
 <table>
     <tr><th>Serbisyo</th><th>Layunin</th><th>Datos na Ibinabahagi</th></tr>
-    <tr><td>Supabase</td><td>Authentication (anonymous at SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous at SMS OTP), encrypted backup storage, server functions, app version check</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data. Ang app version check ay walang ipinapadalang datos ng user (tingnan ang Seksyon 1.6).</td></tr>
     <tr><td>SMS messaging provider (integrated sa Supabase Auth)</td><td>Paghahatid ng one-time passcodes sa pamamagitan ng SMS para sa phone verification at device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe ng resibo (pinoproseso sa real-time, hindi sino-store)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis, AI Chat conversational reply generation, AI Chat memory extraction, at AI Chat memory-search embeddings</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info, AI Chat messages (recent window lang), AI Chat memory facts at ang kanilang vector embeddings</td></tr>
@@ -492,7 +512,7 @@
 <!-- ======================== CEBUANO ======================== -->
 <div id="lang-ceb" class="lang-section">
 
-<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Hulyo 19, 2026</p>
+<p class="effective-date">Petsa sa Pagkakabisa: Abril 3, 2026 &nbsp;|&nbsp; Kataposang Na-update: Agosto 13, 2026</p>
 
 <p>Maayong pag-abot sa <strong>Gumi Save</strong> ("ang App"), usa ka application para sa pagdumala sa personal nga pananalapi nga gihimo ug gipadagan sa <strong>bitcore</strong> (Republic of Korea, sole proprietor, Business Registration No. 774-32-01396), trading as <strong>KawKaw.dev</strong> ("kami," "among," o "namo"). Kami nakatutok sa pagpanalipod sa imong privacy ug personal nga impormasyon sumala sa <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> sa Pilipinas ug ang mga Implementing Rules and Regulations niini.</p>
 
@@ -562,12 +582,22 @@
 <p>Ang imong <strong>hayag ug may-kahibalo nga pagtugot</strong> alang niini nga cross-group disclosure gikuha sa panahon sa pag-pirma sa kasabutan sa matag Paluwagan group (consent item 7). Ang disclosure consent <strong>precondition</strong> sa pag-apil sa bisan unsang Paluwagan group: dili makaapil sa Paluwagan ang miyembro nga walay gihatag nga pagtugot. Sa diha nga gihatag na, magpabilin kining epektibo sa tibuok panahon sa matag Paluwagan group nga sudlon nimo. Mahimo ra nimo bawion ang pagtugot kung wala kay aktibong Paluwagan membership, ug magpabilin nga ipaambit ang bisan unsang defaulter records nga gikumpirmar sa wala pa ang pagbawi sumala sa pagtugot nga gihatag sa panahon sa kumpirmasyon. Ang pagbawi mohunong sa umaabot nga cross-group disclosure apan dili magpawalay-bili sa pagprosesong nahitabo na.</p>
 <p>Ang dili paghatag og pagtugot wala mag-exempt kanimo gikan sa defaulter vote sulod sa usa ka anaa nga grupo; gipugngan ra niini ang cross-group disclosure. Ang mga defaulter records gi-proseso namo isip personal information controller ubos sa <strong>Section 12(a) ug (f) sa Data Privacy Act of 2012</strong> (pagtugot, ug ang lehitimong interes sa ubang group leaders sa pagpanalipod batok sa balik-balik nga default), ug ang imong mga katungod isip data subject ubos sa Section 16 sa Act magpabilin nga magamit, sakop sa kontraktuwal ug lehitimong interes nga mga pagpugong nga gihulagway sa ibabaw.</p>
 
+<h3>1.6 Awtomatikong Pagsusi sa Bersyon sa App</h3>
+<p>Aron mahibaloan nimo kung naa nay mas bag-ong bersyon sa App, gisusi sa App ang pinakabag-ong napatik nga version number nga <strong>dili molapas sa kausa matag 10 ka adlaw</strong>, pipila ka gutlo human nimo kini ablihi. Kini ra ang <strong>bugtong</strong> nga network request nga gihimo sa App sa iyang kaugalingon — ang tanang ubang komunikasyon sa server mahitabo lamang kung mosugod ka og backup o mogamit og feature nga may marka nga "online" badge.</p>
+<ul>
+    <li><strong>Unsa ang gipadala:</strong> Walay bisan unsa mahitungod kanimo. Ang request usa ka read-only nga pagbasa sa publikong record nga naglangkob lamang sa mga version number. <strong>Dili</strong> namo ipadala ang imong account ID, device identifier, phone number, o bisan unsa sa imong financial data, ug ang request walay dalang login credentials.</li>
+    <li><strong>Unsa ang among madawat:</strong> Ang mga version number lamang niadtong publikong record ang ibalik sa imong device. Sama sa bisan unsang request sa internet, madawat ug temporaryo nga gi-log sa among hosting provider (Supabase) ang gigikanan nga IP address isip bahin sa normal nga operasyon sa server. Kining log entry wala gilambigit sa imong account ug wala gigamit aron ilhon ka, himoan kag profile, o sukdon ang imong paggamit sa App.</li>
+    <li><strong>Kanus-a kini dili modagan:</strong> Kung ang imong device walay koneksyon sa internet, dili gani sulayan sa App ang request. Kung mapakyas ang request sa bisan unsang rason, magpadayon lang ang App sa normal nga paglihok — dili gyud kinahanglan kining pagsusi aron molihok ang App.</li>
+    <li><strong>Naka-store ra sa imong device:</strong> Ang petsa sa kataposang pagsusi ug ang version number sa update nga imong gipili nga laktawan gi-save sa imong device aron dili ka balik-balik nga pangutan-on. Kining impormasyon wala gyud gipadala sa among mga server.</li>
+</ul>
+<p>Gihimo namo kining pagsusi base sa among <strong>lehitimong interes</strong> nga masiguro nga nahibaloan sa mga user ang mahitungod sa mga security fix ug importanteng update. Wala kini gigamit para sa analytics, advertising, o bisan unsang matang sa pagsukod sa paggamit.</p>
+
 <h2>2. Legal nga Basihan para sa Pagproseso</h2>
 <p>Giproseso namo ang imong personal nga datos base sa mosunod nga legal nga basihan ubos sa Data Privacy Act of 2012:</p>
 <ul>
     <li><strong>Pagtugot (Consent):</strong> Para sa mga online feature (AI Coach, Receipt Scanning, Palad Guide, Daily Swerte, Paluwagan Payment Screenshot Analysis), giproseso namo ang imong datos kung ikaw mismo ang mag-initiate niining mga feature. Matag online feature tin-aw nga may marka, ug ang imong paggamit naglangkob sa imong pagtugot. Para sa <strong>phone verification</strong> (gigamit aron makasulod sa Paluwagan ug aron mabalhin ang imong account ngadto sa bag-ong device), gikuha namo ang imong pagtugot sa panahon nga mosugod ka sa SMS OTP flow. Para sa <strong>pag-apil sa Paluwagan group</strong>, gikuha namo ang imong hayag ug may-kahibalo nga pagtugot pinaagi sa per-group agreement nga imong gipirmahan sa wala pa mag-activate ang grupo; matag consent item — lakip na ang cross-group defaulter disclosure consent nga gihulagway sa Seksyon 1.5 — gi-record uban sa cryptographic hash sa kasabutan ug timestamp isip dili mausab nga audit trail.</li>
     <li><strong>Pagtuman sa Kontrata:</strong> Para ihatag ang mga pangunahing serbisyo sa App, dumalahon ang imong account, ug iproseso ang in-app purchases.</li>
-    <li><strong>Lehitimo nga Interes:</strong> Para ipadayon ang seguridad ug maayo nga pagfunksyon sa App, ug para mapauswag ang among mga serbisyo.</li>
+    <li><strong>Lehitimo nga Interes:</strong> Para ipadayon ang seguridad ug maayo nga pagfunksyon sa App, ug para mapauswag ang among mga serbisyo. Nalakip usab niini ang awtomatikong pagsusi sa bersyon sa App nga gihulagway sa Seksyon 1.6, nga nagpahibalo kanimo kung adunay available nga update nga naglangkob sa security o stability fixes.</li>
 </ul>
 <p>Mahimo nimong bawion ang imong pagtugot bisan unsang oras pinaagi sa paghunong sa paggamit sa mga kalabutan nga online feature o pinaagi sa pagkontakta namo.</p>
 
@@ -597,7 +627,7 @@
 <p>Naggamit kami sa mosunod nga third-party service para sa operasyon sa App:</p>
 <table>
     <tr><th>Serbisyo</th><th>Katuyoan</th><th>Datos nga Gipaambit</th></tr>
-    <tr><td>Supabase</td><td>Authentication (anonymous ug SMS OTP), encrypted backup storage, server functions</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data</td></tr>
+    <tr><td>Supabase</td><td>Authentication (anonymous ug SMS OTP), encrypted backup storage, server functions, app version check</td><td>Anonymous user ID, phone number (kung naka-verify), encrypted backup files, AI feature data. Ang app version check walay gipadalang datos sa user (tan-awa ang Seksyon 1.6).</td></tr>
     <tr><td>SMS messaging provider (integrated sa Supabase Auth)</td><td>Pag-hatud sa one-time passcodes pinaagi sa SMS para sa phone verification ug device transfer</td><td>Phone number, one-time passcode</td></tr>
     <tr><td>Google Cloud Vision API</td><td>Receipt text extraction (OCR)</td><td>Mga imahe sa resibo (giproseso sa real-time, dili gisave)</td></tr>
     <tr><td>Google Gemini AI</td><td>AI coaching, receipt categorization, fortune, palm reading, Paluwagan payment-receipt analysis, AI Chat conversational reply generation, AI Chat memory extraction, at AI Chat memory-search embeddings</td><td>Aggregated financial data, mga imahe (kasama ang Paluwagan payment screenshots), profile info, AI Chat messages (recent window lang), AI Chat memory facts at ang kanilang vector embeddings</td></tr>
