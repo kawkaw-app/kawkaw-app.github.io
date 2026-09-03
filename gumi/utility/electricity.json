@@ -1,36 +1,36 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-06-26",
+  "lastUpdated": "2026-09-03",
   "recommendedUpdateIntervalDays": 30,
   "_paramGuide": {
     "monthlyWeights": "RF전기모델 전용. 온도 외 잔여 행동 패턴 보정 (재택률, 방학, 연말 등). 온도에 의한 소비 변화는 appliance 모델이 별도 처리하므로 여기선 제외할 것. 범위 0.95~1.10 권장.",
     "model.lrSeasonalFactors": "LR모델 전용. 온도 포함 전체 계절 효과를 하나로 반영. usage와 bill 모두에 적용됨. 범위 0.85~1.20 권장.",
     "model.monthlyAverageTemperatures": "RF전기모델 기본 온도(°C). appliance별 소비량 계산에 사용. 필리핀 월별 평균기온 기준.",
     "rateMode": "필수. 'totalRate' = 공식 발표 총요율(totalRateKwh)에서 기타요금을 역산. 'itemized' = otherChargesPerKwh를 직접 사용. totalRateKwh가 있는 provider는 반드시 'totalRate'로 설정할 것.",
-    "totalRateKwh": "rateMode='totalRate'일 때 필수. 전력사 공식 발표 총 요율(PHP/kWh, VAT 미포함). calculator가 이 값에서 generation·distribution·transmission·systemLoss·subsidy를 빼서 기타요금(metering, UC, FIT-All 등)을 역산함.",
-    "otherChargesPerKwh": "rateMode='itemized'일 때 사용. metering·UC·FIT-All 등 개별 항목별로 직접 합산한 kWh당 기타요금. totalRateKwh가 없는 provider에서만 사용.",
-    "basicCharge": "월 고정 기본요금(PHP). kWh 무관하게 매월 부과. 계산식: subtotal에 고정값으로 합산.",
+    "totalRateKwh": "rateMode='totalRate'일 때 필수. 전력사 공식 발표 총 요율(PHP/kWh). 발표치는 세금(VAT·UC·FIT-All 등)·환급·고정요금이 모두 포함된 실효요율이므로 그대로 입력할 것 (세전 환산 금지). calculator가 이 값에서 generation·distribution·transmission·systemLoss·subsidy를 빼서 기타요금(세금·UC·FIT-All·환급 등)을 역산하며, VAT와 basicCharge를 추가로 얹지 않음.",
+    "otherChargesPerKwh": "rateMode='itemized'일 때 사용. metering·UC·FIT-All 등 개별 항목별로 직접 합산한 kWh당 기타요금(세전). totalRateKwh가 없는 provider에서만 사용.",
+    "basicCharge": "월 고정 기본요금(PHP). itemized 모드에서만 subtotal에 고정값으로 합산. totalRate 모드에서는 실효요율에 이미 포함된 것으로 보아 미가산.",
     "tiers[].ratePerKwh": "구간별 발전요금(PHP/kWh). 사용량에 따라 해당 구간 요율 적용. 모든 tier가 동일 요율이면 단일구간.",
     "distributionCharge": "배전요금(PHP/kWh). 계산식: usageKwh × distributionCharge.",
     "transmissionCharge": "송전요금(PHP/kWh). NGCP 요금 포함. 계산식: usageKwh × transmissionCharge.",
     "systemLossRate": "계통손실요금(PHP/kWh). 계산식: usageKwh × systemLossRate.",
     "subsidyCharge": "보조금요금(PHP/kWh). ERC lifeline subsidy 등. 계산식: usageKwh × subsidyCharge.",
-    "vatRate": "부가세율. 0.12 = 12%. 계산식: subtotal × vatRate."
+    "vatRate": "부가세율. 0.12 = 12%. itemized 모드에서만 subtotal × vatRate 적용. totalRate 모드는 totalRateKwh에 세금이 포함돼 있어 미적용."
   },
   "_rateFormula": {
     "description": "calculator.ts의 요금 계산식 요약. JSON 업데이트 시 각 필드가 어디에 쓰이는지 참조용.",
-    "totalRate_mode": "otherPerKwh = totalRateKwh - (generationCharge / usageKwh) - distributionCharge - transmissionCharge - systemLossRate - subsidyCharge",
+    "totalRate_mode": "otherPerKwh = totalRateKwh - (generationCharge / usageKwh) - distributionCharge - transmissionCharge - systemLossRate - subsidyCharge  (세금·UC·FIT-All·환급 등이 모두 이 항목에 포함됨)",
     "itemized_mode": "otherPerKwh = otherChargesPerKwh (직접 입력값 그대로 사용)",
-    "subtotal": "generationCharge + (usageKwh × distributionCharge) + (usageKwh × transmissionCharge) + (usageKwh × systemLossRate) + (usageKwh × subsidyCharge) + (usageKwh × otherPerKwh) + basicCharge",
-    "total": "subtotal × (1 + vatRate)",
+    "subtotal": "itemized: generationCharge + (usageKwh × distributionCharge) + (usageKwh × transmissionCharge) + (usageKwh × systemLossRate) + (usageKwh × subsidyCharge) + (usageKwh × otherPerKwh) + basicCharge / totalRate: 위 식에서 basicCharge 미가산 → 결과적으로 usageKwh × totalRateKwh",
+    "total": "itemized: subtotal × (1 + vatRate) / totalRate: subtotal 그대로 (VAT 미가산 — totalRateKwh가 세금 포함 값)",
     "note_blendedRate": "totalRate 모드에서는 실제 tier별 blended generation rate를 사용하여 역산하므로, multi-tier provider에서도 정확한 기타요금을 도출함."
   },
   "notes": [
     {
       "type": "info",
-      "en": "Meralco June 2026 officially confirmed at 14.4833/kWh (announced June 12, +0.1488 from May). Davao Light June 2026 confirmed at 12.30/kWh (billing June 11–July 10, +1.95). VECO announced a June increase but the exact figure was not publicly disclosed — retained at May's 12.88/kWh pending confirmation. CEBECO still at February 2026 level (13.37/kWh) — March–June not officially published. ERC GEA-All suspension (P0.0371/kWh) applied May–June 2026 and RESUMES in July 2026 across all DUs, so July bills will rise accordingly. July official rates are published around July 10–12.",
-      "tl": "Opisyal na nakumpirma ang Meralco para Hunyo 2026 sa 14.4833/kWh (inianunsyo Hunyo 12, +0.1488). Davao Light Hunyo 2026 kumpirmado sa 12.30/kWh (+1.95). Nag-anunsyo ang VECO ng pagtaas para Hunyo ngunit hindi inilabas ang eksaktong halaga — nanatili sa 12.88/kWh ng Mayo. CEBECO nananatili sa antas ng Pebrero 2026 (13.37/kWh). Ang suspensyon ng GEA-All (P0.0371/kWh) ay para Mayo–Hunyo 2026 at BABALIK sa Hulyo 2026 sa lahat ng DU, kaya tataas ang mga bill sa Hulyo.",
-      "ceb": "Opisyal nga nakumpirma ang Meralco para Hunyo 2026 sa 14.4833/kWh (gipahibalo Hunyo 12, +0.1488). Davao Light Hunyo 2026 nakumpirma sa 12.30/kWh (+1.95). Nagpahibalo ang VECO ug pagsaka para Hunyo apan wala gibutyag ang eksaktong kantidad — nagpabilin sa 12.88/kWh sa Mayo. CEBECO nagpabilin sa lebel sa Pebrero 2026 (13.37/kWh). Ang suspensyon sa GEA-All (P0.0371/kWh) para Mayo–Hunyo 2026 ug MOBALIK sa Hulyo 2026 sa tanang DU, busa mosaka ang mga bill sa Hulyo."
+      "en": "Meralco August 2026 officially confirmed at 14.7833/kWh (announced Aug 11, −0.0428 from July's 14.8261; July was +0.3428 from June's 14.4833). Visayan Electric August 2026 at 14.96/kWh (+0.06 from July's record 14.90; fifth straight monthly increase since April). CEBECO I June 2026 at 13.96/kWh for 100 kWh households (+2.74 from May's 11.22, itemized breakdown published) — July–August not yet published. Davao Light is kept at June's 12.30/kWh in this table; its July billing (Jul 11–Aug 10) was announced at 13.09/kWh and will be applied in the next refresh together with the Aug–Sep figure. ERC GEA-All suspension (P0.0371/kWh) was extended and remained in effect through August 2026 (it did NOT resume in July as previously expected). Meralco's September rate is published around Sept 10–12.",
+      "tl": "Opisyal na nakumpirma ang Meralco para Agosto 2026 sa 14.7833/kWh (inianunsyo Agosto 11, −0.0428 mula sa 14.8261 noong Hulyo; ang Hulyo ay +0.3428 mula sa 14.4833 noong Hunyo). Visayan Electric Agosto 2026 sa 14.96/kWh (+0.06 mula sa record na 14.90 noong Hulyo; ikalimang sunod na buwanang pagtaas mula Abril). CEBECO I Hunyo 2026 sa 13.96/kWh para sa 100 kWh na sambahayan (+2.74 mula sa 11.22 noong Mayo, may inilathalang breakdown) — hindi pa inilalathala ang Hulyo–Agosto. Nananatili ang Davao Light sa 12.30/kWh ng Hunyo sa talaan na ito; ang billing ng Hulyo (Hul 11–Ago 10) ay inianunsyo sa 13.09/kWh at ilalapat sa susunod na update kasama ang Ago–Set. Pinalawig ang suspensyon ng GEA-All (P0.0371/kWh) at nanatiling umiiral hanggang Agosto 2026 (HINDI bumalik noong Hulyo gaya ng inaasahan dati). Inilalathala ang rate ng Meralco para Setyembre bandang Set 10–12.",
+      "ceb": "Opisyal nga nakumpirma ang Meralco para Agosto 2026 sa 14.7833/kWh (gipahibalo Agosto 11, −0.0428 gikan sa 14.8261 sa Hulyo; ang Hulyo +0.3428 gikan sa 14.4833 sa Hunyo). Visayan Electric Agosto 2026 sa 14.96/kWh (+0.06 gikan sa record nga 14.90 sa Hulyo; ikalimang sunod-sunod nga binulan nga pagsaka sukad Abril). CEBECO I Hunyo 2026 sa 13.96/kWh para sa 100 kWh nga panimalay (+2.74 gikan sa 11.22 sa Mayo, adunay gipatik nga breakdown) — wala pa mapatik ang Hulyo–Agosto. Nagpabilin ang Davao Light sa 12.30/kWh sa Hunyo niini nga talaan; ang billing sa Hulyo (Hul 11–Ago 10) gipahibalo sa 13.09/kWh ug iaplikar sa sunod nga update uban sa Ago–Set. Gipalugway ang suspensyon sa GEA-All (P0.0371/kWh) ug nagpabilin hangtod Agosto 2026 (WALA mobalik sa Hulyo sama sa gipaabot kaniadto). Ipatik ang rate sa Meralco para Setyembre mga Set 10–12."
     }
   ],
   "monthlyWeights": {
@@ -89,30 +89,30 @@
       "rateMode": "totalRate",
       "basicCharge": 44.95,
       "distributionCharge": 1.2214,
-      "transmissionCharge": 1.2549,
+      "transmissionCharge": 1.6241,
       "systemLossRate": 0.5834,
       "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
         {
           "upTo": 200,
-          "ratePerKwh": 9.0704
+          "ratePerKwh": 9.28
         },
         {
           "upTo": null,
-          "ratePerKwh": 9.0704
+          "ratePerKwh": 9.28
         }
       ],
-      "totalRateKwh": 14.4833,
+      "totalRateKwh": 14.7833,
       "notes": [
         {
           "type": "rate",
-          "en": "Based on official June 2026 announcement (June 12). Total rate 14.4833/kWh (+0.1488 from May's 14.3345). Generation charge 9.0704/kWh (+0.2762, driven by WESM at P7.0281/kWh amid tight Luzon grid supply after May yellow/red alerts). Transmission charge down P0.1525/kWh to 1.2549/kWh. AWAT refund of P0.4278/kWh continues. ERC GEA-All suspension (P0.0371/kWh) still applies in June (May–June 2026) and RESUMES in July 2026. Distribution charge frozen since August 2022. For 200kWh, the bill rises by ~P30 vs May.",
-          "tl": "Batay sa opisyal na anunsyo noong Hunyo 12, 2026. Kabuuang rate na 14.4833/kWh (+0.1488 mula sa 14.3345 noong Mayo). Generation charge 9.0704/kWh (+0.2762, dahil sa WESM na P7.0281/kWh at mahigpit na suplay sa Luzon grid). Bumaba ang transmission charge ng P0.1525/kWh tungong 1.2549/kWh. Nagpapatuloy ang AWAT refund na P0.4278/kWh. Ang suspensyon ng GEA-All (P0.0371/kWh) ay umiiral pa sa Hunyo (Mayo–Hunyo 2026) at BABALIK sa Hulyo 2026. Distribution charge naka-freeze mula Agosto 2022.",
-          "ceb": "Gibase sa opisyal nga pagpahibalo niadtong Hunyo 12, 2026. Total rate 14.4833/kWh (+0.1488 gikan sa 14.3345 sa Mayo). Generation charge 9.0704/kWh (+0.2762, tungod sa WESM nga P7.0281/kWh ug higpit nga suplay sa Luzon grid). Mikunhod ang transmission charge ug P0.1525/kWh ngadto 1.2549/kWh. Nagpadayon ang AWAT refund nga P0.4278/kWh. Ang suspensyon sa GEA-All (P0.0371/kWh) nagpadayon sa Hunyo (Mayo–Hunyo 2026) ug MOBALIK sa Hulyo 2026. Distribution charge gi-freeze sukad Agosto 2022."
+          "en": "Based on official August 2026 announcement (Aug 11). Total rate 14.7833/kWh (−0.0428 from July's 14.8261; July was +0.3428 from June's 14.4833). Generation charge 9.2800/kWh (July 9.2504, +0.1800 on the Malampaya shutdown forcing costlier LNG and WESM at P8.0337/kWh amid record 14,534 MW Luzon demand; August +0.0296). Transmission & ancillary service 1.6241/kWh (July +0.0668, August +0.3024 on higher ancillary service costs; now shown as a separate line item per ERC directive). ERC-authorized P9.5B 'AWAT Refund 2' of P0.5861/kWh applies for six months from August, on top of the continuing AWAT refund of P0.4278/kWh. Taxes & other charges net +0.2113/kWh in August (FIT-All +0.1348; pass-through under-recoveries ~P0.08/kWh over 36 months). GEA-All (P0.0371/kWh) collection remained suspended through August 2026. Distribution charge frozen since August 2022. For 200 kWh, the bill falls by ~P9 vs July (July was +P69 vs June).",
+          "tl": "Batay sa opisyal na anunsyo noong Agosto 11, 2026. Kabuuang rate na 14.7833/kWh (−0.0428 mula sa 14.8261 noong Hulyo; ang Hulyo ay +0.3428 mula sa 14.4833 noong Hunyo). Generation charge 9.2800/kWh (Hulyo 9.2504, +0.1800 dahil sa pagsara ng Malampaya na nagtulak sa mas mahal na LNG at WESM na P8.0337/kWh sa record na 14,534 MW na demand sa Luzon; Agosto +0.0296). Transmission at ancillary service 1.6241/kWh (Hulyo +0.0668, Agosto +0.3024 dahil sa mas mataas na ancillary service costs; hiwalay na line item ayon sa ERC). Ang P9.5B 'AWAT Refund 2' na P0.5861/kWh na inaprubahan ng ERC ay ilalapat sa loob ng anim na buwan simula Agosto, bukod pa sa nagpapatuloy na AWAT refund na P0.4278/kWh. Mga buwis at iba pang singil net +0.2113/kWh sa Agosto. Nanatiling suspendido ang GEA-All (P0.0371/kWh) hanggang Agosto 2026. Distribution charge naka-freeze mula Agosto 2022. Para sa 200 kWh, bumaba ang bill ng ~P9 kumpara sa Hulyo.",
+          "ceb": "Gibase sa opisyal nga pagpahibalo niadtong Agosto 11, 2026. Total rate 14.7833/kWh (−0.0428 gikan sa 14.8261 sa Hulyo; ang Hulyo +0.3428 gikan sa 14.4833 sa Hunyo). Generation charge 9.2800/kWh (Hulyo 9.2504, +0.1800 tungod sa pagsira sa Malampaya nga nagpugos sa mas mahal nga LNG ug WESM nga P8.0337/kWh sa record nga 14,534 MW nga demand sa Luzon; Agosto +0.0296). Transmission ug ancillary service 1.6241/kWh (Hulyo +0.0668, Agosto +0.3024 tungod sa mas taas nga ancillary service costs; bulag nga line item sumala sa ERC). Ang P9.5B 'AWAT Refund 2' nga P0.5861/kWh nga giaprobahan sa ERC iaplikar sulod sa unom ka bulan sugod Agosto, dugang sa nagpadayon nga AWAT refund nga P0.4278/kWh. Mga buhis ug uban pang bayad net +0.2113/kWh sa Agosto. Nagpabilin nga suspendido ang GEA-All (P0.0371/kWh) hangtod Agosto 2026. Distribution charge gi-freeze sukad Agosto 2022. Para sa 200 kWh, mikunhod ang bill ug ~P9 kumpara sa Hulyo."
         }
       ],
-      "lastUpdated": "2026-06"
+      "lastUpdated": "2026-08"
     },
     {
       "id": "veco",
@@ -130,23 +130,23 @@
       "tiers": [
         {
           "upTo": 100,
-          "ratePerKwh": 7.37
+          "ratePerKwh": 8.56
         },
         {
           "upTo": null,
-          "ratePerKwh": 7.79
+          "ratePerKwh": 9.05
         }
       ],
-      "totalRateKwh": 12.88,
+      "totalRateKwh": 14.96,
       "notes": [
         {
           "type": "rate",
-          "en": "May 2026 total rate 12.88/kWh officially confirmed (+0.31 from April's 12.57). Rate history: Feb 12.79 → Mar 12.36 → Apr 12.57 → May 12.88. Increase attributed to higher generation costs from global fuel prices and NGCP Red/Yellow Alerts in the Visayas Grid (thin reserves, elevated demand). ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation tiers are proportionally scaled estimates. June 2026: Visayan Electric announced a further increase (tight Visayas grid, elevated WESM) but did not disclose the exact per-kWh figure as of late June — value retained at May's 12.88/kWh pending official confirmation; a further hike is signaled for July–August billing.",
-          "tl": "Opisyal na nakumpirma ang rate na 12.88/kWh para Mayo 2026 (+0.31 mula sa 12.57 noong Abril). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation tiers ay proportionally scaled estimates. Hunyo 2026: Nag-anunsyo ang Visayan Electric ng dagdag na pagtaas ngunit hindi inilabas ang eksaktong halaga hanggang huling bahagi ng Hunyo — nanatili sa 12.88/kWh ng Mayo; may pahiwatig ng dagdag pa para sa Hulyo–Agosto.",
-          "ceb": "Opisyal nga nakumpirma ang rate nga 12.88/kWh para Mayo 2026 (+0.31 gikan sa 12.57 sa Abril). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation tiers proportionally scaled estimates. Hunyo 2026: Nagpahibalo ang Visayan Electric ug dugang pagsaka apan wala gibutyag ang eksaktong kantidad hangtod ulahing bahin sa Hunyo — nagpabilin sa 12.88/kWh sa Mayo; adunay timailhan sa dugang para Hulyo–Agosto."
+          "en": "August 2026 total rate 14.96/kWh officially confirmed (+0.06 from July's record 14.90). Rate history: Feb 12.79 → Mar 12.36 → Apr 12.57 → May 12.88 → Jun 13.74 → Jul 14.90 → Aug 14.96 — fifth consecutive monthly increase since April, driven by surging WESM prices (Visayas average P14.46/kWh in June, +41.7% vs May), higher NGCP transmission/ancillary charges and tight Visayas grid supply. ERC approved cost deferment: without it July would have been 17.59/kWh and August +2.10/kWh instead of +0.06 — the deferred generation costs are recovered in later billings, so further upward pressure is expected. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Visayan Electric did not publish an itemized August split; generation tiers are proportionally scaled estimates (×14.96/12.88) and the bill total is anchored to the official 14.96/kWh (otherPerKwh absorbs the difference via the totalRate formula).",
+          "tl": "Opisyal na nakumpirma ang rate na 14.96/kWh para Agosto 2026 (+0.06 mula sa record na 14.90 noong Hulyo). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88 → Hun 13.74 → Hul 14.90 → Ago 14.96 — ikalimang sunod na buwanang pagtaas mula Abril, dahil sa pagsipa ng presyo sa WESM (average sa Visayas P14.46/kWh noong Hunyo, +41.7% vs Mayo), mas mataas na transmission/ancillary charges ng NGCP at mahigpit na suplay sa Visayas grid. Inaprubahan ng ERC ang cost deferment: kung wala ito, 17.59/kWh sana ang Hulyo at +2.10/kWh ang Agosto sa halip na +0.06 — sisingilin ang ipinagpaliban na generation cost sa mga susunod na billing, kaya inaasahan ang dagdag na pagtaas. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Walang inilathalang itemized na hatian para sa Agosto; ang generation tiers ay proportionally scaled estimates (×14.96/12.88) at ang total ay naka-angkla sa opisyal na 14.96/kWh.",
+          "ceb": "Opisyal nga nakumpirma ang rate nga 14.96/kWh para Agosto 2026 (+0.06 gikan sa record nga 14.90 sa Hulyo). Kasaysayan: Peb 12.79 → Mar 12.36 → Abr 12.57 → Mayo 12.88 → Hun 13.74 → Hul 14.90 → Ago 14.96 — ikalimang sunod-sunod nga binulan nga pagsaka sukad Abril, tungod sa pagsaka sa presyo sa WESM (average sa Visayas P14.46/kWh sa Hunyo, +41.7% vs Mayo), mas taas nga transmission/ancillary charges sa NGCP ug higpit nga suplay sa Visayas grid. Giaprobahan sa ERC ang cost deferment: kung wala kini, 17.59/kWh unta ang Hulyo ug +2.10/kWh ang Agosto imbes +0.06 — kolektahon ang gipalangan nga generation cost sa mosunod nga mga billing, busa gipaabot ang dugang pagsaka. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Walay gipatik nga itemized nga bahin para sa Agosto; ang generation tiers proportionally scaled estimates (×14.96/12.88) ug ang total naka-angkla sa opisyal nga 14.96/kWh."
         }
       ],
-      "lastUpdated": "2026-05"
+      "lastUpdated": "2026-08"
     },
     {
       "id": "cebeco",
@@ -156,35 +156,35 @@
       "currency": "PHP",
       "rateMode": "totalRate",
       "basicCharge": 35.0,
-      "distributionCharge": 1.32,
-      "transmissionCharge": 1.17,
-      "systemLossRate": 0.62,
+      "distributionCharge": 1.66,
+      "transmissionCharge": 1.26,
+      "systemLossRate": 0.99,
       "subsidyCharge": 0.01,
       "vatRate": 0.12,
       "tiers": [
         {
           "upTo": 50,
-          "ratePerKwh": 7.26
+          "ratePerKwh": 7.73
         },
         {
           "upTo": 100,
-          "ratePerKwh": 7.57
+          "ratePerKwh": 8.05
         },
         {
           "upTo": null,
-          "ratePerKwh": 8.02
+          "ratePerKwh": 8.53
         }
       ],
-      "totalRateKwh": 13.37,
+      "totalRateKwh": 13.96,
       "notes": [
         {
           "type": "rate",
-          "en": "February 2026 total rate of 13.37/kWh officially confirmed (CERA announcement, +1.30). March rate not yet confirmed. Higher surcharges typical of rural cooperatives. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. Generation and transmission charges are reverse-calculated estimates.",
-          "tl": "Opisyal na nakumpirma ang kabuuang rate na 13.37/kWh noong Pebrero 2026 (anunsyo ng CERA, +1.30). Hindi pa nakumpirma ang rate sa Marso. Mas mataas ang mga surcharge dahil sa katangian ng mga rural cooperative. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation at transmission charges ay mga tinatayang halaga.",
-          "ceb": "Opisyal nga nakumpirma ang total rate nga 13.37/kWh sa Pebrero 2026 (CERA announcement, +1.30). Wala pa makumpirma ang rate sa Marso. Mas taas ang mga surcharge tungod sa kinaiya sa rural cooperatives. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Ang generation ug transmission charges mga gitantya nga kantidad."
+          "en": "June 2026 billing officially confirmed at 13.96/kWh for a 100 kWh residential household (+2.74 from May's 11.22; February was 13.37). Published breakdown: generation 7.89 (+2.56 on the WESM spike and tight Visayas grid), transmission 1.26, system loss 0.99, distribution/supply/metering 1.66, reinvestment fund 0.36, government charges 1.80. distributionCharge here is the bundled distribution+supply+metering figure as published; generation tiers keep the lifeline tier shape and are scaled so the 100 kWh blended rate equals the official 7.89/kWh. ERC Resolution No. 2 applied: subsidyCharge 0.01/kWh. July–August 2026 rates not yet officially published.",
+          "tl": "Opisyal na nakumpirma ang billing ng Hunyo 2026 sa 13.96/kWh para sa 100 kWh na sambahayan (+2.74 mula sa 11.22 noong Mayo; 13.37 noong Pebrero). Inilathalang breakdown: generation 7.89 (+2.56 dahil sa pagsipa ng WESM at mahigpit na Visayas grid), transmission 1.26, system loss 0.99, distribution/supply/metering 1.66, reinvestment fund 0.36, government charges 1.80. Ang distributionCharge dito ay ang pinagsamang distribution+supply+metering ayon sa inilathala; pinananatili ng generation tiers ang hugis ng lifeline tier at ini-scale upang ang blended rate sa 100 kWh ay katumbas ng opisyal na 7.89/kWh. Nailapat ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Hindi pa opisyal na inilalathala ang rate ng Hulyo–Agosto 2026.",
+          "ceb": "Opisyal nga nakumpirma ang billing sa Hunyo 2026 sa 13.96/kWh para sa 100 kWh nga panimalay (+2.74 gikan sa 11.22 sa Mayo; 13.37 sa Pebrero). Gipatik nga breakdown: generation 7.89 (+2.56 tungod sa pagsaka sa WESM ug higpit nga Visayas grid), transmission 1.26, system loss 0.99, distribution/supply/metering 1.66, reinvestment fund 0.36, government charges 1.80. Ang distributionCharge dinhi mao ang gihiusa nga distribution+supply+metering sumala sa gipatik; gipabilin sa generation tiers ang porma sa lifeline tier ug gi-scale aron ang blended rate sa 100 kWh motumbas sa opisyal nga 7.89/kWh. Giaplikar ang ERC Resolution No. 2: subsidyCharge 0.01/kWh. Wala pa opisyal nga mapatik ang rate sa Hulyo–Agosto 2026."
         }
       ],
-      "lastUpdated": "2026-02"
+      "lastUpdated": "2026-06"
     },
     {
       "id": "davao_light",
